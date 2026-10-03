@@ -1,4 +1,5 @@
 import { CalendarDays, ChevronRight, MapPin, TriangleAlert } from "lucide-react";
+import { useT } from "@/lib/i18n";
 import type { LookupResponse } from "@/lib/cite/types";
 
 export function JurisdictionStack({ state, county, city }: { state: string; county: string; city: string }) {
@@ -16,10 +17,11 @@ export function JurisdictionStack({ state, county, city }: { state: string; coun
 }
 
 export function PropertyFacts({ yearBuilt, units, legalCity }: { yearBuilt?: string | undefined; units?: string | undefined; legalCity?: string | undefined }) {
+  const t = useT();
   const facts = [
-    ["Year built", yearBuilt],
-    ["Units", units],
-    ...(legalCity !== undefined ? [["Legal city", legalCity]] : []),
+    [t("fact.yearBuilt"), yearBuilt],
+    [t("fact.units"), units],
+    ...(legalCity !== undefined ? [[t("fact.legalCity"), legalCity]] : []),
   ];
   return (
     <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-md border bg-border sm:grid-cols-3">
@@ -34,10 +36,11 @@ export function PropertyFacts({ yearBuilt, units, legalCity }: { yearBuilt?: str
 }
 
 export function AsOfDate({ value, onChange }: { value: string; onChange?: (v: string) => void }) {
+  const t = useT();
   return (
     <label className="flex items-center gap-2 rounded-md border bg-card px-3 py-1.5 text-sm">
       <CalendarDays className="size-4 text-muted-foreground" />
-      <span className="eyebrow">As of</span>
+      <span className="eyebrow">{t("fact.asOf")}</span>
       {onChange ? (
         <input
           type="date"
@@ -53,19 +56,22 @@ export function AsOfDate({ value, onChange }: { value: string; onChange?: (v: st
 }
 
 export function PropertySummary({ data, asOf, onAsOf }: { data: LookupResponse; asOf: string; onAsOf: (v: string) => void }) {
+  const t = useT();
   const { address: a, jurisdiction: j } = data;
   const differs = j.city && a.postal_city && j.city.toLowerCase() !== a.postal_city.toLowerCase();
   return (
     <section className="surface p-5 sm:p-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="min-w-0">
-          <div className="eyebrow flex items-center gap-1.5"><MapPin className="size-3" /> Property · {a.address_id}</div>
+          <div className="eyebrow flex items-center gap-1.5">
+            <MapPin className="size-3" /> {t("fact.property")} · {a.address_id}
+          </div>
           <h2 className="mt-1.5 font-serif text-2xl text-ink sm:text-3xl">{a.street_address}</h2>
           <p className="mt-1 text-sm text-muted-foreground">
             {a.postal_city}, {a.state} {a.zip}
             {differs && (
               <span className="ml-2 inline-flex items-center gap-1 rounded-sm bg-accent px-1.5 py-0.5 text-xs text-accent-foreground">
-                Postal “{a.postal_city}” → legal <strong>{j.city}</strong>
+                {t("postal.remap")} “{a.postal_city}” → {t("postal.toLegal")} <strong>{j.city}</strong>
               </span>
             )}
           </p>
@@ -78,8 +84,7 @@ export function PropertySummary({ data, asOf, onAsOf }: { data: LookupResponse; 
         <div className="mt-4 flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">
           <TriangleAlert className="mt-0.5 size-4 shrink-0 text-unknown" />
           <p>
-            Legal city is an <strong>untrusted postal fallback</strong>. City-level rules may be withheld until the
-            jurisdiction is confirmed.
+            Legal city is an <strong>{t("untrusted.title")}</strong>. {t("untrusted.body")}
           </p>
         </div>
       )}

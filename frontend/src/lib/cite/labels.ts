@@ -1,5 +1,6 @@
 import type { Category, LookupResultValue, RuleStatus } from "./types";
 
+/** English fallbacks for non-React callers; UI should prefer useLabels() / useT(). */
 export const RESULT_LABEL: Record<LookupResultValue, string> = {
   applies: "Applies",
   unknown: "Unknown",
@@ -8,7 +9,13 @@ export const RESULT_LABEL: Record<LookupResultValue, string> = {
   pending: "Pending",
 };
 
-export const RESULT_ORDER: LookupResultValue[] = ["applies", "unknown", "not_yet_effective", "pending", "superseded"];
+export const RESULT_ORDER: LookupResultValue[] = [
+  "applies",
+  "unknown",
+  "not_yet_effective",
+  "pending",
+  "superseded",
+];
 
 export const STATUS_LABEL: Record<RuleStatus, string> = {
   in_force: "In force",
@@ -28,11 +35,17 @@ export const CATEGORY_LABEL: Record<Category, string> = {
 
 export const CATEGORY_ORDER = Object.keys(CATEGORY_LABEL) as Category[];
 
-export function fmtDate(d?: string | null) {
+export function fmtDate(d?: string | null, locale: string = "en") {
   if (!d) return "—";
   const dt = new Date(d.length === 10 ? `${d}T12:00:00Z` : d);
   if (isNaN(dt.getTime())) return d;
-  return dt.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric", timeZone: "UTC" });
+  const tag = locale.startsWith("es") ? "es" : "en-US";
+  return dt.toLocaleDateString(tag, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
 }
 
 export function coverageText(c: unknown): string | null {
@@ -43,8 +56,12 @@ export function coverageText(c: unknown): string | null {
   return null;
 }
 
-/** Display-only humanization of a backend status string (no logic). */
+/** Display-only humanization of a backend status string (no logic). Prefer useT in UI. */
 export function humanStatus(s?: string) {
   if (!s) return "—";
-  return (RESULT_LABEL as Record<string, string>)[s] ?? (STATUS_LABEL as Record<string, string>)[s] ?? s.replace(/_/g, " ");
+  return (
+    (RESULT_LABEL as Record<string, string>)[s] ??
+    (STATUS_LABEL as Record<string, string>)[s] ??
+    s.replace(/_/g, " ")
+  );
 }

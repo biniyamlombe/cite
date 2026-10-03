@@ -2,11 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
 import { AlertCircle, CheckCircle2, Loader2, Play, XCircle } from "lucide-react";
-import { useT } from "@/lib/i18n";
+import { useT, useTx } from "@/lib/i18n";
 import { getCiteClient } from "@/lib/cite/client";
 import { PageHeader } from "@/components/cite/layout";
 import { CitationPanel } from "@/components/cite/rule";
-import { CATEGORY_LABEL, STATUS_LABEL } from "@/lib/cite/labels";
 
 export const Route = createFileRoute("/pipeline")({
   head: () => ({
@@ -22,6 +21,7 @@ export const Route = createFileRoute("/pipeline")({
 
 function PipelinePage() {
   const t = useT();
+  const tx = useTx();
   const client = getCiteClient();
   const docsQuery = useQuery({
     queryKey: ["corpus-docs", client.mode],
@@ -77,7 +77,7 @@ function PipelinePage() {
             <input
               value={filter}
               onChange={(e) => setFilter(e.target.value)}
-              placeholder="Filter D001, California…"
+              placeholder={t("pipeline.filter")}
               className="w-full max-w-xs rounded-md border bg-card px-3 py-1.5 text-sm text-ink outline-none focus:border-ring sm:w-56"
             />
           )}
@@ -202,7 +202,7 @@ function PipelinePage() {
               <div className="space-y-4">
                 {run.data.rules.length === 0 ? (
                   <p className="surface px-4 py-8 text-center text-sm text-muted-foreground">
-                    No rules extracted from this document.
+                    {t("pipeline.noRules")}
                   </p>
                 ) : (
                   run.data.rules.map((r) => (
@@ -210,7 +210,8 @@ function PipelinePage() {
                       <div className="font-mono text-xs text-muted-foreground">{r.team_rule_id}</div>
                       <div className="mt-1 font-medium text-ink">{r.title}</div>
                       <div className="mt-1 text-xs text-muted-foreground">
-                        {CATEGORY_LABEL[r.category]} · {r.level} · {r.jurisdiction} · {STATUS_LABEL[r.status]}
+                        {tx(`category.${r.category}`)} · {tx(`level.${r.level}`, r.level)} · {r.jurisdiction} ·{" "}
+                        {tx(`status.${r.status}`)}
                       </div>
                       <p className="mt-2 text-sm leading-relaxed">{r.requirement}</p>
                       <div className="mt-3">

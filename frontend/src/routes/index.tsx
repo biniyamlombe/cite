@@ -1,6 +1,6 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
-import { useT } from "@/lib/i18n";
+import { useT, useTx } from "@/lib/i18n";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/lib/auth";
 import { listAlertSubs, logLookup, saveMemo, setEmailAlert } from "@/lib/cite/team";
@@ -10,7 +10,7 @@ import {
   Eye, Mail, Save, GitCompare, FileText, Quote,
 } from "lucide-react";
 import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
-import { CATEGORY_LABEL, CATEGORY_ORDER } from "@/lib/cite/labels";
+import { CATEGORY_ORDER } from "@/lib/cite/labels";
 import type { AddressRow, LookupResponse } from "@/lib/cite/types";
 import { PropertySummary } from "@/components/cite/property";
 import { ResultSummaryChips } from "@/components/cite/status";
@@ -278,6 +278,7 @@ function LookupPage() {
 
 function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; asOf: string; setAsOf: (v: string) => void; onOpen: (v: RuleView) => void }) {
   const t = useT();
+  const tx = useTx();
   const grouped = useMemo(() => {
     const withRule = data.results.filter((r) => r.rule);
     return CATEGORY_ORDER.map((c) => [c, withRule.filter((r) => r.rule!.category === c)] as const).filter(([, l]) => l.length);
@@ -323,7 +324,7 @@ function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; 
           grouped.map(([cat, list]) => (
             <div key={cat}>
               <h3 className="eyebrow mb-3 flex items-center gap-2">
-                {CATEGORY_LABEL[cat]} <span className="h-px flex-1 bg-border" />
+                {tx(`category.${cat}`)} <span className="h-px flex-1 bg-border" />
                 <span className="font-mono text-[10px] normal-case tracking-normal text-muted-foreground">{list.length}</span>
               </h3>
               <div className="grid gap-3">
