@@ -10,6 +10,7 @@ export default function PipelinePage() {
   const [result, setResult] = useState<{
     doc_id: string;
     source: string;
+    retrieved_at?: string | null;
     count: number;
     rules: Array<{
       team_rule_id: string;
@@ -18,6 +19,7 @@ export default function PipelinePage() {
       citation: string;
       quoted_span: string;
       status: string;
+      retrieved_at?: string | null;
     }>;
   } | null>(null);
 
@@ -64,8 +66,14 @@ export default function PipelinePage() {
         <section className="section">
           <p>
             <strong>{result.doc_id}</strong> · source={" "}
-            <span className="mono">{result.source}</span> · {result.count}{" "}
-            rule(s)
+            <span className="mono">{result.source}</span>
+            {result.retrieved_at ? (
+              <>
+                {" "}
+                · retrieved <span className="mono">{result.retrieved_at}</span>
+              </>
+            ) : null}{" "}
+            · {result.count} rule(s)
           </p>
           {result.rules.map((rule) => (
             <article key={rule.team_rule_id} className="rule-block">
@@ -76,6 +84,9 @@ export default function PipelinePage() {
               <h3>{rule.title}</h3>
               <p>
                 <strong>{rule.citation}</strong>
+                {rule.retrieved_at
+                  ? ` · retrieved ${rule.retrieved_at}`
+                  : ""}
               </p>
               <blockquote className="quote">“{rule.quoted_span}”</blockquote>
             </article>

@@ -58,6 +58,7 @@ export type LookupResponse = {
       jurisdiction: string;
       source_doc_id?: string | null;
       source_url: string;
+      retrieved_at?: string | null;
       confidence?: number | null;
       effective_date?: string | null;
     } | null;
@@ -106,8 +107,17 @@ export function extractDoc(docId: string) {
   return postJson<{
     doc_id: string;
     source: string;
+    retrieved_at?: string | null;
     count: number;
-    rules: unknown[];
+    rules: Array<{
+      team_rule_id: string;
+      title: string;
+      category: string;
+      citation: string;
+      quoted_span: string;
+      status: string;
+      retrieved_at?: string | null;
+    }>;
   }>(`/extract/doc/${encodeURIComponent(docId)}`);
 }
 

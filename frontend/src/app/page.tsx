@@ -173,10 +173,24 @@ export default function LookupPage() {
                           {item.rule.source_doc_id
                             ? ` · ${item.rule.source_doc_id}`
                             : ""}
+                          {item.rule.retrieved_at
+                            ? ` · retrieved ${item.rule.retrieved_at}`
+                            : ""}
                           {item.rule.confidence != null
                             ? ` · confidence ${item.rule.confidence}`
                             : ""}
                         </p>
+                        {item.rule.source_url && (
+                          <p className="muted">
+                            <a
+                              href={item.rule.source_url}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              Source
+                            </a>
+                          </p>
+                        )}
                         <blockquote className="quote">
                           “{item.rule.quoted_span}”
                         </blockquote>
