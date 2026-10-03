@@ -14,8 +14,10 @@ team_rule_id (temporary, e.g. "tmp-1"), jurisdiction (state code CA/NJ/MA or "Ci
 level ("state"|"city"), category (one of the six), status ("in_force"|"not_yet_effective"|"pending"|"failed"),
 title, requirement (1-2 plain sentences), citation, source_url, quoted_span (EXACT contiguous text from the document, >=20 chars),
 source_doc_id, effective_date (YYYY-MM-DD or YYYY-MM or YYYY or null),
-key_value, coverage_conditions, exemptions, overrides (array), interaction, confidence (0-1),
-conflict_flag (boolean), conflict_note.
+key_value (string or null — never an object), coverage_conditions, exemptions (string or null),
+overrides (array), interaction (string or null), confidence (0-1),
+conflict_flag (boolean), conflict_note (string or null).
+Keep quoted_span short (<= 220 chars) and copied verbatim.
 
 Status is relative to query date 2026-10-01:
 - in_force: enacted and effective on/before that date

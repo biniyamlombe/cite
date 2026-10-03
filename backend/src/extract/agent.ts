@@ -146,6 +146,48 @@ function spanPreview(candidate: unknown): string {
   return span.slice(0, 80);
 }
 
+/** Haiku often returns structured objects where the schema wants strings. */
+function coerceScalarString(value: unknown): string | null {
+  if (value == null) return null;
+  if (typeof value === "string") return value;
+  if (typeof value === "number" || typeof value === "boolean") return String(value);
+  if (Array.isArray(value)) {
+    const parts = value
+      .map((v) => (typeof v === "string" ? v : JSON.stringify(v)))
+      .filter(Boolean);
+    return parts.length ? parts.join("; ") : null;
+  }
+  if (typeof value === "object") {
+    try {
+      return JSON.stringify(value);
+    } catch {
+      return null;
+    }
+  }
+  return null;
+}
+
+function normalizeCandidate(candidate: unknown): Record<string, unknown> {
+  const base =
+    typeof candidate === "object" && candidate
+      ? { ...(candidate as Record<string, unknown>) }
+      : {};
+  if ("key_value" in base) base.key_value = coerceScalarString(base.key_value);
+  if ("exemptions" in base) base.exemptions = coerceScalarString(base.exemptions);
+  if ("interaction" in base) base.interaction = coerceScalarString(base.interaction);
+  if ("conflict_note" in base) {
+    base.conflict_note = coerceScalarString(base.conflict_note);
+  }
+  if ("overrides" in base && !Array.isArray(base.overrides)) {
+    base.overrides = [];
+  }
+  if (typeof base.quoted_span === "string" && base.quoted_span.length > 400) {
+    // Prefer short contiguous spans; long ones often fail exact match after edits.
+    base.quoted_span = base.quoted_span.slice(0, 280);
+  }
+  return base;
+}
+
 async function validateCandidates(
   candidates: unknown[],
   doc: CorpusDoc,
@@ -155,7 +197,7 @@ async function validateCandidates(
   const quoteFailed: unknown[] = [];
   for (const candidate of candidates) {
     const withMeta = {
-      ...(typeof candidate === "object" && candidate ? candidate : {}),
+      ...normalizeCandidate(candidate),
       source_doc_id:
         (candidate as { source_doc_id?: string })?.source_doc_id || doc.doc_id,
       source_url:
