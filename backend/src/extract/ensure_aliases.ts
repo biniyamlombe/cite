@@ -3,16 +3,23 @@
  * are link-only in the pack. Quotes are always taken from capturable corpus text.
  */
 import type { RuleRecord } from "@rhl/shared";
-import { loadDocById, spanInSource } from "../lib/corpus.js";
+import {
+  exactSpanInSource,
+  loadDocById,
+  snapQuotedSpanToSource,
+} from "../lib/corpus.js";
 
 function quoteFrom(text: string, needle: RegExp, min = 40): string | null {
   const m = text.match(needle);
   if (!m || m.index == null) return null;
   const start = Math.max(0, m.index - 20);
   const end = Math.min(text.length, m.index + Math.max(m[0].length, 100) + 60);
-  const span = text.slice(start, end).replace(/\s+/g, " ").trim();
-  if (span.length < min || !spanInSource(span, text)) return null;
-  return span.slice(0, 400);
+  let span = text.slice(start, end).replace(/^\s+|\s+$/g, "");
+  if (span.length > 400) span = span.slice(0, 400);
+  if (span.length >= min && exactSpanInSource(span, text)) return span;
+  const snapped = snapQuotedSpanToSource(span, text);
+  if (!snapped || snapped.length < min) return null;
+  return snapped.length > 400 ? snapped.slice(0, 400) : snapped;
 }
 
 export async function ensureChangeTestAliases(

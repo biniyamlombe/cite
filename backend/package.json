@@ -8,6 +8,7 @@
     "start": "tsx src/api/server.ts",
     "build": "tsc --noEmit",
     "extract": "tsx src/cli/extract.ts",
+    "repair-spans": "tsx src/cli/repair_spans.ts",
     "geocode": "tsx src/cli/geocode.ts",
     "lookup": "tsx src/cli/lookup.ts",
     "changes": "tsx src/cli/changes.ts",

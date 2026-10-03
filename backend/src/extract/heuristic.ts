@@ -5,7 +5,7 @@
  */
 import type { RuleRecord } from "@rhl/shared";
 import type { CorpusDoc } from "../lib/corpus.js";
-import { spanInSource } from "../lib/corpus.js";
+import { exactSpanInSource, snapQuotedSpanToSource } from "../lib/corpus.js";
 
 type Seed = {
   alias_id?: string;
@@ -386,18 +386,23 @@ function pickQuote(text: string, hints: RegExp[]): string | null {
       if (idx >= 0) {
         const start = Math.max(0, idx - 40);
         const end = Math.min(text.length, idx + Math.max(m[0].length, 80) + 80);
-        let span = text.slice(start, end).replace(/\s+/g, " ").trim();
+        let span = text.slice(start, end).replace(/^\s+|\s+$/g, "");
         if (span.length < 20) continue;
         if (span.length > 400) span = span.slice(0, 400);
-        if (spanInSource(span, text)) return span;
+        if (exactSpanInSource(span, text)) return span;
+        const snapped = snapQuotedSpanToSource(span, text);
+        if (snapped) return snapped.length > 400 ? snapped.slice(0, 400) : snapped;
       }
     }
   }
-  // Fallback: first substantial sentence-like chunk
+  // Fallback: first substantial sentence-like chunk, snapped back to exact text
   const compact = text.replace(/\s+/g, " ").trim();
   for (let i = 0; i < compact.length - 40; i += 100) {
     const span = compact.slice(i, i + 120);
-    if (span.length >= 20 && spanInSource(span, text)) return span;
+    const snapped = snapQuotedSpanToSource(span, text);
+    if (snapped && snapped.length >= 20) {
+      return snapped.length > 400 ? snapped.slice(0, 400) : snapped;
+    }
   }
   return null;
 }

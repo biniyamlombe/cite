@@ -10,6 +10,7 @@
     "dev:backend": "npm run dev -w backend",
     "dev:frontend": "npm run dev -w frontend",
     "extract": "npm run extract -w backend",
+    "repair-spans": "npm run repair-spans -w backend",
     "geocode": "npm run geocode -w backend --",
     "lookup": "npm run lookup -w backend --",
     "changes": "npm run changes -w backend --",
