@@ -11,7 +11,22 @@ import {
   type RuleRecord,
 } from "@rhl/shared";
 import { evaluateExecutableCoverage } from "../apply/executable.js";
+import { evaluateStatus } from "../apply/coverage.js";
 import { enrichRuleCoverage } from "../apply/compile_coverage.js";
+import {
+  geocodeAddresses,
+  isTrustedLegalCity,
+  type GeocodeResult,
+} from "../geocode/census.js";
+import { loadAddresses } from "../lib/addresses.js";
+import { runChangesFromDisk } from "../changes/tracker.js";
+import {
+  assertT1,
+  assertT2,
+  assertT3,
+  assertT4,
+  assertT5,
+} from "../changes/tests/index.js";
 import {
   exactSpanInSource,
   loadCapturableDocs,
@@ -140,7 +155,8 @@ async function testDualCoverage() {
     county: "San Francisco County",
     state: "CA",
     matched_address: "",
-    source: "test",
+    source: "heuristic" as const,
+    resolution: "known_jurisdiction" as const,
   };
   const newBuild = {
     address_id: "t",
@@ -252,6 +268,195 @@ async function testRulesOutput() {
       fail(`${id} should be conflict_flag + confidence < 0.8`);
     }
   }
+
+  const ca = rules.find((r) => r.alias_id === "CA-ALG-01");
+  const nj = rules.find((r) => r.alias_id === "NJ-ALG-01");
+  if (ca) {
+    if (ca.effective_date === "2026-01-01") {
+      pass("CA-ALG-01.effective_date is 2026-01-01");
+    } else {
+      fail(`CA-ALG-01.effective_date is ${ca.effective_date}, expected 2026-01-01`);
+    }
+    const before = evaluateStatus(ca, "2025-12-31");
+    const after = evaluateStatus(ca, "2026-01-02");
+    if (before?.result === "not_yet_effective" && after === null) {
+      pass("evaluateStatus(CA-ALG-01): 2025-12-31 NTE → 2026-01-02 applies path");
+    } else {
+      fail(
+        `evaluateStatus(CA-ALG-01) failed: before=${before?.result ?? "null"} after=${after?.result ?? "null"}`,
+      );
+    }
+  }
+  if (nj) {
+    if (nj.effective_date === "2027-07-01" && nj.status === "not_yet_effective") {
+      pass("NJ-ALG-01 is not_yet_effective until 2027-07-01");
+    } else {
+      fail(
+        `NJ-ALG-01 status/date wrong: status=${nj.status} eff=${nj.effective_date}`,
+      );
+    }
+    const before = evaluateStatus(nj, "2026-10-01");
+    const after = evaluateStatus(nj, "2027-07-02");
+    if (before?.result === "not_yet_effective" && after === null) {
+      pass("evaluateStatus(NJ-ALG-01): 2026-10-01 NTE → 2027-07-02 applies path");
+    } else {
+      fail(
+        `evaluateStatus(NJ-ALG-01) failed: before=${before?.result ?? "null"} after=${after?.result ?? "null"}`,
+      );
+    }
+  }
+}
+
+async function testGeocodeResolution() {
+  console.log("jurisdiction resolution (no Census network)");
+  const sample = [
+    {
+      address_id: "t-dor",
+      street_address: "1 Fake St",
+      postal_city: "Dorchester",
+      state: "MA",
+      zip: "02124",
+      year_built: "1960",
+      units: "10",
+      use_code: "",
+      use_description: "",
+      source_dataset: "",
+      retrieved_at: "",
+    },
+    {
+      address_id: "t-bos",
+      street_address: "1 Fake St",
+      postal_city: "Boston",
+      state: "MA",
+      zip: "02118",
+      year_built: "1960",
+      units: "10",
+      use_code: "",
+      use_description: "",
+      source_dataset: "",
+      retrieved_at: "",
+    },
+    {
+      address_id: "t-unk",
+      street_address: "1 Fake St",
+      postal_city: "Somewhereville",
+      state: "CA",
+      zip: "90001",
+      year_built: "1960",
+      units: "10",
+      use_code: "",
+      use_description: "",
+      source_dataset: "",
+      retrieved_at: "",
+    },
+  ];
+  const geos = await geocodeAddresses(sample, { useCensus: false });
+  const dor = geos.find((g) => g.address_id === "t-dor");
+  const bos = geos.find((g) => g.address_id === "t-bos");
+  const unk = geos.find((g) => g.address_id === "t-unk");
+  if (
+    dor?.legal_city === "Boston" &&
+    dor.resolution === "known_jurisdiction" &&
+    isTrustedLegalCity(dor)
+  ) {
+    pass("Dorchester postal → Boston legal (known_jurisdiction)");
+  } else {
+    fail(`Dorchester remap failed: ${JSON.stringify(dor)}`);
+  }
+  if (
+    bos?.legal_city === "Boston" &&
+    bos.resolution === "known_jurisdiction" &&
+    isTrustedLegalCity(bos)
+  ) {
+    pass("Boston postal is known legal city");
+  } else {
+    fail(`Boston known-city failed: ${JSON.stringify(bos)}`);
+  }
+  if (
+    unk?.resolution === "postal_fallback" &&
+    unk.legal_city === "Somewhereville" &&
+    !isTrustedLegalCity(unk)
+  ) {
+    pass("unknown postal flagged postal_fallback (untrusted)");
+  } else {
+    fail(`unknown postal should be untrusted: ${JSON.stringify(unk)}`);
+  }
+
+  const cache = await readJsonIfExists<{ geocoded: GeocodeResult[] }>(
+    path.join(outputsDir(), "geocode_cache.json"),
+  );
+  const geocoded = cache?.geocoded ?? [];
+  if (!geocoded.length) {
+    fail("geocode_cache.json missing");
+    return;
+  }
+  const fallback = geocoded.filter((g) => g.resolution === "postal_fallback");
+  if (fallback.length === 0) {
+    pass(`geocode_cache: 0 postal_fallback of ${geocoded.length}`);
+  } else {
+    fail(
+      `geocode_cache has ${fallback.length} postal_fallback: ${fallback
+        .slice(0, 5)
+        .map((g) => g.address_id)
+        .join(", ")}`,
+    );
+  }
+  const censusHits = geocoded.filter((g) => g.source === "census").length;
+  if (censusHits > 0) {
+    pass(`geocode_cache: ${censusHits}/${geocoded.length} Census-sourced`);
+  } else {
+    fail(
+      "geocode_cache has 0 Census hits — re-run npm run geocode (without --heuristic-only)",
+    );
+  }
+  const addresses = await loadAddresses();
+  const byId = new Map(geocoded.map((g) => [g.address_id, g]));
+  let remaps = 0;
+  for (const a of addresses) {
+    const g = byId.get(a.address_id);
+    if (!g) continue;
+    if (a.postal_city.trim().toLowerCase() !== g.legal_city.trim().toLowerCase()) {
+      remaps += 1;
+    }
+  }
+  if (remaps > 0) pass(`${remaps} sample addresses remap postal_city → legal_city`);
+  else fail("expected some postal≠legal remaps in sample pack");
+}
+
+async function testChangeTestsT1T5() {
+  console.log("change tests T1–T5");
+  const rulesFile = await readJsonIfExists<{ rules: RuleRecord[] }>(
+    path.join(outputsDir(), "rules.json"),
+  );
+  const geoFile = await readJsonIfExists<{ geocoded: GeocodeResult[] }>(
+    path.join(outputsDir(), "geocode_cache.json"),
+  );
+  if (!rulesFile?.rules?.length || !geoFile?.geocoded?.length) {
+    fail("rules.json or geocode_cache.json missing for change tests");
+    return;
+  }
+  const geos = new Map(geoFile.geocoded.map((g) => [g.address_id, g]));
+  const changes = await runChangesFromDisk({ rules: rulesFile.rules, geos });
+
+  const checks: Array<[string, string[]]> = [
+    ["T1", assertT1(changes.T1, geos)],
+    ["T2", assertT2(changes.T2, geos)],
+    ["T3", assertT3(changes.T3, geos)],
+    ["T4", assertT4(changes.T4, geos)],
+    ["T5", assertT5(changes.T5)],
+  ];
+  for (const [id, errs] of checks) {
+    if (!errs.length) {
+      const n = changes[id]?.affected_address_ids.length ?? 0;
+      const extra =
+        id === "T3"
+          ? ` conflicts=${changes.T3?.conflict_flag_address_ids?.length ?? 0}`
+          : "";
+      pass(`${id} ok (affected=${n}${extra})`);
+    } else {
+      for (const e of errs) fail(e);
+    }
+  }
 }
 
 async function main() {
@@ -262,6 +467,8 @@ async function main() {
   await testFakeSpanRejected();
   await testDualCoverage();
   await testRulesOutput();
+  await testGeocodeResolution();
+  await testChangeTestsT1T5();
 
   await appendAudit({
     ts: new Date().toISOString(),

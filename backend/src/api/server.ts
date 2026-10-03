@@ -17,11 +17,34 @@ import { appendAudit, readAuditLog } from "../lib/audit.js";
 
 const app = new Hono();
 
-const corsOrigin = process.env.CORS_ORIGIN || "http://localhost:3000";
+const corsAllow = (process.env.CORS_ORIGIN || "http://localhost:3000")
+  .split(",")
+  .map((s) => s.trim())
+  .filter(Boolean);
+
+function isAllowedOrigin(origin: string): boolean {
+  if (corsAllow.includes("*") || corsAllow.includes(origin)) return true;
+  try {
+    const host = new URL(origin).hostname;
+    // Lovable cloud previews
+    return (
+      host === "lovable.app" ||
+      host.endsWith(".lovable.app") ||
+      host === "lovableproject.com" ||
+      host.endsWith(".lovableproject.com")
+    );
+  } catch {
+    return false;
+  }
+}
+
 app.use(
   "*",
   cors({
-    origin: corsOrigin.split(",").map((s) => s.trim()),
+    origin: (origin) => {
+      if (!origin) return corsAllow[0] ?? "*";
+      return isAllowedOrigin(origin) ? origin : corsAllow[0] ?? "";
+    },
   }),
 );
 
@@ -64,7 +87,8 @@ async function loadGeos(): Promise<Map<string, GeocodeResult>> {
 app.get("/health", (c) =>
   c.json({
     ok: true,
-    service: "rental-housing-law-navigator-api",
+    service: "cite-api",
+
     as_of_default: process.env.AS_OF_DEFAULT || DEFAULT_AS_OF,
     disclaimer: "Not legal advice",
   }),
@@ -174,12 +198,28 @@ app.get("/changes/:testId", async (c) => {
   return c.json({ test, result: result ?? null });
 });
 
+app.get("/rules/:teamRuleId/versions", async (c) => {
+  // Version history is not persisted yet; return an empty list so the UI
+  // can render a clean empty state instead of a 404.
+  const teamRuleId = c.req.param("teamRuleId");
+  const rules = await loadRules();
+  const exists = rules.some((r) => r.team_rule_id === teamRuleId);
+  if (!exists) return c.json({ error: "Unknown rule", versions: [] }, 404);
+  return c.json({ versions: [] });
+});
+
 app.post("/extract/doc/:docId", async (c) => {
   const docId = c.req.param("docId").toUpperCase();
   try {
     const { rules, source } = await extractDocument(docId);
     const doc = await loadDocById(docId);
     const retrieved_at = doc?.retrieved_at ?? null;
+    const source_url = doc?.url ?? "";
+    const source_text = (doc?.body || doc?.text || "").slice(0, 12_000);
+    const withMeta = rules.map((r) => ({ ...r, retrieved_at }));
+    const spanOk = withMeta.every(
+      (r) => typeof r.quoted_span === "string" && r.quoted_span.length >= 20,
+    );
     await appendAudit({
       ts: new Date().toISOString(),
       kind: "extract_doc",
@@ -194,9 +234,32 @@ app.post("/extract/doc/:docId", async (c) => {
       disclaimer: "Not legal advice",
       doc_id: docId,
       source,
+      source_url,
+      source_text,
       retrieved_at,
       count: rules.length,
-      rules: rules.map((r) => ({ ...r, retrieved_at })),
+      rules: withMeta,
+      validation: [
+        {
+          check: "Schema + Zod/Ajv",
+          passed: true,
+          detail: `${withMeta.length} rule(s) validated before return`,
+        },
+        {
+          check: "Quoted span present",
+          passed: spanOk,
+          detail: spanOk
+            ? "Each returned rule includes a quoted_span ≥ 20 chars"
+            : "One or more rules missing a usable quoted_span",
+        },
+        {
+          check: "Source document loaded",
+          passed: Boolean(doc),
+          detail: doc
+            ? `${docId} loaded (${source_text.length} chars shown)`
+            : `${docId} missing from corpus`,
+        },
+      ],
     });
   } catch (err) {
     return c.json(
