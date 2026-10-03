@@ -26,13 +26,15 @@ function run(script: string, args: string[] = []): Promise<void> {
 
 async function main() {
   const heuristicGeo = process.argv.includes("--heuristic-geo");
-  console.log("=== 1/4 Extract ===");
+  console.log("=== 0/5 Schema shape gate ===");
+  await run("check_schema.ts");
+  console.log("=== 1/5 Extract ===");
   await run("extract.ts");
-  console.log("=== 2/4 Geocode ===");
+  console.log("=== 2/5 Geocode ===");
   await run("geocode.ts", heuristicGeo ? ["--heuristic-only"] : []);
-  console.log("=== 3/4 Lookup ===");
+  console.log("=== 3/5 Lookup ===");
   await run("lookup.ts");
-  console.log("=== 4/4 Changes ===");
+  console.log("=== 4/5 Changes ===");
   await run("changes.ts");
   console.log("Pipeline complete → outputs/");
 }

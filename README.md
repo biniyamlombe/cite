@@ -37,7 +37,10 @@ Deploy needs the repo as-is: `data/pack/` + `outputs/` (including `geocode_cache
 ## Generate submission outputs
 
 ```bash
-# Full pipeline (extract → geocode → lookup → changes)
+# Prove organizer sample validates (Zod + Ajv) before extract
+npm run check-schema
+
+# Full pipeline (schema gate → extract → geocode → lookup → changes)
 npm run pipeline
 
 # Or step by step
