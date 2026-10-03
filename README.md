@@ -40,6 +40,9 @@ Deploy needs the repo as-is: `data/pack/` + `outputs/` (including `geocode_cache
 # Prove organizer sample validates (Zod + Ajv) before extract
 npm run check-schema
 
+# Smoke tests (schema, corpus loader, citation spans, aliases)
+npm test
+
 # Full pipeline (schema gate → extract → geocode → lookup → changes)
 npm run pipeline
 
@@ -81,6 +84,7 @@ npm run dev:frontend
 | GET | `/rules` | Extracted rules |
 | GET | `/changes` / `/changes/:testId` | Change-test results |
 | POST | `/extract/doc/:docId` | Live Module A extract |
+| GET | `/audit` | Extract / test audit trail (`outputs/audit_log.jsonl`) |
 | GET | `/submission/:file` | Serve `rules.json` / `lookups.json` / `changes.json` |
 
 ## Modules

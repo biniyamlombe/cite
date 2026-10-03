@@ -121,4 +121,20 @@ export function extractDoc(docId: string) {
   }>(`/extract/doc/${encodeURIComponent(docId)}`);
 }
 
+export type AuditEvent = {
+  ts: string;
+  kind: string;
+  doc_id?: string;
+  source?: string;
+  model?: string | null;
+  rule_count?: number;
+  message?: string;
+};
+
+export function fetchAudit(limit = 20) {
+  return getJson<{ count: number; events: AuditEvent[] }>(
+    `/audit?limit=${limit}`,
+  );
+}
+
 export { API_URL };

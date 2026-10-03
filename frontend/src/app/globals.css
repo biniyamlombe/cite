@@ -347,6 +347,20 @@ button:disabled {
   font-size: 0.9rem;
 }
 
+.audit-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.audit-list li {
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 @media (max-width: 640px) {
   .controls input[type="search"] {
     min-width: 100%;

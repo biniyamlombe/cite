@@ -1,7 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { extractDoc } from "@/lib/api";
+import { useEffect, useState } from "react";
+import {
+  extractDoc,
+  fetchAudit,
+  type AuditEvent,
+} from "@/lib/api";
 import { useLocale } from "@/components/LocaleProvider";
 
 export default function PipelinePage() {
@@ -9,6 +13,7 @@ export default function PipelinePage() {
   const [docId, setDocId] = useState("D001");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [audit, setAudit] = useState<AuditEvent[]>([]);
   const [result, setResult] = useState<{
     doc_id: string;
     source: string;
@@ -25,12 +30,26 @@ export default function PipelinePage() {
     }>;
   } | null>(null);
 
+  async function refreshAudit() {
+    try {
+      const data = await fetchAudit(15);
+      setAudit(data.events);
+    } catch {
+      setAudit([]);
+    }
+  }
+
+  useEffect(() => {
+    void refreshAudit();
+  }, []);
+
   async function onExtract() {
     setLoading(true);
     setError(null);
     try {
       const data = await extractDoc(docId.trim().toUpperCase());
       setResult(data as typeof result);
+      await refreshAudit();
     } catch (err) {
       setResult(null);
       setError(err instanceof Error ? err.message : String(err));
@@ -94,6 +113,30 @@ export default function PipelinePage() {
           ))}
         </section>
       )}
+
+      <section className="section">
+        <h2>Audit trail</h2>
+        <p className="muted">
+          Recent extract / test events from{" "}
+          <span className="mono">outputs/audit_log.jsonl</span>. Not legal
+          advice.
+        </p>
+        {audit.length === 0 ? (
+          <p className="muted">No audit events yet.</p>
+        ) : (
+          <ul className="audit-list">
+            {audit.map((e, i) => (
+              <li key={`${e.ts}-${i}`}>
+                <span className="mono">{e.ts}</span> · {e.kind}
+                {e.doc_id ? ` · ${e.doc_id}` : ""}
+                {e.source ? ` · ${e.source}` : ""}
+                {e.rule_count != null ? ` · ${e.rule_count} rules` : ""}
+                {e.message ? ` — ${e.message}` : ""}
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
     </main>
   );
 }
