@@ -60,19 +60,31 @@ export function ResultSummaryChips({ results }: { results: LookupResult[] }) {
 }
 
 export function BeforeAfterStatus({
-  beforeDate, afterDate, before, after,
-}: { beforeDate?: string | undefined; afterDate?: string | undefined; before?: string | undefined; after?: string | undefined }) {
+  beforeDate, afterDate, before, after, label,
+}: {
+  beforeDate?: string | undefined;
+  afterDate?: string | undefined;
+  before?: string | undefined;
+  after?: string | undefined;
+  label?: string | undefined;
+}) {
   if (!before && !after) return null;
   return (
-    <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 rounded-md border bg-paper p-3">
-      <div>
-        <div className="eyebrow">{beforeDate ? fmtDate(beforeDate) : "Before"}</div>
-        <div className="mt-1.5">{before && <StatusBadge value={before} />}</div>
-      </div>
-      <ArrowRight className="size-4 text-muted-foreground" />
-      <div>
-        <div className="eyebrow">{afterDate ? fmtDate(afterDate) : "After"}</div>
-        <div className="mt-1.5">{after && <StatusBadge value={after} />}</div>
+    <div className="rounded-md border bg-paper p-4">
+      {label && <div className="eyebrow mb-3">{label}</div>}
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-5">
+        <div className="min-w-0">
+          <div className="eyebrow">{beforeDate ? fmtDate(beforeDate) : "Before"}</div>
+          <div className="mt-2">{before ? <StatusBadge value={before} size="md" /> : <span className="text-sm text-muted-foreground">—</span>}</div>
+        </div>
+        <div className="flex flex-col items-center gap-1 text-muted-foreground">
+          <ArrowRight className="size-4" />
+          <span className="hidden font-mono text-[10px] uppercase tracking-wider sm:inline">flip</span>
+        </div>
+        <div className="min-w-0">
+          <div className="eyebrow">{afterDate ? fmtDate(afterDate) : "After"}</div>
+          <div className="mt-2">{after ? <StatusBadge value={after} size="md" /> : <span className="text-sm text-muted-foreground">—</span>}</div>
+        </div>
       </div>
     </div>
   );
