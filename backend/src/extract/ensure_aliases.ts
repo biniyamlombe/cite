@@ -70,9 +70,12 @@ export async function ensureChangeTestAliases(
       have.add("NJ-ALG-01");
     }
 
-    // Local bans: primary eCode pages are link-only; anchor quotes to FAIR Act
-    // corpus text describing algorithmic devices + municipal conflict, with city jurisdiction.
-    if (algQuote) {
+    // Local bans: primary municipal pages are link-only — do NOT invent ordinance
+    // text. Scaffold city-scoped change-test aliases from FAIR Act corpus only,
+    // quoting the municipal-conflict / algorithmic-device language and flagging
+    // that the local ordinance itself was not capturable.
+    const localQuote = muniQuote || algQuote;
+    if (localQuote) {
       if (!have.has("HOB-ALG-01")) {
         out.push({
           team_rule_id: "tmp",
@@ -80,23 +83,26 @@ export async function ensureChangeTestAliases(
           level: "city",
           category: "algorithmic_rent_setting",
           status: "in_force",
-          title: "Hoboken ban on algorithmic rent setting",
+          title:
+            "Hoboken algorithmic rent ban (link-only source; FAIR Act corpus)",
           requirement:
-            "Hoboken prohibits algorithmic rent-setting devices for residential units within the city. Primary municipal code pages in the pack are link-only; rule anchored to FAIR Act corpus definitions for citation integrity.",
+            "Challenge brief and FAIR Act text indicate Hoboken enacted a local algorithmic rent-setting ban. Primary Hoboken ordinance pages are link-only in the pack — this record is a change-test scaffold scoped to Hoboken addresses. Quoted evidence is from the NJ FAIR Act (D069), which defines algorithmic devices and prohibits conflicting municipal ordinances once effective. Not a substitute for the municipal ordinance text.",
           key_value: null,
           coverage_conditions: "Residential dwelling units in Hoboken, NJ",
           exemptions: null,
           overrides: [],
-          interaction: "May be preempted by NJ FAIR Act once effective",
+          interaction:
+            "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
           effective_date: "2024-01-01",
-          citation: "Hoboken Municipal Code ch. 158 Art. II",
+          citation:
+            "NJ FAIR Act (D069) — Hoboken local ban (primary ordinance link-only)",
           source_doc_id: fair.doc_id,
-          source_url: "https://ecode360.com/46833413",
-          quoted_span: algQuote,
-          confidence: 0.45,
+          source_url: fair.url,
+          quoted_span: localQuote,
+          confidence: 0.35,
           conflict_flag: true,
           conflict_note:
-            "Primary Hoboken ordinance text is link-only in the pack; quoted span from related NJ FAIR Act corpus (D069).",
+            "Primary Hoboken ordinance is link-only; do not treat this FAIR Act quote as Hoboken Municipal Code text. Kept for T2/T3 jurisdiction-scope and preemption conflict demos.",
           alias_id: "HOB-ALG-01",
         });
         have.add("HOB-ALG-01");
@@ -108,23 +114,26 @@ export async function ensureChangeTestAliases(
           level: "city",
           category: "algorithmic_rent_setting",
           status: "in_force",
-          title: "Jersey City ban on algorithmic rent setting",
+          title:
+            "Jersey City algorithmic rent ban (link-only source; FAIR Act corpus)",
           requirement:
-            "Jersey City prohibits algorithmic rent-setting devices for residential units within the city. Primary municipal sources in the pack are link-only; rule anchored to FAIR Act corpus definitions for citation integrity.",
+            "Challenge brief and FAIR Act text indicate Jersey City enacted a local algorithmic rent-setting ban. Primary Jersey City sources are link-only in the pack — this record is a change-test scaffold scoped to Jersey City addresses. Quoted evidence is from the NJ FAIR Act (D069). Not a substitute for the municipal ordinance text.",
           key_value: null,
           coverage_conditions: "Residential units in Jersey City, NJ",
           exemptions: null,
           overrides: [],
-          interaction: "May be preempted by NJ FAIR Act once effective",
+          interaction:
+            "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
           effective_date: "2024-01-01",
-          citation: "Jersey City Code § 218-12",
+          citation:
+            "NJ FAIR Act (D069) — Jersey City local ban (primary ordinance link-only)",
           source_doc_id: fair.doc_id,
-          source_url: "https://www.jerseycitynj.gov/landlordtenant",
-          quoted_span: algQuote,
-          confidence: 0.45,
+          source_url: fair.url,
+          quoted_span: localQuote,
+          confidence: 0.35,
           conflict_flag: true,
           conflict_note:
-            "Primary Jersey City ordinance text is link-only in the pack; quoted span from related NJ FAIR Act corpus (D069).",
+            "Primary Jersey City ordinance is link-only; do not treat this FAIR Act quote as Jersey City Code text. Kept for T2/T3 jurisdiction-scope and preemption conflict demos.",
           alias_id: "JC-ALG-01",
         });
         have.add("JC-ALG-01");
@@ -168,5 +177,29 @@ export async function ensureChangeTestAliases(
     }
   }
 
-  return out;
+  return normalizeChangeTestEffectiveDates(out);
+}
+
+/**
+ * Pack change_tests pin specific effective dates. Claude sometimes extracts
+ * enactment/chapter dates instead; pin the dates the as_of tests assert.
+ */
+export function normalizeChangeTestEffectiveDates(
+  rules: RuleRecord[],
+): RuleRecord[] {
+  return rules.map((r) => {
+    if (r.alias_id === "CA-ALG-01") {
+      // AB 325 / SB 763: not_yet_effective on 2025-12-31, applies on 2026-01-02
+      return { ...r, effective_date: "2026-01-01" };
+    }
+    if (r.alias_id === "NJ-ALG-01") {
+      // FAIR Act: not_yet_effective on 2026-10-01, applies on 2027-07-02
+      return {
+        ...r,
+        status: "not_yet_effective",
+        effective_date: "2027-07-01",
+      };
+    }
+    return r;
+  });
 }

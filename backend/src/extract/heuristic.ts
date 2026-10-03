@@ -47,42 +47,8 @@ const SEEDS: Seed[] = [
       /nonpublic.{0,100}competitor/i,
     ],
   },
-  {
-    alias_id: "HOB-ALG-01",
-    match: /Hoboken.{0,40}(algorithm|pricing)|Municipal Code.{0,20}158|ch\.?\s*158/i,
-    jurisdiction: "Hoboken, NJ",
-    level: "city",
-    category: "algorithmic_rent_setting",
-    status: "in_force",
-    title: "Hoboken ban on algorithmic rent setting",
-    requirement:
-      "Hoboken prohibits the sale or use of algorithmic devices to set rents or occupancy for residential dwelling units within the city.",
-    citation: "Hoboken Municipal Code ch. 158 Art. II",
-    coverage_conditions: "Residential dwelling units in Hoboken, NJ",
-    quoteHints: [
-      /algorithm.{0,100}rent/i,
-      /prohibit.{0,80}algorithm/i,
-      /residential dwelling/i,
-    ],
-  },
-  {
-    alias_id: "JC-ALG-01",
-    match: /218-12|Jersey City.{0,60}algorithm/i,
-    jurisdiction: "Jersey City, NJ",
-    level: "city",
-    category: "algorithmic_rent_setting",
-    status: "in_force",
-    title: "Jersey City ban on algorithmic rent setting",
-    requirement:
-      "Jersey City prohibits the use or sale of algorithmic devices for setting rents or managing occupancy of residential units in the city.",
-    citation: "Jersey City Code § 218-12",
-    coverage_conditions: "Residential units in Jersey City, NJ",
-    quoteHints: [
-      /algorithm.{0,100}rent/i,
-      /§\s*218-12|218-12/i,
-      /prohibit.{0,80}algorithm/i,
-    ],
-  },
+  // HOB-ALG-01 / JC-ALG-01: primary ordinance pages are link-only — do not seed
+  // invented municipal quotes. ensure_aliases.ts scaffolds them from FAIR Act (D069).
   {
     alias_id: "NJ-ALG-01",
     match: /FAIR Act|Freedom from Algorithmic|preempt/i,
@@ -223,7 +189,7 @@ const SEEDS: Seed[] = [
     quoteHints: [/June 13, 1979|1979/i, /rent increase|annual allowable/i, /certificate of occupancy/i],
   },
   {
-    match: /37\.9|just cause|eviction/i,
+    match: /§\s*37\.9|Admin\.?\s*Code\s*§?\s*37\.9|37\.9\s*\(/i,
     jurisdiction: "San Francisco, CA",
     level: "city",
     category: "just_cause_eviction",
@@ -236,7 +202,7 @@ const SEEDS: Seed[] = [
     quoteHints: [/37\.9/i, /just cause/i, /recover possession/i],
   },
   {
-    match: /37\.10C|coordinated pricing|algorithm/i,
+    match: /37\.10C/i,
     jurisdiction: "San Francisco, CA",
     level: "city",
     category: "algorithmic_rent_setting",
@@ -250,7 +216,7 @@ const SEEDS: Seed[] = [
     quoteHints: [/37\.10C/i, /pricing algorithm|coordinated pricing/i],
   },
   {
-    match: /Rent Stabilization|RSO|Los Angeles Municipal/i,
+    match: /Rent Stabilization Ordinance|LAMC\s*§?\s*151|Los Angeles Municipal Code.{0,40}151/i,
     jurisdiction: "Los Angeles, CA",
     level: "city",
     category: "rent_increase_limits",
@@ -264,7 +230,7 @@ const SEEDS: Seed[] = [
     quoteHints: [/October 1, 1978|1978/i, /rent stabilization|RSO/i, /maximum rent/i],
   },
   {
-    match: /98\.1101|San Diego|algorithm/i,
+    match: /98\.1101/i,
     jurisdiction: "San Diego, CA",
     level: "city",
     category: "algorithmic_rent_setting",
@@ -277,7 +243,7 @@ const SEEDS: Seed[] = [
     quoteHints: [/98\.1101|algorithm/i, /prohibit/i, /residential/i],
   },
   {
-    match: /13\.63|coordinated pricing|Berkeley/i,
+    match: /13\.63|Berkeley Municipal Code.{0,30}13\.63/i,
     jurisdiction: "Berkeley, CA",
     level: "city",
     category: "algorithmic_rent_setting",
@@ -375,6 +341,95 @@ const SEEDS: Seed[] = [
     citation: "Mass. Gen. Laws c.40P",
     coverage_conditions: "Statewide preemption of local rent control",
     quoteHints: [/No city or town may enact/i, /rent control of any kind/i, /Chapter 40P/i],
+  },
+  // --- Additional capturable-doc patterns (previously unused D### files) ---
+  {
+    match: /relocation assistance|Owner Move-In Eviction|Ellis Act Eviction/i,
+    jurisdiction: "Berkeley, CA",
+    level: "city",
+    category: "just_cause_eviction",
+    status: "in_force",
+    title: "Berkeley relocation assistance for OMI and Ellis Act evictions",
+    requirement:
+      "Berkeley requires inflation-adjusted relocation assistance payments when owners pursue owner move-in or Ellis Act evictions; annual amounts publish each January.",
+    citation: "Berkeley Rent Stabilization and Good Cause for Eviction Ordinance; Ellis Implementation Ordinance",
+    coverage_conditions: "Covered rental units in Berkeley subject to OMI or Ellis Act eviction",
+    effective_date: "2026-01-01",
+    quoteHints: [
+      /relocation assistance/i,
+      /Owner Move-In Eviction/i,
+      /Ellis Act Eviction/i,
+    ],
+  },
+  {
+    match: /Rent Control Ordinance, Chapter 260|PROPERTY RENT CONTROL STATUS/i,
+    jurisdiction: "Jersey City, NJ",
+    level: "city",
+    category: "rent_increase_limits",
+    status: "in_force",
+    title: "Jersey City Rent Control Ordinance (Chapter 260)",
+    requirement:
+      "Jersey City regulates rents under Chapter 260; 1–4 unit properties are exempt from rent control per city guidance.",
+    citation: "Jersey City Rent Control Ordinance, Chapter 260",
+    coverage_conditions:
+      "Residential rental properties in Jersey City with more than 4 units (1–4 unit properties exempt)",
+    quoteHints: [
+      /Rent Control Ordinance, Chapter 260/i,
+      /1-4 Unit Properties are exempt/i,
+      /Rent Control Exemption/i,
+    ],
+  },
+  {
+    match: /Chapter 151B|refuse to rent or lease|multiple dwelling/i,
+    jurisdiction: "MA",
+    level: "state",
+    category: "screening_restrictions",
+    status: "in_force",
+    title: "Massachusetts fair housing rental screening restrictions",
+    requirement:
+      "Massachusetts law prohibits refusing to rent or discriminating in rental terms based on protected characteristics, and limits discriminatory inquiries in screening.",
+    citation: "Mass. Gen. Laws c.151B § 4",
+    coverage_conditions: "Publicly assisted, multiple-dwelling, and other covered housing accommodations in Massachusetts",
+    quoteHints: [
+      /refuse to rent or lease/i,
+      /discriminate against any person/i,
+      /written or oral inquiry/i,
+    ],
+  },
+  {
+    match: /reprisals against any tenant|tenants' union|rebuttable presumption/i,
+    jurisdiction: "MA",
+    level: "state",
+    category: "just_cause_eviction",
+    status: "in_force",
+    title: "Massachusetts anti-reprisal protections for tenant organizing and complaints",
+    requirement:
+      "Landlords may not threaten or take reprisals against tenants for enforcing housing laws, reporting code violations, or joining a tenants' union; notices of termination or rent increase within six months create a rebuttable presumption of reprisal.",
+    citation: "Mass. Gen. Laws c.186 § 18",
+    coverage_conditions: "Residential tenancies in Massachusetts",
+    quoteHints: [
+      /reprisals against any tenant/i,
+      /tenants' union/i,
+      /rebuttable presumption/i,
+    ],
+  },
+  {
+    match: /An Act prohibiting algorithmic rent setting|Senate, No\. 2983|S\.2983/i,
+    jurisdiction: "MA",
+    level: "state",
+    category: "algorithmic_rent_setting",
+    status: "pending",
+    title: "Massachusetts S.2983 — Act prohibiting algorithmic rent setting (pending)",
+    requirement:
+      "Pending Senate bill S.2983 would prohibit algorithmic rent setting; it is not law until enacted.",
+    citation: "MA S.2983 (194th General Court)",
+    coverage_conditions: "Would apply statewide in Massachusetts if enacted",
+    alias_id: "MA-ALG-P1",
+    quoteHints: [
+      /An Act prohibiting algorithmic rent setting/i,
+      /S\.2983|Senate, No\. 2983/i,
+      /algorithmic rent/i,
+    ],
   },
 ];
 

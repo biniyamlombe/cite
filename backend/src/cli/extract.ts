@@ -6,7 +6,10 @@ import { outputsDir } from "../lib/paths.js";
 import type { RuleRecord } from "@rhl/shared";
 import { assignAliases } from "../extract/aliases.js";
 import { dedupeRules, preferClaudeRules } from "../extract/heuristic.js";
-import { ensureChangeTestAliases } from "../extract/ensure_aliases.js";
+import {
+  ensureChangeTestAliases,
+  normalizeChangeTestEffectiveDates,
+} from "../extract/ensure_aliases.js";
 import { appendAudit } from "../lib/audit.js";
 import { enrichRuleCoverage } from "../apply/compile_coverage.js";
 
@@ -63,7 +66,7 @@ async function main() {
     const ensured = assignAliases(
       preferClaudeRules(dedupeRules(await ensureChangeTestAliases(aliased))),
     );
-    finalRules = ensured.map((r, i) => ({
+    finalRules = normalizeChangeTestEffectiveDates(ensured).map((r, i) => ({
       ...r,
       team_rule_id: `r-${String(i + 1).padStart(4, "0")}`,
     }));
