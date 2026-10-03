@@ -1,0 +1,4005 @@
+{
+  "geocoded": [
+    {
+      "address_id": "A0001",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "6238 DE LONGPRE AVE, LOS ANGELES, CA, 90028",
+      "source": "census"
+    },
+    {
+      "address_id": "A0002",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "1035 CLINTON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0003",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "878 S 14TH ST, NEWARK, NJ, 07108",
+      "source": "census"
+    },
+    {
+      "address_id": "A0004",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "10050 MOUNTAIR AVE, TUJUNGA, CA, 91042",
+      "source": "census"
+    },
+    {
+      "address_id": "A0005",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1609 ADDISON ST, BERKELEY, CA, 94703",
+      "source": "census"
+    },
+    {
+      "address_id": "A0006",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "71 WESTLAND AVE, BOSTON, MA, 02115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0007",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "4257 SAN PEDRO PL, LOS ANGELES, CA, 90011",
+      "source": "census"
+    },
+    {
+      "address_id": "A0008",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "1065 SUMMIT AVE, JERSEY CITY, NJ, 07307",
+      "source": "census"
+    },
+    {
+      "address_id": "A0009",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "5 WESTERN AVE, CAMBRIDGE, MA, 02163",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0010",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "134 OXFORD ST, CAMBRIDGE, MA, 02140",
+      "source": "census"
+    },
+    {
+      "address_id": "A0011",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "836 RAYMOND BLVD, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0012",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "1064 SUMMIT AVE, JERSEY CITY, NJ, 07307",
+      "source": "census"
+    },
+    {
+      "address_id": "A0013",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "137 N 11TH ST, NEWARK, NJ, 07107",
+      "source": "census"
+    },
+    {
+      "address_id": "A0014",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "5907 CAHUENGA BLVD, NORTH HOLLYWOOD, CA, 91601",
+      "source": "census"
+    },
+    {
+      "address_id": "A0015",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "15 EVERETT ST, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0016",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "3515 FILLMORE ST, SAN FRANCISCO, CA, 94123",
+      "source": "census"
+    },
+    {
+      "address_id": "A0017",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "225 DUNCAN AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0018",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1906 BONITA AVE, BERKELEY, CA, 94704",
+      "source": "census"
+    },
+    {
+      "address_id": "A0019",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3820 HAINES ST, SAN DIEGO, CA, 92109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0020",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "648 N 6TH ST, NEWARK, NJ, 07107",
+      "source": "census"
+    },
+    {
+      "address_id": "A0021",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "22 PRECITA AVE, SAN FRANCISCO, CA, 94110",
+      "source": "census"
+    },
+    {
+      "address_id": "A0022",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "10908 HARTSOOK ST, NORTH HOLLYWOOD, CA, 91601",
+      "source": "census"
+    },
+    {
+      "address_id": "A0023",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "843 IROLO ST, LOS ANGELES, CA, 90005",
+      "source": "census"
+    },
+    {
+      "address_id": "A0024",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "227 CHARLES ST, CAMBRIDGE, MA, 02141",
+      "source": "census"
+    },
+    {
+      "address_id": "A0025",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2341 8TH ST, BERKELEY, CA, 94710",
+      "source": "census"
+    },
+    {
+      "address_id": "A0026",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "59 OAK ST, JERSEY CITY, NJ, 07304",
+      "source": "census"
+    },
+    {
+      "address_id": "A0027",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "3918 FULTON ST, SAN FRANCISCO, CA, 94118",
+      "source": "census"
+    },
+    {
+      "address_id": "A0028",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "585 N 5TH ST, NEWARK, NJ, 07107",
+      "source": "census"
+    },
+    {
+      "address_id": "A0029",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "284 VERONA AVE, NEWARK, NJ, 07104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0030",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "2051 DIVISADERO ST, SAN FRANCISCO, CA, 94115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0031",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "5624 S SAN PEDRO ST, LOS ANGELES, CA, 90011",
+      "source": "census"
+    },
+    {
+      "address_id": "A0032",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "63 OAK ST, JERSEY CITY, NJ, 07304",
+      "source": "census"
+    },
+    {
+      "address_id": "A0033",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1260 KEARNY ST, SAN FRANCISCO, CA, 94133",
+      "source": "census"
+    },
+    {
+      "address_id": "A0034",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "25 GORE ST, CAMBRIDGE, MA, 02141",
+      "source": "census"
+    },
+    {
+      "address_id": "A0035",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "5239 HARMONY AVE, NORTH HOLLYWOOD, CA, 91601",
+      "source": "census"
+    },
+    {
+      "address_id": "A0036",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "33 WARD ST, SOUTH BOSTON, MA, 02127",
+      "source": "census"
+    },
+    {
+      "address_id": "A0037",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "770 IROLO ST, LOS ANGELES, CA, 90005",
+      "source": "census"
+    },
+    {
+      "address_id": "A0038",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "154 YUKON ST, SAN FRANCISCO, CA, 94114",
+      "source": "census"
+    },
+    {
+      "address_id": "A0039",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "1 CRAIGIE ST, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0040",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "75 JACKSON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0041",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "122 TIFFANY AVE, SAN FRANCISCO, CA, 94110",
+      "source": "census"
+    },
+    {
+      "address_id": "A0042",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "320 FORREST ST, JERSEY CITY, NJ, 07304",
+      "source": "census"
+    },
+    {
+      "address_id": "A0043",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "4 ORCHARD ST, CAMBRIDGE, MA, 02140",
+      "source": "census"
+    },
+    {
+      "address_id": "A0044",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "775 SANDFORD AVE, NEWARK, NJ, 07106",
+      "source": "census"
+    },
+    {
+      "address_id": "A0045",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "12829 BRANFORD ST, PACOIMA, CA, 91331",
+      "source": "census"
+    },
+    {
+      "address_id": "A0046",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "12 SODEN ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0047",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "14 RUTGERS AVE, JERSEY CITY, NJ, 07305",
+      "source": "census"
+    },
+    {
+      "address_id": "A0048",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "1619 COMMONWEALTH AVE, BRIGHTON, MA, 02135",
+      "source": "census"
+    },
+    {
+      "address_id": "A0049",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "721 CLINTON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0050",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "36 HOFF ST, SAN FRANCISCO, CA, 94110",
+      "source": "census"
+    },
+    {
+      "address_id": "A0051",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "65 OAKLAND AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0052",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "88 GARDNER ST, ALLSTON, MA, 02134",
+      "source": "census"
+    },
+    {
+      "address_id": "A0053",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "32 GARRISON ST, BOSTON, MA, 02116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0054",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "13 SHETLAND ST, ROXBURY, MA, 02119",
+      "source": "census"
+    },
+    {
+      "address_id": "A0055",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "305 10TH AVE, SAN FRANCISCO, CA, 94118",
+      "source": "census"
+    },
+    {
+      "address_id": "A0056",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "43 EDGERLY RD, BOSTON, MA, 02115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0057",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "57 STONE ST, NEWARK, NJ, 07104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0058",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3137 BOSTON AVE, SAN DIEGO, CA, 92113",
+      "source": "census"
+    },
+    {
+      "address_id": "A0059",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "86 WALNUT ST, NEWARK, NJ, 07102",
+      "source": "census"
+    },
+    {
+      "address_id": "A0060",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "5737 WILLOWCREST AVE, NORTH HOLLYWOOD, CA, 91601",
+      "source": "census"
+    },
+    {
+      "address_id": "A0061",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "106 18TH AVE, SAN FRANCISCO, CA, 94121",
+      "source": "census"
+    },
+    {
+      "address_id": "A0062",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "77 HOFF ST, SAN FRANCISCO, CA, 94110",
+      "source": "census"
+    },
+    {
+      "address_id": "A0063",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "11 CORTES ST, BOSTON, MA, 02116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0064",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "26 CONCORD AVE, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0065",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "63 BAILEY ST, DORCHESTER, MA, 02124",
+      "source": "census"
+    },
+    {
+      "address_id": "A0066",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1318 N ORANGE DR, LOS ANGELES, CA, 90028",
+      "source": "census"
+    },
+    {
+      "address_id": "A0067",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1335 N VISTA ST, LOS ANGELES, CA, 90046",
+      "source": "census"
+    },
+    {
+      "address_id": "A0068",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "42 CLEARWAY ST, BOSTON, MA, 02115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0069",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "2277 UNION ST, SAN FRANCISCO, CA, 94123",
+      "source": "census"
+    },
+    {
+      "address_id": "A0070",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "43 FAYETTE ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0071",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "16 VANDINE ST, CAMBRIDGE, MA, 02141",
+      "source": "census"
+    },
+    {
+      "address_id": "A0072",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1251 10TH AVE, SAN FRANCISCO, CA, 94122",
+      "source": "census"
+    },
+    {
+      "address_id": "A0073",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "37 INMAN ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0074",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "717 S BERENDO ST, LOS ANGELES, CA, 90005",
+      "source": "census"
+    },
+    {
+      "address_id": "A0075",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "27 EVERETT ST, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0076",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "304 E KINNEY ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0077",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "91 BROOKLINE ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0078",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "115 BAYVIEW AVE, JERSEY CITY, NJ, 07305",
+      "source": "census"
+    },
+    {
+      "address_id": "A0079",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "2361 PORTLAND ST, LOS ANGELES, CA, 90007",
+      "source": "census"
+    },
+    {
+      "address_id": "A0080",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "690 S CATALINA ST, LOS ANGELES, CA, 90005",
+      "source": "census"
+    },
+    {
+      "address_id": "A0081",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "145 TAYLOR ST, SAN FRANCISCO, CA, 94102",
+      "source": "census"
+    },
+    {
+      "address_id": "A0082",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "63 INMAN ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0083",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "38 KENILWORTH ST, ROXBURY, MA, 02119",
+      "source": "census"
+    },
+    {
+      "address_id": "A0084",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1725 CHESTNUT ST, SAN FRANCISCO, CA, 94123",
+      "source": "census"
+    },
+    {
+      "address_id": "A0085",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1101 CHURCH ST, SAN FRANCISCO, CA, 94114",
+      "source": "census"
+    },
+    {
+      "address_id": "A0086",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "67 PLYMOUTH ST, CAMBRIDGE, MA, 02141",
+      "source": "census"
+    },
+    {
+      "address_id": "A0087",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "323 BLOOMFIELD ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0088",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "201 CLEMENT ST, SAN FRANCISCO, CA, 94118",
+      "source": "census"
+    },
+    {
+      "address_id": "A0089",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "935 PARK AVE, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0090",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "30 JACKSON ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0091",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2229 DWIGHT WAY, BERKELEY, CA, 94704",
+      "source": "census"
+    },
+    {
+      "address_id": "A0092",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2514 PIEDMONT AVE, BERKELEY, CA, 94704",
+      "source": "census"
+    },
+    {
+      "address_id": "A0093",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "90 BICKFORD ST, JAMAICA PLAIN, MA, 02130",
+      "source": "census"
+    },
+    {
+      "address_id": "A0094",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "1371 27TH ST, SAN DIEGO, CA, 92154",
+      "source": "census"
+    },
+    {
+      "address_id": "A0095",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "23 ELM ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0096",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "81 WESTLAND AVE, BOSTON, MA, 02115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0097",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1560 MASON ST, SAN FRANCISCO, CA, 94133",
+      "source": "census"
+    },
+    {
+      "address_id": "A0098",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "WILLOWWOOD ST, Boston, MA 02124",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0099",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "822 WASHINGTON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0100",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4732 BANCROFT ST, SAN DIEGO, CA, 92116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0101",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "319 FAIRMOUNT AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0102",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "124 BLOOMFIELD ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0103",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2161 ALLSTON WAY, BERKELEY, CA, 94704",
+      "source": "census"
+    },
+    {
+      "address_id": "A0104",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "409 N 5TH ST, NEWARK, NJ, 07107",
+      "source": "census"
+    },
+    {
+      "address_id": "A0105",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "140 PORTOLA DR, SAN FRANCISCO, CA, 94131",
+      "source": "census"
+    },
+    {
+      "address_id": "A0106",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "250 FREMONT ST, SAN FRANCISCO, CA, 94105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0107",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "10635 SHERMAN GROVE AVE, SUNLAND, CA, 91040",
+      "source": "census"
+    },
+    {
+      "address_id": "A0108",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "13 JEFFERSON AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0109",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2922 OTIS ST, BERKELEY, CA, 94703",
+      "source": "census"
+    },
+    {
+      "address_id": "A0110",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "132 2ND AVE, NEWARK, NJ, 07104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0111",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "10075 TUJUNGA CANYON BLVD, TUJUNGA, CA, 91042",
+      "source": "census"
+    },
+    {
+      "address_id": "A0112",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "448 BRODERICK ST, SAN FRANCISCO, CA, 94117",
+      "source": "census"
+    },
+    {
+      "address_id": "A0113",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "3151 ETON AVE, BERKELEY, CA, 94705",
+      "source": "census"
+    },
+    {
+      "address_id": "A0114",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3743 INDIA ST, SAN DIEGO, CA, 92103",
+      "source": "census"
+    },
+    {
+      "address_id": "A0115",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "397 05TH AV, San Francisco, CA ",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0116",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "36 PROSPECT ST, JERSEY CITY, NJ, 07307",
+      "source": "census"
+    },
+    {
+      "address_id": "A0117",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1733 N CHEROKEE AVE, LOS ANGELES, CA, 90028",
+      "source": "census"
+    },
+    {
+      "address_id": "A0118",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "34 KINGBIRD RD, DORCHESTER, MA, 02124",
+      "source": "census"
+    },
+    {
+      "address_id": "A0119",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "607 ADAMS ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0120",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "139 ELM ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0121",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4079 FRONT ST, SAN DIEGO, CA, 92103",
+      "source": "census"
+    },
+    {
+      "address_id": "A0122",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "4812 S BROADWAY, LOS ANGELES, CA, 90037",
+      "source": "census"
+    },
+    {
+      "address_id": "A0123",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "123 CONDOR ST, EAST BOSTON, MA, 02128",
+      "source": "census"
+    },
+    {
+      "address_id": "A0124",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "35 BROOKLINE ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0125",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "227 GRAND ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0126",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1350 POTRERO AVE, SAN FRANCISCO, CA, 94110",
+      "source": "census"
+    },
+    {
+      "address_id": "A0127",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "10029 N SEPULVEDA BLVD, MISSION HILLS, CA, 91345",
+      "source": "census"
+    },
+    {
+      "address_id": "A0128",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "Harvard ST, Boston, MA 02124",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0129",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "532 MULBERRY ST, NEWARK, NJ, 07114",
+      "source": "census"
+    },
+    {
+      "address_id": "A0130",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "554 MARKET ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0131",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "43 POPLAR ST, JERSEY CITY, NJ, 07307",
+      "source": "census"
+    },
+    {
+      "address_id": "A0132",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "587 N 6TH ST, NEWARK, NJ, 07107",
+      "source": "census"
+    },
+    {
+      "address_id": "A0133",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "8819 LANKERSHIM BLVD, SUN VALLEY, CA, 91352",
+      "source": "census"
+    },
+    {
+      "address_id": "A0134",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "101 NORFOLK ST, DORCHESTER, MA, 02124",
+      "source": "census"
+    },
+    {
+      "address_id": "A0135",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "843 CLAY ST, SAN FRANCISCO, CA, 94108",
+      "source": "census"
+    },
+    {
+      "address_id": "A0136",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "920 HUDSON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0137",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "71 NORFOLK ST, NEWARK, NJ, 07103",
+      "source": "census"
+    },
+    {
+      "address_id": "A0138",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1033 E 51ST ST, LOS ANGELES, CA, 90011",
+      "source": "census"
+    },
+    {
+      "address_id": "A0139",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "54 STUYVESANT AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0140",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "459 BEACON ST, BOSTON, MA, 02115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0141",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "2601 43RD AVE, SAN FRANCISCO, CA, 94116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0142",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "4615 AVALON BLVD, LOS ANGELES, CA, 90011",
+      "source": "census"
+    },
+    {
+      "address_id": "A0143",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "75 ELM HILL AVE, DORCHESTER, MA, 02121",
+      "source": "census"
+    },
+    {
+      "address_id": "A0144",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "114 AMORY ST, ROXBURY, MA, 02119",
+      "source": "census"
+    },
+    {
+      "address_id": "A0145",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4515 FELTON ST, SAN DIEGO, CA, 92116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0146",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "93-95 HAWKINS ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0147",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "2850 GOLDEN GATE AVE, SAN FRANCISCO, CA, 94118",
+      "source": "census"
+    },
+    {
+      "address_id": "A0148",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "166 5TH ST, NEWARK, NJ, 07107",
+      "source": "census"
+    },
+    {
+      "address_id": "A0149",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "25 EVERETT ST, EAST BOSTON, MA, 02128",
+      "source": "census"
+    },
+    {
+      "address_id": "A0150",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3784 BROADWAY, SAN DIEGO, CA, 92102",
+      "source": "census"
+    },
+    {
+      "address_id": "A0151",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "16 QUEENSBERRY ST, BOSTON, MA, 02215",
+      "source": "census"
+    },
+    {
+      "address_id": "A0152",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "1669 SUNSET CLIFFS BLVD, SAN DIEGO, CA, 92107",
+      "source": "census"
+    },
+    {
+      "address_id": "A0153",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "366 E 55TH ST, LOS ANGELES, CA, 90011",
+      "source": "census"
+    },
+    {
+      "address_id": "A0154",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4568 IDAHO ST, SAN DIEGO, CA, 92116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0155",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "473 HARVARD ST, DORCHESTER, MA, 02124",
+      "source": "census"
+    },
+    {
+      "address_id": "A0156",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "290 GREEN ST, SAN FRANCISCO, CA, 94111",
+      "source": "census"
+    },
+    {
+      "address_id": "A0157",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2701 RIDGE RD, BERKELEY, CA, 94709",
+      "source": "census"
+    },
+    {
+      "address_id": "A0158",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2522 HILGARD AVE, BERKELEY, CA, 94709",
+      "source": "census"
+    },
+    {
+      "address_id": "A0159",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "104 SUNSET AVE, NEWARK, NJ, 07106",
+      "source": "census"
+    },
+    {
+      "address_id": "A0160",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "86 CHARLES ST, JERSEY CITY, NJ, 07307",
+      "source": "census"
+    },
+    {
+      "address_id": "A0161",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "317 UNION ST, JERSEY CITY, NJ, 07304",
+      "source": "census"
+    },
+    {
+      "address_id": "A0162",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1640 N POINSETTIA PL, LOS ANGELES, CA, 90046",
+      "source": "census"
+    },
+    {
+      "address_id": "A0163",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "235 2ND ST, JERSEY CITY, NJ, 07302",
+      "source": "census"
+    },
+    {
+      "address_id": "A0164",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "725 14TH ST, SAN FRANCISCO, CA, 94114",
+      "source": "census"
+    },
+    {
+      "address_id": "A0165",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "734 JAMAICA CT, SAN DIEGO, CA, 92109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0166",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "1 POTTER PARK, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0167",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4616 FLORIDA ST, SAN DIEGO, CA, 92116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0168",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "600 JACKSON/601 HARRISON, Hoboken, NJ 07030",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0169",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "115 KILSYTH RD, BRIGHTON, MA, 02135",
+      "source": "census"
+    },
+    {
+      "address_id": "A0170",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "8917 CEDROS AVE, PANORAMA CITY, CA, 91402",
+      "source": "census"
+    },
+    {
+      "address_id": "A0171",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "127 OGDEN AVE, JERSEY CITY, NJ, 07307",
+      "source": "census"
+    },
+    {
+      "address_id": "A0172",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "8504 WILLIS AVE, PANORAMA CITY, CA, 91402",
+      "source": "census"
+    },
+    {
+      "address_id": "A0173",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "13180 FOOTHILL BLVD, SYLMAR, CA, 91342",
+      "source": "census"
+    },
+    {
+      "address_id": "A0174",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "84 HAMPSHIRE ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0175",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "10 DOVER ST, CAMBRIDGE, MA, 02140",
+      "source": "census"
+    },
+    {
+      "address_id": "A0176",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "15 CHESTER ST, CAMBRIDGE, MA, 02140",
+      "source": "census"
+    },
+    {
+      "address_id": "A0177",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "166 HIGHLAND AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0178",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "5308 RIVERTON AVE, NORTH HOLLYWOOD, CA, 91601",
+      "source": "census"
+    },
+    {
+      "address_id": "A0179",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "7006 LANEWOOD AVE, LOS ANGELES, CA, 90028",
+      "source": "census"
+    },
+    {
+      "address_id": "A0180",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "845 S KINGSLEY DR, LOS ANGELES, CA, 90005",
+      "source": "census"
+    },
+    {
+      "address_id": "A0181",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "931 GARDEN ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0182",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "923 CLINTON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0183",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2427 HILGARD AVE, BERKELEY, CA, 94709",
+      "source": "census"
+    },
+    {
+      "address_id": "A0184",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "156 W 32ND ST, LOS ANGELES, CA, 90007",
+      "source": "census"
+    },
+    {
+      "address_id": "A0185",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "154 TERHUNE AVE, JERSEY CITY, NJ, 07305",
+      "source": "census"
+    },
+    {
+      "address_id": "A0186",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "107 BEACON AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0187",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "146 CARLTON AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0188",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2819 MCGEE AVE, BERKELEY, CA, 94703",
+      "source": "census"
+    },
+    {
+      "address_id": "A0189",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1811 CARLETON ST, BERKELEY, CA, 94703",
+      "source": "census"
+    },
+    {
+      "address_id": "A0190",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "283 ADAMS ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0191",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "60 KIRKLAND ST, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0192",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "780 POST ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0193",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1626 BONITA AVE, BERKELEY, CA, 94709",
+      "source": "census"
+    },
+    {
+      "address_id": "A0194",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "72 BURBANK ST, BOSTON, MA, 02115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0195",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "1848 COMMONWEALTH AVE, BRIGHTON, MA, 02135",
+      "source": "census"
+    },
+    {
+      "address_id": "A0196",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "16915 BLACKHAWK ST, GRANADA HILLS, CA, 91344",
+      "source": "census"
+    },
+    {
+      "address_id": "A0197",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1611 62ND ST, BERKELEY, CA, 94703",
+      "source": "census"
+    },
+    {
+      "address_id": "A0198",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "194 HAVRE ST, EAST BOSTON, MA, 02128",
+      "source": "census"
+    },
+    {
+      "address_id": "A0199",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "42 BAY STATE RD, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0200",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1853 N HIGHLAND AVE, LOS ANGELES, CA, 90028",
+      "source": "census"
+    },
+    {
+      "address_id": "A0201",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2737 BENVENUE AVE, BERKELEY, CA, 94705",
+      "source": "census"
+    },
+    {
+      "address_id": "A0202",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1446 JACKSON ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0203",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "2930 WASHINGTON ST, ROXBURY, MA, 02119",
+      "source": "census"
+    },
+    {
+      "address_id": "A0204",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "208 6TH AVE W, NEWARK, NJ, 07107",
+      "source": "census"
+    },
+    {
+      "address_id": "A0205",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2425 GRANT ST, BERKELEY, CA, 94703",
+      "source": "census"
+    },
+    {
+      "address_id": "A0206",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "401 43RD AVE, SAN FRANCISCO, CA, 94121",
+      "source": "census"
+    },
+    {
+      "address_id": "A0207",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "705 W 23RD ST, LOS ANGELES, CA, 90007",
+      "source": "census"
+    },
+    {
+      "address_id": "A0208",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "126 ADAMS ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0209",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "19 TROWBRIDGE ST, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0210",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1432 N CURSON AVE, LOS ANGELES, CA, 90046",
+      "source": "census"
+    },
+    {
+      "address_id": "A0211",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "499 BEACON ST, BOSTON, MA, 02215",
+      "source": "census"
+    },
+    {
+      "address_id": "A0212",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1311 S VAN NESS AVE, SAN FRANCISCO, CA, 94110",
+      "source": "census"
+    },
+    {
+      "address_id": "A0213",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "11649 ACAMA ST, STUDIO CITY, CA, 91604",
+      "source": "census"
+    },
+    {
+      "address_id": "A0214",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "358 HARVARD ST, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0215",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "2295 CALIFORNIA ST, SAN FRANCISCO, CA, 94115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0216",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2309 HASTE ST, BERKELEY, CA, 94704",
+      "source": "census"
+    },
+    {
+      "address_id": "A0217",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "172 MAVERICK ST, EAST BOSTON, MA, 02128",
+      "source": "census"
+    },
+    {
+      "address_id": "A0218",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "15 RICHDALE AVE, CAMBRIDGE, MA, 02140",
+      "source": "census"
+    },
+    {
+      "address_id": "A0219",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3735 32ND ST, SAN DIEGO, CA, 92104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0220",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "23 FAULKNER ST, DORCHESTER, MA, 02122",
+      "source": "census"
+    },
+    {
+      "address_id": "A0221",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "191 PARK DR, BOSTON, MA, 02215",
+      "source": "census"
+    },
+    {
+      "address_id": "A0222",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1901 VALLEJO ST, SAN FRANCISCO, CA, 94123",
+      "source": "census"
+    },
+    {
+      "address_id": "A0223",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "504 COURT ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0224",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "8727 TOBIAS AVE, PANORAMA CITY, CA, 91402",
+      "source": "census"
+    },
+    {
+      "address_id": "A0225",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1627 JACKSON ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0226",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "663 MASSACHUSETTS AVE, BOSTON, MA, 02118",
+      "source": "census"
+    },
+    {
+      "address_id": "A0227",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "1401 HUDSON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0228",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "225 COLLINGWOOD ST, SAN FRANCISCO, CA, 94114",
+      "source": "census"
+    },
+    {
+      "address_id": "A0229",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "5164 03RD ST, San Francisco, CA ",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0230",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "85 HANCOCK ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0231",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "521 ARGUELLO BLVD, SAN FRANCISCO, CA, 94118",
+      "source": "census"
+    },
+    {
+      "address_id": "A0232",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "189 3RD ST, CAMBRIDGE, MA, 02141",
+      "source": "census"
+    },
+    {
+      "address_id": "A0233",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "30 MEDFIELD ST, BOSTON, MA, 02215",
+      "source": "census"
+    },
+    {
+      "address_id": "A0234",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2212 BLAKE ST, BERKELEY, CA, 94704",
+      "source": "census"
+    },
+    {
+      "address_id": "A0235",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "6736 SELMA AVE, LOS ANGELES, CA, 90028",
+      "source": "census"
+    },
+    {
+      "address_id": "A0236",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1110 JACKSON ST, SAN FRANCISCO, CA, 94133",
+      "source": "census"
+    },
+    {
+      "address_id": "A0237",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "36 VALLEY ST, SAN FRANCISCO, CA, 94110",
+      "source": "census"
+    },
+    {
+      "address_id": "A0238",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "15256 ACRE ST, NORTH HILLS, CA, 91343",
+      "source": "census"
+    },
+    {
+      "address_id": "A0239",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1476 UNIVERSITY AVE, BERKELEY, CA, 94702",
+      "source": "census"
+    },
+    {
+      "address_id": "A0240",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4135 38TH ST, SAN DIEGO, CA, 92105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0241",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "913 GARDEN ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0242",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "87 SIERRA RD, HYDE PARK, MA, 02136",
+      "source": "census"
+    },
+    {
+      "address_id": "A0243",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "664 OCEAN AVE, JERSEY CITY, NJ, 07305",
+      "source": "census"
+    },
+    {
+      "address_id": "A0244",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "1126 HUDSON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0245",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "30 W HOWELL ST, DORCHESTER, MA, 02125",
+      "source": "census"
+    },
+    {
+      "address_id": "A0246",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4386 COPELAND AVE, SAN DIEGO, CA, 92105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0247",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4957 CAPE MAY AVE, SAN DIEGO, CA, 92107",
+      "source": "census"
+    },
+    {
+      "address_id": "A0248",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "941 S KENMORE AVE, LOS ANGELES, CA, 90006",
+      "source": "census"
+    },
+    {
+      "address_id": "A0249",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "500 HAWTHORNE AVE, NEWARK, NJ, 07112",
+      "source": "census"
+    },
+    {
+      "address_id": "A0250",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "211 BALDWIN AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0251",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4663 33RD ST, SAN DIEGO, CA, 92116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0252",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "15514 CHASE ST, NORTH HILLS, CA, 91343",
+      "source": "census"
+    },
+    {
+      "address_id": "A0253",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "2250 N POINT ST, SAN FRANCISCO, CA, 94123",
+      "source": "census"
+    },
+    {
+      "address_id": "A0254",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "805 WASHINGTON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0255",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "851 E 51ST ST, LOS ANGELES, CA, 90011",
+      "source": "census"
+    },
+    {
+      "address_id": "A0256",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "327 JACKSON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0257",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "5 COMMER CT, SAN FRANCISCO, CA, 94124",
+      "source": "census"
+    },
+    {
+      "address_id": "A0258",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "471 COLUMBIA RD, DORCHESTER, MA, 02125",
+      "source": "census"
+    },
+    {
+      "address_id": "A0259",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "872 N POINT ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0260",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2479 LE CONTE AVE, BERKELEY, CA, 94709",
+      "source": "census"
+    },
+    {
+      "address_id": "A0261",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "525 ADAMS ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0262",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "2924 JUNIPER ST, SAN DIEGO, CA, 92104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0263",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1636 MARTIN LUTHER KING JR WAY, BERKELEY, CA, 94709",
+      "source": "census"
+    },
+    {
+      "address_id": "A0264",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "589 ELIZABETH AVE, NEWARK, NJ, 07112",
+      "source": "census"
+    },
+    {
+      "address_id": "A0265",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "102 BALDWIN AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0266",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "52 BRIGHT ST, JERSEY CITY, NJ, 07302",
+      "source": "census"
+    },
+    {
+      "address_id": "A0267",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1314 N VAN NESS AVE, LOS ANGELES, CA, 90038",
+      "source": "census"
+    },
+    {
+      "address_id": "A0268",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1848 FRANKLIN ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0269",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "1015 CLINTON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0270",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "29 CONCORD ST, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0271",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "4115 LINCOLN WAY, SAN FRANCISCO, CA, 94122",
+      "source": "census"
+    },
+    {
+      "address_id": "A0272",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "5 EVERETT ST, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0273",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3911 CENTRE ST, SAN DIEGO, CA, 92103",
+      "source": "census"
+    },
+    {
+      "address_id": "A0274",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "7072 EASTMAN ST, SAN DIEGO, CA, 92111",
+      "source": "census"
+    },
+    {
+      "address_id": "A0275",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4091 MORRELL ST, SAN DIEGO, CA, 92109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0276",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4361 ILLINOIS ST, SAN DIEGO, CA, 92104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0277",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2736 GRANT ST, BERKELEY, CA, 94703",
+      "source": "census"
+    },
+    {
+      "address_id": "A0278",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1800 FRANKLIN ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0279",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "90 KENSINGTON AVE, JERSEY CITY, NJ, 07304",
+      "source": "census"
+    },
+    {
+      "address_id": "A0280",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1215 11TH AVE, SAN FRANCISCO, CA, 94122",
+      "source": "census"
+    },
+    {
+      "address_id": "A0281",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1725 N GOWER ST, LOS ANGELES, CA, 90028",
+      "source": "census"
+    },
+    {
+      "address_id": "A0282",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2240 10TH ST, BERKELEY, CA, 94710",
+      "source": "census"
+    },
+    {
+      "address_id": "A0283",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "90 BARTLETT ST, SAN FRANCISCO, CA, 94110",
+      "source": "census"
+    },
+    {
+      "address_id": "A0284",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "345 COLUMBIA ST, CAMBRIDGE, MA, 02141",
+      "source": "census"
+    },
+    {
+      "address_id": "A0285",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "5255 HARMONY AVE, NORTH HOLLYWOOD, CA, 91601",
+      "source": "census"
+    },
+    {
+      "address_id": "A0286",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "27 IRVING TER, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0287",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "404 GRAND ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0288",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "75 CLENDENNY AVE, JERSEY CITY, NJ, 07304",
+      "source": "census"
+    },
+    {
+      "address_id": "A0289",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1741 MARTIN LUTHER KING JR WAY, BERKELEY, CA, 94709",
+      "source": "census"
+    },
+    {
+      "address_id": "A0290",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "21 FOREST ST, CAMBRIDGE, MA, 02140",
+      "source": "census"
+    },
+    {
+      "address_id": "A0291",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "165 CAMBRIDGEPARK DR, CAMBRIDGE, MA, 02140",
+      "source": "census"
+    },
+    {
+      "address_id": "A0292",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "24 BERKSHIRE ST, CAMBRIDGE, MA, 02141",
+      "source": "census"
+    },
+    {
+      "address_id": "A0293",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1314 NATOMA ST, SAN FRANCISCO, CA, 94103",
+      "source": "census"
+    },
+    {
+      "address_id": "A0294",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "178 RICHDALE AVE, CAMBRIDGE, MA, 02140",
+      "source": "census"
+    },
+    {
+      "address_id": "A0295",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "Harvard ST LOT 2A-13, Boston, MA 02124",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0296",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "85 MCWHORTER ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0297",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "213 SUMMER AVE, NEWARK, NJ, 07104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0298",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "361 WASHINGTON ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0299",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "1037 WASHINGTON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0300",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "36 TROWBRIDGE ST, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0301",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "165 HAMPSHIRE ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0302",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "6 CLINTON ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0303",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "188 E 35TH ST, LOS ANGELES, CA, 90011",
+      "source": "census"
+    },
+    {
+      "address_id": "A0304",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4541 HAMILTON ST, SAN DIEGO, CA, 92116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0305",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "638 45TH AVE, SAN FRANCISCO, CA, 94121",
+      "source": "census"
+    },
+    {
+      "address_id": "A0306",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "335A HARVARD ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0307",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "296 VAN BUREN ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0308",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "1032 HUDSON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0309",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1706 N STANLEY AVE, LOS ANGELES, CA, 90046",
+      "source": "census"
+    },
+    {
+      "address_id": "A0310",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "55 ASHFORD ST, ALLSTON, MA, 02134",
+      "source": "census"
+    },
+    {
+      "address_id": "A0311",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "38 SOMME ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0312",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "25 ORLANDO ST, MATTAPAN, MA, 02126",
+      "source": "census"
+    },
+    {
+      "address_id": "A0313",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "319 W RUNYON ST, NEWARK, NJ, 07108",
+      "source": "census"
+    },
+    {
+      "address_id": "A0314",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "6640 LELAND WAY, LOS ANGELES, CA, 90028",
+      "source": "census"
+    },
+    {
+      "address_id": "A0315",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "5233 CARTWRIGHT AVE, NORTH HOLLYWOOD, CA, 91601",
+      "source": "census"
+    },
+    {
+      "address_id": "A0316",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3978 FLORIDA ST, SAN DIEGO, CA, 92104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0317",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2233 CHANNING WAY, BERKELEY, CA, 94704",
+      "source": "census"
+    },
+    {
+      "address_id": "A0318",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2041 FRANCISCO ST, BERKELEY, CA, 94709",
+      "source": "census"
+    },
+    {
+      "address_id": "A0319",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2315 GRANT ST, BERKELEY, CA, 94703",
+      "source": "census"
+    },
+    {
+      "address_id": "A0320",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "408 MADISON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0321",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "200 NUNDA AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0322",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "227 CYPRESS DR, SAN YSIDRO, CA, 92173",
+      "source": "census"
+    },
+    {
+      "address_id": "A0323",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "4627 COMPTON AVE, LOS ANGELES, CA, 90011",
+      "source": "census"
+    },
+    {
+      "address_id": "A0324",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "2003 FRANKLIN ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0325",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "38A GAUTIER AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0326",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "46 JEFFERSON ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0327",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1605 N MARTEL AVE, LOS ANGELES, CA, 90046",
+      "source": "census"
+    },
+    {
+      "address_id": "A0328",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1845 08TH AV, San Francisco, CA ",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0329",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "51 MADISON ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0330",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "5229 WILLOWCREST AVE, NORTH HOLLYWOOD, CA, 91601",
+      "source": "census"
+    },
+    {
+      "address_id": "A0331",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "344 IRVINE TURNER BLVD, NEWARK, NJ, 07108",
+      "source": "census"
+    },
+    {
+      "address_id": "A0332",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "26 SONOMA ST, DORCHESTER, MA, 02121",
+      "source": "census"
+    },
+    {
+      "address_id": "A0333",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3752 33RD ST, SAN DIEGO, CA, 92104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0334",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2025 FRANCISCO ST, BERKELEY, CA, 94709",
+      "source": "census"
+    },
+    {
+      "address_id": "A0335",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "125 BEMIS ST, SAN FRANCISCO, CA, 94131",
+      "source": "census"
+    },
+    {
+      "address_id": "A0336",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "151 N FIRST ST, CAMBRIDGE, MA, 02141",
+      "source": "census"
+    },
+    {
+      "address_id": "A0337",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "66 MONROE ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0338",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "521-523 S 17TH, Newark, NJ 07417",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0339",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "124 BERKSHIRE ST, CAMBRIDGE, MA, 02141",
+      "source": "census"
+    },
+    {
+      "address_id": "A0340",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "14735 ROSCOE BLVD, PANORAMA CITY, CA, 91402",
+      "source": "census"
+    },
+    {
+      "address_id": "A0341",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4225 50TH ST, SAN DIEGO, CA, 92115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0342",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "49 ROSELAND ST, CAMBRIDGE, MA, 02140",
+      "source": "census"
+    },
+    {
+      "address_id": "A0343",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "408-410 5TH ST, Newark, NJ 10997",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0344",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "242 GARFIELD AVE, JERSEY CITY, NJ, 07305",
+      "source": "census"
+    },
+    {
+      "address_id": "A0345",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "153 W VERNON AVE, LOS ANGELES, CA, 90037",
+      "source": "census"
+    },
+    {
+      "address_id": "A0346",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "AUBURN DR, San Diego, CA 92105",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0347",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "2142 2ND AVE, SAN DIEGO, CA, 92101",
+      "source": "census"
+    },
+    {
+      "address_id": "A0348",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "229 CLINTON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0349",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2400 DANA ST, BERKELEY, CA, 94704",
+      "source": "census"
+    },
+    {
+      "address_id": "A0350",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "1051 W SIDE AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0351",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "628 HYDE ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0352",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "42 MT PROSPECT AVE, NEWARK, NJ, 07104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0353",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1044 E JEFFERSON BLVD, LOS ANGELES, CA, 90011",
+      "source": "census"
+    },
+    {
+      "address_id": "A0354",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "73 LUBEC ST, EAST BOSTON, MA, 02128",
+      "source": "census"
+    },
+    {
+      "address_id": "A0355",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "10701 AMESTOY AVE, GRANADA HILLS, CA, 91344",
+      "source": "census"
+    },
+    {
+      "address_id": "A0356",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "16 BRAINERD RD, ALLSTON, MA, 02134",
+      "source": "census"
+    },
+    {
+      "address_id": "A0357",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "173 07TH ST, San Francisco, CA ",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0358",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "717 N 6TH ST, NEWARK, NJ, 07107",
+      "source": "census"
+    },
+    {
+      "address_id": "A0359",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "925 PARK AVE, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0360",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "140 NEW YORK AVE, JERSEY CITY, NJ, 07307",
+      "source": "census"
+    },
+    {
+      "address_id": "A0361",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "15 BERKSHIRE ST, CAMBRIDGE, MA, 02141",
+      "source": "census"
+    },
+    {
+      "address_id": "A0362",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "368 RIVERWAY, BOSTON, MA, 02115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0363",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2451 SHATTUCK AVE, BERKELEY, CA, 94704",
+      "source": "census"
+    },
+    {
+      "address_id": "A0364",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "125 03RD AV, San Francisco, CA ",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0365",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3940 IDAHO ST, SAN DIEGO, CA, 92104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0366",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "230 EVERETT ST, EAST BOSTON, MA, 02128",
+      "source": "census"
+    },
+    {
+      "address_id": "A0367",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "219 S 35TH ST, SAN DIEGO, CA, 92113",
+      "source": "census"
+    },
+    {
+      "address_id": "A0368",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1430 FRANCISCO ST, SAN FRANCISCO, CA, 94123",
+      "source": "census"
+    },
+    {
+      "address_id": "A0369",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "3260 CALIFORNIA ST, BERKELEY, CA, 94703",
+      "source": "census"
+    },
+    {
+      "address_id": "A0370",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "2222 TOBERMAN ST, LOS ANGELES, CA, 90007",
+      "source": "census"
+    },
+    {
+      "address_id": "A0371",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "80 BRUEN ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0372",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "314 7TH ST, JERSEY CITY, NJ, 07302",
+      "source": "census"
+    },
+    {
+      "address_id": "A0373",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1315 SPRUCE ST, BERKELEY, CA, 94709",
+      "source": "census"
+    },
+    {
+      "address_id": "A0374",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "686 S ARDMORE AVE, LOS ANGELES, CA, 90005",
+      "source": "census"
+    },
+    {
+      "address_id": "A0375",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1880 FULTON ST, SAN FRANCISCO, CA, 94117",
+      "source": "census"
+    },
+    {
+      "address_id": "A0376",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "ST JAMES ST, Boston, MA 02119",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0377",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "206 BLOOMFIELD ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0378",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4053 IDAHO ST, SAN DIEGO, CA, 92104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0379",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "1336 BRUNNER ST, SAN DIEGO, CA, 92110",
+      "source": "census"
+    },
+    {
+      "address_id": "A0380",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "GREENVILLE ST, Boston, MA 02119",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0381",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "523 MARKET ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0382",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "119 DAY ST, SAN FRANCISCO, CA, 94131",
+      "source": "census"
+    },
+    {
+      "address_id": "A0383",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1908 CALIFORNIA ST, BERKELEY, CA, 94703",
+      "source": "census"
+    },
+    {
+      "address_id": "A0384",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "21 GUERRERO ST, San Francisco, CA ",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0385",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1059 UNION ST, SAN FRANCISCO, CA, 94133",
+      "source": "census"
+    },
+    {
+      "address_id": "A0386",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3654 ARIZONA ST, SAN DIEGO, CA, 92104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0387",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "10303 CMT ALVAREZ, SAN DIEGO, CA, 92126",
+      "source": "census"
+    },
+    {
+      "address_id": "A0388",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "155 CLERK ST, JERSEY CITY, NJ, 07305",
+      "source": "census"
+    },
+    {
+      "address_id": "A0389",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "923 GARDEN ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0390",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "70 DARCY ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0391",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "265 22ND ST, SAN DIEGO, CA, 92102",
+      "source": "census"
+    },
+    {
+      "address_id": "A0392",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4545 39TH ST, SAN DIEGO, CA, 92116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0393",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "91 JORDAN AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0394",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "45 RAVINE AVE, JERSEY CITY, NJ, 07307",
+      "source": "census"
+    },
+    {
+      "address_id": "A0395",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1632 RUSSELL ST, BERKELEY, CA, 94703",
+      "source": "census"
+    },
+    {
+      "address_id": "A0396",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3244 CLAIREMONT DR, SAN DIEGO, CA, 92117",
+      "source": "census"
+    },
+    {
+      "address_id": "A0397",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1677 BUSH ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0398",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "890 GREEN ST, SAN FRANCISCO, CA, 94133",
+      "source": "census"
+    },
+    {
+      "address_id": "A0399",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "227 WILLOW AVE, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0400",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "174 MT PROSPECT AVE, NEWARK, NJ, 07104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0401",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "257 14TH ST, SAN FRANCISCO, CA, 94103",
+      "source": "census"
+    },
+    {
+      "address_id": "A0402",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "2914 LARKIN ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0403",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "45 MYRTLE ST, BOSTON, MA, 02114",
+      "source": "census"
+    },
+    {
+      "address_id": "A0404",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "240 BOWERS ST, JERSEY CITY, NJ, 07307",
+      "source": "census"
+    },
+    {
+      "address_id": "A0405",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "10214 FERNGLEN AVE, TUJUNGA, CA, 91042",
+      "source": "census"
+    },
+    {
+      "address_id": "A0406",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "170 W SPRINGFIELD ST, BOSTON, MA, 02118",
+      "source": "census"
+    },
+    {
+      "address_id": "A0407",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "4188 GREENBUSH AVE, SHERMAN OAKS, CA, 91423",
+      "source": "census"
+    },
+    {
+      "address_id": "A0408",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "14375 POLK ST, SYLMAR, CA, 91342",
+      "source": "census"
+    },
+    {
+      "address_id": "A0409",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4428 GRESHAM ST, SAN DIEGO, CA, 92109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0410",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "319 SUMMIT AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0411",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1833 BERKELEY WAY, BERKELEY, CA, 94703",
+      "source": "census"
+    },
+    {
+      "address_id": "A0412",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "231 GRAFTON AVE, NEWARK, NJ, 07104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0413",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "2209 GRAND AVE, SAN DIEGO, CA, 92109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0414",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1987 CALIFORNIA ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0415",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "95 WAYNE ST, JERSEY CITY, NJ, 07302",
+      "source": "census"
+    },
+    {
+      "address_id": "A0416",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "882 PAVONIA AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0417",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "4957 CAHUENGA BLVD, NORTH HOLLYWOOD, CA, 91601",
+      "source": "census"
+    },
+    {
+      "address_id": "A0418",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "221 SIP AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0419",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1538 HENRY ST, BERKELEY, CA, 94709",
+      "source": "census"
+    },
+    {
+      "address_id": "A0420",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4419 CLEVELAND AVE, SAN DIEGO, CA, 92116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0421",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "17106 CHATSWORTH ST, GRANADA HILLS, CA, 91344",
+      "source": "census"
+    },
+    {
+      "address_id": "A0422",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "23 MARION ST, CAMBRIDGE, MA, 02141",
+      "source": "census"
+    },
+    {
+      "address_id": "A0423",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "10 CAMELOT CT, BRIGHTON, MA, 02135",
+      "source": "census"
+    },
+    {
+      "address_id": "A0424",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "208 JEFFERSON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0425",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "650 POST ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0426",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "1307 COLUSA ST, SAN DIEGO, CA, 92110",
+      "source": "census"
+    },
+    {
+      "address_id": "A0427",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "7665 W FOUNTAIN AVE, LOS ANGELES, CA, 90046",
+      "source": "census"
+    },
+    {
+      "address_id": "A0428",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "314 MT PROSPECT AVE, NEWARK, NJ, 07104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0429",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "12 BLACKWOOD ST, BOSTON, MA, 02115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0430",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1950 ADDISON ST, BERKELEY, CA, 94704",
+      "source": "census"
+    },
+    {
+      "address_id": "A0431",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "245 EUCLID AVE, SAN DIEGO, CA, 92114",
+      "source": "census"
+    },
+    {
+      "address_id": "A0432",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "14605 RAYEN ST, PANORAMA CITY, CA, 91402",
+      "source": "census"
+    },
+    {
+      "address_id": "A0433",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "720 W 27TH ST, LOS ANGELES, CA, 90007",
+      "source": "census"
+    },
+    {
+      "address_id": "A0434",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1225 HYDE ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0435",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "310 MONROE ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0436",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "832 WILLOW AVE, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0437",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "2969 SAN MARINO ST, LOS ANGELES, CA, 90006",
+      "source": "census"
+    },
+    {
+      "address_id": "A0438",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "62 CAMBRIDGE AVE, JERSEY CITY, NJ, 07307",
+      "source": "census"
+    },
+    {
+      "address_id": "A0439",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "225 25TH AVE, SAN FRANCISCO, CA, 94121",
+      "source": "census"
+    },
+    {
+      "address_id": "A0440",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "4042 FULTON ST, SAN FRANCISCO, CA, 94118",
+      "source": "census"
+    },
+    {
+      "address_id": "A0441",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4017 ILLINOIS ST, SAN DIEGO, CA, 92104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0442",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "7014 LANEWOOD AVE, LOS ANGELES, CA, 90028",
+      "source": "census"
+    },
+    {
+      "address_id": "A0443",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3526 FAIRMOUNT AVE, SAN DIEGO, CA, 92105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0444",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "231 COMMONWEALTH AVE, BOSTON, MA, 02116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0445",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "8790 VAN NUYS BLVD, PANORAMA CITY, CA, 91402",
+      "source": "census"
+    },
+    {
+      "address_id": "A0446",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "610 COLUMBUS AVE, BOSTON, MA, 02118",
+      "source": "census"
+    },
+    {
+      "address_id": "A0447",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "208 CLINTON ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0448",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "153 LAFAYETTE ST, NEWARK, NJ, 07105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0449",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "338 CLINTON PL, NEWARK, NJ, 07112",
+      "source": "census"
+    },
+    {
+      "address_id": "A0450",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "94 NEPTUNE AVE, JERSEY CITY, NJ, 07305",
+      "source": "census"
+    },
+    {
+      "address_id": "A0451",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "7300 VALMONT ST, TUJUNGA, CA, 91042",
+      "source": "census"
+    },
+    {
+      "address_id": "A0452",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1310 N LAS PALMAS AVE, LOS ANGELES, CA, 90028",
+      "source": "census"
+    },
+    {
+      "address_id": "A0453",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "11 CARLISLE ST, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0454",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "8944 COLUMBUS AVE, NORTH HILLS, CA, 91343",
+      "source": "census"
+    },
+    {
+      "address_id": "A0455",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "78 STEVENS AVE, JERSEY CITY, NJ, 07305",
+      "source": "census"
+    },
+    {
+      "address_id": "A0456",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "2151 CHATSWORTH BLVD, SAN DIEGO, CA, 92107",
+      "source": "census"
+    },
+    {
+      "address_id": "A0457",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1856 GREEN ST, SAN FRANCISCO, CA, 94123",
+      "source": "census"
+    },
+    {
+      "address_id": "A0458",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "1670 E 48TH PL, LOS ANGELES, CA, 90011",
+      "source": "census"
+    },
+    {
+      "address_id": "A0459",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "202 SOUTH ST, JERSEY CITY, NJ, 07307",
+      "source": "census"
+    },
+    {
+      "address_id": "A0460",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "229 SHEPHARD AVE, NEWARK, NJ, 07112",
+      "source": "census"
+    },
+    {
+      "address_id": "A0461",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "735 11TH AVE, SAN FRANCISCO, CA, 94118",
+      "source": "census"
+    },
+    {
+      "address_id": "A0462",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "128 ST PAULS AVE, JERSEY CITY, NJ, 07306",
+      "source": "census"
+    },
+    {
+      "address_id": "A0463",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "4 BEECHWOOD ST, DORCHESTER, MA, 02121",
+      "source": "census"
+    },
+    {
+      "address_id": "A0464",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "98 DABNEY ST, ROXBURY, MA, 02119",
+      "source": "census"
+    },
+    {
+      "address_id": "A0465",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "141 OXFORD ST, CAMBRIDGE, MA, 02140",
+      "source": "census"
+    },
+    {
+      "address_id": "A0466",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "115 NORWAY ST, BOSTON, MA, 02115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0467",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "24 ST ALBANS RD, BOSTON, MA, 02115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0468",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "13 SHEPARD ST, CAMBRIDGE, MA, 02138",
+      "source": "census"
+    },
+    {
+      "address_id": "A0469",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "2701 SHATTUCK AVE, BERKELEY, CA, 94705",
+      "source": "census"
+    },
+    {
+      "address_id": "A0470",
+      "legal_city": "Berkeley",
+      "county": "Alameda County",
+      "state": "CA",
+      "matched_address": "1919 CURTIS ST, BERKELEY, CA, 94702",
+      "source": "census"
+    },
+    {
+      "address_id": "A0471",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "334 GARDEN ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0472",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "321 WILLOW AVE, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0473",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "20 PHILLIPS ST, BOSTON, MA, 02114",
+      "source": "census"
+    },
+    {
+      "address_id": "A0474",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "3438 MCKINLEY AVE, LOS ANGELES, CA, 90011",
+      "source": "census"
+    },
+    {
+      "address_id": "A0475",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "361 1ST ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0476",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "28 COTTAGE ST, NEWARK, NJ, 07102",
+      "source": "census"
+    },
+    {
+      "address_id": "A0477",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "2250 MISSION ST, SAN FRANCISCO, CA, 94110",
+      "source": "census"
+    },
+    {
+      "address_id": "A0478",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3860 CHEROKEE AVE, SAN DIEGO, CA, 92104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0479",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "12948 MOORPARK ST, STUDIO CITY, CA, 91604",
+      "source": "census"
+    },
+    {
+      "address_id": "A0480",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "4046 43RD ST, SAN DIEGO, CA, 92105",
+      "source": "census"
+    },
+    {
+      "address_id": "A0481",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "536 LEAVENWORTH ST, SAN FRANCISCO, CA, 94109",
+      "source": "census"
+    },
+    {
+      "address_id": "A0482",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "101 CLIFTON PL, JERSEY CITY, NJ, 07304",
+      "source": "census"
+    },
+    {
+      "address_id": "A0483",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1580 MARKET ST, SAN FRANCISCO, CA, 94102",
+      "source": "census"
+    },
+    {
+      "address_id": "A0484",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "1801 08TH AV, San Francisco, CA ",
+      "source": "heuristic"
+    },
+    {
+      "address_id": "A0485",
+      "legal_city": "Cambridge",
+      "county": "Middlesex County",
+      "state": "MA",
+      "matched_address": "302 WESTERN AVE, CAMBRIDGE, MA, 02139",
+      "source": "census"
+    },
+    {
+      "address_id": "A0486",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "2280 MISSION ST, SAN FRANCISCO, CA, 94110",
+      "source": "census"
+    },
+    {
+      "address_id": "A0487",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "2118 FILLMORE ST, SAN FRANCISCO, CA, 94115",
+      "source": "census"
+    },
+    {
+      "address_id": "A0488",
+      "legal_city": "Boston",
+      "county": "Suffolk County",
+      "state": "MA",
+      "matched_address": "197 BEACON ST, BOSTON, MA, 02116",
+      "source": "census"
+    },
+    {
+      "address_id": "A0489",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "204 GRAND ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0490",
+      "legal_city": "Hoboken",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "526 ADAMS ST, HOBOKEN, NJ, 07030",
+      "source": "census"
+    },
+    {
+      "address_id": "A0491",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "37 IRVING ST, NEWARK, NJ, 07104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0492",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "800 S HARVARD BLVD, LOS ANGELES, CA, 90005",
+      "source": "census"
+    },
+    {
+      "address_id": "A0493",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "4450 GEARY BLVD, SAN FRANCISCO, CA, 94118",
+      "source": "census"
+    },
+    {
+      "address_id": "A0494",
+      "legal_city": "San Francisco",
+      "county": "San Francisco County",
+      "state": "CA",
+      "matched_address": "2641 FRANKLIN ST, SAN FRANCISCO, CA, 94123",
+      "source": "census"
+    },
+    {
+      "address_id": "A0495",
+      "legal_city": "Jersey City",
+      "county": "Hudson County",
+      "state": "NJ",
+      "matched_address": "230 VAN HORNE ST, JERSEY CITY, NJ, 07304",
+      "source": "census"
+    },
+    {
+      "address_id": "A0496",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "512 32ND ST, SAN DIEGO, CA, 92102",
+      "source": "census"
+    },
+    {
+      "address_id": "A0497",
+      "legal_city": "San Diego",
+      "county": "San Diego County",
+      "state": "CA",
+      "matched_address": "3750 29TH ST, SAN DIEGO, CA, 92104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0498",
+      "legal_city": "Newark",
+      "county": "Essex County",
+      "state": "NJ",
+      "matched_address": "686 SUMMER AVE, NEWARK, NJ, 07104",
+      "source": "census"
+    },
+    {
+      "address_id": "A0499",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "8519 WILLIS AVE, PANORAMA CITY, CA, 91402",
+      "source": "census"
+    },
+    {
+      "address_id": "A0500",
+      "legal_city": "Los Angeles",
+      "county": "Los Angeles County",
+      "state": "CA",
+      "matched_address": "8811 BURNET AVE, NORTH HILLS, CA, 91343",
+      "source": "census"
+    }
+  ],
+  "count": 500
+}
