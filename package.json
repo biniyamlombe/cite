@@ -1,0 +1,19 @@
+{
+  "name": "rental-housing-law-navigator",
+  "private": true,
+  "workspaces": [
+    "shared",
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:backend": "npm run dev -w backend",
+    "dev:frontend": "npm run dev -w frontend",
+    "extract": "npm run extract -w backend",
+    "geocode": "npm run geocode -w backend --",
+    "lookup": "npm run lookup -w backend --",
+    "changes": "npm run changes -w backend --",
+    "pipeline": "npm run pipeline -w backend --",
+    "build": "npm run build -w shared && npm run build -w backend && npm run build -w frontend"
+  }
+}
