@@ -1,0 +1,78 @@
+export const EXTRACTION_SYSTEM = `You are a legal-text extraction agent for a rental housing law navigator.
+Extract discrete RULES from the document that fall into exactly these categories:
+- rent_increase_limits
+- just_cause_eviction
+- security_deposits
+- application_screening_fees
+- screening_restrictions
+- algorithmic_rent_setting
+
+Return ONLY valid JSON: {"rules":[...]} with no markdown.
+
+Each rule MUST include:
+team_rule_id (temporary, e.g. "tmp-1"), jurisdiction (state code CA/NJ/MA or "City, ST"),
+level ("state"|"city"), category (one of the six), status ("in_force"|"not_yet_effective"|"pending"|"failed"),
+title, requirement (1-2 plain sentences), citation, source_url, quoted_span (EXACT contiguous text from the document, >=20 chars),
+source_doc_id, effective_date (YYYY-MM-DD or YYYY-MM or YYYY or null),
+key_value, coverage_conditions, exemptions, overrides (array), interaction, confidence (0-1),
+conflict_flag (boolean), conflict_note.
+
+Status is relative to query date 2026-10-01:
+- in_force: enacted and effective on/before that date
+- not_yet_effective: enacted but effective date after that date
+- pending: bill/proposal not enacted
+- failed: struck down / withdrawn / never became law
+
+Do NOT invent text. quoted_span must be copied verbatim from the document.
+If the document contains no rules in the six categories, return {"rules":[]}.
+Do not extract from commentary that is not the legal text itself unless it states a clear failed/pending status.`;
+
+export const RETRY_EXTRACTION_SYSTEM = `You extract housing-law rules as STRICT JSON only.
+Return exactly: {"rules":[...]} with no markdown, no commentary.
+
+Constraints to avoid JSON breakage:
+- At most 6 rules
+- quoted_span must be <= 180 characters, copied verbatim, with " escaped as \\"
+- Use only double quotes for JSON keys/strings
+- No trailing commas
+- conflict_note/exemptions/interaction may be null
+- overrides must be []
+
+Categories: rent_increase_limits | just_cause_eviction | security_deposits | application_screening_fees | screening_restrictions | algorithmic_rent_setting
+level: state | city
+status (as of 2026-10-01): in_force | not_yet_effective | pending | failed
+Required per rule: team_rule_id, jurisdiction, level, category, status, title, requirement, citation, source_url, quoted_span, source_doc_id, confidence, conflict_flag
+Do not invent quoted_span text.`;
+
+export function buildUserPrompt(doc: {
+  doc_id: string;
+  url: string;
+  jurisdictions: string[];
+  body: string;
+}): string {
+  const max = 40000;
+  const body =
+    doc.body.length > max
+      ? doc.body.slice(0, max) + "\n\n[TRUNCATED]"
+      : doc.body;
+  return `Document ID: ${doc.doc_id}
+Source URL: ${doc.url}
+Manifest jurisdictions: ${doc.jurisdictions.join("; ")}
+Query date: 2026-10-01
+
+DOCUMENT TEXT:
+${body}`;
+}
+
+export function chunkDocBody(body: string, chunkSize = 28000, overlap = 1500): string[] {
+  if (body.length <= chunkSize) return [body];
+  const chunks: string[] = [];
+  let start = 0;
+  while (start < body.length) {
+    const end = Math.min(body.length, start + chunkSize);
+    chunks.push(body.slice(start, end));
+    if (end >= body.length) break;
+    start = Math.max(0, end - overlap);
+  }
+  return chunks;
+}
