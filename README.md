@@ -15,6 +15,7 @@ Hack-Nation × RealPage · Challenge 02 — Rental Housing Law Navigator
 | `shared/` | Zod schemas shared by FE/BE |
 | `data/pack` | Vendored participant starter pack (corpus, addresses, schema, change tests) |
 | `outputs/` | `rules.json`, `lookups.json`, `changes.json`, `geocode_cache.json` |
+| `docs/METHOD.md` | One-page method note (extract → geocode → lookup → T1–T5) |
 | `docs/CITE_LOVABLE_PROMPT.md` | Prompt used to build the Lovable frontend |
 
 ## Setup
@@ -104,3 +105,7 @@ Set backend `CORS_ORIGIN` to match the UI origin (see `backend/.env.example`).
 - **C Changes** — `dev/change_tests.json` T1–T5; T6 hook ready for hour-16
 
 Default query date: `2026-10-01`.
+
+## Method
+
+See **[docs/METHOD.md](docs/METHOD.md)** for the one-page description of Modules A–C, reproducibility commands, and known limits.
