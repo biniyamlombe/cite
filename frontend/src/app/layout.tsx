@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { LocaleProvider } from "@/components/LocaleProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -26,24 +26,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <div className="disclaimer">
-          Not legal advice — informational tool with citations from a public
-          corpus. Verify with counsel before acting.
-        </div>
-        <div className="shell">
-          <header className="nav">
-            <Link href="/" className="brand">
-              Rental Housing Law Navigator
-              <span>Hack-Nation × RealPage · Challenge 02</span>
-            </Link>
-            <nav className="nav-links">
-              <Link href="/">Lookup</Link>
-              <Link href="/changes">Changes</Link>
-              <Link href="/pipeline">Pipeline</Link>
-            </nav>
-          </header>
-          {children}
-        </div>
+        <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>
   );

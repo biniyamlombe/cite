@@ -90,6 +90,13 @@ a:hover {
   font-weight: 500;
 }
 
+.nav-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.25rem;
+}
+
 .nav-links {
   display: flex;
   gap: 1rem;
@@ -107,6 +114,39 @@ a:hover {
 .nav-links a.active {
   border-bottom-color: var(--accent);
   text-decoration: none;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.lang-toggle button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.35rem 0.55rem;
+  cursor: pointer;
+}
+
+.lang-toggle button.active {
+  background: var(--accent);
+  color: #f6f1e6;
+}
+
+.lang-toggle button:not(.active):hover {
+  color: var(--ink);
+}
+
+.label-en {
+  font-weight: 600;
+  color: var(--muted);
 }
 
 h1,
