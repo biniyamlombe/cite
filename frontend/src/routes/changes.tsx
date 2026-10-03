@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { Clock, Loader2 } from "lucide-react";
+import { AlertCircle, Clock, Loader2 } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import { getCiteClient } from "@/lib/cite/client";
 import { PageHeader } from "@/components/cite/layout";
@@ -89,8 +89,23 @@ function ChangesPage() {
       {changes.isPending && <ChangesLoading />}
 
       {changes.isError && (
-        <div className="surface fade-up p-5 text-sm">
-          {t("changes.error")} {(changes.error as Error).message}
+        <div className="surface fade-up flex gap-3 p-5">
+          <AlertCircle className="size-5 shrink-0 text-destructive" />
+          <div>
+            <div className="font-medium text-ink">{t("changes.error")}</div>
+            <p className="mt-1 text-sm text-muted-foreground">
+              {(changes.error as Error).message}. Is the API running at{" "}
+              <span className="font-mono">localhost:4000</span>? Start it with{" "}
+              <span className="font-mono">npm run dev:backend</span>.
+            </p>
+            <button
+              type="button"
+              onClick={() => changes.refetch()}
+              className="mt-3 text-sm font-medium text-primary hover:underline"
+            >
+              {t("lookup.retry")}
+            </button>
+          </div>
         </div>
       )}
 

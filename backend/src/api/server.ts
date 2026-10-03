@@ -17,7 +17,10 @@ import { appendAudit, readAuditLog } from "../lib/audit.js";
 
 const app = new Hono();
 
-const corsAllow = (process.env.CORS_ORIGIN || "http://localhost:3000")
+const corsAllow = (
+  process.env.CORS_ORIGIN ||
+  "http://localhost:8080,http://localhost:5173,http://localhost:3000,http://127.0.0.1:8080,http://127.0.0.1:5173"
+)
   .split(",")
   .map((s) => s.trim())
   .filter(Boolean);
