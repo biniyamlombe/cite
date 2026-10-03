@@ -450,3 +450,7 @@
 {"ts":"2026-10-03T22:45:01.873Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-03T22:45:14.658Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-03T23:01:11.280Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-03T23:18:01.023Z","kind":"extract_doc","doc_id":"D001","source":"claude","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D001 via claude"}
+{"ts":"2026-10-03T23:22:10.349Z","kind":"extract_doc","doc_id":"D004","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D004 via heuristic"}
+{"ts":"2026-10-03T23:24:24.624Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-03T23:25:33.802Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
