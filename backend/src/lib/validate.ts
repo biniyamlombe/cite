@@ -4,7 +4,7 @@ import Ajv2020 from "ajv/dist/2020.js";
 import type { ErrorObject, ValidateFunction } from "ajv";
 import { RuleRecordSchema, type RuleRecord } from "@rhl/shared";
 import { packRoot } from "./paths.js";
-import { spanInSource } from "./corpus.js";
+import { exactSpanInSource, snapQuotedSpanToSource } from "./corpus.js";
 
 type AjvConstructor = new (opts?: object) => {
   compile: (schema: object) => ValidateFunction;
@@ -45,13 +45,20 @@ export async function validateRuleRecord(
       errors.push(`${e.instancePath || "/"}: ${e.message || "invalid"}`);
     }
   }
-  if (zod.success) {
-    if (!spanInSource(zod.data.quoted_span, sourceText)) {
-      errors.push("quoted_span not found in source document text");
+  let rule: RuleRecord | null = zod.success ? zod.data : null;
+  if (rule) {
+    const snapped = snapQuotedSpanToSource(rule.quoted_span, sourceText);
+    if (!snapped || !exactSpanInSource(snapped, sourceText)) {
+      errors.push(
+        "quoted_span not found as exact contiguous text in source document",
+      );
+      rule = null;
+    } else {
+      rule = { ...rule, quoted_span: snapped };
     }
   }
-  if (errors.length || !zod.success) {
+  if (errors.length || !rule) {
     return { ok: false, errors: [...new Set(errors)] };
   }
-  return { ok: true, rule: zod.data };
+  return { ok: true, rule };
 }

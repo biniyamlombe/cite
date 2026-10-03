@@ -97,8 +97,78 @@ export function normalizeForMatch(s: string): string {
   return s.replace(/\s+/g, " ").trim().toLowerCase();
 }
 
+/** Collapse runs of whitespace to a single space; map each out char → source index. */
+export function collapseWhitespaceWithMap(s: string): {
+  text: string;
+  map: number[];
+} {
+  const map: number[] = [];
+  let text = "";
+  let i = 0;
+  while (i < s.length && /\s/.test(s[i]!)) i += 1;
+  let pendingWs: number | null = null;
+  for (; i < s.length; i += 1) {
+    const ch = s[i]!;
+    if (/\s/.test(ch)) {
+      if (pendingWs == null) pendingWs = i;
+      continue;
+    }
+    if (pendingWs != null && text.length > 0) {
+      text += " ";
+      map.push(pendingWs);
+      pendingWs = null;
+    } else {
+      pendingWs = null;
+    }
+    text += ch;
+    map.push(i);
+  }
+  return { text, map };
+}
+
+/**
+ * Snap a model/heuristic quote (often newline→space collapsed) back to the
+ * exact contiguous substring in `source`. Prefer byte-exact corpus text for scoring.
+ */
+export function snapQuotedSpanToSource(
+  span: string,
+  source: string,
+): string | null {
+  if (!span || span.length < 20) return null;
+  if (source.includes(span)) return span;
+
+  const collapsedSpan = span.replace(/\s+/g, " ").trim();
+  if (!collapsedSpan) return null;
+  if (source.includes(collapsedSpan)) return collapsedSpan;
+
+  const { text: nSource, map } = collapseWhitespaceWithMap(source);
+  let idx = nSource.indexOf(collapsedSpan);
+  if (idx < 0) {
+    idx = nSource.toLowerCase().indexOf(collapsedSpan.toLowerCase());
+  }
+  if (idx < 0) {
+    const compact = collapsedSpan.replace(/\.{3}|…/g, " ").replace(/\s+/g, " ").trim();
+    if (compact.length >= 20) {
+      idx = nSource.toLowerCase().indexOf(compact.toLowerCase());
+    }
+  }
+  if (idx < 0) return null;
+
+  const endIdx = idx + collapsedSpan.length - 1;
+  const start = map[idx];
+  const end = map[endIdx];
+  if (start == null || end == null || end < start) return null;
+  const exact = source.slice(start, end + 1);
+  return exact.length >= 20 ? exact : null;
+}
+
+export function exactSpanInSource(span: string, source: string): boolean {
+  return Boolean(span && span.length >= 20 && source.includes(span));
+}
+
 export function spanInSource(span: string, source: string): boolean {
   if (!span || span.length < 20) return false;
+  if (source.includes(span)) return true;
   const nSpan = normalizeForMatch(span);
   const nSource = normalizeForMatch(source);
   if (nSource.includes(nSpan)) return true;
