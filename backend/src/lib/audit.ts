@@ -4,7 +4,13 @@ import { outputsDir } from "./paths.js";
 
 export type AuditEvent = {
   ts: string;
-  kind: "extract_doc" | "extract_corpus" | "schema_check" | "note";
+  kind:
+    | "extract_doc"
+    | "extract_corpus"
+    | "schema_check"
+    | "quote_rejected"
+    | "quote_retry"
+    | "note";
   doc_id?: string;
   source?: string;
   model?: string | null;

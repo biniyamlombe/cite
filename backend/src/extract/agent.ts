@@ -14,9 +14,11 @@ import { cacheDir } from "../lib/paths.js";
 import { assignAliases } from "./aliases.js";
 import { ensureChangeTestAliases } from "./ensure_aliases.js";
 import {
+  buildQuoteRetryUserPrompt,
   buildUserPrompt,
   chunkDocBody,
   EXTRACTION_SYSTEM,
+  QUOTE_RETRY_SYSTEM,
   RETRY_EXTRACTION_SYSTEM,
 } from "./prompt.js";
 import { extractRulesPayload } from "./json_repair.js";
@@ -25,6 +27,7 @@ import {
   heuristicExtractDoc,
   preferClaudeRules,
 } from "./heuristic.js";
+import { appendAudit } from "../lib/audit.js";
 
 function nextId(n: number): string {
   return `r-${String(n).padStart(4, "0")}`;
@@ -116,11 +119,28 @@ async function callClaudeJson(options: {
     .join("\n");
 }
 
+function isQuoteFailure(errors: string[]): boolean {
+  return errors.some((e) => e.toLowerCase().includes("quoted_span"));
+}
+
+function spanPreview(candidate: unknown): string {
+  const span =
+    typeof candidate === "object" &&
+    candidate &&
+    "quoted_span" in candidate &&
+    typeof (candidate as { quoted_span?: unknown }).quoted_span === "string"
+      ? (candidate as { quoted_span: string }).quoted_span
+      : "";
+  return span.slice(0, 80);
+}
+
 async function validateCandidates(
   candidates: unknown[],
   doc: CorpusDoc,
-): Promise<RuleRecord[]> {
-  const out: RuleRecord[] = [];
+  phase: "initial" | "quote_retry" = "initial",
+): Promise<{ kept: RuleRecord[]; quoteFailed: unknown[] }> {
+  const kept: RuleRecord[] = [];
+  const quoteFailed: unknown[] = [];
   for (const candidate of candidates) {
     const withMeta = {
       ...(typeof candidate === "object" && candidate ? candidate : {}),
@@ -131,16 +151,118 @@ async function validateCandidates(
     };
     const result = await validateRuleRecord(withMeta, doc.text);
     if (result.ok) {
-      out.push(result.rule);
+      kept.push(result.rule);
       continue;
     }
     const soft = RuleRecordSchema.safeParse(withMeta);
     if (soft.success && soft.data.quoted_span.length >= 20) {
       const v2 = await validateRuleRecord(soft.data, doc.text);
-      if (v2.ok) out.push(v2.rule);
+      if (v2.ok) {
+        kept.push(v2.rule);
+        continue;
+      }
+      if (isQuoteFailure(v2.errors)) {
+        if (phase === "initial") quoteFailed.push(soft.data);
+        await appendAudit({
+          ts: new Date().toISOString(),
+          kind: "quote_rejected",
+          doc_id: doc.doc_id,
+          message:
+            phase === "initial"
+              ? "quoted_span not exact in source; queued for Claude quote retry"
+              : "quoted_span still not exact after Claude quote retry",
+          meta: {
+            phase,
+            title: soft.data.title,
+            span_preview: spanPreview(soft.data),
+            errors: v2.errors,
+          },
+        });
+        continue;
+      }
+      await appendAudit({
+        ts: new Date().toISOString(),
+        kind: "quote_rejected",
+        doc_id: doc.doc_id,
+        message: "rule failed validation (non-quote)",
+        meta: {
+          phase,
+          title: soft.data.title,
+          span_preview: spanPreview(soft.data),
+          errors: v2.errors,
+        },
+      });
+      continue;
     }
+    await appendAudit({
+      ts: new Date().toISOString(),
+      kind: "quote_rejected",
+      doc_id: doc.doc_id,
+      message: "rule failed schema/shape before citation check",
+      meta: {
+        phase,
+        span_preview: spanPreview(withMeta),
+        errors: result.errors,
+      },
+    });
   }
-  return out;
+  return { kept, quoteFailed };
+}
+
+async function retryQuotesWithClaude(options: {
+  client: Anthropic;
+  model: string;
+  doc: CorpusDoc;
+  failedRules: unknown[];
+}): Promise<RuleRecord[]> {
+  const { client, model, doc, failedRules } = options;
+  if (!failedRules.length) return [];
+  const batch = failedRules.slice(0, 6);
+  try {
+    const text = await callClaudeJson({
+      client,
+      model,
+      system: QUOTE_RETRY_SYSTEM,
+      user: buildQuoteRetryUserPrompt({
+        doc_id: doc.doc_id,
+        body: doc.body,
+        failedRules: batch,
+      }),
+      label: `${doc.doc_id}-quote-retry`,
+      maxTokens: 3000,
+    });
+    const payload = extractRulesPayload(text);
+    const { kept, quoteFailed } = await validateCandidates(
+      payload.rules,
+      doc,
+      "quote_retry",
+    );
+    await appendAudit({
+      ts: new Date().toISOString(),
+      kind: "quote_retry",
+      doc_id: doc.doc_id,
+      source: "claude",
+      model,
+      rule_count: kept.length,
+      message: `quote retry recovered ${kept.length}/${batch.length}; still failing ${quoteFailed.length}`,
+      meta: {
+        attempted: batch.length,
+        recovered: kept.length,
+        still_failing: quoteFailed.length,
+      },
+    });
+    return kept;
+  } catch (err) {
+    await appendAudit({
+      ts: new Date().toISOString(),
+      kind: "quote_retry",
+      doc_id: doc.doc_id,
+      source: "claude",
+      model,
+      message: `quote retry failed: ${err instanceof Error ? err.message : String(err)}`,
+    });
+    return [];
+  }
 }
 
 async function extractChunk(
@@ -185,11 +307,12 @@ async function claudeExtractDoc(doc: CorpusDoc): Promise<RuleRecord[]> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) return [];
 
+  const client = new Anthropic({ apiKey, timeout: 120_000 });
+  const model = process.env.ANTHROPIC_MODEL || "claude-sonnet-4-5";
+
   const cached = await loadCache(doc);
   let parsed: unknown = cached;
   if (!parsed) {
-    const client = new Anthropic({ apiKey, timeout: 120_000 });
-    const model = process.env.ANTHROPIC_MODEL || "claude-sonnet-4-5";
     const chunks = chunkDocBody(doc.body);
     const allRules: unknown[] = [];
     const methods: string[] = [];
@@ -228,7 +351,17 @@ async function claudeExtractDoc(doc: CorpusDoc): Promise<RuleRecord[]> {
     parsed && typeof parsed === "object" && parsed !== null && "rules" in parsed
       ? (parsed as { rules: unknown[] }).rules
       : [];
-  return validateCandidates(rulesRaw, doc);
+  const { kept, quoteFailed } = await validateCandidates(rulesRaw, doc);
+  if (!quoteFailed.length) return kept;
+
+  process.stdout.write(` [quote-retry:${quoteFailed.length}]`);
+  const recovered = await retryQuotesWithClaude({
+    client,
+    model,
+    doc,
+    failedRules: quoteFailed,
+  });
+  return [...kept, ...recovered];
 }
 
 export async function extractDocument(

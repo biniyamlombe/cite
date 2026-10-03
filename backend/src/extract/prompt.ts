@@ -44,6 +44,37 @@ status (as of 2026-10-01): in_force | not_yet_effective | pending | failed
 Required per rule: team_rule_id, jurisdiction, level, category, status, title, requirement, citation, source_url, quoted_span, source_doc_id, confidence, conflict_flag
 Do not invent quoted_span text.`;
 
+export const QUOTE_RETRY_SYSTEM = `You repair housing-law rule records that failed citation checks.
+Return ONLY valid JSON: {"rules":[...]} with no markdown.
+
+For each input rule:
+- Keep all fields the same EXCEPT quoted_span (and fix source_doc_id if wrong).
+- quoted_span MUST be an EXACT contiguous copy from DOCUMENT TEXT, length >= 20.
+- Do not invent or paraphrase. Prefer a short supporting sentence already in the document.
+- If you cannot find an exact supporting span, omit that rule from the output array.`;
+
+export function buildQuoteRetryUserPrompt(options: {
+  doc_id: string;
+  body: string;
+  failedRules: unknown[];
+}): string {
+  const max = 35000;
+  const body =
+    options.body.length > max
+      ? options.body.slice(0, max) + "\n\n[TRUNCATED]"
+      : options.body;
+  return `Document ID: ${options.doc_id}
+
+These rule objects failed because quoted_span was not found verbatim in the document.
+Return corrected rules with exact quoted_span values copied from DOCUMENT TEXT.
+
+FAILED RULES JSON:
+${JSON.stringify({ rules: options.failedRules }, null, 2)}
+
+DOCUMENT TEXT:
+${body}`;
+}
+
 export function buildUserPrompt(doc: {
   doc_id: string;
   url: string;
