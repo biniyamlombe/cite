@@ -9,3 +9,8 @@ backend/.cache/
 *.log
 .DS_Store
 !outputs/.gitkeep
+
+frontend/.env
+frontend/.env.*
+frontend/node_modules/
+frontend/dist/
