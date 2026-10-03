@@ -12,7 +12,10 @@ import {
 import { validateRuleRecord } from "../lib/validate.js";
 import { cacheDir } from "../lib/paths.js";
 import { assignAliases } from "./aliases.js";
-import { ensureChangeTestAliases } from "./ensure_aliases.js";
+import {
+  ensureChangeTestAliases,
+  normalizeChangeTestEffectiveDates,
+} from "./ensure_aliases.js";
 import {
   buildQuoteRetryUserPrompt,
   buildUserPrompt,
@@ -94,6 +97,15 @@ function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise
   });
 }
 
+function defaultModel(): string {
+  return process.env.ANTHROPIC_MODEL || "claude-haiku-4-5";
+}
+
+function extractConcurrency(): number {
+  const n = Number(process.env.EXTRACT_CONCURRENCY || "4");
+  return Number.isFinite(n) && n >= 1 ? Math.min(8, Math.floor(n)) : 4;
+}
+
 async function callClaudeJson(options: {
   client: Anthropic;
   model: string;
@@ -105,7 +117,7 @@ async function callClaudeJson(options: {
   const msg = await withTimeout(
     options.client.messages.create({
       model: options.model,
-      max_tokens: options.maxTokens ?? 4096,
+      max_tokens: options.maxTokens ?? 2500,
       temperature: 0,
       system: options.system,
       messages: [{ role: "user", content: options.user }],
@@ -229,7 +241,7 @@ async function retryQuotesWithClaude(options: {
         failedRules: batch,
       }),
       label: `${doc.doc_id}-quote-retry`,
-      maxTokens: 3000,
+      maxTokens: 1800,
     });
     const payload = extractRulesPayload(text);
     const { kept, quoteFailed } = await validateCandidates(
@@ -293,7 +305,7 @@ async function extractChunk(
         user +
         "\n\nIMPORTANT: Previous response had invalid JSON. Return compact valid JSON only. Escape all quotes inside strings.",
       label: `${label}-retry`,
-      maxTokens: 3000,
+      maxTokens: 2000,
     });
     const payload = extractRulesPayload(text);
     return {
@@ -303,35 +315,50 @@ async function extractChunk(
   }
 }
 
+type CachedExtract = {
+  rules?: unknown[];
+  _methods?: string[];
+  _chunks?: number;
+  _parse_error?: string;
+  /** Validated rules after quote-retry — skip API on cache hit. */
+  _validated?: RuleRecord[];
+};
+
 async function claudeExtractDoc(doc: CorpusDoc): Promise<RuleRecord[]> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) return [];
 
   const client = new Anthropic({ apiKey, timeout: 120_000 });
-  const model = process.env.ANTHROPIC_MODEL || "claude-sonnet-4-5";
+  const model = defaultModel();
 
-  const cached = await loadCache(doc);
-  let parsed: unknown = cached;
+  const cached = (await loadCache(doc)) as CachedExtract | null;
+  if (cached?._validated && Array.isArray(cached._validated)) {
+    process.stdout.write(` [cache:validated:${cached._validated.length}]`);
+    return cached._validated;
+  }
+
+  let parsed: CachedExtract | null = cached;
   if (!parsed) {
     const chunks = chunkDocBody(doc.body);
     const allRules: unknown[] = [];
     const methods: string[] = [];
     try {
-      for (let i = 0; i < chunks.length; i++) {
-        const label =
-          chunks.length === 1
-            ? doc.doc_id
-            : `${doc.doc_id}#${i + 1}/${chunks.length}`;
-        const { rules, method } = await extractChunk(
-          client,
-          model,
-          doc,
-          chunks[i]!,
-          label,
-        );
-        allRules.push(...rules);
-        methods.push(method);
-        process.stdout.write(` [${label}:${method}:${rules.length}]`);
+      // Parallelize chunks inside a doc (biggest win on D067).
+      const results = await Promise.all(
+        chunks.map(async (chunk, i) => {
+          const label =
+            chunks.length === 1
+              ? doc.doc_id
+              : `${doc.doc_id}#${i + 1}/${chunks.length}`;
+          const out = await extractChunk(client, model, doc, chunk, label);
+          return { ...out, label, i };
+        }),
+      );
+      results.sort((a, b) => a.i - b.i);
+      for (const r of results) {
+        allRules.push(...r.rules);
+        methods.push(r.method);
+        process.stdout.write(` [${r.label}:${r.method}:${r.rules.length}]`);
       }
       parsed = {
         rules: allRules,
@@ -347,21 +374,26 @@ async function claudeExtractDoc(doc: CorpusDoc): Promise<RuleRecord[]> {
     await saveCache(doc, parsed);
   }
 
-  const rulesRaw =
-    parsed && typeof parsed === "object" && parsed !== null && "rules" in parsed
-      ? (parsed as { rules: unknown[] }).rules
-      : [];
+  const rulesRaw = Array.isArray(parsed.rules) ? parsed.rules : [];
   const { kept, quoteFailed } = await validateCandidates(rulesRaw, doc);
-  if (!quoteFailed.length) return kept;
+  let finalRules = kept;
+  if (quoteFailed.length) {
+    process.stdout.write(` [quote-retry:${quoteFailed.length}]`);
+    const recovered = await retryQuotesWithClaude({
+      client,
+      model,
+      doc,
+      failedRules: quoteFailed,
+    });
+    finalRules = [...kept, ...recovered];
+  }
 
-  process.stdout.write(` [quote-retry:${quoteFailed.length}]`);
-  const recovered = await retryQuotesWithClaude({
-    client,
-    model,
-    doc,
-    failedRules: quoteFailed,
+  // Persist validated rules so the next extract costs $0 for this doc.
+  await saveCache(doc, {
+    ...parsed,
+    _validated: finalRules,
   });
-  return [...kept, ...recovered];
+  return finalRules;
 }
 
 export async function extractDocument(
@@ -421,16 +453,16 @@ export async function extractAllCorpus(options?: {
   let claudeDocsOk = 0;
   let claudeDocsFailed = 0;
   let claudeRuleCount = 0;
-  let n = 0;
-  for (const doc of docs) {
-    n += 1;
-    process.stdout.write(`\rExtracting ${n}/${docs.length}: ${doc.doc_id}`);
+  const concurrency = extractConcurrency();
+  let completed = 0;
+  let cursor = 0;
+
+  async function processDoc(doc: CorpusDoc): Promise<RuleRecord[]> {
     let rules: RuleRecord[] = [];
     if (keyPresent) {
       try {
         rules = await claudeExtractDoc(doc);
         if (rules.length === 0) {
-          // Distinguish empty-but-successful from failed placeholder.
           const cached = await loadCache(doc);
           const failed =
             cached &&
@@ -454,8 +486,26 @@ export async function extractAllCorpus(options?: {
       }
     }
     const heur = rules.length ? [] : heuristicExtractDoc(doc);
-    all.push(...rules, ...heur);
+    return [...rules, ...heur];
   }
+
+  async function worker(): Promise<void> {
+    while (cursor < docs.length) {
+      const i = cursor;
+      cursor += 1;
+      const doc = docs[i]!;
+      const rules = await processDoc(doc);
+      all.push(...rules);
+      completed += 1;
+      process.stdout.write(
+        `\rExtracting ${completed}/${docs.length}: ${doc.doc_id} (x${concurrency})`,
+      );
+    }
+  }
+
+  await Promise.all(
+    Array.from({ length: Math.min(concurrency, docs.length) }, () => worker()),
+  );
   process.stdout.write("\n");
 
   const deduped = preferClaudeRules(dedupeRules(all));
@@ -463,7 +513,7 @@ export async function extractAllCorpus(options?: {
   const ensured = assignAliases(
     preferClaudeRules(dedupeRules(await ensureChangeTestAliases(aliased))),
   );
-  const numbered = ensured.map((r, i) => ({
+  const numbered = normalizeChangeTestEffectiveDates(ensured).map((r, i) => ({
     ...r,
     team_rule_id: nextId(i + 1),
   }));

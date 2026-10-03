@@ -53,25 +53,99 @@ For each input rule:
 - Do not invent or paraphrase. Prefer a short supporting sentence already in the document.
 - If you cannot find an exact supporting span, omit that rule from the output array.`;
 
+/** Compact failed rules for quote-retry prompts (drop bulky null/empty fields). */
+function slimFailedRules(failedRules: unknown[]): unknown[] {
+  return failedRules.map((r) => {
+    if (!r || typeof r !== "object") return r;
+    const o = r as Record<string, unknown>;
+    const keep: Record<string, unknown> = {};
+    for (const k of [
+      "team_rule_id",
+      "jurisdiction",
+      "level",
+      "category",
+      "status",
+      "title",
+      "requirement",
+      "citation",
+      "source_url",
+      "quoted_span",
+      "source_doc_id",
+      "effective_date",
+      "confidence",
+      "conflict_flag",
+    ]) {
+      if (o[k] !== undefined && o[k] !== null && o[k] !== "") keep[k] = o[k];
+    }
+    return keep;
+  });
+}
+
+/** Prefer short windows around each bad span instead of re-sending the whole statute. */
+function quoteRetryExcerpts(body: string, failedRules: unknown[], maxChars = 14000): string {
+  const windows: string[] = [];
+  const half = 1800;
+  for (const rule of failedRules) {
+    const span =
+      typeof rule === "object" &&
+      rule &&
+      "quoted_span" in rule &&
+      typeof (rule as { quoted_span?: unknown }).quoted_span === "string"
+        ? (rule as { quoted_span: string }).quoted_span.trim()
+        : "";
+    if (!span) continue;
+    const needle = span.slice(0, 48);
+    let idx = body.indexOf(needle);
+    if (idx < 0) {
+      idx = body.toLowerCase().indexOf(needle.toLowerCase());
+    }
+    if (idx < 0) {
+      // fallback: keyword from title/requirement
+      const title =
+        typeof rule === "object" &&
+        rule &&
+        "title" in rule &&
+        typeof (rule as { title?: unknown }).title === "string"
+          ? (rule as { title: string }).title
+          : "";
+      const words = title.split(/\s+/).filter((w) => w.length > 5).slice(0, 3);
+      for (const w of words) {
+        idx = body.toLowerCase().indexOf(w.toLowerCase());
+        if (idx >= 0) break;
+      }
+    }
+    if (idx < 0) continue;
+    const start = Math.max(0, idx - half);
+    const end = Math.min(body.length, idx + half);
+    windows.push(body.slice(start, end));
+  }
+  if (!windows.length) {
+    return body.length > maxChars
+      ? body.slice(0, maxChars) + "\n\n[TRUNCATED]"
+      : body;
+  }
+  // de-dupe overlapping windows by simple join + truncate
+  let joined = windows.join("\n\n---\n\n");
+  if (joined.length > maxChars) joined = joined.slice(0, maxChars) + "\n\n[TRUNCATED]";
+  return joined;
+}
+
 export function buildQuoteRetryUserPrompt(options: {
   doc_id: string;
   body: string;
   failedRules: unknown[];
 }): string {
-  const max = 35000;
-  const body =
-    options.body.length > max
-      ? options.body.slice(0, max) + "\n\n[TRUNCATED]"
-      : options.body;
+  const slim = slimFailedRules(options.failedRules);
+  const body = quoteRetryExcerpts(options.body, options.failedRules);
   return `Document ID: ${options.doc_id}
 
 These rule objects failed because quoted_span was not found verbatim in the document.
-Return corrected rules with exact quoted_span values copied from DOCUMENT TEXT.
+Return corrected rules with exact quoted_span values copied from DOCUMENT EXCERPTS.
 
 FAILED RULES JSON:
-${JSON.stringify({ rules: options.failedRules }, null, 2)}
+${JSON.stringify({ rules: slim })}
 
-DOCUMENT TEXT:
+DOCUMENT EXCERPTS:
 ${body}`;
 }
 
@@ -81,7 +155,8 @@ export function buildUserPrompt(doc: {
   jurisdictions: string[];
   body: string;
 }): string {
-  const max = 40000;
+  // Match chunk size so we do not pay for chars the chunker already dropped.
+  const max = 28000;
   const body =
     doc.body.length > max
       ? doc.body.slice(0, max) + "\n\n[TRUNCATED]"
@@ -95,7 +170,7 @@ DOCUMENT TEXT:
 ${body}`;
 }
 
-export function chunkDocBody(body: string, chunkSize = 28000, overlap = 1500): string[] {
+export function chunkDocBody(body: string, chunkSize = 24000, overlap = 1200): string[] {
   if (body.length <= chunkSize) return [body];
   const chunks: string[] = [];
   let start = 0;
