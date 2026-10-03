@@ -1,4 +1,5 @@
 import {
+  coveragePlainText,
   DEFAULT_AS_OF,
   type LookupEntry,
   type RuleRecord,
@@ -8,6 +9,10 @@ import {
   type SampleAddress,
 } from "../lib/addresses.js";
 import type { GeocodeResult } from "../geocode/census.js";
+import {
+  evaluateExecutableCoverage,
+  executableFromRule,
+} from "./executable.js";
 
 function parseDate(s: string | null | undefined): Date | null {
   if (!s) return null;
@@ -45,10 +50,7 @@ function ruleMatchesJurisdiction(
 }
 
 function coverageText(rule: RuleRecord): string {
-  const c = rule.coverage_conditions;
-  if (c == null) return "";
-  if (typeof c === "string") return c;
-  return JSON.stringify(c);
+  return coveragePlainText(rule.coverage_conditions);
 }
 
 type EvalResult = Omit<LookupEntry, "team_rule_id"> & {
@@ -94,7 +96,29 @@ function statusAsOf(rule: RuleRecord, asOf: string): EvalResult | null {
 function evaluateBuildingFacts(
   rule: RuleRecord,
   addr: SampleAddress,
+  geo: GeocodeResult,
 ): EvalResult | null {
+  // Prefer machine-executable dual coverage when present.
+  const executable = executableFromRule(rule);
+  if (executable && (executable.unknown_if?.length || executable.omit_if?.length)) {
+    const hit = evaluateExecutableCoverage(executable, addr, geo);
+    if (hit?.kind === "omit") {
+      return { omit: true, result: "applies", explanation: "", conflict_flag: false };
+    }
+    if (hit?.kind === "unknown") {
+      return {
+        result: "unknown",
+        explanation: hit.reason,
+        conflict_flag: false,
+      };
+    }
+    if (hit?.kind === "fail") {
+      return { omit: true, result: "applies", explanation: "", conflict_flag: false };
+    }
+    // Executable present and passed — skip prose heuristics for this rule.
+    return null;
+  }
+
   const year = parseOptionalInt(addr.year_built);
   const units = parseOptionalInt(addr.units);
   const cov = coverageText(rule).toLowerCase();
@@ -273,7 +297,7 @@ export function evaluateAddress(options: {
       continue;
     }
 
-    const factHit = evaluateBuildingFacts(rule, address);
+    const factHit = evaluateBuildingFacts(rule, address, geo);
     if (factHit?.omit) continue;
     if (factHit) {
       prelim.push({
