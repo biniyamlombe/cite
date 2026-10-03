@@ -1,2 +1,4 @@
 {"ts":"2026-10-03T20:51:22.221Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-03T20:55:21.930Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-03T20:58:26.755Z","kind":"note","message":"Enriched coverage_conditions dual form on 121/121 rules","meta":{"dual":121,"total":121}}
+{"ts":"2026-10-03T20:58:27.416Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}

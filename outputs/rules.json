@@ -9,7 +9,16 @@
       "title": "Prohibition on Sale of Coordinated Pricing Algorithms in Berkeley",
       "requirement": "It is unlawful to sell, license, or otherwise provide to Berkeley landlords any coordinated pricing algorithm that sets or recommends rents or occupancy levels for residential dwelling units in Berkeley.",
       "key_value": "prohibition on sale of coordinated pricing algorithms",
-      "coverage_conditions": "Applies to any person or entity selling, licensing, or providing coordinated pricing algorithms to Berkeley landlords",
+      "coverage_conditions": {
+        "text": "Applies to any person or entity selling, licensing, or providing coordinated pricing algorithms to Berkeley landlords",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "Does not include: (a) products that publish aggregated/anonymous rental data without recommending prices; (b) products for establishing affordable housing rent/income limits; (c) products for market research, appraisals, or software development/testing",
       "overrides": [],
       "interaction": "Works in conjunction with subsection B to create comprehensive prohibition on both supply and use of coordinated pricing algorithms",
@@ -31,7 +40,16 @@
       "title": "Prohibition on Landlord Use of Coordinated Pricing Algorithms in Berkeley",
       "requirement": "It is unlawful for a landlord to use a coordinated pricing algorithm when setting rents or occupancy levels for residential dwelling units in Berkeley. Each separate month and each separate unit constitutes a distinct violation.",
       "key_value": "prohibition on landlord use of coordinated pricing algorithms",
-      "coverage_conditions": "Applies to all landlords setting rents or occupancy levels for residential dwelling units in Berkeley",
+      "coverage_conditions": {
+        "text": "Applies to all landlords setting rents or occupancy levels for residential dwelling units in Berkeley",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "Same exemptions as subsection A: aggregated data reports, affordable housing compliance tools, market research/appraisal tools, software development/testing",
       "overrides": [],
       "interaction": "Coordinated pricing algorithm defined in § 13.63.020(A) as using Competitor Data (non-public data less than 90 days old) to recommend rents/occupancy in coordination between landlords",
@@ -53,7 +71,16 @@
       "title": "Maximum Tenant Screening Fee for 2026",
       "requirement": "Landlords may charge a maximum tenant screening fee of $68.96 for 2026. Landlords must provide tenants with a copy of their credit report within 7 days, a receipt for the fee, an itemized list of expenses and time spent, and a refund of any unused portion.",
       "key_value": "$68.96",
-      "coverage_conditions": "Applies to residential rental properties in Berkeley",
+      "coverage_conditions": {
+        "text": "Applies to residential rental properties in Berkeley",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "Implements state law California Civil Code Section 1950.6 at local level",
@@ -75,7 +102,16 @@
       "title": "Requirement to Use Reusable Screening Report",
       "requirement": "If a prospective tenant provides a reusable screening report, the landlord must use it and cannot charge a separate screening fee for obtaining the same information.",
       "key_value": "mandatory use of reusable report",
-      "coverage_conditions": "Applies when prospective tenant provides a reusable screening report",
+      "coverage_conditions": {
+        "text": "Applies when prospective tenant provides a reusable screening report",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "Prevents duplicate screening fees when tenant already has report",
@@ -97,7 +133,16 @@
       "title": "Prohibition on Screening Fees When No Unit Available",
       "requirement": "Landlords cannot charge a prospective tenant a screening fee if no rental unit is actually available. Landlords must also return screening fees to applicants not selected or have a policy to review applications in order received and not charge fees to applicants not considered.",
       "key_value": "no fee when no unit available; refund or first-come policy required",
-      "coverage_conditions": "Applies to all tenant screening situations",
+      "coverage_conditions": {
+        "text": "Applies to all tenant screening situations",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "Prevents landlords from collecting fees when unit is unavailable or from applicants who will not be considered",
@@ -119,7 +164,16 @@
       "title": "Applicability to Existing Rental Agreements",
       "requirement": "Chapter 13.78 applies to all residential rental agreements regardless of any contractual language in any rental agreement or lease to the contrary. Any provision of an existing rental agreement or lease that violates the provisions of this chapter are unenforceable.",
       "key_value": "applies to all agreements; conflicting provisions unenforceable",
-      "coverage_conditions": "Applies to all residential rental agreements in Berkeley",
+      "coverage_conditions": {
+        "text": "Applies to all residential rental agreements in Berkeley",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [
         "Any conflicting provisions in existing rental agreements or leases"
@@ -143,7 +197,16 @@
       "title": "Service Member Security Deposit Protection",
       "requirement": "A landlord shall not demand or receive security exceeding one month's rent from a service member, and shall not refuse to rent to a service member because the landlord cannot charge more than one month's rent as security.",
       "key_value": "1 month rent for service members",
-      "coverage_conditions": "Prospective tenant is a service member as defined in Military and Veterans Code § 400",
+      "coverage_conditions": {
+        "text": "Prospective tenant is a service member as defined in Military and Veterans Code § 400",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "None",
       "overrides": [],
       "interaction": "Overrides the two-month exception for small landlords when tenant is service member",
@@ -165,7 +228,16 @@
       "title": "Service Member Higher Security Disclosure and Return",
       "requirement": "If a landlord charges a service member higher than standard security due to credit history or other factors, the landlord must provide written statement of the amount and explanation, and must return the additional amount after six months if tenant is not in arrears.",
       "key_value": "6 months return period",
-      "coverage_conditions": "Service member charged higher security due to credit/housing history or other tenant-related factor",
+      "coverage_conditions": {
+        "text": "Service member charged higher security due to credit/housing history or other tenant-related factor",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "None",
       "overrides": [],
       "interaction": "Applies when service member is charged higher security within the one-month limit",
@@ -187,7 +259,16 @@
       "title": "Photograph Documentation Requirement - Inception",
       "requirement": "For tenancies beginning on or after July 1, 2025, landlord must take photographs of the unit immediately before or at the inception of the tenancy.",
       "key_value": "photographs at inception",
-      "coverage_conditions": "Applies to tenancies beginning on or after July 1, 2025",
+      "coverage_conditions": {
+        "text": "Applies to tenancies beginning on or after July 1, 2025",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "None",
       "overrides": [],
       "interaction": "Works with move-out photograph requirement and itemized statement documentation",
@@ -209,7 +290,16 @@
       "title": "Photograph Documentation Requirement - Move-Out",
       "requirement": "Beginning April 1, 2025, landlord must take photographs of the unit within reasonable time after possession is returned but before repairs/cleanings for which deductions will be made, and after such repairs/cleanings are completed, and provide these photographs to tenant with itemized statement.",
       "key_value": "before and after photos",
-      "coverage_conditions": "Applies to all tenancies where deductions are made from security deposit",
+      "coverage_conditions": {
+        "text": "Applies to all tenancies where deductions are made from security deposit",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "None",
       "overrides": [],
       "interaction": "Photographs must be provided with itemized statement per subdivision (h)(2)(D)",
@@ -231,7 +321,16 @@
       "title": "Security Deposit Return Timeline and Itemized Statement",
       "requirement": "No later than 21 calendar days after tenant vacates, landlord must furnish itemized statement of security disposition and return any remaining portion. Statement must include basis and amount of deductions, with supporting documentation including photographs, bills, invoices, or receipts for charges over $125.",
       "key_value": "21 days",
-      "coverage_conditions": "Applies to all residential tenancies",
+      "coverage_conditions": {
+        "text": "Applies to all residential tenancies",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "Documentation not required if deductions under $125 and tenant does not waive; tenant may waive documentation requirements",
       "overrides": [],
       "interaction": "Works with photograph requirements and electronic payment provisions",
@@ -253,7 +352,16 @@
       "title": "Electronic Security Deposit Return Requirement",
       "requirement": "If landlord received security or rental payments electronically, landlord must return remaining security electronically to bank account or financial institution designated by tenant in writing, or by electronic/virtual method agreed to in writing, unless parties agree to another method in writing.",
       "key_value": "electronic return required",
-      "coverage_conditions": "Applies when landlord received security or rental payments electronically",
+      "coverage_conditions": {
+        "text": "Applies when landlord received security or rental payments electronically",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "Parties may agree in writing to alternative return method",
       "overrides": [],
       "interaction": "Landlord must notify tenant of electronic return right within reasonable time after termination notice",
@@ -275,7 +383,36 @@
       "title": "Los Angeles RSO Prohibition on Utility Pass-Through Increases",
       "requirement": "Beginning February 2, 2026, a landlord can no longer include any additional percentage increase for utilities in rent increases for RSO units.",
       "key_value": "0% additional for utilities",
-      "coverage_conditions": "Applies to rental units subject to the City of Los Angeles RSO",
+      "coverage_conditions": {
+        "text": "Applies to rental units subject to the City of Los Angeles RSO",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "year_built",
+            "operator": "missing",
+            "reason": "LA RSO coverage depends on certificate of occupancy; year_built is missing."
+          },
+          {
+            "field": "year_built",
+            "operator": "eq",
+            "value": 1978,
+            "reason": "Building year is 1978 (LA COO cutoff 1978-10-01); certificate of occupancy date is not in the data."
+          }
+        ],
+        "omit_if": [
+          {
+            "field": "year_built",
+            "operator": "gt",
+            "value": 1978
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "This eliminates the ability to pass through utility cost increases as part of rent increases",
@@ -297,7 +434,16 @@
       "title": "General prohibition on rent control in Massachusetts",
       "requirement": "No city or town in Massachusetts may enact, maintain or enforce rent control of any kind, except under very limited voluntary conditions. Any rent control regulation must be entirely voluntary after six months and property owners can opt out without consequence.",
       "key_value": "voluntary_only",
-      "coverage_conditions": "Applies to all cities and towns in Massachusetts",
+      "coverage_conditions": {
+        "text": "Applies to all cities and towns in Massachusetts",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
       "exemptions": "Cities/towns may adopt voluntary rent control under specific conditions outlined in subsections (a), (b), and (c)",
       "overrides": [],
       "interaction": "This state law preempts any local rent control ordinances that do not meet the voluntary compliance requirements",
@@ -319,7 +465,16 @@
       "title": "Exemptions from voluntary rent control - small landlords and higher-rent units",
       "requirement": "Any voluntary rent control regulation may not apply to rental units owned by persons or entities owning fewer than ten rental units, or to units with fair market rent exceeding $400.",
       "key_value": "exempt_under_10_units_or_over_400",
-      "coverage_conditions": "Applies to any city or town attempting to adopt voluntary rent control under Chapter 40P",
+      "coverage_conditions": {
+        "text": "Applies to any city or town attempting to adopt voluntary rent control under Chapter 40P",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
       "exemptions": "Units owned by landlords with fewer than 10 units; units with fair market rent over $400",
       "overrides": [],
       "interaction": "Limits scope of any permissible voluntary rent control regulation",
@@ -341,7 +496,16 @@
       "title": "Prohibition on eviction regulation in voluntary rent control",
       "requirement": "Any voluntary rent control regulation adopted by a city or town may not include regulation of evictions.",
       "key_value": "no_eviction_regulation",
-      "coverage_conditions": "Applies to any city or town attempting to adopt voluntary rent control under Chapter 40P",
+      "coverage_conditions": {
+        "text": "Applies to any city or town attempting to adopt voluntary rent control under Chapter 40P",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "Prevents local rent control ordinances from including just cause eviction protections",
@@ -363,7 +527,16 @@
       "title": "New Jersey Residential Rental Application Fee Cap",
       "requirement": "A landlord or agent shall not require an application or other similar fee to apply to lease or sublease a residential rental property for dwelling purposes which exceeds $50. This amount is adjusted annually based on the Consumer Price Index for All Urban Consumers, New York-Northern New Jersey-Long Island Metropolitan Area.",
       "key_value": "$50 (subject to annual CPI adjustment)",
-      "coverage_conditions": "Applies to residential rental properties for dwelling purposes in New Jersey",
+      "coverage_conditions": {
+        "text": "Applies to residential rental properties for dwelling purposes in New Jersey",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "NJ"
+          }
+        ]
+      },
       "exemptions": "Does not apply to: (1) a dwelling unit located in a one-family or two-family dwelling that is offered for rent; or (2) a licensee of the New Jersey Real Estate Commission, unless the licensee is the landlord of the residential rental property",
       "overrides": [],
       "interaction": "Violations subject to penalties of up to $500 for first offense, up to $750 for second offense, and up to $1,000 for each subsequent offense. Amount wrongfully charged shall be remitted to the applicant or prospective tenant.",
@@ -385,7 +558,36 @@
       "title": "San Francisco Annual Allowable Rent Increase 3/1/26-2/28/27",
       "requirement": "For rent-controlled units in San Francisco, the annual allowable rent increase is limited to 1.6% for the period from March 1, 2026 through February 28, 2027.",
       "key_value": "1.6%",
-      "coverage_conditions": "Applies only to rent-controlled units in San Francisco",
+      "coverage_conditions": {
+        "text": "Applies only to rent-controlled units in San Francisco",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "year_built",
+            "operator": "missing",
+            "reason": "SF Rent Ordinance coverage depends on certificate of occupancy; year_built is missing."
+          },
+          {
+            "field": "year_built",
+            "operator": "eq",
+            "value": 1979,
+            "reason": "Building year is 1979 (SF COO cutoff 1979-06-13); certificate of occupancy date is not in the data."
+          }
+        ],
+        "omit_if": [
+          {
+            "field": "year_built",
+            "operator": "gt",
+            "value": 1979
+          }
+        ]
+      },
       "exemptions": "Units not subject to rent control",
       "overrides": [],
       "interaction": "This is the annual allowable increase set by the San Francisco Rent Board for the specified period.",
@@ -407,7 +609,36 @@
       "title": "San Francisco Allowable Rent Increase March 2026-February 2027",
       "requirement": "Landlords may increase rent by a maximum of 1.6% for the period March 1, 2026 through February 28, 2027.",
       "key_value": "1.6%",
-      "coverage_conditions": "Applies to rent-controlled units in San Francisco during the specified period",
+      "coverage_conditions": {
+        "text": "Applies to rent-controlled units in San Francisco during the specified period",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "year_built",
+            "operator": "missing",
+            "reason": "SF Rent Ordinance coverage depends on certificate of occupancy; year_built is missing."
+          },
+          {
+            "field": "year_built",
+            "operator": "eq",
+            "value": 1979,
+            "reason": "Building year is 1979 (SF COO cutoff 1979-06-13); certificate of occupancy date is not in the data."
+          }
+        ],
+        "omit_if": [
+          {
+            "field": "year_built",
+            "operator": "gt",
+            "value": 1979
+          }
+        ]
+      },
       "exemptions": "Units exempt from San Francisco rent control",
       "overrides": [],
       "interaction": "Annual allowable increase set by San Francisco Rent Board",
@@ -429,7 +660,16 @@
       "title": "San Francisco Security Deposit Interest Rate March 2026-February 2027",
       "requirement": "Landlords must pay 4.2% annual interest on security deposits held for the period March 1, 2026 through February 28, 2027.",
       "key_value": "4.2%",
-      "coverage_conditions": "Applies to security deposits held by landlords in San Francisco during the specified period",
+      "coverage_conditions": {
+        "text": "Applies to security deposits held by landlords in San Francisco during the specified period",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": "Units exempt from San Francisco rent control",
       "overrides": [],
       "interaction": "Annual interest rate set by San Francisco Rent Board",
@@ -451,7 +691,16 @@
       "title": "Santa Ana Rent Stabilization Ordinance - Annual Rent Increase Cap",
       "requirement": "Residential rent increases are limited to the lower of 3% per year or 80% of the percent change in the Consumer Price Index over the most recent 12-month period. If the CPI is negative, no rent increase is permitted.",
       "key_value": "3% annual cap or 80% of CPI, whichever is lower",
-      "coverage_conditions": "Applies to residential rental properties and mobile home parks",
+      "coverage_conditions": {
+        "text": "Applies to residential rental properties and mobile home parks",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Santa Ana"
+          }
+        ]
+      },
       "exemptions": "Does not apply to residential buildings constructed after February 1, 1995, or to mobile home spaces offered for rent after January 1, 1990",
       "overrides": [],
       "interaction": "Property owners may petition for relief from the cap by providing evidence that a rate increase in excess of the annual allowance is necessary to provide a fair and reasonable return",
@@ -473,7 +722,16 @@
       "title": "Santa Ana Just Cause Eviction - No-Fault Relocation Assistance",
       "requirement": "Under a no-fault just cause termination, the owner shall either provide 3 months of relocation assistance or waive payment of rent for the final 3 months of the tenancy.",
       "key_value": "3 months relocation assistance or rent waiver for no-fault evictions",
-      "coverage_conditions": "Applies to no-fault just cause terminations",
+      "coverage_conditions": {
+        "text": "Applies to no-fault just cause terminations",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Santa Ana"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "Applies when owner terminates tenancy for no-fault just cause reasons such as owner occupancy, removal from rental market, or demolition/substantial remodel",
@@ -495,7 +753,16 @@
       "title": "Santa Ana Just Cause Eviction - Notice to Tenants",
       "requirement": "Property owners must provide notice to existing tenants before December 19, 2021, or at commencement or renewal of their lease of the Just Cause Eviction Ordinance protections.",
       "key_value": "Notice required by December 19, 2021 for existing tenants or at lease commencement/renewal",
-      "coverage_conditions": "Applies to all property owners subject to the Just Cause Eviction Ordinance",
+      "coverage_conditions": {
+        "text": "Applies to all property owners subject to the Just Cause Eviction Ordinance",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Santa Ana"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "Written notice template published by the City at santa-ana.gov/renterprotections",
@@ -517,7 +784,16 @@
       "title": "San Francisco Just Cause Eviction Requirement",
       "requirement": "In order to evict a tenant from a rental unit covered by the Rent Ordinance, a landlord must have a 'just cause' reason that is the dominant motive for pursuing the eviction. The mere expiration of a rental agreement or a change in ownership does not constitute 'just cause' for eviction.",
       "key_value": "just_cause_required",
-      "coverage_conditions": "Applies to rental units covered by the San Francisco Rent Ordinance",
+      "coverage_conditions": {
+        "text": "Applies to rental units covered by the San Francisco Rent Ordinance",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": "Some tenancies exempt from rent increase limitations are still subject to eviction provisions, including newly constructed units with Certificate of Occupancy after June 13, 1979, Costa-Hawkins eligible tenancies, and some units regulated by other government agencies",
       "overrides": [],
       "interaction": "Works in conjunction with 17 enumerated just cause reasons under Section 37.9(a)",
@@ -539,7 +815,16 @@
       "title": "Non-Payment of Rent as Just Cause",
       "requirement": "Non-payment of rent, habitual late payment of rent, or frequent bounced checks constitutes just cause for eviction under the San Francisco Rent Ordinance.",
       "key_value": "non_payment_just_cause",
-      "coverage_conditions": "Applies to rental units covered by the San Francisco Rent Ordinance",
+      "coverage_conditions": {
+        "text": "Applies to rental units covered by the San Francisco Rent Ordinance",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "One of 17 enumerated just cause reasons under Section 37.9(a)",
@@ -561,7 +846,16 @@
       "title": "Breach of Lease as Just Cause",
       "requirement": "Failure to cure a substantial breach of a rental agreement or lease constitutes just cause for eviction under the San Francisco Rent Ordinance.",
       "key_value": "lease_breach_just_cause",
-      "coverage_conditions": "Applies to rental units covered by the San Francisco Rent Ordinance",
+      "coverage_conditions": {
+        "text": "Applies to rental units covered by the San Francisco Rent Ordinance",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "One of 17 enumerated just cause reasons under Section 37.9(a)",
@@ -583,7 +877,16 @@
       "title": "Nuisance as Just Cause",
       "requirement": "Nuisance or substantial interference with the comfort, safety, or enjoyment of the landlord or other tenants in the building constitutes just cause for eviction, where the nature must be severe, continuing or reoccurring in nature.",
       "key_value": "nuisance_just_cause",
-      "coverage_conditions": "Applies to rental units covered by the San Francisco Rent Ordinance; nuisance must be severe, continuing or reoccurring",
+      "coverage_conditions": {
+        "text": "Applies to rental units covered by the San Francisco Rent Ordinance; nuisance must be severe, continuing or reoccurring",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "One of 17 enumerated just cause reasons under Section 37.9(a)",
@@ -605,7 +908,16 @@
       "title": "Refusal to Renew Lease as Just Cause",
       "requirement": "The tenant's refusal, after written request by the landlord, to execute a written extension or renewal of an expired rental agreement for a further term of like duration and under terms that are materially the same as the previous agreement constitutes just cause for eviction.",
       "key_value": "refusal_to_renew_just_cause",
-      "coverage_conditions": "Applies to rental units covered by the San Francisco Rent Ordinance; requires written request and materially same terms",
+      "coverage_conditions": {
+        "text": "Applies to rental units covered by the San Francisco Rent Ordinance; requires written request and materially same terms",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "One of 17 enumerated just cause reasons under Section 37.9(a)",
@@ -627,7 +939,16 @@
       "title": "Refusal of Landlord Access as Just Cause",
       "requirement": "The tenant's refusal, after written notice to cease, to allow the landlord access to the rental unit as required by state or local law constitutes just cause for eviction.",
       "key_value": "access_refusal_just_cause",
-      "coverage_conditions": "Applies to rental units covered by the San Francisco Rent Ordinance; requires written notice to cease",
+      "coverage_conditions": {
+        "text": "Applies to rental units covered by the San Francisco Rent Ordinance; requires written notice to cease",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "One of 17 enumerated just cause reasons under Section 37.9(a); references state and local access laws",
@@ -649,7 +970,16 @@
       "title": "Owner-Occupancy as Just Cause",
       "requirement": "Owner-occupancy or, in limited circumstances, occupancy by a member of the landlord's immediate family constitutes just cause for eviction under the San Francisco Rent Ordinance.",
       "key_value": "owner_occupancy_just_cause",
-      "coverage_conditions": "Applies to rental units covered by the San Francisco Rent Ordinance; family occupancy allowed in limited circumstances",
+      "coverage_conditions": {
+        "text": "Applies to rental units covered by the San Francisco Rent Ordinance; family occupancy allowed in limited circumstances",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "One of 17 enumerated just cause reasons under Section 37.9(a)",
@@ -671,7 +1001,16 @@
       "title": "Condo Conversion Sale as Just Cause",
       "requirement": "The landlord seeking to recover possession in good faith in order to sell the unit in accordance with a condominium conversion approved under the San Francisco subdivision ordinance constitutes just cause for eviction.",
       "key_value": "condo_conversion_just_cause",
-      "coverage_conditions": "Applies to rental units covered by the San Francisco Rent Ordinance; requires good faith and approved conversion",
+      "coverage_conditions": {
+        "text": "Applies to rental units covered by the San Francisco Rent Ordinance; requires good faith and approved conversion",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "One of 17 enumerated just cause reasons under Section 37.9(a); references subdivision ordinance",
@@ -693,7 +1032,16 @@
       "title": "Demolition or Permanent Removal as Just Cause",
       "requirement": "To demolish or to otherwise permanently remove an individual rental unit from housing use constitutes just cause for eviction under the San Francisco Rent Ordinance.",
       "key_value": "demolition_just_cause",
-      "coverage_conditions": "Applies to rental units covered by the San Francisco Rent Ordinance",
+      "coverage_conditions": {
+        "text": "Applies to rental units covered by the San Francisco Rent Ordinance",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "One of 17 enumerated just cause reasons under Section 37.9(a)",
@@ -715,7 +1063,16 @@
       "title": "Berkeley Minimum Rental Debt Threshold for Nonpayment Eviction",
       "requirement": "For a landlord to evict a tenant for nonpayment of rent, the tenant must owe an amount of rental debt equal to or greater than one month of the Fair Market Rent (FMR) value for a unit of equivalent size in the metro area Oakland-Fremont, CA HUD Metro FMR as determined by the US Department of Housing and Urban Development.",
       "key_value": "one month of Fair Market Rent",
-      "coverage_conditions": "Applies to tenants in units that are fully or partially covered by the Rent Ordinance",
+      "coverage_conditions": {
+        "text": "Applies to tenants in units that are fully or partially covered by the Rent Ordinance",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "Changes the threshold for nonpayment evictions under just cause requirements",
@@ -737,7 +1094,16 @@
       "title": "Berkeley Prohibition on Eviction for Failure to Sign New Lease",
       "requirement": "A landlord cannot evict a tenant for failing to sign a substantially similar lease upon expiration of a fixed-term lease.",
       "key_value": null,
-      "coverage_conditions": "Applies to tenants in units that are fully or partially covered by the Rent Ordinance",
+      "coverage_conditions": {
+        "text": "Applies to tenants in units that are fully or partially covered by the Rent Ordinance",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "Eliminates one just cause for eviction that previously existed",
@@ -759,7 +1125,16 @@
       "title": "JCO Eviction Notice Filing Requirement",
       "requirement": "All eviction notices issued to tenants in the City of Los Angeles must be filed with LAHD within three business days of service on the tenant.",
       "key_value": "3 business days",
-      "coverage_conditions": "Applies to all JCO and RSO rental properties in Los Angeles",
+      "coverage_conditions": {
+        "text": "Applies to all JCO and RSO rental properties in Los Angeles",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "Administrative requirement for both JCO and RSO properties",
@@ -781,7 +1156,16 @@
       "title": "Notice to Quit for Nonpayment of Rent",
       "requirement": "For nonpayment of rent, landlords must provide fourteen days' written notice to quit to terminate an estate at will tenancy. Tenants who have not received a similar notice within the prior twelve months may prevent termination by paying or tendering full rent due within ten days of receiving the notice.",
       "key_value": "14 days notice; 10 days to cure if no prior notice in 12 months",
-      "coverage_conditions": "Applies to estate at will tenancies where tenant has neglected or refused to pay rent",
+      "coverage_conditions": {
+        "text": "Applies to estate at will tenancies where tenant has neglected or refused to pay rent",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
       "exemptions": "Cure right does not apply if tenant received similar notice within prior 12 months",
       "overrides": [],
       "interaction": "This provision creates a shorter notice period than the general 3-month requirement for estate at will terminations, but includes tenant cure rights",
@@ -803,7 +1187,16 @@
       "title": "Required Notification in Nonpayment Notice to Quit",
       "requirement": "Every notice to quit for nonpayment of rent must contain specific notification informing tenants of their right to prevent termination by paying full rent due within ten days if they have not received a similar notice within the last twelve months. Failure to include this notification extends the tenant's cure period until the answer is due in any eviction action.",
       "key_value": "Mandatory tenant notification language; failure extends cure period",
-      "coverage_conditions": "Applies to all notices to quit for nonpayment of rent in estate at will tenancies",
+      "coverage_conditions": {
+        "text": "Applies to all notices to quit for nonpayment of rent in estate at will tenancies",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
       "exemptions": "None specified",
       "overrides": [],
       "interaction": "Failure to include required notification does not invalidate the notice but extends tenant cure rights",
@@ -825,7 +1218,16 @@
       "title": "Prohibited Criminal Records for Housing Consideration",
       "requirement": "Housing providers cannot evaluate applicants based on arrests without conviction, expunged convictions, pardoned convictions, vacated convictions, juvenile adjudications, or sealed records at any point in the application process.",
       "key_value": "prohibited_records",
-      "coverage_conditions": "Applies to all housing providers subject to the Fair Chance in Housing Act",
+      "coverage_conditions": {
+        "text": "Applies to all housing providers subject to the Fair Chance in Housing Act",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "NJ"
+          }
+        ]
+      },
       "exemptions": "None specified for these prohibited record types",
       "overrides": [],
       "interaction": "Absolute prohibition regardless of conditional offer status",
@@ -847,7 +1249,28 @@
       "title": "Prohibition on Criminal History Inquiries in Rental Applications",
       "requirement": "Rental housing providers are prohibited from inquiring about criminal history or indicating that persons with criminal backgrounds will not be considered for housing. Providers cannot refuse to rent, terminate tenancy, or treat applicants differently based on criminal history.",
       "key_value": "criminal_history_inquiry_prohibited",
-      "coverage_conditions": "Applies to rental housing providers in Berkeley with regard to current or prospective tenants",
+      "coverage_conditions": {
+        "text": "Applies to rental housing providers in Berkeley with regard to current or prospective tenants",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Lifetime sex offenders; public housing/Section 8 properties (limited exemptions); owner-occupied properties (1-3 units) where owner resides as primary residence; units under rental agreement allowing owners to move back per BMC 13.76.130 A.9; units occupied by existing tenants seeking to sublet or add/replace roommates",
       "overrides": [],
       "interaction": "Landlords must provide written notice and opportunity to respond before taking action based on criminal history due to frequent inaccuracies in background checks",
@@ -869,7 +1292,28 @@
       "title": "Prohibition on Criminal Background Check Requirements",
       "requirement": "Rental housing providers cannot require disclosure or authorization for release of criminal history, or use criminal background checks in their rental housing advertising, applications, tenant selection process, or decision-making.",
       "key_value": "criminal_background_check_prohibited",
-      "coverage_conditions": "Applies to rental housing providers in Berkeley",
+      "coverage_conditions": {
+        "text": "Applies to rental housing providers in Berkeley",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Lifetime sex offenders; public housing/Section 8 properties (limited exemptions); owner-occupied properties (1-3 units) where owner resides as primary residence; units under rental agreement allowing owners to move back per BMC 13.76.130 A.9; units occupied by existing tenants seeking to sublet or add/replace roommates",
       "overrides": [],
       "interaction": "Landlords found in violation face administrative fines of at least $1,000 and up to $10,000 per violation, plus civil damages",
@@ -891,7 +1335,16 @@
       "title": "Berkeley Annual General Adjustment (AGA) Cap at 5%",
       "requirement": "The maximum Annual General Adjustment for fully-covered rental units is capped at 5%. If the formula in the Rent Ordinance results in an AGA greater than 5%, the AGA approved by the Board for that year can be no more than 5%.",
       "key_value": "5%",
-      "coverage_conditions": "Applies to fully-covered rental units in Berkeley",
+      "coverage_conditions": {
+        "text": "Applies to fully-covered rental units in Berkeley",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "Does not prevent a landlord who has 'banked' (unused) AGAs from previous years from implementing a rent increase that is greater than 5% in order to raise the rent to the rent ceiling",
       "overrides": [],
       "interaction": "Works in conjunction with the AGA formula tied to Consumer Price Index",
@@ -913,7 +1366,16 @@
       "title": "Berkeley 2026 Annual General Adjustment (AGA) - 1.0% Rent Increase",
       "requirement": "Eligible landlords may increase 2025 permanent rent ceilings by 1.0% no earlier than January 1, 2026. The AGA does not apply to tenants whose tenancy began on or after January 1, 2025 and who had rents set pursuant to Costa-Hawkins.",
       "key_value": "1.0%",
-      "coverage_conditions": "Applies to eligible landlords with rent-controlled units under Berkeley rent stabilization; tenancy must have begun before January 1, 2025 or rent not set under Costa-Hawkins",
+      "coverage_conditions": {
+        "text": "Applies to eligible landlords with rent-controlled units under Berkeley rent stabilization; tenancy must have begun before January 1, 2025 or rent not set under Costa-Hawkins",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "Tenants whose tenancy began on or after January 1, 2025 and who had their rents set pursuant to the Costa-Hawkins Rental Housing Act",
       "overrides": [],
       "interaction": "AGA calculated as 65% of CPI increase (1.5% CPI × 65% = 1.0% AGA) per formula approved by Berkeley voters in November 2004",
@@ -935,7 +1397,33 @@
       "title": "Just Cause Eviction Requirement After 12 Months Occupancy",
       "requirement": "After a tenant has continuously and lawfully occupied a residential real property for 12 months, the owner shall not terminate a tenancy without just cause, which must be stated in the written notice to terminate tenancy. If additional adult tenants are added before 24 months, all tenants must have occupied for 12+ months or one tenant for 24+ months.",
       "key_value": "12 months continuous occupancy triggers just cause requirement",
-      "coverage_conditions": "Applies to residential real property after 12 months continuous lawful occupancy; if additional adult tenants added before 24 months, either all tenants must have 12+ months or one tenant must have 24+ months",
+      "coverage_conditions": {
+        "text": "Applies to residential real property after 12 months continuous lawful occupancy; if additional adult tenants added before 24 months, either all tenants must have 12+ months or one tenant must have 24+ months",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "year_built",
+            "operator": "missing",
+            "reason": "Statewide coverage may depend on certificate-of-occupancy age; year_built is missing."
+          },
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Transient/tourist hotels; nonprofit hospital/religious/care facilities; dormitories; shared bathroom/kitchen with owner-occupant; single-family owner-occupied with ≤2 units; duplex with owner-occupied unit; housing with certificate of occupancy within 15 years (except mobilehomes); alienable single units meeting ownership criteria; deed-restricted affordable housing",
       "overrides": [],
       "interaction": "Does not apply where local ordinance adopted on/before 2019-09-01 exists, or where local ordinance adopted after 2019-09-01 is more protective. Section becomes operative 2024-04-01 and repeals 2030-01-01.",
@@ -957,7 +1445,16 @@
       "title": "Prohibition on Source of Income Discrimination in Housing",
       "requirement": "Housing owners cannot discriminate against tenants based on their lawful source of income, including federal housing vouchers and public assistance. Inquiries about income level or source are permitted, but denial based on source of income is unlawful.",
       "key_value": "source_of_income_protected",
-      "coverage_conditions": "Applies to all housing accommodations in California",
+      "coverage_conditions": {
+        "text": "Applies to all housing accommodations in California",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "Making written or oral inquiry concerning level or source of income is not discrimination",
       "overrides": [],
       "interaction": "Works in conjunction with subsections (o) and (p) regarding government rent subsidies and income verification",
@@ -979,7 +1476,16 @@
       "title": "Notice Period to Terminate Estate at Will Tenancy",
       "requirement": "Landlords must provide three months' written notice to terminate an estate at will tenancy, or notice equal to the interval between rent payment periods or thirty days (whichever is longer) if rent is payable at periods less than three months.",
       "key_value": "3 months or interval between rent payments or 30 days, whichever is longer",
-      "coverage_conditions": "Applies to estate at will tenancies in Massachusetts",
+      "coverage_conditions": {
+        "text": "Applies to estate at will tenancies in Massachusetts",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
       "exemptions": "Shorter notice period applies for nonpayment of rent cases (14 days)",
       "overrides": [],
       "interaction": "This general notice requirement is superseded by the 14-day notice provision for nonpayment of rent cases",
@@ -1001,7 +1507,16 @@
       "title": "Anti-Retaliation Protection for Tenant Reporting and Organizing",
       "requirement": "Landlords are prohibited from taking reprisals against tenants for reporting code violations, exercising legal rights, or organizing tenant unions. Tenants who experience retaliation are entitled to damages of one to three months' rent or actual damages (whichever is greater), plus costs and attorney's fees.",
       "key_value": "Damages: 1-3 months rent or actual damages (whichever greater) plus costs and attorney fees",
-      "coverage_conditions": "Applies to residential premises tenants who engage in protected activities including reporting violations, exercising legal rights, or organizing tenant unions",
+      "coverage_conditions": {
+        "text": "Applies to residential premises tenants who engage in protected activities including reporting violations, exercising legal rights, or organizing tenant unions",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
       "exemptions": "None specified",
       "overrides": [],
       "interaction": "Creates rebuttable presumption of retaliation if termination notice (except for nonpayment), rent increase, or substantial alteration of tenancy terms occurs within 6 months of protected activity",
@@ -1023,7 +1538,16 @@
       "title": "Broker Fee Payment Restriction - Effective August 1, 2025",
       "requirement": "Any fee charged by a licensed broker or salesperson for finding rental residential real property shall only be paid by the party (lessor or tenant) who originally engaged and entered into a contract with the licensed broker or salesperson. A broker may only contract with either the prospective tenant or the landlord, not both parties.",
       "key_value": "Fee paid only by contracting party",
-      "coverage_conditions": "Applies to licensed brokers and salespersons finding rental residential real property in Massachusetts",
+      "coverage_conditions": {
+        "text": "Applies to licensed brokers and salespersons finding rental residential real property in Massachusetts",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
       "exemptions": "None specified",
       "overrides": [],
       "interaction": "Amends prior version of Section 87DDD 1/2 which did not restrict who could pay broker fees",
@@ -1045,7 +1569,16 @@
       "title": "Individualized Assessment Required for Criminal Record Denials",
       "requirement": "Housing providers may only withdraw a conditional offer based on criminal record if they determine by preponderance of evidence that withdrawal is necessary for a substantial, legitimate, nondiscriminatory interest. They must conduct an individualized assessment considering six specific factors including nature/severity of offense, applicant's age at time of offense, time elapsed, rehabilitation evidence, safety impact, and connection to rental property.",
       "key_value": "individualized_assessment",
-      "coverage_conditions": "Required when withdrawing conditional offer based on criminal record",
+      "coverage_conditions": {
+        "text": "Required when withdrawing conditional offer based on criminal record",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "NJ"
+          }
+        ]
+      },
       "exemptions": "None specified",
       "overrides": [],
       "interaction": "Applicant has right to appeal and provide evidence within process",
@@ -1067,7 +1600,16 @@
       "title": "Relocation Payments for Owner/Relative Move-in, Demolition, or Capital Improvement Evictions (2025-2026)",
       "requirement": "Landlords must pay relocation assistance of $8,062 per tenant (maximum $24,184 per unit) for evictions based on owner/relative move-in, demolition/permanent removal, temporary capital improvement work, or substantial rehabilitation, with an additional $5,375 for each elderly (60+), disabled tenant, or household with minor children.",
       "key_value": "$8,062 per tenant; $24,184 max per unit; $5,375 additional for vulnerable tenants",
-      "coverage_conditions": "Applies to evictions based on Owner/Relative Move-in OR Demolition/Permanent Removal of Unit from Housing Use OR Temporary Capital Improvement Work OR Substantial Rehabilitation",
+      "coverage_conditions": {
+        "text": "Applies to evictions based on Owner/Relative Move-in OR Demolition/Permanent Removal of Unit from Housing Use OR Temporary Capital Improvement Work OR Substantial Rehabilitation",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": "Temporary capital improvement evictions for less than 20 days are governed by California Civil Code Section 1947.9",
       "overrides": [],
       "interaction": "Works in conjunction with just cause eviction requirements",
@@ -1089,7 +1631,16 @@
       "title": "Relocation Payments for Ellis Act Evictions (2025-2026)",
       "requirement": "Landlords must pay relocation assistance of $10,863.45 per tenant (maximum $32,590.33 per unit) for evictions under the Ellis Act, with an additional $7,278.67 for each elderly (62+) or disabled tenant.",
       "key_value": "$10,863.45 per tenant; $32,590.33 max per unit; $7,278.67 additional for elderly/disabled",
-      "coverage_conditions": "Applies to tenants evicted under the Ellis Act",
+      "coverage_conditions": {
+        "text": "Applies to tenants evicted under the Ellis Act",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "Higher relocation amounts than standard just cause evictions; age threshold is 62 for Ellis Act vs 60 for other evictions",
@@ -1111,7 +1662,36 @@
       "title": "RSO Applies to Pre-October 1978 Buildings",
       "requirement": "The Rent Stabilization Ordinance applies to rental properties first built on or before October 1, 1978, including apartments, duplexes, condos, townhomes, ADUs, JADUs, mobile homes, and other specified unit types.",
       "key_value": "1978-10-01",
-      "coverage_conditions": "Property must have been first built on or before October 1, 1978; includes apartments, condos, townhomes, duplexes, two or more single-family units on same parcel, hotel/motel rooms occupied >30 days, units attached to commercial buildings, ADUs, JADUs, mobile homes in parks",
+      "coverage_conditions": {
+        "text": "Property must have been first built on or before October 1, 1978; includes apartments, condos, townhomes, duplexes, two or more single-family units on same parcel, hotel/motel rooms occupied >30 days, units attached to commercial buildings, ADUs, JADUs, mobile homes in parks",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "year_built",
+            "operator": "missing",
+            "reason": "LA RSO coverage depends on certificate of occupancy; year_built is missing."
+          },
+          {
+            "field": "year_built",
+            "operator": "eq",
+            "value": 1978,
+            "reason": "Building year is 1978 (LA COO cutoff 1978-10-01); certificate of occupancy date is not in the data."
+          }
+        ],
+        "omit_if": [
+          {
+            "field": "year_built",
+            "operator": "gt",
+            "value": 1978
+          }
+        ]
+      },
       "exemptions": "Condos and townhomes: rent amount not regulated for tenancies commencing after December 31, 1995",
       "overrides": [],
       "interaction": "Base coverage rule for Los Angeles RSO",
@@ -1133,7 +1713,28 @@
       "title": "Good Cause Eviction Requirement",
       "requirement": "A landlord must have good cause to evict a tenant and must be able to prove in court that grounds for eviction exist. No residential landlord may evict or fail to renew a lease without good cause.",
       "key_value": "good_cause_required",
-      "coverage_conditions": "Applies to most residential rental properties including single-family homes, mobile homes and land in a mobile home park, apartment buildings, and complexes. Also applies to rooming and boarding homes.",
+      "coverage_conditions": {
+        "text": "Applies to most residential rental properties including single-family homes, mobile homes and land in a mobile home park, apartment buildings, and complexes. Also applies to rooming and boarding homes.",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "NJ"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "May not apply to two- or three-unit owner-occupied premises with two or fewer rental units. Does not apply to hotel guests, motel guests, or guest houses rented to a transient guest or seasonal tenant (unless occupant has no alternate residence and resides on a continual basis). Does not apply to a unit held in trust on behalf of a developmentally disabled immediate family member who permanently occupies the dwelling unit.",
       "overrides": [],
       "interaction": "Part of the Anti-Eviction Act created to protect blameless tenants from eviction in recognition of housing shortage in the State.",
@@ -1155,7 +1756,16 @@
       "title": "Warrant for Possession Timing Requirements",
       "requirement": "A warrant for possession may not be issued until three business days after the judgment for possession is granted. The tenant has three business days to move after the warrant is served. A landlord must apply for a warrant for possession within 30 days from the date of the judgment for possession unless the judgment is vacated.",
       "key_value": "three_day_waiting_period",
-      "coverage_conditions": "Applies after judgment for possession is granted in eviction proceedings.",
+      "coverage_conditions": {
+        "text": "Applies after judgment for possession is granted in eviction proceedings.",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "NJ"
+          }
+        ]
+      },
       "exemptions": "None.",
       "overrides": [],
       "interaction": "Landlord must allow tenant to remove personal belongings after eviction and cannot keep tenant's belongings but can arrange for storage.",
@@ -1177,7 +1787,28 @@
       "title": "San Diego Just Cause Eviction Requirement",
       "requirement": "A landlord shall not terminate a tenancy without just cause, which includes at-fault just cause (such as nonpayment of rent, lease violations, nuisance, criminal activity) and no-fault just cause (such as owner move-in, withdrawal from rental market, compliance with government orders, or substantial remodeling/demolition).",
       "key_value": null,
-      "coverage_conditions": "Applies to residential rental properties in San Diego except those listed in § 98.0703 exemptions (e.g., transient hotels, short-term rentals, deed-restricted affordable housing, certain owner-occupied properties, housing with certificate of occupancy within previous 15 years, single-family homes meeting specific criteria).",
+      "coverage_conditions": {
+        "text": "Applies to residential rental properties in San Diego except those listed in § 98.0703 exemptions (e.g., transient hotels, short-term rentals, deed-restricted affordable housing, certain owner-occupied properties, housing with certificate of occupancy within previous 15 years, single-family homes meeting specific criteria).",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Diego"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Exemptions include transient and tourist hotels, short-term residential occupancy, deed-restricted affordable housing, housing with government subsidies (excluding Section 8), mobilehomes subject to Mobilehome Residency Law, nonprofit hospitals and religious facilities, dormitories, properties where tenant shares bathroom/kitchen with landlord, single-family residences occupied by landlord as principal residence (with limitations), duplexes where landlord occupies one unit, housing with certificate of occupancy within previous 15 years, and certain alienable properties meeting ownership criteria.",
       "overrides": [],
       "interaction": "Works in conjunction with California Civil Code § 1946.2 (state just cause law). San Diego ordinance provides additional protections beyond state law, including enhanced relocation assistance and specific procedural requirements.",
@@ -1199,7 +1830,28 @@
       "title": "Prohibition on Higher Security Deposits Based on Criminal History",
       "requirement": "Rental housing providers cannot demand a higher security deposit or rental amount based on criminal history.",
       "key_value": "no_higher_deposit_for_criminal_history",
-      "coverage_conditions": "Applies to rental housing providers in Berkeley with regard to current or prospective tenants",
+      "coverage_conditions": {
+        "text": "Applies to rental housing providers in Berkeley with regard to current or prospective tenants",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Lifetime sex offenders; public housing/Section 8 properties (limited exemptions); owner-occupied properties (1-3 units) where owner resides as primary residence; units under rental agreement allowing owners to move back per BMC 13.76.130 A.9; units occupied by existing tenants seeking to sublet or add/replace roommates",
       "overrides": [],
       "interaction": "Part of broader Fair Chance Access to Housing Ordinance prohibiting discrimination based on criminal history",
@@ -1221,7 +1873,16 @@
       "title": "At-Fault Just Cause Grounds for Eviction",
       "requirement": "At-fault just cause includes: default in rent payment; breach of material lease term; maintaining/committing nuisance; committing waste; refusal to renew lease after written request; criminal activity on property or directed at owner/agent; unauthorized assignment/subletting; refusal to allow lawful entry; unlawful use of premises; employee/agent failure to vacate after termination; failure to deliver possession after notice to terminate.",
       "key_value": "11 enumerated at-fault grounds for termination",
-      "coverage_conditions": "Applies to residential tenancies subject to just cause requirements under § 1946.2(a)",
+      "coverage_conditions": {
+        "text": "Applies to residential tenancies subject to just cause requirements under § 1946.2(a)",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "Same exemptions as § 1946.2(a)",
       "overrides": [],
       "interaction": "Before issuing notice for curable lease violation, owner must first give notice with opportunity to cure per CCP § 1161(3). If not cured, three-day notice to quit without cure opportunity may be served.",
@@ -1243,7 +1904,16 @@
       "title": "Income Standard for Government Rent Subsidy Recipients Must Be Based on Tenant Portion",
       "requirement": "When government rent subsidy is involved, housing providers must base income eligibility on the portion of rent to be paid by the tenant, not total rent or other income standards.",
       "key_value": "subsidy_income_standard_tenant_portion",
-      "coverage_conditions": "Applies only when there is a government rent subsidy",
+      "coverage_conditions": {
+        "text": "Applies only when there is a government rent subsidy",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "Does not limit ability to request employment verification, landlord references, or identity verification",
       "overrides": [],
       "interaction": "Works with subsection (p) defining source of income and subsection (o)(1)(B) on credit history alternatives",
@@ -1265,7 +1935,16 @@
       "title": "Rebuttable Presumption of Retaliation for Termination or Rent Increase Within Six Months",
       "requirement": "A termination notice (except for nonpayment of rent), rent increase, or substantial alteration of tenancy terms within six months after a tenant engages in protected activities creates a rebuttable presumption of retaliation. The landlord must rebut this with clear and convincing evidence of independent justification.",
       "key_value": "6-month presumption period; clear and convincing evidence standard required to rebut",
-      "coverage_conditions": "Applies when termination notice (except nonpayment), rent increase, or substantial tenancy alteration occurs within 6 months of protected tenant activity",
+      "coverage_conditions": {
+        "text": "Applies when termination notice (except nonpayment), rent increase, or substantial tenancy alteration occurs within 6 months of protected tenant activity",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
       "exemptions": "Termination notices for nonpayment of rent are excluded from the presumption",
       "overrides": [],
       "interaction": "Works in conjunction with the anti-retaliation damages provision in the same statute",
@@ -1287,7 +1966,16 @@
       "title": "Prohibition on Discriminatory Housing Advertisements",
       "requirement": "Housing providers cannot publish advertisements stating they will not consider applicants with arrests or convictions, except for methamphetamine production on federally assisted housing premises and lifetime sex offender registration requirements.",
       "key_value": "no_blanket_bans",
-      "coverage_conditions": "Applies to all housing advertisements",
+      "coverage_conditions": {
+        "text": "Applies to all housing advertisements",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "NJ"
+          }
+        ]
+      },
       "exemptions": "May state exclusions for methamphetamine production on federally assisted housing and lifetime sex offender registration",
       "overrides": [],
       "interaction": "Complements ban-the-box provisions",
@@ -1309,7 +1997,36 @@
       "title": "Rent Increase Moratorium (March 2020 - January 2024)",
       "requirement": "Effective March 30, 2020, through January 31, 2024, rent increases are prohibited for rental units subject to the Rent Stabilization Ordinance.",
       "key_value": "0% increase allowed from 2020-03-30 to 2024-01-31",
-      "coverage_conditions": "RSO-covered units only; moratorium ended January 31, 2024",
+      "coverage_conditions": {
+        "text": "RSO-covered units only; moratorium ended January 31, 2024",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "year_built",
+            "operator": "missing",
+            "reason": "LA RSO coverage depends on certificate of occupancy; year_built is missing."
+          },
+          {
+            "field": "year_built",
+            "operator": "eq",
+            "value": 1978,
+            "reason": "Building year is 1978 (LA COO cutoff 1978-10-01); certificate of occupancy date is not in the data."
+          }
+        ],
+        "omit_if": [
+          {
+            "field": "year_built",
+            "operator": "gt",
+            "value": 1978
+          }
+        ]
+      },
       "exemptions": "Market-rate increases still allowed for voluntary move-outs, evictions for cause, buyout agreements",
       "overrides": [],
       "interaction": "Temporary moratorium; superseded by normal annual increase rules after January 31, 2024",
@@ -1331,7 +2048,16 @@
       "title": "No-Fault Just Cause Eviction Grounds",
       "requirement": "Tenants may be evicted for no-fault reasons including owner or immediate family move-in, resident manager move-in, demolition and permanent removal from rental market, government order, or conversion to affordable housing. No-fault evictions require payment of relocation assistance.",
       "key_value": "no-fault grounds: owner/family move-in, manager move-in, demolition, government order, affordable conversion; relocation assistance required",
-      "coverage_conditions": "RSO-covered units; landlord must file Declaration of Intent to Evict with LAHD, give 30/60/120-day notice, pay relocation assistance",
+      "coverage_conditions": {
+        "text": "RSO-covered units; landlord must file Declaration of Intent to Evict with LAHD, give 30/60/120-day notice, pay relocation assistance",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "No-fault evictions trigger relocation assistance payment and LAHD filing requirements",
@@ -1353,7 +2079,16 @@
       "title": "Eviction for Failure to Pay Rent - Notice Requirements",
       "requirement": "If a tenant fails to pay rent, the landlord may immediately take legal action to evict without prior notice, except in federally subsidized housing where a 14-day notice must be given before filing suit for eviction.",
       "key_value": "no_notice_required_except_subsidized",
-      "coverage_conditions": "Applies to all residential tenancies under the Anti-Eviction Act.",
+      "coverage_conditions": {
+        "text": "Applies to all residential tenancies under the Anti-Eviction Act.",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "NJ"
+          }
+        ]
+      },
       "exemptions": "Federally subsidized housing requires 14-day notice. Tenant may not be evicted for nonpayment if tenant used unpaid rent to continue utility services after landlord failed to pay and services were in danger of discontinuation.",
       "overrides": [],
       "interaction": "Money used to pay for continuance of utilities (electric, gas, water, sewer) is considered a portion of rental payment.",
@@ -1375,7 +2110,16 @@
       "title": "Relocation Assistance Payment Timing",
       "requirement": "If landlord elects to provide relocation assistance by direct payment, the payment must be provided within 15 days from the date of the termination notice.",
       "key_value": "15 days",
-      "coverage_conditions": "Applies when landlord chooses direct payment option for relocation assistance",
+      "coverage_conditions": {
+        "text": "Applies when landlord chooses direct payment option for relocation assistance",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Diego"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "Alternative to rent waiver method of providing relocation assistance",
@@ -1397,7 +2141,16 @@
       "title": "JCO Non-Payment Eviction Threshold",
       "requirement": "Landlords may not evict a tenant who falls behind in rent unless the tenant owes an amount higher than the Fair Market Rent for the bedroom size of the rental unit.",
       "key_value": "FMR threshold",
-      "coverage_conditions": "Applies to all RSO and JCO rental units",
+      "coverage_conditions": {
+        "text": "Applies to all RSO and JCO rental units",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "Limits non-payment evictions to amounts exceeding Fair Market Rent",
@@ -1419,7 +2172,16 @@
       "title": "Pre-Application Fee Disclosure Requirements",
       "requirement": "Before accepting any application fee, housing providers must disclose in writing whether their eligibility criteria include review of criminal history and inform applicants of their right to provide evidence of inaccuracies or rehabilitation.",
       "key_value": "disclosure_required",
-      "coverage_conditions": "Required before accepting any application fee",
+      "coverage_conditions": {
+        "text": "Required before accepting any application fee",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "NJ"
+          }
+        ]
+      },
       "exemptions": "None specified",
       "overrides": [],
       "interaction": "Works with model disclosure statement prepared by Director of Division on Civil Rights",
@@ -1441,7 +2203,16 @@
       "title": "At-Fault Just Cause Eviction Grounds",
       "requirement": "Tenants may be evicted for at-fault reasons including failure to pay rent, failure to fix or address a violation of the rental agreement, creating a nuisance or causing damage, using the unit for an illegal purpose, failure to renew a similar rental agreement, failure to provide reasonable access, or being an unapproved subtenant at lease end.",
       "key_value": "at-fault grounds: non-payment, lease violation, nuisance/damage, illegal use, refusal to renew, access denial, unapproved subtenant",
-      "coverage_conditions": "RSO-covered units",
+      "coverage_conditions": {
+        "text": "RSO-covered units",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "At-fault evictions do not require relocation assistance",
@@ -1463,7 +2234,16 @@
       "title": "Eviction for Disorderly Conduct - Notice Requirements",
       "requirement": "For eviction based on disorderly conduct that destroys peace and quiet of other tenants, landlord must give written Notice to Cease. If conduct continues, a Notice to Quit must be served at least three days prior to filing suit for eviction.",
       "key_value": "three_day_notice_after_cease",
-      "coverage_conditions": "Applies when tenant's disorderly conduct destroys peace and quiet of other tenants in building or neighborhood.",
+      "coverage_conditions": {
+        "text": "Applies when tenant's disorderly conduct destroys peace and quiet of other tenants in building or neighborhood.",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "NJ"
+          }
+        ]
+      },
       "exemptions": "None specified.",
       "overrides": [],
       "interaction": "Requires both Notice to Cease and Notice to Quit before filing eviction suit.",
@@ -1485,7 +2265,16 @@
       "title": "Eviction for Lease Rule Violations - Notice Requirements",
       "requirement": "For substantial violation of reasonable rules and regulations in the lease or accepted in writing, landlord must give written Notice to Cease. If violations continue, Notice to Quit must be served at least one month prior to filing suit, and notices must be given on or before the start of a new month.",
       "key_value": "one_month_notice_rule_violations",
-      "coverage_conditions": "Applies to substantial violations of reasonable rules and regulations contained in lease or accepted in writing by tenant.",
+      "coverage_conditions": {
+        "text": "Applies to substantial violations of reasonable rules and regulations contained in lease or accepted in writing by tenant.",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "NJ"
+          }
+        ]
+      },
       "exemptions": "None specified.",
       "overrides": [],
       "interaction": "Requires both Notice to Cease and Notice to Quit. Notice timing tied to start of new month.",
@@ -1507,7 +2296,16 @@
       "title": "Minimum Buyout Agreement Amount",
       "requirement": "Buyout agreements must be for an amount greater than the relocation assistance available to the tenant under section 98.0706(c). Agreements for less than the relocation assistance amount are void.",
       "key_value": "greater than relocation assistance",
-      "coverage_conditions": "Applies to all buyout agreements in residential rental properties",
+      "coverage_conditions": {
+        "text": "Applies to all buyout agreements in residential rental properties",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Diego"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "References relocation assistance amounts in § 98.0706(c) (2 or 3 months rent)",
@@ -1529,7 +2327,16 @@
       "title": "Prohibition on Disqualifying Tenants from Rental Assistance Based on Criminal History",
       "requirement": "Rental housing providers cannot disqualify tenants from rental assistance programs such as Section 8 based on criminal history, subject to certain exemptions.",
       "key_value": "no_rental_assistance_disqualification_criminal_history",
-      "coverage_conditions": "Applies to rental housing providers in Berkeley regarding rental assistance programs",
+      "coverage_conditions": {
+        "text": "Applies to rental housing providers in Berkeley regarding rental assistance programs",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "Subject to certain exceptions for public housing/Section 8 properties (limited exemptions)",
       "overrides": [],
       "interaction": "Part of broader Fair Chance Access to Housing Ordinance",
@@ -1551,7 +2358,16 @@
       "title": "Security Deposit Limit - One Month's Rent (Most Landlords)",
       "requirement": "Starting July 1, 2024, most landlords may only charge one month's rent as a security deposit for both unfurnished and furnished units.",
       "key_value": "1 month's rent",
-      "coverage_conditions": "Applies to most landlords; excludes small landlords meeting specific ownership criteria",
+      "coverage_conditions": {
+        "text": "Applies to most landlords; excludes small landlords meeting specific ownership criteria",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "Landlords who own only two rental properties with no more than four residential units total where ownership is held by a natural person, family trust, or LLC where all members are natural persons",
       "overrides": [],
       "interaction": "Last month's rent IS considered part of the security deposit; First month's rent is NOT considered part of the security deposit",
@@ -1573,7 +2389,16 @@
       "title": "Security Deposit Limit - Two Months' Rent (Small Landlords)",
       "requirement": "Starting July 1, 2024, landlords who own only two rental properties with no more than four residential units total can charge up to two months' rent for furnished and unfurnished units if ownership is held by a natural person, family trust, or LLC where all members are natural persons.",
       "key_value": "2 months' rent",
-      "coverage_conditions": "Landlords who own only two rental properties with no more than four residential units total; ownership held by natural person, family trust, or LLC where all members are natural persons",
+      "coverage_conditions": {
+        "text": "Landlords who own only two rental properties with no more than four residential units total; ownership held by natural person, family trust, or LLC where all members are natural persons",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "Last month's rent IS considered part of the security deposit",
@@ -1595,7 +2420,16 @@
       "title": "Landlord Requirement to Photograph Unit Before New Tenancy",
       "requirement": "For tenancies that begin on or after July 1, 2025, a landlord must photograph the unit immediately before or at the start of a new tenancy to document the condition of the unit.",
       "key_value": "photograph required",
-      "coverage_conditions": "Applies to tenancies beginning on or after July 1, 2025",
+      "coverage_conditions": {
+        "text": "Applies to tenancies beginning on or after July 1, 2025",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "Related to security deposit documentation requirements",
@@ -1617,7 +2451,16 @@
       "title": "Security Deposit Return Timeline and Documentation",
       "requirement": "All or any remaining portion of a security deposit must be returned within 21 days after the tenant leaves the unit vacant. If deductions were made, the landlord must provide a written itemized statement of deductions with copies of documents showing charges incurred, including bills, invoices, or receipts for materials or supplies.",
       "key_value": "21 days",
-      "coverage_conditions": "After tenant leaves unit vacant",
+      "coverage_conditions": {
+        "text": "After tenant leaves unit vacant",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "Starting January 1, 2025, landlords must provide proof that necessary repairs were completed",
@@ -1639,7 +2482,16 @@
       "title": "Proof of Completed Repairs Requirement",
       "requirement": "Starting January 1, 2025, landlords must provide proof that necessary repairs were completed when returning security deposits with deductions.",
       "key_value": "proof of repairs required",
-      "coverage_conditions": "When deductions are made from security deposit",
+      "coverage_conditions": {
+        "text": "When deductions are made from security deposit",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "Supplements the 21-day return requirement and itemized statement requirement",
@@ -1661,7 +2513,16 @@
       "title": "Post-Possession Photograph Requirement",
       "requirement": "Starting April 1, 2025, landlords must take photographs of a unit after regaining possession but before any repairs or cleaning for which the landlord intends to make a deduction from the security deposit. These photos and a written explanation of the cost of repairs or cleaning must be given to the tenant along with the itemized statement.",
       "key_value": "photographs required",
-      "coverage_conditions": "After regaining possession, before repairs or cleaning",
+      "coverage_conditions": {
+        "text": "After regaining possession, before repairs or cleaning",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "Must be provided with itemized statement and written explanation of costs",
@@ -1683,7 +2544,16 @@
       "title": "Security Deposit Interest Requirement",
       "requirement": "For tenancies in units fully or partially covered by Berkeley's Rent Ordinance, landlords must pay tenants interest on their security deposit at the end of each year and a prorated amount if the tenant moves out before the end of the year.",
       "key_value": "interest payment required",
-      "coverage_conditions": "Units fully or partially covered by Berkeley's Rent Ordinance",
+      "coverage_conditions": {
+        "text": "Units fully or partially covered by Berkeley's Rent Ordinance",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "See Security Deposit Interest & Calculator page for more information",
@@ -1705,7 +2575,28 @@
       "title": "Rent Control for Pre-1980 Multifamily Units",
       "requirement": "Most units in multifamily properties built before 1980 are subject to rent control limitations.",
       "key_value": "rent_control_applies",
-      "coverage_conditions": "Multifamily properties built before 1980",
+      "coverage_conditions": {
+        "text": "Multifamily properties built before 1980",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "New construction after June 1980, single-family homes with tenancies beginning on or after January 1, 1996, most condominiums, certain government-subsidized units, golden duplexes, owner-occupied shared units, ADU properties with owner occupancy, university rentals, nonprofit cooperatives",
       "overrides": [],
       "interaction": "Part of Berkeley's comprehensive rent stabilization framework",
@@ -1727,7 +2618,16 @@
       "title": "Rent Control for Single-Family Homes with Pre-1996 Tenancies",
       "requirement": "Single family homes with current tenancies that began before 1996 are subject to rent control.",
       "key_value": "rent_control_applies",
-      "coverage_conditions": "Single-family homes with tenancies beginning before January 1, 1996",
+      "coverage_conditions": {
+        "text": "Single-family homes with tenancies beginning before January 1, 1996",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "Single-family homes with tenancies beginning on or after January 1, 1996",
       "overrides": [],
       "interaction": "Distinguishes between pre-1996 and post-1996 tenancies for single-family homes",
@@ -1749,7 +2649,16 @@
       "title": "Rent Control for Rooming Houses",
       "requirement": "Rooming houses defined as single-family homes with five or more rooms rented out individually with separate leases are subject to rent control.",
       "key_value": "rent_control_applies",
-      "coverage_conditions": "Single-family homes with five or more rooms rented individually with separate leases",
+      "coverage_conditions": {
+        "text": "Single-family homes with five or more rooms rented individually with separate leases",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "Properties not meeting the rooming house definition",
       "overrides": [],
       "interaction": "Special category for single-family homes operating as rooming houses",
@@ -1771,7 +2680,16 @@
       "title": "Rent Control Exemption for Post-1980 New Construction",
       "requirement": "Units that were built and received a Certificate of Occupancy after June 1980 are exempt from rent control but subject to other ordinance provisions.",
       "key_value": "rent_control_exempt",
-      "coverage_conditions": "Units receiving Certificate of Occupancy after June 1980",
+      "coverage_conditions": {
+        "text": "Units receiving Certificate of Occupancy after June 1980",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "Exempt from rent control but covered for registration, just cause eviction, and security deposit interest",
       "overrides": [],
       "interaction": "New construction exemption from rent control while maintaining other protections",
@@ -1793,7 +2711,16 @@
       "title": "Rent Control Exemption for Single-Family Homes with Post-1996 Tenancies",
       "requirement": "Single-family homes with tenancies that began on or after January 1, 1996 are exempt from rent control but subject to other ordinance provisions.",
       "key_value": "rent_control_exempt",
-      "coverage_conditions": "Single-family homes with tenancies beginning on or after January 1, 1996",
+      "coverage_conditions": {
+        "text": "Single-family homes with tenancies beginning on or after January 1, 1996",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "Exempt from rent control but covered for registration, just cause eviction, and security deposit interest",
       "overrides": [],
       "interaction": "Costa-Hawkins compliance for single-family homes with post-1996 tenancies",
@@ -1815,7 +2742,28 @@
       "title": "Just Cause Eviction for Pre-1980 Multifamily Units",
       "requirement": "Most units in multifamily properties built before 1980 require just cause for eviction.",
       "key_value": "just_cause_required",
-      "coverage_conditions": "Multifamily properties built before 1980",
+      "coverage_conditions": {
+        "text": "Multifamily properties built before 1980",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Golden duplexes, owner-occupied shared units, ADU properties with owner occupancy, university rentals, nonprofit cooperatives",
       "overrides": [],
       "interaction": "Core just cause eviction protection for covered units",
@@ -1837,7 +2785,16 @@
       "title": "Just Cause Eviction for Single-Family Homes with Pre-1996 Tenancies",
       "requirement": "Single family homes with current tenancies that began before 1996 require just cause for eviction.",
       "key_value": "just_cause_required",
-      "coverage_conditions": "Single-family homes with tenancies beginning before January 1, 1996",
+      "coverage_conditions": {
+        "text": "Single-family homes with tenancies beginning before January 1, 1996",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "Single-family homes with tenancies beginning on or after January 1, 1996 are exempt",
       "overrides": [],
       "interaction": "Just cause protection for pre-1996 single-family tenancies",
@@ -1859,7 +2816,28 @@
       "title": "Just Cause Eviction for Post-1980 New Construction",
       "requirement": "Units that were built and received a Certificate of Occupancy after June 1980 require just cause for eviction despite being exempt from rent control.",
       "key_value": "just_cause_required",
-      "coverage_conditions": "Units receiving Certificate of Occupancy after June 1980",
+      "coverage_conditions": {
+        "text": "Units receiving Certificate of Occupancy after June 1980",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Golden duplexes, owner-occupied shared units, ADU properties with owner occupancy, university rentals, nonprofit cooperatives",
       "overrides": [],
       "interaction": "Just cause protection extends to new construction exempt from rent control",
@@ -1881,7 +2859,16 @@
       "title": "Just Cause Eviction Exemption for Owner-Occupied Shared Units",
       "requirement": "Units where the owner shares a kitchen or bath with the tenant are exempt from just cause eviction requirements if the owner lived on the property at the time the tenancy started.",
       "key_value": "just_cause_exempt",
-      "coverage_conditions": "Owner shares kitchen or bath with tenant and lived on property when tenancy started",
+      "coverage_conditions": {
+        "text": "Owner shares kitchen or bath with tenant and lived on property when tenancy started",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "Fully exempt from all ordinance provisions",
       "overrides": [],
       "interaction": "Exemption for owner-occupied shared living arrangements",
@@ -1903,7 +2890,28 @@
       "title": "Just Cause Eviction Exemption for ADU Properties with Owner Occupancy",
       "requirement": "Tenancies started after November 7, 2018, on properties where one unit is an ADU and either unit is owner-occupied are exempt from just cause eviction requirements.",
       "key_value": "just_cause_exempt",
-      "coverage_conditions": "Tenancies starting after November 7, 2018, on properties with one ADU and owner occupancy of either unit",
+      "coverage_conditions": {
+        "text": "Tenancies starting after November 7, 2018, on properties with one ADU and owner occupancy of either unit",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Fully exempt from all ordinance provisions",
       "overrides": [],
       "interaction": "ADU exemption to encourage accessory dwelling unit development",
@@ -1925,7 +2933,28 @@
       "title": "Security Deposit Interest for Pre-1980 Multifamily Units",
       "requirement": "Most units in multifamily properties built before 1980 must pay interest on security deposits.",
       "key_value": "security_deposit_interest_required",
-      "coverage_conditions": "Multifamily properties built before 1980",
+      "coverage_conditions": {
+        "text": "Multifamily properties built before 1980",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Golden duplexes, owner-occupied shared units, ADU properties with owner occupancy, university rentals, nonprofit cooperatives",
       "overrides": [],
       "interaction": "Security deposit interest requirement for covered units",
@@ -1947,7 +2976,28 @@
       "title": "Security Deposit Interest for Post-1980 New Construction",
       "requirement": "Units that were built and received a Certificate of Occupancy after June 1980 must pay interest on security deposits despite being exempt from rent control.",
       "key_value": "security_deposit_interest_required",
-      "coverage_conditions": "Units receiving Certificate of Occupancy after June 1980",
+      "coverage_conditions": {
+        "text": "Units receiving Certificate of Occupancy after June 1980",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Golden duplexes, owner-occupied shared units, ADU properties with owner occupancy, university rentals, nonprofit cooperatives",
       "overrides": [],
       "interaction": "Security deposit interest applies to new construction exempt from rent control",
@@ -1969,7 +3019,28 @@
       "title": "Security Deposit Interest for Single-Family Homes with Post-1996 Tenancies",
       "requirement": "Single-family homes with tenancies that began on or after January 1, 1996 must pay interest on security deposits despite being exempt from rent control.",
       "key_value": "security_deposit_interest_required",
-      "coverage_conditions": "Single-family homes with tenancies beginning on or after January 1, 1996",
+      "coverage_conditions": {
+        "text": "Single-family homes with tenancies beginning on or after January 1, 1996",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Golden duplexes, owner-occupied shared units, ADU properties with owner occupancy, university rentals, nonprofit cooperatives",
       "overrides": [],
       "interaction": "Security deposit interest for post-1996 single-family tenancies despite rent control exemption",
@@ -1991,7 +3062,16 @@
       "title": "Boston Fair Chance Tenant Selection - Prohibition on Arrest-Based Denials",
       "requirement": "Housing providers receiving DND funding/land or with BPDA inclusionary units cannot deny housing based on arrests that did not result in conviction, including dismissed charges, diversion programs, and similar non-convictions.",
       "key_value": null,
-      "coverage_conditions": "Applies to housing providers receiving Department of Neighborhood Development (DND) funding and/or land, or that have income restricted units created under the Boston Planning and Development Agency (BPDA) Inclusionary Development Policy",
+      "coverage_conditions": {
+        "text": "Applies to housing providers receiving Department of Neighborhood Development (DND) funding and/or land, or that have income restricted units created under the Boston Planning and Development Agency (BPDA) Inclusionary Development Policy",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Boston"
+          }
+        ]
+      },
       "exemptions": "Does not apply where there is a direct relationship between a conviction and the housing sought and/or unreasonable risk of substantial harm to the safety of others; does not apply to current criminal behavior; federal or state law preempts this policy where conflicts exist",
       "overrides": [],
       "interaction": "Works in conjunction with other Fair Chance provisions regarding convictions, juvenile records, and expunged records",
@@ -2013,7 +3093,16 @@
       "title": "Boston Fair Chance Tenant Selection - Prohibition on Credit Score-Based Denials",
       "requirement": "Housing providers receiving DND funding/land or with BPDA inclusionary units cannot use an applicant's credit score to approve or deny housing applications.",
       "key_value": null,
-      "coverage_conditions": "Applies to housing providers receiving Department of Neighborhood Development (DND) funding and/or land, or that have income restricted units created under the Boston Planning and Development Agency (BPDA) Inclusionary Development Policy",
+      "coverage_conditions": {
+        "text": "Applies to housing providers receiving Department of Neighborhood Development (DND) funding and/or land, or that have income restricted units created under the Boston Planning and Development Agency (BPDA) Inclusionary Development Policy",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Boston"
+          }
+        ]
+      },
       "exemptions": "Property managers may consider credit history (not score) in lieu of rental history to determine ability to pay rent when rental history is not available; mitigating circumstances may be considered for insufficient credit",
       "overrides": [],
       "interaction": "Allows consideration of credit history but not credit score; must consider mitigating circumstances and rental history",
@@ -2035,7 +3124,16 @@
       "title": "Prohibition on Use or Distribution of Common Pricing Algorithms in Restraint of Trade",
       "requirement": "It is unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce. A common pricing algorithm is defined as any methodology, including computer software or other technology, used by two or more persons that uses competitor data to recommend, align, stabilize, set, or otherwise influence a price or commercial term.",
       "key_value": "Prohibits use or distribution of common pricing algorithms in restraint of trade",
-      "coverage_conditions": "Applies to any person (excluding end consumers) using or distributing a common pricing algorithm that uses competitor data to influence prices or commercial terms for products or services in California",
+      "coverage_conditions": {
+        "text": "Applies to any person (excluding end consumers) using or distributing a common pricing algorithm that uses competitor data to influence prices or commercial terms for products or services in California",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "End consumers of products or services are excluded from the definition of 'person'",
       "overrides": [],
       "interaction": "Supplements existing Cartwright Act antitrust provisions; does not impair or limit applicability of other antitrust laws",
@@ -2058,7 +3156,16 @@
       "title": "No-Fault Just Cause: Withdrawal from Rental Market",
       "requirement": "Owner may terminate tenancy for withdrawal of the residential real property from the rental market. This constitutes no-fault just cause requiring relocation assistance or rent waiver.",
       "key_value": "Withdrawal from rental market is no-fault just cause",
-      "coverage_conditions": "Applies to residential tenancies subject to just cause requirements. Relocation assistance or rent waiver required.",
+      "coverage_conditions": {
+        "text": "Applies to residential tenancies subject to just cause requirements. Relocation assistance or rent waiver required.",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "Same exemptions as § 1946.2(a)",
       "overrides": [],
       "interaction": "Requires relocation assistance equal to one month rent or rent waiver for final month per § 1946.2(d)",
@@ -2080,7 +3187,16 @@
       "title": "Income Standard Must Account for Aggregate Income of Unmarried Cohabitants",
       "requirement": "Housing providers must use financial or income standards that account for the aggregate income of persons residing together on the same basis as married persons residing together.",
       "key_value": "aggregate_income_equal_treatment",
-      "coverage_conditions": "Applies to all rental housing in California",
+      "coverage_conditions": {
+        "text": "Applies to all rental housing in California",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "Complements source of income protections in subsection (a)",
@@ -2102,7 +3218,16 @@
       "title": "Los Angeles Motion to Study and Potentially Ban Algorithm-Based Rent Setting Software",
       "requirement": "The City Council has instructed the Los Angeles Housing Department to report on the number of ownership and management entities using algorithm-based software to establish rents and the feasibility of instituting a ban on the use of this software to set rents in the City.",
       "key_value": "Study and potential ban on algorithm-based rent setting software",
-      "coverage_conditions": "Applies to ownership and management entities using algorithm-based software to establish rents in Los Angeles",
+      "coverage_conditions": {
+        "text": "Applies to ownership and management entities using algorithm-based software to establish rents in Los Angeles",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ]
+      },
       "exemptions": "Not specified; pending study and report",
       "overrides": [],
       "interaction": "Motion references San Francisco Board of Supervisors legislation approved in July 2024 that banned property owners and managers from using algorithm-based tools that recommend or set rental prices. Motion also references ongoing DOJ investigation of RealPage and lawsuits by DC Attorney General (November 2023), Arizona Attorney General (February 2024), and more than 20 private class action lawsuits nationwide.",
@@ -2124,7 +3249,16 @@
       "title": "Just Cause for Eviction Ordinance - Coverage Requirements",
       "requirement": "Landlords cannot terminate tenancies without just cause once the tenant has lived in the unit for at least six months or their original lease expired, whichever comes first. The ordinance covers most residential properties in Los Angeles not regulated by the Rent Stabilization Ordinance.",
       "key_value": "6 months or lease expiration",
-      "coverage_conditions": "Applies to most residential properties in City of Los Angeles not regulated by RSO; tenant must have lived in unit for at least 6 months or original lease expired",
+      "coverage_conditions": {
+        "text": "Applies to most residential properties in City of Los Angeles not regulated by RSO; tenant must have lived in unit for at least 6 months or original lease expired",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ]
+      },
       "exemptions": "Transient hotels, licensed care facilities, fraternity or sorority houses, owner's roommate, cooperatives under certain circumstances, some non-profit facilities for the homeless or short-term treatment centers for substance abuse, some properties owned by HACLA or the government",
       "overrides": [],
       "interaction": "Complements RSO by covering properties not subject to rent stabilization",
@@ -2146,7 +3280,16 @@
       "title": "An Act prohibiting algorithmic rent setting",
       "requirement": "This bill would prohibit the use of algorithmic rent setting in Massachusetts rental housing. The legislation is known as the Preventing Algorithmic Rent Fixing in the Rental Housing Market Act.",
       "key_value": "prohibition",
-      "coverage_conditions": "Applies to rental housing market in Massachusetts",
+      "coverage_conditions": {
+        "text": "Applies to rental housing market in Massachusetts",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
       "exemptions": "Not specified in bill history",
       "overrides": [],
       "interaction": "New draft combining petitions S994 and S1016",
@@ -2169,7 +3312,16 @@
       "title": "Prohibition of Anti-Competitive Automated Rent Price-Fixing - Sale and Licensing Ban",
       "requirement": "It is unlawful for any person to sell, license, or otherwise provide an algorithmic device to a landlord. An algorithmic device is software that uses nonpublic competitor data to advise or recommend rental rates or occupancy levels.",
       "key_value": "Prohibits sale/licensing of algorithmic rent-setting devices",
-      "coverage_conditions": "Applies to any person selling, licensing, or providing algorithmic devices to landlords in San Diego",
+      "coverage_conditions": {
+        "text": "Applies to any person selling, licensing, or providing algorithmic devices to landlords in San Diego",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Diego"
+          }
+        ]
+      },
       "exemptions": "Does not apply to: (a) software publishing reports from aggregated historical nonpublic competitor data more than 90 days old or public information that does not recommend future rates; (b) software establishing rates per affordable housing program guidelines",
       "overrides": [],
       "interaction": "Part of comprehensive ban on algorithmic rent-setting alongside landlord use prohibition",
@@ -2191,7 +3343,16 @@
       "title": "Prohibition of Anti-Competitive Automated Rent Price-Fixing - Landlord Use Ban",
       "requirement": "It is unlawful for a landlord to use an algorithmic device to set rental rates or occupancy levels for residential rental property. Each month a violation continues and each property where used constitutes a separate violation.",
       "key_value": "Prohibits landlord use of algorithmic rent-setting devices; separate violation per month and per property",
-      "coverage_conditions": "Applies to all landlords of residential rental property in San Diego",
+      "coverage_conditions": {
+        "text": "Applies to all landlords of residential rental property in San Diego",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Diego"
+          }
+        ]
+      },
       "exemptions": "Does not apply to: (a) software publishing reports from aggregated historical nonpublic competitor data more than 90 days old or public information that does not recommend future rates; (b) software establishing rates per affordable housing program guidelines",
       "overrides": [],
       "interaction": "Part of comprehensive ban on algorithmic rent-setting alongside sale/licensing prohibition; violations subject to tenant remedies under § 98.1104",
@@ -2213,7 +3374,16 @@
       "title": "Santa Ana Maximum Allowable Rent Increase",
       "requirement": "Landlords can only raise rent by a maximum of 3% of current rent or 80% of the Consumer Price Index (CPI) change, whichever is less. For the period September 1, 2026 through August 31, 2027, the maximum allowable rent increase is 2.87 percent.",
       "key_value": "3% or 80% of CPI, whichever is less",
-      "coverage_conditions": "Applies to rental units covered by Santa Ana Rent Stabilization Ordinance",
+      "coverage_conditions": {
+        "text": "Applies to rental units covered by Santa Ana Rent Stabilization Ordinance",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Santa Ana"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "Current period (Sept 1, 2026 - Aug 31, 2027) maximum is 2.87%",
@@ -2235,7 +3405,28 @@
       "title": "Prohibition on Discriminatory Tenant Screening",
       "requirement": "Tenant screening, including when done by third-party screening companies, cannot discriminate based on protected characteristics including race, color, ancestry, national origin, citizenship, immigration status, primary language, religion, disability, sex, gender, sexual orientation, gender identity, gender expression, genetic information, marital status, familial status, source of income, military/veteran status, or age.",
       "key_value": "protected_characteristics_screening",
-      "coverage_conditions": "Applies to landlords, tenant screening companies, and other housing providers conducting tenant screening",
+      "coverage_conditions": {
+        "text": "Applies to landlords, tenant screening companies, and other housing providers conducting tenant screening",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Senior housing may limit based on age if meeting specific requirements; owner-occupied homes renting to one additional person may exclude based on protected characteristics",
       "overrides": [],
       "interaction": "Prohibits discriminatory screening practices by housing providers and third-party screening companies",
@@ -2257,7 +3448,16 @@
       "title": "Notice to Commission for No-Fault Evictions",
       "requirement": "Landlords must provide written notice to the Commission of no-fault just cause termination of tenancy no later than three business days after providing required notice to tenant. This requirement does not apply until 30 days after the Commission establishes a submission portal.",
       "key_value": "3 business days",
-      "coverage_conditions": "Only applies after Commission establishes submission portal and provides 30 days notice",
+      "coverage_conditions": {
+        "text": "Only applies after Commission establishes submission portal and provides 30 days notice",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Diego"
+          }
+        ]
+      },
       "exemptions": "Does not apply until 30 days after Commission establishes submission portal",
       "overrides": [],
       "interaction": "Delayed implementation pending Commission action",
@@ -2279,7 +3479,36 @@
       "title": "Additional Tenant Rent Increase (10% for Non-Dependent)",
       "requirement": "Effective February 2, 2026, a 10% increase for an additional dependent is no longer permitted. However, a 10% increase for an additional tenant (not a dependent) is allowed if the tenant moves into a rental unit. Landlords can increase the rent within 60 days of learning about the additional tenant.",
       "key_value": "10% for additional non-dependent tenant; 0% for dependent; 60-day window to impose increase",
-      "coverage_conditions": "RSO units; applies only to additional tenants who are not dependents",
+      "coverage_conditions": {
+        "text": "RSO units; applies only to additional tenants who are not dependents",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "year_built",
+            "operator": "missing",
+            "reason": "LA RSO coverage depends on certificate of occupancy; year_built is missing."
+          },
+          {
+            "field": "year_built",
+            "operator": "eq",
+            "value": 1978,
+            "reason": "Building year is 1978 (LA COO cutoff 1978-10-01); certificate of occupancy date is not in the data."
+          }
+        ],
+        "omit_if": [
+          {
+            "field": "year_built",
+            "operator": "gt",
+            "value": 1978
+          }
+        ]
+      },
       "exemptions": "No increase allowed for dependents as of February 2, 2026",
       "overrides": [],
       "interaction": "Clarifies distinction between dependents and non-dependent tenants; special notice rules for unauthorized tenants who moved in March 2020–December 2023",
@@ -2301,7 +3530,36 @@
       "title": "Systematic Code Enforcement Fee Surcharge (1/12 of 50% monthly)",
       "requirement": "Effective January 1, 2022, a landlord may collect 1/12 of 50% of the annual Systematic Code Enforcement Fee from the tenant of the rental unit per month.",
       "key_value": "1/12 of 50% of annual SCEF per month",
-      "coverage_conditions": "RSO units subject to Systematic Code Enforcement Program",
+      "coverage_conditions": {
+        "text": "RSO units subject to Systematic Code Enforcement Program",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "year_built",
+            "operator": "missing",
+            "reason": "LA RSO coverage depends on certificate of occupancy; year_built is missing."
+          },
+          {
+            "field": "year_built",
+            "operator": "eq",
+            "value": 1978,
+            "reason": "Building year is 1978 (LA COO cutoff 1978-10-01); certificate of occupancy date is not in the data."
+          }
+        ],
+        "omit_if": [
+          {
+            "field": "year_built",
+            "operator": "gt",
+            "value": 1978
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "Separate surcharge; added by ordinance effective August 6, 2021, applicable January 1, 2022",
@@ -2323,7 +3581,16 @@
       "title": "Move-Out Walk-Through Inspection Requirement",
       "requirement": "Under state law, landlords must offer a walk-through inspection during the last two weeks of a tenancy to identify any items that need repair or cleaning, giving tenants a chance to correct issues to avoid security deposit deductions.",
       "key_value": "walk-through inspection required",
-      "coverage_conditions": "During last two weeks of tenancy",
+      "coverage_conditions": {
+        "text": "During last two weeks of tenancy",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "",
       "overrides": [],
       "interaction": "Relates to security deposit deduction process",
@@ -2345,7 +3612,16 @@
       "title": "Rent Control Exemption for Most Condominiums",
       "requirement": "Most condominiums are exempt from rent control but subject to other ordinance provisions including registration, just cause eviction, and security deposit interest.",
       "key_value": "rent_control_exempt",
-      "coverage_conditions": "Condominium units",
+      "coverage_conditions": {
+        "text": "Condominium units",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ]
+      },
       "exemptions": "Exempt from rent control but covered for registration, just cause eviction, and security deposit interest",
       "overrides": [],
       "interaction": "Costa-Hawkins compliance for condominiums",
@@ -2367,7 +3643,28 @@
       "title": "Just Cause Eviction for Condominiums",
       "requirement": "Most condominiums require just cause for eviction despite being exempt from rent control.",
       "key_value": "just_cause_required",
-      "coverage_conditions": "Condominium units",
+      "coverage_conditions": {
+        "text": "Condominium units",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Golden duplexes, owner-occupied shared units, ADU properties with owner occupancy, university rentals, nonprofit cooperatives",
       "overrides": [],
       "interaction": "Just cause protection for condominiums despite rent control exemption",
@@ -2389,7 +3686,28 @@
       "title": "Security Deposit Interest for Condominiums",
       "requirement": "Most condominiums must pay interest on security deposits despite being exempt from rent control.",
       "key_value": "security_deposit_interest_required",
-      "coverage_conditions": "Condominium units",
+      "coverage_conditions": {
+        "text": "Condominium units",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Berkeley"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Golden duplexes, owner-occupied shared units, ADU properties with owner occupancy, university rentals, nonprofit cooperatives",
       "overrides": [],
       "interaction": "Security deposit interest for condominiums despite rent control exemption",
@@ -2411,7 +3729,16 @@
       "title": "Illegal Rent Petition Process",
       "requirement": "Tenants claiming the rent they are being charged is illegal may file an Illegal Rent Petition with the Office of Landlord/Tenant Relations. Tenants seeking a rent reduction due to building or apartment conditions may file a Failure to Maintain Service Petition.",
       "key_value": null,
-      "coverage_conditions": "Available to tenants in rent-controlled properties in Jersey City",
+      "coverage_conditions": {
+        "text": "Available to tenants in rent-controlled properties in Jersey City",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Jersey City"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "The Landlord must be provided with a copy of the Petition and all documents. A completed Proof of Service form, Petition, and all documents are to be submitted to the Office once the Landlord has been served.",
@@ -2433,7 +3760,16 @@
       "title": "Santa Ana Just Cause Eviction Requirement",
       "requirement": "Landlords must have a valid reason to evict tenants, such as non-payment of rent, breaking the lease, or if the landlord wants to move into the property themselves.",
       "key_value": "Just cause required for eviction",
-      "coverage_conditions": "Applies to rental units covered by Santa Ana Rent Stabilization Ordinance",
+      "coverage_conditions": {
+        "text": "Applies to rental units covered by Santa Ana Rent Stabilization Ordinance",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Santa Ana"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "Relocation assistance may be required for certain just cause evictions",
@@ -2455,7 +3791,16 @@
       "title": "Prohibition on Discriminatory Security Deposit Practices",
       "requirement": "Housing providers cannot charge higher security deposits to households with children or apply different security deposit terms based on source of income or other protected characteristics.",
       "key_value": "non_discriminatory_deposits",
-      "coverage_conditions": "Applies to all housing providers subject to FEHA",
+      "coverage_conditions": {
+        "text": "Applies to all housing providers subject to FEHA",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": "Qualified senior housing may limit based on age",
       "overrides": [],
       "interaction": "Ensures security deposit amounts and terms are applied equally regardless of protected characteristics",
@@ -2477,7 +3822,16 @@
       "title": "Jersey City Rent Control Ordinance",
       "requirement": "Jersey City administers and enforces rent control through Chapter 260 of the Municipal Code, which regulates rent increases and provides for exemptions. Properties with 1-4 units are exempt from rent control.",
       "key_value": null,
-      "coverage_conditions": "Applies to rental properties in Jersey City",
+      "coverage_conditions": {
+        "text": "Applies to rental properties in Jersey City",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Jersey City"
+          }
+        ]
+      },
       "exemptions": "All 1-4 Unit Properties are exempt from rent control",
       "overrides": [],
       "interaction": "Landlords must submit applications for rent increases through the TYLER portal. Various types of rent increase applications are available including capital improvement, vacancy capital improvement, and hardship rental increase applications.",
@@ -2499,7 +3853,16 @@
       "title": "New Jersey FAIR Act algorithmic rent restrictions",
       "requirement": "The NJ FAIR Act restricts algorithmic rent-setting tools statewide; effective the first day of the twelfth month after enactment (July 1, 2027). Municipal ordinances that conflict are prohibited.",
       "key_value": null,
-      "coverage_conditions": "Statewide New Jersey residential rentals",
+      "coverage_conditions": {
+        "text": "Statewide New Jersey residential rentals",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "NJ"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "May conflict with existing local algorithmic bans once effective",
@@ -2522,7 +3885,33 @@
       "title": "California statewide rent cap (AB 1482)",
       "requirement": "Annual rent increases for covered units are capped at the lesser of 5% plus CPI or 10%; local rent control may supersede for covered buildings.",
       "key_value": "lesser of 5% + CPI or 10%",
-      "coverage_conditions": "Most CA residential rentals; certificate of occupancy within prior 15 years exempt",
+      "coverage_conditions": {
+        "text": "Most CA residential rentals; certificate of occupancy within prior 15 years exempt",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "year_built",
+            "operator": "missing",
+            "reason": "Statewide coverage may depend on certificate-of-occupancy age; year_built is missing."
+          },
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
       "exemptions": "Owner-occupied duplexes; housing issued a certificate of occupancy within the prior 15 years; certain affordable housing",
       "overrides": [],
       "interaction": "Yields to stricter local rent control where applicable",
@@ -2544,7 +3933,16 @@
       "title": "California application screening fee cap",
       "requirement": "Landlords may charge an application screening fee not exceeding the actual out-of-pocket cost, capped at a CPI-adjusted statutory amount, and only when a unit is available.",
       "key_value": null,
-      "coverage_conditions": "Residential rental applications in California",
+      "coverage_conditions": {
+        "text": "Residential rental applications in California",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "CA"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": null,
@@ -2566,7 +3964,16 @@
       "title": "Massachusetts H.5222 algorithmic pricing bill",
       "requirement": "Pending Massachusetts House bill H.5222 would restrict algorithmic rent-setting tools; it is not law.",
       "key_value": null,
-      "coverage_conditions": "Would apply statewide in Massachusetts if enacted",
+      "coverage_conditions": {
+        "text": "Would apply statewide in Massachusetts if enacted",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": null,
@@ -2589,7 +3996,16 @@
       "title": "San Francisco algorithmic pricing ban",
       "requirement": "San Francisco prohibits the sale or use of coordinated pricing algorithms to set rents or occupancy for residential units.",
       "key_value": null,
-      "coverage_conditions": "Residential units in San Francisco",
+      "coverage_conditions": {
+        "text": "Residential units in San Francisco",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": null,
@@ -2611,7 +4027,16 @@
       "title": "Massachusetts rent-control ballot question (struck)",
       "requirement": "The proposed statewide rent-control ballot question was struck by the Massachusetts high court on June 23, 2026; no rent cap applies in Boston or Cambridge from that measure. Existing c.40P continues to bar local rent control.",
       "key_value": null,
-      "coverage_conditions": "None — measure failed",
+      "coverage_conditions": {
+        "text": "None — measure failed",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": null,
@@ -2634,7 +4059,16 @@
       "title": "Hoboken ban on algorithmic rent setting",
       "requirement": "Hoboken prohibits algorithmic rent-setting devices for residential units within the city. Primary municipal code pages in the pack are link-only; rule anchored to FAIR Act corpus definitions for citation integrity.",
       "key_value": null,
-      "coverage_conditions": "Residential dwelling units in Hoboken, NJ",
+      "coverage_conditions": {
+        "text": "Residential dwelling units in Hoboken, NJ",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Hoboken"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "May be preempted by NJ FAIR Act once effective",
@@ -2657,7 +4091,16 @@
       "title": "Jersey City ban on algorithmic rent setting",
       "requirement": "Jersey City prohibits algorithmic rent-setting devices for residential units within the city. Primary municipal sources in the pack are link-only; rule anchored to FAIR Act corpus definitions for citation integrity.",
       "key_value": null,
-      "coverage_conditions": "Residential units in Jersey City, NJ",
+      "coverage_conditions": {
+        "text": "Residential units in Jersey City, NJ",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Jersey City"
+          }
+        ]
+      },
       "exemptions": null,
       "overrides": [],
       "interaction": "May be preempted by NJ FAIR Act once effective",
