@@ -5,6 +5,7 @@ dist/
 .env.local
 backend/.cache/
 .impeccable/
+.cursor/
 *.log
 .DS_Store
 !outputs/.gitkeep
