@@ -18,15 +18,16 @@ export interface RuleView {
 }
 
 export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void }) {
+  const t = useT();
   const { rule, result, explanation, conflict } = view;
   const prominent = result === "applies";
   return (
     <button
       onClick={onOpen}
       className={cn(
-        "group surface w-full p-4 text-left transition-colors hover:border-ring/50 sm:p-5",
-        prominent && "border-l-[3px] border-l-applies",
-        result === "superseded" && "opacity-75",
+        "group surface w-full p-4 text-left transition-[border-color,box-shadow,background-color] duration-200 hover:border-ring/50 hover:shadow-sm sm:p-5",
+        prominent && "bg-applies-soft/40",
+        result === "superseded" && "opacity-80",
       )}
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
@@ -41,14 +42,21 @@ export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void 
           {result ? <StatusBadge value={result} size="md" /> : <StatusBadge value={rule.status} label={STATUS_LABEL[rule.status]} size="md" />}
         </div>
       </div>
-      <p className="mt-3 text-sm text-foreground/85">{rule.requirement}</p>
+      <p className="mt-3 text-sm leading-relaxed text-foreground/85">{rule.requirement}</p>
       {result === "unknown" && explanation ? (
         <div className="mt-3"><UnknownFactWarning explanation={explanation} compact /></div>
       ) : explanation ? (
-        <p className="mt-2 text-sm text-muted-foreground"><span className="font-medium text-foreground/70">Why: </span>{explanation}</p>
+        <div className="mt-3 rounded-md border border-border/80 bg-paper/80 px-3 py-2.5">
+          <div className="eyebrow">{t("lookup.why")}</div>
+          <p className="mt-1 text-sm leading-relaxed text-ink/90">{explanation}</p>
+        </div>
       ) : null}
-      <SourceMeta rule={rule} />
-      <div className="mt-3 text-xs text-primary opacity-0 transition-opacity group-hover:opacity-100">View evidence →</div>
+      <div className="mt-3 flex items-center justify-between gap-3 border-t border-border/70 pt-3">
+        <SourceMeta rule={rule} />
+        <span className="shrink-0 text-xs font-medium text-primary transition-transform duration-200 group-hover:translate-x-0.5">
+          {t("lookup.viewEvidence")} →
+        </span>
+      </div>
     </button>
   );
 }
@@ -108,8 +116,8 @@ export function CitationPanel({ rule, asOf }: { rule: Rule; asOf?: string | unde
         <CopyCitation rule={rule} />
       </div>
       <div className="px-4 py-4">
-        <figure className="relative rounded-sm border-l-2 border-primary bg-quote py-3 pl-4 pr-3">
-          <Quote className="absolute -left-2.5 -top-2 size-4 rounded-full bg-paper p-0.5 text-primary" />
+        <figure className="relative rounded-sm bg-quote px-4 py-3">
+          <Quote className="mb-2 size-3.5 text-primary" />
           <blockquote className={cn("font-serif text-[15px] leading-relaxed text-ink", !open && long && "line-clamp-2")}>
             “{rule.quoted_span}”
           </blockquote>

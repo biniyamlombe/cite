@@ -5,7 +5,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/lib/auth";
 import { listAlertSubs, logLookup, saveMemo, setEmailAlert } from "@/lib/cite/team";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Search, Loader2, AlertCircle, FileSearch, Printer, Link2, Check, Download, Eye, Mail, Save, GitCompare, FileText } from "lucide-react";
+import {
+  Search, Loader2, AlertCircle, FileSearch, Printer, Link2, Check, Download,
+  Eye, Mail, Save, GitCompare, FileText, Quote,
+} from "lucide-react";
 import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
 import { CATEGORY_LABEL, CATEGORY_ORDER } from "@/lib/cite/labels";
 import type { AddressRow, LookupResponse } from "@/lib/cite/types";
@@ -53,7 +56,7 @@ function AddressSearch({ onSelect }: { onSelect: (a: AddressRow) => void }) {
   const pick = (a: AddressRow) => { onSelect(a); setQ(a.street_address); setOpen(false); };
   return (
     <div ref={ref} className="relative">
-      <div className="flex items-center gap-3 rounded-lg border-2 border-input bg-card px-4 py-3.5 shadow-sm focus-within:border-ring">
+      <div className="flex items-center gap-3 rounded-lg border-2 border-input bg-card px-4 py-3.5 shadow-sm transition-colors focus-within:border-ring">
         <Search className="size-5 text-muted-foreground" />
         <input
           value={q}
@@ -72,7 +75,9 @@ function AddressSearch({ onSelect }: { onSelect: (a: AddressRow) => void }) {
       </div>
       {open && (
         <ul className="absolute z-20 mt-2 w-full overflow-hidden rounded-lg border bg-popover shadow-lg">
-          {data.length === 0 && !isFetching && <li className="px-4 py-3 text-sm text-muted-foreground">{t("lookup.none")}</li>}
+          {data.length === 0 && !isFetching && (
+            <li className="px-4 py-6 text-center text-sm text-muted-foreground">{t("lookup.none")}</li>
+          )}
           {data.map((a, i) => {
             const differs = a.legal_city && a.legal_city !== a.postal_city;
             return (
@@ -80,7 +85,7 @@ function AddressSearch({ onSelect }: { onSelect: (a: AddressRow) => void }) {
                 <button
                   onMouseEnter={() => setActive(i)}
                   onClick={() => pick(a)}
-                  className={`flex w-full items-center justify-between gap-4 px-4 py-2.5 text-left ${i === active ? "bg-secondary" : ""}`}
+                  className={`flex w-full items-center justify-between gap-4 px-4 py-2.5 text-left transition-colors ${i === active ? "bg-secondary" : ""}`}
                 >
                   <span>
                     <span className="text-ink">{a.street_address}</span>
@@ -95,6 +100,109 @@ function AddressSearch({ onSelect }: { onSelect: (a: AddressRow) => void }) {
           })}
         </ul>
       )}
+    </div>
+  );
+}
+
+function ReadingOrder() {
+  const t = useT();
+  const steps = [t("lookup.stepWhat"), t("lookup.stepWhy"), t("lookup.stepEvidence")];
+  return (
+    <div className="fade-up-delay-2 mt-10 border-t pt-8">
+      <div className="eyebrow">{t("lookup.reading")}</div>
+      <ol className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-0 sm:divide-x sm:divide-border">
+        {steps.map((label, i) => (
+          <li key={label} className="flex items-baseline gap-2 sm:px-4 sm:first:pl-0 sm:last:pr-0">
+            <span className="font-mono text-[11px] tabular-nums text-primary">{String(i + 1).padStart(2, "0")}</span>
+            <span className="text-sm text-ink">{label}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  );
+}
+
+function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
+  const t = useT();
+  return (
+    <div className="mx-auto max-w-3xl py-10 text-center sm:py-16">
+      <div className="fade-up eyebrow">{t("lookup.eyebrow")}</div>
+      <h1 className="fade-up-delay-1 mt-3 font-serif text-4xl text-ink sm:text-5xl">
+        {t("lookup.title1")}{" "}
+        <span className="text-primary">{t("lookup.title2")}</span>
+      </h1>
+      <p className="fade-up-delay-1 mx-auto mt-4 max-w-xl text-muted-foreground">
+        {t("lookup.lede")}
+      </p>
+
+      <div className="fade-up-delay-2 mt-8 text-left">
+        <label className="mb-2 block text-sm font-medium text-ink">{t("lookup.label")}</label>
+        <AddressSearch onSelect={(a) => onSelect(a.address_id)} />
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
+          {t("lookup.try")}
+          {SAMPLES.map((s) => (
+            <button
+              key={s}
+              onClick={async () => {
+                const r = await getCiteClient().addresses(s, 1);
+                if (r[0]) onSelect(r[0].address_id);
+              }}
+              className="rounded-sm border bg-card px-2 py-1 font-mono transition-colors hover:border-ring hover:text-ink"
+            >
+              {s}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <blockquote className="fade-up-delay-3 mx-auto mt-12 max-w-xl rounded-md bg-quote/70 px-4 py-3 text-left">
+        <div className="flex items-start gap-2">
+          <Quote className="mt-0.5 size-3.5 shrink-0 text-primary/70" />
+          <p className="font-serif text-[15px] leading-relaxed text-ink/85">{t("lookup.philosophy")}</p>
+        </div>
+      </blockquote>
+
+      <ReadingOrder />
+    </div>
+  );
+}
+
+function LookupLoading() {
+  const t = useT();
+  return (
+    <div className="space-y-6 fade-up" aria-busy="true" aria-live="polite">
+      <div className="flex items-center gap-3 text-sm text-muted-foreground">
+        <Loader2 className="size-4 animate-spin text-primary" />
+        <div>
+          <div className="font-medium text-ink">{t("lookup.loading")}</div>
+          <p className="text-xs">{t("lookup.loadingHint")}</p>
+        </div>
+      </div>
+      <div className="surface overflow-hidden p-5 sm:p-6">
+        <div className="skeleton-shimmer h-3 w-24 rounded-sm" />
+        <div className="skeleton-shimmer mt-3 h-8 w-2/3 max-w-md rounded-sm" />
+        <div className="skeleton-shimmer mt-2 h-4 w-1/2 max-w-sm rounded-sm" />
+        <div className="mt-5 grid grid-cols-3 gap-2">
+          <div className="skeleton-shimmer h-14 rounded-md" />
+          <div className="skeleton-shimmer h-14 rounded-md" />
+          <div className="skeleton-shimmer h-14 rounded-md" />
+        </div>
+      </div>
+      <div>
+        <div className="eyebrow mb-3">{t("lookup.summary")}</div>
+        <div className="flex flex-wrap gap-2">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="skeleton-shimmer h-9 w-28 rounded-md" />
+          ))}
+        </div>
+      </div>
+      <div>
+        <div className="eyebrow mb-3">{t("lookup.rulesHeading")}</div>
+        <div className="grid gap-3">
+          <div className="skeleton-shimmer h-36 rounded-lg" />
+          <div className="skeleton-shimmer h-36 rounded-lg" />
+        </div>
+      </div>
     </div>
   );
 }
@@ -127,49 +235,36 @@ function LookupPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
-      <div className={addressId ? "mb-8" : "mx-auto max-w-3xl py-10 text-center sm:py-16"}>
-        {!addressId && (
-          <>
-            <div className="eyebrow">{t("lookup.eyebrow")}</div>
-            <h1 className="mt-3 font-serif text-4xl text-ink sm:text-5xl">{t("lookup.title1")} <span className="text-primary">{t("lookup.title2")}</span></h1>
-            <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-              {t("lookup.lede")}
-            </p>
-          </>
-        )}
-        <div className={addressId ? "print:hidden" : "mt-8 text-left"}>
-          {!addressId && <label className="mb-2 block text-sm font-medium text-ink">{t("lookup.label")}</label>}
-          <AddressSearch onSelect={(a) => setAddressId(a.address_id)} />
-          {!addressId && (
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
-              {t("lookup.try")}
-              {SAMPLES.map((s) => (
-                <button key={s} onClick={async () => { const r = await getCiteClient().addresses(s, 1); if (r[0]) setAddressId(r[0].address_id); }}
-                  className="rounded-sm border bg-card px-2 py-1 font-mono hover:text-ink">{s}</button>
-              ))}
+      {!addressId ? (
+        <EmptyLookup onSelect={setAddressId} />
+      ) : (
+        <>
+          <div className="print:hidden mb-6">
+            <AddressSearch onSelect={(a) => setAddressId(a.address_id)} />
+          </div>
+
+          {lookup.isPending && <LookupLoading />}
+
+          {lookup.isError && (
+            <div className="surface fade-up flex gap-3 p-5">
+              <AlertCircle className="size-5 shrink-0 text-destructive" />
+              <div>
+                <div className="font-medium text-ink">{t("lookup.errorTitle")}</div>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {(lookup.error as Error).message}. {t("lookup.errorHint")}
+                </p>
+                <button onClick={() => lookup.refetch()} className="mt-3 text-sm font-medium text-primary hover:underline">
+                  {t("lookup.retry")}
+                </button>
+              </div>
             </div>
           )}
-        </div>
-      </div>
 
-      {addressId && lookup.isPending && (
-        <div className="space-y-4">
-          <div className="surface h-48 animate-pulse" />
-          <div className="surface h-12 animate-pulse" />
-          <div className="surface h-32 animate-pulse" />
-        </div>
+          {lookup.data && (
+            <LookupResults data={lookup.data} asOf={asOf} setAsOf={setAsOf} onOpen={setOpenRule} />
+          )}
+        </>
       )}
-      {lookup.isError && (
-        <div className="surface flex gap-3 p-5">
-          <AlertCircle className="size-5 text-destructive" />
-          <div>
-            <div className="font-medium text-ink">Lookup could not be completed</div>
-            <p className="text-sm text-muted-foreground">{(lookup.error as Error).message}. Try another address or retry shortly.</p>
-            <button onClick={() => lookup.refetch()} className="mt-2 text-sm text-primary hover:underline">Retry</button>
-          </div>
-        </div>
-      )}
-      {lookup.data && <LookupResults data={lookup.data} asOf={asOf} setAsOf={setAsOf} onOpen={setOpenRule} />}
 
       <RuleDetailDrawer
         view={openRule}
@@ -182,35 +277,71 @@ function LookupPage() {
 }
 
 function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; asOf: string; setAsOf: (v: string) => void; onOpen: (v: RuleView) => void }) {
+  const t = useT();
   const grouped = useMemo(() => {
     const withRule = data.results.filter((r) => r.rule);
     return CATEGORY_ORDER.map((c) => [c, withRule.filter((r) => r.rule!.category === c)] as const).filter(([, l]) => l.length);
   }, [data]);
+
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       <MemoBar data={data} />
-      <PropertySummary data={data} asOf={asOf} onAsOf={setAsOf} />
-      <ResultSummaryChips results={data.results} />
-      <EffectiveTimeline data={data} />
-      {grouped.length === 0 ? (
-        <div className="surface flex flex-col items-center gap-2 px-6 py-12 text-center">
-          <FileSearch className="size-6 text-muted-foreground" />
-          <div className="font-medium text-ink">No applicable rules returned</div>
-          <p className="max-w-md text-sm text-muted-foreground">The evaluation returned no rules for this property on {data.as_of}. Rules that do not apply are omitted.</p>
+
+      <div className="fade-up">
+        <PropertySummary data={data} asOf={asOf} onAsOf={setAsOf} />
+      </div>
+
+      {/* What applies */}
+      <section className="fade-up-delay-1 space-y-3">
+        <div>
+          <div className="eyebrow">{t("lookup.stepWhat")}</div>
+          <h2 className="mt-1 font-serif text-xl text-ink">{t("lookup.summary")}</h2>
         </div>
-      ) : (
-        grouped.map(([cat, list]) => (
-          <section key={cat}>
-            <h3 className="eyebrow mb-3 flex items-center gap-2">{CATEGORY_LABEL[cat]} <span className="h-px flex-1 bg-border" /></h3>
-            <div className="grid gap-3">
-              {list.map((r) => {
-                const v: RuleView = { id: r.team_rule_id, rule: r.rule!, result: r.result, explanation: r.explanation, conflict: r.conflict_flag };
-                return <RuleCard key={r.team_rule_id} view={v} onOpen={() => onOpen(v)} />;
-              })}
+        <ResultSummaryChips results={data.results} />
+        <EffectiveTimeline data={data} />
+      </section>
+
+      {/* Why + Evidence via rule cards */}
+      <section className="fade-up-delay-2 space-y-4">
+        <div className="flex flex-wrap items-end justify-between gap-3">
+          <div>
+            <div className="eyebrow">{t("lookup.stepWhy")} · {t("lookup.stepEvidence")}</div>
+            <h2 className="mt-1 font-serif text-xl text-ink">{t("lookup.rulesHeading")}</h2>
+            <p className="mt-1 max-w-2xl text-sm text-muted-foreground">{t("lookup.rulesLede")}</p>
+          </div>
+        </div>
+
+        {grouped.length === 0 ? (
+          <div className="surface flex flex-col items-center gap-2 px-6 py-14 text-center">
+            <FileSearch className="size-6 text-muted-foreground" />
+            <div className="font-medium text-ink">{t("lookup.emptyRules")}</div>
+            <p className="max-w-md text-sm text-muted-foreground">
+              {t("lookup.emptyRulesHint")} ({data.as_of})
+            </p>
+          </div>
+        ) : (
+          grouped.map(([cat, list]) => (
+            <div key={cat}>
+              <h3 className="eyebrow mb-3 flex items-center gap-2">
+                {CATEGORY_LABEL[cat]} <span className="h-px flex-1 bg-border" />
+                <span className="font-mono text-[10px] normal-case tracking-normal text-muted-foreground">{list.length}</span>
+              </h3>
+              <div className="grid gap-3">
+                {list.map((r) => {
+                  const v: RuleView = {
+                    id: r.team_rule_id,
+                    rule: r.rule!,
+                    result: r.result,
+                    explanation: r.explanation,
+                    conflict: r.conflict_flag,
+                  };
+                  return <RuleCard key={r.team_rule_id} view={v} onOpen={() => onOpen(v)} />;
+                })}
+              </div>
             </div>
-          </section>
-        ))
-      )}
+          ))
+        )}
+      </section>
     </div>
   );
 }
@@ -218,6 +349,8 @@ function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; 
 function MemoBar({ data }: { data: LookupResponse }) {
   const t = useT();
   const [copied, setCopied] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const moreRef = useRef<HTMLDivElement>(null);
   const watch = useWatchlist();
   const id = data.address.address_id;
   const w = watch.has(id);
@@ -232,6 +365,15 @@ function MemoBar({ data }: { data: LookupResponse }) {
   const toggleEmail = useMutation({ mutationFn: () => setEmailAlert(id, !emailOn), onSuccess: () => qc.invalidateQueries({ queryKey: ["alert-subs"] }) });
   const needAuth = (fn: () => void) => () => (user ? fn() : navigate({ to: "/auth" }));
   useEffect(() => setGenerated(new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC"), [data]);
+  useEffect(() => {
+    if (!moreOpen) return;
+    const onDoc = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) setMoreOpen(false);
+    };
+    document.addEventListener("mousedown", onDoc);
+    return () => document.removeEventListener("mousedown", onDoc);
+  }, [moreOpen]);
+
   return (
     <>
       <div className="hidden border-b pb-4 print:block">
@@ -241,31 +383,7 @@ function MemoBar({ data }: { data: LookupResponse }) {
         </div>
         <p className="mt-2 text-xs">{data.disclaimer}</p>
       </div>
-      <div className="flex flex-wrap justify-end gap-2 print:hidden">
-        <button onClick={() => watch.toggle(id)} aria-pressed={w}
-          className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-sm text-ink hover:bg-secondary ${w ? "bg-secondary" : "bg-card"}`}>
-          <Eye className="size-4" /> {w ? t("action.watching") : t("action.watch")}
-        </button>
-        <button onClick={needAuth(() => toggleEmail.mutate())} aria-pressed={emailOn}
-          className={`inline-flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-sm text-ink hover:bg-secondary ${emailOn ? "bg-secondary" : "bg-card"}`}>
-          <Mail className="size-4" /> {t("action.emailAlerts")}{emailOn ? " ✓" : ""}
-        </button>
-        <button onClick={needAuth(() => save.mutate())} disabled={save.isPending}
-          className="inline-flex items-center gap-1.5 rounded-md border bg-card px-3 py-1.5 text-sm text-ink hover:bg-secondary">
-          {saved ? <Check className="size-4" /> : <Save className="size-4" />} {saved ? t("action.saved") : t("action.saveMemo")}
-        </button>
-        <Link to="/compare" search={{ address: id, a: data.as_of }}
-          className="inline-flex items-center gap-1.5 rounded-md border bg-card px-3 py-1.5 text-sm text-ink hover:bg-secondary">
-          <GitCompare className="size-4" /> Compare dates
-        </Link>
-        <Link to="/sources" search={{ address: id, as_of: data.as_of }}
-          className="inline-flex items-center gap-1.5 rounded-md border bg-card px-3 py-1.5 text-sm text-ink hover:bg-secondary">
-          <FileText className="size-4" /> Sources
-        </Link>
-        <button onClick={() => downloadText(`cite-${id}-${data.as_of}.csv`, lookupToCsv(data))}
-          className="inline-flex items-center gap-1.5 rounded-md border bg-card px-3 py-1.5 text-sm text-ink hover:bg-secondary">
-          <Download className="size-4" /> {t("action.csv")}
-        </button>
+      <div className="flex flex-wrap items-center justify-end gap-2 print:hidden">
         <button
           onClick={async () => { await navigator.clipboard.writeText(window.location.href); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
           className="inline-flex items-center gap-1.5 rounded-md border bg-card px-3 py-1.5 text-sm text-ink hover:bg-secondary"
@@ -276,6 +394,42 @@ function MemoBar({ data }: { data: LookupResponse }) {
         <button onClick={() => window.print()} className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-sm text-primary-foreground hover:bg-primary/90">
           <Printer className="size-4" /> {t("action.print")}
         </button>
+
+        <div className="relative" ref={moreRef}>
+          <button
+            type="button"
+            aria-expanded={moreOpen}
+            onClick={() => setMoreOpen((v) => !v)}
+            className="inline-flex items-center gap-1.5 rounded-md border bg-card px-3 py-1.5 text-sm text-muted-foreground hover:bg-secondary hover:text-ink"
+          >
+            {t("lookup.actions")}
+          </button>
+          {moreOpen && (
+            <div className="absolute right-0 top-full z-30 mt-1 min-w-[12rem] rounded-md border bg-background py-1 shadow-sm">
+              <button onClick={() => { watch.toggle(id); setMoreOpen(false); }} className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary">
+                <Eye className="size-3.5" /> {w ? t("action.watching") : t("action.watch")}
+              </button>
+              <button onClick={needAuth(() => { toggleEmail.mutate(); setMoreOpen(false); })} className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary">
+                <Mail className="size-3.5" /> {t("action.emailAlerts")}
+              </button>
+              <button onClick={needAuth(() => { save.mutate(); setMoreOpen(false); })} className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary">
+                {saved ? <Check className="size-3.5" /> : <Save className="size-3.5" />} {saved ? t("action.saved") : t("action.saveMemo")}
+              </button>
+              <Link to="/compare" search={{ address: id, a: data.as_of }} onClick={() => setMoreOpen(false)}
+                className="flex items-center gap-2 px-3 py-1.5 text-sm hover:bg-secondary">
+                <GitCompare className="size-3.5" /> {t("action.compare")}
+              </Link>
+              <Link to="/sources" search={{ address: id, as_of: data.as_of }} onClick={() => setMoreOpen(false)}
+                className="flex items-center gap-2 px-3 py-1.5 text-sm hover:bg-secondary">
+                <FileText className="size-3.5" /> {t("action.sources")}
+              </Link>
+              <button onClick={() => { downloadText(`cite-${id}-${data.as_of}.csv`, lookupToCsv(data)); setMoreOpen(false); }}
+                className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary">
+                <Download className="size-3.5" /> {t("action.csv")}
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

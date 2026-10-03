@@ -119,15 +119,49 @@
 }
 
 @utility fade-up {
-  animation: fade-up 0.35s ease-out both;
+  animation: fade-up 0.4s ease-out both;
+}
+
+@utility fade-up-delay-1 {
+  animation: fade-up 0.4s ease-out 0.06s both;
+}
+
+@utility fade-up-delay-2 {
+  animation: fade-up 0.4s ease-out 0.12s both;
+}
+
+@utility fade-up-delay-3 {
+  animation: fade-up 0.4s ease-out 0.18s both;
+}
+
+@utility skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-secondary) 0%,
+    oklch(0.98 0.004 85) 45%,
+    var(--color-secondary) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(4px); }
+  from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: none; }
+}
+
+@keyframes shimmer {
+  from { background-position: 100% 0; }
+  to { background-position: -100% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-up, .fade-up-delay-1, .fade-up-delay-2, .fade-up-delay-3, .skeleton-shimmer {
+    animation: none;
+  }
 }
 
 @media print {
   body { background: white; }
-  .fade-up { animation: none; }
+  .fade-up, .fade-up-delay-1, .fade-up-delay-2, .fade-up-delay-3 { animation: none; }
 }
