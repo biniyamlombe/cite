@@ -114,10 +114,14 @@ export function runChangeTests(options: {
         })
         .map((a) => a.address_id);
       out.T1 = {
-        affected_address_ids: affected.length ? affected : ca.map((a) => a.address_id),
+        affected_address_ids: affected,
         before_status: "not_yet_effective",
         after_status: "applies",
-        notes: test.expected_behavior,
+        notes:
+          test.expected_behavior +
+          (affected.length
+            ? ` date_flip_ok=${affected.length}/${ca.length}`
+            : " WARNING: no CA address flipped not_yet_effective→applies; check CA-ALG-01.effective_date (expected 2026-01-01)."),
       };
       continue;
     }
@@ -226,8 +230,12 @@ export function runChangeTests(options: {
         })
         .map((a) => a.address_id);
       out.T4 = {
-        affected_address_ids: affected.length ? affected : ma.map((a) => a.address_id),
-        notes: test.expected_behavior,
+        affected_address_ids: affected,
+        notes:
+          test.expected_behavior +
+          (affected.length === ma.length
+            ? ` pending_ok=${affected.length}/${ma.length}`
+            : ` WARNING: pending_ok=${affected.length}/${ma.length}; expected all MA addresses pending for MA-ALG-P1/P2.`),
       };
       continue;
     }
@@ -265,14 +273,82 @@ export function runChangeTests(options: {
       continue;
     }
 
-    // T6 hook — hour-16 fictional Cambridge ordinance
+    // T6 — hour-16 Cambridge ordinance (when organizers add it to change_tests.json)
     if (test.test_id === "T6") {
       const cambridge = addressesInCity(addresses, geos, "Cambridge");
+      const asOf = test.as_of || test.as_of_after || "2026-10-01";
+      const listed = new Set(test.rule_ids || []);
+      const t6Rules = rules.filter((r) => {
+        if (listed.size === 0) {
+          return r.level === "city" && /Cambridge/i.test(r.jurisdiction);
+        }
+        return (
+          listed.has(r.team_rule_id) ||
+          (r.alias_id != null && listed.has(r.alias_id))
+        );
+      });
+
+      if (t6Rules.length === 0) {
+        out.T6 = {
+          affected_address_ids: cambridge.map((a) => a.address_id),
+          notes:
+            "T6 ready: hour-16 ordinance not yet in rules.json. Re-run extract when the pack drops the new Cambridge doc, then re-run changes. Placeholder lists all Cambridge sample addresses.",
+        };
+        continue;
+      }
+
+      const lookups = applyAll({
+        addresses: cambridge,
+        geos,
+        rules,
+        asOf,
+      });
+      const ruleIds = new Set(t6Rules.map((r) => r.team_rule_id));
+      const affected = cambridge
+        .filter((a) => {
+          const entries = lookups[a.address_id] || [];
+          return entries.some((e) => ruleIds.has(e.team_rule_id));
+        })
+        .map((a) => a.address_id);
+
+      let before_status: string | undefined;
+      let after_status: string | undefined;
+      if (test.as_of_before && test.as_of_after) {
+        const before = applyAll({
+          addresses: cambridge,
+          geos,
+          rules,
+          asOf: test.as_of_before,
+        });
+        const after = applyAll({
+          addresses: cambridge,
+          geos,
+          rules,
+          asOf: test.as_of_after,
+        });
+        const sample = cambridge[0];
+        if (sample) {
+          const b = (before[sample.address_id] || []).find((e) =>
+            ruleIds.has(e.team_rule_id),
+          );
+          const a = (after[sample.address_id] || []).find((e) =>
+            ruleIds.has(e.team_rule_id),
+          );
+          before_status = b?.result;
+          after_status = a?.result;
+        }
+      }
+
       out.T6 = {
-        affected_address_ids: cambridge.map((a) => a.address_id),
+        affected_address_ids: affected,
+        ...(before_status ? { before_status } : {}),
+        ...(after_status ? { after_status } : {}),
         notes:
-          "T6 hook: when hour-16 ordinance arrives, re-run extract on the new doc and list Cambridge addresses with correct future effective date.",
+          test.expected_behavior +
+          ` matched_rules=${t6Rules.map((r) => r.alias_id || r.team_rule_id).join(",")}` +
+          ` affected=${affected.length}/${cambridge.length}`,
       };
+      continue;
     }
   }
 
