@@ -7,6 +7,7 @@ import type { RuleRecord } from "@rhl/shared";
 import { assignAliases } from "../extract/aliases.js";
 import { dedupeRules, preferClaudeRules } from "../extract/heuristic.js";
 import { ensureChangeTestAliases } from "../extract/ensure_aliases.js";
+import { appendAudit } from "../lib/audit.js";
 
 const FAILED_DEFAULT = ["D016", "D041", "D067", "D073", "D079"];
 
@@ -76,6 +77,21 @@ async function main() {
     : process.env.ANTHROPIC_API_KEY
       ? "Claude failed on all docs; heuristic only"
       : "heuristic only; set ANTHROPIC_API_KEY for Claude";
+  await appendAudit({
+    ts: new Date().toISOString(),
+    kind: "extract_corpus",
+    source: usedClaude ? "claude" : "heuristic",
+    model: process.env.ANTHROPIC_MODEL || null,
+    rule_count: finalRules.length,
+    message: mode,
+    meta: {
+      docs_processed: docsProcessed,
+      claude_docs_ok: claudeDocsOk,
+      claude_docs_failed: claudeDocsFailed,
+      merge: Boolean(merge && docIds?.length),
+      doc_ids: docIds ?? null,
+    },
+  });
   console.log(
     `Wrote ${finalRules.length} rules from ${docsProcessed} docs → ${outPath} (${mode})`,
   );

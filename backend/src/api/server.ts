@@ -13,6 +13,7 @@ import { jurisdictionStack } from "../geocode/census.js";
 import { evaluateAddress } from "../apply/coverage.js";
 import { extractDocument } from "../extract/agent.js";
 import { loadChangeTests } from "../changes/tracker.js";
+import { appendAudit, readAuditLog } from "../lib/audit.js";
 
 const app = new Hono();
 
@@ -179,6 +180,16 @@ app.post("/extract/doc/:docId", async (c) => {
     const { rules, source } = await extractDocument(docId);
     const doc = await loadDocById(docId);
     const retrieved_at = doc?.retrieved_at ?? null;
+    await appendAudit({
+      ts: new Date().toISOString(),
+      kind: "extract_doc",
+      doc_id: docId,
+      source,
+      model: process.env.ANTHROPIC_MODEL || null,
+      rule_count: rules.length,
+      rule_ids: rules.map((r) => r.team_rule_id),
+      message: `Live extract ${docId} via ${source}`,
+    });
     return c.json({
       disclaimer: "Not legal advice",
       doc_id: docId,
@@ -193,6 +204,16 @@ app.post("/extract/doc/:docId", async (c) => {
       400,
     );
   }
+});
+
+app.get("/audit", async (c) => {
+  const limit = Math.min(Number(c.req.query("limit") || 40), 200);
+  const events = await readAuditLog(limit);
+  return c.json({
+    disclaimer: "Not legal advice",
+    count: events.length,
+    events,
+  });
 });
 
 app.get("/submission/:file", async (c) => {

@@ -8,6 +8,7 @@ import path from "node:path";
 import Ajv2020 from "ajv/dist/2020.js";
 import type { ErrorObject, ValidateFunction } from "ajv";
 import { RuleRecordSchema } from "@rhl/shared";
+import { appendAudit } from "../lib/audit.js";
 import { packRoot } from "../lib/paths.js";
 
 type AjvConstructor = new (opts?: object) => {
@@ -90,8 +91,20 @@ async function main() {
   if (errors.length) {
     console.error("Schema shape check FAILED:");
     for (const err of errors) console.error(`  - ${err}`);
+    await appendAudit({
+      ts: new Date().toISOString(),
+      kind: "schema_check",
+      message: `FAILED: ${errors.length} error(s)`,
+      meta: { errors },
+    });
     process.exit(1);
   }
+
+  await appendAudit({
+    ts: new Date().toISOString(),
+    kind: "schema_check",
+    message: "OK — sample_rule_record.json validates (Zod + Ajv)",
+  });
 
   console.log("Schema shape check OK");
   console.log(`  schema: ${schemaPath}`);
