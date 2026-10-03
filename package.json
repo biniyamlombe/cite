@@ -1,14 +1,13 @@
 {
-  "name": "rental-housing-law-navigator",
+  "name": "cite",
   "private": true,
   "workspaces": [
     "shared",
-    "backend",
-    "frontend"
+    "backend"
   ],
   "scripts": {
     "dev:backend": "npm run dev -w backend",
-    "dev:frontend": "npm run dev -w frontend",
+    "dev:frontend": "npm run dev --prefix frontend",
     "check-schema": "npm run check-schema -w backend",
     "test": "npm run test -w backend",
     "enrich-coverage": "npm run enrich-coverage -w backend",
@@ -17,7 +16,9 @@
     "geocode": "npm run geocode -w backend --",
     "lookup": "npm run lookup -w backend --",
     "changes": "npm run changes -w backend --",
+    "score": "npm run score -w backend",
     "pipeline": "npm run pipeline -w backend --",
-    "build": "npm run build -w shared && npm run build -w backend && npm run build -w frontend"
+    "build": "npm run build -w shared && npm run build -w backend && npm run build --prefix frontend",
+    "install:all": "npm install && npm install --prefix frontend --legacy-peer-deps"
   }
 }

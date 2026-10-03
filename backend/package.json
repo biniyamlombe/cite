@@ -15,6 +15,7 @@
     "geocode": "tsx src/cli/geocode.ts",
     "lookup": "tsx src/cli/lookup.ts",
     "changes": "tsx src/cli/changes.ts",
+    "score": "tsx src/cli/score.ts",
     "pipeline": "tsx src/cli/pipeline.ts"
   },
   "dependencies": {
