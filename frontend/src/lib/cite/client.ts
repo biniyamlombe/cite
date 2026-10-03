@@ -1,5 +1,22 @@
-import type { RuleVersion, AddressRow, CatalogRule, ChangesResponse, ExtractResponse, Health, LookupResponse } from "./types";
-import { MOCK_ADDRESSES, MOCK_CHANGES, MOCK_RULES, mockExtract, mockLookup, mockRuleVersions } from "@/mocks/cite";
+import type {
+  RuleVersion,
+  AddressRow,
+  CatalogRule,
+  ChangesResponse,
+  CorpusDocOption,
+  ExtractResponse,
+  Health,
+  LookupResponse,
+} from "./types";
+import {
+  MOCK_ADDRESSES,
+  MOCK_CHANGES,
+  MOCK_EXTRACT_DOCS,
+  MOCK_RULES,
+  mockExtract,
+  mockLookup,
+  mockRuleVersions,
+} from "@/mocks/cite";
 
 export const DEFAULT_AS_OF = "2026-10-01";
 export const DISCLAIMER = "Not legal advice. Verify important decisions with qualified counsel.";
@@ -11,6 +28,7 @@ export interface CiteApiClient {
   lookup(addressId: string, asOf: string): Promise<LookupResponse>;
   changes(): Promise<ChangesResponse>;
   rules(): Promise<CatalogRule[]>;
+  corpusDocs(): Promise<CorpusDocOption[]>;
   extract(docId: string): Promise<ExtractResponse>;
   ruleVersions(teamRuleId: string): Promise<RuleVersion[]>;
 }
@@ -47,6 +65,10 @@ export class MockCiteApiClient implements CiteApiClient {
   async rules() {
     await delay();
     return MOCK_RULES;
+  }
+  async corpusDocs() {
+    await delay(80);
+    return MOCK_EXTRACT_DOCS;
   }
   async extract(docId: string) {
     await delay(900);
@@ -87,6 +109,10 @@ export class HttpCiteApiClient implements CiteApiClient {
     const r = await this.get<CatalogRule[] | { rules: CatalogRule[] }>("/rules");
     return Array.isArray(r) ? r : r.rules;
   }
+  async corpusDocs() {
+    const r = await this.get<{ docs: CorpusDocOption[] } | CorpusDocOption[]>("/corpus/docs");
+    return Array.isArray(r) ? r : r.docs;
+  }
   async extract(docId: string) {
     const path = `/extract/doc/${encodeURIComponent(docId)}`;
     const res = await fetch(`${this.base.replace(/\/$/, "")}${path}`, { method: "POST" });
@@ -95,7 +121,7 @@ export class HttpCiteApiClient implements CiteApiClient {
       source?: string;
       count?: number;
     };
-    return {
+    const out: ExtractResponse = {
       doc_id: raw.doc_id ?? docId,
       source_url: raw.source_url ?? "",
       source_text: raw.source_text ?? "",
@@ -107,7 +133,9 @@ export class HttpCiteApiClient implements CiteApiClient {
           detail: `${raw.count ?? raw.rules?.length ?? 0} rule(s) from ${raw.source ?? "api"}`,
         },
       ],
-    } satisfies ExtractResponse;
+    };
+    if (raw.source) out.source = raw.source;
+    return out;
   }
   async ruleVersions(teamRuleId: string) {
     try {

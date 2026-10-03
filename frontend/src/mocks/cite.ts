@@ -260,8 +260,20 @@ export const MOCK_CHANGES: ChangesResponse = {
   },
 };
 
-/** Demo fixture for POST /extract/doc/:docId. Validation results are pre-baked, as the backend would return them. */
-export const MOCK_EXTRACT_DOCS = MOCK_RULES.filter((r) => r.source_doc_id).map((r) => ({ doc_id: r.source_doc_id!, title: r.title, jurisdiction: r.jurisdiction }));
+/** Demo fixture for GET /corpus/docs + POST /extract/doc/:docId (one option per source_doc_id). */
+export const MOCK_EXTRACT_DOCS = (() => {
+  const byDoc = new Map<string, { doc_id: string; title: string; jurisdiction: string; source_url?: string }>();
+  for (const r of MOCK_RULES) {
+    if (!r.source_doc_id || byDoc.has(r.source_doc_id)) continue;
+    byDoc.set(r.source_doc_id, {
+      doc_id: r.source_doc_id,
+      title: r.title,
+      jurisdiction: r.jurisdiction,
+      source_url: r.source_url,
+    });
+  }
+  return [...byDoc.values()].sort((a, b) => a.doc_id.localeCompare(b.doc_id));
+})();
 
 export function mockExtract(docId: string): ExtractResponse | null {
   const rules = MOCK_RULES.filter((r) => r.source_doc_id === docId);

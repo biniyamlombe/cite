@@ -106,6 +106,16 @@ export interface ExtractCheck {
   detail: string;
 }
 
+/** GET /corpus/docs — capturable pack documents for Pipeline picker. */
+export interface CorpusDocOption {
+  doc_id: string;
+  title: string;
+  jurisdiction: string;
+  source_url?: string;
+  retrieved_at?: string;
+  chars?: number;
+}
+
 /** POST /extract/doc/:docId — Module A live extract result. */
 export interface ExtractResponse {
   doc_id: string;
@@ -113,6 +123,7 @@ export interface ExtractResponse {
   source_text: string;
   rules: CatalogRule[];
   validation: ExtractCheck[];
+  source?: string | undefined;
 }
 
 export interface RuleVersion {
