@@ -5,7 +5,13 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import Ajv2020 from "ajv/dist/2020.js";
 import type { ErrorObject, ValidateFunction } from "ajv";
-import { RuleRecordSchema, type RuleRecord } from "@rhl/shared";
+import {
+  asCoverageObject,
+  RuleRecordSchema,
+  type RuleRecord,
+} from "@rhl/shared";
+import { evaluateExecutableCoverage } from "../apply/executable.js";
+import { enrichRuleCoverage } from "../apply/compile_coverage.js";
 import {
   exactSpanInSource,
   loadCapturableDocs,
@@ -96,6 +102,64 @@ async function testHeuristicExtractSmoke() {
     // D022 may not match heuristic seeds; still OK if Claude rules exist in outputs
     pass("no heuristic rules for D022 (allowed; seeds may not match this doc)");
   }
+}
+
+async function testDualCoverage() {
+  console.log("dual coverage_conditions (text + executable)");
+  const file = await readJsonIfExists<{ rules: RuleRecord[] }>(
+    path.join(outputsDir(), "rules.json"),
+  );
+  const rules = file?.rules ?? [];
+  const dual = rules.filter((r) => asCoverageObject(r.coverage_conditions));
+  if (dual.length > 0) {
+    pass(`${dual.length}/${rules.length} rules have dual coverage objects`);
+  } else {
+    fail("no dual coverage_conditions objects in rules.json — run npm run enrich-coverage");
+  }
+
+  const sf = rules.find(
+    (r) =>
+      /san francisco/i.test(r.jurisdiction) &&
+      r.category === "rent_increase_limits",
+  );
+  if (!sf) {
+    fail("no SF rent_increase_limits rule to probe");
+    return;
+  }
+  const enriched = enrichRuleCoverage(sf);
+  const cov = asCoverageObject(enriched.coverage_conditions);
+  if (cov?.text && (cov.omit_if?.length || cov.unknown_if?.length)) {
+    pass("SF rent rule compiles text + unknown_if/omit_if");
+  } else {
+    fail("SF rent rule missing executable guards");
+  }
+
+  const geo = {
+    address_id: "t",
+    legal_city: "San Francisco",
+    county: "San Francisco County",
+    state: "CA",
+    matched_address: "",
+    source: "test",
+  };
+  const newBuild = {
+    address_id: "t",
+    street_address: "x",
+    postal_city: "San Francisco",
+    state: "CA",
+    zip: "94102",
+    year_built: "1990",
+    units: "10",
+    use_code: "",
+    use_description: "",
+    source_dataset: "",
+    retrieved_at: "",
+  };
+  const hit = cov
+    ? evaluateExecutableCoverage(cov, newBuild, geo)
+    : null;
+  if (hit?.kind === "omit") pass("SF executable omits post-1979 building");
+  else fail(`expected omit for 1990 SF building, got ${JSON.stringify(hit)}`);
 }
 
 async function testFakeSpanRejected() {
@@ -196,6 +260,7 @@ async function main() {
   await testCorpusLoader();
   await testHeuristicExtractSmoke();
   await testFakeSpanRejected();
+  await testDualCoverage();
   await testRulesOutput();
 
   await appendAudit({

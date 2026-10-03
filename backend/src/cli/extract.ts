@@ -8,6 +8,7 @@ import { assignAliases } from "../extract/aliases.js";
 import { dedupeRules, preferClaudeRules } from "../extract/heuristic.js";
 import { ensureChangeTestAliases } from "../extract/ensure_aliases.js";
 import { appendAudit } from "../lib/audit.js";
+import { enrichRuleCoverage } from "../apply/compile_coverage.js";
 
 const FAILED_DEFAULT = ["D016", "D041", "D067", "D073", "D079"];
 
@@ -71,6 +72,7 @@ async function main() {
     );
   }
 
+  finalRules = finalRules.map((r) => enrichRuleCoverage(r));
   await writeJson(outPath, { rules: finalRules });
   const mode = usedClaude
     ? `Claude ok=${claudeDocsOk} failed=${claudeDocsFailed} raw_rules=${claudeRuleCount}`

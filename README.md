@@ -43,11 +43,12 @@ npm run check-schema
 # Smoke tests (schema, corpus loader, citation spans, aliases)
 npm test
 
-# Full pipeline (schema gate → extract → geocode → lookup → changes)
+# Full pipeline (schema → extract → dual coverage → geocode → lookup → changes)
 npm run pipeline
 
 # Or step by step
 npm run extract
+npm run enrich-coverage         # plain-language text + executable predicates
 npm run geocode                 # Census Geocoder; add -- --heuristic-only to skip network
 npm run lookup                  # default as_of=2026-10-01
 npm run changes
