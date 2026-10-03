@@ -1,0 +1,12 @@
+node_modules/
+.next/
+dist/
+.env
+.env.local
+backend/.cache/
+*.log
+.DS_Store
+outputs/geocode_cache.json
+!outputs/.gitkeep
+# Local symlink to participant pack (machine-specific path)
+data/pack
