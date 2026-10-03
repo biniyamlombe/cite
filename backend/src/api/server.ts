@@ -211,6 +211,35 @@ app.get("/rules/:teamRuleId/versions", async (c) => {
   return c.json({ versions: [] });
 });
 
+/** Capturable corpus docs for the live Pipeline picker (Module A). */
+app.get("/corpus/docs", async (c) => {
+  const docs = await loadCapturableDocs();
+  const list = docs
+    .map((d) => {
+      const firstLine =
+        d.body
+          .split(/\r?\n/)
+          .map((l) => l.trim())
+          .find((l) => l.length > 12) || d.doc_id;
+      const title =
+        firstLine.length > 90 ? `${firstLine.slice(0, 87)}…` : firstLine;
+      return {
+        doc_id: d.doc_id,
+        title,
+        jurisdiction: d.jurisdictions.join("; ") || "—",
+        source_url: d.url,
+        retrieved_at: d.retrieved_at,
+        chars: d.body.length,
+      };
+    })
+    .sort((a, b) => a.doc_id.localeCompare(b.doc_id));
+  return c.json({
+    disclaimer: "Not legal advice",
+    count: list.length,
+    docs: list,
+  });
+});
+
 app.post("/extract/doc/:docId", async (c) => {
   const docId = c.req.param("docId").toUpperCase();
   try {
