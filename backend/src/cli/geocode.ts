@@ -15,9 +15,16 @@ async function main() {
   const outPath = path.join(outputsDir(), "geocode_cache.json");
   await writeJson(outPath, { geocoded: results, count: results.length });
   const census = results.filter((r) => r.source === "census").length;
+  const known = results.filter((r) => r.resolution === "known_jurisdiction").length;
+  const fallback = results.filter((r) => r.resolution === "postal_fallback").length;
   console.log(
-    `Wrote ${results.length} geocodes (${census} from Census) → ${outPath}`,
+    `Wrote ${results.length} geocodes (${census} Census, ${known} known-jurisdiction, ${fallback} postal-fallback) → ${outPath}`,
   );
+  if (fallback) {
+    console.warn(
+      `WARNING: ${fallback} address(es) used untrusted postal_city as legal city`,
+    );
+  }
 }
 
 main().catch((err) => {

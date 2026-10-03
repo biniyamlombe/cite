@@ -1,5 +1,11 @@
 import type { SampleAddress } from "../lib/addresses.js";
 
+/** How legal_city was obtained — postal_fallback means we did not trust the result for city rules. */
+export type GeocodeResolution =
+  | "census"
+  | "known_jurisdiction"
+  | "postal_fallback";
+
 export type GeocodeResult = {
   address_id: string;
   legal_city: string;
@@ -7,40 +13,44 @@ export type GeocodeResult = {
   state: string;
   matched_address?: string;
   source: "census" | "heuristic" | "cache";
+  /** Absent on older cache rows — treated as census/trusted. */
+  resolution?: GeocodeResolution;
 };
 
-/** Postal city → legal city corrections when geocoder is unavailable or fails. */
+/** Postal city → legal city for challenge jurisdictions (used only when Census has no place). */
 const POSTAL_TO_LEGAL: Record<string, { city: string; county?: string }> = {
   "van nuys": { city: "Los Angeles", county: "Los Angeles County" },
   "north hollywood": { city: "Los Angeles", county: "Los Angeles County" },
   "sherman oaks": { city: "Los Angeles", county: "Los Angeles County" },
   "studio city": { city: "Los Angeles", county: "Los Angeles County" },
-  "encino": { city: "Los Angeles", county: "Los Angeles County" },
-  "tujunga": { city: "Los Angeles", county: "Los Angeles County" },
+  encino: { city: "Los Angeles", county: "Los Angeles County" },
+  tujunga: { city: "Los Angeles", county: "Los Angeles County" },
   "sun valley": { city: "Los Angeles", county: "Los Angeles County" },
   "woodland hills": { city: "Los Angeles", county: "Los Angeles County" },
   "canoga park": { city: "Los Angeles", county: "Los Angeles County" },
-  "reseda": { city: "Los Angeles", county: "Los Angeles County" },
+  reseda: { city: "Los Angeles", county: "Los Angeles County" },
   "panorama city": { city: "Los Angeles", county: "Los Angeles County" },
   "san pedro": { city: "Los Angeles", county: "Los Angeles County" },
-  "wilmington": { city: "Los Angeles", county: "Los Angeles County" },
+  wilmington: { city: "Los Angeles", county: "Los Angeles County" },
   "harbor city": { city: "Los Angeles", county: "Los Angeles County" },
   "pacific palisades": { city: "Los Angeles", county: "Los Angeles County" },
-  "hollywood": { city: "Los Angeles", county: "Los Angeles County" },
-  "dorchester": { city: "Boston", county: "Suffolk County" },
-  "roxbury": { city: "Boston", county: "Suffolk County" },
+  venice: { city: "Los Angeles", county: "Los Angeles County" },
+  "san ysidro": { city: "San Diego", county: "San Diego County" },
+  dorchester: { city: "Boston", county: "Suffolk County" },
+  roxbury: { city: "Boston", county: "Suffolk County" },
   "jamaica plain": { city: "Boston", county: "Suffolk County" },
-  "brighton": { city: "Boston", county: "Suffolk County" },
-  "allston": { city: "Boston", county: "Suffolk County" },
+  brighton: { city: "Boston", county: "Suffolk County" },
+  allston: { city: "Boston", county: "Suffolk County" },
   "east boston": { city: "Boston", county: "Suffolk County" },
   "south boston": { city: "Boston", county: "Suffolk County" },
-  "charlestown": { city: "Boston", county: "Suffolk County" },
+  charlestown: { city: "Boston", county: "Suffolk County" },
   "hyde park": { city: "Boston", county: "Suffolk County" },
-  "mattapan": { city: "Boston", county: "Suffolk County" },
+  mattapan: { city: "Boston", county: "Suffolk County" },
   "west roxbury": { city: "Boston", county: "Suffolk County" },
-  "roslindale": { city: "Boston", county: "Suffolk County" },
+  roslindale: { city: "Boston", county: "Suffolk County" },
 };
 
+/** Legal cities in the challenge pack with default counties. */
 const STATE_COUNTY_DEFAULTS: Record<string, Record<string, string>> = {
   CA: {
     "Los Angeles": "Los Angeles County",
@@ -60,51 +70,91 @@ const STATE_COUNTY_DEFAULTS: Record<string, Record<string, string>> = {
   },
 };
 
+function knownLegalCity(state: string, city: string): string | undefined {
+  const counties = STATE_COUNTY_DEFAULTS[state];
+  if (!counties) return undefined;
+  const hit = Object.keys(counties).find(
+    (c) => c.toLowerCase() === city.trim().toLowerCase(),
+  );
+  return hit;
+}
+
+/**
+ * Fallback when Census returns no match. Prefer known challenge jurisdictions;
+ * never silently treat an arbitrary postal city as legal without flagging it.
+ */
 function heuristicGeocode(addr: SampleAddress): GeocodeResult {
   const postal = addr.postal_city.trim();
   const key = postal.toLowerCase();
   const mapped = POSTAL_TO_LEGAL[key];
-  const legal_city = mapped?.city ?? postal;
-  const county =
-    mapped?.county ??
-    STATE_COUNTY_DEFAULTS[addr.state]?.[legal_city] ??
-    "";
+  if (mapped) {
+    return {
+      address_id: addr.address_id,
+      legal_city: mapped.city,
+      county:
+        mapped.county ??
+        STATE_COUNTY_DEFAULTS[addr.state]?.[mapped.city] ??
+        "",
+      state: addr.state,
+      matched_address: `${addr.street_address}, ${mapped.city}, ${addr.state} ${addr.zip}`,
+      source: "heuristic",
+      resolution: "known_jurisdiction",
+    };
+  }
+
+  const legal = knownLegalCity(addr.state, postal);
+  if (legal) {
+    return {
+      address_id: addr.address_id,
+      legal_city: legal,
+      county: STATE_COUNTY_DEFAULTS[addr.state]![legal]!,
+      state: addr.state,
+      matched_address: `${addr.street_address}, ${legal}, ${addr.state} ${addr.zip}`,
+      source: "heuristic",
+      resolution: "known_jurisdiction",
+    };
+  }
+
+  // Last resort: keep postal for display, but mark untrusted.
   return {
     address_id: addr.address_id,
-    legal_city,
-    county,
+    legal_city: postal,
+    county: "",
     state: addr.state,
-    matched_address: `${addr.street_address}, ${legal_city}, ${addr.state} ${addr.zip}`,
+    matched_address: `${addr.street_address}, ${postal}, ${addr.state} ${addr.zip}`,
     source: "heuristic",
+    resolution: "postal_fallback",
   };
 }
 
-/** Hard corrections when Census returns a known bad place for this sample. */
-function correctGeocode(addr: SampleAddress, result: GeocodeResult): GeocodeResult {
+/**
+ * Post-process Census hits. Prefer Census incorporated place over postal city.
+ * Only override for known Census mis-matches on this sample (Cambridge, MA).
+ */
+function correctGeocode(
+  addr: SampleAddress,
+  result: GeocodeResult,
+): GeocodeResult {
   const postal = addr.postal_city.trim().toLowerCase();
-  // Keep Cambridge, MA as Cambridge when postal city is Cambridge.
-  if (addr.state === "MA" && postal === "cambridge" && result.legal_city !== "Cambridge") {
+  if (
+    addr.state === "MA" &&
+    postal === "cambridge" &&
+    result.legal_city !== "Cambridge"
+  ) {
     return {
       ...result,
       legal_city: "Cambridge",
       county: "Middlesex County",
       source: "heuristic",
-    };
-  }
-  const mapped = POSTAL_TO_LEGAL[postal];
-  if (mapped && result.legal_city !== mapped.city) {
-    // Prefer our postal→legal map for LA neighborhoods / Boston districts.
-    return {
-      ...result,
-      legal_city: mapped.city,
-      county: mapped.county || result.county,
-      source: "heuristic",
+      resolution: "known_jurisdiction",
     };
   }
   return result;
 }
 
-async function censusGeocodeOne(addr: SampleAddress): Promise<GeocodeResult | null> {
+async function censusGeocodeOne(
+  addr: SampleAddress,
+): Promise<GeocodeResult | null> {
   const params = new URLSearchParams({
     street: addr.street_address,
     city: addr.postal_city,
@@ -132,14 +182,16 @@ async function censusGeocodeOne(addr: SampleAddress): Promise<GeocodeResult | nu
     };
     const match = data.result?.addressMatches?.[0];
     if (!match) return null;
-    const place =
-      match.geographies?.["Incorporated Places"]?.[0]?.NAME?.replace(
-        / city$/i,
-        "",
-      ) || heuristicGeocode(addr).legal_city;
+
+    const placeName = match.geographies?.["Incorporated Places"]?.[0]?.NAME;
+    const place = placeName?.replace(/ city$/i, "").trim();
+    if (!place) {
+      // Matched coordinates but no incorporated place — do not invent from postal.
+      return null;
+    }
+
     const county = match.geographies?.Counties?.[0]?.NAME || "";
-    const state =
-      match.geographies?.States?.[0]?.STUSAB || addr.state;
+    const state = match.geographies?.States?.[0]?.STUSAB || addr.state;
     return {
       address_id: addr.address_id,
       legal_city: place,
@@ -147,6 +199,7 @@ async function censusGeocodeOne(addr: SampleAddress): Promise<GeocodeResult | nu
       state,
       matched_address: match.matchedAddress,
       source: "census",
+      resolution: "census",
     };
   } catch {
     return null;
@@ -189,6 +242,19 @@ export function jurisdictionStack(g: GeocodeResult): {
   state: string;
   county: string;
   city: string;
+  resolution: GeocodeResolution;
+  trusted: boolean;
 } {
-  return { state: g.state, county: g.county, city: g.legal_city };
+  return {
+    state: g.state,
+    county: g.county,
+    city: g.legal_city,
+    resolution: g.resolution ?? "census",
+    trusted: (g.resolution ?? "census") !== "postal_fallback",
+  };
+}
+
+/** City-level rules should not fire on untrusted postal-only geocodes. */
+export function isTrustedLegalCity(g: GeocodeResult): boolean {
+  return (g.resolution ?? "census") !== "postal_fallback";
 }
