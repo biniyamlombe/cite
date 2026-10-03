@@ -23,6 +23,40 @@ export const LookupResult = z.enum([
   "pending",
 ]);
 
+/** Machine-executable coverage predicate (internal DSL). */
+export const CoveragePredicateSchema = z.object({
+  field: z.enum(["state", "legal_city", "year_built", "units", "owner_type"]),
+  operator: z.enum([
+    "eq",
+    "neq",
+    "lt",
+    "lte",
+    "gt",
+    "gte",
+    "missing",
+    "present",
+  ]),
+  value: z.union([z.string(), z.number(), z.boolean()]).optional(),
+  reason: z.string().optional(),
+});
+
+/**
+ * Dual coverage form: plain-language `text` + executable predicates.
+ * Fits organizer schema `coverage_conditions: string | object | null`.
+ */
+export const CoverageConditionsObjectSchema = z.object({
+  text: z.string(),
+  all: z.array(CoveragePredicateSchema).default([]),
+  unknown_if: z.array(CoveragePredicateSchema).optional(),
+  omit_if: z.array(CoveragePredicateSchema).optional(),
+});
+
+export const CoverageConditionsSchema = z.union([
+  z.string(),
+  CoverageConditionsObjectSchema,
+  z.null(),
+]);
+
 export const RuleRecordSchema = z.object({
   team_rule_id: z.string().min(1),
   jurisdiction: z.string().min(1),
@@ -32,9 +66,7 @@ export const RuleRecordSchema = z.object({
   title: z.string().min(1),
   requirement: z.string().min(1),
   key_value: z.string().nullable().optional(),
-  coverage_conditions: z
-    .union([z.string(), z.record(z.unknown()), z.null()])
-    .optional(),
+  coverage_conditions: CoverageConditionsSchema.optional(),
   exemptions: z.string().nullable().optional(),
   overrides: z.array(z.string()).optional(),
   interaction: z.string().nullable().optional(),
@@ -59,6 +91,30 @@ export type RuleLevel = z.infer<typeof RuleLevel>;
 export type RuleCategory = z.infer<typeof RuleCategory>;
 export type RuleStatus = z.infer<typeof RuleStatus>;
 export type LookupResult = z.infer<typeof LookupResult>;
+export type CoveragePredicate = z.infer<typeof CoveragePredicateSchema>;
+export type CoverageConditionsObject = z.infer<
+  typeof CoverageConditionsObjectSchema
+>;
+
+/** Plain-language coverage text whether stored as string or dual object. */
+export function coveragePlainText(
+  coverage: RuleRecord["coverage_conditions"],
+): string {
+  if (coverage == null) return "";
+  if (typeof coverage === "string") return coverage;
+  if (typeof coverage === "object" && "text" in coverage && coverage.text) {
+    return coverage.text;
+  }
+  return "";
+}
+
+export function asCoverageObject(
+  coverage: RuleRecord["coverage_conditions"],
+): CoverageConditionsObject | null {
+  if (!coverage || typeof coverage === "string") return null;
+  const parsed = CoverageConditionsObjectSchema.safeParse(coverage);
+  return parsed.success ? parsed.data : null;
+}
 
 export const LookupEntrySchema = z.object({
   team_rule_id: z.string(),
