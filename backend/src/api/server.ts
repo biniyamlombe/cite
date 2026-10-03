@@ -5,6 +5,7 @@ import { cors } from "hono/cors";
 import path from "node:path";
 import { DEFAULT_AS_OF, type RuleRecord } from "@rhl/shared";
 import { loadAddresses } from "../lib/addresses.js";
+import { loadCapturableDocs, loadDocById } from "../lib/corpus.js";
 import { readJsonIfExists } from "../lib/io.js";
 import { outputsDir } from "../lib/paths.js";
 import type { GeocodeResult } from "../geocode/census.js";
@@ -28,6 +29,28 @@ async function loadRules(): Promise<RuleRecord[]> {
     path.join(outputsDir(), "rules.json"),
   );
   return file?.rules ?? [];
+}
+
+/** Map source_doc_id → corpus retrieval timestamp (from file headers / manifest). */
+async function loadRetrievedAtByDocId(): Promise<Map<string, string>> {
+  const docs = await loadCapturableDocs();
+  return new Map(
+    docs
+      .filter((d) => Boolean(d.retrieved_at))
+      .map((d) => [d.doc_id, d.retrieved_at]),
+  );
+}
+
+function withRetrievedAt<T extends RuleRecord | null>(
+  rule: T,
+  retrievedAtByDoc: Map<string, string>,
+): T extends null
+  ? null
+  : T & { retrieved_at: string | null } {
+  if (!rule) return null as never;
+  const retrieved_at =
+    (rule.source_doc_id && retrievedAtByDoc.get(rule.source_doc_id)) || null;
+  return { ...rule, retrieved_at } as never;
 }
 
 async function loadGeos(): Promise<Map<string, GeocodeResult>> {
@@ -103,6 +126,7 @@ app.get("/lookup/:addressId", async (c) => {
 
   const entries = evaluateAddress({ address: addr, geo, rules, asOf });
   const byId = new Map(rules.map((r) => [r.team_rule_id, r]));
+  const retrievedAtByDoc = await loadRetrievedAtByDocId();
 
   return c.json({
     disclaimer: "Not legal advice",
@@ -111,7 +135,7 @@ app.get("/lookup/:addressId", async (c) => {
     jurisdiction: jurisdictionStack(geo),
     results: entries.map((e) => ({
       ...e,
-      rule: byId.get(e.team_rule_id) ?? null,
+      rule: withRetrievedAt(byId.get(e.team_rule_id) ?? null, retrievedAtByDoc),
     })),
   });
 });
@@ -122,7 +146,11 @@ app.get("/rules", async (c) => {
   const filtered = category
     ? rules.filter((r) => r.category === category)
     : rules;
-  return c.json({ count: filtered.length, rules: filtered });
+  const retrievedAtByDoc = await loadRetrievedAtByDocId();
+  return c.json({
+    count: filtered.length,
+    rules: filtered.map((r) => withRetrievedAt(r, retrievedAtByDoc)),
+  });
 });
 
 app.get("/changes", async (c) => {
@@ -149,12 +177,15 @@ app.post("/extract/doc/:docId", async (c) => {
   const docId = c.req.param("docId").toUpperCase();
   try {
     const { rules, source } = await extractDocument(docId);
+    const doc = await loadDocById(docId);
+    const retrieved_at = doc?.retrieved_at ?? null;
     return c.json({
       disclaimer: "Not legal advice",
       doc_id: docId,
       source,
+      retrieved_at,
       count: rules.length,
-      rules,
+      rules: rules.map((r) => ({ ...r, retrieved_at })),
     });
   } catch (err) {
     return c.json(
