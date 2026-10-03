@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/api/server.ts",
+    "start": "tsx src/api/server.ts",
+    "build": "tsc --noEmit",
+    "extract": "tsx src/cli/extract.ts",
+    "geocode": "tsx src/cli/geocode.ts",
+    "lookup": "tsx src/cli/lookup.ts",
+    "changes": "tsx src/cli/changes.ts",
+    "pipeline": "tsx src/cli/pipeline.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@hono/node-server": "^1.14.1",
+    "@rhl/shared": "*",
+    "ajv": "^8.17.1",
+    "csv-parse": "^5.6.0",
+    "dotenv": "^16.4.7",
+    "hono": "^4.7.5",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  }
+}
