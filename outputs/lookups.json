@@ -624,8 +624,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -776,8 +776,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -1093,7 +1093,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -1497,7 +1497,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -2113,7 +2113,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -2246,8 +2246,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -3214,8 +3214,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -3421,7 +3421,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -4201,7 +4201,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -4628,8 +4628,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -5439,7 +5439,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -5953,7 +5953,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -6008,8 +6008,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -6435,7 +6435,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -6490,8 +6490,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -6606,8 +6606,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -6722,8 +6722,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -7002,8 +7002,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -7946,8 +7946,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -8160,8 +8160,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -8532,8 +8532,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -9765,7 +9765,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -10326,8 +10326,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -11416,8 +11416,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -11646,8 +11646,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -11798,8 +11798,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -12170,8 +12170,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -12450,8 +12450,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -12883,7 +12883,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -13120,8 +13120,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -13887,7 +13887,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -14020,8 +14020,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -14622,8 +14622,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -15151,7 +15151,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -15352,8 +15352,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -15974,8 +15974,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -16602,8 +16602,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -16969,7 +16969,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -17268,8 +17268,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -17951,7 +17951,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -18006,8 +18006,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -18432,8 +18432,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -18548,8 +18548,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -19182,8 +19182,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -19456,8 +19456,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -20034,8 +20034,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -20392,8 +20392,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -20622,8 +20622,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -20927,7 +20927,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -21037,7 +21037,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -21257,7 +21257,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -21994,8 +21994,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -22275,7 +22275,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -22971,7 +22971,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -23714,8 +23714,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -24067,7 +24067,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -24177,7 +24177,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -24287,7 +24287,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -24420,8 +24420,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -24650,8 +24650,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -25240,8 +25240,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -25392,8 +25392,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -25508,8 +25508,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -25848,8 +25848,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -26000,8 +26000,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -26438,8 +26438,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -26754,8 +26754,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -27046,8 +27046,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -27820,8 +27820,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -28550,8 +28550,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -28702,8 +28702,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -29074,8 +29074,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -29190,8 +29190,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -29884,8 +29884,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -30792,8 +30792,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -30986,8 +30986,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -31836,8 +31836,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -32250,8 +32250,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -32421,7 +32421,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -32580,8 +32580,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -33311,7 +33311,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -34316,8 +34316,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -34674,8 +34674,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -35166,8 +35166,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -35471,7 +35471,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -35581,7 +35581,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -36105,7 +36105,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -37132,8 +37132,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -37503,7 +37503,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -37946,8 +37946,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -38751,7 +38751,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -38884,8 +38884,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -39592,8 +39592,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -41314,8 +41314,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -41528,8 +41528,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -42234,8 +42234,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -42464,8 +42464,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -42694,8 +42694,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -43005,7 +43005,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -43583,7 +43583,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -44352,8 +44352,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -44704,8 +44704,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -45967,7 +45967,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -46666,8 +46666,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -46873,7 +46873,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -47336,8 +47336,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -47562,8 +47562,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -48087,7 +48087,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -48240,8 +48240,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -48434,8 +48434,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -48908,8 +48908,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -49424,8 +49424,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -49875,7 +49875,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -50008,8 +50008,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -50434,8 +50434,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -50970,8 +50970,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -51426,8 +51426,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -52265,7 +52265,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -52893,7 +52893,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -53003,7 +53003,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -53136,8 +53136,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -54304,8 +54304,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -54475,7 +54475,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -54640,8 +54640,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -55261,7 +55261,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -55394,8 +55394,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -56021,7 +56021,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -56131,7 +56131,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -56387,7 +56387,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -56520,8 +56520,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -57074,8 +57074,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -57824,8 +57824,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -58018,8 +58018,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -59157,7 +59157,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -59954,8 +59954,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -60216,8 +60216,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -60687,7 +60687,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -61297,7 +61297,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -61875,7 +61875,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -62247,7 +62247,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -62302,8 +62302,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -62418,8 +62418,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -62632,8 +62632,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -62748,8 +62748,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -63040,8 +63040,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -63270,8 +63270,8 @@
       },
       {
         "team_rule_id": "r-0032",
-        "result": "applies",
-        "explanation": "Just Cause for Eviction - Multifamily Properties Built Before 1980 covers this address in Berkeley, CA as of 2026-10-01. Berkeley Rent Stabilization and Eviction for Just Cause Ordinance",
+        "result": "unknown",
+        "explanation": "Coverage is limited to buildings built before 1980; year_built is missing.",
         "conflict_flag": false
       },
       {
@@ -63630,8 +63630,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -64903,7 +64903,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],
@@ -65712,8 +65712,8 @@
       },
       {
         "team_rule_id": "r-0051",
-        "result": "applies",
-        "explanation": "Massachusetts Rent Control Prohibition with Limited Municipal Exception covers this address in Boston, MA as of 2026-10-01. Massachusetts General Law, Part I, Title VII, Chapter 40P, Section 4",
+        "result": "unknown",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       },
       {
@@ -66627,7 +66627,7 @@
       {
         "team_rule_id": "r-0112",
         "result": "unknown",
-        "explanation": "Rule coverage depends on unit count, which is missing for this address.",
+        "explanation": "Rule coverage or an exemption depends on unit count, which is missing for this address.",
         "conflict_flag": false
       }
     ],

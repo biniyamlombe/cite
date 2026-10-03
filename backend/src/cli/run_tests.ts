@@ -11,7 +11,7 @@ import {
   type RuleRecord,
 } from "@rhl/shared";
 import { evaluateExecutableCoverage } from "../apply/executable.js";
-import { evaluateStatus } from "../apply/coverage.js";
+import { evaluateAddress, evaluateStatus } from "../apply/coverage.js";
 import { enrichRuleCoverage } from "../apply/compile_coverage.js";
 import {
   geocodeAddresses,
@@ -176,6 +176,74 @@ async function testDualCoverage() {
     : null;
   if (hit?.kind === "omit") pass("SF executable omits post-1979 building");
   else fail(`expected omit for 1990 SF building, got ${JSON.stringify(hit)}`);
+
+  // Missing year/units must yield unknown when coverage depends on them.
+  const multifamily = enrichRuleCoverage({
+    team_rule_id: "t-mf",
+    doc_id: "D000",
+    jurisdiction: "Berkeley, CA",
+    level: "city",
+    category: "just_cause_eviction",
+    title: "Multifamily just cause",
+    citation: "test",
+    effective_date: "2020-01-01",
+    status: "in_force",
+    requirement: "Just cause required.",
+    coverage_conditions: "Multifamily properties built before 1980",
+    exemptions: "",
+    penalties: null,
+    interaction: null,
+    quoted_span: "x",
+    confidence: 0.9,
+    extractor: "test",
+    extracted_at: "2026-10-01T00:00:00Z",
+  } as RuleRecord);
+  const mfCov = asCoverageObject(multifamily.coverage_conditions);
+  const hasYearUnk = mfCov?.unknown_if?.some(
+    (p) => p.field === "year_built" && p.operator === "missing",
+  );
+  const hasUnitsUnk = mfCov?.unknown_if?.some(
+    (p) => p.field === "units" && p.operator === "missing",
+  );
+  if (hasYearUnk && hasUnitsUnk) {
+    pass("multifamily+year rule compiles year_built + units unknown_if");
+  } else {
+    fail(
+      `multifamily compile missing guards: year=${hasYearUnk} units=${hasUnitsUnk}`,
+    );
+  }
+  const berkGeo = {
+    address_id: "t-berk",
+    legal_city: "Berkeley",
+    county: "Alameda County",
+    state: "CA",
+    matched_address: "",
+    source: "heuristic" as const,
+    resolution: "known_jurisdiction" as const,
+  };
+  const emptyFacts = {
+    address_id: "t-berk",
+    street_address: "x",
+    postal_city: "Berkeley",
+    state: "CA",
+    zip: "94704",
+    year_built: "",
+    units: "",
+    use_code: "",
+    use_description: "",
+    source_dataset: "",
+    retrieved_at: "",
+  };
+  const mfHit = evaluateAddress({
+    address: emptyFacts,
+    geo: berkGeo,
+    rules: [multifamily],
+  });
+  if (mfHit[0]?.result === "unknown") {
+    pass("missing year/units → unknown for multifamily built-before rule");
+  } else {
+    fail(`expected unknown for empty facts, got ${JSON.stringify(mfHit[0])}`);
+  }
 }
 
 async function testFakeSpanRejected() {

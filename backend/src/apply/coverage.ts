@@ -105,6 +105,19 @@ export function evaluateStatus(
   return null;
 }
 
+/** True when coverage/exemptions hinge on a numeric unit threshold or multifamily shape. */
+function dependsOnUnitCount(cov: string, blob: string): boolean {
+  return (
+    /\d+\s*\+?\s*units\b/i.test(blob) ||
+    /fewer than \d+.*(?:rental\s+)?units/i.test(blob) ||
+    /more than \d+\s+(?:rental\s+)?units/i.test(blob) ||
+    /\d+\s*or fewer.*(?:rental\s+)?units/i.test(blob) ||
+    /1\s*[–-]\s*4\s*unit/i.test(blob) ||
+    /\bunit count\b/i.test(blob) ||
+    /\bmultifamily\b/i.test(cov)
+  );
+}
+
 function evaluateBuildingFacts(
   rule: RuleRecord,
   addr: SampleAddress,
@@ -127,8 +140,7 @@ function evaluateBuildingFacts(
     if (hit?.kind === "fail") {
       return { omit: true, result: "applies", explanation: "", conflict_flag: false };
     }
-    // Executable present and passed — skip prose heuristics for this rule.
-    return null;
+    // Passed executable guards — still run prose for compile gaps (e.g. multifamily year).
   }
 
   const year = parseOptionalInt(addr.year_built);
@@ -207,6 +219,24 @@ function evaluateBuildingFacts(
     }
   }
 
+  // "Multifamily … built before YYYY" / "built before YYYY"
+  const beforeMatch = cov.match(
+    /(?:multifamily\s+)?(?:properties\s+)?built before (\d{4})/i,
+  );
+  if (beforeMatch) {
+    const cutoff = Number(beforeMatch[1]);
+    if (year == null) {
+      return {
+        result: "unknown",
+        explanation: `Coverage is limited to buildings built before ${cutoff}; year_built is missing.`,
+        conflict_flag: false,
+      };
+    }
+    if (year >= cutoff) {
+      return { omit: true, result: "applies", explanation: "", conflict_flag: false };
+    }
+  }
+
   // Unit-count dependent exemptions
   if (
     /owner-occupied|2 or fewer|two or fewer|small-landlord|no more than two rental/i.test(
@@ -242,18 +272,14 @@ function evaluateBuildingFacts(
     }
   }
 
-  // Rules that need units when coverage mentions unit thresholds
-  if (/(\d+)\+?\s*units|unit count|multifamily/i.test(cov) && units == null) {
-    if (rule.category === "rent_increase_limits" && rule.level === "city") {
-      // citywide alg bans don't need units — only if explicitly unit-threshold
-      if (/\d+\s*units/i.test(cov)) {
-        return {
-          result: "unknown",
-          explanation: "Rule coverage depends on unit count, which is missing for this address.",
-          conflict_flag: false,
-        };
-      }
-    }
+  // Portfolio / building unit thresholds (any category) — unknown when units missing
+  if (units == null && dependsOnUnitCount(cov, blob)) {
+    return {
+      result: "unknown",
+      explanation:
+        "Rule coverage or an exemption depends on unit count, which is missing for this address.",
+      conflict_flag: false,
+    };
   }
 
   return null;

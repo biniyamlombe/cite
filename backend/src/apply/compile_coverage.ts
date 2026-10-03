@@ -126,16 +126,37 @@ export function compileCoverageConditions(
     }
   }
 
+  const beforeMatch = text.match(
+    /(?:multifamily\s+)?(?:properties\s+)?built before (\d{4})/i,
+  );
+  if (beforeMatch) {
+    const cutoff = Number(beforeMatch[1]);
+    unknown_if.push({
+      field: "year_built",
+      operator: "missing",
+      reason: `Coverage is limited to buildings built before ${cutoff}; year_built is missing.`,
+    });
+    omit_if.push({ field: "year_built", operator: "gte", value: cutoff });
+  }
+
+  const unitThreshold =
+    /\d+\s*\+?\s*units\b/i.test(blob) ||
+    /fewer than \d+.*(?:rental\s+)?units/i.test(blob) ||
+    /more than \d+\s+(?:rental\s+)?units/i.test(blob) ||
+    /\d+\s*or fewer.*(?:rental\s+)?units/i.test(blob) ||
+    /1\s*[–-]\s*4\s*unit/i.test(blob) ||
+    /\bunit count\b/i.test(blob) ||
+    /\bmultifamily\b/i.test(text);
+
   if (
-    /\d+\s*units/i.test(text) &&
-    rule.category === "rent_increase_limits" &&
-    rule.level === "city"
+    unitThreshold &&
+    !unknown_if.some((p) => p.field === "units" && p.operator === "missing")
   ) {
     unknown_if.push({
       field: "units",
       operator: "missing",
       reason:
-        "Rule coverage depends on unit count, which is missing for this address.",
+        "Rule coverage or an exemption depends on unit count, which is missing for this address.",
     });
   }
 

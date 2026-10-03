@@ -1029,6 +1029,25 @@
             "operator": "eq",
             "value": "Berkeley"
           }
+        ],
+        "unknown_if": [
+          {
+            "field": "year_built",
+            "operator": "missing",
+            "reason": "Coverage is limited to buildings built before 1980; year_built is missing."
+          },
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Rule coverage or an exemption depends on unit count, which is missing for this address."
+          }
+        ],
+        "omit_if": [
+          {
+            "field": "year_built",
+            "operator": "gte",
+            "value": 1980
+          }
         ]
       },
       "exemptions": null,
@@ -1695,6 +1714,13 @@
             "field": "state",
             "operator": "eq",
             "value": "MA"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Rule coverage or an exemption depends on unit count, which is missing for this address."
           }
         ]
       },
@@ -3519,7 +3545,7 @@
           {
             "field": "units",
             "operator": "missing",
-            "reason": "Rule coverage depends on unit count, which is missing for this address."
+            "reason": "Rule coverage or an exemption depends on unit count, which is missing for this address."
           }
         ]
       },
