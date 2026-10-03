@@ -8,7 +8,10 @@ import {
   parseOptionalInt,
   type SampleAddress,
 } from "../lib/addresses.js";
-import type { GeocodeResult } from "../geocode/census.js";
+import {
+  isTrustedLegalCity,
+  type GeocodeResult,
+} from "../geocode/census.js";
 import {
   evaluateExecutableCoverage,
   executableFromRule,
@@ -44,7 +47,8 @@ function ruleMatchesJurisdiction(
     if (j === "MA" || /Massachusetts/i.test(j)) return geo.state === "MA";
     return false;
   }
-  // city level
+  // city level — never apply on postal-only / untrusted geocodes
+  if (!isTrustedLegalCity(geo)) return false;
   const cityPart = j.split(",")[0]?.trim() ?? j;
   return cityPart.toLowerCase() === geo.legal_city.toLowerCase();
 }
@@ -57,7 +61,15 @@ type EvalResult = Omit<LookupEntry, "team_rule_id"> & {
   omit?: boolean;
 };
 
-function statusAsOf(rule: RuleRecord, asOf: string): EvalResult | null {
+/**
+ * Standalone date evaluation for a rule as of a query date.
+ * Returns an early lookup result when status alone decides the outcome;
+ * null means continue into coverage / "applies" evaluation.
+ */
+export function evaluateStatus(
+  rule: RuleRecord,
+  asOf: string,
+): EvalResult | null {
   if (rule.status === "failed") {
     return { omit: true, result: "pending", explanation: "", conflict_flag: false };
   }
@@ -255,12 +267,23 @@ function isLocalRentControl(rule: RuleRecord): boolean {
   );
 }
 
+/** True only for the CA statewide rent-cap provision — not notice/remedies siblings under §1947.12. */
 function isStateRentCap(rule: RuleRecord): boolean {
+  if (
+    rule.level !== "state" ||
+    rule.category !== "rent_increase_limits" ||
+    !(rule.jurisdiction === "CA" || /California/i.test(rule.jurisdiction))
+  ) {
+    return false;
+  }
+  // Notice (e) and remedies (k) remain applicable alongside local rent control.
+  if (/1947\.12\s*\([ek]\)/i.test(rule.citation)) return false;
+  const citeTitle = `${rule.citation} ${rule.title}`;
   return (
-    rule.level === "state" &&
-    (rule.jurisdiction === "CA" || /California/i.test(rule.jurisdiction)) &&
-    rule.category === "rent_increase_limits" &&
-    /1947\.12|AB\s*1482|rent cap/i.test(`${rule.citation} ${rule.title}`)
+    /1947\.12\s*\(a\)/i.test(rule.citation) ||
+    /AB\s*1482|statewide rent (increase )?cap|rent (increase )?cap/i.test(
+      citeTitle,
+    )
   );
 }
 
@@ -282,7 +305,7 @@ export function evaluateAddress(options: {
   for (const rule of candidates) {
     if (rule.status === "failed") continue;
 
-    const statusHit = statusAsOf(rule, asOf);
+    const statusHit = evaluateStatus(rule, asOf);
     if (statusHit?.omit) continue;
     if (statusHit) {
       prelim.push({
