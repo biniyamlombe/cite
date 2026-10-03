@@ -456,3 +456,7 @@
 {"ts":"2026-10-03T23:25:33.802Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-03T23:36:18.323Z","kind":"note","message":"Enriched coverage_conditions dual form on 109/109 rules","meta":{"dual":109,"total":109}}
 {"ts":"2026-10-03T23:36:19.302Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-03T23:57:44.499Z","kind":"note","message":"Enriched coverage_conditions dual form on 109/109 rules","meta":{"dual":109,"total":109}}
+{"ts":"2026-10-03T23:57:45.136Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-03T23:58:00.171Z","kind":"note","message":"Enriched coverage_conditions dual form on 109/109 rules","meta":{"dual":109,"total":109}}
+{"ts":"2026-10-03T23:58:01.176Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}

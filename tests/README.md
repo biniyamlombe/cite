@@ -14,7 +14,8 @@ Smoke coverage (no Anthropic call required):
 4. Invented `quoted_span` is rejected; original span still validates
 5. Dual `coverage_conditions` ({ text, all, unknown_if, omit_if }) compile/evaluate
 6. `outputs/rules.json` exact citations + change-test aliases
-7. HOB/JC aliases flagged as low-confidence link-only workarounds
+7. HOB/JC aliases are honest link-only scaffolds (low confidence, primary URLs in
+   `conflict_note`, quoted evidence from capturable D069 only)
 
 Primary Hoboken / Jersey City ordinance pages are `links_only` in the pack —
-tests assert we do **not** invent capturable text for those docs.
+tests assert we do **not** invent capturable municipal text for those docs.

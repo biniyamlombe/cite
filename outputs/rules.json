@@ -3434,8 +3434,8 @@
       "level": "city",
       "category": "algorithmic_rent_setting",
       "status": "in_force",
-      "title": "Hoboken algorithmic rent ban (link-only source; FAIR Act corpus)",
-      "requirement": "Challenge brief and FAIR Act text indicate Hoboken enacted a local algorithmic rent-setting ban. Primary Hoboken ordinance pages are link-only in the pack — this record is a change-test scaffold scoped to Hoboken addresses. Quoted evidence is from the NJ FAIR Act (D069), which prohibits conflicting municipal ordinances once effective. Not a substitute for the municipal ordinance text.",
+      "title": "Hoboken algorithmic rent ban (link-only primary; FAIR Act quote)",
+      "requirement": "Challenge change tests treat Hoboken as having a local algorithmic rent-setting ban (T2/T3). The pack marks primary Hoboken ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. quoted_span is verbatim from the capturable NJ FAIR Act (D069) — not Hoboken Municipal Code. Do not treat this as extracted municipal ordinance text.",
       "key_value": null,
       "coverage_conditions": {
         "text": "Residential dwelling units in Hoboken, NJ",
@@ -3451,13 +3451,13 @@
       "overrides": [],
       "interaction": "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
       "effective_date": "2024-01-01",
-      "citation": "NJ FAIR Act (D069) — Hoboken local ban (primary ordinance link-only)",
+      "citation": "Hoboken local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)",
       "source_doc_id": "D069",
       "source_url": "https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM",
-      "quoted_span": "A municipality shall be prohibited from enacting\nan ordinance that conflicts with this act.  This subsection shall not be\nconstrued to prohibit the enactment of ordinances explicitly authorized or\nreq",
+      "quoted_span": "device” means a device that uses one or more algorithms to process or otherwise\nperform calculations of data, including, but not limited to, data concerning\nrental prices, material lease terms, or occupancy l",
       "confidence": 0.35,
       "conflict_flag": true,
-      "conflict_note": "Primary Hoboken ordinance is link-only; do not treat this FAIR Act quote as Hoboken municipal code text. Kept for T2/T3 jurisdiction-scope and preemption conflict demos.",
+      "conflict_note": "Primary sources (link-only, no capturable body): https://ecode360.com/15252438; https://ecode360.com/15252470; https://ecode360.com/46833413. Quoted evidence is NJ FAIR Act (D069), not Hoboken code. Scaffold kept for T2 jurisdiction-scope and T3 preemption-conflict demos only.",
       "alias_id": "HOB-ALG-01"
     },
     {
@@ -3466,11 +3466,11 @@
       "level": "city",
       "category": "algorithmic_rent_setting",
       "status": "in_force",
-      "title": "Jersey City algorithmic rent ban (link-only source; FAIR Act corpus)",
-      "requirement": "Challenge brief and FAIR Act text indicate Jersey City enacted a local algorithmic rent-setting ban. Primary Jersey City ordinance pages are link-only in the pack — this record is a change-test scaffold scoped to Jersey City addresses. Quoted evidence is from the NJ FAIR Act (D069), which prohibits conflicting municipal ordinances once effective. Not a substitute for the municipal ordinance text.",
+      "title": "Jersey City algorithmic rent ban (link-only primary; FAIR Act quote)",
+      "requirement": "Challenge change tests treat Jersey City as having a local algorithmic rent-setting ban (T2/T3). The pack marks primary Jersey City ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. quoted_span is verbatim from the capturable NJ FAIR Act (D069) — not Jersey City Municipal Code. Do not treat this as extracted municipal ordinance text.",
       "key_value": null,
       "coverage_conditions": {
-        "text": "Residential units in Jersey City, NJ",
+        "text": "Residential dwelling units in Jersey City, NJ",
         "all": [
           {
             "field": "legal_city",
@@ -3483,13 +3483,13 @@
       "overrides": [],
       "interaction": "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
       "effective_date": "2024-01-01",
-      "citation": "NJ FAIR Act (D069) — Jersey City local ban (primary ordinance link-only)",
+      "citation": "Jersey City local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)",
       "source_doc_id": "D069",
       "source_url": "https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM",
-      "quoted_span": "A municipality shall be prohibited from enacting\nan ordinance that conflicts with this act.  This subsection shall not be\nconstrued to prohibit the enactment of ordinances explicitly authorized or\nreq",
+      "quoted_span": "device” means a device that uses one or more algorithms to process or otherwise\nperform calculations of data, including, but not limited to, data concerning\nrental prices, material lease terms, or occupancy l",
       "confidence": 0.35,
       "conflict_flag": true,
-      "conflict_note": "Primary Jersey City ordinance is link-only; do not treat this FAIR Act quote as Jersey City municipal code text. Kept for T2/T3 jurisdiction-scope and preemption conflict demos.",
+      "conflict_note": "Primary sources (link-only, no capturable body): https://hudsoncountyview.com/jersey-city-council-approves-realpage-ban-and-increasing-benefits-for-laborers/; https://www.morganlewis.com/pubs/2026/08/algorithmic-rent-pricing-litigation-expands-under-new-state-and-local-laws. Quoted evidence is NJ FAIR Act (D069), not Jersey City code. Scaffold kept for T2 jurisdiction-scope and T3 preemption-conflict demos only.",
       "alias_id": "JC-ALG-01"
     },
     {

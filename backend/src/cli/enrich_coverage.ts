@@ -1,10 +1,12 @@
 /**
  * Attach dual coverage_conditions ({ text, all, unknown_if, omit_if }) to rules.json.
+ * Also refreshes HOB/JC link-only scaffold honesty metadata (no re-extract needed).
  */
 import path from "node:path";
 import type { RuleRecord } from "@rhl/shared";
 import { asCoverageObject } from "@rhl/shared";
 import { enrichRuleCoverage } from "../apply/compile_coverage.js";
+import { ensureChangeTestAliases } from "../extract/ensure_aliases.js";
 import { readJson, writeJson } from "../lib/io.js";
 import { outputsDir } from "../lib/paths.js";
 import { appendAudit } from "../lib/audit.js";
@@ -12,8 +14,9 @@ import { appendAudit } from "../lib/audit.js";
 async function main() {
   const outPath = path.join(outputsDir(), "rules.json");
   const file = await readJson<{ rules: RuleRecord[] }>(outPath);
+  const ensured = await ensureChangeTestAliases(file.rules);
   let dual = 0;
-  const rules = file.rules.map((r) => {
+  const rules = ensured.map((r) => {
     const enriched = enrichRuleCoverage(r);
     if (asCoverageObject(enriched.coverage_conditions)) dual += 1;
     return enriched;

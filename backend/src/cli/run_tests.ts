@@ -330,10 +330,25 @@ async function testRulesOutput() {
   for (const id of ["HOB-ALG-01", "JC-ALG-01"]) {
     const hit = rules.find((r) => r.alias_id === id);
     if (!hit) continue;
-    if (hit.conflict_flag && (hit.confidence ?? 1) < 0.8) {
-      pass(`${id} flagged low-confidence link-only workaround`);
+    const note = (hit.conflict_note || "").toLowerCase();
+    const req = (hit.requirement || "").toLowerCase();
+    const hasHonesty =
+      hit.conflict_flag &&
+      (hit.confidence ?? 1) < 0.8 &&
+      note.includes("link-only") &&
+      (note.includes("http") || note.includes("primary")) &&
+      (req.includes("not") && req.includes("municipal"));
+    if (hasHonesty) {
+      pass(`${id} honest link-only scaffold (low conf + primary URLs + FAIR quote caveat)`);
     } else {
-      fail(`${id} should be conflict_flag + confidence < 0.8`);
+      fail(
+        `${id} scaffold honesty incomplete: conf=${hit.confidence} flag=${hit.conflict_flag} note=${hit.conflict_note?.slice(0, 80)}`,
+      );
+    }
+    if (hit.source_doc_id === "D069") {
+      pass(`${id} quoted evidence anchored to capturable D069`);
+    } else {
+      fail(`${id} source_doc_id should be D069, got ${hit.source_doc_id}`);
     }
   }
 
