@@ -13,7 +13,7 @@ Address-level housing-law answers with citations: **which rules apply here today
 | `backend/` | Anthropic Claude extraction, Census geocoding, coverage engine, change tests, Hono API (`:4000`) |
 | `frontend/` | Next.js demo UI (`:3000`) — lookup, changes, live extract |
 | `shared/` | Zod schemas shared by FE/BE |
-| `data/pack` | Symlink to the participant starter pack |
+| `data/pack` | Vendored participant starter pack (corpus, addresses, schema, change tests) |
 | `outputs/` | `rules.json`, `lookups.json`, `changes.json`, `geocode_cache.json` |
 
 ## Setup
@@ -25,12 +25,14 @@ npm run build -w shared
 # Backend env
 cp backend/.env.example backend/.env
 # Add ANTHROPIC_API_KEY for Claude extraction (optional; heuristic fallback works without it)
+# PACK_ROOT is optional; defaults to ./data/pack
 
 # Frontend env
 cp frontend/.env.example frontend/.env.local
+# For a hosted UI, set NEXT_PUBLIC_API_URL to your backend URL
 ```
 
-Ensure `data/pack` points at the starter pack (created as a symlink to `participant-final-no-hour16`).
+Deploy needs the repo as-is: `data/pack/` + `outputs/` (including `geocode_cache.json`) + backend + frontend. Do not rely on a local Downloads symlink.
 
 ## Generate submission outputs
 
