@@ -16,6 +16,7 @@ import { packRoot, outputsDir } from "../lib/paths.js";
 import { heuristicExtractDoc } from "../extract/heuristic.js";
 import { validateRuleRecord } from "../lib/validate.js";
 import { appendAudit } from "../lib/audit.js";
+import { readJsonIfExists } from "../lib/io.js";
 
 type AjvConstructor = new (opts?: object) => {
   compile: (schema: object) => ValidateFunction;
@@ -97,6 +98,39 @@ async function testHeuristicExtractSmoke() {
   }
 }
 
+async function testFakeSpanRejected() {
+  console.log("fake quoted_span rejection");
+  const file = await readJsonIfExists<{ rules: RuleRecord[] }>(
+    path.join(outputsDir(), "rules.json"),
+  );
+  const sample = file?.rules?.[0];
+  const doc = sample?.source_doc_id
+    ? await loadDocById(sample.source_doc_id)
+    : await loadDocById("D022");
+  if (!sample || !doc) {
+    fail("need a sample rule + source doc for fake-span test");
+    return;
+  }
+  const invented = {
+    ...sample,
+    quoted_span:
+      "THIS IS AN INVENTED QUOTATION THAT DOES NOT APPEAR IN THE CORPUS DOCUMENT AT ALL.",
+  };
+  const result = await validateRuleRecord(invented, doc.text);
+  if (!result.ok && result.errors.some((e) => e.includes("quoted_span"))) {
+    pass("invented quoted_span is rejected");
+  } else if (result.ok) {
+    fail("invented quoted_span was incorrectly accepted");
+  } else {
+    fail(`unexpected errors: ${result.errors.join("; ")}`);
+  }
+
+  // Control: original span still validates
+  const ok = await validateRuleRecord(sample, doc.text);
+  if (ok.ok) pass("original quoted_span still validates");
+  else fail(`original span failed: ${ok.errors.join("; ")}`);
+}
+
 async function testRulesOutput() {
   console.log("outputs/rules.json citations + aliases");
   const file = JSON.parse(
@@ -161,6 +195,7 @@ async function main() {
   await testSchemaSample();
   await testCorpusLoader();
   await testHeuristicExtractSmoke();
+  await testFakeSpanRejected();
   await testRulesOutput();
 
   await appendAudit({
