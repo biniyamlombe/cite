@@ -7,7 +7,14 @@ import {
   type AddressRow,
   type LookupResponse,
 } from "@/lib/api";
-import { CATEGORY_LABELS, DEFAULT_AS_OF } from "@rhl/shared";
+import { useLocale } from "@/components/LocaleProvider";
+import {
+  categoryLabel,
+  levelLabel,
+  plainExplanationEs,
+  resultLabel,
+} from "@/lib/i18n";
+import { DEFAULT_AS_OF } from "@rhl/shared";
 
 const RESULT_ORDER = [
   "applies",
@@ -18,6 +25,7 @@ const RESULT_ORDER = [
 ] as const;
 
 export default function LookupPage() {
+  const { locale, t } = useLocale();
   const [q, setQ] = useState("");
   const [asOf, setAsOf] = useState(DEFAULT_AS_OF);
   const [suggestions, setSuggestions] = useState<AddressRow[]>([]);
@@ -30,12 +38,12 @@ export default function LookupPage() {
       setSuggestions([]);
       return;
     }
-    const t = setTimeout(() => {
+    const timer = setTimeout(() => {
       searchAddresses(q)
         .then((r) => setSuggestions(r.addresses))
         .catch(() => setSuggestions([]));
     }, 200);
-    return () => clearTimeout(t);
+    return () => clearTimeout(timer);
   }, [q]);
 
   function runLookup(addressId: string) {
@@ -60,32 +68,29 @@ export default function LookupPage() {
 
   return (
     <main>
-      <h1>Which rules apply here?</h1>
-      <p className="lede">
-        Search a sample multifamily address, set an as-of date, and see
-        jurisdiction-aware rules with exact corpus citations.
-      </p>
+      <h1>{t.lookupTitle}</h1>
+      <p className="lede">{t.lookupLede}</p>
 
       <div className="controls">
         <input
           type="search"
-          placeholder="Address ID or street (e.g. A0001 or Delongpre)"
+          placeholder={t.searchPlaceholder}
           value={q}
           onChange={(e) => setQ(e.target.value)}
-          aria-label="Search addresses"
+          aria-label={t.searchAria}
         />
         <input
           type="date"
           value={asOf}
           onChange={(e) => setAsOf(e.target.value)}
-          aria-label="As of date"
+          aria-label={t.asOfAria}
         />
         <button
           type="button"
           disabled={pending || !q.trim()}
           onClick={() => runLookup(q.trim().toUpperCase())}
         >
-          {pending ? "Looking up…" : "Look up"}
+          {pending ? t.lookingUp : t.lookUp}
         </button>
       </div>
 
@@ -109,61 +114,74 @@ export default function LookupPage() {
 
       {data && (
         <section className="section">
-          <h2>
-            {data.address.street_address}
-          </h2>
+          <h2>{data.address.street_address}</h2>
           <div className="meta-row">
             <div className="stack">
               {data.jurisdiction.state} › {data.jurisdiction.county || "County"} ›{" "}
               {data.jurisdiction.city}
             </div>
             <div>
-              As of <strong>{data.as_of}</strong>
+              {t.asOf} <strong>{data.as_of}</strong>
             </div>
             <div>
-              Built {data.address.year_built || "—"} · Units{" "}
+              {t.built} {data.address.year_built || "—"} · {t.units}{" "}
               {data.address.units || "—"}
             </div>
             <div className="mono">{data.address.address_id}</div>
           </div>
 
-          {grouped.length === 0 && (
-            <p className="muted">No matching rules for this address/date.</p>
-          )}
+          {grouped.length === 0 && <p className="muted">{t.noRules}</p>}
 
           {grouped.map((group) => (
             <div key={group.result}>
               {group.items.map((item) => {
-                const cat = item.rule?.category as keyof typeof CATEGORY_LABELS | undefined;
+                const title = item.rule?.title || item.team_rule_id;
+                const explanation =
+                  locale === "es"
+                    ? plainExplanationEs({
+                        result: item.result,
+                        title,
+                        asOf: data.as_of,
+                        explanationEn: item.explanation,
+                        effectiveDate: item.rule?.effective_date,
+                      })
+                    : item.explanation;
+
                 return (
                   <article key={item.team_rule_id} className="rule-block">
                     <div className="rule-meta">
                       <span className={`badge ${item.result}`}>
-                        {item.result.replaceAll("_", " ")}
+                        {resultLabel(item.result, locale)}
                       </span>
-                      {cat && (
+                      {item.rule?.category && (
                         <span className="badge">
-                          {CATEGORY_LABELS[cat] || cat}
+                          {categoryLabel(item.rule.category, locale)}
                         </span>
                       )}
                       {item.rule?.level && (
-                        <span className="badge">{item.rule.level}</span>
+                        <span className="badge">
+                          {levelLabel(item.rule.level, locale)}
+                        </span>
                       )}
                     </div>
-                    <h3>{item.rule?.title || item.team_rule_id}</h3>
-                    <p>{item.explanation}</p>
-                    {item.rule?.requirement && (
+                    <h3>{title}</h3>
+                    <p>{explanation}</p>
+                    {locale === "es" && item.rule?.requirement && (
+                      <p className="muted">
+                        <span className="label-en">{t.originalEn}: </span>
+                        {item.rule.requirement}
+                      </p>
+                    )}
+                    {locale === "en" && item.rule?.requirement && (
                       <p className="muted">{item.rule.requirement}</p>
                     )}
                     {item.conflict_flag && (
-                      <p className="flag">
-                        Conflict / human review flagged for this answer.
-                      </p>
+                      <p className="flag">{t.conflictFlag}</p>
                     )}
                     {item.rule?.confidence != null &&
                       item.rule.confidence < 0.8 && (
                         <p className="flag">
-                          Low confidence ({item.rule.confidence}) — review before relying on this rule.
+                          {t.lowConfidence(item.rule.confidence)}
                         </p>
                       )}
                     {item.rule && (
@@ -174,10 +192,10 @@ export default function LookupPage() {
                             ? ` · ${item.rule.source_doc_id}`
                             : ""}
                           {item.rule.retrieved_at
-                            ? ` · retrieved ${item.rule.retrieved_at}`
+                            ? ` · ${t.retrieved} ${item.rule.retrieved_at}`
                             : ""}
                           {item.rule.confidence != null
-                            ? ` · confidence ${item.rule.confidence}`
+                            ? ` · ${t.confidence} ${item.rule.confidence}`
                             : ""}
                         </p>
                         {item.rule.source_url && (
@@ -187,7 +205,7 @@ export default function LookupPage() {
                               target="_blank"
                               rel="noreferrer"
                             >
-                              Source
+                              {t.source}
                             </a>
                           </p>
                         )}

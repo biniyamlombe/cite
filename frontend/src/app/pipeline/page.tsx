@@ -2,8 +2,10 @@
 
 import { useState } from "react";
 import { extractDoc } from "@/lib/api";
+import { useLocale } from "@/components/LocaleProvider";
 
 export default function PipelinePage() {
+  const { t } = useLocale();
   const [docId, setDocId] = useState("D001");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -39,10 +41,9 @@ export default function PipelinePage() {
 
   return (
     <main>
-      <h1>Extraction pipeline</h1>
+      <h1>{t.pipelineTitle}</h1>
       <p className="lede">
-        Live Module A demo: read one capturable corpus document and emit
-        validated rule records. Uses Anthropic Claude when{" "}
+        {t.pipelineLede} Uses Anthropic Claude when{" "}
         <span className="mono">ANTHROPIC_API_KEY</span> is set; otherwise an
         automated heuristic pass over the same text.
       </p>

@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { fetchChanges } from "@/lib/api";
+import { useLocale } from "@/components/LocaleProvider";
 
 type ChangesPayload = Awaited<ReturnType<typeof fetchChanges>>;
 
 export default function ChangesPage() {
+  const { t } = useLocale();
   const [data, setData] = useState<ChangesPayload | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -19,14 +21,11 @@ export default function ChangesPage() {
 
   return (
     <main>
-      <h1>Law change tracking</h1>
-      <p className="lede">
-        Deterministic tests T1–T5 from the starter pack: which sample addresses
-        each change affects, with as-of before/after where relevant.
-      </p>
+      <h1>{t.changesTitle}</h1>
+      <p className="lede">{t.changesLede}</p>
 
       {error && <p className="error">{error}</p>}
-      {!data && !error && <p className="muted">Loading change tests…</p>}
+      {!data && !error && <p className="muted">{t.loadingChanges}</p>}
 
       {data && (
         <div className="change-list">
@@ -43,13 +42,13 @@ export default function ChangesPage() {
                 </h2>
                 <p className="muted">{test.expected_behavior}</p>
                 <p>
-                  Rules:{" "}
+                  {t.rules}:{" "}
                   <span className="mono">{test.rule_ids.join(", ")}</span>
                 </p>
                 {test.as_of_before && (
                   <p>
-                    Before <span className="mono">{test.as_of_before}</span> →
-                    after <span className="mono">{test.as_of_after}</span>
+                    {t.before} <span className="mono">{test.as_of_before}</span> →{" "}
+                    {t.after} <span className="mono">{test.as_of_after}</span>
                     {result?.before_status && (
                       <>
                         {" "}
@@ -62,7 +61,7 @@ export default function ChangesPage() {
                   <>
                     <p>
                       <strong>{result.affected_address_ids.length}</strong>{" "}
-                      affected addresses
+                      {t.affected}
                       {result.conflict_flag_address_ids ? (
                         <>
                           {" "}
@@ -70,7 +69,7 @@ export default function ChangesPage() {
                           <strong>
                             {result.conflict_flag_address_ids.length}
                           </strong>{" "}
-                          conflict flags
+                          {t.conflictFlags}
                         </>
                       ) : null}
                     </p>
@@ -85,9 +84,7 @@ export default function ChangesPage() {
                     )}
                   </>
                 ) : (
-                  <p className="muted">
-                    No results yet — run <span className="mono">npm run changes</span>.
-                  </p>
+                  <p className="muted">{t.noChangeResults}</p>
                 )}
               </article>
             );
