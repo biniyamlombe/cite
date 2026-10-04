@@ -81,10 +81,7 @@ export const Route = createFileRoute("/")({
 const DEMO_CHIPS: ReadonlyArray<{
   q: string;
   labelKey:
-    | "lookup.demo.unknown"
-    | "lookup.demo.remap"
-    | "lookup.demo.conflict"
-    | "lookup.demo.stretch";
+    "lookup.demo.unknown" | "lookup.demo.remap" | "lookup.demo.conflict" | "lookup.demo.stretch";
   id: string;
 }> = [
   { q: "A0005", labelKey: "lookup.demo.unknown", id: "A0005" },

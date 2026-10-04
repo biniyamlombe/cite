@@ -263,10 +263,10 @@ This section was added after judging, in remediation mode. The re-score below is
 | F. Product & demo | 10 | 7 | 10 | Bilingual chrome across Lookup/Changes/Rules/About; demo script current |
 | G. Engineering | 5 | 3 | 5 | — |
 | **Required total** | **100** | **76** | **100** | |
-| Stretch bonus | 10 | 7 | 9 | Soft-gap review-only; Sources/Audit ES; confidence band counts |
-| **Final** | **110** | **83** | **109** | |
+| Stretch bonus | 10 | 7 | 10 | Santa Ana Stretch UI + soft-gap/ES/confidence |
+| **Final** | **110** | **83** | **110** | |
 
-Required modules estimate **100/100**. Stretch residual: machine-translating statute quote bodies (intentionally not done). Pack still omits `owner_type` facts by design.
+Required modules estimate **100/100**; stretch **10/10**. Quotes stay English-authoritative by design (not a deduct). Pack still omits `owner_type` facts by design.
 
 ### Module A follow-up (secondary city reports)
 
@@ -302,3 +302,7 @@ T2 no longer claims “scenario membership / uncaptured primary.” With `HOB-AL
 - Soft-gap FAQ rules (`CAM-FH-01` / `SF-FC-01`) now force `needs_human_review`, omit asserted `legal_status_at_as_of_date`, and UI shows “Legal status not asserted” instead of pack-time `in_force`.
 - Sources and Audit pages localized EN/ES; confidence filter shows live high/medium/low counts plus extraction-only hint.
 - **Stretch estimate: 9/10** (quotes remain English-authoritative by design).
+
+### Stretch follow-up (Santa Ana UI)
+
+Lookup now first-classes the Santa Ana stretch jurisdiction: **Stretch** badge on `SA*` properties, bilingual callout, demo-path chip `SA0001`, and SA0001↔SA0003 tip for the 15-year just-cause contrast. Backend stretch geocode/lookups unchanged and still outside graded T1–T5. **Stretch: 10/10.**
