@@ -10,6 +10,7 @@
     "check-schema": "tsx src/cli/check_schema.ts",
     "test": "tsx src/cli/run_tests.ts && node --import tsx --test src/tests/*.test.ts",
     "enrich-coverage": "tsx src/cli/enrich_coverage.ts",
+    "enrich-fields": "tsx src/cli/enrich_fields.ts",
     "build-versions": "tsx src/cli/build_versions.ts",
     "stretch": "tsx src/cli/stretch.ts",
     "extract": "tsx src/cli/extract.ts",

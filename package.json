@@ -15,6 +15,7 @@
     "check-schema": "npm run check-schema -w backend",
     "test": "npm run build -w shared && npm run test -w backend && npm test --prefix frontend",
     "enrich-coverage": "npm run enrich-coverage -w backend",
+    "enrich-fields": "npm run enrich-fields -w backend",
     "build-versions": "npm run build-versions -w backend",
     "stretch": "npm run stretch -w backend --",
     "extract": "npm run extract -w backend --",
