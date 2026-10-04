@@ -25,7 +25,10 @@ for (const id of ["A0005", "A0065", "A0002", "SA0001"]) {
   console.log(`✓ ${id}: ${lookup.results.length} results; expected demo behavior verified`);
 }
 const changes = ChangesResponseSchema.parse(await get("/changes"));
-for (const [id, count] of Object.entries({ T1: 250, T2: 90, T3: 140, T4: 110, T5: 0, T6: 0 })) assert.equal(changes.results[id]?.affected_address_ids.length, count, id);
+for (const [id, count] of Object.entries({ T1: 250, T2: 90, T3: 140, T4: 110, T5: 0 })) {
+  assert.equal(changes.results[id]?.affected_address_ids.length, count, id);
+}
+assert.equal(changes.results.T6, undefined, "T6 must be absent (no-hour16 pack)");
 assert.equal(changes.results.T3?.conflict_flag_address_ids?.length, 90);
 const catalog = await get("/rules");
 for (const rule of catalog.rules) ApiRuleSchema.parse(rule);

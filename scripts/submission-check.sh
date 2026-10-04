@@ -81,17 +81,17 @@ if "T3" in changes:
 if shape_ok:
     print("  ✓ changes.json T1–T5 (250/90/140+90c/110/0)")
 if "T6" in changes:
+    # Hour-16 / T6 was removed from participant-final-no-hour16 — prefer absence.
     t6 = changes["T6"]
     notes = (t6.get("notes") or "").lower()
-    if t6.get("affected_address_ids") and "placeholder" not in notes and "awaiting" not in notes:
-        # Real T6 results are fine once hour-16 ships; only warn on silent empty without notes
-        print(f"  ✓ T6 present (affected={len(t6.get('affected_address_ids', []))})")
+    if t6.get("affected_address_ids"):
+        errors.append("T6 has affected addresses but pack has no T6 test (no-hour16)")
     elif not (t6.get("notes") or "").strip():
         errors.append("T6 present but notes empty")
     else:
-        print("  ✓ T6 placeholder present (honest hour-16 stub)")
+        print("  · T6 note present (prefer omitting T6 for no-hour16 pack)")
 else:
-    print("  · T6 absent (ok until hour-16; npm run changes emits a placeholder)")
+    print("  ✓ T6 absent (correct for participant-final-no-hour16)")
 
 text = {p.stem: p.read_text() for p in (root / "data/pack/corpus/text").glob("*.txt")}
 bad_span = 0

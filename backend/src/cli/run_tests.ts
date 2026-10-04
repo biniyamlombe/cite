@@ -720,22 +720,22 @@ async function testChangeTestsT1T5() {
     ["T4", assertT4(changes.T4, geos)],
     ["T5", assertT5(changes.T5)],
   ];
-  // T6 honest placeholder when pack has no hour-16 test yet
+  // Pack is T1–T5 only (hour-16 / T6 removed). Absence is correct.
   if (changes.T6) {
     if (
       changes.T6.affected_address_ids.length === 0 &&
-      /placeholder|awaiting corpus|not yet in rules/i.test(changes.T6.notes || "")
+      /not in this pack|removed|placeholder|awaiting corpus|not yet in rules/i.test(
+        changes.T6.notes || "",
+      )
     ) {
-      pass("T6 placeholder present (no invented hour-16 results)");
+      pass("T6 absent-from-pack note present (no invented results)");
     } else if ((changes.T6.notes || "").length > 0) {
-      pass(
-        `T6 present (affected=${changes.T6.affected_address_ids.length})`,
-      );
+      pass(`T6 present (affected=${changes.T6.affected_address_ids.length})`);
     } else {
       fail("T6 present but notes empty");
     }
   } else {
-    fail("T6 placeholder missing from change results");
+    pass("T6 absent (correct for participant-final-no-hour16)");
   }
 
   for (const [id, errs] of checks) {
