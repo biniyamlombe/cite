@@ -145,10 +145,6 @@ npm run typecheck
 | `PACK_ROOT` | `./data/pack` | Pack root override |
 | `PORT` | `4000` | API port |
 | `CORS_ORIGIN` | localhost UI ports | Comma-separated UI origins (see `.env.example`) |
-| `ELEVENLABS_API_KEY` | _(empty)_ | Optional spoken briefings (`POST /tts`); never expose to the browser |
-| `ELEVENLABS_VOICE_ID` | product default | Fixed voice for briefings |
-| `ELEVENLABS_MODEL` | `eleven_multilingual_v2` | TTS model |
-| `ELEVENLABS_TTS_BUDGET` | `8000` | Hard character budget for new synthesis |
 
 ### Frontend (`frontend/.env.local`)
 
@@ -215,7 +211,6 @@ Full judge script (~4 minutes): **[docs/demo-script.md](docs/demo-script.md)**.
 | `/check` · `POST /check` | Deterministic rent-increase check against applying caps (unknown if figure missing) |
 | `/ask` · `POST /ask` | Grounded Q&A from retrieved rules; refuses evasion |
 | `/ask` · `POST /letter` | Fixed landlord letter filled from check/lookup facts |
-| `/ask` · `POST /tts` | Spoken briefing (ElevenLabs + browser fallback); server builds text only |
 | `/compare` | Side-by-side two dates **or** two addresses |
 | Portfolio | Watchlist: approaching pending/NTE dates + horizon result diffs |
 
@@ -327,7 +322,6 @@ Base: `http://localhost:4000` · Contract detail: **[docs/api-ux-contract.md](do
 | POST | `/check` | Rent-increase verdict from applying rules |
 | POST | `/ask` | Grounded question over retrieved rules |
 | POST | `/letter` | Fixed rent-increase letter template |
-| POST | `/tts` | Spoken briefing (`audio/mpeg` or JSON fallback) |
 | GET | `/submission/:file` | Serve `rules.json` / `lookups.json` / `changes.json` |
 
 ### Lookup query / body

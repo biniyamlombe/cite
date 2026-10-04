@@ -19,8 +19,6 @@ import { headlineForLookup } from "../plain/headlines.js";
 import { checkRentIncrease } from "../check/rent.js";
 import { answerQuestion } from "../ask/ground.js";
 import { rentIncreaseLetter } from "../letter/templates.js";
-import { buildBriefing } from "../tts/briefing.js";
-import { synthesizeBriefing } from "../tts/elevenlabs.js";
 import { z } from "zod";
 import {
   displayApplicabilityLabel,
@@ -709,93 +707,6 @@ app.post("/letter", async (c) => {
     verdict_kind: verdict.kind,
     meta: buildMeta({ requestId, asOf }),
   });
-});
-
-app.post("/tts", async (c) => {
-  const requestId = newRequestId();
-  const bodySchema = z.object({
-    address_id: z.string().min(1),
-    as_of: AsOfDateSchema.optional(),
-    locale: z.string().optional(),
-    persona: z.enum(["renter", "owner"]).optional(),
-  });
-  let raw: unknown;
-  try {
-    raw = await c.req.json();
-  } catch {
-    return apiError(c, 400, "VALIDATION_ERROR", "Invalid JSON", "Request body must be JSON.", {
-      requestId,
-    });
-  }
-  const parsed = bodySchema.safeParse(raw);
-  if (!parsed.success) {
-    return apiError(
-      c,
-      400,
-      "VALIDATION_ERROR",
-      "Invalid tts request",
-      "Provide address_id.",
-      { requestId },
-    );
-  }
-  const { locale } = localeFromRequest(c, parsed.data.locale);
-  const asOf = parsed.data.as_of || process.env.AS_OF_DEFAULT || DEFAULT_AS_OF;
-  const addresses = await cachedAddresses();
-  const addr = addresses.find((a) => a.address_id === parsed.data.address_id);
-  if (!addr) {
-    return apiError(c, 404, "ADDRESS_NOT_FOUND", "Address not found", "Address not found.", {
-      requestId,
-    });
-  }
-  const geos = await loadGeos();
-  const geo = geos.get(addr.address_id);
-  if (!geo) {
-    return apiError(c, 409, "NOT_GEOCODED", "Not geocoded", "Address not geocoded yet.", {
-      retryable: true,
-      requestId,
-    });
-  }
-  const rules = await loadRules();
-  const entries = evaluateAddress({
-    address: addr,
-    geo,
-    rules,
-    asOf,
-    includeNonApplicable: false,
-  });
-  const plain = await loadPlainLanguage();
-  const headlines = Object.fromEntries(
-    Object.entries(plain?.records ?? {}).map(([id, r]) => [
-      id,
-      { headline_en: r.headline_en, headline_es: r.headline_es },
-    ]),
-  );
-  const briefing = buildBriefing({
-    addressLine: `${addr.street_address}, ${geo.legal_city}, ${geo.state}`,
-    asOf,
-    locale,
-    entries,
-    rulesById: new Map(rules.map((r) => [r.team_rule_id, r])),
-    headlines,
-    persona: parsed.data.persona,
-  });
-  const synth = await synthesizeBriefing(briefing.text);
-  if (!synth.ok) {
-    return c.json({
-      fallback: true,
-      reason: synth.reason,
-      text: briefing.text,
-      chapters: briefing.chapters,
-      locale,
-      address_id: addr.address_id,
-      as_of: asOf,
-    });
-  }
-  c.header("X-TTS-Cached", String(synth.cached));
-  c.header("X-TTS-Chars", String(synth.chars));
-  c.header("X-TTS-Chapters", JSON.stringify(briefing.chapters));
-  c.header("Content-Type", "audio/mpeg");
-  return c.body(Uint8Array.from(synth.audio));
 });
 
 app.post("/check", async (c) => {

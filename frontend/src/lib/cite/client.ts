@@ -62,12 +62,6 @@ export interface CiteApiClient {
     new_rent: number;
     locale?: "en-US" | "es-US";
   }): Promise<LetterResponse>;
-  tts(input: {
-    address_id: string;
-    as_of?: string;
-    locale?: "en-US" | "es-US";
-    persona?: "renter" | "owner";
-  }): Promise<TtsResponse>;
   corpusDocs(): Promise<CorpusDocOption[]>;
   extract(docId: string): Promise<ExtractResponse>;
   ruleVersions(teamRuleId: string): Promise<RuleVersion[]>;
@@ -98,10 +92,6 @@ export type LetterResponse = {
   text: string;
   verdict_kind: string;
 };
-
-export type TtsResponse =
-  | { fallback: true; text: string; reason?: string }
-  | { fallback: false; blob: Blob };
 
 const delay = (ms = 220) => new Promise((r) => setTimeout(r, ms));
 
@@ -354,21 +344,6 @@ export class MockCiteApiClient implements CiteApiClient {
       verdict_kind: check.verdict.kind,
     };
   }
-  async tts(input: {
-    address_id: string;
-    as_of?: string;
-    locale?: "en-US" | "es-US";
-    persona?: "renter" | "owner";
-  }): Promise<TtsResponse> {
-    await delay(80);
-    const ask = await this.ask({
-      address_id: input.address_id,
-      as_of: input.as_of,
-      question: "Summarize applying rent rules",
-      locale: input.locale,
-    });
-    return { fallback: true, text: ask.answer, reason: "mock" };
-  }
   async corpusDocs() {
     await delay(80);
     return (await fixtures()).MOCK_EXTRACT_DOCS;
@@ -467,29 +442,6 @@ export class HttpCiteApiClient implements CiteApiClient {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(input),
     })) as LetterResponse;
-  }
-  async tts(input: {
-    address_id: string;
-    as_of?: string;
-    locale?: "en-US" | "es-US";
-    persona?: "renter" | "owner";
-  }): Promise<TtsResponse> {
-    const res = await fetch(`${this.base.replace(/\/$/, "")}/tts`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(input),
-      signal: AbortSignal.timeout(180000),
-    });
-    const ctype = res.headers.get("content-type") ?? "";
-    if (!res.ok) {
-      const raw = await res.json().catch(() => ({}));
-      throw parseCiteApiError(res.status, raw);
-    }
-    if (ctype.includes("audio/")) {
-      return { fallback: false, blob: await res.blob() };
-    }
-    const raw = (await res.json()) as { text?: string; reason?: string; fallback?: boolean };
-    return { fallback: true, text: raw.text ?? "", reason: raw.reason };
   }
   async corpusDocs(): Promise<CorpusDocOption[]> {
     return z.object({ docs: z.array(CorpusDocSchema) }).parse(await this.request("/corpus/docs"))

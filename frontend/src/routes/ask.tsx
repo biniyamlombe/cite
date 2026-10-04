@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { z } from "zod";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { AsOfDateSchema } from "@rhl/shared";
 import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
 import { useLocale, useT } from "@/lib/i18n";
@@ -37,7 +37,6 @@ function AskPage() {
   const addressId = s.address ?? "A0016";
   const asOf = s.as_of ?? DEFAULT_AS_OF;
   const [question, setQuestion] = useState("What is the rent increase limit?");
-  const audioRef = useRef<HTMLAudioElement | null>(null);
   const client = getCiteClient();
 
   const addrs = useQuery({
@@ -58,27 +57,6 @@ function AskPage() {
         new_rent: 2600,
         locale,
       }),
-  });
-
-  const listen = useMutation({
-    mutationFn: async () => {
-      const r = await client.tts({ address_id: addressId, as_of: asOf, locale });
-      if (r.fallback) {
-        if (typeof window !== "undefined" && "speechSynthesis" in window) {
-          const u = new SpeechSynthesisUtterance(r.text);
-          u.lang = locale === "es-US" ? "es-US" : "en-US";
-          window.speechSynthesis.cancel();
-          window.speechSynthesis.speak(u);
-        }
-        return r;
-      }
-      const url = URL.createObjectURL(r.blob);
-      if (audioRef.current) {
-        audioRef.current.src = url;
-        void audioRef.current.play();
-      }
-      return r;
-    },
   });
 
   return (
@@ -134,14 +112,6 @@ function AskPage() {
           </button>
           <button
             type="button"
-            disabled={listen.isPending}
-            onClick={() => listen.mutate()}
-            className="rounded-lg border border-border/80 px-4 py-2.5 text-sm hover:bg-secondary"
-          >
-            {t("ask.listen")}
-          </button>
-          <button
-            type="button"
             disabled={letter.isPending}
             onClick={() => letter.mutate()}
             className="rounded-lg border border-border/80 px-4 py-2.5 text-sm hover:bg-secondary"
@@ -149,10 +119,9 @@ function AskPage() {
             {t("ask.letter")}
           </button>
         </div>
-        <audio ref={audioRef} className="mt-2 w-full" controls />
-        {(ask.isError || letter.isError || listen.isError) && (
+        {(ask.isError || letter.isError) && (
           <p className="text-sm text-conflict">
-            {(ask.error || letter.error || listen.error)?.message ?? "Request failed"}
+            {(ask.error || letter.error)?.message ?? "Request failed"}
           </p>
         )}
       </form>

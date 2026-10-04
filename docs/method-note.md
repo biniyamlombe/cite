@@ -32,7 +32,7 @@ API `GET /lookup/:id?include_non_applicable=1` also returns explicit `does_not_a
 
 Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no legal logic in the frontend.
 
-Renter tools (API-grounded): `POST /check` (rent-increase verdict from applying caps), `POST /ask` (question answered only from retrieved rules; evasion refused), `POST /letter` (fixed template from check facts), `POST /tts` (spoken briefing from headlines via ElevenLabs with browser `speechSynthesis` fallback). Portfolio watchlist surfaces approaching pending/NTE effective dates and horizon result diffs from lookup responses only.
+Renter tools (API-grounded): `POST /check` (rent-increase verdict from applying caps), `POST /ask` (question answered only from retrieved rules; evasion refused), `POST /letter` (fixed template from check facts). Portfolio watchlist surfaces approaching pending/NTE effective dates and horizon result diffs from lookup responses only.
 
 ## Design choices
 
