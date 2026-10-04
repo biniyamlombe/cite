@@ -435,6 +435,9 @@ const STRINGS = {
     "changes.lede": "What flips, when, and which properties are affected.",
     "changes.summary":
       "{scenarios} scenarios · {affected} properties affected · {conflicts} need review",
+    "changes.statScenarios": "Scenarios",
+    "changes.statAffected": "Properties affected",
+    "changes.statReview": "Need review",
     "changes.jump": "Jump to scenario",
     "changes.loading": "Loading change tests…",
     "changes.error": "Could not load change tests.",
@@ -714,6 +717,32 @@ const STRINGS = {
     "command.open": "Open command palette",
     "command.openShort": "Jump",
     "command.shortcut": "⌘K",
+    "auth.eyebrow": "Account",
+    "auth.titleIn": "Sign in",
+    "auth.titleUp": "Create account",
+    "auth.lede": "Save memos, comment on rules with your team and turn on email alerts.",
+    "auth.google": "Continue with Google",
+    "auth.or": "or continue with email",
+    "auth.email": "Email",
+    "auth.password": "Password",
+    "auth.newPassword": "New password",
+    "auth.submitIn": "Sign in",
+    "auth.submitUp": "Create account",
+    "auth.switchToUp": "No account? Create one",
+    "auth.switchToIn": "Have an account? Sign in",
+    "auth.confirm": "Check your email to confirm your account.",
+    "auth.forgot": "Forgot password?",
+    "auth.resetSent": "Reset link sent — check your email.",
+    "auth.brandTitle": "Regulatory clarity, on the record.",
+    "auth.brand1": "Determinations with verbatim citations",
+    "auth.brand2": "Change alerts for watched properties",
+    "auth.brand3": "Team review trails, exportable",
+    "auth.quote": "Not legal advice. Verify important decisions with qualified counsel.",
+    "reset.title": "Set a new password",
+    "reset.lede": "Choose a new password for your account.",
+    "reset.submit": "Update password",
+    "reset.done": "Password updated. You can sign in now.",
+    "reset.back": "Back to sign in",
     "toast.linkCopied": "Link copied",
     "toast.evidenceCopied": "Evidence link copied",
     "toast.watching": "Watching {id}",
@@ -1160,6 +1189,9 @@ const STRINGS = {
     "changes.lede": "Qué cambia, cuándo y qué propiedades se ven afectadas.",
     "changes.summary":
       "{scenarios} escenarios · {affected} propiedades afectadas · {conflicts} en revisión",
+    "changes.statScenarios": "Escenarios",
+    "changes.statAffected": "Propiedades afectadas",
+    "changes.statReview": "En revisión",
     "changes.jump": "Ir al escenario",
     "changes.loading": "Cargando pruebas de cambio…",
     "changes.error": "No se pudieron cargar las pruebas de cambio.",
@@ -1444,6 +1476,33 @@ const STRINGS = {
     "command.open": "Abrir paleta de comandos",
     "command.openShort": "Ir",
     "command.shortcut": "⌘K",
+    "auth.eyebrow": "Cuenta",
+    "auth.titleIn": "Iniciar sesión",
+    "auth.titleUp": "Crear cuenta",
+    "auth.lede": "Guarde memorandos, comente reglas con su equipo y active alertas por correo.",
+    "auth.google": "Continuar con Google",
+    "auth.or": "o continúe con correo",
+    "auth.email": "Correo electrónico",
+    "auth.password": "Contraseña",
+    "auth.newPassword": "Nueva contraseña",
+    "auth.submitIn": "Iniciar sesión",
+    "auth.submitUp": "Crear cuenta",
+    "auth.switchToUp": "¿Sin cuenta? Cree una",
+    "auth.switchToIn": "¿Tiene cuenta? Inicie sesión",
+    "auth.confirm": "Revise su correo para confirmar su cuenta.",
+    "auth.forgot": "¿Olvidó su contraseña?",
+    "auth.resetSent": "Enlace enviado — revise su correo.",
+    "auth.brandTitle": "Claridad regulatoria, constancia en el registro.",
+    "auth.brand1": "Determinaciones con citas textuales",
+    "auth.brand2": "Alertas de cambios para propiedades vigiladas",
+    "auth.brand3": "Historial de revisión del equipo, exportable",
+    "auth.quote":
+      "No es asesoría legal. Verifique decisiones importantes con un profesional calificado.",
+    "reset.title": "Establecer nueva contraseña",
+    "reset.lede": "Elija una nueva contraseña para su cuenta.",
+    "reset.submit": "Actualizar contraseña",
+    "reset.done": "Contraseña actualizada. Ya puede iniciar sesión.",
+    "reset.back": "Volver a iniciar sesión",
     "toast.linkCopied": "Enlace copiado",
     "toast.evidenceCopied": "Enlace de evidencia copiado",
     "toast.watching": "Siguiendo {id}",
@@ -1560,11 +1619,15 @@ export function LocaleUrlSync() {
   const router = useRouter();
   const searchStr = useRouterState({ select: (s) => s.location.searchStr });
   const applyingFromUrl = useRef(false);
+  const prevSearch = useRef(searchStr);
 
-  // URL → state (initial load + client navigations).
+  // URL → state (only when the URL actually changed — a toggle click must not
+  // be reverted by the stale ?lang= still sitting in the address bar).
   useEffect(() => {
+    const changed = searchStr !== prevSearch.current;
+    prevSearch.current = searchStr;
     const fromUrl = localeFromSearch(searchStr);
-    if (fromUrl && fromUrl !== locale) {
+    if (changed && fromUrl && fromUrl !== locale) {
       applyingFromUrl.current = true;
       setLocale(fromUrl);
     }
