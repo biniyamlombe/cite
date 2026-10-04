@@ -2,7 +2,7 @@ import { describe, expect, it, vi, afterEach } from "vitest";
 import { readFileSync } from "node:fs";
 import { AsOfDateSchema, ChangesResponseSchema, LookupResponseSchema } from "@rhl/shared";
 import { MOCK_RULES, MOCK_CHANGES, mockLookup, mockRuleVersions } from "@/mocks/cite";
-import { changesBetween, summarizeLookup } from "@/lib/cite/lookup-diff";
+import { approachingEffective, changesBetween, summarizeLookup } from "@/lib/cite/lookup-diff";
 import { HttpCiteApiClient } from "@/lib/cite/client";
 
 afterEach(() => vi.unstubAllGlobals());
@@ -52,6 +52,18 @@ describe("result comparison", () => {
     });
     expect(summarizeLookup(after)).toEqual(summarizeLookup(before));
     expect(changesBetween(before, after)).toEqual([]);
+  });
+  it("lists pending/NTE effective dates inside the alert horizon", () => {
+    const sample = structuredClone(before);
+    const row = sample.results[0]!;
+    row.result = "not_yet_effective";
+    row.rule = {
+      ...row.rule!,
+      effective_date: "2027-03-01",
+    };
+    const hits = approachingEffective(sample, "2026-10-01", "2027-10-01");
+    expect(hits.some((h) => h.date === "2027-03-01")).toBe(true);
+    expect(approachingEffective(sample, "2026-10-01", "2026-10-15")).toEqual([]);
   });
 });
 it("rejects malformed API responses and does not disguise version failure as empty history", async () => {

@@ -11,7 +11,7 @@ import { StatusBadge } from "@/components/cite/status";
 import type { LookupResponse } from "@/lib/cite/types";
 import { GroupBar } from "@/components/cite/groups";
 import { useAuth } from "@/lib/auth";
-import { changesBetween } from "@/lib/cite/lookup-diff";
+import { approachingEffective, changesBetween } from "@/lib/cite/lookup-diff";
 import { listChangeReviews } from "@/lib/cite/change-reviews";
 
 export const Route = createFileRoute("/portfolio")({
@@ -115,6 +115,11 @@ export function PortfolioPage() {
   const alerts = visible.flatMap((a, i) =>
     watch.has(a.address_id)
       ? changesBetween(now[i]?.data, later[i]?.data).map((c) => ({ ...c, addr: a }))
+      : [],
+  );
+  const upcoming = visible.flatMap((a, i) =>
+    watch.has(a.address_id)
+      ? approachingEffective(now[i]?.data, asOf, horizon).map((u) => ({ ...u, addr: a }))
       : [],
   );
 
@@ -278,36 +283,79 @@ export function PortfolioPage() {
           <p role="status">{t("common.loading")}</p>
         ) : watch.ids.length === 0 ? (
           <p className="text-sm text-muted-foreground">{t("portfolio.alerts.emptyWatch")}</p>
-        ) : alerts.length === 0 ? (
+        ) : alerts.length === 0 && upcoming.length === 0 ? (
           <p className="text-sm text-muted-foreground">
             {t("portfolio.alerts.none")} {horizon}.
           </p>
         ) : (
-          <ul className="divide-y">
-            {alerts.map((al) => (
-              <li
-                key={al.addr.address_id + al.id}
-                className="flex flex-wrap items-center gap-2 py-2.5 text-sm"
-              >
-                <Link
-                  to="/"
-                  search={{ address: al.addr.address_id, as_of: horizon }}
-                  className="font-mono text-xs text-primary hover:underline"
-                >
-                  {al.addr.address_id}
-                </Link>
-                <span className="text-ink">{al.title}</span>
-                <StatusBadge value={al.from} /> <span className="text-muted-foreground">→</span>{" "}
-                <StatusBadge value={al.to} />
-                {al.detailsChanged && <span>{t("monitor.detailsChanged")}</span>}
-                {al.date && (
-                  <span className="font-mono text-xs text-muted-foreground">
-                    {t("portfolio.effective")} {al.date}
-                  </span>
+          <div className="space-y-4">
+            {upcoming.length > 0 && (
+              <div>
+                <h4 className="mb-1 text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                  {t("portfolio.alerts.approaching")}
+                </h4>
+                <ul className="divide-y">
+                  {upcoming.map((u) => (
+                    <li
+                      key={`up-${u.addr.address_id}-${u.id}`}
+                      className="flex flex-wrap items-center gap-2 py-2.5 text-sm"
+                    >
+                      <Link
+                        to="/"
+                        search={{ address: u.addr.address_id, as_of: asOf }}
+                        className="font-mono text-xs text-primary hover:underline"
+                      >
+                        {u.addr.address_id}
+                      </Link>
+                      <span className="text-ink">{u.title}</span>
+                      <StatusBadge value={u.result} />
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {t("portfolio.effective")} {u.date}
+                        {Number.isFinite(u.daysUntil)
+                          ? ` · ${t("portfolio.alerts.inDays").replace("{n}", String(u.daysUntil))}`
+                          : ""}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {alerts.length > 0 && (
+              <div>
+                {upcoming.length > 0 && (
+                  <h4 className="mb-1 text-xs font-mono uppercase tracking-wider text-muted-foreground">
+                    {t("portfolio.alerts.resultChanges")}
+                  </h4>
                 )}
-              </li>
-            ))}
-          </ul>
+                <ul className="divide-y">
+                  {alerts.map((al) => (
+                    <li
+                      key={al.addr.address_id + al.id}
+                      className="flex flex-wrap items-center gap-2 py-2.5 text-sm"
+                    >
+                      <Link
+                        to="/"
+                        search={{ address: al.addr.address_id, as_of: horizon }}
+                        className="font-mono text-xs text-primary hover:underline"
+                      >
+                        {al.addr.address_id}
+                      </Link>
+                      <span className="text-ink">{al.title}</span>
+                      <StatusBadge value={al.from} />{" "}
+                      <span className="text-muted-foreground">→</span>{" "}
+                      <StatusBadge value={al.to} />
+                      {al.detailsChanged && <span>{t("monitor.detailsChanged")}</span>}
+                      {al.date && (
+                        <span className="font-mono text-xs text-muted-foreground">
+                          {t("portfolio.effective")} {al.date}
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
         )}
       </section>
 

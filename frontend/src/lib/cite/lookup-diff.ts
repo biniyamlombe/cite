@@ -58,3 +58,43 @@ export function changesBetween(before?: LookupResponse, after?: LookupResponse) 
     };
   });
 }
+
+/** Pending / NTE rows whose effective_date falls between asOf and horizon (display-only). */
+export function approachingEffective(
+  data: LookupResponse | undefined,
+  asOf: string,
+  horizon: string,
+): Array<{
+  id: string;
+  title: string;
+  result: string;
+  date: string;
+  daysUntil: number;
+}> {
+  if (!data) return [];
+  const start = Date.parse(`${asOf}T00:00:00Z`);
+  const end = Date.parse(`${horizon}T00:00:00Z`);
+  if (!Number.isFinite(start) || !Number.isFinite(end) || end < start) return [];
+  const day = 86_400_000;
+  return data.results
+    .filter(
+      (r) =>
+        (r.result === "pending" || r.result === "not_yet_effective") &&
+        !!r.rule?.effective_date,
+    )
+    .map((r) => {
+      const date = r.rule!.effective_date!;
+      const t = Date.parse(`${date}T00:00:00Z`);
+      return {
+        id: resultIdentity(r),
+        title: r.rule?.title ?? r.team_rule_id,
+        result: r.result,
+        date,
+        daysUntil: Number.isFinite(t) ? Math.round((t - start) / day) : NaN,
+        t,
+      };
+    })
+    .filter((row) => Number.isFinite(row.t) && row.t >= start && row.t <= end)
+    .sort((a, b) => a.t - b.t)
+    .map(({ t: _t, ...row }) => row);
+}

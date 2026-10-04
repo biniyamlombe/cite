@@ -138,6 +138,9 @@ const STRINGS = {
     "portfolio.alerts.emptyWatch":
       "No watched properties yet. Use the eye button below or Watch on a lookup.",
     "portfolio.alerts.none": "No result changes for watched properties before",
+    "portfolio.alerts.approaching": "Approaching effective dates",
+    "portfolio.alerts.resultChanges": "Result changes by horizon",
+    "portfolio.alerts.inDays": "in {n} days",
     "portfolio.effective": "effective",
     "portfolio.col.property": "Property",
     "portfolio.col.city": "City",
@@ -931,6 +934,9 @@ const STRINGS = {
     "portfolio.alerts.emptyWatch":
       "Aún no hay propiedades seguidas. Use el ojo abajo o Seguir en una consulta.",
     "portfolio.alerts.none": "Sin cambios de resultado para propiedades seguidas antes de",
+    "portfolio.alerts.approaching": "Fechas de vigencia próximas",
+    "portfolio.alerts.resultChanges": "Cambios de resultado al horizonte",
+    "portfolio.alerts.inDays": "en {n} días",
     "portfolio.effective": "vigencia",
     "portfolio.col.property": "Propiedad",
     "portfolio.col.city": "Ciudad",
