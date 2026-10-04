@@ -31,8 +31,8 @@ describe("source honesty helpers", () => {
     expect(isSoftGapScaffold({ extraction_method: "soft_gap_scaffold" })).toBe(true);
     expect(isSoftGapScaffold({ alias_id: "CAM-FH-01" })).toBe(true);
     expect(isSoftGapScaffold({ alias_id: "SF-FC-01" })).toBe(true);
-    expect(isSoftGapScaffold({ alias_id: "HOB-ALG-01", extraction_method: "municipal_ordinance" })).toBe(
-      false,
-    );
+    expect(
+      isSoftGapScaffold({ alias_id: "HOB-ALG-01", extraction_method: "municipal_ordinance" }),
+    ).toBe(false);
   });
 });

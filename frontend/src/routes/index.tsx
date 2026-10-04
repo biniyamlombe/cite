@@ -570,15 +570,7 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
   const userFacts =
     data.building_facts?.facts_source === "user_provided" ||
     data.audit?.user_provided_facts === true;
-  if (
-    !unknownN &&
-    !conflictN &&
-    !pendingN &&
-    !linkOnlyN &&
-    !softGapN &&
-    !gaps.length &&
-    !userFacts
-  )
+  if (!unknownN && !conflictN && !pendingN && !linkOnlyN && !softGapN && !gaps.length && !userFacts)
     return null;
   return (
     <div className="space-y-2">
