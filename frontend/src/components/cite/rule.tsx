@@ -188,10 +188,9 @@ export function WhyThisApplies({
     locale === "es-US" &&
     plainLanguage?.text &&
     plainLanguage.translation_status === "machine_generated";
-  const display = useEs ? plainLanguage!.text : explanation ?? plainLanguage?.text ?? "";
+  const display = useEs ? plainLanguage!.text : (explanation ?? plainLanguage?.text ?? "");
   const { body, openQuestion } = splitOpenQuestion(display);
-  const unavailable =
-    locale === "es-US" && plainLanguage?.translation_status === "not_available";
+  const unavailable = locale === "es-US" && plainLanguage?.translation_status === "not_available";
   return (
     <div className="space-y-2">
       {body ? (
@@ -207,7 +206,9 @@ export function WhyThisApplies({
             <p className="mt-2 text-xs text-muted-foreground">{t("label.translation.machine")}</p>
           )}
           {unavailable && (
-            <p className="mt-2 text-xs text-muted-foreground">{t("label.translation.unavailable")}</p>
+            <p className="mt-2 text-xs text-muted-foreground">
+              {t("label.translation.unavailable")}
+            </p>
           )}
           {useEs && plainLanguage?.source_text_en && (
             <details className="mt-2 text-xs text-muted-foreground">
@@ -472,11 +473,7 @@ export function RuleDetailDrawer({
           </button>
         </header>
         <div className="space-y-6 px-6 py-6">
-          <WhyThisApplies
-            result={result}
-            explanation={explanation}
-            plainLanguage={plainLanguage}
-          />
+          <WhyThisApplies result={result} explanation={explanation} plainLanguage={plainLanguage} />
           {(conflict || rule.conflict_note) && !linkOnly && (
             <ConflictWarning note={rule.conflict_note} />
           )}
