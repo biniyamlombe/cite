@@ -224,23 +224,19 @@ export function ChangeImpactCard({
         </div>
       )}
 
-      <div className="mt-4 font-mono text-xs text-muted-foreground">
-        {t("changes.rulesMeta")}: {test.rule_ids.join(", ")}
-        {test.as_of && (
-          <>
-            {" "}
-            · {t("changes.asOfMeta")} {test.as_of}
-          </>
-        )}
-      </div>
-
       {result?.notes && (
-        <p className="mt-3 text-sm leading-relaxed text-foreground/85">{result.notes}</p>
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{result.notes}</p>
       )}
 
       {result && (
         <div className="mt-5 space-y-2">
-          <div className="eyebrow">{t("changes.affected")}</div>
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <div className="font-serif text-base text-ink">{t("changes.affected")}</div>
+            <div className="font-mono text-[11px] text-muted-foreground">
+              {test.rule_ids.join(" · ")}
+              {test.as_of ? ` · ${test.as_of}` : ""}
+            </div>
+          </div>
           <AffectedPropertiesTable
             ids={affected}
             addresses={addresses}

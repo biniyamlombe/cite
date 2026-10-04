@@ -73,18 +73,20 @@ function ScenarioStrip({
           <a
             key={id}
             href={`#${id}`}
-            className={`rounded-md border px-3 py-2.5 transition-colors hover:border-ring/50 ${
-              present ? "bg-card" : "opacity-50"
-            } ${active ? "border-ring bg-accent/60 shadow-sm" : ""}`}
+            className={`rounded-xl border px-3.5 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-dossier ${
+              present ? "bg-card/95" : "opacity-45"
+            } ${active ? "border-primary/40 bg-accent/50 shadow-dossier" : "border-border/80"}`}
           >
-            <div className="font-mono text-xs text-primary">{id}</div>
-            <div className="mt-1 text-[11px] leading-snug text-ink">{t(PUNCH_KEYS[id])}</div>
-            <div className="mt-2 flex items-baseline justify-between gap-2">
+            <div className="flex items-baseline justify-between gap-2">
+              <span className="font-mono text-xs font-semibold text-primary">{id}</span>
               <span className="font-mono text-lg tabular-nums text-ink">{present ? n : "—"}</span>
-              <span className="eyebrow">
-                {conflicts > 0 ? `${conflicts} conflict` : "affected"}
-              </span>
             </div>
+            <div className="mt-1.5 text-[11px] leading-snug text-muted-foreground">{t(PUNCH_KEYS[id])}</div>
+            {conflicts > 0 && (
+              <div className="mt-2 font-mono text-[10px] uppercase tracking-wider text-conflict">
+                {conflicts} conflict
+              </div>
+            )}
           </a>
         );
       })}
@@ -121,11 +123,7 @@ function ChangesPage() {
           <AlertCircle className="size-5 shrink-0 text-destructive" />
           <div>
             <div className="font-medium text-ink">{t("changes.error")}</div>
-            <p className="mt-1 text-sm text-muted-foreground">
-              {(changes.error as Error).message}. Is the API running at{" "}
-              <span className="font-mono">localhost:4000</span>? Start it with{" "}
-              <span className="font-mono">npm run dev:backend</span>.
-            </p>
+            <p className="mt-1 text-sm text-muted-foreground">{(changes.error as Error).message}</p>
             <button
               type="button"
               onClick={() => changes.refetch()}
@@ -162,12 +160,12 @@ function ChangesPage() {
               );
             })}
 
-            <article id="T6" className="scroll-mt-24 rounded-lg border border-dashed p-5 opacity-80 sm:p-6">
-              <div className="eyebrow flex items-center gap-1.5">
-                <Clock className="size-3" /> T6 · Upcoming
+            <article id="T6" className="scroll-mt-24 surface border-dashed p-5 opacity-90 sm:p-6">
+              <div className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                <Clock className="size-3" /> T6
               </div>
-              <h3 className="mt-1.5 font-serif text-xl text-ink">{t("changes.t6Title")}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">
+              <h3 className="mt-2 font-serif text-xl text-ink">{t("changes.t6Title")}</h3>
+              <p className="mt-1.5 text-sm text-muted-foreground">
                 {changes.data.results["T6"]?.notes || t("changes.t6Body")}
               </p>
             </article>
