@@ -44,6 +44,7 @@ export interface Rule {
   retrieved_at?: string | null;
   confidence?: number | null;
   effective_date?: string | null;
+  penalty?: string | null;
   coverage_conditions?: string | { text?: string; all?: unknown; unknown_if?: unknown; omit_if?: unknown } | null;
   exemptions?: string | null;
   conflict_note?: string | null;

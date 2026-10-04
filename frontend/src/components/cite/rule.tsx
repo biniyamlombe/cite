@@ -358,6 +358,10 @@ export function RuleDetailDrawer({
               <dt className="eyebrow">{t("rule.exemptions")}</dt>
               <dd className="mt-1 text-sm">{rule.exemptions ?? "—"}</dd>
             </div>
+            <div className="sm:col-span-2">
+              <dt className="eyebrow">{t("rule.penalty")}</dt>
+              <dd className="mt-1 text-sm">{rule.penalty ?? "—"}</dd>
+            </div>
           </dl>
           <RuleVersionHistory ruleId={view.id} defaultOpen />
           <RuleComments ruleId={view.id} />
