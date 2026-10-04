@@ -238,3 +238,21 @@
   body { background: white; }
   .fade-up, .fade-up-delay-1, .fade-up-delay-2, .fade-up-delay-3, .rule-card-enter { animation: none; }
 }
+
+/* Preserve visible focus on native controls and custom navigation. */
+:where(button, a, input, select, textarea):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  :is(button, a):hover, :is(button, a):active,
+  :is(button, a):hover *, :is(button, a):active * {
+    transform: none !important;
+    translate: none !important;
+  }
+}

@@ -1,10 +1,11 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
+import { AsOfDateSchema } from "@rhl/shared";
 import { useT, useTx } from "@/lib/i18n";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/lib/auth";
 import { listAlertSubs, logLookup, saveMemo, setEmailAlert } from "@/lib/cite/team";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState } from "react";
 import {
   Search, ArrowRight, Loader2, AlertCircle, FileSearch, Printer, Link2, Check, Download,
   Eye, Mail, Save, GitCompare, FileText, ClipboardList,
@@ -37,7 +38,7 @@ export const Route = createFileRoute("/")({
   }),
   validateSearch: z.object({
     address: z.string().optional(),
-    as_of: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+    as_of: AsOfDateSchema.optional(),
     rule: z.string().optional(),
   }),
   component: LookupPage,
@@ -50,43 +51,58 @@ const DEMO_CHIPS: ReadonlyArray<{ q: string; labelKey: "lookup.demo.unknown" | "
   { q: "SA0001", labelKey: "lookup.demo.stretch", id: "SA0001" },
 ];
 
-function AddressSearch({ onSelect, prominent = false, onOpenChange }: { onSelect: (a: AddressRow) => void; prominent?: boolean; onOpenChange?: (open: boolean) => void }) {
+export function AddressSearch({ onSelect, prominent = false, onOpenChange }: { onSelect: (a: AddressRow) => void; prominent?: boolean; onOpenChange?: (open: boolean) => void }) {
   const t = useT();
   const [q, setQ] = useState("");
+  const listId = useId();
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [searchError, setSearchError] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const { data = [], isFetching } = useQuery({
+  const { data = [], isFetching, isError, refetch } = useQuery({
     queryKey: ["addresses", q],
     queryFn: () => getCiteClient().addresses(q, 8),
     enabled: open,
   });
   useEffect(() => {
     onOpenChange?.(open);
-  }, [open]);
+  }, [open, onOpenChange]);
   useEffect(() => {
     const h = (e: MouseEvent) => ref.current && !ref.current.contains(e.target as Node) && setOpen(false);
     document.addEventListener("mousedown", h);
     return () => document.removeEventListener("mousedown", h);
   }, []);
-  const pick = (a: AddressRow) => { onSelect(a); setQ(a.street_address); setOpen(false); };
+  useEffect(() => {
+    if (open) document.getElementById(`${listId}-${active}`)?.scrollIntoView?.({ block: "nearest" });
+  }, [active, open, listId]);
+  const pick = (a: AddressRow) => { onSelect(a); setQ(a.street_address); setOpen(false); inputRef.current?.focus(); };
   const searchFirst = async () => {
     if (!q.trim()) return;
-    const matches = await getCiteClient().addresses(q, 1);
-    if (matches[0]) pick(matches[0]);
-    else setOpen(true);
+    setSearchError(false);
+    try {
+      const matches = await getCiteClient().addresses(q, 1);
+      if (matches[0]) pick(matches[0]);
+      else setOpen(true);
+    } catch { setSearchError(true); setOpen(true); }
   };
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative" onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false); }}>
       <div className={prominent ? "relative flex items-center overflow-hidden rounded-[calc(var(--radius-xl)-2px)] border border-border/60 bg-card transition-shadow duration-300 focus-within:border-primary/35 focus-within:shadow-dossier" : "flex items-center gap-3 rounded-xl border border-input bg-card/95 px-4 py-3.5 shadow-sm transition-all duration-200 focus-within:border-ring focus-within:shadow-dossier"}>
         <Search className={prominent ? "ml-5 mr-3 size-5 shrink-0 text-muted-foreground" : "size-5 text-muted-foreground"} />
         <input
+          ref={inputRef}
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded={open}
+          aria-controls={listId}
+          aria-activedescendant={open && data[active] ? `${listId}-${active}` : undefined}
           value={q}
-          onChange={(e) => { setQ(e.target.value); setOpen(true); setActive(0); }}
+          onChange={(e) => { setQ(e.target.value); setSearchError(false); setOpen(true); setActive(0); }}
           onFocus={() => setOpen(true)}
           onKeyDown={(e) => {
-            if (e.key === "ArrowDown") { e.preventDefault(); setActive((i) => Math.min(i + 1, data.length - 1)); }
-            if (e.key === "ArrowUp") { e.preventDefault(); setActive((i) => Math.max(i - 1, 0)); }
+            if (e.key === "ArrowDown") { e.preventDefault(); setOpen(true); setActive((i) => Math.max(0, Math.min(i + 1, data.length - 1))); }
+            if (e.key === "ArrowUp") { e.preventDefault(); setOpen(true); setActive((i) => Math.max(i - 1, 0)); }
             if (e.key === "Enter") { e.preventDefault(); if (open && data[active]) pick(data[active]); else void searchFirst(); }
             if (e.key === "Escape") setOpen(false);
           }}
@@ -117,8 +133,9 @@ function AddressSearch({ onSelect, prominent = false, onOpenChange }: { onSelect
               <span className="font-mono text-[10px] tabular-nums text-muted-foreground">{data.length}</span>
             </div>
           )}
-          <div className="max-h-80 overflow-y-auto">
-            {data.length === 0 && !isFetching && (
+          {(isError || searchError) && <div role="alert" className="px-5 py-4 text-sm">{t("search.error")} <button type="button" className="underline" onClick={() => { setSearchError(false); void refetch(); }}>{t("lookup.retry")}</button></div>}
+          <div id={listId} role="listbox" aria-label={t("lookup.results")} className="max-h-80 overflow-y-auto">
+            {data.length === 0 && !isFetching && !isError && !searchError && (
               <div className="px-5 py-6 text-center text-sm text-muted-foreground">{t("lookup.none")}</div>
             )}
             {data.map((a, i) => {
@@ -126,6 +143,11 @@ function AddressSearch({ onSelect, prominent = false, onOpenChange }: { onSelect
               return (
                 <button
                   key={a.address_id}
+                  id={`${listId}-${i}`}
+                  role="option"
+                  aria-selected={i === active}
+                  tabIndex={-1}
+                  onMouseDown={(e) => e.preventDefault()}
                   type="button"
                   onMouseEnter={() => setActive(i)}
                   onClick={() => pick(a)}
@@ -192,11 +214,7 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
               <button
                 key={chip.id}
                 type="button"
-                onClick={async () => {
-                  const r = await getCiteClient().addresses(chip.q, 1);
-                  if (r[0]) onSelect(r[0].address_id);
-                  else onSelect(chip.id);
-                }}
+                onClick={() => onSelect(chip.id)}
                 className="group flex items-center justify-between gap-3 rounded-xl border border-border/80 bg-card/90 p-4 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-dossier active:scale-[0.99]"
               >
                 <span className="min-w-0">

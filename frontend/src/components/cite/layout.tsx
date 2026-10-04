@@ -1,4 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
 import { Menu, Scale, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { getCiteClient } from "@/lib/cite/client";
@@ -187,6 +188,8 @@ function LocaleToggle() {
 
 export function SiteHeader() {
   const mode = getCiteClient().mode;
+  const health = useQuery({ queryKey: ["api-health"], queryFn: () => getCiteClient().health(), enabled: mode === "live", retry: false, refetchInterval: 30000 });
+  const modeLabel = mode === "mock" ? "mode.mock" : health.isPending ? "mode.checking" : health.isError || !health.data?.ok ? "mode.offline" : "mode.live";
   const t = useT();
   const [menu, setMenu] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -212,13 +215,13 @@ export function SiteHeader() {
           </nav>
           <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-2.5 md:ml-0">
             <span
-              className={`hidden font-mono text-[10px] uppercase tracking-wider lg:inline ${
-                mode === "live" ? "text-applies" : "text-muted-foreground/80"
+              className={`font-mono text-[10px] uppercase tracking-wider ${
+                mode === "live" && health.data?.ok && !health.isError ? "text-applies" : "text-muted-foreground/80"
               }`}
-              title={t(mode === "mock" ? "mode.mock" : "mode.live")}
+              title={t(modeLabel)}
             >
               <span className="mr-1.5 inline-block size-1.5 rounded-full bg-current opacity-80" aria-hidden />
-              {t(mode === "mock" ? "mode.mock" : "mode.live")}
+              {t(modeLabel)}
             </span>
             <CommandPaletteTrigger />
             <LocaleToggle />

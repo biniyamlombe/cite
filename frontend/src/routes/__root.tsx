@@ -124,8 +124,9 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>
       <div className="atmosphere flex min-h-dvh flex-col">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:p-3">Skip to content / Ir al contenido</a>
         <SiteHeader />
-        <main className="flex-1 pb-16">
+        <main id="main-content" tabIndex={-1} className="flex-1 pb-16">
           <Outlet />
         </main>
         <DisclaimerBar />

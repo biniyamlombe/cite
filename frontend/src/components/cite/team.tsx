@@ -102,6 +102,7 @@ export function RuleVersionHistory({ ruleId, defaultOpen = false }: { ruleId: st
       {open && (
         <div className="border-t px-4 py-3">
           {q.isLoading && <p className="text-sm text-muted-foreground">{t("rule.versionsLoading")}</p>}
+          {q.isError && <p role="alert">{t("rule.versionsError")} <button className="underline" onClick={() => void q.refetch()}>{t("lookup.retry")}</button></p>}
           {q.data?.length === 0 && <p className="text-sm text-muted-foreground">{t("rule.versionsEmpty")}</p>}
           <ol className="space-y-3">
             {v.map((ver, idx) => {

@@ -78,7 +78,7 @@ export function RuleCard({
           {result ? (
             <StatusBadge value={result} size="md" />
           ) : (
-            <StatusBadge value={rule.status} label={tx(`status.${rule.status}`)} size="md" />
+            <StatusBadge value={rule.evidence_status === "scenario_only" ? "unknown" : rule.status} label={rule.evidence_status === "scenario_only" ? t("result.unknown") : tx(`status.${rule.status}`)} size="md" />
           )}
         </div>
       </div>
@@ -281,8 +281,8 @@ export function RuleDetailDrawer({
               )}
               {result && <StatusBadge value={result} size="md" />}
               <StatusBadge
-                value={rule.status}
-                label={`${t("rule.rulePrefix")}: ${tx(`status.${rule.status}`)}`}
+                value={rule.evidence_status === "scenario_only" ? "unknown" : rule.status}
+                label={`${t("rule.rulePrefix")}: ${rule.evidence_status === "scenario_only" ? t("result.unknown") : tx(`status.${rule.status}`)}`}
                 size="md"
               />
             </div>

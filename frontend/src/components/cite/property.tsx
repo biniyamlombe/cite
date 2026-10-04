@@ -43,7 +43,7 @@ export function PropertyFacts({ yearBuilt, units, legalCity }: { yearBuilt?: str
 export function AsOfDate({ value, onChange }: { value: string; onChange?: (v: string) => void }) {
   const t = useT();
   return (
-    <label className="flex items-center gap-2 rounded-md border bg-card px-3 py-1.5 text-sm">
+    <label className="flex items-center gap-2 rounded-md border bg-card px-3 py-1.5 text-sm focus-within:ring-2 focus-within:ring-ring">
       <CalendarDays className="size-4 text-muted-foreground" />
       <span className="eyebrow">{t("fact.asOf")}</span>
       {onChange ? (
