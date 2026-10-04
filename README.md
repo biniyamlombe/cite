@@ -17,6 +17,7 @@ Hack-Nation × RealPage · Challenge 02 — Rental Housing Law Navigator
 | `outputs/` | `rules.json`, `lookups.json`, `changes.json`, `geocode_cache.json`, `rule_versions.json` |
 | `data/stretch/` | Santa Ana demo addresses (stretch jurisdiction; not in pack 500) |
 | `docs/METHOD.md` | One-page method note (extract → geocode → lookup → T1–T5) |
+| `docs/DEMO.md` | ~4 minute judge demo script |
 | `docs/CITE_LOVABLE_PROMPT.md` | Prompt used to build the Lovable frontend |
 
 ## Setup
@@ -79,6 +80,8 @@ npm run dev:frontend
 - API: http://localhost:4000/health
 
 Set backend `CORS_ORIGIN` to match the UI origin (see `backend/.env.example`).
+
+Judge walkthrough: **[docs/DEMO.md](docs/DEMO.md)** (~4 minutes).
 
 ### Demo pages
 
