@@ -22,6 +22,7 @@ import { Route as InboxRouteImport } from './routes/inbox'
 import { Route as MemosRouteImport } from './routes/memos'
 import { Route as PipelineRouteImport } from './routes/pipeline'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as RulesRouteImport } from './routes/rules'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as SourcesRouteImport } from './routes/sources'
@@ -94,6 +95,11 @@ const PortfolioRoute = PortfolioRouteImport.update({
   path: '/portfolio',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RulesRoute = RulesRouteImport.update({
   id: '/rules',
   path: '/rules',
@@ -140,6 +146,7 @@ export interface FileRoutesByFullPath {
   '/memos': typeof MemosRoute
   '/pipeline': typeof PipelineRoute
   '/portfolio': typeof PortfolioRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/rules': typeof RulesRoute
   '/settings': typeof SettingsRoute
   '/sources': typeof SourcesRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByTo {
   '/memos': typeof MemosRoute
   '/pipeline': typeof PipelineRoute
   '/portfolio': typeof PortfolioRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/rules': typeof RulesRoute
   '/settings': typeof SettingsRoute
   '/sources': typeof SourcesRoute
@@ -183,6 +191,7 @@ export interface FileRoutesById {
   '/memos': typeof MemosRoute
   '/pipeline': typeof PipelineRoute
   '/portfolio': typeof PortfolioRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/rules': typeof RulesRoute
   '/settings': typeof SettingsRoute
   '/sources': typeof SourcesRoute
@@ -206,6 +215,7 @@ export interface FileRouteTypes {
     | '/memos'
     | '/pipeline'
     | '/portfolio'
+    | '/reset-password'
     | '/rules'
     | '/settings'
     | '/sources'
@@ -227,6 +237,7 @@ export interface FileRouteTypes {
     | '/memos'
     | '/pipeline'
     | '/portfolio'
+    | '/reset-password'
     | '/rules'
     | '/settings'
     | '/sources'
@@ -248,6 +259,7 @@ export interface FileRouteTypes {
     | '/memos'
     | '/pipeline'
     | '/portfolio'
+    | '/reset-password'
     | '/rules'
     | '/settings'
     | '/sources'
@@ -270,6 +282,7 @@ export interface RootRouteChildren {
   MemosRoute: typeof MemosRoute
   PipelineRoute: typeof PipelineRoute
   PortfolioRoute: typeof PortfolioRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   RulesRoute: typeof RulesRoute
   SettingsRoute: typeof SettingsRoute
   SourcesRoute: typeof SourcesRoute
@@ -371,6 +384,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PortfolioRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/rules': {
       id: '/rules'
       path: '/rules'
@@ -430,6 +450,7 @@ const rootRouteChildren: RootRouteChildren = {
   MemosRoute: MemosRoute,
   PipelineRoute: PipelineRoute,
   PortfolioRoute: PortfolioRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   RulesRoute: RulesRoute,
   SettingsRoute: SettingsRoute,
   SourcesRoute: SourcesRoute,
