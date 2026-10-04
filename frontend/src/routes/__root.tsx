@@ -124,7 +124,7 @@ function RootComponent() {
       <LocaleProvider>
       <div className="atmosphere flex min-h-dvh flex-col">
         <SiteHeader />
-        <main className="flex-1">
+        <main className="flex-1 pb-16">
           <Outlet />
         </main>
         <DisclaimerBar />

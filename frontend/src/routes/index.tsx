@@ -94,11 +94,11 @@ function AddressSearch({ onSelect, prominent = false, onOpenChange }: { onSelect
           <Button
             type="button"
             onClick={() => void searchFirst()}
-            className="group mr-2 h-11 shrink-0 rounded-full px-6 text-sm font-semibold shadow-sm transition-transform duration-200 active:scale-[0.98] sm:px-8"
+            className="group mr-2 h-11 shrink-0 gap-2 rounded-full px-5 text-sm font-semibold shadow-sm transition-transform duration-200 active:scale-[0.98] sm:px-6"
             aria-label={t("lookup.search")}
           >
-            <span className="hidden sm:inline">{t("lookup.search")}</span>
-            <span className="flex size-6 items-center justify-center rounded-full bg-primary-foreground/15 sm:ml-0.5">
+            <span>{t("lookup.search")}</span>
+            <span className="flex size-6 items-center justify-center rounded-full bg-primary-foreground/15">
               <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
             </span>
           </Button>
@@ -158,17 +158,17 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
     ? "pointer-events-none opacity-10 transition-opacity duration-300"
     : "opacity-100 transition-opacity duration-300";
   return (
-    <div className="mx-auto flex min-h-[calc(100dvh-11rem)] max-w-3xl flex-col items-center justify-center px-1 py-12 text-center sm:py-16">
+    <div className="mx-auto flex max-w-3xl flex-col items-center px-1 pb-10 pt-8 text-center sm:pt-12">
       <div className="fade-up">
-        <h1 className="font-serif text-[clamp(3.75rem,12vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-ink">
+        <h1 className="font-serif text-[clamp(3.25rem,10vw,4.75rem)] font-semibold leading-[0.92] tracking-[-0.035em] text-ink">
           Cite
         </h1>
-        <p className="mx-auto mt-7 max-w-md font-serif text-xl italic leading-relaxed text-muted-foreground sm:text-2xl">
+        <p className="mx-auto mt-5 max-w-md font-serif text-lg italic leading-relaxed text-muted-foreground sm:text-xl">
           {t("lookup.title1")} {t("lookup.title2")}
         </p>
       </div>
 
-      <div className="fade-up-delay-1 relative z-20 mx-auto mt-12 w-full max-w-2xl text-left">
+      <div className="fade-up-delay-1 relative z-20 mx-auto mt-9 w-full max-w-2xl text-left">
         <label className="mb-2.5 ml-1 block font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
           {t("lookup.label")}
         </label>
@@ -178,7 +178,7 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
       </div>
 
       <div className={`${dim} w-full`}>
-        <div className="fade-up-delay-2 mx-auto mt-12 w-full max-w-2xl text-left">
+        <div className="fade-up-delay-2 mx-auto mt-9 w-full max-w-2xl text-left">
           <div className="mb-3 ml-1 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
             {t("lookup.try")}
           </div>
