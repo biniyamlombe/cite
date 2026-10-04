@@ -19,10 +19,12 @@ Meaningfully different mechanism: verbatim `quoted_span` evidence + dual coverag
 ## Capabilities
 
 - Property lookup by address ID or street search (as-of date)
-- Rule results with evidence drawer, confidence, versions
+- Rule results with evidence drawer, confidence bands, versions
 - Change Radar (T1–T5; T6 placeholder)
 - Rules / Pipeline / About surfaces for the judge demo
-- EN/ES chrome locale; citations stay in source language
+- Stretch jurisdiction (Santa Ana SA0001–SA0006) with visible Lookup badge
+- EN/ES chrome locale on primary nav; citations stay in source language
+- More: Monitor (Portfolio / Bulk / Coverage) + Team (Dashboard / Memos / Settings); portfolio defaults to watched set; re-check due status + cron endpoint
 - Responsible design: as-of, unknown-over-guess, conflict/open-question callouts, link-only honesty, not a compliance certification
 - Live Hono API or mock client
 

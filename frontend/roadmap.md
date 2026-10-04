@@ -1,1 +1,2 @@
-- Tier 3 built: dashboard, groups, re-checks, roles, API keys, webhooks. Open: automatic re-check timer not scheduled yet.
+- Tier 3 built: dashboard, groups, re-checks, roles, API keys, webhooks.
+- Automatic re-checks: due schedules run via authenticated `POST /api/public/cron/recheck`; Dashboard/Settings show due status; manual “Run re-checks now” remains on Dashboard.
