@@ -284,6 +284,22 @@ async function testFakeSpanRejected() {
   else fail(`original span failed: ${ok.errors.join("; ")}`);
 }
 
+async function testTypographySnap() {
+  console.log("quoted_span typography snap (curly apostrophe)");
+  const source =
+    "requires any landlord planning to end a tenancy\n" +
+    "agreement to provide the tenant with a Notice of Tenants’ Rights and Resources.";
+  // Model often straightens ’ → '
+  const modelSpan =
+    "requires any landlord planning to end a tenancy agreement to provide the tenant with a Notice of Tenants' Rights and Resources.";
+  const snapped = snapQuotedSpanToSource(modelSpan, source);
+  if (snapped && source.includes(snapped) && snapped.includes("Tenants’")) {
+    pass("curly apostrophe + newline collapse snaps to exact corpus text");
+  } else {
+    fail(`typography snap failed: ${JSON.stringify(snapped)}`);
+  }
+}
+
 async function testRulesOutput() {
   console.log("outputs/rules.json citations + aliases");
   const file = JSON.parse(
@@ -682,6 +698,7 @@ async function main() {
   await testCorpusLoader();
   await testHeuristicExtractSmoke();
   await testFakeSpanRejected();
+  await testTypographySnap();
   await testDualCoverage();
   await testRulesOutput();
   await testRuleVersions();

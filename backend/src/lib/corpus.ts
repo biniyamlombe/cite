@@ -92,12 +92,38 @@ export async function loadDocById(docId: string): Promise<CorpusDoc | null> {
   return docs.find((d) => d.doc_id === docId) ?? null;
 }
 
-/** Normalize whitespace for quoted_span membership checks. */
-export function normalizeForMatch(s: string): string {
-  return s.replace(/\s+/g, " ").trim().toLowerCase();
+/**
+ * Fold typography the model often "simplifies" (curly quotes, dashes, nbsp)
+ * into ASCII. Keep 1:1 replacements so source index maps stay valid.
+ */
+export function foldTypography(ch: string): string {
+  switch (ch) {
+    case "\u2018": // ‘
+    case "\u2019": // ’
+    case "\u02BC": // ʼ
+      return "'";
+    case "\u201C": // “
+    case "\u201D": // ”
+      return '"';
+    case "\u2013": // –
+    case "\u2014": // —
+      return "-";
+    case "\u00A0": // nbsp
+    case "\u202F": // narrow nbsp
+      return " ";
+    default:
+      return ch;
+  }
 }
 
-/** Collapse runs of whitespace to a single space; map each out char → source index. */
+/** Normalize whitespace + typography for quoted_span membership checks. */
+export function normalizeForMatch(s: string): string {
+  let out = "";
+  for (const ch of s) out += foldTypography(ch);
+  return out.replace(/\s+/g, " ").trim().toLowerCase();
+}
+
+/** Collapse whitespace + fold typography; map each out char → source index. */
 export function collapseWhitespaceWithMap(s: string): {
   text: string;
   map: number[];
@@ -105,11 +131,11 @@ export function collapseWhitespaceWithMap(s: string): {
   const map: number[] = [];
   let text = "";
   let i = 0;
-  while (i < s.length && /\s/.test(s[i]!)) i += 1;
+  while (i < s.length && /\s/.test(foldTypography(s[i]!))) i += 1;
   let pendingWs: number | null = null;
   for (; i < s.length; i += 1) {
-    const ch = s[i]!;
-    if (/\s/.test(ch)) {
+    const folded = foldTypography(s[i]!);
+    if (/\s/.test(folded)) {
       if (pendingWs == null) pendingWs = i;
       continue;
     }
@@ -120,15 +146,15 @@ export function collapseWhitespaceWithMap(s: string): {
     } else {
       pendingWs = null;
     }
-    text += ch;
+    text += folded;
     map.push(i);
   }
   return { text, map };
 }
 
 /**
- * Snap a model/heuristic quote (often newline→space collapsed) back to the
- * exact contiguous substring in `source`. Prefer byte-exact corpus text for scoring.
+ * Snap a model/heuristic quote (often newline→space collapsed, curly quotes
+ * straightened) back to the exact contiguous substring in `source`.
  */
 export function snapQuotedSpanToSource(
   span: string,
@@ -137,24 +163,43 @@ export function snapQuotedSpanToSource(
   if (!span || span.length < 20) return null;
   if (source.includes(span)) return span;
 
-  const collapsedSpan = span.replace(/\s+/g, " ").trim();
+  const collapsedSpan = [...span]
+    .map(foldTypography)
+    .join("")
+    .replace(/\s+/g, " ")
+    .trim();
   if (!collapsedSpan) return null;
   if (source.includes(collapsedSpan)) return collapsedSpan;
 
   const { text: nSource, map } = collapseWhitespaceWithMap(source);
-  let idx = nSource.indexOf(collapsedSpan);
+  let needle = collapsedSpan;
+  let idx = nSource.indexOf(needle);
   if (idx < 0) {
-    idx = nSource.toLowerCase().indexOf(collapsedSpan.toLowerCase());
+    idx = nSource.toLowerCase().indexOf(needle.toLowerCase());
   }
   if (idx < 0) {
-    const compact = collapsedSpan.replace(/\.{3}|…/g, " ").replace(/\s+/g, " ").trim();
+    const compact = needle.replace(/\.{3}|…/g, " ").replace(/\s+/g, " ").trim();
     if (compact.length >= 20) {
+      needle = compact;
       idx = nSource.toLowerCase().indexOf(compact.toLowerCase());
+    }
+  }
+  // Models sometimes return overlong spans; try progressive prefix match.
+  if (idx < 0 && collapsedSpan.length > 180) {
+    for (const len of [220, 180, 140, 100, 80]) {
+      if (collapsedSpan.length < len) continue;
+      const prefix = collapsedSpan.slice(0, len).trim();
+      if (prefix.length < 20) continue;
+      idx = nSource.toLowerCase().indexOf(prefix.toLowerCase());
+      if (idx >= 0) {
+        needle = prefix;
+        break;
+      }
     }
   }
   if (idx < 0) return null;
 
-  const endIdx = idx + collapsedSpan.length - 1;
+  const endIdx = idx + needle.length - 1;
   const start = map[idx];
   const end = map[endIdx];
   if (start == null || end == null || end < start) return null;
