@@ -5589,7 +5589,8 @@
       "quote_end_offset": 6375,
       "effective_date_basis": "not_stated: No effective date stated in source",
       "extraction_method": "soft_gap_scaffold",
-      "status_basis": "unverified: soft-gap FAQ/summary extract (D029); not a full municipal code body."
+      "status_basis": "unverified: soft-gap FAQ/summary extract (D029); not a full municipal code body.",
+      "requires_human_review": true
     },
     {
       "jurisdiction": "San Francisco, CA",
@@ -5628,7 +5629,8 @@
       "quote_end_offset": 5317,
       "effective_date_basis": "not_stated: No effective date stated in source",
       "extraction_method": "soft_gap_scaffold",
-      "status_basis": "unverified: soft-gap FAQ/summary extract (D078); not a full municipal code body."
+      "status_basis": "unverified: soft-gap FAQ/summary extract (D078); not a full municipal code body.",
+      "requires_human_review": true
     }
   ]
 }

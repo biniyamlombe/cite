@@ -1345,9 +1345,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0003": [
@@ -5954,9 +5952,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0009": [
@@ -6640,8 +6636,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -6652,7 +6648,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -7344,8 +7339,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -7356,7 +7351,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -8393,9 +8387,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0013": [
@@ -10397,8 +10389,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -10409,7 +10401,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -11188,15 +11179,12 @@
           "units=21"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0017": [
@@ -11730,9 +11718,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0018": [
@@ -14725,15 +14711,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0022": [
@@ -16779,8 +16762,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -16791,7 +16774,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -18371,9 +18353,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0027": [
@@ -19144,15 +19124,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0028": [
@@ -20897,15 +20874,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0031": [
@@ -22270,9 +22244,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0033": [
@@ -23043,15 +23015,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0034": [
@@ -23735,8 +23704,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -23747,7 +23716,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -26782,15 +26750,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0039": [
@@ -27474,8 +27439,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -27486,7 +27451,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -28002,9 +27966,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0041": [
@@ -28775,15 +28737,12 @@
           "units=15"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0042": [
@@ -29325,9 +29284,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0043": [
@@ -30011,8 +29968,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -30023,7 +29980,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -31883,8 +31839,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -31895,7 +31851,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -32445,9 +32400,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0048": [
@@ -33849,9 +33802,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0050": [
@@ -34572,15 +34523,12 @@
           "units=49"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0051": [
@@ -35114,9 +35062,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0052": [
@@ -38569,15 +38515,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0056": [
@@ -42752,15 +42695,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0062": [
@@ -43531,15 +43471,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0063": [
@@ -45117,8 +45054,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -45129,7 +45066,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -49173,15 +49109,12 @@
           "units=7"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0070": [
@@ -49865,8 +49798,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -49877,7 +49810,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -50569,8 +50501,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -50581,7 +50513,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -51360,15 +51291,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0073": [
@@ -52052,8 +51980,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -52064,7 +51992,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -53587,8 +53514,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -53599,7 +53526,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -54778,8 +54704,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -54790,7 +54716,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -55332,9 +55257,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0079": [
@@ -57567,15 +57490,12 @@
           "units=69"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0082": [
@@ -58259,8 +58179,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -58271,7 +58191,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -59944,15 +59863,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0085": [
@@ -60723,15 +60639,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0086": [
@@ -61415,8 +61328,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -61427,7 +61340,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -61943,9 +61855,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0088": [
@@ -62716,15 +62626,12 @@
           "units=9"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0089": [
@@ -63232,9 +63139,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0090": [
@@ -68064,8 +67969,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -68076,7 +67981,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -69749,15 +69653,12 @@
           "units=8"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0098": [
@@ -71124,9 +71025,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0100": [
@@ -72365,9 +72264,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0102": [
@@ -72875,9 +72772,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0103": [
@@ -75115,15 +75010,12 @@
           "units=7"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0106": [
@@ -75870,15 +75762,12 @@
           "units=60"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0107": [
@@ -77243,9 +77132,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0109": [
@@ -80214,15 +80101,12 @@
           "units=9"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0113": [
@@ -82728,15 +82612,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0116": [
@@ -83278,9 +83159,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0117": [
@@ -85513,9 +85392,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0120": [
@@ -89116,8 +88993,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -89128,7 +89005,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -89644,9 +89520,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0126": [
@@ -90417,15 +90291,12 @@
           "units=8"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0127": [
@@ -93631,9 +93502,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0132": [
@@ -96616,15 +96485,12 @@
           "units=29"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0136": [
@@ -97132,9 +96998,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0137": [
@@ -98994,9 +98858,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0140": [
@@ -100661,15 +100523,12 @@
           "units=8"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0142": [
@@ -105216,15 +105075,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0148": [
@@ -112075,15 +111931,12 @@
           "units=9"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0157": [
@@ -115172,9 +115025,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0161": [
@@ -115716,9 +115567,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0162": [
@@ -116941,9 +116790,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0164": [
@@ -117714,15 +117561,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0165": [
@@ -119111,8 +118955,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -119123,7 +118967,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -120352,9 +120195,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0169": [
@@ -122471,9 +122312,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0172": [
@@ -124819,8 +124658,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -124831,7 +124670,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -125523,8 +125361,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -125535,7 +125373,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -126227,8 +126064,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -126239,7 +126076,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -126789,9 +126625,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0178": [
@@ -129642,9 +129476,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0182": [
@@ -130152,9 +129984,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0183": [
@@ -132557,9 +132387,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0186": [
@@ -133093,9 +132921,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0187": [
@@ -133637,9 +133463,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0188": [
@@ -136870,8 +136694,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -136882,7 +136706,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -137661,15 +137484,12 @@
           "units=36"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0193": [
@@ -143926,8 +143746,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -143938,7 +143758,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -146560,15 +146379,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0203": [
@@ -149750,15 +149566,12 @@
           "units=21"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0207": [
@@ -151097,9 +150910,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0209": [
@@ -151783,8 +151594,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -151795,7 +151606,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -154149,15 +153959,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0213": [
@@ -155522,8 +155329,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -155534,7 +155341,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -156313,15 +156119,12 @@
           "units=21"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0216": [
@@ -158929,8 +158732,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -158941,7 +158744,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -162213,15 +162015,12 @@
           "units=8"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0223": [
@@ -162729,9 +162528,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0224": [
@@ -164333,15 +164130,12 @@
           "units=9"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0226": [
@@ -165759,9 +165553,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0228": [
@@ -166532,15 +166324,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0229": [
@@ -167311,15 +167100,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0230": [
@@ -168003,8 +167789,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -168015,7 +167801,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -168794,15 +168579,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0232": [
@@ -169486,8 +169268,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -169498,7 +169280,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -172991,15 +172772,12 @@
           "units=9"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0237": [
@@ -173770,15 +173548,12 @@
           "units=12"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0238": [
@@ -176852,9 +176627,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0242": [
@@ -178290,9 +178063,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0244": [
@@ -178800,9 +178571,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0245": [
@@ -182958,9 +182727,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0251": [
@@ -185117,15 +184884,12 @@
           "units=7"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0254": [
@@ -185633,9 +185397,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0255": [
@@ -186974,9 +186736,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0257": [
@@ -187723,15 +187483,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0258": [
@@ -189396,15 +189153,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0260": [
@@ -190942,9 +190696,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0262": [
@@ -193708,9 +193460,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0266": [
@@ -194244,9 +193994,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0267": [
@@ -195807,15 +195555,12 @@
           "units=7"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0269": [
@@ -196323,9 +196068,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0270": [
@@ -196867,9 +196610,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0271": [
@@ -197640,15 +197381,12 @@
           "units=13"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0272": [
@@ -198332,8 +198070,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -198344,7 +198082,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -202973,15 +202710,12 @@
           "units=17"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0279": [
@@ -203523,9 +203257,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0280": [
@@ -204296,15 +204028,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0281": [
@@ -206886,15 +206615,12 @@
           "units=51"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0284": [
@@ -207578,8 +207304,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -207590,7 +207316,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -209095,8 +208820,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -209107,7 +208832,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -209623,9 +209347,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0288": [
@@ -210159,9 +209881,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0289": [
@@ -211875,8 +211595,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -211887,7 +211607,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -212579,8 +212298,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -212591,7 +212310,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -213283,8 +213001,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -213295,7 +213013,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -214074,15 +213791,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0294": [
@@ -214766,8 +214480,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -214778,7 +214492,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -217338,8 +217051,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -217350,7 +217063,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -217866,9 +217578,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0300": [
@@ -218552,8 +218262,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -218564,7 +218274,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -219256,8 +218965,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -219268,7 +218977,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -219960,8 +219668,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -219972,7 +219680,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -222287,15 +221994,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0306": [
@@ -222979,8 +222683,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -222991,7 +222695,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -223994,9 +223697,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0309": [
@@ -233404,9 +233105,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0321": [
@@ -233940,9 +233639,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0322": [
@@ -236249,15 +235946,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0325": [
@@ -236799,9 +236493,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0326": [
@@ -238890,15 +238582,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0329": [
@@ -243925,15 +243614,12 @@
           "units=10"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0336": [
@@ -244617,8 +244303,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -244629,7 +244315,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -246295,8 +245980,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -246307,7 +245992,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -248535,8 +248219,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -248547,7 +248231,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -249584,9 +249267,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0345": [
@@ -252335,9 +252016,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0349": [
@@ -253909,9 +253588,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0351": [
@@ -254682,15 +254359,12 @@
           "units=7"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0352": [
@@ -259164,15 +258838,12 @@
           "units=29"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0358": [
@@ -260167,9 +259838,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0360": [
@@ -260711,9 +260380,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0361": [
@@ -261397,8 +261064,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -261409,7 +261076,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -264112,15 +263778,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0365": [
@@ -267195,15 +266858,12 @@
           "units=12"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0369": [
@@ -270085,9 +269745,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0373": [
@@ -272569,15 +272227,12 @@
           "units=9"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0376": [
@@ -273944,9 +273599,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0378": [
@@ -277473,15 +277126,12 @@
           "units=10"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0383": [
@@ -279282,15 +278932,12 @@
           "units=7"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0385": [
@@ -280011,15 +279658,12 @@
           "units=16"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0386": [
@@ -281963,9 +281607,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0389": [
@@ -282473,9 +282115,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0390": [
@@ -284906,9 +284546,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0394": [
@@ -285450,9 +285088,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0395": [
@@ -287958,15 +287594,12 @@
           "units=21"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0398": [
@@ -288737,15 +288370,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0399": [
@@ -289253,9 +288883,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0400": [
@@ -290513,15 +290141,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0402": [
@@ -291292,15 +290917,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0403": [
@@ -292736,9 +292358,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0405": [
@@ -297222,9 +296842,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0411": [
@@ -300217,15 +299835,12 @@
           "units=9"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0415": [
@@ -300759,9 +300374,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0416": [
@@ -301295,9 +300908,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0417": [
@@ -302644,9 +302255,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0419": [
@@ -305896,8 +305505,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -305908,7 +305517,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -307318,9 +306926,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0425": [
@@ -308091,15 +307697,12 @@
           "units=23"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0426": [
@@ -315034,15 +314637,12 @@
           "units=8"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0435": [
@@ -315550,9 +315150,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0436": [
@@ -316060,9 +315658,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0437": [
@@ -317277,9 +316873,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0439": [
@@ -318000,15 +317594,12 @@
           "units=7"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0440": [
@@ -318779,15 +318370,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0441": [
@@ -324005,9 +323593,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0448": [
@@ -325515,9 +325101,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0451": [
@@ -327713,8 +327297,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -327725,7 +327309,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -329098,9 +328681,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0456": [
@@ -330576,15 +330157,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0458": [
@@ -331957,9 +331535,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0460": [
@@ -333217,15 +332793,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0462": [
@@ -333767,9 +333340,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0463": [
@@ -336241,8 +335812,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -336253,7 +335824,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -338733,8 +338303,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -338745,7 +338315,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -341321,9 +340890,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0472": [
@@ -341831,9 +341398,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0473": [
@@ -344066,9 +343631,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0476": [
@@ -345326,15 +344889,12 @@
           "units=19"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0478": [
@@ -348196,15 +347756,12 @@
           "units=63"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0482": [
@@ -348738,9 +348295,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0483": [
@@ -349511,15 +349066,12 @@
           "units=72"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0484": [
@@ -350290,15 +349842,12 @@
           "units=5"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0485": [
@@ -350982,8 +350531,8 @@
         "result": "applies",
         "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false,
-        "needs_human_review": false,
-        "applicability": "applies",
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
         "facts_used": [
           "state=MA",
           "legal_city=Cambridge",
@@ -350994,7 +350543,6 @@
         "facts_missing": [
           "owner_type"
         ],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Cambridge, MA",
           "level=city",
@@ -351773,15 +351321,12 @@
           "units=9"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0487": [
@@ -352552,15 +352097,12 @@
           "units=11"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0488": [
@@ -353970,9 +353512,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0490": [
@@ -354480,9 +354020,7 @@
           "level=city",
           "coverage=Residential dwelling units in Hoboken, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0491": [
@@ -356421,15 +355959,12 @@
           "units=10"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0494": [
@@ -357200,15 +356735,12 @@
           "units=6"
         ],
         "facts_missing": [],
-        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=San Francisco, CA",
           "level=city",
           "coverage=Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0495": [
@@ -357750,9 +357282,7 @@
           "level=city",
           "coverage=Residential dwelling units in Jersey City, NJ"
         ],
-        "exemptions_evaluated": [
-          "exemptions=None stated in source document"
-        ]
+        "exemptions_evaluated": []
       }
     ],
     "A0496": [
