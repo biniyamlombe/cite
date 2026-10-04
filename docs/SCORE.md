@@ -1,6 +1,6 @@
 # Scoring drop-in (`score.py`)
 
-This repo uses the **participant-final-no-hour16 / no-scoring** pack. Organizers grade with `score.py` + held-out keys when that pack ships.
+This repo uses the **participant-final-no-hour16 / no-scoring** pack. Organizers grade with `score.py` + held-out keys when that pack ships. **Hour-16 / T6 is not part of this pack.**
 
 ## What is graded (auto)
 
@@ -9,7 +9,7 @@ This repo uses the **participant-final-no-hour16 / no-scoring** pack. Organizers
 | Extraction accuracy | 25 | `outputs/rules.json` |
 | Address coverage | 20 | `outputs/lookups.json` |
 | Citations | 15 | exact `quoted_span` in corpus |
-| Change tracking | 15 | `outputs/changes.json` T1–T5 (+ T6 when released) |
+| Change tracking | 15 | `outputs/changes.json` **T1–T5 only** |
 
 Judge categories (plain language, responsible design, scalability) are separate from `score.py`.
 
@@ -30,7 +30,7 @@ Current expectations:
 - **T3** = 140 NJ + 90 conflict flags
 - **T4** = 110 MA pending
 - **T5** = 0 affected (failed ballot)
-- **T6** = honest placeholder only (no invented hour-16 results)
+- **T6** = **absent** (hour-16 removed from the challenge)
 
 ## When organizers ship `score.py`
 
@@ -47,11 +47,3 @@ npm run score
 Also accepted locations: `data/pack/dev/score.py`, `data/pack/scoring/score.py`, repo-root `score.py`.
 
 `npm run score` tries common CLI flags (`--outputs`, `--output-dir`, positional path, bare) and sets `CITE_OUTPUTS` / `OUTPUTS_DIR`.
-
-## When hour-16 / T6 arrives
-
-1. Add the new Cambridge corpus doc to the pack.
-2. `npm run extract` (or extract that doc) → refresh `rules.json`.
-3. Confirm `dev/change_tests.json` includes T6 (or update when they ship it).
-4. `npm run changes` → real T6 affected set (replace placeholder).
-5. `npm run score` if `score.py` is present.

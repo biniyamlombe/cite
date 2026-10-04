@@ -45,7 +45,7 @@ Meaningfully different mechanism: verbatim `quoted_span` evidence + dual coverag
 
 - Property lookup by address ID or street search (as-of date)
 - Rule results with evidence drawer, confidence bands, versions
-- Change Radar (T1–T5; T6 hour-16 placeholder)
+- Change Radar (T1–T5; hour-16 / T6 removed from pack)
 - Rules / Pipeline / About surfaces for the judge demo
 - Stretch jurisdiction (Santa Ana SA0001–SA0006) with visible Lookup badge
 - EN/ES chrome locale on primary nav; citations stay in source language
@@ -64,7 +64,7 @@ Meaningfully different mechanism: verbatim `quoted_span` evidence + dual coverag
 
 ### Undecided
 
-- Organizer submission logistics and hour-16 T6 corpus release timing
+- Organizer submission logistics and `score.py` release timing
 
 ## Brand Commitments
 

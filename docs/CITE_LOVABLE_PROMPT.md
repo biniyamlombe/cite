@@ -373,7 +373,7 @@ Example:
 
 Communicate that Cite answers not only **“What applies today?”** but also **“What will change, when, and which properties will be affected?”**
 
-**T6:** show a disabled/upcoming card — “Hour-16 Cambridge ordinance — awaiting corpus release.” Do not fake results.
+**T6:** omit entirely. The participant-final-no-hour16 pack has no T6; do not invent hour-16 results.
 
 ---
 

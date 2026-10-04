@@ -70,7 +70,7 @@ Outputs land in `outputs/` matching the challenge templates.
 
 Before upload / pitch: `npm run submission:check` (T1–T5 + citations + 500 lookups + smoke) and `npm run demo:preflight` (live API).
 
-Organizer auto-grader: when `score.py` ships, copy to `data/pack/score.py` and run `npm run score`. See [docs/SCORE.md](docs/SCORE.md). T6 stays a placeholder until hour-16.
+Organizer auto-grader: when `score.py` ships, copy to `data/pack/score.py` and run `npm run score`. See [docs/SCORE.md](docs/SCORE.md). Pack is **T1–T5 only** (hour-16 / T6 removed).
 
 Organizer zip (runs check first): `npm run submission:pack` → `dist/cite-submission-latest.zip` (`rules.json`, `lookups.json`, `changes.json`, `METHOD.md`, `DEMO.md`).
 
@@ -121,7 +121,7 @@ Judge walkthrough: **[docs/DEMO.md](docs/DEMO.md)** (~4 minutes).
 
 - **A Extract** — Claude (when keyed) + automated corpus heuristic; Ajv + Zod; `quoted_span` must appear in source text
 - **B Lookup** — Census Geocoder → legal city/county/state → deterministic coverage (`applies` / `unknown` / `superseded` / `not_yet_effective` / `pending`)
-- **C Changes** — `dev/change_tests.json` T1–T5; T6 hook ready for hour-16
+- **C Changes** — `dev/change_tests.json` T1–T5 (no T6 in this pack)
 
 Default query date: `2026-10-01`.
 
@@ -135,4 +135,4 @@ Without `VITE_API_URL`, the UI loads generated corpus snapshots for all 506 addr
 
 The API badge checks connectivity. Scheduled re-checks and the customer API require live configuration. Re-checks compare stable rule identity, status, conflict flags, and evidence; old status-only baselines refresh once without claiming a legal change. Failed persistence or webhook delivery remains due for retry. Delivery is at-least-once, so receivers should handle duplicate events. The dashboard reports failed runs and refreshed baselines.
 
-`npm run demo:preflight` validates the four demo stories, T1–T6 sets, corpus picker, rule contracts, version history, and rejection of impossible dates. `npm run typecheck` checks all three packages. Tests use simulated webhook/database failures; they do not deliver external messages.
+`npm run demo:preflight` validates the four demo stories, T1–T5 sets, corpus picker, rule contracts, version history, and rejection of impossible dates. `npm run typecheck` checks all three packages. Tests use simulated webhook/database failures; they do not deliver external messages.

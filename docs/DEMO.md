@@ -18,7 +18,7 @@ npm run dev:frontend
 npm run demo:preflight
 ```
 
-Expect: Live API badge in the UI, `/health` ok, A0005 / A0065 / A0002 / SA0001 lookups 200.
+Expect: Connected badge in the UI, `/health` ok, A0005 / A0065 / A0002 / SA0001 lookups 200.
 
 **Lovable cloud only:** localhost won’t reach your laptop. In a third terminal:
 
@@ -38,7 +38,7 @@ Prefer **local UI + local API** for the pitch if Wi‑Fi is flaky.
 
 “Cite answers which housing rules apply at an address *today*, with exact corpus citations — Modules A extract, B geocode/coverage, C change tests.”
 
-Show: Lookup page + as-of date control + Live API badge.
+Show: Lookup page + as-of date control + Connected badge.
 
 ---
 
@@ -91,9 +91,8 @@ Open **Change Radar** / `changes.json` summary:
 | **T3** | NJ FAIR NTE → applies · HOB/JC conflict flags |
 | **T4** | MA pending alg bills |
 | **T5** | MA rent ballot failed · affected = 0 |
-| **T6** | Hour-16 Cambridge placeholder — no invented results |
 
-“Deterministic tests, not a slide deck.”
+“Deterministic tests, not a slide deck.” (Pack is T1–T5 only; hour-16 / T6 removed.)
 
 ---
 
