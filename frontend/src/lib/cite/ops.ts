@@ -13,14 +13,20 @@ export async function myRoles(userId: string): Promise<Role[]> {
   return rows.map((r) => r.role as Role);
 }
 export async function listAllRoles() {
-  return check(await supabase.from("user_roles").select("id,user_id,role,created_at").order("created_at"));
+  return check(
+    await supabase.from("user_roles").select("id,user_id,role,created_at").order("created_at"),
+  );
 }
 export async function setRole(userId: string, role: Role) {
   check(await supabase.from("user_roles").delete().eq("user_id", userId));
   check(await supabase.from("user_roles").insert({ user_id: userId, role }));
 }
 
-export interface Group { id: string; name: string; address_ids: string[] }
+export interface Group {
+  id: string;
+  name: string;
+  address_ids: string[];
+}
 export async function listGroups(): Promise<Group[]> {
   return check(await supabase.from("portfolio_groups").select("id,name,address_ids").order("name"));
 }
@@ -34,7 +40,14 @@ export async function deleteGroup(id: string) {
   check(await supabase.from("portfolio_groups").delete().eq("id", id));
 }
 
-export interface Schedule { id: string; address_id: string; frequency: string; last_run_at: string | null; last_changed: boolean; last_summary: Record<string, string> | null }
+export interface Schedule {
+  id: string;
+  address_id: string;
+  frequency: string;
+  last_run_at: string | null;
+  last_changed: boolean;
+  last_summary: Record<string, string> | null;
+}
 
 /** Display helper mirroring recheck.server due windows (no legal logic). */
 const DUE_MS: Record<string, number> = {
@@ -49,10 +62,19 @@ export function isScheduleDue(frequency: string, lastRunAt: string | null | unde
 }
 
 export async function listSchedules(): Promise<Schedule[]> {
-  return check(await supabase.from("recheck_schedules").select("id,address_id,frequency,last_run_at,last_changed,last_summary").order("created_at")) as unknown as Schedule[];
+  return check(
+    await supabase
+      .from("recheck_schedules")
+      .select("id,address_id,frequency,last_run_at,last_changed,last_summary")
+      .order("created_at"),
+  ) as unknown as Schedule[];
 }
 export async function addSchedule(address_id: string, frequency: string) {
-  check(await supabase.from("recheck_schedules").upsert({ address_id, frequency }, { onConflict: "user_id,address_id" }));
+  check(
+    await supabase
+      .from("recheck_schedules")
+      .upsert({ address_id, frequency }, { onConflict: "user_id,address_id" }),
+  );
 }
 export async function deleteSchedule(id: string) {
   check(await supabase.from("recheck_schedules").delete().eq("id", id));
@@ -67,20 +89,36 @@ function randomToken(bytes = 24) {
   return [...a].map((x) => x.toString(16).padStart(2, "0")).join("");
 }
 export async function listKeys() {
-  return check(await supabase.from("api_keys").select("id,label,prefix,last_used_at,revoked_at,created_at").order("created_at", { ascending: false }));
+  return check(
+    await supabase
+      .from("api_keys")
+      .select("id,label,prefix,last_used_at,revoked_at,created_at")
+      .order("created_at", { ascending: false }),
+  );
 }
 /** Returns the full key once; only its SHA-256 fingerprint is stored. */
 export async function createKey(label: string): Promise<string> {
   const key = `cite_${randomToken()}`;
-  check(await supabase.from("api_keys").insert({ label, prefix: key.slice(0, 10), key_hash: await sha256(key) }));
+  check(
+    await supabase
+      .from("api_keys")
+      .insert({ label, prefix: key.slice(0, 10), key_hash: await sha256(key) }),
+  );
   return key;
 }
 export async function revokeKey(id: string) {
-  check(await supabase.from("api_keys").update({ revoked_at: new Date().toISOString() }).eq("id", id));
+  check(
+    await supabase.from("api_keys").update({ revoked_at: new Date().toISOString() }).eq("id", id),
+  );
 }
 
 export async function listWebhooks() {
-  return check(await supabase.from("webhooks").select("id,url,secret,enabled,last_status,last_sent_at").order("created_at"));
+  return check(
+    await supabase
+      .from("webhooks")
+      .select("id,url,secret,enabled,last_status,last_sent_at")
+      .order("created_at"),
+  );
 }
 export async function addWebhook(url: string) {
   check(await supabase.from("webhooks").insert({ url, secret: `whsec_${randomToken(16)}` }));

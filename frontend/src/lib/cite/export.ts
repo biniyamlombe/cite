@@ -7,10 +7,35 @@ const esc = (v: unknown) => {
 
 /** Serialises a lookup response exactly as returned — no re-evaluation. */
 export function lookupToCsv(d: LookupResponse): string {
-  const head = ["address_id", "as_of", "team_rule_id", "result", "conflict", "title", "citation", "jurisdiction", "effective_date", "confidence", "retrieved_at", "source_url", "explanation"];
+  const head = [
+    "address_id",
+    "as_of",
+    "team_rule_id",
+    "result",
+    "conflict",
+    "title",
+    "citation",
+    "jurisdiction",
+    "effective_date",
+    "confidence",
+    "retrieved_at",
+    "source_url",
+    "explanation",
+  ];
   const rows = d.results.map((r) => [
-    d.address.address_id, d.as_of, r.team_rule_id, r.result, r.conflict_flag, r.rule?.title, r.rule?.citation,
-    r.rule?.jurisdiction, r.rule?.effective_date, r.rule?.confidence, r.rule?.retrieved_at, r.rule?.source_url, r.explanation,
+    d.address.address_id,
+    d.as_of,
+    r.team_rule_id,
+    r.result,
+    r.conflict_flag,
+    r.rule?.title,
+    r.rule?.citation,
+    r.rule?.jurisdiction,
+    r.rule?.effective_date,
+    r.rule?.confidence,
+    r.rule?.retrieved_at,
+    r.rule?.source_url,
+    r.explanation,
   ]);
   return [head, ...rows].map((r) => r.map(esc).join(",")).join("\n");
 }
