@@ -107,10 +107,19 @@
     -webkit-font-smoothing: antialiased;
     font-feature-settings: "ss02", "tnum" 0;
     caret-color: var(--primary);
+    -webkit-tap-highlight-color: oklch(0.42 0.07 205 / 0.12);
+  }
+  ::selection {
+    background: oklch(0.78 0.06 205 / 0.45);
+    color: var(--ink);
   }
   h1, h2, h3 {
     letter-spacing: -0.02em;
     text-wrap: balance;
+    scroll-margin-top: 6rem;
+  }
+  :where(button, a, [role="button"]) {
+    touch-action: manipulation;
   }
 }
 
