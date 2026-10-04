@@ -12,7 +12,18 @@ import {
   DEFAULT_AS_OF,
   PIPELINE_VERSION,
   type RuleRecord,
+  type SupportedLocale,
 } from "@rhl/shared";
+import {
+  displayApplicabilityLabel,
+  displayStatusLabel,
+  localizeExplanation,
+  localizeWarnings,
+  localizedDisclaimer,
+  localizedErrorUserMessage,
+  resolveRequestLocale,
+  sourceEvidenceBlock,
+} from "./locale.js";
 import { parseOptionalInt } from "../lib/addresses.js";
 import { exactSpanInSource, loadCapturableDocs, loadDocById } from "../lib/corpus.js";
 import { readJsonIfExists } from "../lib/io.js";
@@ -45,8 +56,7 @@ import {
 } from "./cache.js";
 
 export const app = new Hono();
-const DISCLAIMER =
-  "Not legal advice and not a compliance certification. Based on available public records in this prototype. Verify important decisions with a qualified legal professional.";
+const DISCLAIMER = localizedDisclaimer("en-US");
 
 const corsAllow = (
   process.env.CORS_ORIGIN ||
@@ -257,9 +267,12 @@ async function handleLookup(
     includeNonApplicable: boolean;
     year_built?: string | number;
     units?: string | number;
+    locale?: SupportedLocale;
+    locale_warning?: string | null;
   },
 ) {
   const requestId = newRequestId();
+  const locale = opts.locale ?? "en-US";
   const asOf = opts.asOf || process.env.AS_OF_DEFAULT || DEFAULT_AS_OF;
   if (!AsOfDateSchema.safeParse(asOf).success) {
     return apiError(
@@ -267,7 +280,11 @@ async function handleLookup(
       400,
       "INVALID_AS_OF",
       "Invalid as_of: use a real calendar date (YYYY-MM-DD).",
-      "Enter a valid calendar date in YYYY-MM-DD format.",
+      localizedErrorUserMessage(
+        "INVALID_AS_OF",
+        "Enter a valid calendar date in YYYY-MM-DD format.",
+        locale,
+      ),
       { field_errors: { as_of: "Invalid calendar date" }, requestId },
     );
   }
@@ -284,7 +301,11 @@ async function handleLookup(
       404,
       "ADDRESS_NOT_FOUND",
       "Address not found in the supported demo set.",
-      "That address is not in the supported sample set. Try a demo ID such as A0005, or search by street in a covered city.",
+      localizedErrorUserMessage(
+        "ADDRESS_NOT_FOUND",
+        "That address is not in the supported sample set. Try a demo ID such as A0005, or search by street in a covered city.",
+        locale,
+      ),
       { requestId },
     );
   }
@@ -297,7 +318,11 @@ async function handleLookup(
       409,
       "NOT_GEOCODED",
       "Address not geocoded yet. Run npm run geocode.",
-      "Jurisdiction for this address is not ready yet. Retry after geocoding completes.",
+      localizedErrorUserMessage(
+        "NOT_GEOCODED",
+        "Jurisdiction for this address is not ready yet. Retry after geocoding completes.",
+        locale,
+      ),
       { retryable: true, requestId, extra: { address: addr } },
     );
   }
@@ -309,7 +334,11 @@ async function handleLookup(
       409,
       "NO_RULES_LOADED",
       "No rules loaded. Run npm run extract.",
-      "Rule data is not loaded. Retry shortly or contact the operator.",
+      localizedErrorUserMessage(
+        "NO_RULES_LOADED",
+        "Rule data is not loaded. Retry shortly or contact the operator.",
+        locale,
+      ),
       { retryable: true, requestId },
     );
   }
@@ -337,10 +366,23 @@ async function handleLookup(
   const generated_at = new Date().toISOString();
   const results = entries.map((e) => {
     const rule = withRetrievedAt(byId.get(e.team_rule_id) ?? null, retrievedAtByDoc);
+    const statusCode = e.legal_status_at_as_of_date ?? rule?.status ?? null;
+    const applicabilityCode = e.applicability ?? e.result;
+    const localized = localizeExplanation({
+      explanation: e.explanation,
+      locale,
+      conflictFlag: e.conflict_flag,
+    });
     return {
       ...e,
-      status_label: e.legal_status_at_as_of_date ?? rule?.status ?? null,
-      applicability_label: e.applicability ?? e.result,
+      // Keep English explanation as authoritative corpus text; Spanish goes in plain_language_summary.
+      explanation: e.explanation,
+      status_label: displayStatusLabel(statusCode, locale) ?? statusCode,
+      applicability_label:
+        displayApplicabilityLabel(applicabilityCode, locale) ?? applicabilityCode,
+      plain_language_summary: localized.plain_language_summary,
+      source_evidence: sourceEvidenceBlock(rule, locale),
+      translation: localized.translation,
       rule,
     };
   });
@@ -364,18 +406,23 @@ async function handleLookup(
     corpusGaps: corpus_gaps,
     userProvidedFacts: overrides.used,
   });
-  const warnings = deriveWarnings({
-    jurisdictionTrusted: Boolean(stack.trusted),
-    jurisdictionResolution: stack.resolution,
-    results: resultLikes,
-    corpusGaps: corpus_gaps,
-    userProvidedFacts: overrides.used,
-  });
+  const warnings = localizeWarnings(
+    deriveWarnings({
+      jurisdictionTrusted: Boolean(stack.trusted),
+      jurisdictionResolution: stack.resolution,
+      results: resultLikes,
+      corpusGaps: corpus_gaps,
+      userProvidedFacts: overrides.used,
+    }),
+    locale,
+  );
   const meta = buildMeta({ requestId, asOf, generatedAt: generated_at });
 
   return c.json({
-    disclaimer: DISCLAIMER,
+    disclaimer: localizedDisclaimer(locale),
     as_of: asOf,
+    locale,
+    locale_warning: opts.locale_warning ?? null,
     address: effectiveAddr,
     jurisdiction: stack,
     building_facts: {
@@ -404,8 +451,21 @@ async function handleLookup(
   });
 }
 
-app.get("/lookup/:addressId", async (c) =>
-  handleLookup(c, {
+function localeFromRequest(
+  c: Parameters<typeof apiError>[0],
+  bodyLocale?: unknown,
+): { locale: SupportedLocale; locale_warning: string | null } {
+  const raw =
+    (typeof bodyLocale === "string" ? bodyLocale : undefined) ||
+    c.req.query("locale") ||
+    c.req.header("accept-language") ||
+    undefined;
+  return resolveRequestLocale(raw);
+}
+
+app.get("/lookup/:addressId", async (c) => {
+  const { locale, locale_warning } = localeFromRequest(c);
+  return handleLookup(c, {
     addressId: c.req.param("addressId"),
     asOf: c.req.query("as_of") || process.env.AS_OF_DEFAULT || DEFAULT_AS_OF,
     includeNonApplicable:
@@ -413,8 +473,10 @@ app.get("/lookup/:addressId", async (c) =>
       c.req.query("include_non_applicable") === "true",
     year_built: c.req.query("year_built") || undefined,
     units: c.req.query("units") || undefined,
-  }),
-);
+    locale,
+    locale_warning,
+  });
+});
 
 app.post("/lookup/:addressId", async (c) => {
   let body: Record<string, unknown> = {};
@@ -424,6 +486,7 @@ app.post("/lookup/:addressId", async (c) => {
     body = {};
   }
   const facts = BuildingFactOverridesSchema.safeParse(body.building_facts ?? body);
+  const { locale, locale_warning } = localeFromRequest(c, body.locale);
   return handleLookup(c, {
     addressId: c.req.param("addressId"),
     asOf:
@@ -437,6 +500,8 @@ app.post("/lookup/:addressId", async (c) => {
       c.req.query("include_non_applicable") === "1",
     year_built: facts.success ? facts.data.year_built : undefined,
     units: facts.success ? facts.data.units : undefined,
+    locale,
+    locale_warning,
   });
 });
 
