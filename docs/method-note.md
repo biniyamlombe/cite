@@ -24,7 +24,7 @@ API `GET /lookup/:id?include_non_applicable=1` also returns explicit `does_not_a
 | Step | Module | What runs |
 |------|--------|-----------|
 | Schema gate | — | Zod + Ajv on pack sample / rule schema |
-| Extract | **A** | Claude (default `claude-haiku-4-5`) over capturable docs; heuristic fallback if no API key; `quoted_span` must appear verbatim in source |
+| Extract | **A** | Claude (default `claude-sonnet-5-5`, retry `claude-opus-5-5`) over capturable docs; heuristic fallback if no API key; `quoted_span` must appear verbatim in source |
 | Enrich | A/B | Dual `coverage_conditions`; then `enrich-fields` for `penalty`, `retrieved_at`, exemptions, effective dates |
 | Geocode | **B** | Census Geocoder (or heuristic) → state / county / legal city (postal city ≠ legal city) |
 | Lookup | **B** | For each of 500 addresses: `applies` / `unknown` / `superseded` / `not_yet_effective` / `pending`; pack §9 open questions appended on matching rules |
