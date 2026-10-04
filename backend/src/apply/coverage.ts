@@ -34,8 +34,22 @@ function buildingFacts(addr: SampleAddress, geo: GeocodeResult): {
   else missing.push("year_built");
   if (units != null) used.push(`units=${units}`);
   else missing.push("units");
-  missing.push("owner_type"); // never in pack sample
+  // owner_type is never in the pack sample; only surface it when a rule's
+  // coverage/exemptions actually depend on owner identity (see enrichEntry).
   return { used, missing };
+}
+
+/** Pack deliberately omits owner names; only relevant for small-landlord / owner-occupied clauses. */
+function ruleNeedsOwnerType(rule: RuleRecord): boolean {
+  const blob = [
+    coveragePlainText(rule.coverage_conditions) ?? "",
+    rule.exemptions ?? "",
+    rule.requirement ?? "",
+    rule.conflict_note ?? "",
+  ].join(" ");
+  return /owner-occupied|small-landlord|owner type|natural person|owner of no more than|2 or fewer|two or fewer rental/i.test(
+    blob,
+  );
 }
 
 function enrichEntry(
@@ -61,17 +75,19 @@ function enrichEntry(
   const exemptions_evaluated = rule.exemptions
     ? [`exemptions=${rule.exemptions.slice(0, 160)}`]
     : [];
+  const missing = [...facts.missing];
+  if (ruleNeedsOwnerType(rule)) missing.push("owner_type");
   return {
     ...entry,
     conflict_flag: conflict,
     needs_human_review: needsReview,
     applicability: toCanonicalApplicability(entry.result, needsReview),
     facts_used: facts.used,
-    // Surface missing facts when coverage is unresolved; always note owner_type is unavailable.
+    // Unknown → all relevant missing facts; otherwise only owner_type when that exemption matters.
     facts_missing:
       entry.result === "unknown"
-        ? facts.missing
-        : facts.missing.includes("owner_type")
+        ? missing
+        : ruleNeedsOwnerType(rule)
           ? ["owner_type"]
           : [],
     // Scaffolds have no captured law text, so no legal status is asserted for them.

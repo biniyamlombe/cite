@@ -175,14 +175,82 @@ function correctGeocode(
   return result;
 }
 
-async function censusGeocodeOne(
-  addr: SampleAddress,
+/**
+ * Census often rejects assessor quirks: leading-zero ordinals (05TH), dual lots
+ * (600 JACKSON/601 HARRISON), fractional house numbers (322-322.5), missing ST.
+ * Emit a few normalized candidates; never invent a different street name.
+ */
+export function streetCandidatesForCensus(street: string): string[] {
+  const raw = street.trim();
+  if (!raw) return [];
+  const out: string[] = [];
+  const push = (s: string) => {
+    const t = s.replace(/\s+/g, " ").trim();
+    if (t && !out.includes(t)) out.push(t);
+  };
+  // Prefer cleaned forms first so Census does not latch onto a bad raw match
+  // (e.g. "322-322.5 Western Ave" → "5 WESTERN AVE" in another city).
+  const ordinals = raw
+    .replace(/\b0+(\d+)(ST|ND|RD|TH)\b/gi, "$1$2")
+    .replace(/\bAV\b/gi, "AVE");
+  const firstParcel = (ordinals.includes("/") ? ordinals.split("/")[0]! : ordinals).trim();
+  const noLot = firstParcel.replace(/\bLOT\b.*$/i, "").trim();
+  const simpleHouse = noLot.replace(/^(\d+)-\d+(?:\.\d+)?\b/, "$1").trim();
+  push(simpleHouse);
+  push(noLot);
+  push(firstParcel);
+  push(ordinals);
+  push(raw);
+  if (raw.includes("/")) push(raw.split("/")[0]!.trim());
+  push(raw.replace(/\bLOT\b.*$/i, "").trim());
+  push(raw.replace(/^(\d+)-\d+(?:\.\d+)?\b/, "$1"));
+  // Append ST when the string ends in a bare ordinal/direction/number token.
+  for (const base of [...out]) {
+    if (/\b(ST|STREET|AVE|AVENUE|RD|ROAD|DR|DRIVE|BLVD|LN|WAY|PL|CT)\b/i.test(base)) continue;
+    if (/\b\d+(ST|ND|RD|TH)\b/i.test(base) || /\b[NSEW]\b/i.test(base) || /\b\d+\b/.test(base)) {
+      push(`${base} ST`);
+    }
+  }
+  return out;
+}
+
+/** Leading house number from an address string, if present. */
+export function leadingHouseNumber(street: string): string | null {
+  const m = street.trim().match(/^(\d+)/);
+  return m ? m[1]! : null;
+}
+
+/** Reject Census matches that snapped to a different house number. */
+export function censusMatchPlausible(queryStreet: string, matchedAddress?: string): boolean {
+  if (!matchedAddress) return true;
+  const want = leadingHouseNumber(queryStreet);
+  const got = leadingHouseNumber(matchedAddress);
+  if (want && got && want !== got) return false;
+  return true;
+}
+
+function cityCandidatesForCensus(addr: SampleAddress): string[] {
+  const postal = addr.postal_city.trim();
+  const out = [postal];
+  const mapped = POSTAL_TO_LEGAL[postal.toLowerCase()]?.city;
+  if (mapped && mapped !== postal) out.push(mapped);
+  const known = knownLegalCity(addr.state, postal);
+  if (known && !out.includes(known)) out.push(known);
+  return out;
+}
+
+async function censusQuery(
+  street: string,
+  city: string,
+  state: string,
+  zip: string,
+  addressId: string,
 ): Promise<GeocodeResult | null> {
   const params = new URLSearchParams({
-    street: addr.street_address,
-    city: addr.postal_city,
-    state: addr.state,
-    zip: addr.zip,
+    street,
+    city,
+    state,
+    zip,
     benchmark: "Public_AR_Current",
     vintage: "Current_Current",
     format: "json",
@@ -215,6 +283,7 @@ async function censusGeocodeOne(
     };
     const match = data.result?.addressMatches?.[0];
     if (!match) return null;
+    if (!censusMatchPlausible(street, match.matchedAddress)) return null;
 
     const placeGeo = match.geographies?.["Incorporated Places"]?.[0];
     const placeName = placeGeo?.NAME;
@@ -227,17 +296,17 @@ async function censusGeocodeOne(
     const countyGeo = match.geographies?.Counties?.[0];
     const stateGeo = match.geographies?.States?.[0];
     const county = countyGeo?.NAME || "";
-    const state = stateGeo?.STUSAB || addr.state;
+    const stateAbbr = stateGeo?.STUSAB || state;
     const state_fips = stateGeo?.GEOID || stateGeo?.STATE || null;
     const county_fips = countyGeo?.GEOID || null;
     const place_geoid = placeGeo?.GEOID || null;
     const longitude = match.coordinates?.x ?? null;
     const latitude = match.coordinates?.y ?? null;
     return withJurisdictionIds({
-      address_id: addr.address_id,
+      address_id: addressId,
       legal_city: place,
       county,
-      state,
+      state: stateAbbr,
       matched_address: match.matchedAddress,
       source: "census" as const,
       resolution: "census" as const,
@@ -252,6 +321,20 @@ async function censusGeocodeOne(
   } catch {
     return null;
   }
+}
+
+async function censusGeocodeOne(
+  addr: SampleAddress,
+): Promise<GeocodeResult | null> {
+  const streets = streetCandidatesForCensus(addr.street_address);
+  const cities = cityCandidatesForCensus(addr);
+  for (const street of streets) {
+    for (const city of cities) {
+      const hit = await censusQuery(street, city, addr.state, addr.zip, addr.address_id);
+      if (hit) return hit;
+    }
+  }
+  return null;
 }
 
 export async function geocodeAddresses(
