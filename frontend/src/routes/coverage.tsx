@@ -42,6 +42,7 @@ function CoveragePage() {
       </PageHeader>
       <p className="mt-2 text-sm text-muted-foreground">{t("coverage.legend")}</p>
 
+      {q.isError && <p role="alert" className="mt-8">{t("monitor.unavailable")} <button className="underline" onClick={() => void q.refetch()}>{t("lookup.retry")}</button></p>}
       {q.isLoading && <p className="mt-8 text-sm text-muted-foreground">{t("common.loading")}</p>}
 
       {rows.length > 0 && (

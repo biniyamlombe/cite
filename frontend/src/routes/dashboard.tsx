@@ -75,11 +75,13 @@ function Dashboard() {
     mutationFn: () => run(),
     onSuccess: (data) => {
       qc.invalidateQueries({ queryKey: ["schedules"] });
-      toast.success(
+      (data.failed ? toast.warning : toast.success)(
         t("dashboard.runSummary")
           .replace("{ran}", String(data.ran))
           .replace("{changed}", String(data.changed))
-          .replace("{delivered}", String(data.delivered)),
+          .replace("{delivered}", String(data.delivered))
+          .replace("{failed}", String(data.failed))
+          .replace("{baselinesReset}", String(data.baselinesReset)),
       );
     },
   });
@@ -228,7 +230,9 @@ function Dashboard() {
               {t("dashboard.runSummary")
                 .replace("{ran}", String(runNow.data.ran))
                 .replace("{changed}", String(runNow.data.changed))
-                .replace("{delivered}", String(runNow.data.delivered))}
+                .replace("{delivered}", String(runNow.data.delivered))
+                .replace("{failed}", String(runNow.data.failed))
+                .replace("{baselinesReset}", String(runNow.data.baselinesReset))}
             </p>
           )}
         </Card>

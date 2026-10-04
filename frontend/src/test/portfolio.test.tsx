@@ -1,0 +1,24 @@
+import { expect, it, vi, afterEach } from "vitest";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { LocaleProvider } from "@/lib/i18n";
+import { PortfolioPage } from "@/routes/portfolio";
+import { MOCK_ADDRESSES } from "@/mocks/cite";
+const api = vi.hoisted(() => ({ addresses: vi.fn(), lookup: vi.fn(), changes: vi.fn() }));
+vi.mock("@/lib/cite/client", async original => ({ ...await original<typeof import("@/lib/cite/client")>(), getCiteClient: () => api }));
+vi.mock("@/lib/cite/watchlist", () => ({ useWatchlist: () => ({ ids: ["A0500", "SA0001"], has: () => true, toggle: vi.fn() }) }));
+vi.mock("@/lib/auth", () => ({ useAuth: () => ({ user: null }) }));
+vi.mock("@/components/cite/groups", () => ({ GroupBar: () => null }));
+vi.mock("@/components/cite/layout", () => ({ PageHeader: ({ title }: { title: string }) => <h1>{title}</h1> }));
+vi.mock("@tanstack/react-router", async original => ({ ...await original<typeof import("@tanstack/react-router")>(), Link: ({ children }: { children: React.ReactNode }) => <span>{children}</span> }));
+afterEach(cleanup);
+it("includes watched properties outside the old first-100 limit and never calls failures unchanged", async () => {
+  api.addresses.mockResolvedValue(MOCK_ADDRESSES);
+  api.lookup.mockRejectedValue(new Error("offline"));
+  api.changes.mockResolvedValue({ tests: [], results: {} });
+  render(<QueryClientProvider client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}><LocaleProvider><PortfolioPage /></LocaleProvider></QueryClientProvider>);
+  await screen.findByText("A0500"); await screen.findByText("SA0001");
+  await waitFor(() => expect(screen.getAllByRole("alert").some(el => el.textContent?.includes("incomplete"))).toBe(true));
+  expect(api.addresses).toHaveBeenCalledWith("", 1000);
+  expect(screen.queryByText(/No result changes/)).toBeNull();
+});

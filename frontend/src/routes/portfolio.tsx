@@ -11,6 +11,7 @@ import { StatusBadge } from "@/components/cite/status";
 import type { LookupResponse } from "@/lib/cite/types";
 import { GroupBar } from "@/components/cite/groups";
 import { useAuth } from "@/lib/auth";
+import { changesBetween } from "@/lib/cite/lookup-diff";
 import { listChangeReviews } from "@/lib/cite/change-reviews";
 
 export const Route = createFileRoute("/portfolio")({
@@ -39,22 +40,7 @@ function counts(d?: LookupResponse) {
   };
 }
 
-/** Rules whose backend result differs between the two dates. */
-function changesBetween(a?: LookupResponse, b?: LookupResponse) {
-  if (!a || !b) return [];
-  const before = new Map(a.results.map((r) => [r.team_rule_id, r.result]));
-  return b.results
-    .filter((r) => before.get(r.team_rule_id) !== r.result)
-    .map((r) => ({
-      id: r.team_rule_id,
-      title: r.rule?.title ?? r.team_rule_id,
-      from: before.get(r.team_rule_id) ?? "none",
-      to: r.result,
-      date: r.rule?.effective_date,
-    }));
-}
-
-function PortfolioPage() {
+export function PortfolioPage() {
   const t = useT();
   const [asOf, setAsOf] = useState(DEFAULT_AS_OF);
   const [watchedOnly, setWatchedOnly] = useState(false);
@@ -65,7 +51,7 @@ function PortfolioPage() {
   const { user } = useAuth();
   const changesFeed = useQuery({ queryKey: ["changes"], queryFn: () => getCiteClient().changes() });
   const reviews = useQuery({ queryKey: ["change-reviews", user?.id], queryFn: listChangeReviews, enabled: !!user });
-  const addrs = useQuery({ queryKey: ["addresses", ""], queryFn: () => getCiteClient().addresses("", 100) });
+  const addrs = useQuery({ queryKey: ["addresses", "", 1000], queryFn: () => getCiteClient().addresses("", 1000) });
   const [group, setGroup] = useState<string[] | null>(null);
 
   const preferWatch = watch.ids.length > 0;
@@ -107,6 +93,9 @@ function PortfolioPage() {
       queryFn: () => getCiteClient().lookup(a.address_id, horizon),
     })),
   });
+
+  const checksPending = now.some(q => q.isPending) || later.some(q => q.isPending);
+  const checksFailed = addrs.isError || now.some(q => q.isError) || later.some(q => q.isError);
 
   const alerts = visible.flatMap((a, i) =>
     watch.has(a.address_id)
@@ -158,8 +147,9 @@ function PortfolioPage() {
       <section className="surface mb-8 p-5 sm:p-6" aria-label={t("exposure.heading")}>
         <div className="flex flex-wrap items-start justify-between gap-3 border-b pb-4"><div><h2 className="font-serif text-xl text-ink">{t("exposure.heading")}</h2><p className="mt-1 text-sm text-muted-foreground">{t("exposure.context")}</p></div><Link to="/inbox" className="text-sm font-medium text-primary hover:underline">{t("exposure.openInbox")} →</Link></div>
         {changesFeed.isError && <p role="alert" className="mt-4 text-sm text-destructive">{t("exposure.error")} <button type="button" className="underline" onClick={() => changesFeed.refetch()}>{t("lookup.retry")}</button></p>}
+        {addrs.isError && <p role="alert" className="mt-4">{t("monitor.unavailable")} <button className="underline" onClick={() => void addrs.refetch()}>{t("lookup.retry")}</button></p>}
         {(addrs.isPending || changesFeed.isPending) && <p className="mt-4 text-sm text-muted-foreground" aria-busy="true">{t("common.loading")}</p>}
-        {!addrs.isPending && !changesFeed.isPending && !changesFeed.isError && <div className="mt-5 grid gap-7 md:grid-cols-[160px_1fr_1fr]">
+        {!addrs.isPending && !changesFeed.isPending && !changesFeed.isError && !addrs.isError && <div className="mt-5 grid gap-7 md:grid-cols-[160px_1fr_1fr]">
           <div><div className="font-serif text-4xl text-ink">{exposure.length}</div><p className="mt-1 text-xs text-muted-foreground">{t("exposure.matches")}</p><div className="mt-4 font-mono text-xl text-primary">{user ? unresolved : "—"}</div><p className="text-xs text-muted-foreground">{user ? t("exposure.unresolved") : t("exposure.signin")}</p></div>
           <div><h3 className="eyebrow mb-3">{t("exposure.byPlace")}</h3>{byPlace.length ? byPlace.map((x) => <div key={x.place} className="flex justify-between gap-3 border-t py-2 text-sm"><span>{x.place}</span><span className="font-mono text-primary">{x.count}</span></div>) : <p className="text-sm text-muted-foreground">{t("exposure.empty")}</p>}</div>
           <div><h3 className="eyebrow mb-3">{t("exposure.byChange")}</h3>{byChange.map((x) => <div key={x.test.test_id} className="flex justify-between gap-3 border-t py-2 text-sm"><span className="min-w-0 truncate" title={x.test.title}>{x.test.title}</span><span className="font-mono text-primary">{x.count}</span></div>)}</div>
@@ -170,7 +160,9 @@ function PortfolioPage() {
         <h3 className="eyebrow mb-3 flex items-center gap-2">
           <Bell className="size-3.5" /> {t("portfolio.alerts")}
         </h3>
-        {watch.ids.length === 0 ? (
+        {checksFailed ? (
+          <p role="alert">{t("monitor.unavailable")} <button className="underline" onClick={() => { void addrs.refetch(); [...now, ...later].filter(q => q.isError).forEach(q => void q.refetch()); }}>{t("lookup.retry")}</button></p>
+        ) : checksPending ? <p role="status">{t("common.loading")}</p> : watch.ids.length === 0 ? (
           <p className="text-sm text-muted-foreground">{t("portfolio.alerts.emptyWatch")}</p>
         ) : alerts.length === 0 ? (
           <p className="text-sm text-muted-foreground">
@@ -190,6 +182,7 @@ function PortfolioPage() {
                 <span className="text-ink">{al.title}</span>
                 <StatusBadge value={al.from} /> <span className="text-muted-foreground">→</span>{" "}
                 <StatusBadge value={al.to} />
+                {al.detailsChanged && <span>{t("monitor.detailsChanged")}</span>}
                 {al.date && (
                   <span className="font-mono text-xs text-muted-foreground">
                     {t("portfolio.effective")} {al.date}
@@ -222,7 +215,7 @@ function PortfolioPage() {
                 </td>
               </tr>
             )}
-            {!addrs.isPending && list.length === 0 && (
+            {!addrs.isPending && !addrs.isError && list.length === 0 && (
               <tr>
                 <td colSpan={7} className="px-4 py-10 text-center text-muted-foreground">
                   {watchedOnly ? t("portfolio.empty.watched") : t("portfolio.empty")}
@@ -233,6 +226,7 @@ function PortfolioPage() {
               const c = counts(now[i]?.data);
               const up = changesBetween(now[i]?.data, later[i]?.data).length;
               const loading = now[i]?.isPending;
+              const unavailable = now[i]?.isError;
               const w = watch.has(a.address_id);
               return (
                 <tr key={a.address_id} className={`hover:bg-secondary/40 ${w ? "bg-applies-soft/20" : ""}`}>
@@ -245,14 +239,14 @@ function PortfolioPage() {
                   <td className="px-4 py-3 text-muted-foreground">
                     {a.legal_city ?? a.postal_city}, {a.state}
                   </td>
-                  <td className="px-4 py-3 text-right font-mono">{loading ? "…" : c.applies}</td>
+                  <td className="px-4 py-3 text-right font-mono">{loading ? "…" : unavailable ? "—" : c.applies}</td>
                   <td className={`px-4 py-3 text-right font-mono ${c.unknown ? "text-unknown" : ""}`}>
-                    {loading ? "…" : c.unknown}
+                    {loading ? "…" : unavailable ? "—" : c.unknown}
                   </td>
                   <td className={`px-4 py-3 text-right font-mono ${c.conflict ? "text-destructive" : ""}`}>
-                    {loading ? "…" : c.conflict}
+                    {loading ? "…" : unavailable ? "—" : c.conflict}
                   </td>
-                  <td className="px-4 py-3 text-right font-mono">{later[i]?.isPending ? "…" : up}</td>
+                  <td className="px-4 py-3 text-right font-mono">{loading || later[i]?.isPending ? "…" : unavailable || later[i]?.isError ? "—" : up}</td>
                   <td className="px-4 py-3 text-right">
                     <button
                       onClick={() => watch.toggle(a.address_id)}
