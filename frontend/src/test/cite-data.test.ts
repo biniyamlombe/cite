@@ -10,14 +10,15 @@ describe("corpus-backed offline demo", () => {
   it("preserves the judge addresses and honest determinations", () => {
     const berkeley = mockLookup("A0005", "2026-10-01")!;
     expect(berkeley.address.postal_city).toBe("Berkeley");
-    expect(berkeley.results.some(r => r.result === "unknown")).toBe(true);
+    expect(berkeley.results.some((r) => r.result === "unknown")).toBe(true);
     expect(mockLookup("A0065", "2026-10-01")!.jurisdiction.city).toBe("Boston");
     const hoboken = mockLookup("A0002", "2026-10-01")!;
     expect(hoboken.jurisdiction.city).toBe("Hoboken");
-    expect(hoboken.results.find(r => r.rule?.alias_id === "HOB-ALG-01")?.result).toBe("unknown");
+    expect(hoboken.results.find((r) => r.rule?.alias_id === "HOB-ALG-01")?.result).toBe("unknown");
     expect(mockLookup("SA0001", "2026-10-01")!.jurisdiction.city).toBe("Santa Ana");
     expect(mockLookup("A0500", "2026-10-01")).not.toBeNull();
-    for (const id of ["A0005", "A0065", "A0002", "SA0001"]) expect(LookupResponseSchema.safeParse(mockLookup(id, "2026-10-01")).success).toBe(true);
+    for (const id of ["A0005", "A0065", "A0002", "SA0001"])
+      expect(LookupResponseSchema.safeParse(mockLookup(id, "2026-10-01")).success).toBe(true);
     expect(ChangesResponseSchema.safeParse(MOCK_CHANGES).success).toBe(true);
   });
   it("uses exact quotes and stored version records", () => {
@@ -26,7 +27,7 @@ describe("corpus-backed offline demo", () => {
       expect(source.includes(rule.quoted_span), rule.team_rule_id).toBe(true);
     }
     const history = JSON.parse(readFileSync("../outputs/rule_versions.json", "utf8"));
-    const hob = MOCK_RULES.find(r => r.alias_id === "HOB-ALG-01")!;
+    const hob = MOCK_RULES.find((r) => r.alias_id === "HOB-ALG-01")!;
     expect(mockRuleVersions(hob.team_rule_id)).toEqual(history.by_key["alias:HOB-ALG-01"]);
   });
   it("rejects unrecorded and invalid dates", () => {
@@ -46,7 +47,9 @@ describe("result comparison", () => {
   });
   it("does not invent changes when team rule IDs are renumbered", () => {
     const after = structuredClone(before);
-    after.results.forEach((r, i) => { r.team_rule_id = `renumbered-${i}`; });
+    after.results.forEach((r, i) => {
+      r.team_rule_id = `renumbered-${i}`;
+    });
     expect(summarizeLookup(after)).toEqual(summarizeLookup(before));
     expect(changesBetween(before, after)).toEqual([]);
   });
@@ -56,5 +59,9 @@ it("rejects malformed API responses and does not disguise version failure as emp
   const client = new HttpCiteApiClient("https://example.invalid");
   await expect(client.lookup("A0005", "2026-10-01")).rejects.toThrow();
   vi.stubGlobal("fetch", vi.fn().mockResolvedValue(new Response("failed", { status: 503 })));
-  await expect(client.ruleVersions("r-0001")).rejects.toThrow(/503/);
+  await expect(client.ruleVersions("r-0001")).rejects.toMatchObject({
+    name: "CiteApiError",
+    status: 503,
+    retryable: true,
+  });
 });
