@@ -22,6 +22,14 @@ export interface RuleView {
   rule: Rule;
   result?: LookupResultValue | undefined;
   explanation?: string | undefined;
+  plainLanguage?:
+    | {
+        text: string;
+        translation_status?: string;
+        source_text_en?: string;
+        requires_human_review?: boolean;
+      }
+    | undefined;
   conflict?: boolean | undefined;
   needsHumanReview?: boolean | undefined;
   factsMissing?: string[] | undefined;
@@ -39,11 +47,19 @@ export function RuleCard({
 }) {
   const t = useT();
   const tx = useTx();
-  const { rule, result, explanation, conflict, needsHumanReview, factsMissing } = view;
+  const { locale } = useLocale();
+  const { rule, result, explanation, plainLanguage, conflict, needsHumanReview, factsMissing } =
+    view;
   const prominent = result === "applies";
   const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
   const review = needsHumanReview || conflict;
+  const cardExplanation =
+    locale === "es-US" &&
+    plainLanguage?.translation_status === "machine_generated" &&
+    plainLanguage.text
+      ? plainLanguage.text
+      : explanation;
   return (
     <button
       onClick={onOpen}
@@ -118,13 +134,13 @@ export function RuleCard({
           {factsMissing.join(", ")}
         </div>
       ) : null}
-      {result === "unknown" && explanation ? (
+      {result === "unknown" && cardExplanation ? (
         <div className="mt-3">
-          <UnknownFactWarning explanation={explanation} compact />
+          <UnknownFactWarning explanation={cardExplanation} compact />
         </div>
-      ) : explanation ? (
+      ) : cardExplanation ? (
         (() => {
-          const { body, openQuestion } = splitOpenQuestion(explanation);
+          const { body, openQuestion } = splitOpenQuestion(cardExplanation);
           return (
             <div className="mt-3 space-y-2">
               {body ? (
@@ -151,14 +167,31 @@ export function RuleCard({
 export function WhyThisApplies({
   result,
   explanation,
+  plainLanguage,
 }: {
   result?: LookupResultValue | undefined;
   explanation?: string | undefined;
+  plainLanguage?:
+    | {
+        text: string;
+        translation_status?: string;
+        source_text_en?: string;
+        requires_human_review?: boolean;
+      }
+    | undefined;
 }) {
   const t = useT();
-  if (!explanation) return null;
+  const { locale } = useLocale();
+  if (!explanation && !plainLanguage?.text) return null;
   const unknown = result === "unknown";
-  const { body, openQuestion } = splitOpenQuestion(explanation);
+  const useEs =
+    locale === "es-US" &&
+    plainLanguage?.text &&
+    plainLanguage.translation_status === "machine_generated";
+  const display = useEs ? plainLanguage!.text : explanation ?? plainLanguage?.text ?? "";
+  const { body, openQuestion } = splitOpenQuestion(display);
+  const unavailable =
+    locale === "es-US" && plainLanguage?.translation_status === "not_available";
   return (
     <div className="space-y-2">
       {body ? (
@@ -170,6 +203,22 @@ export function WhyThisApplies({
         >
           <div className="eyebrow">{unknown ? t("rule.unable") : t("rule.whyApplies")}</div>
           <p className="mt-2 text-[15px] leading-relaxed text-ink">{body}</p>
+          {useEs && (
+            <p className="mt-2 text-xs text-muted-foreground">{t("label.translation.machine")}</p>
+          )}
+          {unavailable && (
+            <p className="mt-2 text-xs text-muted-foreground">{t("label.translation.unavailable")}</p>
+          )}
+          {useEs && plainLanguage?.source_text_en && (
+            <details className="mt-2 text-xs text-muted-foreground">
+              <summary className="cursor-pointer hover:text-ink">
+                {t("label.sourceQuote.original")}
+              </summary>
+              <p className="mt-1 font-serif text-[13px] leading-relaxed text-ink">
+                {plainLanguage.source_text_en}
+              </p>
+            </details>
+          )}
         </section>
       ) : null}
       {openQuestion ? <OpenQuestionWarning note={openQuestion} /> : null}
@@ -256,7 +305,12 @@ export function CitationPanel({
         ) : null}
         <figure className="quote-enter relative rounded-sm bg-quote px-4 py-3.5">
           <Quote className="mb-2 size-3.5 text-primary" />
+          <figcaption className="mb-2 text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+            {t("label.sourceQuote.original")}
+          </figcaption>
           <blockquote
+            lang="en"
+            cite={rule.source_url}
             className={cn(
               "font-serif text-[16px] leading-relaxed text-ink",
               !open && long && "line-clamp-2",
@@ -264,6 +318,9 @@ export function CitationPanel({
           >
             “{rule.quoted_span}”
           </blockquote>
+          <p className="mt-2 text-xs leading-snug text-muted-foreground">
+            {t("label.sourceQuote.authority")}
+          </p>
         </figure>
         {long && (
           <button
@@ -351,7 +408,7 @@ export function RuleDetailDrawer({
     return () => window.removeEventListener("keydown", k);
   }, [onClose]);
   if (!view) return null;
-  const { rule, result, explanation, conflict } = view;
+  const { rule, result, explanation, plainLanguage, conflict } = view;
   const cov = coverageText(rule.coverage_conditions);
   const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
@@ -360,6 +417,7 @@ export function RuleDetailDrawer({
     const url = new URL(window.location.origin + "/");
     url.searchParams.set("address", addressId);
     if (asOf) url.searchParams.set("as_of", asOf);
+    url.searchParams.set("lang", locale);
     url.searchParams.set("rule", view.id);
     await navigator.clipboard.writeText(url.toString());
     setCopiedEvidence(true);
@@ -414,7 +472,11 @@ export function RuleDetailDrawer({
           </button>
         </header>
         <div className="space-y-6 px-6 py-6">
-          <WhyThisApplies result={result} explanation={explanation} />
+          <WhyThisApplies
+            result={result}
+            explanation={explanation}
+            plainLanguage={plainLanguage}
+          />
           {(conflict || rule.conflict_note) && !linkOnly && (
             <ConflictWarning note={rule.conflict_note} />
           )}

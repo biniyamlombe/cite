@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { z } from "zod";
 import { AsOfDateSchema } from "@rhl/shared";
-import { useT, useTx } from "@/lib/i18n";
+import { useLocale, useT, useTx } from "@/lib/i18n";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAuth } from "@/lib/auth";
 import { listAlertSubs, logLookup, saveMemo, setEmailAlert } from "@/lib/cite/team";
@@ -67,6 +67,7 @@ export const Route = createFileRoute("/")({
     address: z.string().optional(),
     as_of: AsOfDateSchema.optional(),
     rule: z.string().optional(),
+    lang: z.enum(["en-US", "es-US", "en", "es"]).optional(),
   }),
   component: LookupPage,
 });
@@ -435,22 +436,25 @@ function LookupLoading() {
 
 function LookupPage() {
   const t = useT();
+  const { locale } = useLocale();
   const search = Route.useSearch();
   const navigate = useNavigate({ from: "/" });
   const addressId = search.address ?? null;
   const asOf = search.as_of ?? DEFAULT_AS_OF;
   const ruleId = search.rule ?? null;
   const setAddressId = (id: string) =>
-    navigate({ search: (p) => ({ ...p, address: id, rule: undefined }) });
-  const setAsOf = (v: string) => navigate({ search: (p) => ({ ...p, as_of: v }), replace: true });
+    navigate({ search: (p) => ({ ...p, address: id, rule: undefined, lang: locale }) });
+  const setAsOf = (v: string) =>
+    navigate({ search: (p) => ({ ...p, as_of: v, lang: locale }), replace: true });
   const [openRule, setOpenRule] = useState<RuleView | null>(null);
   const [factOverrides, setFactOverrides] = useState<FactOverrides>({});
   const [includeNonApplicable, setIncludeNonApplicable] = useState(false);
   const lookup = useQuery({
-    queryKey: ["lookup", addressId, asOf, factOverrides, includeNonApplicable],
+    queryKey: ["lookup", addressId, asOf, factOverrides, includeNonApplicable, locale],
     queryFn: ({ signal }) => {
       const opts: import("@/lib/cite/client").LookupOptions = {
         includeNonApplicable,
+        locale,
         signal,
       };
       if (factOverrides.yearBuilt) opts.yearBuilt = factOverrides.yearBuilt;
@@ -479,6 +483,7 @@ function LookupPage() {
       rule: r.rule,
       result: r.result,
       explanation: r.explanation,
+      plainLanguage: r.plain_language_summary,
       conflict: r.conflict_flag,
       needsHumanReview: r.needs_human_review,
       factsMissing: r.facts_missing,
@@ -743,6 +748,7 @@ function LookupResults({
                       rule: r.rule!,
                       result: r.result,
                       explanation: r.explanation,
+                      plainLanguage: r.plain_language_summary,
                       conflict: r.conflict_flag,
                       needsHumanReview: r.needs_human_review,
                       factsMissing: r.facts_missing,
