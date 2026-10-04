@@ -4,7 +4,6 @@ import { AlertCircle, Loader2 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useT } from "@/lib/i18n";
 import { getCiteClient } from "@/lib/cite/client";
-import { PageHeader } from "@/components/cite/layout";
 import { ChangeImpactCard } from "@/components/cite/changes";
 import type { TestId } from "@/lib/cite/types";
 
@@ -85,8 +84,8 @@ function ScenarioStrip({
 }) {
   const t = useT();
   return (
-    <nav aria-label={t("changes.jump")} className="fade-up mb-10">
-      <div className="grid gap-2 sm:grid-cols-5">
+    <nav aria-label={t("changes.jump")} className="fade-up mb-12">
+      <div className="grid gap-4 sm:grid-cols-5">
         {ORDER.map((id) => {
           const present = tests.some((x) => x.test_id === id);
           const n = results[id]?.affected_address_ids.length ?? 0;
@@ -97,27 +96,49 @@ function ScenarioStrip({
               key={id}
               href={`#${id}`}
               aria-current={active ? "true" : undefined}
-              className={`rounded-md border px-3 py-3 transition-colors ${
-                present ? "bg-card/90" : "opacity-45"
+              className={`group relative overflow-hidden rounded-xl border bg-card p-5 text-left transition-all duration-300 ${
+                present ? "" : "opacity-60 hover:opacity-100"
               } ${
                 active
-                  ? "border-primary/40 bg-accent/40"
-                  : "border-border/80 hover:border-primary/30 hover:bg-accent/30"
+                  ? "border-primary shadow-sm ring-4 ring-primary/10"
+                  : "border-border/80 hover:border-ink/25 hover:shadow-md"
               }`}
             >
-              <div className="flex items-baseline justify-between gap-2">
-                <span translate="no" className="font-mono text-xs font-semibold text-primary">
+              <div className="mb-6 flex items-start justify-between">
+                <span
+                  translate="no"
+                  className={`rounded px-2 py-0.5 font-mono text-[10px] font-bold transition-colors ${
+                    active
+                      ? "bg-accent text-primary"
+                      : "bg-secondary text-muted-foreground group-hover:bg-secondary/70"
+                  }`}
+                >
                   {id}
                 </span>
-                <span className="font-mono text-lg tabular-nums text-ink">{present ? n : "—"}</span>
+                <span
+                  className={`font-serif text-3xl leading-none transition-colors ${
+                    active ? "text-ink" : "text-muted-foreground/70 group-hover:text-ink"
+                  }`}
+                >
+                  {present ? n : "—"}
+                </span>
               </div>
-              <div className="mt-1.5 text-[11px] leading-snug text-muted-foreground">
+              <p
+                className={`text-xs font-medium leading-relaxed transition-colors ${
+                  active ? "text-ink" : "text-muted-foreground group-hover:text-ink"
+                }`}
+              >
                 {t(PUNCH_KEYS[id])}
-              </div>
+              </p>
               {conflicts > 0 && (
-                <div className="mt-2 font-mono text-[10px] uppercase tracking-wider text-conflict">
-                  {conflicts} {t("status.conflict").toLowerCase()}
-                </div>
+                <span className="mt-2 inline-block text-[9px] font-bold uppercase tracking-tighter text-conflict">
+                  {conflicts}
+                  {" · "}
+                  {t("status.conflict")}
+                </span>
+              )}
+              {active && (
+                <div className="absolute inset-x-0 bottom-0 h-1 bg-primary" aria-hidden="true" />
               )}
             </a>
           );
@@ -163,9 +184,35 @@ function ChangesPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
-      <PageHeader eyebrow={t("changes.eyebrow")} title={t("changes.title")}>
-        {t("changes.lede")}
-      </PageHeader>
+      <header className="fade-up mb-12 space-y-4">
+        <div className="flex items-center gap-2">
+          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
+            {t("changes.eyebrow")}
+          </span>
+          <div className="h-px w-8 bg-primary/20" aria-hidden="true" />
+        </div>
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="space-y-2">
+            <h1 className="font-serif text-5xl italic leading-tight tracking-tight text-ink sm:text-6xl">
+              {t("changes.title")}
+            </h1>
+            <p className="max-w-md text-lg text-muted-foreground">{t("changes.lede")}</p>
+          </div>
+          {summary && (
+            <div className="flex gap-6 border-b border-border/70 pb-2 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+              <span>
+                <span className="text-ink">{summary.present}</span> {t("changes.statScenarios")}
+              </span>
+              <span>
+                <span className="text-ink">{summary.affected}</span> {t("changes.statAffected")}
+              </span>
+              <span>
+                <span className="text-primary">{summary.conflicts}</span> {t("changes.statReview")}
+              </span>
+            </div>
+          )}
+        </div>
+      </header>
 
       {changes.isPending && <ChangesLoading />}
 
@@ -188,13 +235,6 @@ function ChangesPage() {
 
       {changes.data && summary && (
         <>
-          <p className="fade-up -mt-2 mb-6 font-mono text-xs tabular-nums text-muted-foreground">
-            {t("changes.summary")
-              .replace("{scenarios}", String(summary.present))
-              .replace("{affected}", String(summary.affected))
-              .replace("{conflicts}", String(summary.conflicts))}
-          </p>
-
           <ScenarioStrip
             tests={changes.data.tests}
             results={changes.data.results}
