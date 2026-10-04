@@ -353,6 +353,9 @@ const STRINGS = {
       "This city’s local ordinance pages are link-only or check-terms in the pack (no capturable body). Cite shows statewide rules only and will not invent municipal code.",
     "lookup.honesty.userFacts":
       "Some results use building facts you provided for this session. They are not verified public records.",
+    "notfound.title": "This page is not in Cite",
+    "notfound.body": "Return to property lookup to search an address in the demo set.",
+    "notfound.action": "Open lookup",
     "lookup.none": "No matching properties in the supported demo set.",
     "lookup.noneHint":
       "Try a sample ID (A0005) or a street from a covered city. Arbitrary addresses outside the pack are out of scope for this prototype.",
@@ -594,6 +597,10 @@ const STRINGS = {
     "ask.address": "Address",
     "ask.question": "Question",
     "ask.suggestions": "Try a question",
+    "ask.q.rent": "What is the rent increase limit?",
+    "ask.q.evict": "Is just-cause eviction required?",
+    "ask.q.deposit": "What are the security deposit rules?",
+    "ask.reading": "Reading retrieved rules for this address.",
     "ask.submit": "Ask",
     "ask.letter": "Draft letter",
     "ask.letterTitle": "Landlord letter",
@@ -1179,6 +1186,10 @@ const STRINGS = {
       "Las ordenanzas locales de esta ciudad son solo-enlace o check-terms en el pack (sin cuerpo capturable). Cite muestra solo normas estatales y no inventa código municipal.",
     "lookup.honesty.userFacts":
       "Algunos resultados usan hechos del edificio que usted proporcionó en esta sesión. No son registros públicos verificados.",
+    "notfound.title": "Esta página no está en Cite",
+    "notfound.body":
+      "Vuelva a la búsqueda para consultar una dirección del conjunto de demostración.",
+    "notfound.action": "Abrir búsqueda",
     "lookup.none": "No hay propiedades en el conjunto demo compatible.",
     "lookup.noneHint":
       "Pruebe un ID de muestra (A0005) o una calle de una ciudad cubierta. Direcciones fuera del pack están fuera de alcance.",
@@ -1447,6 +1458,10 @@ const STRINGS = {
     "ask.address": "Dirección",
     "ask.question": "Pregunta",
     "ask.suggestions": "Pruebe una pregunta",
+    "ask.q.rent": "¿Cuál es el límite de aumento de renta?",
+    "ask.q.evict": "¿Se exige desalojo con justa causa?",
+    "ask.q.deposit": "¿Cuáles son las reglas del depósito de seguridad?",
+    "ask.reading": "Leyendo las normas recuperadas para esta dirección.",
     "ask.submit": "Preguntar",
     "ask.letter": "Redactar carta",
     "ask.letterTitle": "Carta al propietario",
