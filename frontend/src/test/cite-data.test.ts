@@ -14,7 +14,7 @@ describe("corpus-backed offline demo", () => {
     expect(mockLookup("A0065", "2026-10-01")!.jurisdiction.city).toBe("Boston");
     const hoboken = mockLookup("A0002", "2026-10-01")!;
     expect(hoboken.jurisdiction.city).toBe("Hoboken");
-    expect(hoboken.results.find((r) => r.rule?.alias_id === "HOB-ALG-01")?.result).toBe("unknown");
+    expect(hoboken.results.find((r) => r.rule?.alias_id === "HOB-ALG-01")?.result).toBe("applies");
     expect(mockLookup("SA0001", "2026-10-01")!.jurisdiction.city).toBe("Santa Ana");
     expect(mockLookup("A0500", "2026-10-01")).not.toBeNull();
     for (const id of ["A0005", "A0065", "A0002", "SA0001"])

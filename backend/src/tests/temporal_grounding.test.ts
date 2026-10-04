@@ -82,23 +82,24 @@ test("no NJ algorithmic rule applies before the FAIR Act effective date", () => 
   assert.equal(after.legal_status_at_as_of_date, "in_force", "status must follow the as-of date");
 });
 
-test("link-only municipal bans use city secondary reports, not FAIR quotes", () => {
-  const expect: Record<string, string> = {
-    "HOB-ALG-01": "HOB-NEWS-01",
-    "JC-ALG-01": "JC-NEWS-01",
+test("municipal algorithmic bans use adopted ordinance PDFs, not FAIR quotes", () => {
+  const expect: Record<string, { doc: string; date: string }> = {
+    "HOB-ALG-01": { doc: "HOB-ORD-01", date: "2025-07-09" },
+    "JC-ALG-01": { doc: "JC-ORD-01", date: "2025-05-21" },
   };
-  for (const [alias, docId] of Object.entries(expect)) {
+  for (const [alias, exp] of Object.entries(expect)) {
     const r = rules.find((x) => x.alias_id === alias)!;
-    assert.equal(r.effective_date, null);
-    assert.match(r.status_basis ?? "", /^unverified/);
-    assert.equal(r.extraction_method, "secondary_report");
-    assert.equal(r.source_doc_id, docId);
+    assert.equal(r.extraction_method, "municipal_ordinance");
+    assert.equal(r.source_doc_id, exp.doc);
+    assert.equal(r.effective_date, exp.date);
     assert.doesNotMatch(r.quoted_span, /municipality shall be prohibited/i);
-    assert.match(r.quoted_span, /algorithm|RealPage/i);
+    assert.match(r.quoted_span, /algorithm|unlawful|prohibited/i);
   }
   const hob = lookup("A0002", "2026-10-01").find((e) => rules.find((x) => x.team_rule_id === e.team_rule_id)?.alias_id === "HOB-ALG-01")!;
-  assert.equal(hob.result, "unknown");
-  assert.equal(hob.legal_status_at_as_of_date, undefined);
+  assert.equal(hob.result, "applies");
+  assert.equal(hob.legal_status_at_as_of_date, "in_force");
+  const newark = lookup("A0003", "2026-10-01").find((e) => rules.find((x) => x.team_rule_id === e.team_rule_id)?.alias_id === "HOB-ALG-01");
+  assert.equal(newark, undefined, "Hoboken ordinance must not attach to Newark");
 });
 
 test("T5 treats the c.40P prohibition as no rent cap", async () => {

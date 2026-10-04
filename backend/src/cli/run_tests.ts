@@ -382,32 +382,18 @@ async function testRulesOutput() {
   for (const id of ["HOB-ALG-01", "JC-ALG-01"]) {
     const hit = rules.find((r) => r.alias_id === id);
     if (!hit) continue;
-    const note = (hit.conflict_note || "").toLowerCase();
-    const req = (hit.requirement || "").toLowerCase();
-    const expectDoc = id === "HOB-ALG-01" ? "HOB-NEWS-01" : "JC-NEWS-01";
-    const hasHonesty =
-      hit.conflict_flag &&
-      (hit.confidence ?? 1) < 0.8 &&
-      note.includes("link-only") &&
-      (note.includes("http") || note.includes("primary") || note.includes("secondary")) &&
-      req.includes("not") &&
-      req.includes("municipal");
-    if (hasHonesty) {
-      pass(`${id} honest link-only city ban (secondary report + primary URLs + municipal caveat)`);
-    } else {
-      fail(
-        `${id} scaffold honesty incomplete: conf=${hit.confidence} flag=${hit.conflict_flag} note=${hit.conflict_note?.slice(0, 80)}`,
-      );
-    }
+    const expectDoc = id === "HOB-ALG-01" ? "HOB-ORD-01" : "JC-ORD-01";
     if (
-      hit.extraction_method === "secondary_report" &&
+      hit.extraction_method === "municipal_ordinance" &&
       hit.source_doc_id === expectDoc &&
-      /algorithm|RealPage/i.test(hit.quoted_span)
+      hit.conflict_flag &&
+      (hit.confidence ?? 0) >= 0.8 &&
+      /algorithm|unlawful|prohibited/i.test(hit.quoted_span)
     ) {
-      pass(`${id} quoted evidence from city secondary report ${expectDoc}`);
+      pass(`${id} municipal ordinance extract from ${expectDoc}`);
     } else {
       fail(
-        `${id} expected secondary_report/${expectDoc}, got ${hit.extraction_method}/${hit.source_doc_id}`,
+        `${id} expected municipal_ordinance/${expectDoc}, got ${hit.extraction_method}/${hit.source_doc_id} conf=${hit.confidence}`,
       );
     }
   }

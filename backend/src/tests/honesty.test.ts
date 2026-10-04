@@ -101,12 +101,13 @@ test("Santa Ana rolling exemption ages out, boundary stays unknown", () => {
 test("unresolved local coverage cannot establish supersession", () => {
   for (const id of ["A0107", "A0432"]) assert.equal(lookup(id, "2026-10-01").find(r => r.team_rule_id === "r-0014")?.result, "unknown");
 });
-test("municipal scenarios stay unknown with conflict context", () => {
+test("municipal ordinance bans apply locally with FAIR conflict flagged", () => {
   const id = rules.find(r => r.alias_id === "HOB-ALG-01")!.team_rule_id;
   const result = lookup("A0002", "2026-10-01").find(r => r.team_rule_id === id)!;
-  assert.equal(result.result, "unknown"); assert.equal(result.conflict_flag, true);
+  assert.equal(result.result, "applies");
+  assert.equal(result.conflict_flag, true);
   assert.equal(result.needs_human_review, true);
-  assert.match(result.explanation, /uncaptured/);
+  assert.equal(lookup("A0003", "2026-10-01").find(r => r.team_rule_id === id), undefined);
 });
 test("all-only executable predicates are enforced and missing facts are unknown", () => {
   const address = addresses.find(a => a.address_id === "A0005")!;
@@ -135,7 +136,7 @@ test("Hono demo routes return valid results, reject impossible dates, and expose
     assert.equal(response.status, 200);
     const result = LookupResponseSchema.parse(await response.json());
     assert.ok(result.results.length > 0);
-    if (id === "A0002") assert.equal(result.results.find(r => r.rule?.alias_id === "HOB-ALG-01")?.rule?.evidence_status, "scenario_only");
+    if (id === "A0002") assert.equal(result.results.find(r => r.rule?.alias_id === "HOB-ALG-01")?.rule?.evidence_status, "captured");
   }
   assert.equal((await app.request("/lookup/A0003?as_of=2026-99-99")).status, 400);
   const addresses = await (await app.request("/addresses?limit=1000")).json();
