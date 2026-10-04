@@ -2,6 +2,7 @@ import {
   coveragePlainText,
   AsOfDateSchema,
   DEFAULT_AS_OF,
+  toCanonicalApplicability,
   type LookupEntry,
   type RuleRecord,
 } from "@rhl/shared";
@@ -19,6 +20,65 @@ import {
 } from "./executable.js";
 import { withOpenQuestionNote } from "./open_questions.js";
 import { compileCoverageConditions } from "./compile_coverage.js";
+
+function buildingFacts(addr: SampleAddress, geo: GeocodeResult): {
+  used: string[];
+  missing: string[];
+} {
+  const used: string[] = [`state=${geo.state}`, `legal_city=${geo.legal_city}`];
+  const missing: string[] = [];
+  if (geo.county) used.push(`county=${geo.county}`);
+  const year = parseOptionalInt(addr.year_built);
+  const units = parseOptionalInt(addr.units);
+  if (year != null) used.push(`year_built=${year}`);
+  else missing.push("year_built");
+  if (units != null) used.push(`units=${units}`);
+  else missing.push("units");
+  missing.push("owner_type"); // never in pack sample
+  return { used, missing };
+}
+
+function enrichEntry(
+  entry: LookupEntry,
+  rule: RuleRecord,
+  addr: SampleAddress,
+  geo: GeocodeResult,
+): LookupEntry {
+  const facts = buildingFacts(addr, geo);
+  const conflict = Boolean(entry.conflict_flag);
+  // Human review: legal conflicts / scenario-only municipal bans — not every missing fact.
+  const needsReview =
+    conflict ||
+    rule.requires_human_review === true ||
+    rule.alias_id === "HOB-ALG-01" ||
+    rule.alias_id === "JC-ALG-01";
+  const covText = coveragePlainText(rule.coverage_conditions);
+  const coverage_conditions_evaluated = [
+    `jurisdiction_match=${rule.jurisdiction}`,
+    `level=${rule.level}`,
+    ...(covText ? [`coverage=${covText.slice(0, 160)}`] : []),
+  ];
+  const exemptions_evaluated = rule.exemptions
+    ? [`exemptions=${rule.exemptions.slice(0, 160)}`]
+    : [];
+  return {
+    ...entry,
+    conflict_flag: conflict,
+    needs_human_review: needsReview,
+    applicability: toCanonicalApplicability(entry.result, needsReview),
+    facts_used: facts.used,
+    // Surface missing facts when coverage is unresolved; always note owner_type is unavailable.
+    facts_missing:
+      entry.result === "unknown"
+        ? facts.missing
+        : facts.missing.includes("owner_type")
+          ? ["owner_type"]
+          : [],
+    legal_status_at_as_of_date: rule.status,
+    coverage_conditions_evaluated,
+    exemptions_evaluated,
+  };
+}
 
 function parseDate(s: string | null | undefined): Date | null {
   if (!s) return null;
@@ -349,10 +409,24 @@ export function evaluateAddress(options: {
   geo: GeocodeResult;
   rules: RuleRecord[];
   asOf?: string;
+  /** When true, emit explicit does_not_apply rows instead of omitting non-coverage. */
+  includeNonApplicable?: boolean;
+  /** Session-scoped building fact overrides for coverage preview (not corpus truth). */
+  addressOverrides?: { year_built?: string; units?: string };
 }): LookupEntry[] {
   const asOf = options.asOf || DEFAULT_AS_OF;
   AsOfDateSchema.parse(asOf);
-  const { address, geo, rules } = options;
+  const { geo, rules } = options;
+  const address: SampleAddress = {
+    ...options.address,
+    ...(options.addressOverrides?.year_built != null
+      ? { year_built: String(options.addressOverrides.year_built) }
+      : {}),
+    ...(options.addressOverrides?.units != null
+      ? { units: String(options.addressOverrides.units) }
+      : {}),
+  };
+  const includeNonApplicable = Boolean(options.includeNonApplicable);
 
   const candidates = rules.filter((r) => ruleMatchesJurisdiction(r, geo));
   const entries: LookupEntry[] = [];
@@ -361,10 +435,38 @@ export function evaluateAddress(options: {
   const prelim: { rule: RuleRecord; entry: LookupEntry }[] = [];
 
   for (const rule of candidates) {
-    if (rule.status === "failed") continue;
+    if (rule.status === "failed") {
+      if (includeNonApplicable) {
+        prelim.push({
+          rule,
+          entry: {
+            team_rule_id: rule.team_rule_id,
+            result: "does_not_apply",
+            explanation: `${rule.title} is recorded as failed/struck and is not treated as operative law as of ${asOf}.`,
+            conflict_flag: false,
+          },
+        });
+      }
+      continue;
+    }
 
     const statusHit = evaluateStatus(rule, asOf);
-    if (statusHit?.omit) continue;
+    if (statusHit?.omit) {
+      if (includeNonApplicable) {
+        prelim.push({
+          rule,
+          entry: {
+            team_rule_id: rule.team_rule_id,
+            result: "does_not_apply",
+            explanation:
+              statusHit.explanation ||
+              `${rule.title} does not apply as of ${asOf}.`,
+            conflict_flag: statusHit.conflict_flag,
+          },
+        });
+      }
+      continue;
+    }
     if (statusHit) {
       prelim.push({
         rule,
@@ -379,7 +481,20 @@ export function evaluateAddress(options: {
     }
 
     const factHit = evaluateBuildingFacts(rule, address, geo, asOf);
-    if (factHit?.omit) continue;
+    if (factHit?.omit) {
+      if (includeNonApplicable) {
+        prelim.push({
+          rule,
+          entry: {
+            team_rule_id: rule.team_rule_id,
+            result: "does_not_apply",
+            explanation: `${rule.title} coverage conditions are not met for this address as of ${asOf} (e.g. year built, unit count, or exemption).`,
+            conflict_flag: Boolean(rule.conflict_flag),
+          },
+        });
+      }
+      continue;
+    }
     if (factHit) {
       prelim.push({
         rule,
@@ -457,10 +572,11 @@ export function evaluateAddress(options: {
       ...entry,
       explanation: withOpenQuestionNote(p.rule, entry.explanation),
     };
-    entries.push(entry);
+    entries.push(enrichEntry(entry, p.rule, address, geo));
   }
 
-  return entries;
+  // Deterministic ordering by team_rule_id for reproducible lookups.json
+  return entries.sort((a, b) => a.team_rule_id.localeCompare(b.team_rule_id));
 }
 
 export function applyAll(options: {
@@ -468,6 +584,7 @@ export function applyAll(options: {
   geos: Map<string, GeocodeResult>;
   rules: RuleRecord[];
   asOf?: string;
+  includeNonApplicable?: boolean;
 }): Record<string, LookupEntry[]> {
   const asOf = options.asOf || DEFAULT_AS_OF;
   const lookups: Record<string, LookupEntry[]> = {};
@@ -477,12 +594,17 @@ export function applyAll(options: {
       lookups[addr.address_id] = [];
       continue;
     }
-    lookups[addr.address_id] = evaluateAddress({
+    // Pack submission lookups omit does_not_apply rows (organizer template).
+    const rows = evaluateAddress({
       address: addr,
       geo,
       rules: options.rules,
       asOf,
+      includeNonApplicable: options.includeNonApplicable,
     });
+    lookups[addr.address_id] = options.includeNonApplicable
+      ? rows
+      : rows.filter((r) => r.result !== "does_not_apply");
   }
   return lookups;
 }
