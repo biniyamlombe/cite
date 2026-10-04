@@ -42,10 +42,11 @@ Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no
 
 ## Current submission snapshot
 
-- ~138 rules across the six required categories; all change-test aliases present  
+- **145** rules across the six required categories; all change-test aliases present  
 - 52/54 capturable corpus docs yield ≥1 rule; D029/D078 are honest empties (no in-category text)  
-- Lookups for all 500 addresses at `as_of=2026-10-01`  
-- T1–T5 green in `npm test` (T5 affected set empty; no MA rent **cap**)
+- Lookups for all **500** addresses at `as_of=2026-10-01`  
+- T1–T5 green (`T1=250`, `T2=90`, `T3=140` +90 conflicts, `T4=110`, `T5=0`); T6 hour-16 placeholder only  
+- Verify before upload: `npm run submission:check`
 
 ## Limits (honest)
 

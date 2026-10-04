@@ -67,6 +67,8 @@ npm run changes
 
 Outputs land in `outputs/` matching the challenge templates.
 
+Before upload / pitch: `npm run submission:check` (artifacts + smoke tests) and `npm run demo:preflight` (live API).
+
 ## Run the demo
 
 ```bash
