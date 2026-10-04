@@ -83,9 +83,13 @@ export const RuleRecordSchema = z.object({
     .regex(/^\d{4}(-\d{2}(-\d{2})?)?$/)
     .nullable()
     .optional(),
+  /** Penalty / remedy language when stated (civil fine, misdemeanor, treble damages, etc.). */
+  penalty: z.string().nullable().optional(),
   citation: z.string().min(1),
   source_doc_id: z.string().nullable().optional(),
   source_url: z.string().min(1),
+  /** Corpus retrieval timestamp for the source document (ISO or pack RETRIEVED line). */
+  retrieved_at: z.string().nullable().optional(),
   quoted_span: z.string().min(20),
   confidence: z.number().min(0).max(1).nullable().optional(),
   conflict_flag: z.boolean().optional().default(false),
@@ -172,7 +176,6 @@ export const DEFAULT_AS_OF = "2026-10-01";
 
 /** Browser-safe response contracts. Keep API enrichment alongside core corpus records. */
 export const ApiRuleSchema = RuleRecordSchema.extend({
-  retrieved_at: z.string().nullable().optional(),
   stable_id: z.string().optional(),
   evidence_status: z.enum(["captured", "scenario_only"]).optional(),
   precedence_note: z.string().nullable().optional(),
