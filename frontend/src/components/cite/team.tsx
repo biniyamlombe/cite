@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils";
 import { StatusBadge } from "./status";
 
 export function RuleComments({ ruleId }: { ruleId: string }) {
+  const t = useT();
   const { user, ready } = useAuth();
   const qc = useQueryClient();
   const [body, setBody] = useState("");
@@ -22,9 +23,11 @@ export function RuleComments({ ruleId }: { ruleId: string }) {
 
   return (
     <section>
-      <div className="eyebrow mb-2">Team notes</div>
+      <div className="eyebrow mb-2">{t("rule.teamNotes")}</div>
       {ready && !user ? (
-        <p className="text-sm text-muted-foreground"><Link to="/auth" className="text-primary hover:underline">Sign in</Link> to read and add team notes.</p>
+        <p className="text-sm text-muted-foreground">
+          <Link to="/auth" className="text-primary hover:underline">{t("nav.signin")}</Link> {t("rule.teamNotes.signin")}
+        </p>
       ) : (
         <>
           <ul className="space-y-2">
@@ -33,18 +36,18 @@ export function RuleComments({ ruleId }: { ruleId: string }) {
                 <div className="flex items-center justify-between font-mono text-[11px] text-muted-foreground">
                   <span>{c.author_email} · {c.created_at.slice(0, 10)}</span>
                   {c.user_id === user?.id && (
-                    <button onClick={() => del.mutate(c.id)} aria-label="Delete note"><Trash2 className="size-3.5" /></button>
+                    <button onClick={() => del.mutate(c.id)} aria-label={t("rule.deleteNote")}><Trash2 className="size-3.5" /></button>
                   )}
                 </div>
                 <p className="mt-1 text-sm text-ink">{c.body}</p>
               </li>
             ))}
-            {q.data?.length === 0 && <li className="text-sm text-muted-foreground">No notes yet.</li>}
+            {q.data?.length === 0 && <li className="text-sm text-muted-foreground">{t("rule.teamNotes.empty")}</li>}
           </ul>
           <form className="mt-3 flex gap-2" onSubmit={(e) => { e.preventDefault(); if (body.trim()) add.mutate(); }}>
             <input value={body} onChange={(e) => setBody(e.target.value)} maxLength={2000}
-              placeholder="e.g. Verified with counsel 10/2026" className="flex-1 rounded-md border bg-background px-3 py-1.5 text-sm" />
-            <button disabled={add.isPending} className="rounded-md bg-primary px-3 py-1.5 text-sm text-primary-foreground disabled:opacity-60">Add</button>
+              placeholder={t("rule.teamNotes.placeholder")} className="flex-1 rounded-md border bg-background px-3 py-1.5 text-sm" />
+            <button disabled={add.isPending} className="rounded-md bg-primary px-3 py-1.5 text-sm text-primary-foreground disabled:opacity-60">{t("rule.teamNotes.add")}</button>
           </form>
           {add.error && <p className="mt-1 text-xs text-destructive">{(add.error as Error).message}</p>}
         </>
@@ -89,15 +92,17 @@ export function RuleVersionHistory({ ruleId, defaultOpen = false }: { ruleId: st
         <div>
           <div className="eyebrow">{t("rule.versions")}</div>
           <p className="mt-0.5 text-xs text-muted-foreground">
-            {count > 0 ? `${count} version${count === 1 ? "" : "s"}` : t("rule.versionsHint")}
+            {count > 0
+              ? t(count === 1 ? "rule.versionsCountOne" : "rule.versionsCountMany").replace("{n}", String(count))
+              : t("rule.versionsHint")}
           </p>
         </div>
         <ChevronDown className={cn("size-4 shrink-0 text-muted-foreground transition-transform", open && "rotate-180")} />
       </button>
       {open && (
         <div className="border-t px-4 py-3">
-          {q.isLoading && <p className="text-sm text-muted-foreground">Loading…</p>}
-          {q.data?.length === 0 && <p className="text-sm text-muted-foreground">No earlier versions.</p>}
+          {q.isLoading && <p className="text-sm text-muted-foreground">{t("rule.versionsLoading")}</p>}
+          {q.data?.length === 0 && <p className="text-sm text-muted-foreground">{t("rule.versionsEmpty")}</p>}
           <ol className="space-y-3">
             {v.map((ver, idx) => {
               const prev = v[idx + 1];
@@ -105,7 +110,7 @@ export function RuleVersionHistory({ ruleId, defaultOpen = false }: { ruleId: st
                 <li key={ver.version} className="rounded-md border bg-background px-3 py-2">
                   <div className="flex flex-wrap items-center gap-2 font-mono text-[11px] text-muted-foreground">
                     <span className="text-ink">{ver.version}</span>
-                    <span>release {ver.corpus_release} · {ver.released_at}</span>
+                    <span>{t("rule.versionsRelease")} {ver.corpus_release} · {ver.released_at}</span>
                     <StatusBadge value={ver.status} />
                   </div>
                   <p className="mt-1 text-xs text-muted-foreground">{ver.change_note}</p>

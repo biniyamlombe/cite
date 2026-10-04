@@ -35,6 +35,19 @@ export async function deleteGroup(id: string) {
 }
 
 export interface Schedule { id: string; address_id: string; frequency: string; last_run_at: string | null; last_changed: boolean; last_summary: Record<string, string> | null }
+
+/** Display helper mirroring recheck.server due windows (no legal logic). */
+const DUE_MS: Record<string, number> = {
+  daily: 23 * 3600e3,
+  weekly: 6.9 * 86400e3,
+  monthly: 29 * 86400e3,
+};
+
+export function isScheduleDue(frequency: string, lastRunAt: string | null | undefined): boolean {
+  const windowMs = DUE_MS[frequency] ?? 23 * 3600e3;
+  return !lastRunAt || Date.now() - new Date(lastRunAt).getTime() > windowMs;
+}
+
 export async function listSchedules(): Promise<Schedule[]> {
   return check(await supabase.from("recheck_schedules").select("id,address_id,frequency,last_run_at,last_changed,last_summary").order("created_at")) as unknown as Schedule[];
 }
