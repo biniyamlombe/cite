@@ -13,6 +13,7 @@ import { useEffect, type ReactNode } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader, DisclaimerBar } from "@/components/cite/layout";
+import { Toaster } from "@/components/ui/sonner";
 import { LocaleProvider } from "@/lib/i18n";
 
 function NotFoundComponent() {
@@ -128,6 +129,7 @@ function RootComponent() {
           <Outlet />
         </main>
         <DisclaimerBar />
+        <Toaster position="bottom-center" closeButton />
       </div>
       </LocaleProvider>
     </QueryClientProvider>

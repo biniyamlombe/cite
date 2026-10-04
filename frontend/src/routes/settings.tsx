@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { Trash2 } from "lucide-react";
+import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
 import {
   addSchedule,
@@ -76,7 +77,10 @@ function Settings() {
 
   const addS = useMutation({
     mutationFn: () => addSchedule(addr.trim(), freq),
-    onSuccess: inv("schedules"),
+    onSuccess: () => {
+      inv("schedules")();
+      toast.success(t("toast.scheduleAdded"));
+    },
   });
   const delS = useMutation({ mutationFn: deleteSchedule, onSuccess: inv("schedules") });
   const mkKey = useMutation({
@@ -85,6 +89,7 @@ function Settings() {
       setNewKey(k);
       setLabel("");
       inv("keys")();
+      toast.success(t("toast.keyCreated"));
     },
   });
   const rvKey = useMutation({ mutationFn: revokeKey, onSuccess: inv("keys") });
