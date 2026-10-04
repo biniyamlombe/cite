@@ -15,6 +15,42 @@ const STORY_FOCUS: Record<TestId, "flip" | "scope" | "pending" | "failed"> = {
   T5: "failed",
 };
 
+const TYPE_LABEL: Record<string, string> = {
+  as_of: "Date flip",
+  boundary: "Scope",
+  pending: "Pending",
+  negative: "Failed",
+};
+
+/** Turn tracker machine notes into a short human line; keep open-question prose. */
+export function humanizeChangeNotes(notes: string): { summary: string; openQuestion?: string; raw: string } {
+  const raw = notes.trim();
+  const openMatch = raw.match(/Open question:\s*(.+)$/i);
+  const openQuestion = openMatch?.[1]?.trim();
+  let body = openMatch ? raw.slice(0, openMatch.index).trim() : raw;
+  body = body
+    .replace(/\b[\w.]+=(true|false|\d+\/\d+|\d+)\b/gi, " ")
+    .replace(/\bnot_yet_effective\b/gi, "not yet effective")
+    .replace(/\bwrongly_applies\b/gi, "wrongly applies")
+    .replace(/\brogue_cap\b/gi, "rogue cap")
+    .replace(/\bpending_ok\b/gi, " ")
+    .replace(/\s*[·|]\s*/g, " ")
+    .replace(/\s{2,}/g, " ")
+    .replace(/[;,]?\s*$/g, "")
+    .trim();
+  // Prefer a single readable sentence (skip fragments that are only metrics residue)
+  const sentence =
+    body
+      .split(/(?<=\.)\s+/)
+      .map((s) => s.trim())
+      .find((s) => s.length > 24 && !/^[a-z_]+ on /.test(s)) ?? body;
+  return {
+    summary: sentence || (openQuestion ? "See open legal question." : ""),
+    ...(openQuestion ? { openQuestion } : {}),
+    raw,
+  };
+}
+
 function scopeSummary(ids: string[], addresses: AddressRow[]) {
   const cities = new Map<string, number>();
   for (const id of ids) {
@@ -50,26 +86,32 @@ export function AffectedPropertiesTable({
   const visible = expanded ? ids : ids.slice(0, PREVIEW);
   return (
     <div className="space-y-2">
-      <div className="overflow-x-auto rounded-md border">
+      <div className="overflow-x-auto rounded-xl border border-border/80">
         <table className="w-full text-sm">
-          <thead className="bg-muted/60 text-left">
-            <tr className="[&>th]:px-3 [&>th]:py-2 [&>th]:font-medium [&>th]:eyebrow">
+          <thead className="bg-secondary/50 text-left">
+            <tr className="[&>th]:px-3 [&>th]:py-2.5 [&>th]:font-medium [&>th]:eyebrow">
               <th>{t("changes.col.address")}</th>
               <th>{t("changes.col.jurisdiction")}</th>
               <th>{t("changes.col.before")}</th>
               <th>{t("changes.col.after")}</th>
               <th>{t("changes.col.review")}</th>
-              <th className="print:hidden" />
+              <th className="print:hidden w-0" />
             </tr>
           </thead>
-          <tbody className="divide-y">
+          <tbody className="divide-y divide-border/70">
             {visible.map((id) => {
               const a = addresses.find((x) => x.address_id === id);
               return (
-                <tr key={id} className="bg-card [&>td]:px-3 [&>td]:py-2.5">
+                <tr key={id} className="bg-card transition-colors hover:bg-secondary/30 [&>td]:px-3 [&>td]:py-2.5">
                   <td>
-                    <div className="text-ink">{a?.street_address ?? id}</div>
-                    <div className="font-mono text-xs text-muted-foreground">{id}</div>
+                    <Link
+                      to="/"
+                      search={{ address: id, ...(asOfLink ? { as_of: asOfLink } : {}) }}
+                      className="group block"
+                    >
+                      <div className="text-ink transition-colors group-hover:text-primary">{a?.street_address ?? id}</div>
+                      <div className="font-mono text-xs text-muted-foreground">{id}</div>
+                    </Link>
                   </td>
                   <td className="text-muted-foreground">
                     {a ? `${a.legal_city ?? a.postal_city}, ${a.state}` : "—"}
@@ -87,7 +129,7 @@ export function AffectedPropertiesTable({
                     <Link
                       to="/"
                       search={{ address: id, ...(asOfLink ? { as_of: asOfLink } : {}) }}
-                      className="text-xs font-medium text-primary hover:underline"
+                      className="font-mono text-[11px] text-muted-foreground transition-colors hover:text-primary"
                     >
                       {t("changes.openLookup")}
                     </Link>
@@ -153,6 +195,43 @@ function ScopeStory({
   );
 }
 
+function ChangeNotes({ notes, affected, conflicts }: { notes: string; affected: number; conflicts: number }) {
+  const t = useT();
+  const [open, setOpen] = useState(false);
+  const { summary, openQuestion, raw } = useMemo(() => humanizeChangeNotes(notes), [notes]);
+  const tally =
+    conflicts > 0
+      ? t("changes.notesTallyConflict").replace("{a}", String(affected)).replace("{c}", String(conflicts))
+      : t("changes.notesTally").replace("{a}", String(affected));
+
+  return (
+    <div className="mt-4 space-y-2">
+      <p className="text-sm leading-relaxed text-muted-foreground">
+        <span className="font-mono text-[11px] tabular-nums text-ink">{tally}</span>
+        {summary ? <span className="mt-1 block">{summary}</span> : null}
+      </p>
+      {openQuestion && (
+        <p className="rounded-lg border border-unknown/20 bg-unknown-soft/60 px-3 py-2 text-sm text-ink/90">
+          <span className="font-medium">{t("rule.openQuestion")}: </span>
+          {openQuestion}
+        </p>
+      )}
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="font-mono text-[11px] text-muted-foreground transition-colors hover:text-primary"
+      >
+        {open ? t("changes.hideDetails") : t("changes.showDetails")}
+      </button>
+      {open && (
+        <pre className="overflow-x-auto rounded-lg border border-border/70 bg-paper px-3 py-2.5 font-mono text-[11px] leading-relaxed text-muted-foreground whitespace-pre-wrap">
+          {raw}
+        </pre>
+      )}
+    </div>
+  );
+}
+
 export function ChangeImpactCard({
   test,
   result,
@@ -169,13 +248,14 @@ export function ChangeImpactCard({
   const beatKey = `changes.beat.${test.test_id}` as StringKey;
   const hasFlip = Boolean(result?.before_status || result?.after_status);
   const lookupAsOf = test.as_of_after || test.as_of;
+  const typeLabel = TYPE_LABEL[test.type] ?? test.type.replace(/_/g, " ");
 
   return (
     <article className="surface fade-up p-5 sm:p-6">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="min-w-0 flex-1">
-          <div className="eyebrow">
-            {test.test_id} · {test.type.replace(/_/g, " ")}
+          <div className="eyebrow text-primary/80">
+            {test.test_id} · {typeLabel}
           </div>
           <h2 className="mt-1.5 font-serif text-xl text-ink sm:text-2xl">{test.title}</h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
@@ -183,14 +263,14 @@ export function ChangeImpactCard({
           </p>
         </div>
         <div className="flex gap-3">
-          <div className="rounded-md border bg-paper px-4 py-2.5 text-center">
+          <div className="rounded-xl border border-border/80 bg-paper px-4 py-2.5 text-center">
             <div className="font-mono text-2xl font-semibold tabular-nums text-ink">{affected.length}</div>
             <div className="eyebrow mt-0.5 flex items-center justify-center gap-1">
               <Building2 className="size-3" /> {t("changes.affectedCount")}
             </div>
           </div>
           {result?.conflict_flag_address_ids && (
-            <div className="rounded-md border border-conflict/25 bg-conflict-soft px-4 py-2.5 text-center">
+            <div className="rounded-xl border border-conflict/25 bg-conflict-soft px-4 py-2.5 text-center">
               <div className="font-mono text-2xl font-semibold tabular-nums text-conflict">{conflicts.length}</div>
               <div className="eyebrow mt-0.5 flex items-center justify-center gap-1">
                 <GitMerge className="size-3" /> {t("changes.reviewCount")}
@@ -219,22 +299,21 @@ export function ChangeImpactCard({
       )}
 
       {result && focus === "failed" && (
-        <div className="mt-5 rounded-md border border-dashed bg-paper px-4 py-3 text-sm text-muted-foreground">
+        <div className="mt-5 rounded-xl border border-dashed bg-paper px-4 py-3 text-sm text-muted-foreground">
           {t("changes.failedNote")}
         </div>
       )}
 
       {result?.notes && (
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{result.notes}</p>
+        <ChangeNotes notes={result.notes} affected={affected.length} conflicts={conflicts.length} />
       )}
 
       {result && (
         <div className="mt-5 space-y-2">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
             <div className="font-serif text-base text-ink">{t("changes.affected")}</div>
-            <div className="font-mono text-[11px] text-muted-foreground">
+            <div className="rounded-full bg-secondary px-2.5 py-0.5 font-mono text-[11px] text-muted-foreground">
               {test.rule_ids.join(" · ")}
-              {test.as_of ? ` · ${test.as_of}` : ""}
             </div>
           </div>
           <AffectedPropertiesTable
