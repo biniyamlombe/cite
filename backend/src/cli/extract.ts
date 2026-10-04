@@ -1,11 +1,17 @@
 import "dotenv/config";
 import path from "node:path";
-import { extractAllCorpus, clearDocCache } from "../extract/agent.js";
+import { readFile, readdir } from "node:fs/promises";
+import {
+  extractAllCorpus,
+  clearDocCache,
+  retryModel,
+} from "../extract/agent.js";
 import { readJsonIfExists, writeJson } from "../lib/io.js";
-import { outputsDir } from "../lib/paths.js";
+import { cacheDir, outputsDir } from "../lib/paths.js";
+import { loadCapturableDocs } from "../lib/corpus.js";
 import type { RuleRecord } from "@rhl/shared";
 import { assignAliases } from "../extract/aliases.js";
-import { dedupeRules, preferClaudeRules } from "../extract/heuristic.js";
+import { dedupeRules } from "../extract/heuristic.js";
 import {
   ensureChangeTestAliases,
   normalizeChangeTestEffectiveDates,
@@ -13,11 +19,40 @@ import {
 import { appendAudit } from "../lib/audit.js";
 import { enrichRuleCoverage } from "../apply/compile_coverage.js";
 
-const FAILED_DEFAULT = ["D016", "D041", "D067", "D073", "D079"];
+/** Best validated rules still on disk for a doc (survives alias-merge loss). */
+async function loadValidatedFromCache(
+  docId: string,
+): Promise<RuleRecord[]> {
+  try {
+    const files = await readdir(cacheDir());
+    const hit = files.find((f) => f.startsWith(`${docId}-`) && f.endsWith(".json"));
+    if (!hit) return [];
+    const raw = JSON.parse(await readFile(path.join(cacheDir(), hit), "utf8")) as {
+      _validated?: RuleRecord[];
+    };
+    return Array.isArray(raw._validated) ? raw._validated : [];
+  } catch {
+    return [];
+  }
+}
 
 function argValue(prefix: string): string | undefined {
   const hit = process.argv.find((a) => a.startsWith(prefix));
   return hit ? hit.slice(prefix.length) : undefined;
+}
+
+/** Capturable docs with no rules in outputs/rules.json (or empty on disk). */
+async function discoverUncoveredDocIds(): Promise<string[]> {
+  const docs = await loadCapturableDocs();
+  const existing = await readJsonIfExists<{ rules: RuleRecord[] }>(
+    path.join(outputsDir(), "rules.json"),
+  );
+  const covered = new Set(
+    (existing?.rules ?? [])
+      .map((r) => r.source_doc_id)
+      .filter((id): id is string => Boolean(id)),
+  );
+  return docs.map((d) => d.doc_id).filter((id) => !covered.has(id));
 }
 
 async function main() {
@@ -25,13 +60,37 @@ async function main() {
   const limit = limitArg ? Number(limitArg) : undefined;
   const docsArg = argValue("--docs=");
   const retryFailed = process.argv.includes("--retry-failed");
-  const merge = process.argv.includes("--merge");
+  const mergeFlag = process.argv.includes("--merge");
+  const noUpgrade = process.argv.includes("--no-upgrade-empty");
+  const modelOverride = argValue("--model=");
 
-  const docIds = docsArg
+  let docIds = docsArg
     ? docsArg.split(",").map((s) => s.trim()).filter(Boolean)
-    : retryFailed
-      ? FAILED_DEFAULT
-      : undefined;
+    : undefined;
+
+  if (retryFailed && !docIds?.length) {
+    docIds = await discoverUncoveredDocIds();
+    if (!docIds.length) {
+      console.log("No uncovered capturable docs — nothing to retry.");
+      return;
+    }
+    console.log(
+      `--retry-failed: ${docIds.length} uncovered doc(s) → ${docIds.join(", ")}`,
+    );
+  }
+
+  // Subset extracts always merge into existing rules.json (unless --no-merge).
+  const merge =
+    Boolean(docIds?.length) &&
+    (mergeFlag || retryFailed || !process.argv.includes("--no-merge"));
+
+  const useRetryModel = Boolean(retryFailed || docIds?.length);
+  const model =
+    modelOverride ||
+    (useRetryModel ? retryModel() : undefined);
+  if (model) {
+    console.log(`Using model: ${model}${useRetryModel && !modelOverride ? " (retry/empty default)" : ""}`);
+  }
 
   if (docIds?.length) {
     for (const id of docIds) {
@@ -47,10 +106,14 @@ async function main() {
     claudeDocsOk,
     claudeDocsFailed,
     claudeRuleCount,
+    upgradedDocIds,
   } = await extractAllCorpus({
     limit,
     docIds,
     clearFailedCache: false,
+    model,
+    // Subset/retry already uses Sonnet as primary — skip a second upgrade hop.
+    upgradeEmptyWith: noUpgrade || useRetryModel ? false : undefined,
   });
 
   const outPath = path.join(outputsDir(), "rules.json");
@@ -69,6 +132,32 @@ async function main() {
     const ensured = assignAliases(
       dedupeRules(await ensureChangeTestAliases(aliased), { soft: false }),
     );
+    // Alias / ensure passes can erase a newly extracted source doc (e.g. D047 vs
+    // D046 both claiming MA-ALG-P1). Re-attach one best rule per extracted doc.
+    const haveDocs = new Set(
+      ensured.map((r) => r.source_doc_id).filter(Boolean),
+    );
+    const candidates: RuleRecord[] = [
+      ...rules.filter((r) => docIds.includes(r.source_doc_id || "")),
+    ];
+    for (const id of docIds) {
+      if (haveDocs.has(id) || candidates.some((r) => r.source_doc_id === id)) {
+        continue;
+      }
+      candidates.push(...(await loadValidatedFromCache(id)));
+    }
+    for (const r of [...candidates].sort(
+      (a, b) => (b.confidence ?? 0) - (a.confidence ?? 0),
+    )) {
+      if (!r.source_doc_id || haveDocs.has(r.source_doc_id)) continue;
+      if (!docIds.includes(r.source_doc_id)) continue;
+      const { alias_id: _drop, ...rest } = r;
+      ensured.push({
+        ...(rest as RuleRecord),
+        source_doc_id: r.source_doc_id,
+      });
+      haveDocs.add(r.source_doc_id);
+    }
     finalRules = normalizeChangeTestEffectiveDates(ensured).map((r, i) => ({
       ...r,
       team_rule_id: `r-${String(i + 1).padStart(4, "0")}`,
@@ -89,20 +178,28 @@ async function main() {
     ts: new Date().toISOString(),
     kind: "extract_corpus",
     source: usedClaude ? "claude" : "heuristic",
-    model: process.env.ANTHROPIC_MODEL || null,
+    model: model || process.env.ANTHROPIC_MODEL || null,
     rule_count: finalRules.length,
     message: mode,
     meta: {
       docs_processed: docsProcessed,
       claude_docs_ok: claudeDocsOk,
       claude_docs_failed: claudeDocsFailed,
-      merge: Boolean(merge && docIds?.length),
+      merge,
       doc_ids: docIds ?? null,
+      retry_failed: retryFailed,
+      upgraded_docs: upgradedDocIds,
+      retry_model: retryModel(),
     },
   });
   console.log(
     `Wrote ${finalRules.length} rules from ${docsProcessed} docs → ${outPath} (${mode})`,
   );
+  if (upgradedDocIds.length) {
+    console.log(
+      `Empty-cache Sonnet upgrades: ${upgradedDocIds.join(", ")}`,
+    );
+  }
   const aliases = finalRules.filter((r) => r.alias_id).map((r) => r.alias_id);
   console.log("Change-test aliases:", aliases.join(", ") || "(none)");
   if (docIds?.length) {
