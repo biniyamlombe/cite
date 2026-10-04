@@ -240,7 +240,10 @@ export const CATEGORY_LABELS: Record<RuleCategory, string> = {
 export const DEFAULT_AS_OF = "2026-10-01";
 export const PIPELINE_VERSION = "cite-1.1.0";
 export const ARTIFACT_SCHEMA_VERSION = "1.1.0";
-export const API_SCHEMA_VERSION = "1.2.0";
+export const API_SCHEMA_VERSION = "1.3.0";
+
+export * from "./locale.js";
+export * from "./translation_safety.js";
 
 /** UX product states returned with lookups (machine-readable). */
 export const LookupProductState = z.enum([
@@ -338,6 +341,8 @@ export const AddressSchema = z.object({
 export const LookupResponseSchema = z.object({
   disclaimer: z.string(),
   as_of: AsOfDateSchema,
+  locale: z.enum(["en-US", "es-US"]).optional(),
+  locale_warning: z.string().nullable().optional(),
   address: AddressSchema,
   jurisdiction: z.object({
     status: z.enum(["resolved", "ambiguous", "failed", "unknown"]).optional(),
@@ -384,6 +389,45 @@ export const LookupResponseSchema = z.object({
       rule: ApiRuleSchema.nullable(),
       status_label: z.string().nullable().optional(),
       applicability_label: z.string().nullable().optional(),
+      /** Language-neutral status/result codes remain on `result` / `applicability`. */
+      plain_language_summary: z
+        .object({
+          text: z.string(),
+          translation_status: z.enum([
+            "human_reviewed",
+            "machine_generated",
+            "source_official_translation",
+            "untranslated",
+            "not_applicable",
+            "not_available",
+          ]),
+          authoritative_language: z.literal("en"),
+          source_text_en: z.string().optional(),
+          requires_human_review: z.boolean().optional(),
+          quality_flags: z.array(z.string()).optional(),
+        })
+        .optional(),
+      source_evidence: z
+        .object({
+          official_quote_en: z.string(),
+          informational_translation_es: z.string().nullable(),
+          translation_notice: z.string(),
+          citation: z.string().nullable(),
+          url: z.string().nullable(),
+          retrieval_date: z.string().nullable(),
+        })
+        .optional(),
+      translation: z
+        .object({
+          status: z.enum([
+            "human_reviewed",
+            "machine_generated",
+            "not_available",
+            "untranslated",
+          ]),
+          requires_human_review: z.boolean(),
+        })
+        .optional(),
     }),
   ),
 });
