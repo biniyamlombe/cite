@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-10-04T07:22:41.507Z",
+  "generated_at": "2026-10-04T08:25:56.949Z",
   "pipeline_version": "cite-1.1.0",
-  "count": 147,
+  "count": 145,
   "records": {
     "r-0001": {
       "team_rule_id": "r-0001",
@@ -1373,16 +1373,6 @@
       "why_en": "Jersey City administers and enforces rent control through Chapter 260 of the Municipal Code, which regulates rent increases and provides exemptions for certain properties including all 1-4 unit properties.",
       "why_es": "Jersey City administers and enforces rent control through Chapter 260 of the Municipal Code, which regulates rent increases and provides exemptions for certain properties including all 1-4 unit properties."
     },
-    "r-0138": {
-      "team_rule_id": "r-0138",
-      "category": "algorithmic_rent_setting",
-      "status": "not_yet_effective",
-      "source": "template",
-      "headline_en": "Not yet in force — Algorithmic rent-setting limits",
-      "headline_es": "Aún no vigente — Límites a renta algorítmica",
-      "why_en": "The NJ FAIR Act restricts algorithmic rent-setting tools statewide; effective the first day of the twelfth month after enactment (July 1, 2027). Municipal ordinances that conflict are prohibited.",
-      "why_es": "The NJ FAIR Act restricts algorithmic rent-setting tools statewide; effective the first day of the twelfth month after enactment (July 1, 2027). Municipal ordinances that conflict are prohibited."
-    },
     "r-0139": {
       "team_rule_id": "r-0139",
       "category": "rent_increase_limits",
@@ -1442,16 +1432,6 @@
       "headline_es": "Límites a renta algorítmica",
       "why_en": "Challenge change tests treat Jersey City as having a local algorithmic rent-setting ban (T2/T3). The pack marks primary Jersey City ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. qu…",
       "why_es": "Challenge change tests treat Jersey City as having a local algorithmic rent-setting ban (T2/T3). The pack marks primary Jersey City ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. quoted_span is verbati…"
-    },
-    "r-0145": {
-      "team_rule_id": "r-0145",
-      "category": "algorithmic_rent_setting",
-      "status": "pending",
-      "source": "template",
-      "headline_en": "Pending — Algorithmic rent-setting limits: prohibition on algorithmic rent setting",
-      "headline_es": "Pendiente — Límites a renta algorítmica: prohibition on algorithmic rent setting",
-      "why_en": "Legislation to prohibit algorithmic rent setting in Massachusetts. The bill was reported favorably by the Housing committee and referred to the Senate Ways and Means committee.",
-      "why_es": "Legislation to prohibit algorithmic rent setting in Massachusetts. The bill was reported favorably by the Housing committee and referred to the Senate Ways and Means committee."
     },
     "r-0146": {
       "team_rule_id": "r-0146",

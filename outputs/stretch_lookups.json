@@ -6,157 +6,703 @@
         "team_rule_id": "r-0005",
         "result": "applies",
         "explanation": "Just Cause Requirement for Eviction After 12 Months covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(a)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to residential real property tenancies after 12 months of continuous lawful occupation; subject to exemptions in subdivision (e)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Transient and tourist hotel occupancy; Nonprofit hospital, religious facility, extended care facility housing; Dormitories owned by institutions of higher educa"
+        ]
       },
       {
         "team_rule_id": "r-0006",
         "result": "applies",
         "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when owner seeks to terminate tenancy based on tenant fault"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This section shall not apply to the following types of residential real properties or residential circumstances: (1) Transient and tourist hotel occupancy as de"
+        ]
       },
       {
         "team_rule_id": "r-0007",
         "result": "applies",
         "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all rent increases subject to subdivision (a)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=exempt from this section using the following statement: “This property is not subject to the rent limits imposed by Section"
+        ]
       },
       {
         "team_rule_id": "r-0008",
         "result": "applies",
         "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to violations of the rent increase cap in subdivision (a)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This section shall not apply to a homeowner of a mobilehome, as defined in Section"
+        ]
       },
       {
         "team_rule_id": "r-0009",
         "result": "applies",
         "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to service members (as defined in Military and Veterans Code § 400) charged higher than standard or advertised security"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0010",
         "result": "applies",
         "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all residential rental property security deposits"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0014",
         "result": "superseded",
         "explanation": "Statewide Rent Increase Cap is superseded by local rent control for this address. Subdivision (b) allows owners to set initial rental rate without restriction for new tenancies where no prior tenant remains; subsequent increases are subject to cap. Subdivision (c) restricts sublease rent to allowable rate. Local rent controls with lower limits take precedence per subdivision (d)(3).",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "does_not_apply",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all residential real property intended for human habitation, including mobilehomes, except as exempted in subdivision (d)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Housing restricted as affordable housing for very low, low, or moderate income persons/families; Dormitories owned by institutions of higher education or K-12 s"
+        ]
       },
       {
         "team_rule_id": "r-0050",
         "result": "applies",
         "explanation": "Prohibition on Common Pricing Algorithms in Restraint of Trade covers this address in Santa Ana, CA as of 2026-10-01. California Business and Professions Code § 16729",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to any person (as defined in Section 16702, excluding end consumers) using or distributing a common pricing algorithm for two or more persons in Califor"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=End consumers of products or services are excluded from the definition of 'person' for purposes of this section"
+        ]
       },
       {
         "team_rule_id": "r-0051",
         "result": "applies",
         "explanation": "Source of Income Discrimination Prohibition covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to most housing providers including landlords, tenant screening companies, real estate agents, home sellers, builders, mortgage lenders, and housing aut"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=When an owner is occupying a home and is renting to one additional person, the owner may exclude applicants based on protected characteristics (but cannot make "
+        ]
       },
       {
         "team_rule_id": "r-0052",
         "result": "applies",
         "explanation": "Criminal History Screening Limitations covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to housing providers conducting criminal background checks on applicants"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0053",
         "result": "applies",
         "explanation": "Reasonable Accommodation for Disabilities Required covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when accommodation/modification is necessary for equal opportunity to use and enjoy housing"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Requests that would cause direct threat to health/safety, substantial physical damage, or involve illegal drugs cannot be reasonable accommodations"
+        ]
       },
       {
         "team_rule_id": "r-0054",
         "result": "applies",
         "explanation": "Just Cause for Termination of Residential Tenancy covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2",
-        "conflict_flag": true
+        "conflict_flag": true,
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to residential real property intended for human habitation, including dwellings and units in mobilehome parks"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Does not apply to homeowners of mobilehomes as defined in Section 798.9"
+        ]
       },
       {
         "team_rule_id": "r-0056",
         "result": "applies",
         "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when landlord or agent receives request to rent residential property from applicant"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=No application screening fee may be charged when landlord knows or should know no rental unit is available or will be available within reasonable period"
+        ]
       },
       {
         "team_rule_id": "r-0057",
         "result": "applies",
         "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When application screening fee has been paid by applicant"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0058",
         "result": "applies",
         "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When landlord offers alternative application screening process under subsection (c)(2)(B)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0059",
         "result": "applies",
         "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When personal reference check or consumer credit report not obtained"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0060",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Inquiries in Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(b)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to owners of housing accommodations in rental context"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0061",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Financial or Income Standards in Subsidized Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(o)(1)(A)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Only applies when there is a government rent subsidy"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0062",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Aggregate Income Standards covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(n)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all rental housing"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0063",
         "result": "applies",
         "explanation": "Security Deposit Return and Accounting Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(i)-(j)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Landlords must return the portion of security remaining after lawful deductions to the tenant together with an accounting. Landlords must provide written statem"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0108",
         "result": "applies",
         "explanation": "Maximum Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0109",
         "result": "applies",
         "explanation": "Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to residential rental property and mobile home spaces"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Residential buildings constructed after February 1, 1995; mobile home spaces offered for rent after January 1, 1990"
+        ]
       },
       {
         "team_rule_id": "r-0110",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to residential tenancies after 30-day period"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Housing produced in the last 15 years; deed-restricted affordable housing; hotel and transient occupancy; hospital and care facilities; dormitories; other share"
+        ]
       },
       {
         "team_rule_id": "r-0111",
         "result": "applies",
         "explanation": "No-Fault Eviction Relocation Assistance covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to no-fault just cause terminations (owner intent to occupy, removal from rental market, demolition or substantial remodel)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Same as Just Cause Eviction Ordinance exemptions"
+        ]
       },
       {
         "team_rule_id": "r-0124",
         "result": "applies",
         "explanation": "Pass-Through Fee Cap and Reimbursement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0131",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1968",
+          "units=24"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       }
     ],
     "SA0002": [
@@ -164,157 +710,703 @@
         "team_rule_id": "r-0005",
         "result": "applies",
         "explanation": "Just Cause Requirement for Eviction After 12 Months covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(a)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to residential real property tenancies after 12 months of continuous lawful occupation; subject to exemptions in subdivision (e)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Transient and tourist hotel occupancy; Nonprofit hospital, religious facility, extended care facility housing; Dormitories owned by institutions of higher educa"
+        ]
       },
       {
         "team_rule_id": "r-0006",
         "result": "applies",
         "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when owner seeks to terminate tenancy based on tenant fault"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This section shall not apply to the following types of residential real properties or residential circumstances: (1) Transient and tourist hotel occupancy as de"
+        ]
       },
       {
         "team_rule_id": "r-0007",
         "result": "applies",
         "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all rent increases subject to subdivision (a)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=exempt from this section using the following statement: “This property is not subject to the rent limits imposed by Section"
+        ]
       },
       {
         "team_rule_id": "r-0008",
         "result": "applies",
         "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to violations of the rent increase cap in subdivision (a)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This section shall not apply to a homeowner of a mobilehome, as defined in Section"
+        ]
       },
       {
         "team_rule_id": "r-0009",
         "result": "applies",
         "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to service members (as defined in Military and Veterans Code § 400) charged higher than standard or advertised security"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0010",
         "result": "applies",
         "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all residential rental property security deposits"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0014",
         "result": "superseded",
         "explanation": "Statewide Rent Increase Cap is superseded by local rent control for this address. Subdivision (b) allows owners to set initial rental rate without restriction for new tenancies where no prior tenant remains; subsequent increases are subject to cap. Subdivision (c) restricts sublease rent to allowable rate. Local rent controls with lower limits take precedence per subdivision (d)(3).",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "does_not_apply",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all residential real property intended for human habitation, including mobilehomes, except as exempted in subdivision (d)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Housing restricted as affordable housing for very low, low, or moderate income persons/families; Dormitories owned by institutions of higher education or K-12 s"
+        ]
       },
       {
         "team_rule_id": "r-0050",
         "result": "applies",
         "explanation": "Prohibition on Common Pricing Algorithms in Restraint of Trade covers this address in Santa Ana, CA as of 2026-10-01. California Business and Professions Code § 16729",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to any person (as defined in Section 16702, excluding end consumers) using or distributing a common pricing algorithm for two or more persons in Califor"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=End consumers of products or services are excluded from the definition of 'person' for purposes of this section"
+        ]
       },
       {
         "team_rule_id": "r-0051",
         "result": "applies",
         "explanation": "Source of Income Discrimination Prohibition covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to most housing providers including landlords, tenant screening companies, real estate agents, home sellers, builders, mortgage lenders, and housing aut"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=When an owner is occupying a home and is renting to one additional person, the owner may exclude applicants based on protected characteristics (but cannot make "
+        ]
       },
       {
         "team_rule_id": "r-0052",
         "result": "applies",
         "explanation": "Criminal History Screening Limitations covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to housing providers conducting criminal background checks on applicants"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0053",
         "result": "applies",
         "explanation": "Reasonable Accommodation for Disabilities Required covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when accommodation/modification is necessary for equal opportunity to use and enjoy housing"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Requests that would cause direct threat to health/safety, substantial physical damage, or involve illegal drugs cannot be reasonable accommodations"
+        ]
       },
       {
         "team_rule_id": "r-0054",
         "result": "applies",
         "explanation": "Just Cause for Termination of Residential Tenancy covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2",
-        "conflict_flag": true
+        "conflict_flag": true,
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to residential real property intended for human habitation, including dwellings and units in mobilehome parks"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Does not apply to homeowners of mobilehomes as defined in Section 798.9"
+        ]
       },
       {
         "team_rule_id": "r-0056",
         "result": "applies",
         "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when landlord or agent receives request to rent residential property from applicant"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=No application screening fee may be charged when landlord knows or should know no rental unit is available or will be available within reasonable period"
+        ]
       },
       {
         "team_rule_id": "r-0057",
         "result": "applies",
         "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When application screening fee has been paid by applicant"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0058",
         "result": "applies",
         "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When landlord offers alternative application screening process under subsection (c)(2)(B)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0059",
         "result": "applies",
         "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When personal reference check or consumer credit report not obtained"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0060",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Inquiries in Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(b)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to owners of housing accommodations in rental context"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0061",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Financial or Income Standards in Subsidized Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(o)(1)(A)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Only applies when there is a government rent subsidy"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0062",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Aggregate Income Standards covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(n)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all rental housing"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0063",
         "result": "applies",
         "explanation": "Security Deposit Return and Accounting Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(i)-(j)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Landlords must return the portion of security remaining after lawful deductions to the tenant together with an accounting. Landlords must provide written statem"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0108",
         "result": "applies",
         "explanation": "Maximum Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0109",
         "result": "applies",
         "explanation": "Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to residential rental property and mobile home spaces"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Residential buildings constructed after February 1, 1995; mobile home spaces offered for rent after January 1, 1990"
+        ]
       },
       {
         "team_rule_id": "r-0110",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to residential tenancies after 30-day period"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Housing produced in the last 15 years; deed-restricted affordable housing; hotel and transient occupancy; hospital and care facilities; dormitories; other share"
+        ]
       },
       {
         "team_rule_id": "r-0111",
         "result": "applies",
         "explanation": "No-Fault Eviction Relocation Assistance covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to no-fault just cause terminations (owner intent to occupy, removal from rental market, demolition or substantial remodel)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Same as Just Cause Eviction Ordinance exemptions"
+        ]
       },
       {
         "team_rule_id": "r-0124",
         "result": "applies",
         "explanation": "Pass-Through Fee Cap and Reimbursement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0131",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1985",
+          "units=8"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       }
     ],
     "SA0003": [
@@ -322,151 +1414,676 @@
         "team_rule_id": "r-0005",
         "result": "applies",
         "explanation": "Just Cause Requirement for Eviction After 12 Months covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(a)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to residential real property tenancies after 12 months of continuous lawful occupation; subject to exemptions in subdivision (e)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Transient and tourist hotel occupancy; Nonprofit hospital, religious facility, extended care facility housing; Dormitories owned by institutions of higher educa"
+        ]
       },
       {
         "team_rule_id": "r-0006",
         "result": "applies",
         "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when owner seeks to terminate tenancy based on tenant fault"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This section shall not apply to the following types of residential real properties or residential circumstances: (1) Transient and tourist hotel occupancy as de"
+        ]
       },
       {
         "team_rule_id": "r-0007",
         "result": "applies",
         "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all rent increases subject to subdivision (a)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=exempt from this section using the following statement: “This property is not subject to the rent limits imposed by Section"
+        ]
       },
       {
         "team_rule_id": "r-0008",
         "result": "applies",
         "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to violations of the rent increase cap in subdivision (a)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This section shall not apply to a homeowner of a mobilehome, as defined in Section"
+        ]
       },
       {
         "team_rule_id": "r-0009",
         "result": "applies",
         "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to service members (as defined in Military and Veterans Code § 400) charged higher than standard or advertised security"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0010",
         "result": "applies",
         "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all residential rental property security deposits"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0014",
         "result": "superseded",
         "explanation": "Statewide Rent Increase Cap is superseded by local rent control for this address. Subdivision (b) allows owners to set initial rental rate without restriction for new tenancies where no prior tenant remains; subsequent increases are subject to cap. Subdivision (c) restricts sublease rent to allowable rate. Local rent controls with lower limits take precedence per subdivision (d)(3).",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "does_not_apply",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all residential real property intended for human habitation, including mobilehomes, except as exempted in subdivision (d)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Housing restricted as affordable housing for very low, low, or moderate income persons/families; Dormitories owned by institutions of higher education or K-12 s"
+        ]
       },
       {
         "team_rule_id": "r-0050",
         "result": "applies",
         "explanation": "Prohibition on Common Pricing Algorithms in Restraint of Trade covers this address in Santa Ana, CA as of 2026-10-01. California Business and Professions Code § 16729",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to any person (as defined in Section 16702, excluding end consumers) using or distributing a common pricing algorithm for two or more persons in Califor"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=End consumers of products or services are excluded from the definition of 'person' for purposes of this section"
+        ]
       },
       {
         "team_rule_id": "r-0051",
         "result": "applies",
         "explanation": "Source of Income Discrimination Prohibition covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to most housing providers including landlords, tenant screening companies, real estate agents, home sellers, builders, mortgage lenders, and housing aut"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=When an owner is occupying a home and is renting to one additional person, the owner may exclude applicants based on protected characteristics (but cannot make "
+        ]
       },
       {
         "team_rule_id": "r-0052",
         "result": "applies",
         "explanation": "Criminal History Screening Limitations covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to housing providers conducting criminal background checks on applicants"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0053",
         "result": "applies",
         "explanation": "Reasonable Accommodation for Disabilities Required covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when accommodation/modification is necessary for equal opportunity to use and enjoy housing"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Requests that would cause direct threat to health/safety, substantial physical damage, or involve illegal drugs cannot be reasonable accommodations"
+        ]
       },
       {
         "team_rule_id": "r-0054",
         "result": "applies",
         "explanation": "Just Cause for Termination of Residential Tenancy covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2",
-        "conflict_flag": true
+        "conflict_flag": true,
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to residential real property intended for human habitation, including dwellings and units in mobilehome parks"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Does not apply to homeowners of mobilehomes as defined in Section 798.9"
+        ]
       },
       {
         "team_rule_id": "r-0056",
         "result": "applies",
         "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when landlord or agent receives request to rent residential property from applicant"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=No application screening fee may be charged when landlord knows or should know no rental unit is available or will be available within reasonable period"
+        ]
       },
       {
         "team_rule_id": "r-0057",
         "result": "applies",
         "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When application screening fee has been paid by applicant"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0058",
         "result": "applies",
         "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When landlord offers alternative application screening process under subsection (c)(2)(B)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0059",
         "result": "applies",
         "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When personal reference check or consumer credit report not obtained"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0060",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Inquiries in Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(b)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to owners of housing accommodations in rental context"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0061",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Financial or Income Standards in Subsidized Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(o)(1)(A)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Only applies when there is a government rent subsidy"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0062",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Aggregate Income Standards covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(n)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all rental housing"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0063",
         "result": "applies",
         "explanation": "Security Deposit Return and Accounting Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(i)-(j)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Landlords must return the portion of security remaining after lawful deductions to the tenant together with an accounting. Landlords must provide written statem"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0108",
         "result": "applies",
         "explanation": "Maximum Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0109",
         "result": "applies",
         "explanation": "Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to residential rental property and mobile home spaces"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Residential buildings constructed after February 1, 1995; mobile home spaces offered for rent after January 1, 1990"
+        ]
       },
       {
         "team_rule_id": "r-0111",
         "result": "applies",
         "explanation": "No-Fault Eviction Relocation Assistance covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to no-fault just cause terminations (owner intent to occupy, removal from rental market, demolition or substantial remodel)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Same as Just Cause Eviction Ordinance exemptions"
+        ]
       },
       {
         "team_rule_id": "r-0124",
         "result": "applies",
         "explanation": "Pass-Through Fee Cap and Reimbursement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0131",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=2018",
+          "units=12"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       }
     ],
     "SA0004": [
@@ -474,157 +2091,680 @@
         "team_rule_id": "r-0005",
         "result": "unknown",
         "explanation": "Statewide coverage may depend on certificate-of-occupancy age; year_built is missing.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "unknown",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "year_built",
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to residential real property tenancies after 12 months of continuous lawful occupation; subject to exemptions in subdivision (e)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Transient and tourist hotel occupancy; Nonprofit hospital, religious facility, extended care facility housing; Dormitories owned by institutions of higher educa"
+        ]
       },
       {
         "team_rule_id": "r-0006",
         "result": "applies",
         "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when owner seeks to terminate tenancy based on tenant fault"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This section shall not apply to the following types of residential real properties or residential circumstances: (1) Transient and tourist hotel occupancy as de"
+        ]
       },
       {
         "team_rule_id": "r-0007",
         "result": "applies",
         "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all rent increases subject to subdivision (a)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=exempt from this section using the following statement: “This property is not subject to the rent limits imposed by Section"
+        ]
       },
       {
         "team_rule_id": "r-0008",
         "result": "applies",
         "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to violations of the rent increase cap in subdivision (a)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This section shall not apply to a homeowner of a mobilehome, as defined in Section"
+        ]
       },
       {
         "team_rule_id": "r-0009",
         "result": "applies",
         "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to service members (as defined in Military and Veterans Code § 400) charged higher than standard or advertised security"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0010",
         "result": "applies",
         "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all residential rental property security deposits"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0014",
         "result": "unknown",
         "explanation": "Statewide coverage may depend on certificate-of-occupancy age; year_built is missing.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "unknown",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "year_built",
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all residential real property intended for human habitation, including mobilehomes, except as exempted in subdivision (d)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Housing restricted as affordable housing for very low, low, or moderate income persons/families; Dormitories owned by institutions of higher education or K-12 s"
+        ]
       },
       {
         "team_rule_id": "r-0050",
         "result": "applies",
         "explanation": "Prohibition on Common Pricing Algorithms in Restraint of Trade covers this address in Santa Ana, CA as of 2026-10-01. California Business and Professions Code § 16729",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to any person (as defined in Section 16702, excluding end consumers) using or distributing a common pricing algorithm for two or more persons in Califor"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=End consumers of products or services are excluded from the definition of 'person' for purposes of this section"
+        ]
       },
       {
         "team_rule_id": "r-0051",
         "result": "applies",
         "explanation": "Source of Income Discrimination Prohibition covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to most housing providers including landlords, tenant screening companies, real estate agents, home sellers, builders, mortgage lenders, and housing aut"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=When an owner is occupying a home and is renting to one additional person, the owner may exclude applicants based on protected characteristics (but cannot make "
+        ]
       },
       {
         "team_rule_id": "r-0052",
         "result": "applies",
         "explanation": "Criminal History Screening Limitations covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to housing providers conducting criminal background checks on applicants"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0053",
         "result": "applies",
         "explanation": "Reasonable Accommodation for Disabilities Required covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when accommodation/modification is necessary for equal opportunity to use and enjoy housing"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Requests that would cause direct threat to health/safety, substantial physical damage, or involve illegal drugs cannot be reasonable accommodations"
+        ]
       },
       {
         "team_rule_id": "r-0054",
         "result": "applies",
         "explanation": "Just Cause for Termination of Residential Tenancy covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2",
-        "conflict_flag": true
+        "conflict_flag": true,
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to residential real property intended for human habitation, including dwellings and units in mobilehome parks"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Does not apply to homeowners of mobilehomes as defined in Section 798.9"
+        ]
       },
       {
         "team_rule_id": "r-0056",
         "result": "applies",
         "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when landlord or agent receives request to rent residential property from applicant"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=No application screening fee may be charged when landlord knows or should know no rental unit is available or will be available within reasonable period"
+        ]
       },
       {
         "team_rule_id": "r-0057",
         "result": "applies",
         "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When application screening fee has been paid by applicant"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0058",
         "result": "applies",
         "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When landlord offers alternative application screening process under subsection (c)(2)(B)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0059",
         "result": "applies",
         "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When personal reference check or consumer credit report not obtained"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0060",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Inquiries in Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(b)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to owners of housing accommodations in rental context"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0061",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Financial or Income Standards in Subsidized Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(o)(1)(A)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Only applies when there is a government rent subsidy"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0062",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Aggregate Income Standards covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(n)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all rental housing"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0063",
         "result": "applies",
         "explanation": "Security Deposit Return and Accounting Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(i)-(j)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Landlords must return the portion of security remaining after lawful deductions to the tenant together with an accounting. Landlords must provide written statem"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0108",
         "result": "applies",
         "explanation": "Maximum Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0109",
         "result": "applies",
         "explanation": "Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to residential rental property and mobile home spaces"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Residential buildings constructed after February 1, 1995; mobile home spaces offered for rent after January 1, 1990"
+        ]
       },
       {
         "team_rule_id": "r-0110",
         "result": "unknown",
         "explanation": "Santa Ana just-cause coverage excludes housing produced in the last 15 years; year_built is missing.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "unknown",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "year_built",
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to residential tenancies after 30-day period"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Housing produced in the last 15 years; deed-restricted affordable housing; hotel and transient occupancy; hospital and care facilities; dormitories; other share"
+        ]
       },
       {
         "team_rule_id": "r-0111",
         "result": "applies",
         "explanation": "No-Fault Eviction Relocation Assistance covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to no-fault just cause terminations (owner intent to occupy, removal from rental market, demolition or substantial remodel)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Same as Just Cause Eviction Ordinance exemptions"
+        ]
       },
       {
         "team_rule_id": "r-0124",
         "result": "applies",
         "explanation": "Pass-Through Fee Cap and Reimbursement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0131",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "units=6"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       }
     ],
     "SA0005": [
@@ -632,157 +2772,703 @@
         "team_rule_id": "r-0005",
         "result": "unknown",
         "explanation": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "unknown",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to residential real property tenancies after 12 months of continuous lawful occupation; subject to exemptions in subdivision (e)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Transient and tourist hotel occupancy; Nonprofit hospital, religious facility, extended care facility housing; Dormitories owned by institutions of higher educa"
+        ]
       },
       {
         "team_rule_id": "r-0006",
         "result": "applies",
         "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when owner seeks to terminate tenancy based on tenant fault"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This section shall not apply to the following types of residential real properties or residential circumstances: (1) Transient and tourist hotel occupancy as de"
+        ]
       },
       {
         "team_rule_id": "r-0007",
         "result": "applies",
         "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all rent increases subject to subdivision (a)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=exempt from this section using the following statement: “This property is not subject to the rent limits imposed by Section"
+        ]
       },
       {
         "team_rule_id": "r-0008",
         "result": "applies",
         "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to violations of the rent increase cap in subdivision (a)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This section shall not apply to a homeowner of a mobilehome, as defined in Section"
+        ]
       },
       {
         "team_rule_id": "r-0009",
         "result": "applies",
         "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to service members (as defined in Military and Veterans Code § 400) charged higher than standard or advertised security"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0010",
         "result": "applies",
         "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all residential rental property security deposits"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0014",
         "result": "superseded",
         "explanation": "Statewide Rent Increase Cap is superseded by local rent control for this address. Subdivision (b) allows owners to set initial rental rate without restriction for new tenancies where no prior tenant remains; subsequent increases are subject to cap. Subdivision (c) restricts sublease rent to allowable rate. Local rent controls with lower limits take precedence per subdivision (d)(3).",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "does_not_apply",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all residential real property intended for human habitation, including mobilehomes, except as exempted in subdivision (d)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Housing restricted as affordable housing for very low, low, or moderate income persons/families; Dormitories owned by institutions of higher education or K-12 s"
+        ]
       },
       {
         "team_rule_id": "r-0050",
         "result": "applies",
         "explanation": "Prohibition on Common Pricing Algorithms in Restraint of Trade covers this address in Santa Ana, CA as of 2026-10-01. California Business and Professions Code § 16729",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to any person (as defined in Section 16702, excluding end consumers) using or distributing a common pricing algorithm for two or more persons in Califor"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=End consumers of products or services are excluded from the definition of 'person' for purposes of this section"
+        ]
       },
       {
         "team_rule_id": "r-0051",
         "result": "applies",
         "explanation": "Source of Income Discrimination Prohibition covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to most housing providers including landlords, tenant screening companies, real estate agents, home sellers, builders, mortgage lenders, and housing aut"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=When an owner is occupying a home and is renting to one additional person, the owner may exclude applicants based on protected characteristics (but cannot make "
+        ]
       },
       {
         "team_rule_id": "r-0052",
         "result": "applies",
         "explanation": "Criminal History Screening Limitations covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to housing providers conducting criminal background checks on applicants"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0053",
         "result": "applies",
         "explanation": "Reasonable Accommodation for Disabilities Required covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when accommodation/modification is necessary for equal opportunity to use and enjoy housing"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Requests that would cause direct threat to health/safety, substantial physical damage, or involve illegal drugs cannot be reasonable accommodations"
+        ]
       },
       {
         "team_rule_id": "r-0054",
         "result": "applies",
         "explanation": "Just Cause for Termination of Residential Tenancy covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2",
-        "conflict_flag": true
+        "conflict_flag": true,
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to residential real property intended for human habitation, including dwellings and units in mobilehome parks"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Does not apply to homeowners of mobilehomes as defined in Section 798.9"
+        ]
       },
       {
         "team_rule_id": "r-0056",
         "result": "applies",
         "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when landlord or agent receives request to rent residential property from applicant"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=No application screening fee may be charged when landlord knows or should know no rental unit is available or will be available within reasonable period"
+        ]
       },
       {
         "team_rule_id": "r-0057",
         "result": "applies",
         "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When application screening fee has been paid by applicant"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0058",
         "result": "applies",
         "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When landlord offers alternative application screening process under subsection (c)(2)(B)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0059",
         "result": "applies",
         "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When personal reference check or consumer credit report not obtained"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0060",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Inquiries in Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(b)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to owners of housing accommodations in rental context"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0061",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Financial or Income Standards in Subsidized Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(o)(1)(A)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Only applies when there is a government rent subsidy"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0062",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Aggregate Income Standards covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(n)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all rental housing"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0063",
         "result": "applies",
         "explanation": "Security Deposit Return and Accounting Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(i)-(j)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Landlords must return the portion of security remaining after lawful deductions to the tenant together with an accounting. Landlords must provide written statem"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0108",
         "result": "applies",
         "explanation": "Maximum Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0109",
         "result": "applies",
         "explanation": "Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to residential rental property and mobile home spaces"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Residential buildings constructed after February 1, 1995; mobile home spaces offered for rent after January 1, 1990"
+        ]
       },
       {
         "team_rule_id": "r-0110",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to residential tenancies after 30-day period"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Housing produced in the last 15 years; deed-restricted affordable housing; hotel and transient occupancy; hospital and care facilities; dormitories; other share"
+        ]
       },
       {
         "team_rule_id": "r-0111",
         "result": "applies",
         "explanation": "No-Fault Eviction Relocation Assistance covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to no-fault just cause terminations (owner intent to occupy, removal from rental market, demolition or substantial remodel)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Same as Just Cause Eviction Ordinance exemptions"
+        ]
       },
       {
         "team_rule_id": "r-0124",
         "result": "applies",
         "explanation": "Pass-Through Fee Cap and Reimbursement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0131",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1972",
+          "units=2"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       }
     ],
     "SA0006": [
@@ -790,157 +3476,703 @@
         "team_rule_id": "r-0005",
         "result": "applies",
         "explanation": "Just Cause Requirement for Eviction After 12 Months covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(a)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to residential real property tenancies after 12 months of continuous lawful occupation; subject to exemptions in subdivision (e)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Transient and tourist hotel occupancy; Nonprofit hospital, religious facility, extended care facility housing; Dormitories owned by institutions of higher educa"
+        ]
       },
       {
         "team_rule_id": "r-0006",
         "result": "applies",
         "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when owner seeks to terminate tenancy based on tenant fault"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This section shall not apply to the following types of residential real properties or residential circumstances: (1) Transient and tourist hotel occupancy as de"
+        ]
       },
       {
         "team_rule_id": "r-0007",
         "result": "applies",
         "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all rent increases subject to subdivision (a)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=exempt from this section using the following statement: “This property is not subject to the rent limits imposed by Section"
+        ]
       },
       {
         "team_rule_id": "r-0008",
         "result": "applies",
         "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to violations of the rent increase cap in subdivision (a)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This section shall not apply to a homeowner of a mobilehome, as defined in Section"
+        ]
       },
       {
         "team_rule_id": "r-0009",
         "result": "applies",
         "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to service members (as defined in Military and Veterans Code § 400) charged higher than standard or advertised security"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0010",
         "result": "applies",
         "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all residential rental property security deposits"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0014",
         "result": "superseded",
         "explanation": "Statewide Rent Increase Cap is superseded by local rent control for this address. Subdivision (b) allows owners to set initial rental rate without restriction for new tenancies where no prior tenant remains; subsequent increases are subject to cap. Subdivision (c) restricts sublease rent to allowable rate. Local rent controls with lower limits take precedence per subdivision (d)(3).",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "does_not_apply",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all residential real property intended for human habitation, including mobilehomes, except as exempted in subdivision (d)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Housing restricted as affordable housing for very low, low, or moderate income persons/families; Dormitories owned by institutions of higher education or K-12 s"
+        ]
       },
       {
         "team_rule_id": "r-0050",
         "result": "applies",
         "explanation": "Prohibition on Common Pricing Algorithms in Restraint of Trade covers this address in Santa Ana, CA as of 2026-10-01. California Business and Professions Code § 16729",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to any person (as defined in Section 16702, excluding end consumers) using or distributing a common pricing algorithm for two or more persons in Califor"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=End consumers of products or services are excluded from the definition of 'person' for purposes of this section"
+        ]
       },
       {
         "team_rule_id": "r-0051",
         "result": "applies",
         "explanation": "Source of Income Discrimination Prohibition covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to most housing providers including landlords, tenant screening companies, real estate agents, home sellers, builders, mortgage lenders, and housing aut"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=When an owner is occupying a home and is renting to one additional person, the owner may exclude applicants based on protected characteristics (but cannot make "
+        ]
       },
       {
         "team_rule_id": "r-0052",
         "result": "applies",
         "explanation": "Criminal History Screening Limitations covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to housing providers conducting criminal background checks on applicants"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0053",
         "result": "applies",
         "explanation": "Reasonable Accommodation for Disabilities Required covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when accommodation/modification is necessary for equal opportunity to use and enjoy housing"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Requests that would cause direct threat to health/safety, substantial physical damage, or involve illegal drugs cannot be reasonable accommodations"
+        ]
       },
       {
         "team_rule_id": "r-0054",
         "result": "applies",
         "explanation": "Just Cause for Termination of Residential Tenancy covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2",
-        "conflict_flag": true
+        "conflict_flag": true,
+        "needs_human_review": true,
+        "applicability": "needs_human_review",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to residential real property intended for human habitation, including dwellings and units in mobilehome parks"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Does not apply to homeowners of mobilehomes as defined in Section 798.9"
+        ]
       },
       {
         "team_rule_id": "r-0056",
         "result": "applies",
         "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies when landlord or agent receives request to rent residential property from applicant"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=No application screening fee may be charged when landlord knows or should know no rental unit is available or will be available within reasonable period"
+        ]
       },
       {
         "team_rule_id": "r-0057",
         "result": "applies",
         "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When application screening fee has been paid by applicant"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0058",
         "result": "applies",
         "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When landlord offers alternative application screening process under subsection (c)(2)(B)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0059",
         "result": "applies",
         "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=When personal reference check or consumer credit report not obtained"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0060",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Inquiries in Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(b)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to owners of housing accommodations in rental context"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0061",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Financial or Income Standards in Subsidized Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(o)(1)(A)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Only applies when there is a government rent subsidy"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0062",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Aggregate Income Standards covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(n)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Applies to all rental housing"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0063",
         "result": "applies",
         "explanation": "Security Deposit Return and Accounting Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(i)-(j)",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=CA",
+          "level=state",
+          "coverage=Landlords must return the portion of security remaining after lawful deductions to the tenant together with an accounting. Landlords must provide written statem"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+        ]
       },
       {
         "team_rule_id": "r-0108",
         "result": "applies",
         "explanation": "Maximum Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0109",
         "result": "applies",
         "explanation": "Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to residential rental property and mobile home spaces"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Residential buildings constructed after February 1, 1995; mobile home spaces offered for rent after January 1, 1990"
+        ]
       },
       {
         "team_rule_id": "r-0110",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to residential tenancies after 30-day period"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Housing produced in the last 15 years; deed-restricted affordable housing; hotel and transient occupancy; hospital and care facilities; dormitories; other share"
+        ]
       },
       {
         "team_rule_id": "r-0111",
         "result": "applies",
         "explanation": "No-Fault Eviction Relocation Assistance covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to no-fault just cause terminations (owner intent to occupy, removal from rental market, demolition or substantial remodel)"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=Same as Just Cause Eviction Ordinance exemptions"
+        ]
       },
       {
         "team_rule_id": "r-0124",
         "result": "applies",
         "explanation": "Pass-Through Fee Cap and Reimbursement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       },
       {
         "team_rule_id": "r-0131",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
-        "conflict_flag": false
+        "conflict_flag": false,
+        "needs_human_review": false,
+        "applicability": "applies",
+        "facts_used": [
+          "state=CA",
+          "legal_city=Santa Ana",
+          "county=Orange County",
+          "year_built=1995",
+          "units=40"
+        ],
+        "facts_missing": [
+          "owner_type"
+        ],
+        "legal_status_at_as_of_date": "in_force",
+        "coverage_conditions_evaluated": [
+          "jurisdiction_match=Santa Ana, CA",
+          "level=city",
+          "coverage=Applies to all rental units in Santa Ana subject to the ordinance"
+        ],
+        "exemptions_evaluated": [
+          "exemptions=None stated in source document"
+        ]
       }
     ]
   }
