@@ -316,7 +316,7 @@ export function renderConsolePage(stats: ConsoleStats): string {
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
         <path d="M12 3v18"/><path d="M5 8h14"/><path d="M5 16h14"/><path d="M7 8c0 2.5 1.5 4 5 4s5-1.5 5-4"/><path d="M7 16c0-2.5 1.5-4 5-4s5 1.5 5 4"/>
       </svg>
-      Not legal advice. Verify important decisions with qualified counsel.
+      Not legal advice and not a compliance certification. Verify important decisions with qualified counsel.
     </footer>
   </div>
 </body>

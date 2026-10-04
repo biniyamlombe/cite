@@ -115,7 +115,8 @@ app.get("/health", (c) =>
     service: "cite-api",
 
     as_of_default: process.env.AS_OF_DEFAULT || DEFAULT_AS_OF,
-    disclaimer: "Not legal advice",
+    disclaimer:
+      "Not legal advice and not a compliance certification. Verify important decisions with qualified counsel.",
   }),
 );
 
@@ -128,7 +129,8 @@ app.get("/", async (c) => {
       service: "cite-api",
       docs: "Open / in a browser for the operator console",
       health: "/health",
-      disclaimer: "Not legal advice",
+      disclaimer:
+      "Not legal advice and not a compliance certification. Verify important decisions with qualified counsel.",
     });
   }
 
@@ -222,7 +224,8 @@ app.get("/lookup/:addressId", async (c) => {
   const retrievedAtByDoc = await loadRetrievedAtByDocId();
 
   return c.json({
-    disclaimer: "Not legal advice",
+    disclaimer:
+      "Not legal advice and not a compliance certification. Verify important decisions with qualified counsel.",
     as_of: asOf,
     address: addr,
     jurisdiction: jurisdictionStack(geo),
@@ -302,7 +305,8 @@ app.get("/corpus/docs", async (c) => {
     })
     .sort((a, b) => a.doc_id.localeCompare(b.doc_id));
   return c.json({
-    disclaimer: "Not legal advice",
+    disclaimer:
+      "Not legal advice and not a compliance certification. Verify important decisions with qualified counsel.",
     count: list.length,
     docs: list,
   });
@@ -331,7 +335,8 @@ app.post("/extract/doc/:docId", async (c) => {
       message: `Live extract ${docId} via ${source}`,
     });
     return c.json({
-      disclaimer: "Not legal advice",
+      disclaimer:
+      "Not legal advice and not a compliance certification. Verify important decisions with qualified counsel.",
       doc_id: docId,
       source,
       source_url,
@@ -373,7 +378,8 @@ app.get("/audit", async (c) => {
   const limit = Math.min(Number(c.req.query("limit") || 40), 200);
   const events = await readAuditLog(limit);
   return c.json({
-    disclaimer: "Not legal advice",
+    disclaimer:
+      "Not legal advice and not a compliance certification. Verify important decisions with qualified counsel.",
     count: events.length,
     events,
   });
@@ -395,5 +401,5 @@ app.get("/submission/:file", async (c) => {
 
 const port = Number(process.env.PORT || 4000);
 console.log(`API listening on http://localhost:${port}`);
-console.log("Disclaimer: Not legal advice");
+console.log("Disclaimer: Not legal advice and not a compliance certification");
 serve({ fetch: app.fetch, port });

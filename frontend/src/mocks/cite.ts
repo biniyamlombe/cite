@@ -240,7 +240,13 @@ export function mockLookup(addressId: string, asOf: string): LookupResponse | nu
   if (!addr || !windows) return null;
   const snap = [...windows].reverse().find((w) => !w.from || asOf >= w.from) ?? windows[0]!;
   const { legal_city: _l, county: _c, ...address } = addr;
-  return { disclaimer: "Not legal advice", as_of: asOf, address, ...snap.data };
+  return {
+    disclaimer:
+      "Not legal advice and not a compliance certification. Verify important decisions with qualified counsel.",
+    as_of: asOf,
+    address,
+    ...snap.data,
+  };
 }
 
 export const MOCK_CHANGES: ChangesResponse = {

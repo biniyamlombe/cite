@@ -19,7 +19,8 @@ import {
 } from "@/mocks/cite";
 
 export const DEFAULT_AS_OF = "2026-10-01";
-export const DISCLAIMER = "Not legal advice. Verify important decisions with qualified counsel.";
+export const DISCLAIMER =
+  "Not legal advice and not a compliance certification. Verify important decisions with qualified counsel.";
 
 export interface CiteApiClient {
   readonly mode: "live" | "mock";
