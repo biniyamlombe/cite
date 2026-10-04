@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { coverageText, fmtDate } from "@/lib/cite/labels";
 import type { LookupResultValue, Rule } from "@/lib/cite/types";
 import { StatusBadge } from "./status";
-import { ConflictWarning, UnknownFactWarning } from "./warnings";
+import { ConflictWarning, OpenQuestionWarning, UnknownFactWarning, splitOpenQuestion } from "./warnings";
 import { PropertyFacts } from "./property";
 
 export interface RuleView {
@@ -17,8 +17,7 @@ export interface RuleView {
   conflict?: boolean | undefined;
 }
 
-export function RuleCard({ view, onOpen, headingLevel = 4 }: { view: RuleView; onOpen: () => void; headingLevel?: 2 | 3 | 4 }) {
-  const H = `h${headingLevel}` as "h2" | "h3" | "h4";
+export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void }) {
   const t = useT();
   const tx = useTx();
   const { rule, result, explanation, conflict } = view;
@@ -36,7 +35,7 @@ export function RuleCard({ view, onOpen, headingLevel = 4 }: { view: RuleView; o
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
-          <H className="font-medium text-ink">{rule.title}</H>
+          <h4 className="font-medium text-ink">{rule.title}</h4>
           <div className="mt-1 font-mono text-xs text-muted-foreground">
             {rule.citation} · {t(rule.level === "city" ? "level.city" : "level.state")} · {rule.jurisdiction}
           </div>
@@ -59,10 +58,20 @@ export function RuleCard({ view, onOpen, headingLevel = 4 }: { view: RuleView; o
       {result === "unknown" && explanation ? (
         <div className="mt-3"><UnknownFactWarning explanation={explanation} compact /></div>
       ) : explanation ? (
-        <div className="mt-3 rounded-md border border-border/80 bg-paper/80 px-3 py-2.5">
-          <div className="eyebrow">{t("lookup.why")}</div>
-          <p className="mt-1 text-sm leading-relaxed text-ink/90">{explanation}</p>
-        </div>
+        (() => {
+          const { body, openQuestion } = splitOpenQuestion(explanation);
+          return (
+            <div className="mt-3 space-y-2">
+              {body ? (
+                <div className="rounded-md border border-border/80 bg-paper/80 px-3 py-2.5">
+                  <div className="eyebrow">{t("lookup.why")}</div>
+                  <p className="mt-1 text-sm leading-relaxed text-ink/90">{body}</p>
+                </div>
+              ) : null}
+              {openQuestion ? <OpenQuestionWarning note={openQuestion} compact /> : null}
+            </div>
+          );
+        })()
       ) : null}
       <div className="mt-3 flex items-center justify-between gap-3 border-t border-border/70 pt-3">
         <SourceMeta rule={rule} />
@@ -78,11 +87,17 @@ export function WhyThisApplies({ result, explanation }: { result?: LookupResultV
   const t = useT();
   if (!explanation) return null;
   const unknown = result === "unknown";
+  const { body, openQuestion } = splitOpenQuestion(explanation);
   return (
-    <section className={cn("rounded-md border p-4", unknown ? "border-unknown/25 bg-unknown-soft" : "border-applies/20 bg-applies-soft")}>
-      <div className="eyebrow">{unknown ? t("rule.unable") : t("rule.whyApplies")}</div>
-      <p className="mt-2 text-[15px] leading-relaxed text-ink">{explanation}</p>
-    </section>
+    <div className="space-y-2">
+      {body ? (
+        <section className={cn("rounded-md border p-4", unknown ? "border-unknown/25 bg-unknown-soft" : "border-applies/20 bg-applies-soft")}>
+          <div className="eyebrow">{unknown ? t("rule.unable") : t("rule.whyApplies")}</div>
+          <p className="mt-2 text-[15px] leading-relaxed text-ink">{body}</p>
+        </section>
+      ) : null}
+      {openQuestion ? <OpenQuestionWarning note={openQuestion} /> : null}
+    </div>
   );
 }
 
