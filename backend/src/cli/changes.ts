@@ -5,6 +5,7 @@ import { readJson, writeJson } from "../lib/io.js";
 import { outputsDir } from "../lib/paths.js";
 import type { GeocodeResult } from "../geocode/census.js";
 import { runChangesFromDisk } from "../changes/tracker.js";
+import { appendAudit } from "../lib/audit.js";
 
 async function main() {
   const rulesFile = await readJson<{ rules: RuleRecord[] }>(
@@ -29,6 +30,20 @@ async function main() {
           : ""),
     );
   }
+  await appendAudit({
+    ts: new Date().toISOString(),
+    kind: "change_tests",
+    message: `Wrote ${Object.keys(changes).join(", ")}`,
+    meta: Object.fromEntries(
+      Object.entries(changes).map(([id, r]) => [
+        id,
+        {
+          affected: r.affected_address_ids.length,
+          conflicts: r.conflict_flag_address_ids?.length ?? 0,
+        },
+      ]),
+    ),
+  });
 }
 
 main().catch((err) => {

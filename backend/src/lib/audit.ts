@@ -10,6 +10,7 @@ export type AuditEvent = {
     | "schema_check"
     | "quote_rejected"
     | "quote_retry"
+    | "change_tests"
     | "note";
   doc_id?: string;
   source?: string;
