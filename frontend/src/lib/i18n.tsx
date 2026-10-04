@@ -397,7 +397,8 @@ const STRINGS = {
     "status.kind.applicability": "Coverage",
     "status.kind.legal": "Legal status",
     "status.help.applies": "Based on available records, this rule appears to cover this property.",
-    "status.help.unknown": "We could not determine coverage; required building facts are missing.",
+    "status.help.unknown":
+      "Coverage could not be determined from the available building facts and captured sources.",
     "status.help.does_not_apply":
       "Coverage conditions appear unmet, or the measure is non-operative.",
     "status.help.superseded":
@@ -486,7 +487,7 @@ const STRINGS = {
     "pipeline.filter": "Filter D001, California…",
     "pipeline.filterEmpty": "No documents match this filter",
     "result.applies": "Appears to apply",
-    "result.unknown": "Need more facts",
+    "result.unknown": "Can't determine yet",
     "result.superseded": "Replaced by a local rule",
     "result.not_yet_effective": "Not in effect yet",
     "result.pending": "Still pending",
@@ -553,6 +554,23 @@ const STRINGS = {
     "rule.mayBeStale": "may be stale",
     "timeline.title": "Effective-date timeline",
     "timeline.asOf": "As of",
+    "timeline.hint":
+      "Jump to any date. Cite re-asks the backend and re-evaluates every rule for this address on that day.",
+    "timeline.hintStatic": "Effective dates returned for this address.",
+    "timeline.upcoming": "{n} upcoming",
+    "timeline.future": "upcoming",
+    "timeline.past": "in effect",
+    "timeline.dayBefore": "Day before",
+    "timeline.onDate": "On this date",
+    "date.title": "Effective date",
+    "date.basis.stated": "Stated in source",
+    "date.basis.derived": "Computed from source text",
+    "date.basis.rule_of_law": "Default rule of law",
+    "date.basis.not_stated": "Not stated in source",
+    "date.basis.removed_unsupported": "Unsupported date removed",
+    "date.equation": "How this date was computed",
+    "date.unverified":
+      "Legal status is not asserted: the primary ordinance is link-only in the pack.",
     "changes.beat.T1":
       "Effective-date flip: California algorithmic pricing moves from not yet effective to applies.",
     "changes.beat.T2":
@@ -604,7 +622,8 @@ const STRINGS = {
     "ask.submit": "Ask",
     "ask.letter": "Draft letter",
     "ask.letterTitle": "Landlord letter",
-    "ask.letterLede": "Fill a fixed template from the rent check at this address. Not legal advice.",
+    "ask.letterLede":
+      "Fill a fixed template from the rent check at this address. Not legal advice.",
     "ask.letterGenerate": "Generate letter",
     "ask.letterDraft": "Draft",
     "ask.copy": "Copy letter",
@@ -1231,7 +1250,8 @@ const STRINGS = {
     "status.kind.legal": "Estado legal",
     "status.help.applies":
       "Según los registros disponibles, esta norma parece cubrir esta propiedad.",
-    "status.help.unknown": "No pudimos determinar la cobertura; faltan hechos del edificio.",
+    "status.help.unknown":
+      "No se pudo determinar la cobertura con los datos del edificio y las fuentes capturadas disponibles.",
     "status.help.does_not_apply":
       "Las condiciones de cobertura parecen no cumplirse, o la medida no es operativa.",
     "status.help.superseded":
@@ -1323,7 +1343,7 @@ const STRINGS = {
     "pipeline.filter": "Filtrar D001, California…",
     "pipeline.filterEmpty": "Ningún documento coincide con este filtro",
     "result.applies": "Parece aplicar",
-    "result.unknown": "Faltan datos",
+    "result.unknown": "No se puede determinar aún",
     "result.superseded": "Reemplazada por una norma local",
     "result.not_yet_effective": "Aún no entra en vigor",
     "result.pending": "Aún pendiente",
@@ -1390,6 +1410,23 @@ const STRINGS = {
     "rule.mayBeStale": "puede estar desactualizada",
     "timeline.title": "Línea de fechas de vigencia",
     "timeline.asOf": "A la fecha",
+    "timeline.hint":
+      "Salte a cualquier fecha. Cite vuelve a consultar el backend y reevalúa cada norma para esta dirección en ese día.",
+    "timeline.hintStatic": "Fechas de vigencia devueltas para esta dirección.",
+    "timeline.upcoming": "{n} próximas",
+    "timeline.future": "próxima",
+    "timeline.past": "vigente",
+    "timeline.dayBefore": "Día anterior",
+    "timeline.onDate": "En esta fecha",
+    "date.title": "Fecha de vigencia",
+    "date.basis.stated": "Indicada en la fuente",
+    "date.basis.derived": "Calculada a partir del texto fuente",
+    "date.basis.rule_of_law": "Regla legal supletoria",
+    "date.basis.not_stated": "No indicada en la fuente",
+    "date.basis.removed_unsupported": "Fecha sin respaldo eliminada",
+    "date.equation": "Cómo se calculó esta fecha",
+    "date.unverified":
+      "No se afirma el estado legal: la ordenanza principal solo tiene enlace en el paquete.",
     "changes.beat.T1":
       "Cambio de fecha: la fijación algorítmica de California pasa de aún no vigente a aplica.",
     "changes.beat.T2":

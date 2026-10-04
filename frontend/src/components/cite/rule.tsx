@@ -5,7 +5,7 @@ import { toast } from "sonner";
 import { useLocale, useT, useTx } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { confidenceBand, coverageText, fmtDate } from "@/lib/cite/labels";
-import type { LookupResultValue, Rule } from "@/lib/cite/types";
+import type { LookupResultValue, Rule, RuleStatus } from "@/lib/cite/types";
 import { StatusBadge } from "./status";
 import {
   ConflictWarning,
@@ -34,6 +34,8 @@ export interface RuleView {
   conflict?: boolean | undefined;
   needsHumanReview?: boolean | undefined;
   factsMissing?: string[] | undefined;
+  /** Backend legal status on the lookup's as-of date; `rule.status` is pack-time. */
+  legalStatus?: RuleStatus | undefined;
   applicability?: string | undefined;
 }
 
@@ -85,7 +87,9 @@ export function RuleCard({
           {headline ? (
             <p className="text-[15px] font-medium leading-snug text-ink">{headline}</p>
           ) : null}
-          <h4 className={cn("font-medium text-ink", headline && "mt-1 text-sm text-muted-foreground")}>
+          <h4
+            className={cn("font-medium text-ink", headline && "mt-1 text-sm text-muted-foreground")}
+          >
             {rule.title}
           </h4>
           <div className="mt-1 font-mono text-xs text-muted-foreground">
@@ -129,8 +133,8 @@ export function RuleCard({
             />
           ) : null}
           <StatusBadge
-            value={rule.status}
-            label={tx(`status.${rule.status}`)}
+            value={view.legalStatus ?? rule.status}
+            label={tx(`status.${view.legalStatus ?? rule.status}`)}
             size="md"
             kind="legal_status"
           />
@@ -346,6 +350,7 @@ export function CitationPanel({
             {open ? t("rule.collapseQuote") : t("rule.expandQuote")}
           </button>
         )}
+        <DateProof rule={rule} />
         <div className="mt-3 flex flex-wrap items-center justify-between gap-2 print:hidden">
           <CopyCitation rule={rule} />
           <button
@@ -375,6 +380,84 @@ export function CitationPanel({
         )}
       </div>
     </section>
+  );
+}
+
+const DATE_BASES = [
+  "stated",
+  "derived",
+  "rule_of_law",
+  "not_stated",
+  "removed_unsupported",
+] as const;
+type DateBasis = (typeof DATE_BASES)[number];
+
+/** Splits the backend's `kind: note` basis string for display; no date logic happens here. */
+function parseDateBasis(raw?: string | null): { kind: DateBasis; note: string } | null {
+  if (!raw) return null;
+  const i = raw.indexOf(":");
+  const kind = (i > 0 ? raw.slice(0, i) : raw).trim() as DateBasis;
+  if (!DATE_BASES.includes(kind)) return null;
+  return { kind, note: i > 0 ? raw.slice(i + 1).trim() : "" };
+}
+
+export function DateProof({ rule }: { rule: Rule }) {
+  const t = useT();
+  const { locale } = useLocale();
+  if (rule.status_basis?.startsWith("unverified")) {
+    return (
+      <p className="mt-3 rounded-sm border border-unknown/30 bg-unknown-soft/50 px-3 py-2 text-xs text-unknown">
+        {t("date.unverified")}
+      </p>
+    );
+  }
+  const basis = parseDateBasis(rule.effective_date_basis);
+  if (!basis && !rule.effective_date) return null;
+  const terms =
+    basis?.kind === "derived"
+      ? (basis.note.match(/"[^"]+"/g) ?? [])
+          .map((q) => q.slice(1, -1))
+          .sort((a, b) => Number(/approved/i.test(b)) - Number(/approved/i.test(a)))
+      : [];
+  return (
+    <div className="mt-3 rounded-sm border border-border/70 px-3 py-2.5">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <span className="eyebrow">{t("date.title")}</span>
+        {basis && (
+          <span
+            className={cn(
+              "rounded-sm border px-1.5 py-0.5 text-[10.5px] font-medium",
+              basis.kind === "not_stated" || basis.kind === "removed_unsupported"
+                ? "border-unknown/30 bg-unknown-soft text-unknown"
+                : "border-primary/25 bg-primary/5 text-primary",
+            )}
+          >
+            {t(`date.basis.${basis.kind}`)}
+          </span>
+        )}
+      </div>
+      <div className="mt-1 font-mono text-sm text-ink">{fmtDate(rule.effective_date, locale)}</div>
+      {terms.length >= 2 ? (
+        <figure className="mt-2 border-l-2 border-primary/30 pl-3" aria-label={t("date.equation")}>
+          {terms.map((term, i) => (
+            <div key={term} className="flex gap-2 text-xs leading-relaxed">
+              <span className="w-3 shrink-0 font-mono text-muted-foreground">
+                {i === 0 ? "" : "+"}
+              </span>
+              <q lang="en" className="font-serif text-ink/90">
+                {term}
+              </q>
+            </div>
+          ))}
+          <div className="mt-0.5 flex gap-2 font-mono text-xs font-medium text-primary">
+            <span className="w-3 shrink-0">=</span>
+            {fmtDate(rule.effective_date, locale)}
+          </div>
+        </figure>
+      ) : basis?.note && basis.kind !== "stated" ? (
+        <p className="mt-1.5 text-xs leading-snug text-muted-foreground">{basis.note}</p>
+      ) : null}
+    </div>
   );
 }
 
@@ -424,6 +507,7 @@ export function RuleDetailDrawer({
   }, [onClose]);
   if (!view) return null;
   const { rule, result, explanation, headline, plainLanguage, conflict } = view;
+  const legalStatus = view.legalStatus ?? rule.status;
   const cov = coverageText(rule.coverage_conditions);
   const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
@@ -465,8 +549,8 @@ export function RuleDetailDrawer({
               )}
               {result && <StatusBadge value={result} size="md" />}
               <StatusBadge
-                value={rule.evidence_status === "scenario_only" ? "unknown" : rule.status}
-                label={`${t("rule.rulePrefix")}: ${rule.evidence_status === "scenario_only" ? t("result.unknown") : tx(`status.${rule.status}`)}`}
+                value={rule.evidence_status === "scenario_only" ? "unknown" : legalStatus}
+                label={`${t("rule.rulePrefix")}: ${rule.evidence_status === "scenario_only" ? t("result.unknown") : tx(`status.${legalStatus}`)}`}
                 size="md"
               />
             </div>

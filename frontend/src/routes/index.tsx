@@ -477,6 +477,7 @@ function LookupPage() {
       needsHumanReview: r.needs_human_review,
       factsMissing: r.facts_missing,
       applicability: r.applicability,
+      legalStatus: r.legal_status_at_as_of_date,
     });
   }, [lookup.data, ruleId]);
 
@@ -688,7 +689,7 @@ function LookupResults({
           onApply={onFactOverrides}
           onClear={() => onFactOverrides({})}
         />
-        <EffectiveTimeline data={data} />
+        <EffectiveTimeline data={data} onJump={setAsOf} />
         <AuditTrailPanel data={data} />
       </section>
 
@@ -745,6 +746,7 @@ function LookupResults({
                       needsHumanReview: r.needs_human_review,
                       factsMissing: r.facts_missing,
                       applicability: r.applicability,
+                      legalStatus: r.legal_status_at_as_of_date,
                     };
                     return (
                       <RuleCard key={r.team_rule_id} view={v} index={i} onOpen={() => onOpen(v)} />
