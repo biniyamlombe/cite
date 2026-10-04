@@ -37,5 +37,14 @@ export function assertT3(
   if (!/after_check=true/i.test(result.notes || "")) {
     errors.push("T3 after_check should be true");
   }
+  if (!new RegExp(`date_flip_ok=${nj.length}/${nj.length}`).test(result.notes || "")) {
+    errors.push(`T3 notes should report date_flip_ok=${nj.length}/${nj.length}`);
+  }
+  if (!/Open question:.*FAIR/i.test(result.notes || "")) {
+    errors.push("T3 notes should surface FAIR preemption open question");
+  }
+  if (!/conflict_flag_live=/i.test(result.notes || "")) {
+    errors.push("T3 notes should report conflict_flag_live coverage");
+  }
   return errors;
 }

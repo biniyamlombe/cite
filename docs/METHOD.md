@@ -25,7 +25,7 @@ Outputs: `outputs/rules.json`, `lookups.json`, `changes.json`, `geocode_cache.js
 | Enrich | A/B | Dual `coverage_conditions` (plain text + executable predicates) |
 | Geocode | **B** | Census Geocoder (or heuristic) → state / county / legal city (postal city ≠ legal city) |
 | Lookup | **B** | For each of 500 addresses: `applies` / `unknown` / `superseded` / `not_yet_effective` / `pending`; pack §9 open questions appended on matching rules |
-| Changes | **C** | T1–T5 from `dev/change_tests.json` → affected (+ conflict) address sets |
+| Changes | **C** | T1–T5 from `dev/change_tests.json` → affected (+ conflict) address sets; T6 hour-16 placeholder until corpus drops |
 
 Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no legal logic in the frontend.
 
