@@ -1,499 +1,157 @@
 # Cite
 
-**Hack-Nation × RealPage · Challenge 02 — Rental Housing Law Navigator**
+### Housing law, at an address, on a date — with the quote still attached.
 
-Cite answers: *which housing rules appear to apply at this address on a given date, what is about to change, and why — with exact corpus citations?*
+[![CI](https://github.com/biniyamlombe/hacknation702/actions/workflows/ci.yml/badge.svg)](https://github.com/biniyamlombe/hacknation702/actions/workflows/ci.yml)
+[![Live](https://img.shields.io/badge/demo-live-2f6f78?style=flat-square)](https://cite-eight.vercel.app)
+[![API](https://img.shields.io/badge/API-healthy-1e3a45?style=flat-square)](https://cite-api-olep35ee2q-uc.a.run.app/health)
+
+**Cite** is a rental-housing law navigator: it extracts rules from a legal corpus, resolves which ones appear to apply at a property, and shows what changes when the calendar moves — every answer carrying a **verbatim citation**.
+
+Built for **Hack-Nation × RealPage · Challenge 02**.
+
+<p align="center">
+  <a href="https://cite-eight.vercel.app"><strong>Open the live demo →</strong></a>
+  &nbsp;·&nbsp;
+  <a href="docs/pitch-deck.html">3-minute pitch</a>
+  &nbsp;·&nbsp;
+  <a href="docs/method-note.md">method note</a>
+</p>
+
+> **Not legal advice.** When the data isn’t there, Cite says **unknown**. It will not invent ordinance text or building facts to look certain.
+
+---
+
+## The punchline
+
+Most tools summarize the law.  
+**Cite refuses to answer without the source still in the room.**
+
+| Instead of… | Cite does… |
+|-------------|------------|
+| Guessing missing year / units | Returns **unknown** |
+| Treating postal labels as law | Maps to **Census legal city** |
+| Quietly picking a winner in a conflict | Flags **needs human review** |
+| Calling pending bills “current” | Keeps them out of **applies** |
+| Paraphrasing ordinances | Requires an **exact quoted span** |
+
+---
+
+## See it in sixty seconds
+
+| Beat | Try | What you should notice |
+|------|-----|------------------------|
+| 1 | Lookup **`A0005`** | Berkeley — missing facts → unknown, not a fake “applies” |
+| 2 | Lookup **`A0002`** | Hoboken municipal ban applies + NJ FAIR conflict surfaced |
+| 3 | Open **Change Radar** | T1–T5: date flips, city boundaries, conflicts, failed ballot = 0 |
+
+Live app: **[cite-eight.vercel.app](https://cite-eight.vercel.app)**  
+Optional stretch: **`SA0001`** (Santa Ana — same pipeline, outside the graded 500)
+
+---
+
+## How Cite works
+
+```
+  CORPUS          ADDRESS           CALENDAR
+  ──────          ───────           ────────
+  extract    →    geocode      →    as-of evaluate
+  verbatim        legal city        change tests
+  quotes          coverage          conflict flags
+       \             |                  /
+        \            ▼                 /
+         └────►  cited answer  ◄──────┘
+```
+
+| Module | Promise |
+|--------|---------|
+| **A · Extract** | Structured rules from the corpus — every `quoted_span` must appear in the source |
+| **B · Resolve** | Jurisdiction stack + deterministic coverage (`applies` / `unknown` / `pending` / …) |
+| **C · Track** | Graded scenarios T1–T5 — impact sets you can re-run, not a slide deck of claims |
+
+**UI is display-only.** Legal logic lives in the API and pipeline.
+
+---
+
+## What’s shipping
 
 | | |
-|---|---|
-| **Product** | Legal-information prototype (Modules A extract → B geocode/coverage → C change tests) |
-| **Default as-of** | `2026-10-01` |
-| **Stack** | Hono API `:4000` · Vite / TanStack UI (often `:8080`) · Zod contracts in `shared/` |
-| **Pack** | Participant-final **no-hour16** — T1–T5 only (no T6) |
-
-> **Not legal advice.** Cite is not a compliance certificate, not counsel, and not a final legal determination. Prefer **unknown** over guessing building facts or inventing municipal code.
-
----
-
-## Contents
-
-1. [What you get](#what-you-get)
-2. [Honesty principles](#honesty-principles)
-3. [Repository layout](#repository-layout)
-4. [Prerequisites](#prerequisites)
-5. [Setup](#setup)
-6. [Environment variables](#environment-variables)
-7. [Run the live demo](#run-the-live-demo)
-8. [Demo pages & judge path](#demo-pages--judge-path)
-9. [Generate / refresh submission outputs](#generate--refresh-submission-outputs)
-10. [Quality, tests, and preflight](#quality-tests-and-preflight)
-11. [Submission pack & scoring](#submission-pack--scoring)
-12. [HTTP API](#http-api)
-13. [Modules A–C](#modules-ac)
-14. [UX architecture](#ux-architecture)
-15. [Offline demo & monitoring](#offline-demo--monitoring)
-16. [Spanish / localization](#spanish--localization)
-17. [Known limits](#known-limits)
-18. [Documentation index](#documentation-index)
-19. [Troubleshooting](#troubleshooting)
+|--|--|
+| **145** structured rules | six required categories · change-test aliases |
+| **500** address lookups | evaluated @ `2026-10-01` |
+| **T1–T5** green | `250` · `90` · `140` (+90 conflicts) · `110` · `0` |
+| Live stack | Vercel UI · Google Cloud Run API |
+| Extras | `en-US` / `es-US` chrome · audit log · Santa Ana stretch · renter check/ask/letter |
 
 ---
 
-## What you get
+## Stack
 
-Current checked-in artifacts (re-run `npm run pipeline` / `npm run submission:check` after regenerating):
+`Hono` · `Vite` / `TanStack` · shared `Zod` contracts · Census Geocoder · Claude extract *(heuristic fallback)*
 
-| Artifact | Location | Snapshot |
-|----------|----------|----------|
-| Extracted rules | `outputs/rules.json` | **145** rules · six required categories · change-test aliases present |
-| Address lookups | `outputs/lookups.json` | **500** pack addresses @ `2026-10-01` |
-| Change tests | `outputs/changes.json` | **T1–T5** (`T1=250`, `T2=90`, `T3=140` +90 conflicts, `T4=110`, `T5=0`) |
-| Geocode cache | `outputs/geocode_cache.json` | Census + FIPS / place GEOID enrichment |
-| Provenance | `outputs/provenance.json` | Schema/pipeline versions + content hashes (companion; pack JSON stays grader-shaped) |
-| Rule versions | `outputs/rule_versions.json` | Alias-keyed history for UI / `GET /rules/:id/versions` |
-| Audit log | `outputs/audit_log.jsonl` | Extract / quote / test events |
-| Stretch | `outputs/stretch_*.json` + `data/stretch/` | Santa Ana demo addresses (outside the graded 500) |
+```
+backend/   API + pipeline          frontend/  product UI
+shared/    contracts               data/      pack + stretch corpus
+outputs/   graded artifacts        docs/      method, pitch, deploy
+```
 
-Deploy / pitch needs the repo **as-is**: `data/pack/` + `outputs/` (including `geocode_cache.json`) + `backend/` + `frontend/` + `shared/`.
+Deploy: [`docs/deploy.md`](docs/deploy.md) · Architecture: [`docs/system-architecture.md`](docs/system-architecture.md)
 
 ---
 
-## Honesty principles
-
-These are product constraints, not polish:
-
-- **Exact citations.** Every rule’s `quoted_span` must appear **verbatim** in corpus text (snap + reject).
-- **Unknown over guessing.** Missing `year_built` / `units` / `owner_type` can yield `unknown` — never invented assessor facts.
-- **Postal ≠ legal city.** City rules attach to Census legal jurisdiction (e.g. Dorchester postal → Boston legal).
-- **Dual status.** Coverage applicability (`appears to apply` / `unknown` / …) is separate from legal status (`in force` / `pending` / `not yet effective` / `failed`).
-- **Pending / NTE are not current law.** They never sit under “Appear to apply.”
-- **Municipal ordinance captures.** Pack ecode360 pages stay link-only; Cite extracts Hoboken/JC bans from **adopted ordinance PDFs** in `data/stretch/secondary_corpus/` (`HOB-ORD-01`, `JC-ORD-01`) — never invented text. Live in-city result is `applies` with FAIR conflict flagged.
-- **Conflicts need humans.** Overlaps (e.g. NJ FAIR vs local alg rules) flag `needs_human_review` without picking a legal winner.
-- **Session fact overrides.** Year/units entered in the UI preview coverage for this session only; they are marked `user_provided` and are not corpus truth.
-- **UI is display-only.** No browser-side legal evaluation — live Hono API or offline corpus snapshots only.
-
----
-
-## Repository layout
-
-| Path | Role |
-|------|------|
-| `backend/` | Claude extraction, Census geocoding, coverage engine, change tracker, Hono API (`:4000`) |
-| `frontend/` | Lovable / Vite Cite UI (TanStack Start + React) — talks to the Hono API |
-| `shared/` | Zod schemas shared by FE/BE (`API_SCHEMA_VERSION`, lookup/result contracts) |
-| `data/pack/` | Vendored participant starter pack (corpus, 500 addresses, schemas, `dev/change_tests.json`) |
-| `data/stretch/` | Santa Ana demo addresses (stretch jurisdiction; not in pack 500) |
-| `outputs/` | Graded + companion artifacts listed above |
-| `scripts/` | `quality-gate.sh`, `submission-check.sh`, `submission-pack.sh`, `demo-preflight.sh`, `demo-tunnel.sh` |
-| `docs/` | All product docs — method note, demo script, architecture, UX, audit, scoring |
-
-Frontend is **not** an npm workspace member (Lovable peer deps). Use `npm install --prefix frontend` (or `npm run install:all`).
-
----
-
-## Prerequisites
-
-- **Node.js** 20+ recommended (matches typical Vite / workspace tooling)
-- **npm** 10+
-- Optional: **Anthropic API key** for Claude extraction (heuristic fallback works without it)
-- Optional: network for Census Geocoder (or use `--heuristic-only` / cached `geocode_cache.json`)
-- Optional: Cloudflare tunnel CLI for Lovable cloud → laptop API (`npm run demo:tunnel`)
-
----
-
-## Setup
+## Run it yourself
 
 ```bash
-# 1) Backend + shared (npm workspaces)
-npm install
-npm run build -w shared
+npm run install:all && npm run build -w shared
 
-# 2) Frontend (separate install — Lovable/Vite peer deps break workspaces)
-npm install --prefix frontend --legacy-peer-deps
-
-# Or one shot:
-# npm run install:all
-
-# 3) Backend env
 cp backend/.env.example backend/.env
-# Edit backend/.env — see Environment variables below
-
-# 4) Frontend env — required for live demo
 cp frontend/.env.example frontend/.env.local
-# Ensure: VITE_API_URL=http://localhost:4000
+# frontend/.env.local → VITE_API_URL=http://localhost:4000
+
+npm run dev:backend      # :4000
+npm run dev:frontend     # Vite (often :8080)
+npm run demo:preflight   # pitch-day smoke
 ```
 
-Verify contracts build:
+Node **20+**. `ANTHROPIC_API_KEY` optional (re-extract); checked-in `outputs/` already run the demo.
 
 ```bash
-npm run typecheck
+npm run quality            # CI-shaped gate
+npm run submission:check   # citations + T1–T5 + 500 lookups
+npm run submission:pack    # organizer zip
 ```
 
 ---
 
-## Environment variables
+## API at a glance
 
-### Backend (`backend/.env`)
+`https://cite-api-olep35ee2q-uc.a.run.app`
 
-| Variable | Default / example | Purpose |
-|----------|-------------------|---------|
-| `ANTHROPIC_API_KEY` | _(empty)_ | Claude extraction; heuristic fallback if unset |
-| `ANTHROPIC_MODEL` | `claude-haiku-4-5` | Default extract model |
-| `ANTHROPIC_RETRY_MODEL` | `claude-sonnet-4-5` | Empty-cache upgrades + `extract -- --retry-failed` |
-| `EXTRACT_CONCURRENCY` | `4` | Parallel docs during extract |
-| `AS_OF_DEFAULT` | `2026-10-01` | Default evaluation date |
-| `PACK_ROOT` | `./data/pack` | Pack root override |
-| `PORT` | `4000` | API port |
-| `CORS_ORIGIN` | localhost UI ports | Comma-separated UI origins (see `.env.example`) |
+| | |
+|--|--|
+| `GET /health` | liveness + versions |
+| `GET /lookup/:id?as_of=YYYY-MM-DD` | coverage + evidence |
+| `GET /changes` | T1–T5 impact |
+| `GET /rules` · `GET /audit` | catalog + trail |
 
-### Frontend (`frontend/.env.local`)
-
-| Variable | Example | Purpose |
-|----------|---------|---------|
-| `VITE_API_URL` | `http://localhost:4000` | Live Cite API. **Unset** → offline corpus snapshots |
-| `VITE_SUPABASE_URL` | _(optional)_ | Monitoring / team features on Lovable Cloud |
-| `VITE_SUPABASE_PUBLISHABLE_KEY` | _(optional)_ | Same |
-| `VITE_SUPABASE_PROJECT_ID` | _(optional)_ | Same |
-
-Lovable preview hosts are allowed by the API CORS helper by default; still set `CORS_ORIGIN` if you use a custom origin.
+Contract: [`docs/api-ux-contract.md`](docs/api-ux-contract.md)
 
 ---
 
-## Run the live demo
+## Pitch & docs
 
-```bash
-# Terminal 1 — API
-npm run dev:backend
-
-# Terminal 2 — UI
-echo 'VITE_API_URL=http://localhost:4000' > frontend/.env.local
-npm run dev:frontend
-
-# Before pitching (live API + four demo stories + T1–T5)
-npm run demo:preflight
-```
-
-| Surface | URL |
-|---------|-----|
-| UI | Vite terminal port (often `http://localhost:8080`) |
-| API health | `http://localhost:4000/health` |
-| API operator console | `http://localhost:4000/` (HTML) |
-| Version | `http://localhost:4000/version` |
-
-**Lovable cloud only** (localhost won’t reach your laptop):
-
-```bash
-npm run demo:tunnel
-# Copy the https://….trycloudflare.com URL into Lovable as VITE_API_URL
-# Re-run: VITE_API_URL=https://… npm run demo:preflight
-```
-
-Quick tunnels mint a **new URL every restart**. Prefer **local UI + local API** if Wi‑Fi is flaky.
-
-Full judge script (~4 minutes): **[docs/demo-script.md](docs/demo-script.md)**.
+| | |
+|--|--|
+| **3-min pitch** | [`docs/pitch-deck.html`](docs/pitch-deck.html) — Team · Demo · Teach |
+| **Speaker notes** | [`docs/pitch-deck.md`](docs/pitch-deck.md) |
+| **Judge script** | [`docs/demo-script.md`](docs/demo-script.md) |
+| **Method** | [`docs/method-note.md`](docs/method-note.md) |
+| **Limits** | [`docs/gap-register.md`](docs/gap-register.md) |
 
 ---
 
-## Demo pages & judge path
+## Status
 
-### Primary nav
+Hackathon prototype with a **production-hosted** demo and checked-in graded artifacts. Scope is the challenge corpus and demo address set — not open-world geocoding.
 
-1. **Lookup** — address + as-of → jurisdiction stack, answer summary, grouped results (appear to apply / need more facts / human review / do not appear to apply / pending·NTE), evidence drawer, session fact overrides, audit details
-2. **Change scenarios** — T1–T5 with current-law vs scenario labeling, affected counts, conflict flags, per-address samples; T5 empty set is explicit
-3. **How it works** (`/about`) — method + not-legal-advice commitments
-4. **Sources & limits** (`/sources`) — provenance, corpus limitations, and corpus-gap findings
-5. **More →** Rent check (`/check`), Ask (`/ask`), Compare (dates or two addresses), Portfolio alerts, Audit, Pipeline, Rules, …
-
-### Renter tools
-
-| Page / API | What it does |
-|------------|--------------|
-| `/check` · `POST /check` | Deterministic rent-increase check against applying caps (unknown if figure missing) |
-| `/ask` · `POST /ask` | Grounded Q&A from retrieved rules; refuses evasion |
-| `/ask` · `POST /letter` | Fixed landlord letter filled from check/lookup facts |
-| `/compare` | Side-by-side two dates **or** two addresses |
-| Portfolio | Watchlist: approaching pending/NTE dates + horizon result diffs |
-
-### Stories to click (live)
-
-| ID | Point |
-|----|--------|
-| **A0005** | Berkeley — missing year/units → `unknown` over guessing; session overrides preview coverage |
-| **A0065** | Dorchester postal → **legal city Boston** |
-| **A0002** | Hoboken — link-only honesty, conflict / human review, NJ FAIR citation (not invented city code) |
-| **SA0001** / **SA0003** | Santa Ana stretch — apply vs 15-year just-cause omit (outside graded 500) |
-
-### UX checklist
-
-Manual acceptance before pitching: **[docs/ux-test-checklist.md](docs/ux-test-checklist.md)** (browser-verified 2026-10-04; results in [docs/ux-implementation-report.md](docs/ux-implementation-report.md) §5a).
-
----
-
-## Generate / refresh submission outputs
-
-```bash
-# Prove organizer sample validates (Zod + Ajv) before extract
-npm run check-schema
-
-# Full pipeline (schema → extract → enrich → geocode → lookup → changes → provenance)
-npm run pipeline
-
-# Offline geocode (no Census network):
-# npm run pipeline -- --heuristic-geo
-
-# Or step by step
-npm run extract                      # Haiku default; auto-upgrades empty caches with Sonnet
-npm run extract -- --retry-failed    # Sonnet on uncovered capturable docs (merges)
-npm run enrich-coverage              # plain-language text + executable predicates
-npm run geocode                      # Census; add -- --heuristic-only to skip network
-npm run lookup                       # default as_of=2026-10-01
-npm run changes
-npm run write-provenance             # companion hashes / versions (pack JSON stays bare)
-
-# Stretch jurisdiction (Santa Ana) — does not alter T1–T5 / pack 500
-npm run stretch
-
-# After changing artifacts, refresh offline UI snapshots
-npm run demo:snapshots
-```
-
-Outputs land in `outputs/` matching challenge templates. Pack-shaped `rules.json` / `lookups.json` / `changes.json` stay grader-compatible; enrichment fields and `provenance.json` are companions.
-
----
-
-## Quality, tests, and preflight
-
-```bash
-npm test                 # backend smoke + honesty/API UX + frontend Vitest (build shared first)
-npm run typecheck        # shared + backend build + frontend tsc
-npm run quality          # typecheck + eslint/prettier + tests + schema + submission-check
-npm run submission:check # T1–T5 + citations + 500 lookups + enrichment/provenance (+ smoke unless SKIP_SMOKE=1)
-npm run demo:preflight   # live API: four stories, T1–T5, corpus picker, versions, bad dates
-```
-
-| Suite | What it covers |
-|-------|----------------|
-| Backend smoke | Modules A–C, T1–T5, exact spans, aliases |
-| `honesty.test.ts` / `api_ux.test.ts` | Unknown-over-guess, dual status, envelopes, overrides |
-| Frontend Vitest | Status badges, result groups, a11y smoke (vitest-axe), cite client |
-| Quality gate | Full CI-shaped bar (`scripts/quality-gate.sh`, also `.github/workflows/ci.yml`) |
-
----
-
-## Submission pack & scoring
-
-```bash
-# Zip for organizers (runs check first)
-npm run submission:pack
-# → dist/cite-submission-latest.zip
-#    rules.json, lookups.json, changes.json, METHOD.md, DEMO.md
-```
-
-Organizer auto-grader: when `score.py` ships, copy to `data/pack/score.py` and run `npm run score`. Details: **[docs/organizer-scoring.md](docs/organizer-scoring.md)**.
-
-| Graded component (brief) | Weight | Artifact |
-|--------------------------|--------|----------|
-| Extraction accuracy | 25 | `outputs/rules.json` |
-| Address coverage | 20 | `outputs/lookups.json` |
-| Citations | 15 | exact `quoted_span` in corpus |
-| Change tracking | 15 | `outputs/changes.json` **T1–T5 only** |
-
-Judge categories (plain language, responsible design, scalability) are separate from `score.py`. **Hour-16 / T6 is not part of this pack.**
-
----
-
-## HTTP API
-
-Base: `http://localhost:4000` · Contract detail: **[docs/api-ux-contract.md](docs/api-ux-contract.md)** · Schema: `shared/src/index.ts`
-
-| Method | Path | Purpose |
-|--------|------|---------|
-| GET | `/health` | Liveness + pipeline/schema versions |
-| GET | `/version` | Explicit version payload |
-| GET | `/addresses?q=&limit=` | Search demo addresses |
-| GET/POST | `/lookup/:addressId` | Jurisdiction + rules |
-| GET | `/rules` | Extracted rule catalog |
-| GET | `/rules/:id/versions` | Version history (`rule_versions.json`) |
-| GET | `/changes` / `/changes/:testId` | T1–T5 scenarios |
-| GET | `/corpus/docs` | Capturable docs |
-| POST | `/extract/doc/:docId` | Live Module A extract (may be slow) |
-| GET | `/audit` | Pipeline audit trail (`audit_log.jsonl`) |
-| GET | `/no-rule-findings` | Companion corpus-gap findings |
-| POST | `/check` | Rent-increase verdict from applying rules |
-| POST | `/ask` | Grounded question over retrieved rules |
-| POST | `/letter` | Fixed rent-increase letter template |
-| GET | `/submission/:file` | Serve `rules.json` / `lookups.json` / `changes.json` |
-
-### Lookup query / body
-
-| Field | Notes |
-|-------|--------|
-| `as_of` | Required calendar date `YYYY-MM-DD` (impossible dates → `INVALID_AS_OF`) |
-| `include_non_applicable` | `1` / `true` — include explicit `does_not_apply` rows |
-| `year_built` / `units` | Session overrides (GET query or POST `building_facts`); not persisted |
-
-### Response extras
-
-- Success (lookup): flat pack fields + `meta`, `warnings[]`, `product_states[]`, `corpus_gaps`, `audit`, `building_facts`
-- Errors:
-
-```json
-{
-  "error": {
-    "code": "INVALID_AS_OF",
-    "message": "…",
-    "user_message": "Enter a valid calendar date in YYYY-MM-DD format.",
-    "retryable": false,
-    "field_errors": { "as_of": "Invalid calendar date" },
-    "request_id": "uuid"
-  }
-}
-```
-
-Common codes: `INVALID_AS_OF`, `ADDRESS_NOT_FOUND`, `ADDRESS_OUT_OF_SCOPE`, `GEOCODING_FAILED`, `NO_RULES_LOADED`, `EXTRACT_FAILED`, `INTERNAL_ERROR`.  
-Warning codes include `BUILDING_FACTS_MISSING`, `USER_PROVIDED_FACTS`, `PENDING_NOT_EFFECTIVE`, `CONFLICT_REQUIRES_REVIEW`, `CORPUS_GAP`.
-
----
-
-## Modules A–C
-
-One-page method: **[docs/method-note.md](docs/method-note.md)** · Data-flow diagram: **[docs/system-architecture.md](docs/system-architecture.md)**
-
-| Module | What runs |
-|--------|-----------|
-| **A Extract** | Claude (when keyed) + heuristic fallback; Ajv + Zod; `quoted_span` must appear in source; aliases for T1–T5 |
-| **B Lookup** | Census Geocoder → legal city/county/state (+ FIPS/GEOID) → deterministic coverage (`applies` / `unknown` / `superseded` / `not_yet_effective` / `pending`) |
-| **C Changes** | `dev/change_tests.json` **T1–T5** only — deterministic affected (+ conflict) sets |
-
-### Design choices (short)
-
-- Automated extraction — not hand-transcribed ordinance books
-- Layering: confirmed local rent coverage can supersede statewide caps; unresolved local coverage cannot invent supersession
-- Soft-gap screening: thin pages may yield low-confidence scaffolds from verbatim FAQ sentences; Newark check-terms stay uncaptured (`corpus_gaps`)
-- Version history rebuilt from git snapshots of `rules.json` (`npm run build-versions`)
-- Auditability via `audit_log.jsonl` + `GET /audit`
-
----
-
-## UX architecture
-
-- **Client:** `frontend/src/lib/cite/client.ts` — Zod parse, `CiteApiError`, AbortSignal, fact overrides, `include_non_applicable`
-- **Design system:** paper + ink tokens — [`docs/design-system.md`](docs/design-system.md), [`frontend/DESIGN.md`](frontend/DESIGN.md)
-- **Status UX:** icon + label + `sr-only` help; confidence is an **extraction band** (high / medium / low), not legal certainty %
-- **Grouping:** Appear to apply · Need more facts · Need human review · Do not appear to apply (toggle) · Pending / not yet effective
-- **Nav IA:** Lookup → Change scenarios → How it works → Sources; Audit under More; sticky disclaimer + Sources link
-
----
-
-## Offline demo & monitoring
-
-Without `VITE_API_URL`, the UI loads generated corpus snapshots for **all 506** addresses (500 pack + stretch) at fixed dates:
-
-- `2026-10-01`
-- `2027-07-02`
-- `2027-10-01`
-
-Other dates return an explicit **unavailable** message (not a guess). Rebuild after changing artifacts:
-
-```bash
-npm run demo:snapshots
-```
-
-- Offline Pipeline shows **saved** corpus extraction, not a live model run.
-- Offline fact overrides annotate + warn; they cannot fully re-evaluate coverage like the live API.
-- The API badge distinguishes live connectivity from offline / unavailable.
-- Scheduled re-checks and customer API webhooks require live Supabase / ops configuration. Delivery is at-least-once; receivers should handle duplicates. Failed persistence or webhook delivery remains due for retry. Re-checks compare stable rule identity, status, conflict flags, and evidence; old status-only baselines refresh once without claiming a legal change.
-
----
-
-## Known limits
-
-Be ready to say these out loud:
-
-| Limit | Behavior |
-|-------|----------|
-| Demo address set | Pack 500 + Santa Ana stretch — **not** live free-text geocode for arbitrary US addresses |
-| Link-only HOB/JC ordinances | Scaffolds + FAIR Act quotes; applicability `unknown` / scenario |
-| Owner type | Unsupported by sample data → correct `unknown` when required |
-| Thin / check-terms pages | Some docs stay uncaptured; Lookup may surface `corpus_gaps` |
-| Session overrides | Preview only; not saved as official assessor data |
-| Offline as-of | Fixed snapshot dates only |
-| More-nav SaaS surfaces | Dashboard / inbox / portfolio secondary vs demo path |
-| Extract model | Default Haiku; Sonnet for empty-cache / `--retry-failed` |
-| `score.py` | Not in pack until organizers ship it — see `docs/organizer-scoring.md` |
-| Spanish locale | `en-US`/`es-US` UI + API labels; English quotes remain authoritative; non-template explanations may stay EN with notice |
-
-Audit evidence: **[docs/gap-register.md](docs/gap-register.md)** · **[docs/audit-report.md](docs/audit-report.md)**.
-
----
-
-## Spanish / localization
-
-Supported: **`en-US`** (default) and **`es-US`** (alias: `es`).
-
-- UI: header **Español** / **English**, or shareable `?lang=es-US` (keeps `address` / `as_of`)
-- API: `GET /lookup/:id?as_of=YYYY-MM-DD&locale=es-US`
-- English corpus quotes, citations, and bill IDs stay authoritative — not certified translation
-- **Not legal advice** / **No es asesoramiento legal**
-
-Details: **[docs/localization/LOCALIZATION_ARCHITECTURE.md](docs/localization/LOCALIZATION_ARCHITECTURE.md)** · folder: [`docs/localization/`](docs/localization/)
-
-```bash
-npm run build -w shared && npm test -w backend -- --test-name-pattern locale
-npm test --prefix frontend -- i18n-parity spanish-localization
-```
-
----
-
-## Documentation index
-
-| Doc | Purpose |
-|-----|---------|
-| [docs/method-note.md](docs/method-note.md) | One-page method (extract → geocode → lookup → T1–T5) |
-| [docs/demo-script.md](docs/demo-script.md) | ~4 minute judge walkthrough |
-| [docs/system-architecture.md](docs/system-architecture.md) | Stack + data flow |
-| [docs/api-ux-contract.md](docs/api-ux-contract.md) | API meta, warnings, product states, errors |
-| [docs/gap-register.md](docs/gap-register.md) | Closed gaps and remaining limits |
-| [docs/audit-report.md](docs/audit-report.md) | End-to-end audit evidence |
-| [docs/localization/LOCALIZATION_ARCHITECTURE.md](docs/localization/LOCALIZATION_ARCHITECTURE.md) | Spanish / en-US–es-US localization |
-| [docs/organizer-scoring.md](docs/organizer-scoring.md) | How `score.py` fits in |
-| [docs/ux-test-checklist.md](docs/ux-test-checklist.md) | Demo-day acceptance checklist |
-
-Deeper notes (design system, UX history, brief scorecard, glossary, review queue) live under [`docs/`](docs/) and are not required for the demo path.
-
----
-
-## Troubleshooting
-
-| Symptom | Fix |
-|---------|-----|
-| UI “Disconnected” / empty live data | Set `VITE_API_URL=http://localhost:4000`, restart Vite; confirm `npm run dev:backend` and `/health` |
-| CORS errors | Align `CORS_ORIGIN` with the UI origin; include `http://localhost:8080` (or your Vite port) |
-| Lovable can’t reach API | `npm run demo:tunnel` and paste the HTTPS URL as `VITE_API_URL`; re-run preflight |
-| `INVALID_AS_OF` | Use a real calendar date `YYYY-MM-DD` (no rollover / impossible days) |
-| Nonsense address search | Expected: empty matches + out-of-scope / demo-set hint |
-| Frontend install fails on peers | `npm install --prefix frontend --legacy-peer-deps` |
-| Tests fail on shared types | `npm run build -w shared` then `npm test` |
-| Offline wrong date | Expected unavailable message; regenerate snapshots after pipeline with `npm run demo:snapshots` |
-| Sticky disclaimer intercepts clicks | Scroll the control into view (or use keyboard); disclaimer must stay visible by design |
-| Quality gate prettier/eslint | `npm run lint --prefix frontend -- --fix --quiet` then `npm run quality` |
-| Missing provenance | `npm run write-provenance` |
-
----
-
-## npm script cheat sheet
-
-| Script | Purpose |
-|--------|---------|
-| `npm run install:all` | Root workspaces + frontend (`--legacy-peer-deps`) |
-| `npm run dev:backend` / `dev:frontend` | Local demo |
-| `npm run pipeline` | Full artifact generation |
-| `npm test` / `typecheck` / `quality` | Verify |
-| `npm run submission:check` / `submission:pack` | Pre-upload |
-| `npm run demo:preflight` / `demo:tunnel` / `demo:snapshots` | Pitch readiness |
-| `npm run score` | Organizer grader when `score.py` is present |
-| `npm run stretch` | Santa Ana stretch path |
-
----
-
-**Boundary:** Cite provides legal **information** grounded in a fixed corpus and deterministic coverage — not legal advice, not a compliance certification, and not a final legal determination.
+**Cite the corpus. Say unknown when you must.**
