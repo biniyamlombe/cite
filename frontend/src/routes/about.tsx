@@ -25,6 +25,24 @@ const STEPS: { title: StringKey; body: StringKey }[] = [
   { title: "about.step6.title", body: "about.step6.body" },
 ];
 
+const COMMITMENTS: StringKey[] = [
+  "about.commit.cite",
+  "about.commit.asOf",
+  "about.commit.pending",
+  "about.commit.unknown",
+  "about.commit.conflict",
+  "about.commit.audit",
+  "about.commit.noInvent",
+  "about.commit.noAdvice",
+];
+
+const OPEN_QUESTIONS: StringKey[] = [
+  "about.open.berkeley",
+  "about.open.njFair",
+  "about.open.laRso",
+  "about.open.caScreening",
+];
+
 function AboutPage() {
   const t = useT();
   return (
@@ -48,6 +66,27 @@ function AboutPage() {
           </li>
         ))}
       </ol>
+
+      <h2 className="mt-12 font-serif text-xl text-ink">{t("about.responsible")}</h2>
+      <p className="mt-2 text-sm text-muted-foreground">{t("about.responsible.lede")}</p>
+      <ul className="mt-4 space-y-2">
+        {COMMITMENTS.map((key) => (
+          <li key={key} className="flex gap-2.5 text-sm leading-relaxed text-ink/90">
+            <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden />
+            <span>{t(key)}</span>
+          </li>
+        ))}
+      </ul>
+
+      <h2 className="mt-12 font-serif text-xl text-ink">{t("about.openQuestions")}</h2>
+      <p className="mt-2 text-sm text-muted-foreground">{t("about.openQuestions.lede")}</p>
+      <ul className="mt-4 space-y-3">
+        {OPEN_QUESTIONS.map((key) => (
+          <li key={key} className="surface px-4 py-3 text-sm leading-relaxed text-ink/90">
+            {t(key)}
+          </li>
+        ))}
+      </ul>
 
       <div className="mt-10 grid gap-3 sm:grid-cols-2">
         <div className="surface p-4">

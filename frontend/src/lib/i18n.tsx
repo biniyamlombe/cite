@@ -25,9 +25,12 @@ const STRINGS = {
     "action.watch": "Watch",
     "action.watching": "Watching",
     "nav.about": "About",
+    "nav.menu": "Menu",
     "mode.mock": "Demo data",
     "mode.live": "Live API",
-    disclaimer: "Not legal advice. Verify important decisions with qualified counsel.",
+    disclaimer:
+      "Not legal advice and not a compliance certification. Verify important decisions with qualified counsel.",
+    "disclaimer.asOf": "Answers are evaluated as of",
     "lookup.eyebrow": "Regulatory intelligence for rental housing",
     "lookup.title1": "Know what applies.",
     "lookup.title2": "And why.",
@@ -46,6 +49,8 @@ const STRINGS = {
     "lookup.demo.stretch": "Stretch jurisdiction",
     "lookup.honesty.unknown": "Prefer unknown when building facts are missing — Cite will not invent year built or unit counts.",
     "lookup.honesty.conflict": "Conflict-flagged rules need human review; citations stay tied to the corpus, not invented ordinance text.",
+    "lookup.honesty.pending": "Pending bills are shown separately from enacted law — they are not treated as in force.",
+    "lookup.honesty.linkOnly": "Primary ordinance pages are link-only in the pack; quoted evidence stays on capturable corpus text.",
     "lookup.none": "No matching properties.",
     "lookup.philosophy":
       "AI can help structure regulation. Deterministic systems evaluate applicability. Evidence supports the conclusion.",
@@ -222,9 +227,36 @@ const STRINGS = {
     "rule.versionsHint": "Re-extract and scaffold hardening leave a traceable trail.",
     "rule.lowConfidence": "Low extraction confidence",
     "rule.openQuestion": "Open legal question",
+    "rule.linkOnly": "Link-only primary source",
+    "rule.linkOnly.badge": "Link-only source",
+    "rule.linkOnly.short": "Primary page has no capturable body — quote is from a capturable corpus doc, not invented municipal text.",
+    "rule.linkOnly.body":
+      "The pack marks this ordinance page as link-only. Cite does not invent municipal code. The quoted span comes from a capturable corpus document (e.g. NJ FAIR Act), and primary URLs stay in the conflict note for human review.",
+    "rule.source": "Source",
+    "rule.meta": "Meta",
     "about.limits": "Honesty limits",
     "about.limits.body":
-      "No invented ordinance text for link-only pages. Missing year/units → unknown. Open legal questions surface as callouts, not guesses.",
+      "No invented ordinance text for link-only pages. Missing year/units → unknown. Open legal questions surface as callouts, not guesses. Pending bills never appear as applies.",
+    "about.responsible": "Responsible design",
+    "about.responsible.lede": "Built to the pack’s Do / Don’t list — honesty over a false single answer.",
+    "about.commit.cite": "Every rule carries a source citation, verbatim quoted span, and retrieval date.",
+    "about.commit.asOf": "Every answer shows an as-of date; coverage is re-evaluated when that date changes.",
+    "about.commit.pending": "Pending legislation is labeled pending — never treated as enacted law.",
+    "about.commit.unknown": "When year built, units, or owner facts are missing, Cite returns unknown instead of guessing.",
+    "about.commit.conflict": "State/local overlaps are conflict-flagged for human review.",
+    "about.commit.audit": "Extract, lookup, and change-test runs leave an audit trail.",
+    "about.commit.noInvent": "No invented ordinance text for link-only pages; scaffolds quote only capturable corpus spans.",
+    "about.commit.noAdvice": "Not legal advice and not a compliance certification — always verify with qualified counsel.",
+    "about.openQuestions": "Known open questions in the law",
+    "about.openQuestions.lede": "Pack §9 ambiguities Cite surfaces as callouts when a matching rule is in view.",
+    "about.open.berkeley":
+      "Berkeley’s algorithmic ban (ch. 13.63) has two published effective dates: ~March 1, 2026 in the ordinance text vs. some secondary alerts citing January 2026.",
+    "about.open.njFair":
+      "New Jersey’s FAIR Act may preempt Jersey City and Hoboken algorithmic ordinances once it takes effect.",
+    "about.open.laRso":
+      "Los Angeles’s updated RSO formula has more than one published effective date (e.g. LAHD 2026-02-02 vs. some landlord-association notices 2026-01-24).",
+    "about.open.caScreening":
+      "California’s screening-fee cap has no single official 2026 dollar figure in the corpus.",
     "about.stretch": "Stretch",
     "about.stretch.body":
       "Santa Ana demo addresses (SA0001–SA0006) use the same pipeline; outside the pack’s 500 change-test rows.",
@@ -261,9 +293,12 @@ const STRINGS = {
     "action.watch": "Seguir",
     "action.watching": "Siguiendo",
     "nav.about": "Acerca de",
+    "nav.menu": "Menú",
     "mode.mock": "Datos de demostración",
     "mode.live": "API en vivo",
-    disclaimer: "No es asesoría legal. Verifique las decisiones importantes con un abogado calificado.",
+    disclaimer:
+      "No es asesoría legal ni una certificación de cumplimiento. Verifique las decisiones importantes con un abogado calificado.",
+    "disclaimer.asOf": "Las respuestas se evalúan a la fecha",
     "lookup.eyebrow": "Inteligencia regulatoria para vivienda de alquiler",
     "lookup.title1": "Sepa qué aplica.",
     "lookup.title2": "Y por qué.",
@@ -282,6 +317,8 @@ const STRINGS = {
     "lookup.demo.stretch": "Jurisdicción stretch",
     "lookup.honesty.unknown": "Preferimos desconocido cuando faltan hechos del edificio — Cite no inventa año ni unidades.",
     "lookup.honesty.conflict": "Las normas con conflicto requieren revisión humana; las citas vienen del corpus, no de texto inventado.",
+    "lookup.honesty.pending": "Los proyectos de ley pendientes se muestran aparte de la ley vigente — no se tratan como en vigor.",
+    "lookup.honesty.linkOnly": "Las páginas primarias son solo-enlace en el pack; la evidencia citada permanece en el corpus capturable.",
     "lookup.none": "No hay propiedades coincidentes.",
     "lookup.philosophy":
       "La IA puede ayudar a estructurar la regulación. Sistemas deterministas evalúan la aplicabilidad. La evidencia sostiene la conclusión.",
@@ -460,9 +497,36 @@ const STRINGS = {
     "rule.versionsHint": "Re-extracción y endurecimiento del andamiaje dejan un rastro rastreable.",
     "rule.lowConfidence": "Baja confianza de extracción",
     "rule.openQuestion": "Pregunta jurídica abierta",
+    "rule.linkOnly": "Fuente primaria solo-enlace",
+    "rule.linkOnly.badge": "Fuente solo-enlace",
+    "rule.linkOnly.short": "La página primaria no tiene cuerpo capturable — la cita viene de un documento del corpus, no de texto municipal inventado.",
+    "rule.linkOnly.body":
+      "El pack marca esta ordenanza como solo-enlace. Cite no inventa código municipal. El fragmento citado proviene de un documento capturable del corpus (p. ej. NJ FAIR Act), y las URL primarias quedan en la nota de conflicto para revisión humana.",
+    "rule.source": "Fuente",
+    "rule.meta": "Meta",
     "about.limits": "Límites de honestidad",
     "about.limits.body":
-      "Sin texto inventado en páginas solo-enlace. Año/unidades faltantes → desconocido. Las preguntas jurídicas abiertas aparecen como avisos, no como conjeturas.",
+      "Sin texto inventado en páginas solo-enlace. Año/unidades faltantes → desconocido. Las preguntas jurídicas abiertas aparecen como avisos, no como conjeturas. Los proyectos pendientes nunca aparecen como aplica.",
+    "about.responsible": "Diseño responsable",
+    "about.responsible.lede": "Construido según la lista Do / Don’t del pack — honestidad antes que una respuesta falsa única.",
+    "about.commit.cite": "Cada norma lleva cita, fragmento citado literal y fecha de recuperación.",
+    "about.commit.asOf": "Cada respuesta muestra una fecha de análisis; la cobertura se reevalúa si esa fecha cambia.",
+    "about.commit.pending": "La legislación pendiente se etiqueta como pendiente — nunca como ley vigente.",
+    "about.commit.unknown": "Si faltan año, unidades o hechos del propietario, Cite devuelve desconocido en lugar de adivinar.",
+    "about.commit.conflict": "Los solapamientos estatal/local se marcan con conflicto para revisión humana.",
+    "about.commit.audit": "Extracción, consultas y pruebas de cambio dejan un registro de auditoría.",
+    "about.commit.noInvent": "Sin texto inventado en páginas solo-enlace; los andamiajes solo citan fragmentos capturables del corpus.",
+    "about.commit.noAdvice": "No es asesoría legal ni certificación de cumplimiento — siempre verifique con un abogado calificado.",
+    "about.openQuestions": "Preguntas jurídicas abiertas conocidas",
+    "about.openQuestions.lede": "Ambigüedades del pack §9 que Cite muestra como avisos cuando la norma correspondiente está a la vista.",
+    "about.open.berkeley":
+      "La prohibición algorítmica de Berkeley (cap. 13.63) tiene dos fechas de vigencia publicadas: ~1 de marzo de 2026 en el texto vs. alertas secundarias que citan enero de 2026.",
+    "about.open.njFair":
+      "La FAIR Act de Nueva Jersey puede preempter las ordenanzas algorítmicas de Jersey City y Hoboken cuando entre en vigor.",
+    "about.open.laRso":
+      "La fórmula RSO actualizada de Los Ángeles tiene más de una fecha de vigencia publicada (p. ej. LAHD 2026-02-02 vs. avisos de asociaciones de propietarios 2026-01-24).",
+    "about.open.caScreening":
+      "El tope de tarifa de screening de California no tiene una cifra oficial única para 2026 en el corpus.",
     "about.stretch": "Stretch",
     "about.stretch.body":
       "Direcciones demo de Santa Ana (SA0001–SA0006) usan el mismo pipeline; fuera de las 500 filas de cambio del pack.",

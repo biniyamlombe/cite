@@ -120,7 +120,7 @@ export function AffectedPropertiesTable({
                   <td>{result.after_status ? <StatusBadge value={result.after_status} /> : "—"}</td>
                   <td>
                     {conflicts?.includes(id) ? (
-                      <StatusBadge value="conflict" label="Conflict" />
+                      <StatusBadge value="conflict" label={t("status.conflict")} />
                     ) : (
                       <span className="text-muted-foreground">—</span>
                     )}

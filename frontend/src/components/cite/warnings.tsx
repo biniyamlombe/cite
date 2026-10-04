@@ -1,4 +1,4 @@
-import { CircleHelp, GitMerge, Scale } from "lucide-react";
+import { CircleHelp, FileWarning, GitMerge, Scale } from "lucide-react";
 import { useT } from "@/lib/i18n";
 
 /** Split backend explanations that append pack §9 "Open question:" notes. */
@@ -10,6 +10,15 @@ export function splitOpenQuestion(text: string): { body: string; openQuestion: s
     body: text.slice(0, idx).trim(),
     openQuestion: text.slice(idx).trim(),
   };
+}
+
+/** True when the pack marked the primary source as link-only (no capturable ordinance body). */
+export function isLinkOnlyScaffold(rule: {
+  conflict_note?: string | null | undefined;
+  citation?: string | null | undefined;
+}): boolean {
+  const blob = `${rule.conflict_note ?? ""} ${rule.citation ?? ""}`.toLowerCase();
+  return blob.includes("link-only") || blob.includes("link only");
 }
 
 export function UnknownFactWarning({ explanation, compact }: { explanation: string; compact?: boolean | undefined }) {
@@ -57,6 +66,27 @@ export function OpenQuestionWarning({
       <div>
         {!compact && <div className="font-medium text-ink">{t("rule.openQuestion")}</div>}
         <p className="text-foreground/80">{compact ? note : body}</p>
+      </div>
+    </div>
+  );
+}
+
+/** Honest handling of pack link-only pages — never invent municipal ordinance text. */
+export function LinkOnlyWarning({
+  note,
+  compact,
+}: {
+  note?: string | null | undefined;
+  compact?: boolean | undefined;
+}) {
+  const t = useT();
+  return (
+    <div className="flex gap-2.5 rounded-md border border-unknown/30 bg-unknown-soft px-3 py-2.5 text-sm">
+      <FileWarning className="mt-0.5 size-4 shrink-0 text-unknown" />
+      <div>
+        <div className="font-medium text-ink">{t("rule.linkOnly")}</div>
+        <p className="text-foreground/80">{compact ? t("rule.linkOnly.short") : t("rule.linkOnly.body")}</p>
+        {note && !compact ? <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{note}</p> : null}
       </div>
     </div>
   );

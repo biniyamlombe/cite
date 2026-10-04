@@ -6,7 +6,14 @@ import { cn } from "@/lib/utils";
 import { coverageText, fmtDate } from "@/lib/cite/labels";
 import type { LookupResultValue, Rule } from "@/lib/cite/types";
 import { StatusBadge } from "./status";
-import { ConflictWarning, OpenQuestionWarning, UnknownFactWarning, splitOpenQuestion } from "./warnings";
+import {
+  ConflictWarning,
+  LinkOnlyWarning,
+  OpenQuestionWarning,
+  UnknownFactWarning,
+  isLinkOnlyScaffold,
+  splitOpenQuestion,
+} from "./warnings";
 import { PropertyFacts } from "./property";
 
 export interface RuleView {
@@ -23,6 +30,7 @@ export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void 
   const { rule, result, explanation, conflict } = view;
   const prominent = result === "applies";
   const lowConf = rule.confidence != null && rule.confidence < 0.5;
+  const linkOnly = isLinkOnlyScaffold(rule);
   return (
     <button
       onClick={onOpen}
@@ -42,6 +50,11 @@ export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void 
         </div>
         <div className="flex flex-wrap items-center justify-end gap-1.5">
           {conflict && <StatusBadge value="conflict" label={t("status.conflict")} />}
+          {linkOnly && (
+            <span className="inline-flex items-center rounded-sm border border-unknown/30 bg-unknown-soft px-2 py-0.5 text-[11px] font-medium text-unknown">
+              {t("rule.linkOnly.badge")}
+            </span>
+          )}
           {lowConf && (
             <span className="inline-flex items-center rounded-sm border border-unknown/30 bg-unknown-soft px-2 py-0.5 text-[11px] font-medium text-unknown">
               {t("rule.lowConfidence")} · {Math.round((rule.confidence ?? 0) * 100)}%
@@ -55,6 +68,7 @@ export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void 
         </div>
       </div>
       <p className="mt-3 text-sm leading-relaxed text-foreground/85">{rule.requirement}</p>
+      {linkOnly ? <div className="mt-3"><LinkOnlyWarning compact /></div> : null}
       {result === "unknown" && explanation ? (
         <div className="mt-3"><UnknownFactWarning explanation={explanation} compact /></div>
       ) : explanation ? (
@@ -142,10 +156,15 @@ export function CitationPanel({ rule, asOf, emphasize }: { rule: Rule; asOf?: st
           <div className="mt-0.5 font-mono text-sm font-medium text-ink">{rule.citation}</div>
         </div>
         <a href={rule.source_url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
-          Source <ExternalLink className="size-3" />
+          {t("rule.source")} <ExternalLink className="size-3" />
         </a>
       </div>
       <div className="px-4 py-4">
+        {isLinkOnlyScaffold(rule) ? (
+          <div className="mb-3">
+            <LinkOnlyWarning note={rule.conflict_note} />
+          </div>
+        ) : null}
         <figure className="quote-enter relative rounded-sm bg-quote px-4 py-3.5">
           <Quote className="mb-2 size-3.5 text-primary" />
           <blockquote className={cn("font-serif text-[16px] leading-relaxed text-ink", !open && long && "line-clamp-2")}>
@@ -166,7 +185,7 @@ export function CitationPanel({ rule, asOf, emphasize }: { rule: Rule; asOf?: st
             className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-ink"
           >
             <ChevronDown className={cn("size-3 transition-transform", metaOpen && "rotate-180")} />
-            Meta
+            {t("rule.meta")}
           </button>
         </div>
         {metaOpen && (
@@ -214,6 +233,7 @@ export function RuleDetailDrawer({
   const { rule, result, explanation, conflict } = view;
   const cov = coverageText(rule.coverage_conditions);
   const lowConf = rule.confidence != null && rule.confidence < 0.5;
+  const linkOnly = isLinkOnlyScaffold(rule);
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
       <div className="absolute inset-0 bg-ink/30 animate-in fade-in duration-150" onClick={onClose} />
@@ -226,6 +246,11 @@ export function RuleDetailDrawer({
             <h3 className="mt-1.5 font-serif text-2xl text-ink">{rule.title}</h3>
             <div className="mt-3 flex flex-wrap gap-2">
               {conflict && <StatusBadge value="conflict" label={t("status.conflict")} size="md" />}
+              {linkOnly && (
+                <span className="inline-flex items-center rounded-sm border border-unknown/30 bg-unknown-soft px-2 py-0.5 text-[11px] font-medium text-unknown">
+                  {t("rule.linkOnly.badge")}
+                </span>
+              )}
               {result && <StatusBadge value={result} size="md" />}
               <StatusBadge
                 value={rule.status}
@@ -240,7 +265,8 @@ export function RuleDetailDrawer({
         </header>
         <div className="space-y-6 px-6 py-6">
           <WhyThisApplies result={result} explanation={explanation} />
-          {(conflict || rule.conflict_note) && <ConflictWarning note={rule.conflict_note} />}
+          {(conflict || rule.conflict_note) && !linkOnly && <ConflictWarning note={rule.conflict_note} />}
+          {conflict && linkOnly && <ConflictWarning />}
           <CitationPanel rule={rule} asOf={asOf} />
           <section className={cn("rounded-md border p-4", lowConf && "border-unknown/30 bg-unknown-soft/50")}>
             <div className="eyebrow">{t("rule.confidence")}</div>

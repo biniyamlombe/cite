@@ -19,6 +19,7 @@ import { lookupToCsv, downloadText } from "@/lib/cite/export";
 import { useWatchlist } from "@/lib/cite/watchlist";
 import { EffectiveTimeline } from "@/components/cite/timeline";
 import { RuleCard, RuleDetailDrawer, type RuleView } from "@/components/cite/rule";
+import { isLinkOnlyScaffold } from "@/components/cite/warnings";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -326,7 +327,9 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
   const t = useT();
   const unknownN = data.results.filter((r) => r.result === "unknown").length;
   const conflictN = data.results.filter((r) => r.conflict_flag).length;
-  if (!unknownN && !conflictN) return null;
+  const pendingN = data.results.filter((r) => r.result === "pending").length;
+  const linkOnlyN = data.results.filter((r) => r.rule && isLinkOnlyScaffold(r.rule)).length;
+  if (!unknownN && !conflictN && !pendingN && !linkOnlyN) return null;
   return (
     <div className="space-y-2">
       {unknownN > 0 && (
@@ -344,6 +347,24 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{conflictN}</span>{" "}
             {t("result.conflict").toLowerCase()} — {t("lookup.honesty.conflict")}
+          </p>
+        </div>
+      )}
+      {pendingN > 0 && (
+        <div className="flex gap-2.5 rounded-md border border-border/80 bg-secondary/50 px-3 py-2.5 text-sm">
+          <AlertCircle className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+          <p className="text-ink/90">
+            <span className="font-mono tabular-nums font-semibold">{pendingN}</span>{" "}
+            {t("result.pending").toLowerCase()} — {t("lookup.honesty.pending")}
+          </p>
+        </div>
+      )}
+      {linkOnlyN > 0 && (
+        <div className="flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">
+          <AlertCircle className="mt-0.5 size-4 shrink-0 text-unknown" />
+          <p className="text-ink/90">
+            <span className="font-mono tabular-nums font-semibold">{linkOnlyN}</span>{" "}
+            {t("rule.linkOnly.badge").toLowerCase()} — {t("lookup.honesty.linkOnly")}
           </p>
         </div>
       )}
@@ -457,7 +478,8 @@ function MemoBar({ data }: { data: LookupResponse }) {
         <div className="mt-1 font-mono text-xs text-muted-foreground">
           {data.address.address_id} · as of {data.as_of} · {t("memo.generated")} {generated}
         </div>
-        <p className="mt-2 text-xs">{data.disclaimer}</p>
+        <p className="mt-2 text-xs">{t("disclaimer")}</p>
+        <p className="mt-1 text-xs text-muted-foreground">{t("disclaimer.asOf")} {data.as_of}</p>
       </div>
       <div className="mb-2 flex flex-wrap items-center justify-end gap-2 print:hidden">
         <button
