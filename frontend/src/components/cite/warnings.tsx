@@ -91,3 +91,23 @@ export function LinkOnlyWarning({
     </div>
   );
 }
+
+/** City has uncaptured pack pages and no city-level rules — prefer unknown over inventing. */
+export function CorpusGapWarning({ gaps }: { gaps: string[] }) {
+  const t = useT();
+  if (!gaps.length) return null;
+  return (
+    <div className="flex gap-2.5 rounded-md border border-unknown/30 bg-unknown-soft px-3 py-2.5 text-sm">
+      <FileWarning className="mt-0.5 size-4 shrink-0 text-unknown" />
+      <div>
+        <div className="font-medium text-ink">{t("lookup.honesty.corpusGap.title")}</div>
+        <p className="text-foreground/80">{t("lookup.honesty.corpusGap")}</p>
+        <ul className="mt-1.5 list-disc space-y-1 pl-4 text-xs leading-relaxed text-muted-foreground">
+          {gaps.map((g) => (
+            <li key={g.slice(0, 80)}>{g}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}

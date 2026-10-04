@@ -71,6 +71,8 @@ export interface LookupResponse {
     resolution?: "census" | "known_jurisdiction" | "postal_fallback";
     trusted?: boolean;
   };
+  /** Pack link-only/check-terms city pages with no extracted city rules (e.g. Newark). */
+  corpus_gaps?: string[];
   results: LookupResult[];
 }
 

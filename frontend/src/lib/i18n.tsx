@@ -263,6 +263,9 @@ const STRINGS = {
     "lookup.honesty.conflict": "Conflict-flagged rules need human review; citations stay tied to the corpus, not invented ordinance text.",
     "lookup.honesty.pending": "Pending bills are shown separately from enacted law — they are not treated as in force.",
     "lookup.honesty.linkOnly": "Primary ordinance pages are link-only in the pack; quoted evidence stays on capturable corpus text.",
+    "lookup.honesty.corpusGap.title": "Uncaptured local corpus",
+    "lookup.honesty.corpusGap":
+      "This city’s local ordinance pages are link-only or check-terms in the pack (no capturable body). Cite shows statewide rules only and will not invent municipal code.",
     "lookup.none": "No matching properties.",
     "lookup.philosophy":
       "AI can help structure regulation. Deterministic systems evaluate applicability. Evidence supports the conclusion.",
@@ -796,6 +799,9 @@ const STRINGS = {
     "lookup.honesty.conflict": "Las normas con conflicto requieren revisión humana; las citas vienen del corpus, no de texto inventado.",
     "lookup.honesty.pending": "Los proyectos de ley pendientes se muestran aparte de la ley vigente — no se tratan como en vigor.",
     "lookup.honesty.linkOnly": "Las páginas primarias son solo-enlace en el pack; la evidencia citada permanece en el corpus capturable.",
+    "lookup.honesty.corpusGap.title": "Corpus local no capturado",
+    "lookup.honesty.corpusGap":
+      "Las ordenanzas locales de esta ciudad están solo-enlace o check-terms en el pack (sin cuerpo capturable). Cite muestra solo normas estatales y no inventa código municipal.",
     "lookup.none": "No hay propiedades coincidentes.",
     "lookup.philosophy":
       "La IA puede ayudar a estructurar la regulación. Sistemas deterministas evalúan la aplicabilidad. La evidencia sostiene la conclusión.",

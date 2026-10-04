@@ -21,7 +21,7 @@ import { lookupToCsv, downloadText } from "@/lib/cite/export";
 import { useWatchlist } from "@/lib/cite/watchlist";
 import { EffectiveTimeline } from "@/components/cite/timeline";
 import { RuleCard, RuleDetailDrawer, type RuleView } from "@/components/cite/rule";
-import { isLinkOnlyScaffold } from "@/components/cite/warnings";
+import { CorpusGapWarning, isLinkOnlyScaffold } from "@/components/cite/warnings";
 import { createCase } from "@/lib/cite/cases";
 
 export const Route = createFileRoute("/")({
@@ -358,9 +358,11 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
   const conflictN = data.results.filter((r) => r.conflict_flag).length;
   const pendingN = data.results.filter((r) => r.result === "pending").length;
   const linkOnlyN = data.results.filter((r) => r.rule && isLinkOnlyScaffold(r.rule)).length;
-  if (!unknownN && !conflictN && !pendingN && !linkOnlyN) return null;
+  const gaps = data.corpus_gaps ?? [];
+  if (!unknownN && !conflictN && !pendingN && !linkOnlyN && !gaps.length) return null;
   return (
     <div className="space-y-2">
+      {gaps.length > 0 && <CorpusGapWarning gaps={gaps} />}
       {unknownN > 0 && (
         <div className="flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">
           <AlertCircle className="mt-0.5 size-4 shrink-0 text-unknown" />
