@@ -1,5 +1,11 @@
 import { z } from "zod";
 
+/** Full calendar date; rejecting rollover dates is essential for as-of evaluation. */
+export const AsOfDateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine((value) => {
+  const time = Date.parse(`${value}T00:00:00Z`);
+  return Number.isFinite(time) && new Date(time).toISOString().slice(0, 10) === value;
+}, "Expected a valid calendar date (YYYY-MM-DD)");
+
 export const RuleLevel = z.enum(["state", "city"]);
 export const RuleCategory = z.enum([
   "rent_increase_limits",
@@ -35,6 +41,8 @@ export const CoveragePredicateSchema = z.object({
     "gte",
     "missing",
     "present",
+    "within_years",
+    "boundary_years",
   ]),
   value: z.union([z.string(), z.number(), z.boolean()]).optional(),
   reason: z.string().optional(),
@@ -126,7 +134,7 @@ export const LookupEntrySchema = z.object({
 export type LookupEntry = z.infer<typeof LookupEntrySchema>;
 
 export const LookupsFileSchema = z.object({
-  as_of: z.string(),
+  as_of: AsOfDateSchema,
   lookups: z.record(z.array(LookupEntrySchema)),
 });
 
@@ -161,3 +169,29 @@ export const CATEGORY_LABELS: Record<RuleCategory, string> = {
 };
 
 export const DEFAULT_AS_OF = "2026-10-01";
+
+/** Browser-safe response contracts. Keep API enrichment alongside core corpus records. */
+export const ApiRuleSchema = RuleRecordSchema.extend({
+  retrieved_at: z.string().nullable().optional(),
+  stable_id: z.string().optional(),
+  evidence_status: z.enum(["captured", "scenario_only"]).optional(),
+  precedence_note: z.string().nullable().optional(),
+});
+export const AddressSchema = z.object({
+  address_id: z.string(), street_address: z.string(), postal_city: z.string(), state: z.string(), zip: z.string(), year_built: z.string(), units: z.string(),
+  legal_city: z.string().nullable().optional(), county: z.string().nullable().optional(),
+});
+export const LookupResponseSchema = z.object({
+  disclaimer: z.string(), as_of: AsOfDateSchema, address: AddressSchema,
+  jurisdiction: z.object({ state: z.string(), county: z.string(), city: z.string(), resolution: z.enum(["census", "known_jurisdiction", "postal_fallback"]).optional(), trusted: z.boolean().optional() }),
+  corpus_gaps: z.array(z.string()).optional(),
+  results: z.array(LookupEntrySchema.extend({ rule: ApiRuleSchema.nullable() })),
+});
+export const ChangesResponseSchema = z.object({
+  tests: z.array(z.object({ test_id: z.enum(["T1", "T2", "T3", "T4", "T5", "T6"]), title: z.string(), type: z.string(), expected_behavior: z.string(), rule_ids: z.array(z.string()), as_of: z.string().optional(), as_of_before: z.string().optional(), as_of_after: z.string().optional() })),
+  results: ChangesFileSchema,
+});
+export const HealthSchema = z.object({ ok: z.boolean(), service: z.string(), as_of_default: AsOfDateSchema, disclaimer: z.string() });
+export const CorpusDocSchema = z.object({ doc_id: z.string(), title: z.string(), jurisdiction: z.string(), source_url: z.string().optional(), retrieved_at: z.string().optional(), chars: z.number().optional() });
+export const ExtractResponseSchema = z.object({ doc_id: z.string(), source_url: z.string(), source_text: z.string(), source: z.string().optional(), rules: z.array(ApiRuleSchema), validation: z.array(z.object({ check: z.string(), passed: z.boolean(), detail: z.string() })) });
+export const RuleVersionSchema = z.object({ version: z.string(), corpus_release: z.string(), released_at: z.string(), status: RuleStatus, quoted_span: z.string(), change_note: z.string() });
