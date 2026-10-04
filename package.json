@@ -31,6 +31,7 @@
     "demo:snapshots": "node --import tsx backend/src/cli/demo_snapshots.ts",
     "write-provenance": "npm run write-provenance -w backend",
     "build-plain": "npm run build-plain -w backend",
+    "selfcheck": "npm run selfcheck -w backend",
     "enrich-quote-offsets": "npm run enrich-quote-offsets -w backend",
     "enrich-geocode-ids": "npm run enrich-geocode-ids -w backend",
     "quality": "bash scripts/quality-gate.sh"

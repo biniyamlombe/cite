@@ -1,0 +1,17 @@
+Cite offline self-check
+generated_at: 2026-10-04T07:10:05.099Z
+result: 11/11 checks passed
+
+PASS  rules_loaded — 147 rules
+PASS  dual_coverage — 147/147 dual coverage_conditions
+PASS  quoted_span_sample — 40/40 sample spans found verbatim in corpus
+PASS  change_T1 — affected=250 expected=250; per_address=250
+PASS  change_T2 — affected=90 expected=90; per_address=90
+PASS  change_T3 — affected=140 expected=140; per_address=140
+PASS  change_T4 — affected=110 expected=110; per_address=110
+PASS  change_T5 — affected=0 expected=0; per_address=0
+PASS  change_T3_conflicts — conflicts=90 expected=90
+PASS  lookups_count — 500 addresses
+PASS  no_pending_under_applies_sample — violations_in_sample=0
+
+Not legal advice. Not the official organizer score.py.
