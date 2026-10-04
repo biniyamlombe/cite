@@ -102,6 +102,22 @@ test("municipal algorithmic bans use adopted ordinance PDFs, not FAIR quotes", (
   assert.equal(newark, undefined, "Hoboken ordinance must not attach to Newark");
 });
 
+test("soft-gap FAQ extracts do not assert ordinary legal status", () => {
+  for (const alias of ["CAM-FH-01", "SF-FC-01"] as const) {
+    const r = rules.find((x) => x.alias_id === alias)!;
+    assert.equal(r.extraction_method, "soft_gap_scaffold");
+    assert.equal(r.requires_human_review, true);
+    assert.match(r.status_basis ?? "", /^unverified:/);
+  }
+  // Cambridge address should surface the soft-gap rule without an asserted legal status.
+  const cam = lookup("A0009", "2026-10-01").find(
+    (e) => rules.find((x) => x.team_rule_id === e.team_rule_id)?.alias_id === "CAM-FH-01",
+  );
+  assert.ok(cam, "CAM-FH-01 should attach in Cambridge");
+  assert.equal(cam!.needs_human_review, true);
+  assert.equal(cam!.legal_status_at_as_of_date, undefined);
+});
+
 test("T2 membership uses live municipal ordinance applies, not scaffolds", async () => {
   const geoMap = new Map(geos.map((g) => [g.address_id, g]));
   const changes = await runChangesFromDisk({ rules, geos: geoMap });
