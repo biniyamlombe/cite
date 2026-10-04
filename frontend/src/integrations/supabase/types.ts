@@ -71,6 +71,75 @@ export type Database = {
         }
         Relationships: []
       }
+      change_reviews: {
+        Row: {
+          address_id: string
+          change_id: string
+          created_at: string
+          id: string
+          note: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          address_id: string
+          change_id: string
+          created_at?: string
+          id?: string
+          note?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          address_id?: string
+          change_id?: string
+          created_at?: string
+          id?: string
+          note?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      fact_correction_requests: {
+        Row: {
+          address_id: string
+          created_at: string
+          explanation: string
+          field_name: string
+          id: string
+          reported_value: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          address_id: string
+          created_at?: string
+          explanation: string
+          field_name: string
+          id?: string
+          reported_value: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          address_id?: string
+          created_at?: string
+          explanation?: string
+          field_name?: string
+          id?: string
+          reported_value?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       lookup_audit: {
         Row: {
           address_id: string
@@ -157,6 +226,86 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      review_cases: {
+        Row: {
+          address_id: string
+          as_of: string
+          assignee: string
+          created_at: string
+          evidence_notes: string
+          id: string
+          questions: string
+          snapshot: Json
+          status: string
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          address_id: string
+          as_of: string
+          assignee?: string
+          created_at?: string
+          evidence_notes?: string
+          id?: string
+          questions?: string
+          snapshot: Json
+          status?: string
+          title: string
+          updated_at?: string
+          user_id?: string
+        }
+        Update: {
+          address_id?: string
+          as_of?: string
+          assignee?: string
+          created_at?: string
+          evidence_notes?: string
+          id?: string
+          questions?: string
+          snapshot?: Json
+          status?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      review_events: {
+        Row: {
+          action: string
+          case_id: string
+          created_at: string
+          detail: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          action: string
+          case_id: string
+          created_at?: string
+          detail?: string
+          id?: string
+          user_id?: string
+        }
+        Update: {
+          action?: string
+          case_id?: string
+          created_at?: string
+          detail?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "review_events_case_id_fkey"
+            columns: ["case_id"]
+            isOneToOne: false
+            referencedRelation: "review_cases"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       rule_comments: {
         Row: {

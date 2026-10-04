@@ -1,0 +1,1 @@
+REVOKE ALL ON FUNCTION public.record_review_case_event() FROM PUBLIC, anon, authenticated;
