@@ -11,12 +11,15 @@ An automated pipeline that (A) extracts structured housing rules from the pack c
 ## Pipeline (reproducible)
 
 ```bash
-npm run pipeline          # schema → extract → enrich → geocode → lookup → changes
+npm run pipeline          # schema → extract → enrich → geocode → lookup → changes → provenance
 # or with offline geocode: npm run pipeline -- --heuristic-geo
 npm test                  # smoke suite (schema, citations, aliases, T1–T5)
+npm run quality           # typecheck + substantive lint + tests + submission check
 ```
 
-Outputs: `outputs/rules.json`, `lookups.json`, `changes.json`, `geocode_cache.json`, `audit_log.jsonl`.
+Outputs: `outputs/rules.json`, `lookups.json`, `changes.json`, `geocode_cache.json`, `provenance.json`, `audit_log.jsonl`.  
+Lookup rows include pack `result` plus enrichment (`applicability`, `facts_used` / `facts_missing`, `needs_human_review`). Pack-shaped submission files remain grader-compatible.  
+API `GET /lookup/:id?include_non_applicable=1` also returns explicit `does_not_apply` rows. Jurisdiction stack includes `county_fips` / `place_geoid` when trusted. Change results include `evidence_summary` + `sample_evidence`.
 
 | Step | Module | What runs |
 |------|--------|-----------|
@@ -47,7 +50,8 @@ Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no
 - Soft-gap scaffolds: `CAM-FH-01` (D029 Cambridge Fair Housing / source of income) and `SF-FC-01` (D078 Fair Chance one-liner, low confidence)  
 - Lookups for all **500** addresses at `as_of=2026-10-01`  
 - T1–T5 green (`T1=250`, `T2=90`, `T3=140` +90 conflicts, `T4=110`, `T5=0`); no T6 (participant-final-no-hour16)  
-- Verify before upload: `npm run submission:check` · pack: `npm run submission:pack`
+- Verify before upload: `npm run quality` or `npm run submission:check` · pack: `npm run submission:pack`  
+- Audit evidence: `AUDIT_REPORT.md`, `GAP_REGISTER.md`, `docs/ARCHITECTURE.md`
 
 ## Limits (honest)
 
