@@ -75,7 +75,10 @@ export function runChangeTests(options: {
   rules: RuleRecord[];
   addresses: SampleAddress[];
   geos: Map<string, GeocodeResult>;
-  /** When the pack has no T6 yet, still emit an honest hour-16 placeholder. */
+  /**
+   * Opt-in only. The participant-final-no-hour16 pack has no T6 — do not emit a
+   * placeholder by default (hour-16 was removed from the challenge).
+   */
   includeT6Placeholder?: boolean;
 }): Record<string, ChangeResult> {
   const { tests, rules, addresses, geos } = options;
@@ -310,7 +313,7 @@ export function runChangeTests(options: {
       continue;
     }
 
-    // T6 — hour-16 Cambridge ordinance (when organizers add it to change_tests.json)
+    // T6 is not in participant-final-no-hour16. If a future pack adds it, evaluate here.
     if (test.test_id === "T6") {
       const cambridge = addressesInCity(addresses, geos, "Cambridge");
       const asOf = test.as_of || test.as_of_after || "2026-10-01";
@@ -326,10 +329,10 @@ export function runChangeTests(options: {
       });
 
       if (t6Rules.length === 0) {
-      out.T6 = {
-          affected_address_ids: sortIds(cambridge.map((a) => a.address_id)),
+        out.T6 = {
+          affected_address_ids: [],
           notes:
-            "T6 ready: hour-16 ordinance not yet in rules.json. Re-run extract when the pack drops the new Cambridge doc, then re-run changes. Placeholder lists all Cambridge sample addresses.",
+            "T6 listed in change_tests.json but no matching Cambridge rule in rules.json yet.",
         };
         continue;
       }
@@ -389,18 +392,16 @@ export function runChangeTests(options: {
     }
   }
 
-  // Honest hour-16 stub when organizers have not shipped T6 in the pack yet.
+  // Opt-in stub only — never invent T6 for the no-hour16 pack.
   if (
-    options.includeT6Placeholder !== false &&
+    options.includeT6Placeholder === true &&
     !out.T6 &&
     !tests.some((t) => t.test_id === "T6")
   ) {
-    const cambridge = addressesInCity(addresses, geos, "Cambridge");
     out.T6 = {
       affected_address_ids: [],
       notes:
-        "T6 placeholder (hour-16 Cambridge ordinance not in this pack). " +
-        `Cambridge sample size=${cambridge.length}. Awaiting corpus release — do not invent results.`,
+        "T6 not in this pack (participant-final-no-hour16). Hour-16 Cambridge scenario was removed from the challenge.",
     };
   }
 
