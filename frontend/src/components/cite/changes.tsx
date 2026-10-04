@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Building2, GitMerge, MapPinned } from "lucide-react";
+import { MapPinned } from "lucide-react";
 import { useT, type StringKey } from "@/lib/i18n";
 import type { AddressRow, ChangeResult, ChangeTest, TestId } from "@/lib/cite/types";
 import { BeforeAfterStatus, StatusBadge } from "./status";
@@ -41,7 +41,6 @@ export function humanizeChangeNotes(
     .replace(/\s{2,}/g, " ")
     .replace(/[;,]?\s*$/g, "")
     .trim();
-  // Prefer a single readable sentence (skip fragments that are only metrics residue)
   const sentence =
     body
       .split(/(?<=\.)\s+/)
@@ -81,7 +80,7 @@ export function AffectedPropertiesTable({
   const [expanded, setExpanded] = useState(false);
   if (ids.length === 0) {
     return (
-      <p className="rounded-md border border-dashed px-4 py-8 text-center text-sm text-muted-foreground">
+      <p className="border border-dashed border-border/80 px-4 py-8 text-center text-sm text-muted-foreground">
         {t("changes.noneAffected")}
       </p>
     );
@@ -89,9 +88,9 @@ export function AffectedPropertiesTable({
   const visible = expanded ? ids : ids.slice(0, PREVIEW);
   return (
     <div className="space-y-2">
-      <div className="overflow-x-auto rounded-xl border border-border/80">
+      <div className="overflow-x-auto border border-border/80">
         <table className="w-full text-sm">
-          <thead className="bg-secondary/50 text-left">
+          <thead className="bg-secondary/40 text-left">
             <tr className="[&>th]:px-3 [&>th]:py-2.5 [&>th]:font-medium [&>th]:eyebrow">
               <th>{t("changes.col.address")}</th>
               <th>{t("changes.col.jurisdiction")}</th>
@@ -105,14 +104,19 @@ export function AffectedPropertiesTable({
             {visible.map((id) => {
               const a = addresses.find((x) => x.address_id === id);
               return (
-                <tr key={id} className="bg-card transition-colors hover:bg-secondary/30 [&>td]:px-3 [&>td]:py-2.5">
+                <tr
+                  key={id}
+                  className="bg-card/40 transition-colors hover:bg-secondary/30 [&>td]:px-3 [&>td]:py-2.5"
+                >
                   <td>
                     <Link
                       to="/"
                       search={{ address: id, ...(asOfLink ? { as_of: asOfLink } : {}) }}
                       className="group block"
                     >
-                      <div className="text-ink transition-colors group-hover:text-primary">{a?.street_address ?? id}</div>
+                      <div className="text-ink transition-colors group-hover:text-primary">
+                        {a?.street_address ?? id}
+                      </div>
                       <div className="font-mono text-xs text-muted-foreground">{id}</div>
                     </Link>
                   </td>
@@ -172,18 +176,18 @@ function ScopeStory({
   });
 
   return (
-    <div className="rounded-md border bg-paper p-4">
-      <div className="eyebrow mb-3 flex items-center gap-1.5">
-        <MapPinned className="size-3" /> {t("changes.scope")}
+    <div>
+      <div className="flex items-center gap-1.5 text-xs font-medium text-ink">
+        <MapPinned className="size-3.5 text-primary/70" /> {t("changes.scope")}
       </div>
-      <div className="flex flex-wrap gap-2">
+      <ul className="mt-2 divide-y divide-border/70 border-t border-border/70">
         {byCity.map(([city, n]) => (
-          <div key={city} className="rounded-md border bg-card px-3 py-2 text-sm">
-            <span className="font-medium text-ink">{city}</span>
-            <span className="ml-2 font-mono tabular-nums text-muted-foreground">{n}</span>
-          </div>
+          <li key={city} className="flex items-baseline justify-between gap-3 py-2 text-sm">
+            <span className="text-ink">{city}</span>
+            <span className="font-mono tabular-nums text-muted-foreground">{n}</span>
+          </li>
         ))}
-      </div>
+      </ul>
       {newark.length > 0 && (
         <p className="mt-3 text-sm text-muted-foreground">
           <span className="font-medium text-ink">{t("changes.excluded")}:</span>{" "}
@@ -211,13 +215,13 @@ function ChangeNotes({ notes, affected, conflicts }: { notes: string; affected: 
       : t("changes.notesTally").replace("{a}", String(affected));
 
   return (
-    <div className="mt-4 space-y-2">
+    <div className="space-y-2">
       <p className="text-sm leading-relaxed text-muted-foreground">
         <span className="font-mono text-[11px] tabular-nums text-ink">{tally}</span>
         {summary ? <span className="mt-1 block">{summary}</span> : null}
       </p>
       {openQuestion && (
-        <p className="rounded-lg border border-unknown/20 bg-unknown-soft/60 px-3 py-2 text-sm text-ink/90">
+        <p className="border border-unknown/25 bg-unknown-soft/50 px-3 py-2 text-sm text-ink/90">
           <span className="font-medium">{t("rule.openQuestion")}: </span>
           {openQuestion}
         </p>
@@ -230,7 +234,7 @@ function ChangeNotes({ notes, affected, conflicts }: { notes: string; affected: 
         {open ? t("changes.hideDetails") : t("changes.showDetails")}
       </button>
       {open && (
-        <pre className="overflow-x-auto rounded-lg border border-border/70 bg-paper px-3 py-2.5 font-mono text-[11px] leading-relaxed text-muted-foreground whitespace-pre-wrap">
+        <pre className="overflow-x-auto border border-border/70 bg-paper px-3 py-2.5 font-mono text-[11px] leading-relaxed text-muted-foreground whitespace-pre-wrap">
           {raw}
         </pre>
       )}
@@ -256,31 +260,44 @@ export function ChangeImpactCard({
   const lookupAsOf = test.as_of_after || test.as_of;
   const typeKey = TYPE_LABEL_KEY[test.type];
   const typeLabel = typeKey ? t(typeKey) : test.type.replace(/_/g, " ");
+  const dateLine = [test.as_of_before, test.as_of_after || test.as_of].filter(Boolean).join(" → ");
 
   return (
-    <article className="surface fade-up p-5 sm:p-6">
-      <div className="flex flex-wrap items-start justify-between gap-4">
+    <article>
+      <div className="flex flex-wrap items-start justify-between gap-4 border-b border-border/70 pb-4">
         <div className="min-w-0 flex-1">
-          <div className="eyebrow text-primary/80">
-            {test.test_id} · {typeLabel}
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+            <span translate="no" className="font-mono text-xs font-semibold text-primary">
+              {test.test_id}
+            </span>
+            <span className="text-muted-foreground">·</span>
+            <span className="text-xs text-muted-foreground">{typeLabel}</span>
+            {dateLine ? (
+              <>
+                <span className="text-muted-foreground">·</span>
+                <span className="font-mono text-[11px] tabular-nums text-muted-foreground">
+                  {t("changes.asOfMeta")} {dateLine}
+                </span>
+              </>
+            ) : null}
           </div>
-          <h2 className="mt-1.5 font-serif text-xl text-ink sm:text-2xl">{test.title}</h2>
+          <h2 className="mt-2 font-serif text-xl tracking-[-0.02em] text-ink sm:text-2xl">{test.title}</h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             {t(beatKey) || test.expected_behavior}
           </p>
         </div>
-        <div className="flex gap-3">
-          <div className="rounded-xl border border-border/80 bg-paper px-4 py-2.5 text-center">
-            <div className="font-mono text-2xl font-semibold tabular-nums text-ink">{affected.length}</div>
-            <div className="eyebrow mt-0.5 flex items-center justify-center gap-1">
-              <Building2 className="size-3" /> {t("changes.affectedCount")}
+        <div className="flex flex-wrap gap-4 font-mono text-sm tabular-nums">
+          <div>
+            <div className="text-2xl font-semibold text-ink">{affected.length}</div>
+            <div className="mt-0.5 text-[11px] uppercase tracking-wider text-muted-foreground">
+              {t("changes.affectedCount")}
             </div>
           </div>
-          {result?.conflict_flag_address_ids && (
-            <div className="rounded-xl border border-conflict/25 bg-conflict-soft px-4 py-2.5 text-center">
-              <div className="font-mono text-2xl font-semibold tabular-nums text-conflict">{conflicts.length}</div>
-              <div className="eyebrow mt-0.5 flex items-center justify-center gap-1">
-                <GitMerge className="size-3" /> {t("changes.reviewCount")}
+          {conflicts.length > 0 && (
+            <div>
+              <div className="text-2xl font-semibold text-conflict">{conflicts.length}</div>
+              <div className="mt-0.5 text-[11px] uppercase tracking-wider text-conflict/80">
+                {t("changes.reviewCount")}
               </div>
             </div>
           )}
@@ -306,30 +323,34 @@ export function ChangeImpactCard({
       )}
 
       {result && focus === "failed" && (
-        <div className="mt-5 rounded-xl border border-dashed bg-paper px-4 py-3 text-sm text-muted-foreground">
+        <div className="mt-5 border border-dashed border-border/80 px-4 py-3 text-sm text-muted-foreground">
           {t("changes.failedNote")}
         </div>
       )}
 
       {result?.notes && (
-        <ChangeNotes notes={result.notes} affected={affected.length} conflicts={conflicts.length} />
+        <div className="mt-5">
+          <ChangeNotes notes={result.notes} affected={affected.length} conflicts={conflicts.length} />
+        </div>
       )}
 
       {result && (
-        <div className="mt-5 space-y-2">
-          <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <div className="font-serif text-base text-ink">{t("changes.affected")}</div>
-            <div className="rounded-full bg-secondary px-2.5 py-0.5 font-mono text-[11px] text-muted-foreground">
-              {test.rule_ids.join(" · ")}
+        <div className="mt-6">
+          <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-border/70 pb-2">
+            <h3 className="font-serif text-lg text-ink">{t("changes.affected")}</h3>
+            <div className="font-mono text-[11px] text-muted-foreground">
+              {t("changes.rulesMeta")} {test.rule_ids.join(" · ")}
             </div>
           </div>
-          <AffectedPropertiesTable
-            ids={affected}
-            addresses={addresses}
-            result={result}
-            conflicts={conflicts}
-            asOfLink={lookupAsOf}
-          />
+          <div className="mt-3">
+            <AffectedPropertiesTable
+              ids={affected}
+              addresses={addresses}
+              result={result}
+              conflicts={conflicts}
+              asOfLink={lookupAsOf}
+            />
+          </div>
         </div>
       )}
     </article>
