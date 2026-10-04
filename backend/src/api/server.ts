@@ -353,23 +353,21 @@ app.post("/extract/doc/:docId", async (c) => {
       rules: withMeta,
       validation: [
         {
-          check: "Schema + Zod/Ajv",
+          check: "Schema validation",
           passed: true,
-          detail: `${withMeta.length} rule(s) validated before return`,
+          detail: `${withMeta.length} rule(s) passed validation`,
         },
         {
-          check: "Verbatim quoted span in corpus",
+          check: "Quotation matches source",
           passed: spanOk,
           detail: spanOk
-            ? `${withMeta.length} returned span(s) matched the full corpus document exactly`
-            : "One or more quotations do not match the corpus",
+            ? `${withMeta.length} quotation(s) found in the source document`
+            : "One or more quotations do not match the source document",
         },
         {
           check: "Source document loaded",
           passed: Boolean(doc),
-          detail: doc
-            ? `${docId} loaded (${source_text.length} chars shown)`
-            : `${docId} missing from corpus`,
+          detail: doc ? `${docId} loaded` : `${docId} missing from corpus`,
         },
       ],
     });
