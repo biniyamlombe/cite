@@ -13,7 +13,7 @@
 
 - Cite UI only displays API results via the CiteApiClient interface (src/lib/cite/client.ts); mocks live in src/mocks and are used unless VITE_API_URL is set. Why: legal logic must stay in the backend.
 - Pipeline page (/pipeline) shows extract results via CiteApiClient.extract; validation results come from the backend/mocks, never computed in the UI.
-- UI chrome is translated EN/ES through src/lib/i18n.tsx; legal quotes, citations and backend explanations stay in source language.
+- UI chrome is translated en-US/es-US through src/lib/i18n.tsx (+ `?lang=`); English legal quotes remain authoritative; API may return template Spanish in `plain_language_summary` with translation provenance.
 - Property Lookup keeps address and as-of date in the URL (?address=&as_of=) so views are shareable.
 - Watchlist is a per-browser UI preference (localStorage via src/lib/cite/watchlist.ts); portfolio alerts only compare backend lookup results at two dates, never re-evaluate rules.
 - CSV export serialises the lookup response as returned (src/lib/cite/export.ts).

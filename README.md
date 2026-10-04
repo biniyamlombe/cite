@@ -32,9 +32,10 @@ Cite answers: *which housing rules appear to apply at this address on a given da
 13. [Modules A–C](#modules-ac)
 14. [UX architecture](#ux-architecture)
 15. [Offline demo & monitoring](#offline-demo--monitoring)
-16. [Known limits](#known-limits)
-17. [Documentation index](#documentation-index)
-18. [Troubleshooting](#troubleshooting)
+16. [Spanish / localization](#spanish--localization)
+17. [Known limits](#known-limits)
+18. [Documentation index](#documentation-index)
+19. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -407,9 +408,59 @@ Be ready to say these out loud:
 | More-nav SaaS surfaces | Dashboard / inbox / portfolio secondary vs demo path |
 | Extract model | Default Haiku; Sonnet for empty-cache / `--retry-failed` |
 | `score.py` | Not in pack until organizers ship it — see `docs/organizer-scoring.md` |
-| Spanish locale | Primary-nav chrome; citations/quotes stay in source language |
+| Spanish locale | `en-US`/`es-US` UI + API labels; English quotes remain authoritative; non-template explanations may stay EN with notice |
 
-Audit evidence of gaps closed vs remaining: **[docs/gap-register.md](docs/gap-register.md)** · **[docs/audit-report.md](docs/audit-report.md)**.
+Audit evidence of gaps closed vs remaining: **[docs/gap-register.md](docs/gap-register.md)** · **[docs/audit-report.md](docs/audit-report.md)** · **[docs/localization/](docs/localization/)**.
+
+---
+
+## Spanish / localization
+
+**Supported languages:** `en-US` (default), `es-US` (U.S. Spanish). Generic `es` is accepted as an alias to `es-US`.
+
+### How to run Spanish mode
+
+1. Start the app (`npm run dev:backend` + `npm run dev:frontend`).
+2. Use the header language control (**Español** / **English**), or open a shareable URL with `?lang=es-US` (keeps `address` / `as_of`).
+3. Live API: `GET /lookup/A0005?as_of=2026-10-01&locale=es-US` (or `Accept-Language: es-US`).
+
+### Translation-status policy
+
+| Status | Meaning |
+|--------|---------|
+| `human_reviewed` | Bilingual reviewer approved (none claimed until queue clears) |
+| `machine_generated` | Deterministic template Spanish; may show UI badge |
+| `untranslated` | English content as-is |
+| `not_available` | No safe Spanish template; English shown with notice |
+
+Legal status (`vigente` / `pendiente` / …) is **not** the same as translation status.
+
+### Official-source policy
+
+- Corpus quotations, citations, bill IDs, section numbers, and official titles stay in **English**.
+- Spanish UI labels them as **texto legal original en inglés** / authoritative source.
+- Automatic Spanish translation of quotes is **disabled** (`informational_translation_es: null`).
+
+### Glossary & human review
+
+- Glossary: [`data/localization/legal_housing_glossary.en-es.json`](data/localization/legal_housing_glossary.en-es.json) · [`docs/localization/LEGAL_HOUSING_GLOSSARY_EN_ES.md`](docs/localization/LEGAL_HOUSING_GLOSSARY_EN_ES.md)
+- Review protocol / queue: [`docs/localization/SPANISH_REVIEW_PROTOCOL.md`](docs/localization/SPANISH_REVIEW_PROTOCOL.md) · [`docs/localization/translation_review_queue.json`](docs/localization/translation_review_queue.json)
+- Architecture: [`docs/localization/LOCALIZATION_ARCHITECTURE.md`](docs/localization/LOCALIZATION_ARCHITECTURE.md)
+
+### Limitations (Spanish)
+
+- Not legal advice / **No es asesoramiento legal**.
+- Not a certified translation and not a substitute for counsel.
+- Rule titles/requirements from the English corpus are not auto-translated.
+- High-risk strings remain awaiting human review — do not claim certified bilingual legal accuracy.
+
+### Validation
+
+```bash
+npm run build -w shared
+npm test -w backend -- --test-name-pattern locale
+npm test --prefix frontend -- i18n-parity spanish-localization
+```
 
 ---
 
@@ -417,6 +468,9 @@ Audit evidence of gaps closed vs remaining: **[docs/gap-register.md](docs/gap-re
 
 | Doc | Purpose |
 |-----|---------|
+| [docs/localization/SPANISH_LOCALIZATION_BASELINE.md](docs/localization/SPANISH_LOCALIZATION_BASELINE.md) | Spanish baseline audit |
+| [docs/localization/LOCALIZATION_GAP_REGISTER.md](docs/localization/LOCALIZATION_GAP_REGISTER.md) | Localization gaps |
+| [docs/localization/SPANISH_LOCALIZATION_IMPLEMENTATION_REPORT.md](docs/localization/SPANISH_LOCALIZATION_IMPLEMENTATION_REPORT.md) | What shipped for ES |
 | [docs/method-note.md](docs/method-note.md) | One-page method (extract → geocode → lookup → T1–T5) |
 | [docs/demo-script.md](docs/demo-script.md) | ~4 minute judge walkthrough + preflight |
 | [docs/system-architecture.md](docs/system-architecture.md) | Stack + Mermaid data flow + failure modes |

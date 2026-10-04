@@ -2,7 +2,7 @@
 
 **Base URL:** `http://localhost:4000` (Hono)  
 **Disclaimer:** Legal information prototype — not legal advice.  
-**Schema version:** `API_SCHEMA_VERSION` = `1.2.0` (`shared/src/index.ts`)
+**Schema version:** `API_SCHEMA_VERSION` = `1.3.0` (`shared/src/index.ts`)
 
 Lookup responses remain **flat** (fields at the top level) for backward compatibility, with added `meta`, `warnings`, and `product_states`. Errors use a structured envelope.
 
@@ -29,11 +29,14 @@ Lookup responses remain **flat** (fields at the top level) for backward compatib
 | Field | Type | Notes |
 |-------|------|-------|
 | `as_of` | `YYYY-MM-DD` | Required calendar date |
+| `locale` | `en-US` \| `es-US` (aliases `en`/`es`) | Localizes disclaimer, labels, warnings, plain-language summaries. Invalid → `en-US` + `locale_warning`. Also accepts `Accept-Language`. |
 | `include_non_applicable` | `1`/`true` | Include does_not_apply rows |
 | `year_built` | string/number | Session override (not persisted) |
 | `units` | string/number | Session override (not persisted) |
 
-POST body may include `{ as_of, include_non_applicable, building_facts: { year_built, units } }`.
+POST body may include `{ as_of, locale, include_non_applicable, building_facts: { year_built, units } }`.
+
+**Locale policy:** Enum codes stay English. English `explanation` and `quoted_span` remain authoritative. Spanish plain-language text appears in `plain_language_summary` when a safe template exists; quote auto-translation is not enabled.
 
 ## Success shape (lookup)
 
