@@ -18,12 +18,14 @@ import { Route as ChangesRouteImport } from './routes/changes'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as CoverageRouteImport } from './routes/coverage'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as InboxRouteImport } from './routes/inbox'
 import { Route as MemosRouteImport } from './routes/memos'
 import { Route as PipelineRouteImport } from './routes/pipeline'
 import { Route as PortfolioRouteImport } from './routes/portfolio'
 import { Route as RulesRouteImport } from './routes/rules'
 import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as SourcesRouteImport } from './routes/sources'
+import { Route as WorkspaceRouteImport } from './routes/workspace'
 import { Route as ApiPublicCronRecheckRouteImport } from './routes/api/public/cron/recheck'
 import { Route as ApiPublicV1LookupAddressIdRouteImport } from './routes/api/public/v1/lookup.$addressId'
 
@@ -72,6 +74,11 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InboxRoute = InboxRouteImport.update({
+  id: '/inbox',
+  path: '/inbox',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MemosRoute = MemosRouteImport.update({
   id: '/memos',
   path: '/memos',
@@ -102,6 +109,11 @@ const SourcesRoute = SourcesRouteImport.update({
   path: '/sources',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WorkspaceRoute = WorkspaceRouteImport.update({
+  id: '/workspace',
+  path: '/workspace',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicCronRecheckRoute = ApiPublicCronRecheckRouteImport.update({
   id: '/api/public/cron/recheck',
   path: '/api/public/cron/recheck',
@@ -124,12 +136,14 @@ export interface FileRoutesByFullPath {
   '/compare': typeof CompareRoute
   '/coverage': typeof CoverageRoute
   '/dashboard': typeof DashboardRoute
+  '/inbox': typeof InboxRoute
   '/memos': typeof MemosRoute
   '/pipeline': typeof PipelineRoute
   '/portfolio': typeof PortfolioRoute
   '/rules': typeof RulesRoute
   '/settings': typeof SettingsRoute
   '/sources': typeof SourcesRoute
+  '/workspace': typeof WorkspaceRoute
   '/api/public/cron/recheck': typeof ApiPublicCronRecheckRoute
   '/api/public/v1/lookup/$addressId': typeof ApiPublicV1LookupAddressIdRoute
 }
@@ -143,12 +157,14 @@ export interface FileRoutesByTo {
   '/compare': typeof CompareRoute
   '/coverage': typeof CoverageRoute
   '/dashboard': typeof DashboardRoute
+  '/inbox': typeof InboxRoute
   '/memos': typeof MemosRoute
   '/pipeline': typeof PipelineRoute
   '/portfolio': typeof PortfolioRoute
   '/rules': typeof RulesRoute
   '/settings': typeof SettingsRoute
   '/sources': typeof SourcesRoute
+  '/workspace': typeof WorkspaceRoute
   '/api/public/cron/recheck': typeof ApiPublicCronRecheckRoute
   '/api/public/v1/lookup/$addressId': typeof ApiPublicV1LookupAddressIdRoute
 }
@@ -163,12 +179,14 @@ export interface FileRoutesById {
   '/compare': typeof CompareRoute
   '/coverage': typeof CoverageRoute
   '/dashboard': typeof DashboardRoute
+  '/inbox': typeof InboxRoute
   '/memos': typeof MemosRoute
   '/pipeline': typeof PipelineRoute
   '/portfolio': typeof PortfolioRoute
   '/rules': typeof RulesRoute
   '/settings': typeof SettingsRoute
   '/sources': typeof SourcesRoute
+  '/workspace': typeof WorkspaceRoute
   '/api/public/cron/recheck': typeof ApiPublicCronRecheckRoute
   '/api/public/v1/lookup/$addressId': typeof ApiPublicV1LookupAddressIdRoute
 }
@@ -184,12 +202,14 @@ export interface FileRouteTypes {
     | '/compare'
     | '/coverage'
     | '/dashboard'
+    | '/inbox'
     | '/memos'
     | '/pipeline'
     | '/portfolio'
     | '/rules'
     | '/settings'
     | '/sources'
+    | '/workspace'
     | '/api/public/cron/recheck'
     | '/api/public/v1/lookup/$addressId'
   fileRoutesByTo: FileRoutesByTo
@@ -203,12 +223,14 @@ export interface FileRouteTypes {
     | '/compare'
     | '/coverage'
     | '/dashboard'
+    | '/inbox'
     | '/memos'
     | '/pipeline'
     | '/portfolio'
     | '/rules'
     | '/settings'
     | '/sources'
+    | '/workspace'
     | '/api/public/cron/recheck'
     | '/api/public/v1/lookup/$addressId'
   id:
@@ -222,12 +244,14 @@ export interface FileRouteTypes {
     | '/compare'
     | '/coverage'
     | '/dashboard'
+    | '/inbox'
     | '/memos'
     | '/pipeline'
     | '/portfolio'
     | '/rules'
     | '/settings'
     | '/sources'
+    | '/workspace'
     | '/api/public/cron/recheck'
     | '/api/public/v1/lookup/$addressId'
   fileRoutesById: FileRoutesById
@@ -242,12 +266,14 @@ export interface RootRouteChildren {
   CompareRoute: typeof CompareRoute
   CoverageRoute: typeof CoverageRoute
   DashboardRoute: typeof DashboardRoute
+  InboxRoute: typeof InboxRoute
   MemosRoute: typeof MemosRoute
   PipelineRoute: typeof PipelineRoute
   PortfolioRoute: typeof PortfolioRoute
   RulesRoute: typeof RulesRoute
   SettingsRoute: typeof SettingsRoute
   SourcesRoute: typeof SourcesRoute
+  WorkspaceRoute: typeof WorkspaceRoute
   ApiPublicCronRecheckRoute: typeof ApiPublicCronRecheckRoute
   ApiPublicV1LookupAddressIdRoute: typeof ApiPublicV1LookupAddressIdRoute
 }
@@ -317,6 +343,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/inbox': {
+      id: '/inbox'
+      path: '/inbox'
+      fullPath: '/inbox'
+      preLoaderRoute: typeof InboxRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/memos': {
       id: '/memos'
       path: '/memos'
@@ -359,6 +392,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/workspace': {
+      id: '/workspace'
+      path: '/workspace'
+      fullPath: '/workspace'
+      preLoaderRoute: typeof WorkspaceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/cron/recheck': {
       id: '/api/public/cron/recheck'
       path: '/api/public/cron/recheck'
@@ -386,12 +426,14 @@ const rootRouteChildren: RootRouteChildren = {
   CompareRoute: CompareRoute,
   CoverageRoute: CoverageRoute,
   DashboardRoute: DashboardRoute,
+  InboxRoute: InboxRoute,
   MemosRoute: MemosRoute,
   PipelineRoute: PipelineRoute,
   PortfolioRoute: PortfolioRoute,
   RulesRoute: RulesRoute,
   SettingsRoute: SettingsRoute,
   SourcesRoute: SourcesRoute,
+  WorkspaceRoute: WorkspaceRoute,
   ApiPublicCronRecheckRoute: ApiPublicCronRecheckRoute,
   ApiPublicV1LookupAddressIdRoute: ApiPublicV1LookupAddressIdRoute,
 }
