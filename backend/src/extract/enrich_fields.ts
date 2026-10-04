@@ -8,6 +8,7 @@
  */
 import type { RuleRecord } from "@rhl/shared";
 import { loadCapturableDocs, type CorpusDoc } from "../lib/corpus.js";
+import { applyEffectiveDateGrounding } from "./effective_dates.js";
 
 const MONTHS: Record<string, string> = {
   january: "01",
@@ -262,7 +263,9 @@ export async function enrichRuleFields(
       }
     }
 
-    return next;
+    const grounded = applyEffectiveDateGrounding(next, doc?.body);
+    if (grounded.effective_date !== next.effective_date) stats.effective_date += 1;
+    return grounded;
   });
 
   return { rules: out, stats };

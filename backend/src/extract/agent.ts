@@ -12,10 +12,8 @@ import {
 import { validateRuleRecord } from "../lib/validate.js";
 import { cacheDir } from "../lib/paths.js";
 import { assignAliases } from "./aliases.js";
-import {
-  ensureChangeTestAliases,
-  normalizeChangeTestEffectiveDates,
-} from "./ensure_aliases.js";
+import { ensureChangeTestAliases } from "./ensure_aliases.js";
+import { groundRuleEffectiveDates } from "./effective_dates.js";
 import {
   buildQuoteRetryUserPrompt,
   buildUserPrompt,
@@ -667,7 +665,7 @@ export async function extractAllCorpus(options?: {
   const ensured = assignAliases(
     preferClaudeRules(dedupeRules(await ensureChangeTestAliases(aliased))),
   );
-  const numbered = normalizeChangeTestEffectiveDates(ensured).map((r, i) => ({
+  const numbered = (await groundRuleEffectiveDates(ensured)).map((r, i) => ({
     ...r,
     team_rule_id: nextId(i + 1),
   }));

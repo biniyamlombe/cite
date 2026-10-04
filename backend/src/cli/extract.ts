@@ -13,10 +13,8 @@ import { loadCapturableDocs, loadDocById } from "../lib/corpus.js";
 import type { RuleRecord } from "@rhl/shared";
 import { assignAliases } from "../extract/aliases.js";
 import { dedupeRules } from "../extract/heuristic.js";
-import {
-  ensureChangeTestAliases,
-  normalizeChangeTestEffectiveDates,
-} from "../extract/ensure_aliases.js";
+import { ensureChangeTestAliases } from "../extract/ensure_aliases.js";
+import { groundRuleEffectiveDates } from "../extract/effective_dates.js";
 import { appendAudit } from "../lib/audit.js";
 import { enrichRuleCoverage } from "../apply/compile_coverage.js";
 import { enrichRuleFields } from "../extract/enrich_fields.js";
@@ -143,7 +141,7 @@ async function main() {
       });
       haveDocs.add(r.source_doc_id);
     }
-    finalRules = normalizeChangeTestEffectiveDates(ensured).map((r, i) => ({
+    finalRules = (await groundRuleEffectiveDates(ensured)).map((r, i) => ({
       ...r,
       team_rule_id: `r-${String(i + 1).padStart(4, "0")}`,
     }));
