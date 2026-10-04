@@ -610,3 +610,9 @@
 {"ts":"2026-10-04T05:09:55.212Z","kind":"schema_check","message":"OK — sample_rule_record.json validates (Zod + Ajv)"}
 {"ts":"2026-10-04T05:09:56.460Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-04T05:09:56.793Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T05:26:56.518Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T05:26:56.877Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T05:28:04.571Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T05:28:04.952Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T05:29:42.682Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T05:29:43.079Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
