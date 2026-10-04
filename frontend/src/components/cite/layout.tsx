@@ -5,6 +5,7 @@ import { getCiteClient } from "@/lib/cite/client";
 import { useLocale, useT, type StringKey } from "@/lib/i18n";
 import { useAuth } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
+import { CommandPalette, CommandPaletteTrigger } from "@/components/cite/command-palette";
 
 function AccountButton() {
   const { user, ready } = useAuth();
@@ -217,6 +218,7 @@ export function SiteHeader() {
               <span className="mr-1.5 inline-block size-1.5 rounded-full bg-current opacity-80" aria-hidden />
               {t(mode === "mock" ? "mode.mock" : "mode.live")}
             </span>
+            <CommandPaletteTrigger />
             <LocaleToggle />
             <AccountButton />
             <button
@@ -246,6 +248,7 @@ export function SiteHeader() {
           </nav>
         )}
       </div>
+      <CommandPalette />
     </header>
   );
 }
