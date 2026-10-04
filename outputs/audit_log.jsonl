@@ -616,3 +616,4 @@
 {"ts":"2026-10-04T05:28:04.952Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
 {"ts":"2026-10-04T05:29:42.682Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-04T05:29:43.079Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T07:09:56.555Z","kind":"change_tests","message":"Wrote T1, T2, T3, T4, T5","meta":{"T1":{"affected":250,"conflicts":0},"T2":{"affected":90,"conflicts":0},"T3":{"affected":140,"conflicts":90},"T4":{"affected":110,"conflicts":0},"T5":{"affected":0,"conflicts":0}}}

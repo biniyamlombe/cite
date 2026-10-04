@@ -240,6 +240,16 @@ export const ChangeEvidenceSchema = z.object({
 });
 export type ChangeEvidence = z.infer<typeof ChangeEvidenceSchema>;
 
+/** Compact before/after or as-of status map keyed by alias / team_rule_id. */
+export const ChangePerAddressSchema = z.union([
+  z.record(z.string()),
+  z.object({
+    before: z.record(z.string()),
+    after: z.record(z.string()),
+  }),
+]);
+export type ChangePerAddress = z.infer<typeof ChangePerAddressSchema>;
+
 export const ChangeResultSchema = z.object({
   affected_address_ids: z.array(z.string()),
   conflict_flag_address_ids: z.array(z.string()).optional(),
@@ -249,6 +259,10 @@ export const ChangeResultSchema = z.object({
   /** Compact inclusion/exclusion evidence (optional; graders ignore unknown keys). */
   evidence_summary: z.string().optional(),
   sample_evidence: z.array(ChangeEvidenceSchema).optional(),
+  /** Alias → team_rule_id for the rules exercised by this test. */
+  rule_mapping: z.record(z.string()).optional(),
+  /** Per affected address: status snapshot or before/after flip. */
+  per_address: z.record(ChangePerAddressSchema).optional(),
 });
 
 export type ChangeResult = z.infer<typeof ChangeResultSchema>;

@@ -187,6 +187,12 @@ export interface ChangeResult {
   before_status?: string;
   after_status?: string;
   notes?: string;
+  evidence_summary?: string;
+  rule_mapping?: Record<string, string>;
+  per_address?: Record<
+    string,
+    Record<string, string> | { before: Record<string, string>; after: Record<string, string> }
+  >;
 }
 
 export interface ChangesResponse {

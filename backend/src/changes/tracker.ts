@@ -83,6 +83,39 @@ function sampleEvidence(
   return [...included.slice(0, Math.ceil(limit / 2)), ...excluded.slice(0, Math.floor(limit / 2))];
 }
 
+function mappingFor(
+  aliases: string[],
+  rules: RuleRecord[],
+): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const alias of aliases) {
+    const rule = ruleByAlias(rules, alias);
+    if (rule) out[alias] = rule.team_rule_id;
+  }
+  return out;
+}
+
+function flipPerAddress(
+  ids: string[],
+  alias: string,
+  before: string,
+  after: string,
+): Record<string, { before: Record<string, string>; after: Record<string, string> }> {
+  return Object.fromEntries(
+    ids.map((id) => [
+      id,
+      { before: { [alias]: before }, after: { [alias]: after } },
+    ]),
+  );
+}
+
+function statusPerAddress(
+  ids: string[],
+  statuses: Record<string, string>,
+): Record<string, Record<string, string>> {
+  return Object.fromEntries(ids.map((id) => [id, { ...statuses }]));
+}
+
 export function runChangeTests(options: {
   tests: ChangeTest[];
   rules: RuleRecord[];
@@ -147,12 +180,20 @@ export function runChangeTests(options: {
           return ok;
         })
         .map((a) => a.address_id);
+      const t1Ids = sortIds(affected);
       out.T1 = {
-        affected_address_ids: sortIds(affected),
+        affected_address_ids: t1Ids,
         before_status: "not_yet_effective",
         after_status: "applies",
         evidence_summary: `included=${includedEv.length} excluded=${excludedEv.length} (CA legal geography only)`,
         sample_evidence: sampleEvidence(includedEv, excludedEv),
+        rule_mapping: mappingFor(["CA-ALG-01"], rules),
+        per_address: flipPerAddress(
+          t1Ids,
+          "CA-ALG-01",
+          "not_yet_effective",
+          "applies",
+        ),
         notes:
           test.expected_behavior +
           (affected.length
@@ -208,10 +249,19 @@ export function runChangeTests(options: {
         const g = geos.get(id);
         return g?.legal_city === "Newark";
       });
+      const t2Ids = sortIds(affected);
+      const t2Per: Record<string, Record<string, string>> = {};
+      for (const id of t2Ids) {
+        const g = geos.get(id);
+        if (g?.legal_city === "Hoboken") t2Per[id] = { "HOB-ALG-01": "applies" };
+        else if (g?.legal_city === "Jersey City") t2Per[id] = { "JC-ALG-01": "applies" };
+      }
       out.T2 = {
-        affected_address_ids: sortIds(affected),
+        affected_address_ids: t2Ids,
         evidence_summary: `included=${includedEv.length}; Newark exclusions sampled=${excludedEv.length}`,
         sample_evidence: sampleEvidence(includedEv, excludedEv),
+        rule_mapping: mappingFor(["HOB-ALG-01", "JC-ALG-01"], rules),
+        per_address: t2Per,
         notes:
           test.expected_behavior +
           (newarkLeak.length
@@ -300,13 +350,21 @@ export function runChangeTests(options: {
         reason: "Conflict flag: possible FAIR Act preemption vs Hoboken/Jersey City local ban",
         rule_ids: ["NJ-ALG-01", "HOB-ALG-01", "JC-ALG-01"],
       }));
+      const t3Ids = sortIds(affected);
       out.T3 = {
-        affected_address_ids: sortIds(affected),
+        affected_address_ids: t3Ids,
         conflict_flag_address_ids: sortIds(conflict_flag_address_ids),
         before_status: "not_yet_effective",
         after_status: "applies",
         evidence_summary: `flip_ok=${flipped.length}/${nj.length}; conflicts=${conflict_flag_address_ids.length}; live_flags=${flaggedLive}`,
         sample_evidence: [...t3Included, ...t3Conflicts, ...t3Excluded].slice(0, 6),
+        rule_mapping: mappingFor(["NJ-ALG-01", "HOB-ALG-01", "JC-ALG-01"], rules),
+        per_address: flipPerAddress(
+          t3Ids,
+          "NJ-ALG-01",
+          "not_yet_effective",
+          "applies",
+        ),
         notes:
           test.expected_behavior +
           ` before_check=${beforeOk} after_check=${afterOk}` +
@@ -333,8 +391,9 @@ export function runChangeTests(options: {
           return bothRequired ? Boolean(hit1 && hit2) : Boolean(hit1 || hit2);
         })
         .map((a) => a.address_id);
+      const t4Ids = sortIds(affected);
       out.T4 = {
-        affected_address_ids: sortIds(affected),
+        affected_address_ids: t4Ids,
         evidence_summary: `if_enacted_scenario pending_ok=${affected.length}/${ma.length} (not current law)`,
         sample_evidence: [
           ...affected.slice(0, 3).map((id) => ({
@@ -353,6 +412,11 @@ export function runChangeTests(options: {
               rule_ids: ["MA-ALG-P1", "MA-ALG-P2"],
             })),
         ],
+        rule_mapping: mappingFor(["MA-ALG-P1", "MA-ALG-P2"], rules),
+        per_address: statusPerAddress(t4Ids, {
+          "MA-ALG-P1": "pending",
+          "MA-ALG-P2": "pending",
+        }),
         notes:
           test.expected_behavior +
           (affected.length === ma.length
@@ -408,6 +472,8 @@ export function runChangeTests(options: {
             "MA rent-control ballot (IP 25-21) is failed/struck — no rent cap reported; affected set empty",
           rule_ids: ["MA-RENT-P1"],
         })),
+        rule_mapping: mappingFor(["MA-RENT-P1"], rules),
+        per_address: {},
         notes:
           test.expected_behavior +
           (wrongly.length || rogueCap.length
