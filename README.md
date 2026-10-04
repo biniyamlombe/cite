@@ -145,6 +145,10 @@ npm run typecheck
 | `PACK_ROOT` | `./data/pack` | Pack root override |
 | `PORT` | `4000` | API port |
 | `CORS_ORIGIN` | localhost UI ports | Comma-separated UI origins (see `.env.example`) |
+| `ELEVENLABS_API_KEY` | _(empty)_ | Optional spoken briefings (`POST /tts`); never expose to the browser |
+| `ELEVENLABS_VOICE_ID` | product default | Fixed voice for briefings |
+| `ELEVENLABS_MODEL` | `eleven_multilingual_v2` | TTS model |
+| `ELEVENLABS_TTS_BUDGET` | `8000` | Hard character budget for new synthesis |
 
 ### Frontend (`frontend/.env.local`)
 
@@ -199,10 +203,21 @@ Full judge script (~4 minutes): **[docs/demo-script.md](docs/demo-script.md)**.
 ### Primary nav
 
 1. **Lookup** — address + as-of → jurisdiction stack, answer summary, grouped results (appear to apply / need more facts / human review / do not appear to apply / pending·NTE), evidence drawer, session fact overrides, audit details
-2. **Change scenarios** — T1–T5 with current-law vs scenario labeling, affected counts, conflict flags; T5 empty set is explicit
+2. **Change scenarios** — T1–T5 with current-law vs scenario labeling, affected counts, conflict flags, per-address samples; T5 empty set is explicit
 3. **How it works** (`/about`) — method + not-legal-advice commitments
-4. **Sources & limits** (`/sources`) — provenance and corpus limitations
-5. **More →** Audit, Pipeline, Rules, Coverage, Dashboard, … (advocate / extract tools; secondary to the demo path)
+4. **Sources & limits** (`/sources`) — provenance, corpus limitations, and corpus-gap findings
+5. **More →** Rent check (`/check`), Ask (`/ask`), Compare (dates or two addresses), Portfolio alerts, Audit, Pipeline, Rules, …
+
+### Renter tools
+
+| Page / API | What it does |
+|------------|--------------|
+| `/check` · `POST /check` | Deterministic rent-increase check against applying caps (unknown if figure missing) |
+| `/ask` · `POST /ask` | Grounded Q&A from retrieved rules; refuses evasion |
+| `/ask` · `POST /letter` | Fixed landlord letter filled from check/lookup facts |
+| `/ask` · `POST /tts` | Spoken briefing (ElevenLabs + browser fallback); server builds text only |
+| `/compare` | Side-by-side two dates **or** two addresses |
+| Portfolio | Watchlist: approaching pending/NTE dates + horizon result diffs |
 
 ### Stories to click (live)
 
@@ -308,6 +323,11 @@ Base: `http://localhost:4000` · Contract detail: **[docs/api-ux-contract.md](do
 | GET | `/corpus/docs` | Capturable docs |
 | POST | `/extract/doc/:docId` | Live Module A extract (may be slow) |
 | GET | `/audit` | Pipeline audit trail (`audit_log.jsonl`) |
+| GET | `/no-rule-findings` | Companion corpus-gap findings |
+| POST | `/check` | Rent-increase verdict from applying rules |
+| POST | `/ask` | Grounded question over retrieved rules |
+| POST | `/letter` | Fixed rent-increase letter template |
+| POST | `/tts` | Spoken briefing (`audio/mpeg` or JSON fallback) |
 | GET | `/submission/:file` | Serve `rules.json` / `lookups.json` / `changes.json` |
 
 ### Lookup query / body

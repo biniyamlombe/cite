@@ -17,9 +17,9 @@ npm test                  # smoke suite (schema, citations, aliases, T1–T5)
 npm run quality           # typecheck + substantive lint + tests + submission check
 ```
 
-Outputs: `outputs/rules.json`, `lookups.json`, `changes.json`, `geocode_cache.json`, `provenance.json`, `audit_log.jsonl`.  
-Lookup rows include pack `result` plus enrichment (`applicability`, `facts_used` / `facts_missing`, `needs_human_review`). Pack-shaped submission files remain grader-compatible.  
-API `GET /lookup/:id?include_non_applicable=1` also returns explicit `does_not_apply` rows. Jurisdiction stack includes `county_fips` / `place_geoid` when trusted. Change results include `evidence_summary` + `sample_evidence`.
+Outputs: `outputs/rules.json`, `lookups.json`, `changes.json`, `geocode_cache.json`, `provenance.json`, `audit_log.jsonl`, plus companions `plain_language.json`, `no_rule_findings.json`, `selfcheck.txt`.  
+Lookup rows include pack `result` plus enrichment (`applicability`, `facts_used` / `facts_missing`, `needs_human_review`) and optional EN/ES headlines from `plain_language.json`. Pack-shaped submission files remain grader-compatible.  
+API `GET /lookup/:id?include_non_applicable=1` also returns explicit `does_not_apply` rows. Jurisdiction stack includes `county_fips` / `place_geoid` when trusted. Change results include `evidence_summary`, `sample_evidence`, and optional per-address status.
 
 | Step | Module | What runs |
 |------|--------|-----------|
@@ -32,6 +32,8 @@ API `GET /lookup/:id?include_non_applicable=1` also returns explicit `does_not_a
 
 Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no legal logic in the frontend.
 
+Renter tools (API-grounded): `POST /check` (rent-increase verdict from applying caps), `POST /ask` (question answered only from retrieved rules; evasion refused), `POST /letter` (fixed template from check facts), `POST /tts` (spoken briefing from headlines via ElevenLabs with browser `speechSynthesis` fallback). Portfolio watchlist surfaces approaching pending/NTE effective dates and horizon result diffs from lookup responses only.
+
 ## Design choices
 
 - **Automated extraction.** Rules come from the corpus via the extract agent, not hand transcription. JSON repair + quote-retry keep spans exact.
@@ -39,10 +41,11 @@ Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no
 - **Layering.** Confirmed local rent coverage can `supersede` statewide caps; unresolved local coverage cannot establish supersession; conflict flags mark NJ FAIR vs Hoboken/Jersey City overlaps for human review.
 - **Change-test aliases.** Stable IDs `CA-ALG-01`, `NJ-ALG-01`, `MA-ALG-P1/P2`, `MA-RENT-P1`, `HOB-ALG-01`, `JC-ALG-01` for T1–T5.
 - **Link-only cities.** Hoboken / Jersey City algorithmic ordinance pages are link-only in the pack (`links_only.csv`: ecode360 / news). We **upsert** `HOB-ALG-01` / `JC-ALG-01` every enrich with low confidence, conflict flags, the primary link-only URLs in `conflict_note`, and a **verbatim NJ FAIR Act (D069) quote** — never invented municipal code — so T2/T3 retain deterministic scenario membership. Live applicability remains `unknown`, the municipal effective date is unset, and the API labels these records `scenario_only`; the organizer-compatible status is a scenario assumption, not a verified ordinance status.
-- **Soft-gap screening.** Thin capturable pages D029 / D078 yield `CAM-FH-01` / `SF-FC-01` from verbatim FAQ/summary sentences. Newark check-terms pages (D070–D072) stay uncaptured; Lookup exposes `corpus_gaps` instead of inventing city rules.
+- **Soft-gap screening.** Thin capturable pages D029 / D078 yield `CAM-FH-01` / `SF-FC-01` from verbatim FAQ/summary sentences. Newark check-terms pages (D070–D072) stay uncaptured; Lookup exposes `corpus_gaps` instead of inventing city rules. Companion `no_rule_findings.json` lists empty jurisdiction×category cells for Sources/Rules.
 - **Version history.** `GET /rules/:id/versions` reads `outputs/rule_versions.json`, keyed by alias/source so renumbered `team_rule_id`s still resolve. Built from git snapshots of `rules.json` plus the current tip.
 - **Stretch jurisdiction.** Santa Ana corpus docs (D084/D085) already extract; we add six demo addresses and run the same geocode/coverage path (`npm run stretch`) so lookups apply city + CA state rules without touching T1–T5.
-- **Auditability.** `outputs/audit_log.jsonl` and `GET /audit` record extract / quote / test events.
+- **Auditability.** `outputs/audit_log.jsonl` and `GET /audit` record extract / quote / test / ask events.
+- **Offline selfcheck.** `npm run selfcheck` writes `outputs/selfcheck.txt` (verbatim spans, T1–T5 counts, dual coverage honesty).
 
 ## Current submission snapshot
 
