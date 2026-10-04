@@ -84,8 +84,7 @@ These are product constraints, not polish:
 | `data/stretch/` | Santa Ana demo addresses (stretch jurisdiction; not in pack 500) |
 | `outputs/` | Graded + companion artifacts listed above |
 | `scripts/` | `quality-gate.sh`, `submission-check.sh`, `submission-pack.sh`, `demo-preflight.sh`, `demo-tunnel.sh` |
-| `docs/` | Method, architecture, demo script, scoring notes, challenge brief |
-| Root UX docs | Baseline, plan, design system, API UX contract, checklist, implementation report |
+| `docs/` | All product docs — method note, demo script, architecture, UX, audit, scoring |
 
 Frontend is **not** an npm workspace member (Lovable peer deps). Use `npm install --prefix frontend` (or `npm run install:all`).
 
@@ -190,7 +189,7 @@ npm run demo:tunnel
 
 Quick tunnels mint a **new URL every restart**. Prefer **local UI + local API** if Wi‑Fi is flaky.
 
-Full judge script (~4 minutes): **[docs/DEMO.md](docs/DEMO.md)**.
+Full judge script (~4 minutes): **[docs/demo-script.md](docs/demo-script.md)**.
 
 ---
 
@@ -215,7 +214,7 @@ Full judge script (~4 minutes): **[docs/DEMO.md](docs/DEMO.md)**.
 
 ### UX checklist
 
-Manual acceptance before pitching: **[UX_TEST_CHECKLIST.md](UX_TEST_CHECKLIST.md)** (browser-verified 2026-10-04; results in [UI_UX_IMPLEMENTATION_REPORT.md](UI_UX_IMPLEMENTATION_REPORT.md) §5a).
+Manual acceptance before pitching: **[docs/ux-test-checklist.md](docs/ux-test-checklist.md)** (browser-verified 2026-10-04; results in [docs/ux-implementation-report.md](docs/ux-implementation-report.md) §5a).
 
 ---
 
@@ -279,7 +278,7 @@ npm run submission:pack
 #    rules.json, lookups.json, changes.json, METHOD.md, DEMO.md
 ```
 
-Organizer auto-grader: when `score.py` ships, copy to `data/pack/score.py` and run `npm run score`. Details: **[docs/SCORE.md](docs/SCORE.md)**.
+Organizer auto-grader: when `score.py` ships, copy to `data/pack/score.py` and run `npm run score`. Details: **[docs/organizer-scoring.md](docs/organizer-scoring.md)**.
 
 | Graded component (brief) | Weight | Artifact |
 |--------------------------|--------|----------|
@@ -294,7 +293,7 @@ Judge categories (plain language, responsible design, scalability) are separate 
 
 ## HTTP API
 
-Base: `http://localhost:4000` · Contract detail: **[API_UX_CONTRACT.md](API_UX_CONTRACT.md)** · Schema: `shared/src/index.ts`
+Base: `http://localhost:4000` · Contract detail: **[docs/api-ux-contract.md](docs/api-ux-contract.md)** · Schema: `shared/src/index.ts`
 
 | Method | Path | Purpose |
 |--------|------|---------|
@@ -343,7 +342,7 @@ Warning codes include `BUILDING_FACTS_MISSING`, `USER_PROVIDED_FACTS`, `PENDING_
 
 ## Modules A–C
 
-One-page method: **[docs/METHOD.md](docs/METHOD.md)** · Data-flow diagram: **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)**
+One-page method: **[docs/method-note.md](docs/method-note.md)** · Data-flow diagram: **[docs/system-architecture.md](docs/system-architecture.md)**
 
 | Module | What runs |
 |--------|-----------|
@@ -364,11 +363,11 @@ One-page method: **[docs/METHOD.md](docs/METHOD.md)** · Data-flow diagram: **[d
 ## UX architecture
 
 - **Client:** `frontend/src/lib/cite/client.ts` — Zod parse, `CiteApiError`, AbortSignal, fact overrides, `include_non_applicable`
-- **Design system:** paper + ink tokens — [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md), [`frontend/DESIGN.md`](frontend/DESIGN.md)
+- **Design system:** paper + ink tokens — [`docs/design-system.md`](docs/design-system.md), [`frontend/DESIGN.md`](frontend/DESIGN.md)
 - **Status UX:** icon + label + `sr-only` help; confidence is an **extraction band** (high / medium / low), not legal certainty %
 - **Grouping:** Appear to apply · Need more facts · Need human review · Do not appear to apply (toggle) · Pending / not yet effective
 - **Nav IA:** Lookup → Change scenarios → How it works → Sources; Audit under More; sticky disclaimer + Sources link
-- **Baseline / plan / report:** [`UX_AUDIT_BASELINE.md`](UX_AUDIT_BASELINE.md) · [`UX_IMPROVEMENT_PLAN.md`](UX_IMPROVEMENT_PLAN.md) · [`UI_UX_IMPLEMENTATION_REPORT.md`](UI_UX_IMPLEMENTATION_REPORT.md)
+- **Baseline / plan / report:** [`docs/ux-audit-baseline.md`](docs/ux-audit-baseline.md) · [`docs/ux-improvement-plan.md`](docs/ux-improvement-plan.md) · [`docs/ux-implementation-report.md`](docs/ux-implementation-report.md)
 
 ---
 
@@ -407,10 +406,10 @@ Be ready to say these out loud:
 | Offline as-of | Fixed snapshot dates only |
 | More-nav SaaS surfaces | Dashboard / inbox / portfolio secondary vs demo path |
 | Extract model | Default Haiku; Sonnet for empty-cache / `--retry-failed` |
-| `score.py` | Not in pack until organizers ship it — see `docs/SCORE.md` |
+| `score.py` | Not in pack until organizers ship it — see `docs/organizer-scoring.md` |
 | Spanish locale | Primary-nav chrome; citations/quotes stay in source language |
 
-Audit evidence of gaps closed vs remaining: **[GAP_REGISTER.md](GAP_REGISTER.md)** · **[AUDIT_REPORT.md](AUDIT_REPORT.md)**.
+Audit evidence of gaps closed vs remaining: **[docs/gap-register.md](docs/gap-register.md)** · **[docs/audit-report.md](docs/audit-report.md)**.
 
 ---
 
@@ -418,21 +417,22 @@ Audit evidence of gaps closed vs remaining: **[GAP_REGISTER.md](GAP_REGISTER.md)
 
 | Doc | Purpose |
 |-----|---------|
-| [docs/METHOD.md](docs/METHOD.md) | One-page method (extract → geocode → lookup → T1–T5) |
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Stack + Mermaid data flow + failure modes |
-| [docs/DEMO.md](docs/DEMO.md) | ~4 minute judge script + preflight |
-| [docs/SCORE.md](docs/SCORE.md) | `score.py` drop-in expectations |
-| [docs/CHALLENGE.md](docs/CHALLENGE.md) | Challenge brief notes |
-| [docs/CITE_LOVABLE_PROMPT.md](docs/CITE_LOVABLE_PROMPT.md) | Prompt used to build the Lovable frontend |
-| [API_UX_CONTRACT.md](API_UX_CONTRACT.md) | Meta / errors / warnings / product states |
-| [DESIGN_SYSTEM.md](DESIGN_SYSTEM.md) | Tokens, status semantics, components |
-| [UX_AUDIT_BASELINE.md](UX_AUDIT_BASELINE.md) | Pre-overhaul UX baseline |
-| [UX_IMPROVEMENT_PLAN.md](UX_IMPROVEMENT_PLAN.md) | Prioritized UX plan |
-| [UX_TEST_CHECKLIST.md](UX_TEST_CHECKLIST.md) | Demo-day manual acceptance |
-| [UI_UX_IMPLEMENTATION_REPORT.md](UI_UX_IMPLEMENTATION_REPORT.md) | UX overhaul completion + browser results |
-| [AUDIT_REPORT.md](AUDIT_REPORT.md) | End-to-end audit evidence |
-| [GAP_REGISTER.md](GAP_REGISTER.md) | Requirement / gap tracker |
-| [PRODUCT.md](PRODUCT.md) | Product framing (if present) |
+| [docs/method-note.md](docs/method-note.md) | One-page method (extract → geocode → lookup → T1–T5) |
+| [docs/demo-script.md](docs/demo-script.md) | ~4 minute judge walkthrough + preflight |
+| [docs/system-architecture.md](docs/system-architecture.md) | Stack + Mermaid data flow + failure modes |
+| [docs/product-overview.md](docs/product-overview.md) | Product framing and demo story |
+| [docs/challenge-brief.md](docs/challenge-brief.md) | Challenge requirements summary |
+| [docs/brief-scorecard.md](docs/brief-scorecard.md) | Self-grade against the brief |
+| [docs/organizer-scoring.md](docs/organizer-scoring.md) | How `score.py` / auto-grader fits in |
+| [docs/lovable-ui-prompt.md](docs/lovable-ui-prompt.md) | Prompt used to build the Lovable frontend |
+| [docs/design-system.md](docs/design-system.md) | Paper + ink tokens and status semantics |
+| [docs/api-ux-contract.md](docs/api-ux-contract.md) | API meta, warnings, product states, errors |
+| [docs/ux-audit-baseline.md](docs/ux-audit-baseline.md) | UX baseline before the overhaul |
+| [docs/ux-improvement-plan.md](docs/ux-improvement-plan.md) | Prioritized UX fix plan |
+| [docs/ux-test-checklist.md](docs/ux-test-checklist.md) | Demo-day manual acceptance checklist |
+| [docs/ux-implementation-report.md](docs/ux-implementation-report.md) | What shipped + browser checklist results |
+| [docs/audit-report.md](docs/audit-report.md) | End-to-end audit evidence |
+| [docs/gap-register.md](docs/gap-register.md) | Closed gaps and remaining limits |
 
 ---
 

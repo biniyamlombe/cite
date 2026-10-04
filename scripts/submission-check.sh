@@ -162,4 +162,4 @@ else
   npm test
 fi
 echo
-echo "Submission check OK — upload outputs/rules.json, lookups.json, changes.json (+ docs/METHOD.md / docs/DEMO.md as required)."
+echo "Submission check OK — upload outputs/rules.json, lookups.json, changes.json (+ docs/method-note.md / docs/demo-script.md as required)."

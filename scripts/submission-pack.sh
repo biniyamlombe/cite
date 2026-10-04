@@ -15,7 +15,9 @@ rm -rf "$STAGE"
 mkdir -p "$STAGE" "$OUT_DIR"
 
 cp outputs/rules.json outputs/lookups.json outputs/changes.json "$STAGE/"
-cp docs/METHOD.md docs/DEMO.md "$STAGE/"
+# Organizer zip keeps classic names; repo docs use clearer filenames.
+cp docs/method-note.md "$STAGE/METHOD.md"
+cp docs/demo-script.md "$STAGE/DEMO.md"
 
 (
   cd "$STAGE"

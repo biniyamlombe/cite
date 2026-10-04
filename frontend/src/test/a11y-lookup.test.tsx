@@ -36,7 +36,7 @@ describe("lookup a11y smoke", () => {
     );
     const resultsAxe = await axe(container, {
       rules: {
-        // jsdom lacks canvas; contrast checks are covered manually in UX_TEST_CHECKLIST.
+        // jsdom lacks canvas; contrast checks are covered manually in docs/ux-test-checklist.md.
         "color-contrast": { enabled: false },
       },
     });
