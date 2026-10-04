@@ -527,3 +527,5 @@
 {"ts":"2026-10-04T01:12:59.178Z","kind":"extract_corpus","source":"claude","model":"claude-sonnet-4-5","rule_count":145,"message":"Claude ok=3 failed=0 raw_rules=1","meta":{"docs_processed":3,"claude_docs_ok":3,"claude_docs_failed":0,"merge":true,"doc_ids":["D029","D047","D078"],"retry_failed":true,"upgraded_docs":[],"retry_model":"claude-sonnet-4-5"}}
 {"ts":"2026-10-04T01:13:22.253Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-04T01:17:24.868Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T01:21:19.616Z","kind":"change_tests","message":"Wrote T1, T2, T3, T4, T5, T6","meta":{"T1":{"affected":250,"conflicts":0},"T2":{"affected":90,"conflicts":0},"T3":{"affected":140,"conflicts":90},"T4":{"affected":110,"conflicts":0},"T5":{"affected":0,"conflicts":0},"T6":{"affected":0,"conflicts":0}}}
+{"ts":"2026-10-04T01:21:20.230Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}

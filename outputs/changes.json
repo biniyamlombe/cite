@@ -588,7 +588,7 @@
     ],
     "before_status": "not_yet_effective",
     "after_status": "applies",
-    "notes": "not_yet_effective on 2026-10-01, applies on 2027-07-02 for every NJ address; Jersey City and Hoboken addresses carry a conflict flag for human review. before_check=true after_check=true"
+    "notes": "not_yet_effective on 2026-10-01, applies on 2027-07-02 for every NJ address; Jersey City and Hoboken addresses carry a conflict flag for human review. before_check=true after_check=true date_flip_ok=140/140 conflict_flag_live=90/90 Open question: NJ FAIR Act may preempt Hoboken/Jersey City algorithmic ordinances once effective."
   },
   "T4": {
     "affected_address_ids": [
@@ -703,10 +703,14 @@
       "A0485",
       "A0488"
     ],
-    "notes": "Reported as pending (not in force) for every Boston and Cambridge address; affected set = all MA addresses if enacted. pending_ok=110/110"
+    "notes": "Reported as pending (not in force) for every Boston and Cambridge address; affected set = all MA addresses if enacted. pending_ok=110/110 (MA-ALG-P1 and MA-ALG-P2)"
   },
   "T5": {
     "affected_address_ids": [],
-    "notes": "No rent cap reported for any Boston or Cambridge address; IP 25-21 recorded as failed. Affected set is empty. Failed ballot correctly omitted from applies."
+    "notes": "No rent cap reported for any Boston or Cambridge address; IP 25-21 recorded as failed. Affected set is empty. WARNING: wrongly_applies=0 rogue_cap=50"
+  },
+  "T6": {
+    "affected_address_ids": [],
+    "notes": "T6 placeholder (hour-16 Cambridge ordinance not in this pack). Cambridge sample size=50. Awaiting corpus release — do not invent results."
   }
 }
