@@ -69,9 +69,9 @@ Call out:
 **Rule detail:** `HOB-ALG-01` (current `team_rule_id` in Rules / lookup evidence)
 
 Call out:
-- Primary Hoboken/JC ordinance pages are **link-only** in the pack; evidence quotes are city **secondary reports**, not municipal code
+- Pack ecode360 pages stay link-only; Cite quotes the **adopted city ordinance PDFs** (`HOB-ORD-01` / `JC-ORD-01`) — municipal extracts, not FAIR Act text
 - Applicability **unknown**, confidence **0.35**, conflict flag, `conflict_note` lists primary URLs
-- The municipal effective date is unverified; T2/T3 encode challenge scenario membership, not a verified municipal determination
+- Hoboken applies locally with FAIR Act conflict flagged for human review (T3); Newark correctly excludes the Hoboken ban
 - Quoted span is **NJ FAIR Act (D069)** — not invented municipal code
 - **Open legal question** chip on NJ FAIR / local overlap (pack §9 preemption)
 - Open **Version history** on the Hoboken alias — multiple versions from re-extract/scaffold hardening
