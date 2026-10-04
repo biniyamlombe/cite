@@ -457,7 +457,9 @@ export function runChangeTests(options: {
           const r = rules.find((rr) => rr.team_rule_id === x.team_rule_id);
           if (!r || r.category !== "rent_increase_limits") return false;
           if (r.status === "failed") return true;
-          return /rent control|rent cap|IP\s*25-21/i.test(
+          // c.40P bars local rent control; it is not a cap and must not count as one.
+          if (/prohibit|may not enact|40P/i.test(`${r.title} ${r.citation} ${r.requirement}`)) return false;
+          return /rent control|rent cap|IP\s*25-21|ballot/i.test(
             `${r.title} ${r.citation}`,
           );
         });
