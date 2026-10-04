@@ -40,7 +40,7 @@ Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no
 
 ## Current submission snapshot
 
-- ~109 rules across the six required categories; all change-test aliases present  
+- ~116 rules across the six required categories; all change-test aliases present  
 - Lookups for all 500 addresses at `as_of=2026-10-01`  
 - T1–T5 green in `npm test` (T5 affected set empty; no MA rent **cap**)
 

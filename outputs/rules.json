@@ -2818,6 +2818,223 @@
       "level": "city",
       "category": "just_cause_eviction",
       "status": "in_force",
+      "title": "Just Cause For Eviction Ordinance - Prohibited Terminations",
+      "requirement": "Landlords are prohibited from terminating tenancies without just cause. The ordinance requires relocation assistance for no-fault evictions.",
+      "key_value": null,
+      "coverage_conditions": {
+        "text": "Applies to most residential properties in the City of Los Angeles not regulated by the City's Rent Stabilization Ordinance (RSO). Requires tenant has lived in unit for at least six months or original lease expired, whichever comes first. Applies to buildings newer than October 1, 1978 and single-family dwellings.",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ]
+      },
+      "exemptions": "Transient hotels, licensed care facilities, fraternity or sorority houses, owner's roommate, cooperatives under certain circumstances, some non-profit facilities for the homeless or short-term treatment centers for substance abuse, some properties owned by HACLA or the government.",
+      "overrides": [],
+      "interaction": null,
+      "effective_date": null,
+      "citation": "Los Angeles Just Cause For Eviction Ordinance (JCO)",
+      "source_doc_id": "D040",
+      "source_url": "https://housing.lacity.gov/residents/just-cause-for-eviction-ordinance-jco",
+      "quoted_span": "It prohibits terminations of tenancies without just cause and requires relocation assistance for no-fault evictions.",
+      "confidence": 0.95,
+      "conflict_flag": false,
+      "conflict_note": null
+    },
+    {
+      "team_rule_id": "r-0087",
+      "jurisdiction": "Los Angeles, CA",
+      "level": "city",
+      "category": "just_cause_eviction",
+      "status": "in_force",
+      "title": "At-Fault Eviction Reasons - No Relocation Assistance",
+      "requirement": "Landlords may evict tenants for specific at-fault reasons including failure to pay rent, violation of rental agreement, nuisance/damage, illegal use, failure to renew lease, failure to provide access, or unapproved subtenant. Tenants evicted for at-fault reasons are not entitled to relocation assistance.",
+      "key_value": null,
+      "coverage_conditions": {
+        "text": "Applies to JCO-covered rental units",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ]
+      },
+      "exemptions": null,
+      "overrides": [],
+      "interaction": null,
+      "effective_date": null,
+      "citation": "Los Angeles Just Cause For Eviction Ordinance (JCO)",
+      "source_doc_id": "D040",
+      "source_url": "https://housing.lacity.gov/residents/just-cause-for-eviction-ordinance-jco",
+      "quoted_span": "Failure to pay rent\nFailure to cure a violation of the rental agreement\nCreating a nuisance or causing damage to the property\nUsing the rental unit for an illegal purpose\nFailure to renew a similar rental agreement\nFailure to provide the landlord with reasonable access to the rental unit\nThe person at the end of the lease term is a subtenant not approved by the landlord",
+      "confidence": 0.95,
+      "conflict_flag": false,
+      "conflict_note": null
+    },
+    {
+      "team_rule_id": "r-0088",
+      "jurisdiction": "Los Angeles, CA",
+      "level": "city",
+      "category": "just_cause_eviction",
+      "status": "in_force",
+      "title": "Non-Payment of Rent Eviction Threshold",
+      "requirement": "Landlords may not evict a tenant for non-payment of rent unless the tenant owes an amount higher than the Fair Market Rent (FMR) for the unit's bedroom size.",
+      "key_value": "Fair Market Rent threshold",
+      "coverage_conditions": {
+        "text": "Applies to all RSO and JCO rental units",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ]
+      },
+      "exemptions": null,
+      "overrides": [],
+      "interaction": null,
+      "effective_date": "2023-03-27",
+      "citation": "Los Angeles Just Cause For Eviction Ordinance (JCO), effective March 27, 2023",
+      "source_doc_id": "D040",
+      "source_url": "https://housing.lacity.gov/residents/just-cause-for-eviction-ordinance-jco",
+      "quoted_span": "Effective March 27, 2023, landlords may not evict a tenant who falls behind in rent unless the tenant owes an amount higher than the Fair Market Rent (FMR).",
+      "confidence": 0.95,
+      "conflict_flag": false,
+      "conflict_note": null
+    },
+    {
+      "team_rule_id": "r-0089",
+      "jurisdiction": "Los Angeles, CA",
+      "level": "city",
+      "category": "just_cause_eviction",
+      "status": "in_force",
+      "title": "Eviction Notice Filing Requirement",
+      "requirement": "All eviction notices issued to tenants in the City of Los Angeles must be filed with LAHD within three (3) business days of service on the tenant.",
+      "key_value": "3 business days",
+      "coverage_conditions": {
+        "text": "Applies to all JCO and RSO rental properties",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ]
+      },
+      "exemptions": null,
+      "overrides": [],
+      "interaction": null,
+      "effective_date": null,
+      "citation": "Los Angeles Just Cause For Eviction Ordinance (JCO)",
+      "source_doc_id": "D040",
+      "source_url": "https://housing.lacity.gov/residents/just-cause-for-eviction-ordinance-jco",
+      "quoted_span": "All eviction notices issued to tenants in the City of Los Angeles must be filed with LAHD within three (3) business days of service on the tenant.",
+      "confidence": 0.95,
+      "conflict_flag": false,
+      "conflict_note": null
+    },
+    {
+      "team_rule_id": "r-0090",
+      "jurisdiction": "Los Angeles, CA",
+      "level": "city",
+      "category": "just_cause_eviction",
+      "status": "in_force",
+      "title": "Notice of Right to Counsel",
+      "requirement": "Beginning August 20, 2025, landlords must post a Notice of Right to Counsel in a conspicuous common area of the residential building. This notice must also be provided to the tenant at the beginning of tenancy and anytime an eviction notice is served.",
+      "key_value": null,
+      "coverage_conditions": {
+        "text": "Applies to all residential buildings",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Los Angeles"
+          }
+        ]
+      },
+      "exemptions": null,
+      "overrides": [],
+      "interaction": null,
+      "effective_date": "2025-08-20",
+      "citation": "Los Angeles Just Cause For Eviction Ordinance (JCO)",
+      "source_doc_id": "D040",
+      "source_url": "https://housing.lacity.gov/residents/just-cause-for-eviction-ordinance-jco",
+      "quoted_span": "Beginning August 20, 2025, landlords must post a\nNotice of Right to Counsel\nin a conspicuous common area of the residential building where the tenant resides.",
+      "confidence": 0.95,
+      "conflict_flag": false,
+      "conflict_note": null
+    },
+    {
+      "team_rule_id": "r-0091",
+      "jurisdiction": "MA",
+      "level": "state",
+      "category": "application_screening_fees",
+      "status": "in_force",
+      "title": "Licensing requirement for persons finding dwelling accommodations for fee",
+      "requirement": "No person shall engage in the business of finding dwelling accommodations for prospective tenants for a fee unless such person is a licensed broker or salesman as defined in section eighty-seven PP of chapter one hundred and twelve.",
+      "key_value": null,
+      "coverage_conditions": {
+        "text": "Applies to persons finding dwelling accommodations for prospective tenants for a fee",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
+      "exemptions": "Licensed brokers or salesmen as defined in section eighty-seven PP",
+      "overrides": [],
+      "interaction": null,
+      "effective_date": null,
+      "citation": "Massachusetts General Law, Part I, Title XVI, Chapter 112, Section 87DDD 1/2",
+      "source_doc_id": "D057",
+      "source_url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter112/Section87DDD%201~2",
+      "quoted_span": "No person shall engage in the business of finding dwelling accommodations for prospective tenants for a fee unless such person is a licensed broker or salesman",
+      "confidence": 0.95,
+      "conflict_flag": false,
+      "conflict_note": null
+    },
+    {
+      "team_rule_id": "r-0092",
+      "jurisdiction": "MA",
+      "level": "state",
+      "category": "application_screening_fees",
+      "status": "in_force",
+      "title": "Fee payment restriction for broker/salesperson services",
+      "requirement": "Any fee shall only be paid by the party, lessor or tenant who originally engaged and entered into a contract with the licensed broker or salesperson.",
+      "key_value": null,
+      "coverage_conditions": {
+        "text": "Applies to licensed brokers or salespersons contracting to find rental residential real property",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
+      "exemptions": null,
+      "overrides": [],
+      "interaction": "Works in conjunction with tmp-1; restricts who may pay fees for broker/salesperson services",
+      "effective_date": "2025-08-01",
+      "citation": "Massachusetts General Law, Part I, Title XVI, Chapter 112, Section 87DDD 1/2 (as amended by 2025, 9, Sec. 43 effective August 1, 2025)",
+      "source_doc_id": "D057",
+      "source_url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXVI/Chapter112/Section87DDD%201~2",
+      "quoted_span": "Any fee shall only be paid by the party, lessor or tenant who originally engaged and entered into a contract with the licensed broker or salesperson.",
+      "confidence": 0.95,
+      "conflict_flag": false,
+      "conflict_note": null
+    },
+    {
+      "team_rule_id": "r-0093",
+      "jurisdiction": "Los Angeles, CA",
+      "level": "city",
+      "category": "just_cause_eviction",
+      "status": "in_force",
       "title": "Reduced Relocation Assistance for Mom and Pop Properties",
       "requirement": "Owners of buildings with four or fewer rental units who have not used this provision in the previous three years may pay reduced relocation assistance for owner or family occupancy evictions, provided the owner owns no more than four units total and eligible relatives do not own residential property in Los Angeles.",
       "key_value": "{\"eligible_tenant_reduced\":\"$10,550\",\"qualified_tenant_reduced\":\"$21,250\",\"building_unit_limit\":\"4 or fewer rental units\",\"owner_unit_limit\":\"4 units plus one single-family home on separate lot\",\"prior_use_restriction\":\"not used in previous 3 years\",\"eligible_relative_restriction\":\"must not own residential property in Los Angeles\"}",
@@ -2856,7 +3073,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0087",
+      "team_rule_id": "r-0094",
       "jurisdiction": "NJ",
       "level": "state",
       "category": "just_cause_eviction",
@@ -2887,7 +3104,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0088",
+      "team_rule_id": "r-0095",
       "jurisdiction": "NJ",
       "level": "state",
       "category": "just_cause_eviction",
@@ -2918,7 +3135,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0089",
+      "team_rule_id": "r-0096",
       "jurisdiction": "MA",
       "level": "state",
       "category": "just_cause_eviction",
@@ -2949,7 +3166,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0090",
+      "team_rule_id": "r-0097",
       "jurisdiction": "NJ",
       "level": "state",
       "category": "rent_increase_limits",
@@ -2980,7 +3197,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0091",
+      "team_rule_id": "r-0098",
       "jurisdiction": "Santa Ana, CA",
       "level": "city",
       "category": "rent_increase_limits",
@@ -3011,7 +3228,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0092",
+      "team_rule_id": "r-0099",
       "jurisdiction": "Berkeley, CA",
       "level": "city",
       "category": "application_screening_fees",
@@ -3042,7 +3259,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0093",
+      "team_rule_id": "r-0100",
       "jurisdiction": "Los Angeles, CA",
       "level": "city",
       "category": "rent_increase_limits",
@@ -3093,7 +3310,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0094",
+      "team_rule_id": "r-0101",
       "jurisdiction": "NJ",
       "level": "state",
       "category": "just_cause_eviction",
@@ -3124,7 +3341,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0095",
+      "team_rule_id": "r-0102",
       "jurisdiction": "San Diego, CA",
       "level": "city",
       "category": "algorithmic_rent_setting",
@@ -3157,7 +3374,7 @@
       "conflict_note": "Document is a staff report and proposed ordinance; status is pending City Council adoption."
     },
     {
-      "team_rule_id": "r-0096",
+      "team_rule_id": "r-0103",
       "jurisdiction": "Santa Ana, CA",
       "level": "city",
       "category": "just_cause_eviction",
@@ -3188,7 +3405,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0097",
+      "team_rule_id": "r-0104",
       "jurisdiction": "Los Angeles, CA",
       "level": "city",
       "category": "rent_increase_limits",
@@ -3239,7 +3456,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0098",
+      "team_rule_id": "r-0105",
       "jurisdiction": "San Diego, CA",
       "level": "city",
       "category": "algorithmic_rent_setting",
@@ -3270,7 +3487,7 @@
       "conflict_note": "Document is a staff report and proposed ordinance; status is pending City Council adoption. Final passage date and effective date not yet determined as of document date (February 27, 2025). Ordinance would take effect 30 days after final passage."
     },
     {
-      "team_rule_id": "r-0099",
+      "team_rule_id": "r-0106",
       "jurisdiction": "San Diego, CA",
       "level": "city",
       "category": "algorithmic_rent_setting",
@@ -3301,7 +3518,7 @@
       "conflict_note": "Document is a staff report and proposed ordinance; status is pending City Council adoption. Final passage date and effective date not yet determined as of document date (February 27, 2025)."
     },
     {
-      "team_rule_id": "r-0100",
+      "team_rule_id": "r-0107",
       "jurisdiction": "NJ",
       "level": "state",
       "category": "algorithmic_rent_setting",
@@ -3333,7 +3550,7 @@
       "alias_id": "NJ-ALG-01"
     },
     {
-      "team_rule_id": "r-0101",
+      "team_rule_id": "r-0108",
       "jurisdiction": "MA",
       "level": "state",
       "category": "algorithmic_rent_setting",
@@ -3365,7 +3582,7 @@
       "alias_id": "MA-ALG-P1"
     },
     {
-      "team_rule_id": "r-0102",
+      "team_rule_id": "r-0109",
       "jurisdiction": "MA",
       "level": "state",
       "category": "algorithmic_rent_setting",
@@ -3397,103 +3614,7 @@
       "alias_id": "MA-ALG-P2"
     },
     {
-      "team_rule_id": "r-0103",
-      "jurisdiction": "MA",
-      "level": "state",
-      "category": "rent_increase_limits",
-      "status": "failed",
-      "title": "Massachusetts rent-control ballot question (struck)",
-      "requirement": "The proposed statewide rent-control ballot question was struck by the Massachusetts high court on June 23, 2026; no rent cap applies in Boston or Cambridge from that measure. Existing c.40P continues to bar local rent control.",
-      "key_value": null,
-      "coverage_conditions": {
-        "text": "None — measure failed",
-        "all": [
-          {
-            "field": "state",
-            "operator": "eq",
-            "value": "MA"
-          }
-        ]
-      },
-      "exemptions": null,
-      "overrides": [],
-      "interaction": null,
-      "effective_date": null,
-      "citation": "MA G.L. c.40P; IP 25-21 (struck)",
-      "source_doc_id": "D048",
-      "source_url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleVII/Chapter40P/Section4",
-      "quoted_span": "xception\nSection 4. No city or town may enact, maintain or enforce rent control of any kind, except that any city or town that accepts this chapter may adopt rent control regulatio",
-      "confidence": 0.5,
-      "conflict_flag": false,
-      "conflict_note": "Ballot-news page is link-only; status recorded as failed per challenge brief, anchored to c.40P corpus text.",
-      "alias_id": "MA-RENT-P1"
-    },
-    {
-      "team_rule_id": "r-0104",
-      "jurisdiction": "Hoboken, NJ",
-      "level": "city",
-      "category": "algorithmic_rent_setting",
-      "status": "in_force",
-      "title": "Hoboken algorithmic rent ban (link-only primary; FAIR Act quote)",
-      "requirement": "Challenge change tests treat Hoboken as having a local algorithmic rent-setting ban (T2/T3). The pack marks primary Hoboken ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. quoted_span is verbatim from the capturable NJ FAIR Act (D069) — not Hoboken Municipal Code. Do not treat this as extracted municipal ordinance text.",
-      "key_value": null,
-      "coverage_conditions": {
-        "text": "Residential dwelling units in Hoboken, NJ",
-        "all": [
-          {
-            "field": "legal_city",
-            "operator": "eq",
-            "value": "Hoboken"
-          }
-        ]
-      },
-      "exemptions": null,
-      "overrides": [],
-      "interaction": "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
-      "effective_date": "2024-01-01",
-      "citation": "Hoboken local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)",
-      "source_doc_id": "D069",
-      "source_url": "https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM",
-      "quoted_span": "device” means a device that uses one or more algorithms to process or otherwise\nperform calculations of data, including, but not limited to, data concerning\nrental prices, material lease terms, or occupancy l",
-      "confidence": 0.35,
-      "conflict_flag": true,
-      "conflict_note": "Primary sources (link-only, no capturable body): https://ecode360.com/15252438; https://ecode360.com/15252470; https://ecode360.com/46833413. Quoted evidence is NJ FAIR Act (D069), not Hoboken code. Scaffold kept for T2 jurisdiction-scope and T3 preemption-conflict demos only.",
-      "alias_id": "HOB-ALG-01"
-    },
-    {
-      "team_rule_id": "r-0105",
-      "jurisdiction": "Jersey City, NJ",
-      "level": "city",
-      "category": "algorithmic_rent_setting",
-      "status": "in_force",
-      "title": "Jersey City algorithmic rent ban (link-only primary; FAIR Act quote)",
-      "requirement": "Challenge change tests treat Jersey City as having a local algorithmic rent-setting ban (T2/T3). The pack marks primary Jersey City ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. quoted_span is verbatim from the capturable NJ FAIR Act (D069) — not Jersey City Municipal Code. Do not treat this as extracted municipal ordinance text.",
-      "key_value": null,
-      "coverage_conditions": {
-        "text": "Residential dwelling units in Jersey City, NJ",
-        "all": [
-          {
-            "field": "legal_city",
-            "operator": "eq",
-            "value": "Jersey City"
-          }
-        ]
-      },
-      "exemptions": null,
-      "overrides": [],
-      "interaction": "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
-      "effective_date": "2024-01-01",
-      "citation": "Jersey City local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)",
-      "source_doc_id": "D069",
-      "source_url": "https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM",
-      "quoted_span": "device” means a device that uses one or more algorithms to process or otherwise\nperform calculations of data, including, but not limited to, data concerning\nrental prices, material lease terms, or occupancy l",
-      "confidence": 0.35,
-      "conflict_flag": true,
-      "conflict_note": "Primary sources (link-only, no capturable body): https://hudsoncountyview.com/jersey-city-council-approves-realpage-ban-and-increasing-benefits-for-laborers/; https://www.morganlewis.com/pubs/2026/08/algorithmic-rent-pricing-litigation-expands-under-new-state-and-local-laws. Quoted evidence is NJ FAIR Act (D069), not Jersey City code. Scaffold kept for T2 jurisdiction-scope and T3 preemption-conflict demos only.",
-      "alias_id": "JC-ALG-01"
-    },
-    {
-      "team_rule_id": "r-0108",
+      "team_rule_id": "r-0110",
       "jurisdiction": "Berkeley, CA",
       "level": "city",
       "category": "just_cause_eviction",
@@ -3524,7 +3645,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0112",
+      "team_rule_id": "r-0111",
       "jurisdiction": "Jersey City, NJ",
       "level": "city",
       "category": "rent_increase_limits",
@@ -3562,7 +3683,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0118",
+      "team_rule_id": "r-0112",
       "jurisdiction": "MA",
       "level": "state",
       "category": "screening_restrictions",
@@ -3593,7 +3714,7 @@
       "conflict_note": null
     },
     {
-      "team_rule_id": "r-0119",
+      "team_rule_id": "r-0113",
       "jurisdiction": "MA",
       "level": "state",
       "category": "just_cause_eviction",
@@ -3622,6 +3743,102 @@
       "confidence": 0.55,
       "conflict_flag": false,
       "conflict_note": null
+    },
+    {
+      "team_rule_id": "r-0114",
+      "jurisdiction": "MA",
+      "level": "state",
+      "category": "rent_increase_limits",
+      "status": "failed",
+      "title": "Massachusetts rent-control ballot question (struck)",
+      "requirement": "The proposed statewide rent-control ballot question was struck by the Massachusetts high court on June 23, 2026; no rent cap applies in Boston or Cambridge from that measure. Existing c.40P continues to bar local rent control.",
+      "key_value": null,
+      "coverage_conditions": {
+        "text": "None — measure failed",
+        "all": [
+          {
+            "field": "state",
+            "operator": "eq",
+            "value": "MA"
+          }
+        ]
+      },
+      "exemptions": null,
+      "overrides": [],
+      "interaction": null,
+      "effective_date": null,
+      "citation": "MA G.L. c.40P; IP 25-21 (struck)",
+      "source_doc_id": "D048",
+      "source_url": "https://malegislature.gov/Laws/GeneralLaws/PartI/TitleVII/Chapter40P/Section4",
+      "quoted_span": "xception\nSection 4. No city or town may enact, maintain or enforce rent control of any kind, except that any city or town that accepts this chapter may adopt rent control regulatio",
+      "confidence": 0.5,
+      "conflict_flag": false,
+      "conflict_note": "Ballot-news page is link-only; status recorded as failed per challenge brief, anchored to c.40P corpus text.",
+      "alias_id": "MA-RENT-P1"
+    },
+    {
+      "team_rule_id": "r-0115",
+      "jurisdiction": "Hoboken, NJ",
+      "level": "city",
+      "category": "algorithmic_rent_setting",
+      "status": "in_force",
+      "title": "Hoboken algorithmic rent ban (link-only primary; FAIR Act quote)",
+      "requirement": "Challenge change tests treat Hoboken as having a local algorithmic rent-setting ban (T2/T3). The pack marks primary Hoboken ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. quoted_span is verbatim from the capturable NJ FAIR Act (D069) — not Hoboken Municipal Code. Do not treat this as extracted municipal ordinance text.",
+      "key_value": null,
+      "coverage_conditions": {
+        "text": "Residential dwelling units in Hoboken, NJ",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Hoboken"
+          }
+        ]
+      },
+      "exemptions": null,
+      "overrides": [],
+      "interaction": "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
+      "effective_date": "2024-01-01",
+      "citation": "Hoboken local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)",
+      "source_doc_id": "D069",
+      "source_url": "https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM",
+      "quoted_span": "device” means a device that uses one or more algorithms to process or otherwise\nperform calculations of data, including, but not limited to, data concerning\nrental prices, material lease terms, or occupancy l",
+      "confidence": 0.35,
+      "conflict_flag": true,
+      "conflict_note": "Primary sources (link-only, no capturable body): https://ecode360.com/15252438; https://ecode360.com/15252470; https://ecode360.com/46833413. Quoted evidence is NJ FAIR Act (D069), not Hoboken code. Scaffold kept for T2 jurisdiction-scope and T3 preemption-conflict demos only.",
+      "alias_id": "HOB-ALG-01"
+    },
+    {
+      "team_rule_id": "r-0116",
+      "jurisdiction": "Jersey City, NJ",
+      "level": "city",
+      "category": "algorithmic_rent_setting",
+      "status": "in_force",
+      "title": "Jersey City algorithmic rent ban (link-only primary; FAIR Act quote)",
+      "requirement": "Challenge change tests treat Jersey City as having a local algorithmic rent-setting ban (T2/T3). The pack marks primary Jersey City ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. quoted_span is verbatim from the capturable NJ FAIR Act (D069) — not Jersey City Municipal Code. Do not treat this as extracted municipal ordinance text.",
+      "key_value": null,
+      "coverage_conditions": {
+        "text": "Residential dwelling units in Jersey City, NJ",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Jersey City"
+          }
+        ]
+      },
+      "exemptions": null,
+      "overrides": [],
+      "interaction": "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
+      "effective_date": "2024-01-01",
+      "citation": "Jersey City local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)",
+      "source_doc_id": "D069",
+      "source_url": "https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM",
+      "quoted_span": "device” means a device that uses one or more algorithms to process or otherwise\nperform calculations of data, including, but not limited to, data concerning\nrental prices, material lease terms, or occupancy l",
+      "confidence": 0.35,
+      "conflict_flag": true,
+      "conflict_note": "Primary sources (link-only, no capturable body): https://hudsoncountyview.com/jersey-city-council-approves-realpage-ban-and-increasing-benefits-for-laborers/; https://www.morganlewis.com/pubs/2026/08/algorithmic-rent-pricing-litigation-expands-under-new-state-and-local-laws. Quoted evidence is NJ FAIR Act (D069), not Jersey City code. Scaffold kept for T2 jurisdiction-scope and T3 preemption-conflict demos only.",
+      "alias_id": "JC-ALG-01"
     }
   ]
 }

@@ -61,10 +61,13 @@ async function main() {
     const kept = (existing?.rules ?? []).filter(
       (r) => !docIds.includes(r.source_doc_id || ""),
     );
-    const combined = preferClaudeRules(dedupeRules([...kept, ...rules]));
+    // `rules` is already preferClaude+dedupe'd for the extracted subset.
+    // Do not preferClaude / soft-dedupe the combined set — that drops prior
+    // mid-confidence heuristic rows that still cover unique source docs.
+    const combined = dedupeRules([...kept, ...rules], { soft: false });
     const aliased = assignAliases(combined);
     const ensured = assignAliases(
-      preferClaudeRules(dedupeRules(await ensureChangeTestAliases(aliased))),
+      dedupeRules(await ensureChangeTestAliases(aliased), { soft: false }),
     );
     finalRules = normalizeChangeTestEffectiveDates(ensured).map((r, i) => ({
       ...r,

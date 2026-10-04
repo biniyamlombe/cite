@@ -525,7 +525,11 @@ export function heuristicExtractDoc(doc: CorpusDoc): RuleRecord[] {
   return rules;
 }
 
-export function dedupeRules(rules: RuleRecord[]): RuleRecord[] {
+export function dedupeRules(
+  rules: RuleRecord[],
+  opts?: { soft?: boolean },
+): RuleRecord[] {
+  const soft = opts?.soft !== false;
   const scored = [...rules].sort(
     (a, b) => (b.confidence ?? 0) - (a.confidence ?? 0),
   );
@@ -541,12 +545,17 @@ export function dedupeRules(rules: RuleRecord[]): RuleRecord[] {
     ].join("|");
     const softKey = [r.category, r.jurisdiction.toLowerCase(), r.level].join("|");
     // Prefer a single high-confidence rule per category/jurisdiction/level unless alias-bearing.
-    if (!r.alias_id && seen.has(`soft:${softKey}`) && (r.confidence ?? 0) < 0.8) {
+    if (
+      soft &&
+      !r.alias_id &&
+      seen.has(`soft:${softKey}`) &&
+      (r.confidence ?? 0) < 0.8
+    ) {
       continue;
     }
     if (seen.has(key)) continue;
     seen.add(key);
-    if ((r.confidence ?? 0) >= 0.8) seen.add(`soft:${softKey}`);
+    if (soft && (r.confidence ?? 0) >= 0.8) seen.add(`soft:${softKey}`);
     out.push(r);
   }
   return out;
@@ -575,6 +584,13 @@ export function preferClaudeRules(rules: RuleRecord[]): RuleRecord[] {
         j === "MA" ||
         j === "NJ" ||
         /San Francisco|Los Angeles/i.test(j))
+    ) {
+      return false;
+    }
+    // CA civil-rights housing portal is not a MA statute source
+    if (
+      (url.includes("calcivilrights.ca.gov") || url.includes("ca.gov")) &&
+      (j === "MA" || j === "NJ" || /Massachusetts|New Jersey/i.test(j))
     ) {
       return false;
     }
