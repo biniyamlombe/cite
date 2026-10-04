@@ -102,6 +102,16 @@ test("municipal algorithmic bans use adopted ordinance PDFs, not FAIR quotes", (
   assert.equal(newark, undefined, "Hoboken ordinance must not attach to Newark");
 });
 
+test("T2 membership uses live municipal ordinance applies, not scaffolds", async () => {
+  const geoMap = new Map(geos.map((g) => [g.address_id, g]));
+  const changes = await runChangesFromDisk({ rules, geos: geoMap });
+  assert.equal(changes.T2!.affected_address_ids.length, 90);
+  assert.match(changes.T2!.notes ?? "", /HOB-ORD-01 \/ JC-ORD-01/);
+  assert.doesNotMatch(changes.T2!.notes ?? "", /Scenario membership only/);
+  assert.match(changes.T2!.evidence_summary ?? "", /hob_method=municipal_ordinance/);
+  assert.match(changes.T2!.evidence_summary ?? "", /jc_method=municipal_ordinance/);
+});
+
 test("T5 treats the c.40P prohibition as no rent cap", async () => {
   const geoMap = new Map(geos.map((g) => [g.address_id, g]));
   const changes = await runChangesFromDisk({ rules, geos: geoMap });
