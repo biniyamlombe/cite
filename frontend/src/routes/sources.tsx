@@ -1,11 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { z } from "zod";
-import { Download, ExternalLink } from "lucide-react";
+import { Check, Copy, Download, ExternalLink } from "lucide-react";
 import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
 import { downloadText } from "@/lib/cite/export";
 import { PageHeader } from "@/components/cite/layout";
 import { fmtDate } from "@/lib/cite/labels";
+
+function quotePlaintext(rule: { citation: string; source_url: string; retrieved_at?: string | null; quoted_span: string }) {
+  return `${rule.citation}\n${rule.source_url}\nRetrieved: ${rule.retrieved_at ?? "—"}\n\n"${rule.quoted_span}"\n`;
+}
 
 export const Route = createFileRoute("/sources")({
   validateSearch: z.object({ address: z.string().optional(), as_of: z.string().optional() }),
@@ -28,6 +33,7 @@ function SourcesPage() {
   const asOf = s.as_of ?? DEFAULT_AS_OF;
   const q = useQuery({ queryKey: ["lookup", addressId, asOf], queryFn: () => getCiteClient().lookup(addressId, asOf) });
   const rules = (q.data?.results ?? []).flatMap((r) => (r.rule ? [{ id: r.team_rule_id, result: r.result, rule: r.rule }] : []));
+  const [copiedId, setCopiedId] = useState<string | null>(null);
 
   function manifest() {
     // Bundle exactly what the backend returned for this determination.
@@ -37,6 +43,12 @@ function SourcesPage() {
       JSON.stringify({ address: d.address, as_of: d.as_of, disclaimer: d.disclaimer, sources: rules.map((r) => ({ team_rule_id: r.id, result: r.result, citation: r.rule.citation, source_url: r.rule.source_url, source_doc_id: r.rule.source_doc_id, retrieved_at: r.rule.retrieved_at, quoted_span: r.rule.quoted_span })) }, null, 2),
       "application/json",
     );
+  }
+
+  async function copyQuote(id: string, rule: (typeof rules)[number]["rule"]) {
+    await navigator.clipboard.writeText(quotePlaintext(rule));
+    setCopiedId(id);
+    window.setTimeout(() => setCopiedId((cur) => (cur === id ? null : cur)), 1500);
   }
 
   return (
@@ -60,12 +72,18 @@ function SourcesPage() {
                     <div className="font-medium text-ink">{r.rule.title}</div>
                     <div className="font-mono text-[11px] text-muted-foreground">{r.rule.citation} · doc {r.rule.source_doc_id ?? "—"} · retrieved {fmtDate(r.rule.retrieved_at)}</div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex items-center gap-3">
                     <a href={r.rule.source_url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 rounded-md border px-3 py-1.5 text-sm hover:bg-secondary">
                       Open source <ExternalLink className="size-3.5" />
                     </a>
-                    <button onClick={() => downloadText(`${r.id}-quote.txt`, `${r.rule.citation}\n${r.rule.source_url}\nRetrieved: ${r.rule.retrieved_at ?? "—"}\n\n"${r.rule.quoted_span}"\n`, "text/plain")}
-                      className="rounded-md border px-3 py-1.5 text-sm hover:bg-secondary">Quote .txt</button>
+                    <button
+                      type="button"
+                      onClick={() => void copyQuote(r.id, r.rule)}
+                      className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-ink hover:underline"
+                    >
+                      {copiedId === r.id ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+                      {copiedId === r.id ? "Copied" : "Copy quote"}
+                    </button>
                   </div>
                 </div>
               </li>
