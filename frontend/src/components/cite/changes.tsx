@@ -202,24 +202,43 @@ function ScopeStory({
   );
 }
 
-function ChangeNotes({ notes, affected, conflicts }: { notes: string; affected: number; conflicts: number }) {
+function ChangeNotes({
+  notes,
+  affected,
+  conflicts,
+  hideStorySummary,
+}: {
+  notes: string;
+  affected: number;
+  conflicts: number;
+  /** When true, skip prose that restates the before/after flip already on screen. */
+  hideStorySummary?: boolean;
+}) {
   const t = useT();
   const [open, setOpen] = useState(false);
   const { summary, openQuestion, raw } = useMemo(
     () => humanizeChangeNotes(notes, t("changes.openQuestionFallback")),
     [notes, t],
   );
+  const showTally = !hideStorySummary || conflicts > 0;
   const tally =
     conflicts > 0
       ? t("changes.notesTallyConflict").replace("{a}", String(affected)).replace("{c}", String(conflicts))
       : t("changes.notesTally").replace("{a}", String(affected));
+  const showSummary = Boolean(summary) && !hideStorySummary;
+
+  if (!showTally && !showSummary && !openQuestion && !notes.trim()) return null;
 
   return (
     <div className="space-y-2">
-      <p className="text-sm leading-relaxed text-muted-foreground">
-        <span className="font-mono text-[11px] tabular-nums text-ink">{tally}</span>
-        {summary ? <span className="mt-1 block">{summary}</span> : null}
-      </p>
+      {(showTally || showSummary) && (
+        <p className="text-sm leading-relaxed text-muted-foreground">
+          {showTally ? (
+            <span className="font-mono text-[11px] tabular-nums text-ink">{tally}</span>
+          ) : null}
+          {showSummary ? <span className="mt-1 block">{summary}</span> : null}
+        </p>
+      )}
       {openQuestion && (
         <p className="border border-unknown/25 bg-unknown-soft/50 px-3 py-2 text-sm text-ink/90">
           <span className="font-medium">{t("rule.openQuestion")}: </span>
@@ -330,14 +349,24 @@ export function ChangeImpactCard({
 
       {result?.notes && (
         <div className="mt-5">
-          <ChangeNotes notes={result.notes} affected={affected.length} conflicts={conflicts.length} />
+          <ChangeNotes
+            notes={result.notes}
+            affected={affected.length}
+            conflicts={conflicts.length}
+            hideStorySummary={hasFlip}
+          />
         </div>
       )}
 
       {result && (
         <div className="mt-6">
           <div className="flex flex-wrap items-baseline justify-between gap-2 border-b border-border/70 pb-2">
-            <h3 className="font-serif text-lg text-ink">{t("changes.affected")}</h3>
+            <h3 className="font-serif text-lg text-ink">
+              {t("changes.affected")}
+              <span className="ml-2 font-mono text-sm tabular-nums text-muted-foreground">
+                {affected.length}
+              </span>
+            </h3>
             <div className="font-mono text-[11px] text-muted-foreground">
               {t("changes.rulesMeta")} {test.rule_ids.join(" · ")}
             </div>
