@@ -201,6 +201,7 @@ export function AddressSearch({
             }
             if (e.key === "Escape") setOpen(false);
           }}
+          id="address-search"
           placeholder={t("lookup.placeholder")}
           className={
             prominent
@@ -247,7 +248,7 @@ export function AddressSearch({
         )}
       </div>
       {open && (
-        <div className="absolute z-30 mt-2 w-full overflow-hidden border bg-popover shadow-dropdown">
+        <div className="absolute z-30 mt-2 w-full overflow-hidden rounded-xl border bg-popover shadow-dropdown">
           {data.length > 0 && (
             <div className="flex items-center justify-between border-b border-border/60 bg-secondary/40 px-5 py-2.5">
               <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
@@ -347,24 +348,19 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
   const t = useT();
   const [searchOpen, setSearchOpen] = useState(false);
   const dim = searchOpen
-    ? "pointer-events-none opacity-10 transition-opacity duration-300"
-    : "opacity-100 transition-opacity duration-300";
+    ? "pointer-events-none opacity-0 transition-opacity duration-200"
+    : "opacity-100 transition-opacity duration-200";
   return (
-    <div className="mx-auto flex max-w-3xl flex-col items-center px-1 pb-10 pt-8 text-center sm:pt-12">
-      <div className="fade-up">
-        <h1
-          translate="no"
-          className="font-serif text-[clamp(3.25rem,10vw,4.75rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-pretty text-ink"
-        >
-          Cite
-        </h1>
-        <p className="mx-auto mt-5 max-w-md text-pretty font-serif text-lg italic leading-relaxed text-muted-foreground sm:text-xl">
-          {t("lookup.title1")} {t("lookup.title2")}
-        </p>
-      </div>
+    <div className="mx-auto max-w-2xl pb-8 pt-2 sm:pt-4">
+      <h1 className="fade-up text-pretty font-serif text-[clamp(2rem,4.2vw,2.75rem)] font-semibold leading-[1.12] tracking-[-0.03em] text-ink">
+        {t("lookup.title1")}
+        <span className="mt-1 block pb-1 font-normal italic leading-[1.2] text-foreground/70">
+          {t("lookup.title2")}
+        </span>
+      </h1>
 
-      <div className="fade-up-delay-1 relative z-20 mx-auto mt-9 w-full max-w-2xl text-left">
-        <label className="mb-2.5 ml-1 block font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+      <div className="relative z-20 mt-6">
+        <label htmlFor="address-search" className="mb-2 block text-sm font-medium text-ink">
           {t("lookup.label")}
         </label>
         <div className="bezel">
@@ -376,45 +372,35 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
         </div>
       </div>
 
-      <div className={`${dim} w-full`}>
-        <div className="fade-up-delay-2 mx-auto mt-9 w-full max-w-2xl text-left">
-          <div className="mb-3 ml-1 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-            {t("lookup.try")}
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
+      <div className={dim}>
+        <div className="mt-6">
+          <p className="text-sm text-muted-foreground">{t("lookup.try")}</p>
+          <ul className="mt-2 border-y border-border/80">
             {DEMO_CHIPS.map((chip) => (
-              <button
-                key={chip.id}
-                type="button"
-                onClick={() => onSelect(chip.id)}
-                className="group flex touch-manipulation items-center justify-between gap-3 rounded-xl border border-border/80 bg-card/90 p-4 text-left shadow-sm transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-dossier active:scale-[0.99]"
-              >
-                <span className="min-w-0">
-                  <span
-                    translate="no"
-                    className="block font-mono text-[10px] font-semibold text-primary"
-                  >
+              <li key={chip.id} className="border-b border-border/60 last:border-b-0">
+                <button
+                  type="button"
+                  onClick={() => onSelect(chip.id)}
+                  className="group flex w-full touch-manipulation items-center gap-4 py-3 text-left transition-colors duration-200 hover:text-primary active:translate-y-px"
+                >
+                  <span translate="no" className="w-14 shrink-0 font-mono text-xs text-primary">
                     {chip.id}
                   </span>
-                  <span className="mt-1 block truncate font-serif text-sm italic text-ink">
+                  <span className="min-w-0 flex-1 font-serif text-base text-ink group-hover:text-primary">
                     {t(chip.labelKey)}
                   </span>
-                </span>
-                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary transition-transform duration-300 group-hover:translate-x-0.5 group-hover:bg-accent">
                   <ArrowRight
                     aria-hidden="true"
-                    className="size-3.5 text-muted-foreground group-hover:text-primary"
+                    className="size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-hover:translate-x-0.5 group-hover:text-primary"
                   />
-                </span>
-              </button>
+                </button>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
-        <blockquote className="fade-up-delay-3 mx-auto mt-12 max-w-lg text-center">
-          <p className="font-serif text-sm italic leading-relaxed text-muted-foreground">
-            {t("lookup.philosophy")}
-          </p>
-        </blockquote>
+        <p className="mt-6 max-w-[62ch] text-sm leading-relaxed text-muted-foreground">
+          {t("lookup.philosophy")}
+        </p>
       </div>
     </div>
   );
@@ -506,7 +492,9 @@ function LookupPage() {
   }, [lookup.data, auditUser]);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+    <div
+      className={`mx-auto max-w-6xl px-4 sm:px-6 ${addressId ? "py-10 sm:py-14" : "py-6 sm:py-8"}`}
+    >
       {!addressId ? (
         <EmptyLookup onSelect={setAddressId} />
       ) : (
