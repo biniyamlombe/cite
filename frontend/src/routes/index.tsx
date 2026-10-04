@@ -80,12 +80,17 @@ export const Route = createFileRoute("/")({
 
 const DEMO_CHIPS: ReadonlyArray<{
   q: string;
-  labelKey: "lookup.demo.unknown" | "lookup.demo.remap" | "lookup.demo.conflict";
+  labelKey:
+    | "lookup.demo.unknown"
+    | "lookup.demo.remap"
+    | "lookup.demo.conflict"
+    | "lookup.demo.stretch";
   id: string;
 }> = [
   { q: "A0005", labelKey: "lookup.demo.unknown", id: "A0005" },
   { q: "A0065", labelKey: "lookup.demo.remap", id: "A0065" },
   { q: "A0002", labelKey: "lookup.demo.conflict", id: "A0002" },
+  { q: "SA0001", labelKey: "lookup.demo.stretch", id: "SA0001" },
 ];
 
 export function AddressSearch({

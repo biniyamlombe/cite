@@ -1,7 +1,9 @@
 import { CalendarDays, ChevronRight, MapPin, TriangleAlert } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useT } from "@/lib/i18n";
 import type { LookupResponse } from "@/lib/cite/types";
 import { FactCorrection } from "@/components/cite/fact-correction";
+import { isStretchAddress, stretchDemoTip } from "@/lib/cite/stretch";
 
 export function JurisdictionStack({
   state,
@@ -91,6 +93,34 @@ export function AsOfDate({ value, onChange }: { value: string; onChange?: (v: st
   );
 }
 
+function StretchCallout({ addressId, asOf }: { addressId: string; asOf: string }) {
+  const t = useT();
+  const tip = stretchDemoTip(addressId);
+  const tipKey =
+    tip === "applies"
+      ? "stretch.tip.applies"
+      : tip === "exempt"
+        ? "stretch.tip.exempt"
+        : "stretch.tip.generic";
+  const compareId = addressId.toUpperCase() === "SA0003" ? "SA0001" : "SA0003";
+  return (
+    <div className="mt-3 rounded-md border border-primary/25 bg-primary/5 px-3 py-2.5 text-sm">
+      <div className="text-xs font-semibold uppercase tracking-wide text-primary">
+        {t("stretch.title")}
+      </div>
+      <p className="mt-1 text-xs text-foreground/85">{t("stretch.body")}</p>
+      <p className="mt-2 text-xs leading-relaxed text-ink/90">{t(tipKey)}</p>
+      <Link
+        to="/"
+        search={{ address: compareId, as_of: asOf }}
+        className="mt-2 inline-flex text-xs font-medium text-primary hover:underline"
+      >
+        {t("stretch.compare")}
+      </Link>
+    </div>
+  );
+}
+
 export function PropertySummary({
   data,
   asOf,
@@ -103,12 +133,18 @@ export function PropertySummary({
   const t = useT();
   const { address: a, jurisdiction: j } = data;
   const differs = j.city && a.postal_city && j.city.toLowerCase() !== a.postal_city.toLowerCase();
+  const stretch = isStretchAddress(a.address_id);
   return (
     <section className="surface fade-up p-5 sm:p-7">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="min-w-0">
           <div className="eyebrow flex flex-wrap items-center gap-1.5">
             <MapPin className="size-3" /> {t("fact.property")} · {a.address_id}
+            {stretch ? (
+              <span className="inline-flex items-center rounded-sm border border-primary/30 bg-primary/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-primary">
+                {t("stretch.badge")}
+              </span>
+            ) : null}
           </div>
           <h1 className="mt-2 font-serif text-2xl tracking-[-0.025em] text-ink sm:text-[2rem]">
             {a.street_address}
@@ -125,6 +161,7 @@ export function PropertySummary({
               <p className="mt-1 text-xs text-accent-foreground/90">{t("postal.remapHint")}</p>
             </div>
           )}
+          {stretch ? <StretchCallout addressId={a.address_id} asOf={asOf} /> : null}
           <div className="mt-3">
             <JurisdictionStack
               state={j.state}
