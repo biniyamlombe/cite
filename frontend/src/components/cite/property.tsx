@@ -1,6 +1,7 @@
 import { CalendarDays, ChevronRight, MapPin, Sparkles, TriangleAlert } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import type { LookupResponse } from "@/lib/cite/types";
+import { FactCorrection } from "@/components/cite/fact-correction";
 
 export function isStretchAddress(addressId?: string | null): boolean {
   return !!addressId && /^SA/i.test(addressId);
@@ -101,6 +102,7 @@ export function PropertySummary({ data, asOf, onAsOf }: { data: LookupResponse; 
         <AsOfDate value={asOf} onChange={onAsOf} />
       </div>
       <div className="mt-5"><PropertyFacts yearBuilt={a.year_built} units={a.units} legalCity={j.city} /></div>
+      <FactCorrection data={data} />
       {j.trusted === false && (
         <div className="mt-4 flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">
           <TriangleAlert className="mt-0.5 size-4 shrink-0 text-unknown" />

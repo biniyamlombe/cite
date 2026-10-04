@@ -7,7 +7,7 @@ import { listAlertSubs, logLookup, saveMemo, setEmailAlert } from "@/lib/cite/te
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   Search, ArrowRight, Loader2, AlertCircle, FileSearch, Printer, Link2, Check, Download,
-  Eye, Mail, Save, GitCompare, FileText,
+  Eye, Mail, Save, GitCompare, FileText, ClipboardList,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
@@ -16,11 +16,13 @@ import { CATEGORY_ORDER } from "@/lib/cite/labels";
 import type { AddressRow, LookupResponse } from "@/lib/cite/types";
 import { PropertySummary, isStretchAddress } from "@/components/cite/property";
 import { ResultSummaryChips } from "@/components/cite/status";
+import { EvidenceFreshness } from "@/components/cite/evidence-freshness";
 import { lookupToCsv, downloadText } from "@/lib/cite/export";
 import { useWatchlist } from "@/lib/cite/watchlist";
 import { EffectiveTimeline } from "@/components/cite/timeline";
 import { RuleCard, RuleDetailDrawer, type RuleView } from "@/components/cite/rule";
 import { isLinkOnlyScaffold } from "@/components/cite/warnings";
+import { createCase } from "@/lib/cite/cases";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -422,6 +424,7 @@ function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; 
           <p className="mt-1 text-sm text-muted-foreground">{t("lookup.stepWhat")}</p>
         </div>
         <ResultSummaryChips results={data.results} />
+        <EvidenceFreshness data={data} />
         {isStretchAddress(data.address.address_id) && (
           <div className="flex gap-2.5 rounded-md border border-primary/25 bg-accent px-3 py-2.5 text-sm">
             <AlertCircle className="mt-0.5 size-4 shrink-0 text-primary" />
@@ -500,6 +503,14 @@ function MemoBar({ data }: { data: LookupResponse }) {
       toast.success(t("toast.memoSaved"));
     },
   });
+  const createReview = useMutation({
+    mutationFn: () => createCase(data),
+    onSuccess: (caseId) => {
+      void qc.invalidateQueries({ queryKey: ["cases"] });
+      void navigate({ to: "/workspace", search: { case: caseId } });
+    },
+    onError: (error: Error) => toast.error(error.message),
+  });
   const toggleEmail = useMutation({ mutationFn: () => setEmailAlert(id, !emailOn), onSuccess: () => qc.invalidateQueries({ queryKey: ["alert-subs"] }) });
   const needAuth = (fn: () => void) => () => (user ? fn() : navigate({ to: "/auth" }));
   useEffect(() => setGenerated(new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC"), [data]);
@@ -523,6 +534,7 @@ function MemoBar({ data }: { data: LookupResponse }) {
         <p className="mt-1 text-xs text-muted-foreground">{t("disclaimer.asOf")} {data.as_of}</p>
       </div>
       <div className="mb-2 flex flex-wrap items-center justify-end gap-2 print:hidden">
+        <Button variant="outline" disabled={createReview.isPending} onClick={needAuth(() => createReview.mutate())} className="rounded-full"><ClipboardList />{t("workspace.openCase")}</Button>
         <button
           onClick={async () => {
             await navigator.clipboard.writeText(window.location.href);
