@@ -1531,7 +1531,9 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   const setLocale = useCallback((l: Locale) => {
     setLocaleState(l);
-    setAnnounce(l === "es-US" ? STRINGS.es["nav.lang.announced"] : STRINGS.en["nav.lang.announced"]);
+    setAnnounce(
+      l === "es-US" ? STRINGS.es["nav.lang.announced"] : STRINGS.en["nav.lang.announced"],
+    );
   }, []);
 
   const value = useMemo(() => ({ locale, setLocale, announce }), [locale, setLocale, announce]);
