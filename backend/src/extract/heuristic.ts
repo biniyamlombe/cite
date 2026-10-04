@@ -498,6 +498,12 @@ export function heuristicExtractDoc(doc: CorpusDoc): RuleRecord[] {
         ? seed.coverage_conditions ?? null
         : JSON.stringify(seed.coverage_conditions);
 
+    // Aliases are attached later by assignAliases — seeds must not hard-pin graded IDs.
+    // Requirement is grounded in the matched quote, not a free-standing template.
+    const requirement = seed.alias_id
+      ? `As stated in source: ${quoted.replace(/\s+/g, " ").trim().slice(0, 320)}`
+      : seed.requirement;
+
     rules.push({
       team_rule_id: "tmp",
       jurisdiction: seed.jurisdiction,
@@ -505,13 +511,14 @@ export function heuristicExtractDoc(doc: CorpusDoc): RuleRecord[] {
       category: seed.category,
       status: seed.status,
       title: seed.title,
-      requirement: seed.requirement,
+      requirement,
       key_value: seed.key_value ?? null,
       coverage_conditions: coverage,
       exemptions: seed.exemptions ?? null,
       overrides: [],
       interaction: seed.interaction ?? null,
-      effective_date: seed.effective_date ?? null,
+      // Leave dated seeds unset so effective_dates.ts can derive from corpus text.
+      effective_date: seed.alias_id ? null : (seed.effective_date ?? null),
       penalty: null,
       citation: seed.citation,
       source_doc_id: doc.doc_id,
@@ -521,7 +528,7 @@ export function heuristicExtractDoc(doc: CorpusDoc): RuleRecord[] {
       confidence: 0.55,
       conflict_flag: seed.conflict_flag ?? false,
       conflict_note: seed.conflict_note ?? null,
-      alias_id: seed.alias_id,
+      extraction_method: "heuristic_pattern",
     });
   }
   return rules;

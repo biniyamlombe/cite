@@ -5,7 +5,7 @@
  * replaced by the derived date or removed — never kept on trust.
  */
 import { DEFAULT_AS_OF, type RuleRecord } from "@rhl/shared";
-import { loadCapturableDocs } from "../lib/corpus.js";
+import { loadCapturableDocs, loadSecondaryDocs } from "../lib/corpus.js";
 
 const MONTH_NAMES = [
   "january",
@@ -239,8 +239,16 @@ export function applyEffectiveDateGrounding(
 ): RuleRecord {
   if (!body || rule.status === "pending" || rule.status === "failed") return rule;
   // Scaffolds quote another jurisdiction's text; its effective-date clause is not theirs.
-  if (rule.extraction_method === "link_only_scaffold") {
-    return { ...rule, effective_date: null, effective_date_basis: "not_stated: primary ordinance is link-only in the pack" };
+  if (
+    rule.extraction_method === "link_only_scaffold" ||
+    rule.extraction_method === "secondary_report"
+  ) {
+    return {
+      ...rule,
+      effective_date: null,
+      effective_date_basis:
+        "not_stated: primary ordinance is link-only in the pack; secondary report is not dating authority",
+    };
   }
   const g = groundEffectiveDate(rule, body);
   return {
@@ -255,7 +263,7 @@ export async function groundRuleEffectiveDates(
   rules: RuleRecord[],
   asOf = process.env.AS_OF_DEFAULT || DEFAULT_AS_OF,
 ): Promise<RuleRecord[]> {
-  const docs = await loadCapturableDocs();
+  const docs = [...(await loadCapturableDocs()), ...(await loadSecondaryDocs())];
   const byId = new Map(docs.map((d) => [d.doc_id, d.body]));
   return rules.map((r) =>
     applyEffectiveDateGrounding(r, r.source_doc_id ? byId.get(r.source_doc_id) : undefined, asOf),

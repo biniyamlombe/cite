@@ -3,10 +3,11 @@
  * are link-only in the pack. Also upserts soft-gap screening rules from thin
  * capturable pages (D029 / D078) that extract often skips.
  *
- * Quotes are always taken from capturable corpus text.
+ * Quotes are always taken from capturable text — pack corpus or stretch
+ * secondary public reports (never invented municipal code).
  *
- * HOB-ALG-01 / JC-ALG-01 are upserted every run so honesty metadata (confidence,
- * conflict_note, primary link-only URLs) cannot drift after a live extract.
+ * HOB-ALG-01 / JC-ALG-01 prefer city-scoped secondary news quotes when present;
+ * FAIR Act (D069) remains a last-resort evidence quote only.
  */
 import { readFile } from "node:fs/promises";
 import path from "node:path";
@@ -104,23 +105,29 @@ function localAlgScaffold(opts: {
   city: "Hoboken" | "Jersey City";
   aliasId: "HOB-ALG-01" | "JC-ALG-01";
   primaryUrls: string[];
-  fairUrl: string;
-  fairDocId: string;
+  evidenceUrl: string;
+  evidenceDocId: string;
   quotedSpan: string;
+  evidenceKind: "secondary_report" | "fair_fallback";
 }): Omit<RuleRecord, "team_rule_id"> {
-  const { city, primaryUrls, fairUrl, fairDocId, quotedSpan } = opts;
+  const { city, primaryUrls, evidenceUrl, evidenceDocId, quotedSpan, evidenceKind } = opts;
   const links = formatPrimaryLinks(primaryUrls);
+  const secondary = evidenceKind === "secondary_report";
   return {
     jurisdiction: `${city}, NJ`,
     level: "city",
     category: "algorithmic_rent_setting",
     status: "in_force",
-    title: `${city} algorithmic rent ban (link-only primary; FAIR Act quote)`,
-    requirement:
-      `Challenge change tests treat ${city} as having a local algorithmic rent-setting ban (T2/T3). ` +
-      `The pack marks primary ${city} ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. ` +
-      `quoted_span is verbatim from the capturable NJ FAIR Act (D069) — not ${city} Municipal Code. ` +
-      `Do not treat this as extracted municipal ordinance text.`,
+    title: secondary
+      ? `${city} algorithmic rent ban (secondary report; primary ordinance link-only)`
+      : `${city} algorithmic rent ban (link-only primary; FAIR Act quote)`,
+    requirement: secondary
+      ? `Public ${city} reporting describes a local ban on algorithmic rent-setting. ` +
+        `Pack primary ordinance pages remain link-only (ecode360 / check-terms), so this is not a municipal-code extract. ` +
+        `quoted_span is verbatim from the secondary report ${evidenceDocId}. Live applicability stays unknown pending primary text.`
+      : `Challenge change tests treat ${city} as having a local algorithmic rent-setting ban (T2/T3). ` +
+        `The pack marks primary ${city} ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. ` +
+        `quoted_span is verbatim from the capturable NJ FAIR Act (D069) — not ${city} Municipal Code.`,
     key_value: null,
     coverage_conditions: `Residential dwelling units in ${city}, NJ`,
     exemptions: null,
@@ -128,22 +135,51 @@ function localAlgScaffold(opts: {
     interaction:
       "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
     effective_date: null,
-    citation: `${city} local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)`,
-    source_doc_id: fairDocId,
-    source_url: fairUrl,
+    citation: secondary
+      ? `${city} local algorithmic ban (primary link-only); evidence: ${evidenceDocId} secondary report`
+      : `${city} local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)`,
+    source_doc_id: evidenceDocId,
+    source_url: evidenceUrl,
     quoted_span: quotedSpan,
-    confidence: 0.35,
+    confidence: secondary ? 0.55 : 0.35,
     conflict_flag: true,
     requires_human_review: true,
-    extraction_method: "link_only_scaffold",
+    extraction_method: secondary ? "secondary_report" : "link_only_scaffold",
     status_basis:
       `unverified: status follows the pack change test (T2), not captured ${city} ordinance text. ` +
       `Effective date unknown.`,
-    conflict_note:
-      `${links} Quoted evidence is NJ FAIR Act (D069), not ${city} code. ` +
-      `Scaffold kept for T2 jurisdiction-scope and T3 preemption-conflict demos only.`,
+    conflict_note: secondary
+      ? `${links} Quoted evidence is a secondary public report (${evidenceDocId}), not ${city} Municipal Code. ` +
+        `Kept for T2 jurisdiction-scope and T3 conflict demos; human review of the primary ordinance is required.`
+      : `${links} Quoted evidence is NJ FAIR Act (D069), not ${city} code. ` +
+        `Scaffold kept for T2 jurisdiction-scope and T3 preemption-conflict demos only.`,
     alias_id: opts.aliasId,
   };
+}
+
+async function secondaryCityEvidence(
+  city: "Hoboken" | "Jersey City",
+): Promise<{ docId: string; url: string; quote: string } | null> {
+  const docId = city === "Hoboken" ? "HOB-NEWS-01" : "JC-NEWS-01";
+  const doc = await loadDocById(docId);
+  if (!doc?.body) return null;
+  const needles =
+    city === "Hoboken"
+      ? [
+          /City of Hoboken has outlawed the use of algorithmic rent-setting software/i,
+          /outlawed the use of algorithmic rent-setting software in the rental housing market/i,
+          /no longer use software, algorithms, or data-sharing platforms to coordinate/i,
+        ]
+      : [
+          /Jersey City Council unanimously approved \(9-0\) a measure banning rent-setting algorithms/i,
+          /measure banning rent-setting algorithms such as RealPage/i,
+          /banning rent-setting algorithms such as RealPage/i,
+        ];
+  for (const needle of needles) {
+    const quote = quoteFrom(doc.body, needle, 60);
+    if (quote) return { docId, url: doc.url, quote };
+  }
+  return null;
 }
 
 const NJ_FAIR_SYNTHETIC_TITLE = "New Jersey FAIR Act algorithmic rent restrictions";
@@ -238,36 +274,43 @@ export async function ensureChangeTestAliases(
       have.add("NJ-ALG-01");
     }
 
-    // Prefer the algorithmic-device definition for local scaffolds — topical to the
-    // ban, clearly state-law text, never presented as municipal code.
+    // Prefer city-scoped secondary public reports; FAIR Act quote only as last resort.
     const localQuote = algQuote || muniQuote;
-    if (localQuote) {
-      const hobUrls = await linkOnlyUrlsFor("Hoboken");
-      const jcUrls = await linkOnlyUrlsFor("Jersey City");
-      upsertByAlias(
-        out,
-        "HOB-ALG-01",
-        localAlgScaffold({
-          city: "Hoboken",
-          aliasId: "HOB-ALG-01",
-          primaryUrls: hobUrls,
-          fairUrl: fair.url,
-          fairDocId: fair.doc_id,
-          quotedSpan: localQuote,
-        }),
-      );
-      upsertByAlias(
-        out,
-        "JC-ALG-01",
-        localAlgScaffold({
-          city: "Jersey City",
-          aliasId: "JC-ALG-01",
-          primaryUrls: jcUrls,
-          fairUrl: fair.url,
-          fairDocId: fair.doc_id,
-          quotedSpan: localQuote,
-        }),
-      );
+    const hobUrls = await linkOnlyUrlsFor("Hoboken");
+    const jcUrls = await linkOnlyUrlsFor("Jersey City");
+    for (const city of ["Hoboken", "Jersey City"] as const) {
+      const aliasId = city === "Hoboken" ? "HOB-ALG-01" : "JC-ALG-01";
+      const secondary = await secondaryCityEvidence(city);
+      const urls = city === "Hoboken" ? hobUrls : jcUrls;
+      if (secondary) {
+        upsertByAlias(
+          out,
+          aliasId,
+          localAlgScaffold({
+            city,
+            aliasId,
+            primaryUrls: urls,
+            evidenceUrl: secondary.url,
+            evidenceDocId: secondary.docId,
+            quotedSpan: secondary.quote,
+            evidenceKind: "secondary_report",
+          }),
+        );
+      } else if (localQuote) {
+        upsertByAlias(
+          out,
+          aliasId,
+          localAlgScaffold({
+            city,
+            aliasId,
+            primaryUrls: urls,
+            evidenceUrl: fair.url,
+            evidenceDocId: fair.doc_id,
+            quotedSpan: localQuote,
+            evidenceKind: "fair_fallback",
+          }),
+        );
+      }
     }
   }
 
