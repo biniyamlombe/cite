@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T08:25:52.645Z",
+  "generated_at": "2026-10-04T08:56:25.774Z",
   "by_key": {
     "doc:D001|berkeley municipal code § 13.63.030(a)|prohibition on sale of coordinated pricing algorithms in ber": [
       {
@@ -1729,6 +1729,14 @@
     ],
     "alias:HOB-ALG-01": [
       {
+        "version": "v5",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "Bhalla today announced the City of Hoboken has outlawed the use of algorithmic rent-setting software in the rental housing market, following the adoption of the Administration’s legislation by the City Council during its July 9",
+        "change_note": "effective_date 2024-01-01 → ∅; quoted_span updated (re-extract or span repair)"
+      },
+      {
         "version": "v4",
         "corpus_release": "2026.10",
         "released_at": "2026-10-03",
@@ -1762,6 +1770,14 @@
       }
     ],
     "alias:JC-ALG-01": [
+      {
+        "version": "v5",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "The Jersey City Council unanimously approved (9-0) a measure banning rent-setting algorithms such as RealPage, as well as increasing benefits for laborers, at last night’s meeting. \n\n \n\n By Daniel Ulloa/H",
+        "change_note": "effective_date 2024-01-01 → ∅; quoted_span updated (re-extract or span repair)"
+      },
       {
         "version": "v4",
         "corpus_release": "2026.10",

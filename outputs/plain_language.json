@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T08:25:56.949Z",
+  "generated_at": "2026-10-04T08:56:27.415Z",
   "pipeline_version": "cite-1.1.0",
   "count": 145,
   "records": {
@@ -1420,8 +1420,8 @@
       "source": "template",
       "headline_en": "Algorithmic rent-setting limits",
       "headline_es": "Límites a renta algorítmica",
-      "why_en": "Challenge change tests treat Hoboken as having a local algorithmic rent-setting ban (T2/T3). The pack marks primary Hoboken ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. quoted_spa…",
-      "why_es": "Challenge change tests treat Hoboken as having a local algorithmic rent-setting ban (T2/T3). The pack marks primary Hoboken ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. quoted_span is verbatim from t…"
+      "why_en": "Public Hoboken reporting describes a local ban on algorithmic rent-setting. Pack primary ordinance pages remain link-only (ecode360 / check-terms), so this is not a municipal-code extract. quoted_span is verbatim from t…",
+      "why_es": "Public Hoboken reporting describes a local ban on algorithmic rent-setting. Pack primary ordinance pages remain link-only (ecode360 / check-terms), so this is not a municipal-code extract. quoted_span is verbatim from the secondary report…"
     },
     "r-0144": {
       "team_rule_id": "r-0144",
@@ -1430,8 +1430,8 @@
       "source": "template",
       "headline_en": "Algorithmic rent-setting limits",
       "headline_es": "Límites a renta algorítmica",
-      "why_en": "Challenge change tests treat Jersey City as having a local algorithmic rent-setting ban (T2/T3). The pack marks primary Jersey City ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. qu…",
-      "why_es": "Challenge change tests treat Jersey City as having a local algorithmic rent-setting ban (T2/T3). The pack marks primary Jersey City ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. quoted_span is verbati…"
+      "why_en": "Public Jersey City reporting describes a local ban on algorithmic rent-setting. Pack primary ordinance pages remain link-only (ecode360 / check-terms), so this is not a municipal-code extract. quoted_span is verbatim fr…",
+      "why_es": "Public Jersey City reporting describes a local ban on algorithmic rent-setting. Pack primary ordinance pages remain link-only (ecode360 / check-terms), so this is not a municipal-code extract. quoted_span is verbatim from the secondary rep…"
     },
     "r-0146": {
       "team_rule_id": "r-0146",

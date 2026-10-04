@@ -1,5 +1,5 @@
 Cite offline self-check
-generated_at: 2026-10-04T08:25:59.608Z
+generated_at: 2026-10-04T08:56:28.268Z
 result: 11/11 checks passed
 
 PASS  rules_loaded — 145 rules

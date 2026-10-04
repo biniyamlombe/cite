@@ -661,3 +661,24 @@
 {"ts":"2026-10-04T08:26:46.527Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-04T08:26:47.000Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
 {"ts":"2026-10-04T08:32:08.778Z","kind":"note","message":"ask","meta":{"address_id":"A0016","refused":false,"citations":4}}
+{"ts":"2026-10-04T08:56:21.113Z","kind":"note","message":"Enriched coverage_conditions dual form on 145/145 rules","meta":{"dual":145,"total":145}}
+{"ts":"2026-10-04T08:56:22.377Z","kind":"note","message":"Enriched rule fields: retrieved_at=0 penalty=0 exemptions_filled=0 exemptions_none_stated=3 effective_date=0","meta":{"retrieved_at":0,"penalty":0,"exemptions_filled":0,"exemptions_none_stated":3,"effective_date":0,"total":145}}
+{"ts":"2026-10-04T08:56:25.776Z","kind":"note","message":"Built rule version history for 263 keys (64 with >1 version)","meta":{"keys":263,"multi":64}}
+{"ts":"2026-10-04T08:56:26.836Z","kind":"change_tests","message":"Wrote T1, T2, T3, T4, T5","meta":{"T1":{"affected":250,"conflicts":0},"T2":{"affected":90,"conflicts":0},"T3":{"affected":140,"conflicts":90},"T4":{"affected":110,"conflicts":0},"T5":{"affected":0,"conflicts":0}}}
+{"ts":"2026-10-04T08:56:28.584Z","kind":"note","message":"Stretch Santa Ana: geocoded+lookup 6 addresses; 6 city rules","meta":{"stretch_addresses":6,"santa_ana_rules":6,"as_of":"2026-10-01","heuristic_geo":true}}
+{"ts":"2026-10-04T08:56:42.832Z","kind":"schema_check","message":"OK — sample_rule_record.json validates (Zod + Ajv)"}
+{"ts":"2026-10-04T08:56:44.172Z","kind":"note","message":"smoke tests finished with 3 failure(s)","meta":{"failed":3}}
+{"ts":"2026-10-04T08:57:17.079Z","kind":"schema_check","message":"OK — sample_rule_record.json validates (Zod + Ajv)"}
+{"ts":"2026-10-04T08:57:18.588Z","kind":"note","message":"smoke tests finished with 2 failure(s)","meta":{"failed":2}}
+{"ts":"2026-10-04T08:57:40.028Z","kind":"schema_check","message":"OK — sample_rule_record.json validates (Zod + Ajv)"}
+{"ts":"2026-10-04T08:57:41.492Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T08:57:41.904Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T08:58:08.946Z","kind":"schema_check","message":"OK — sample_rule_record.json validates (Zod + Ajv)"}
+{"ts":"2026-10-04T08:58:10.368Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T08:58:10.785Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T08:58:39.082Z","kind":"schema_check","message":"OK — sample_rule_record.json validates (Zod + Ajv)"}
+{"ts":"2026-10-04T08:58:40.519Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T08:58:40.949Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T08:59:07.876Z","kind":"schema_check","message":"OK — sample_rule_record.json validates (Zod + Ajv)"}
+{"ts":"2026-10-04T08:59:09.246Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T08:59:09.635Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
