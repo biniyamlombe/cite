@@ -19,6 +19,7 @@ import {
   recordCurrentRuleVersions,
   versionsForRule,
 } from "../lib/rule_versions.js";
+import { renderConsolePage } from "./consolePage.js";
 
 const app = new Hono();
 
@@ -117,6 +118,49 @@ app.get("/health", (c) =>
     disclaimer: "Not legal advice",
   }),
 );
+
+/** Operator console — YC-facing API landing (HTML). JSON clients use /health. */
+app.get("/", async (c) => {
+  const accept = c.req.header("accept") || "";
+  if (accept.includes("application/json") && !accept.includes("text/html")) {
+    return c.json({
+      ok: true,
+      service: "cite-api",
+      docs: "Open / in a browser for the operator console",
+      health: "/health",
+      disclaimer: "Not legal advice",
+    });
+  }
+
+  const [rules, addresses, changeTests] = await Promise.all([
+    loadRules(),
+    loadAllAddresses(),
+    loadChangeTests().catch(() => [] as Awaited<ReturnType<typeof loadChangeTests>>),
+  ]);
+  const aliases = new Set(
+    rules.map((r) => r.alias_id).filter((a): a is string => Boolean(a)),
+  );
+  // Pack T1–T5 (+ optional T6 in outputs/changes.json for the demo story)
+  let changeCount = changeTests.length;
+  try {
+    const out = await readJsonIfExists<Record<string, unknown>>(
+      path.join(outputsDir(), "changes.json"),
+    );
+    if (out) changeCount = Math.max(changeCount, Object.keys(out).length);
+  } catch {
+    /* keep pack count */
+  }
+  const html = renderConsolePage({
+    ok: true,
+    asOf: process.env.AS_OF_DEFAULT || DEFAULT_AS_OF,
+    rules: rules.length,
+    addresses: addresses.length,
+    changes: changeCount,
+    aliases: aliases.size,
+    port: Number(process.env.PORT || 4000),
+  });
+  return c.html(html);
+});
 
 app.get("/addresses", async (c) => {
   const q = (c.req.query("q") || "").toLowerCase().trim();
