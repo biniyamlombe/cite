@@ -47,11 +47,12 @@ export function confidenceBand(value?: number | null): ConfidenceBand | null {
   return "high";
 }
 
-export function fmtDate(d?: string | null, locale: string = "en") {
+/** Unambiguous legal dates: textual month in the active locale (never MM/DD vs DD/MM). */
+export function fmtDate(d?: string | null, locale: string = "en-US") {
   if (!d) return "—";
   const dt = new Date(d.length === 10 ? `${d}T12:00:00Z` : d);
   if (isNaN(dt.getTime())) return d;
-  const tag = locale.startsWith("es") ? "es" : "en-US";
+  const tag = locale.startsWith("es") ? "es-US" : "en-US";
   return dt.toLocaleDateString(tag, {
     year: "numeric",
     month: "long",

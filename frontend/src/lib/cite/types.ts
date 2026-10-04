@@ -85,12 +85,42 @@ export interface LookupResult {
   facts_used?: string[];
   facts_missing?: string[];
   legal_status_at_as_of_date?: RuleStatus;
+  status_label?: string | null;
+  applicability_label?: string | null;
+  plain_language_summary?: {
+    text: string;
+    translation_status:
+      | "human_reviewed"
+      | "machine_generated"
+      | "source_official_translation"
+      | "untranslated"
+      | "not_applicable"
+      | "not_available";
+    authoritative_language: "en";
+    source_text_en?: string;
+    requires_human_review?: boolean;
+    quality_flags?: string[];
+  };
+  source_evidence?: {
+    official_quote_en: string;
+    informational_translation_es: string | null;
+    translation_notice: string;
+    citation: string | null;
+    url: string | null;
+    retrieval_date: string | null;
+  };
+  translation?: {
+    status: "human_reviewed" | "machine_generated" | "not_available" | "untranslated";
+    requires_human_review: boolean;
+  };
   rule: Rule | null;
 }
 
 export interface LookupResponse {
   disclaimer: string;
   as_of: string;
+  locale?: "en-US" | "es-US";
+  locale_warning?: string | null;
   address: Omit<AddressRow, "legal_city" | "county">;
   jurisdiction: {
     status?: "resolved" | "ambiguous" | "failed" | "unknown";

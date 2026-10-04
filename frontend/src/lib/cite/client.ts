@@ -31,6 +31,7 @@ export type LookupOptions = {
   includeNonApplicable?: boolean | undefined;
   yearBuilt?: string | number | undefined;
   units?: string | number | undefined;
+  locale?: "en-US" | "es-US" | undefined;
   signal?: AbortSignal | undefined;
 };
 
@@ -183,6 +184,7 @@ export class HttpCiteApiClient implements CiteApiClient {
     if (options?.includeNonApplicable) params.set("include_non_applicable", "1");
     if (options?.yearBuilt != null) params.set("year_built", String(options.yearBuilt));
     if (options?.units != null) params.set("units", String(options.units));
+    if (options?.locale) params.set("locale", options.locale);
     const init: RequestInit = options?.signal ? { signal: options.signal } : {};
     return LookupResponseSchema.parse(
       await this.request(`/lookup/${encodeURIComponent(addressId)}?${params}`, init),
