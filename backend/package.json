@@ -8,7 +8,7 @@
     "start": "tsx src/api/server.ts",
     "build": "tsc --noEmit",
     "check-schema": "tsx src/cli/check_schema.ts",
-    "test": "tsx src/cli/run_tests.ts",
+    "test": "tsx src/cli/run_tests.ts && node --import tsx --test src/tests/*.test.ts",
     "enrich-coverage": "tsx src/cli/enrich_coverage.ts",
     "build-versions": "tsx src/cli/build_versions.ts",
     "stretch": "tsx src/cli/stretch.ts",

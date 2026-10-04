@@ -17,6 +17,7 @@ function run(script: string, args: string[] = []): Promise<void> {
         env: process.env,
       },
     );
+    child.on("error", reject);
     child.on("exit", (code) => {
       if (code === 0) resolve();
       else reject(new Error(`${script} exited ${code}`));
@@ -42,6 +43,9 @@ async function main() {
   await run("changes.ts");
   console.log("=== stretch/Santa Ana (optional demo jurisdiction) ===");
   await run("stretch.ts", heuristicGeo ? ["--heuristic-geo"] : []);
+  console.log("=== Verify generated artifacts and refresh offline snapshots ===");
+  await run("run_tests.ts");
+  await run("demo_snapshots.ts");
   console.log("Pipeline complete → outputs/");
 }
 

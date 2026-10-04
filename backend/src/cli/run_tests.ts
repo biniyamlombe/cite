@@ -198,7 +198,9 @@ async function testDualCoverage() {
     exemptions: "",
     penalties: null,
     interaction: null,
-    quoted_span: "x",
+    quoted_span: "Synthetic coverage fixture, not corpus evidence.",
+    source_url: "https://example.invalid/test",
+    conflict_flag: false,
     confidence: 0.9,
     extractor: "test",
     extracted_at: "2026-10-01T00:00:00Z",
@@ -688,10 +690,10 @@ async function testModuleBLookupEdges() {
       fail(`Newark corpus_gaps incomplete: ${JSON.stringify(gaps)}`);
     }
     const hobGaps = ghob ? await corpusGapsForGeo(ghob, rulesFile.rules) : [];
-    if (hobGaps.length === 0) {
-      pass("Hoboken has city rules → no corpus_gaps");
+    if (hobGaps.length > 0) {
+      pass("Hoboken retains uncaptured-source gaps alongside its city rules");
     } else {
-      fail(`Hoboken unexpectedly has corpus_gaps: ${JSON.stringify(hobGaps)}`);
+      fail(`Hoboken missing corpus_gaps: ${JSON.stringify(hobGaps)}`);
     }
   }
 }

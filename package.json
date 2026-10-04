@@ -13,7 +13,7 @@
     "submission:check": "bash scripts/submission-check.sh",
     "submission:pack": "bash scripts/submission-pack.sh",
     "check-schema": "npm run check-schema -w backend",
-    "test": "npm run test -w backend",
+    "test": "npm run build -w shared && npm run test -w backend && npm test --prefix frontend",
     "enrich-coverage": "npm run enrich-coverage -w backend",
     "build-versions": "npm run build-versions -w backend",
     "stretch": "npm run stretch -w backend --",
@@ -25,6 +25,8 @@
     "score": "npm run score -w backend",
     "pipeline": "npm run pipeline -w backend --",
     "build": "npm run build -w shared && npm run build -w backend && npm run build --prefix frontend",
-    "install:all": "npm install && npm install --prefix frontend --legacy-peer-deps"
+    "install:all": "npm install && npm install --prefix frontend --legacy-peer-deps",
+    "typecheck": "npm run build -w shared && npm run build -w backend && tsc --noEmit -p frontend/tsconfig.json",
+    "demo:snapshots": "node --import tsx backend/src/cli/demo_snapshots.ts"
   }
 }

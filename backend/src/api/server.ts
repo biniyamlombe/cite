@@ -3,9 +3,10 @@ import { serve } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import path from "node:path";
-import { DEFAULT_AS_OF, type RuleRecord } from "@rhl/shared";
+import { fileURLToPath } from "node:url";
+import { AsOfDateSchema, DEFAULT_AS_OF, RulesFileSchema, type RuleRecord } from "@rhl/shared";
 import { loadAllAddresses } from "../lib/addresses.js";
-import { loadCapturableDocs, loadDocById } from "../lib/corpus.js";
+import { exactSpanInSource, loadCapturableDocs, loadDocById } from "../lib/corpus.js";
 import { readJsonIfExists } from "../lib/io.js";
 import { outputsDir } from "../lib/paths.js";
 import type { GeocodeResult } from "../geocode/census.js";
@@ -19,10 +20,11 @@ import {
   loadRuleVersionsFile,
   recordCurrentRuleVersions,
   versionsForRule,
+  stableRuleKey,
 } from "../lib/rule_versions.js";
 import { renderConsolePage } from "./consolePage.js";
 
-const app = new Hono();
+export const app = new Hono();
 
 const corsAllow = (
   process.env.CORS_ORIGIN ||
@@ -70,7 +72,7 @@ async function loadRules(): Promise<RuleRecord[]> {
   const file = await readJsonIfExists<{ rules: RuleRecord[] }>(
     path.join(outputsDir(), "rules.json"),
   );
-  return file?.rules ?? [];
+  return file ? RulesFileSchema.parse(file).rules : [];
 }
 
 /** Map source_doc_id → corpus retrieval timestamp (from file headers / manifest). */
@@ -92,7 +94,7 @@ function withRetrievedAt<T extends RuleRecord | null>(
   if (!rule) return null as never;
   const retrieved_at =
     (rule.source_doc_id && retrievedAtByDoc.get(rule.source_doc_id)) || null;
-  return { ...rule, retrieved_at } as never;
+  return { ...rule, retrieved_at, stable_id: stableRuleKey(rule), evidence_status: ["HOB-ALG-01", "JC-ALG-01"].includes(rule.alias_id ?? "") ? "scenario_only" : "captured" } as never;
 }
 
 async function loadGeos(): Promise<Map<string, GeocodeResult>> {
@@ -179,7 +181,7 @@ app.get("/addresses", async (c) => {
         (geos.get(a.address_id)?.legal_city || "").toLowerCase().includes(q),
     );
   }
-  const limit = Math.min(Number(c.req.query("limit") || 50), 500);
+  const limit = Math.min(Math.max(1, Number(c.req.query("limit") || 50) || 50), 1000);
   return c.json({
     count: rows.length,
     addresses: rows.slice(0, limit).map((a) => {
@@ -196,6 +198,7 @@ app.get("/addresses", async (c) => {
 app.get("/lookup/:addressId", async (c) => {
   const addressId = c.req.param("addressId");
   const asOf = c.req.query("as_of") || process.env.AS_OF_DEFAULT || DEFAULT_AS_OF;
+  if (!AsOfDateSchema.safeParse(asOf).success) return c.json({ error: "Invalid as_of: use a real calendar date (YYYY-MM-DD)." }, 400);
   const addresses = await loadAllAddresses();
   const addr = addresses.find((a) => a.address_id === addressId);
   if (!addr) return c.json({ error: "Address not found" }, 404);
@@ -322,10 +325,11 @@ app.post("/extract/doc/:docId", async (c) => {
     const doc = await loadDocById(docId);
     const retrieved_at = doc?.retrieved_at ?? null;
     const source_url = doc?.url ?? "";
+    // Cap response payload; verify spans against the full corpus document.
     const source_text = (doc?.body || doc?.text || "").slice(0, 12_000);
     const withMeta = rules.map((r) => ({ ...r, retrieved_at }));
     const spanOk = withMeta.every(
-      (r) => typeof r.quoted_span === "string" && r.quoted_span.length >= 20,
+      (r) => Boolean(doc) && exactSpanInSource(r.quoted_span, doc!.text),
     );
     await appendAudit({
       ts: new Date().toISOString(),
@@ -354,11 +358,11 @@ app.post("/extract/doc/:docId", async (c) => {
           detail: `${withMeta.length} rule(s) validated before return`,
         },
         {
-          check: "Quoted span present",
+          check: "Verbatim quoted span in corpus",
           passed: spanOk,
           detail: spanOk
-            ? "Each returned rule includes a quoted_span ≥ 20 chars"
-            : "One or more rules missing a usable quoted_span",
+            ? `${withMeta.length} returned span(s) matched the full corpus document exactly`
+            : "One or more quotations do not match the corpus",
         },
         {
           check: "Source document loaded",
@@ -402,7 +406,9 @@ app.get("/submission/:file", async (c) => {
   return c.json(data);
 });
 
-const port = Number(process.env.PORT || 4000);
-console.log(`API listening on http://localhost:${port}`);
-console.log("Disclaimer: Not legal advice and not a compliance certification");
-serve({ fetch: app.fetch, port });
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const port = Number(process.env.PORT || 4000);
+  serve({ fetch: app.fetch, port });
+  console.log(`API listening on http://localhost:${port}`);
+  console.log("Disclaimer: Not legal advice and not a compliance certification");
+}
