@@ -194,7 +194,7 @@ function PipelinePage() {
               rel="noreferrer"
               className="inline-block font-mono text-[11px] text-primary hover:underline"
             >
-              {selected.doc_id} · source
+              {selected.doc_id} · {t("rule.source").toLowerCase()}
             </a>
           )}
         </div>

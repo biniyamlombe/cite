@@ -15,15 +15,18 @@ const STORY_FOCUS: Record<TestId, "flip" | "scope" | "pending" | "failed"> = {
   T5: "failed",
 };
 
-const TYPE_LABEL: Record<string, string> = {
-  as_of: "Date flip",
-  boundary: "Scope",
-  pending: "Pending",
-  negative: "Failed",
+const TYPE_LABEL_KEY: Record<string, StringKey> = {
+  as_of: "changes.type.as_of",
+  boundary: "changes.type.boundary",
+  pending: "changes.type.pending",
+  negative: "changes.type.negative",
 };
 
 /** Turn tracker machine notes into a short human line; keep open-question prose. */
-export function humanizeChangeNotes(notes: string): { summary: string; openQuestion?: string; raw: string } {
+export function humanizeChangeNotes(
+  notes: string,
+  openQuestionFallback = "See open legal question.",
+): { summary: string; openQuestion?: string; raw: string } {
   const raw = notes.trim();
   const openMatch = raw.match(/Open question:\s*(.+)$/i);
   const openQuestion = openMatch?.[1]?.trim();
@@ -45,7 +48,7 @@ export function humanizeChangeNotes(notes: string): { summary: string; openQuest
       .map((s) => s.trim())
       .find((s) => s.length > 24 && !/^[a-z_]+ on /.test(s)) ?? body;
   return {
-    summary: sentence || (openQuestion ? "See open legal question." : ""),
+    summary: sentence || (openQuestion ? openQuestionFallback : ""),
     ...(openQuestion ? { openQuestion } : {}),
     raw,
   };
@@ -198,7 +201,10 @@ function ScopeStory({
 function ChangeNotes({ notes, affected, conflicts }: { notes: string; affected: number; conflicts: number }) {
   const t = useT();
   const [open, setOpen] = useState(false);
-  const { summary, openQuestion, raw } = useMemo(() => humanizeChangeNotes(notes), [notes]);
+  const { summary, openQuestion, raw } = useMemo(
+    () => humanizeChangeNotes(notes, t("changes.openQuestionFallback")),
+    [notes, t],
+  );
   const tally =
     conflicts > 0
       ? t("changes.notesTallyConflict").replace("{a}", String(affected)).replace("{c}", String(conflicts))
@@ -248,7 +254,8 @@ export function ChangeImpactCard({
   const beatKey = `changes.beat.${test.test_id}` as StringKey;
   const hasFlip = Boolean(result?.before_status || result?.after_status);
   const lookupAsOf = test.as_of_after || test.as_of;
-  const typeLabel = TYPE_LABEL[test.type] ?? test.type.replace(/_/g, " ");
+  const typeKey = TYPE_LABEL_KEY[test.type];
+  const typeLabel = typeKey ? t(typeKey) : test.type.replace(/_/g, " ");
 
   return (
     <article className="surface fade-up p-5 sm:p-6">

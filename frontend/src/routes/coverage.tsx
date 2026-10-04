@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { getCiteClient } from "@/lib/cite/client";
-import { CATEGORY_LABEL } from "@/lib/cite/labels";
+import { CATEGORY_ORDER } from "@/lib/cite/labels";
+import { useT, useTx } from "@/lib/i18n";
 import { PageHeader } from "@/components/cite/layout";
 import type { Category } from "@/lib/cite/types";
 
@@ -19,9 +20,9 @@ export const Route = createFileRoute("/coverage")({
   component: CoveragePage,
 });
 
-const CATS = Object.keys(CATEGORY_LABEL) as Category[];
-
 function CoveragePage() {
+  const t = useT();
+  const tx = useTx();
   // Display-only grouping of the catalog as returned; no applicability is decided here.
   const q = useQuery({ queryKey: ["rules"], queryFn: () => getCiteClient().rules() });
   const byJur = new Map<string, { level: string; cats: Map<Category, number> }>();
@@ -30,33 +31,52 @@ function CoveragePage() {
     e.cats.set(r.category, (e.cats.get(r.category) ?? 0) + 1);
     byJur.set(r.jurisdiction, e);
   }
-  const rows = [...byJur.entries()].sort((a, b) => (a[1].level === b[1].level ? a[0].localeCompare(b[0]) : a[1].level === "state" ? -1 : 1));
+  const rows = [...byJur.entries()].sort((a, b) =>
+    a[1].level === b[1].level ? a[0].localeCompare(b[0]) : a[1].level === "state" ? -1 : 1,
+  );
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <PageHeader eyebrow="Corpus" title="Jurisdiction coverage">
-        Filled cells show how many rules the catalog holds for that place and topic. Empty cells are gaps.
+    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+      <PageHeader eyebrow={t("coverage.eyebrow")} title={t("coverage.title")}>
+        {t("coverage.lede")}
       </PageHeader>
-      {q.isLoading && <p className="mt-8 text-sm text-muted-foreground">Loading…</p>}
+      <p className="mt-2 text-sm text-muted-foreground">{t("coverage.legend")}</p>
+
+      {q.isLoading && <p className="mt-8 text-sm text-muted-foreground">{t("common.loading")}</p>}
+
       {rows.length > 0 && (
-        <div className="mt-8 overflow-x-auto rounded-lg border bg-card">
+        <div className="surface mt-8 overflow-x-auto">
           <table className="w-full text-sm">
-            <thead className="bg-secondary text-left text-xs text-muted-foreground">
+            <thead className="border-b bg-secondary/50 text-left text-xs text-muted-foreground">
               <tr>
-                <th className="px-3 py-2">Jurisdiction</th>
-                {CATS.map((c) => <th key={c} className="px-3 py-2 font-medium">{CATEGORY_LABEL[c]}</th>)}
+                <th className="px-3 py-2.5">{t("coverage.col.jurisdiction")}</th>
+                {CATEGORY_ORDER.map((c) => (
+                  <th key={c} className="px-3 py-2.5 font-medium">
+                    {tx(`category.${c}`)}
+                  </th>
+                ))}
               </tr>
             </thead>
-            <tbody>
+            <tbody className="divide-y">
               {rows.map(([j, e]) => (
-                <tr key={j} className="border-t">
-                  <td className="px-3 py-2"><span className="text-ink">{j}</span> <span className="font-mono text-[10px] uppercase text-muted-foreground">{e.level}</span></td>
-                  {CATS.map((c) => {
+                <tr key={j} className="hover:bg-secondary/30">
+                  <td className="px-3 py-2.5">
+                    <span className="text-ink">{j}</span>{" "}
+                    <span className="font-mono text-[10px] uppercase text-muted-foreground">
+                      {tx(`level.${e.level}`, e.level)}
+                    </span>
+                  </td>
+                  {CATEGORY_ORDER.map((c) => {
                     const n = e.cats.get(c) ?? 0;
                     return (
-                      <td key={c} className="px-3 py-2 text-center">
-                        {n ? <span className="inline-block min-w-7 rounded bg-applies-soft px-2 py-0.5 font-mono text-xs text-applies">{n}</span>
-                           : <span className="font-mono text-xs text-muted-foreground/50">—</span>}
+                      <td key={c} className="px-3 py-2.5 text-center">
+                        {n ? (
+                          <span className="inline-block min-w-7 rounded bg-applies-soft px-2 py-0.5 font-mono text-xs text-applies">
+                            {n}
+                          </span>
+                        ) : (
+                          <span className="font-mono text-xs text-muted-foreground/50">—</span>
+                        )}
                       </td>
                     );
                   })}
