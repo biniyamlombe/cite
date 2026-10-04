@@ -1,4 +1,5 @@
-export type LookupResultValue = "applies" | "unknown" | "superseded" | "not_yet_effective" | "pending";
+export type LookupResultValue =
+  "applies" | "unknown" | "superseded" | "not_yet_effective" | "pending" | "does_not_apply";
 export type RuleStatus = "in_force" | "not_yet_effective" | "pending" | "failed";
 export type Category =
   | "rent_increase_limits"
@@ -13,6 +14,22 @@ export interface Health {
   service: string;
   as_of_default: string;
   disclaimer: string;
+  pipeline_version?: string | undefined;
+  schema_version?: string | undefined;
+}
+
+export interface ApiWarning {
+  code: string;
+  message: string;
+  user_message: string;
+}
+
+export interface ApiMeta {
+  request_id: string;
+  generated_at: string;
+  as_of_date?: string;
+  pipeline_version: string;
+  schema_version: string;
 }
 
 export interface AddressRow {
@@ -45,7 +62,8 @@ export interface Rule {
   confidence?: number | null;
   effective_date?: string | null;
   penalty?: string | null;
-  coverage_conditions?: string | { text?: string; all?: unknown; unknown_if?: unknown; omit_if?: unknown } | null;
+  coverage_conditions?:
+    string | { text?: string; all?: unknown; unknown_if?: unknown; omit_if?: unknown } | null;
   exemptions?: string | null;
   conflict_note?: string | null;
   /** Backend-supplied explanation of which rule takes precedence when rules overlap. */
@@ -61,6 +79,12 @@ export interface LookupResult {
   result: LookupResultValue;
   explanation: string;
   conflict_flag: boolean;
+  /** Canonical audit applicability (optional enrichment from API). */
+  applicability?: "applies" | "does_not_apply" | "unknown" | "needs_human_review";
+  needs_human_review?: boolean;
+  facts_used?: string[];
+  facts_missing?: string[];
+  legal_status_at_as_of_date?: RuleStatus;
   rule: Rule | null;
 }
 
@@ -69,12 +93,40 @@ export interface LookupResponse {
   as_of: string;
   address: Omit<AddressRow, "legal_city" | "county">;
   jurisdiction: {
+    status?: "resolved" | "ambiguous" | "failed" | "unknown";
     state: string;
     county: string;
     city: string;
+    state_fips?: string | null;
+    county_fips?: string | null;
+    place_geoid?: string | null;
+    latitude?: number | null;
+    longitude?: number | null;
+    source?: string;
+    retrieved_at?: string | null;
+    confidence?: number | null;
     resolution?: "census" | "known_jurisdiction" | "postal_fallback";
     trusted?: boolean;
   };
+  building_facts?: {
+    year_built: number | null;
+    unit_count: number | null;
+    property_type: string | null;
+    occupancy_type: string | null;
+    use_code: string | null;
+    facts_source: string | null;
+    override_fields?: string[];
+  };
+  audit?: {
+    pipeline_version: string;
+    generated_at: string;
+    include_non_applicable?: boolean | undefined;
+    request_id?: string | undefined;
+    user_provided_facts?: boolean | undefined;
+  };
+  meta?: ApiMeta;
+  warnings?: ApiWarning[];
+  product_states?: string[];
   /** Pack link-only/check-terms city pages with no extracted city rules (e.g. Newark). */
   corpus_gaps?: string[];
   results: LookupResult[];

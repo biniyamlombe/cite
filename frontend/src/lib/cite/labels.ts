@@ -7,6 +7,7 @@ export const RESULT_LABEL: Record<LookupResultValue, string> = {
   superseded: "Superseded",
   not_yet_effective: "Not yet effective",
   pending: "Pending",
+  does_not_apply: "Does not apply",
 };
 
 export const RESULT_ORDER: LookupResultValue[] = [
@@ -15,6 +16,7 @@ export const RESULT_ORDER: LookupResultValue[] = [
   "not_yet_effective",
   "pending",
   "superseded",
+  "does_not_apply",
 ];
 
 export const STATUS_LABEL: Record<RuleStatus, string> = {
@@ -61,7 +63,12 @@ export function fmtDate(d?: string | null, locale: string = "en") {
 export function coverageText(c: unknown): string | null {
   if (!c) return null;
   if (typeof c === "string") return c;
-  if (typeof c === "object" && c && "text" in c && typeof (c as { text?: unknown }).text === "string")
+  if (
+    typeof c === "object" &&
+    c &&
+    "text" in c &&
+    typeof (c as { text?: unknown }).text === "string"
+  )
     return (c as { text: string }).text;
   return null;
 }
