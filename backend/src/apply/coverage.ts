@@ -16,6 +16,7 @@ import {
   evaluateExecutableCoverage,
   executableFromRule,
 } from "./executable.js";
+import { withOpenQuestionNote } from "./open_questions.js";
 
 function parseDate(s: string | null | undefined): Date | null {
   if (!s) return null;
@@ -437,6 +438,10 @@ export function evaluateAddress(options: {
         };
       }
     }
+    entry = {
+      ...entry,
+      explanation: withOpenQuestionNote(p.rule, entry.explanation),
+    };
     entries.push(entry);
   }
 
