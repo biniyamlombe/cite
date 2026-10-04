@@ -2,12 +2,12 @@ import type { Category, LookupResultValue, RuleStatus } from "./types";
 
 /** English fallbacks for non-React callers; UI should prefer useLabels() / useT(). */
 export const RESULT_LABEL: Record<LookupResultValue, string> = {
-  applies: "Applies",
-  unknown: "Unknown",
-  superseded: "Superseded",
-  not_yet_effective: "Not yet effective",
-  pending: "Pending",
-  does_not_apply: "Does not apply",
+  applies: "Appears to apply",
+  unknown: "Need more facts",
+  superseded: "Replaced by a local rule",
+  not_yet_effective: "Not in effect yet",
+  pending: "Still pending",
+  does_not_apply: "Does not appear to apply",
 };
 
 export const RESULT_ORDER: LookupResultValue[] = [

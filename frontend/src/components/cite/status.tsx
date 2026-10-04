@@ -56,7 +56,7 @@ const HELP: Record<string, string> = {
   conflict: "status.help.conflict",
   in_force: "status.help.in_force",
   failed: "status.help.failed",
-  superseded: "status.help.does_not_apply",
+  superseded: "status.help.superseded",
 };
 
 export function StatusBadge({

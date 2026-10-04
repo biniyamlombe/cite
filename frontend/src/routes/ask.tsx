@@ -108,7 +108,7 @@ function AskPage() {
           >
             {(addrs.data ?? []).map((a) => (
               <option key={a.address_id} value={a.address_id}>
-                {a.address_id} — {a.street_address}
+                {a.street_address}, {a.postal_city}
               </option>
             ))}
           </select>

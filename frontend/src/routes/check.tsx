@@ -85,11 +85,14 @@ function CheckPage() {
             }
             className="w-full rounded-lg border border-border/80 bg-background px-3 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
           >
-            {(addrQ.data ?? [{ address_id: addressId, street_address: addressId }]).map((a) => (
-              <option key={a.address_id} value={a.address_id}>
-                {a.address_id} — {a.street_address}
-              </option>
-            ))}
+            {(addrQ.data ?? [{ address_id: addressId, street_address: addressId, postal_city: "" }]).map(
+              (a) => (
+                <option key={a.address_id} value={a.address_id}>
+                  {a.street_address}
+                  {a.postal_city ? `, ${a.postal_city}` : ""}
+                </option>
+              ),
+            )}
           </select>
           {selected && (
             <p className="mt-1.5 text-xs text-muted-foreground">

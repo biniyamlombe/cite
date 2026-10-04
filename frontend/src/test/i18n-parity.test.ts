@@ -33,7 +33,7 @@ describe("i18n key parity", () => {
   it("keeps unknown distinct from does-not-apply in Spanish", () => {
     const es = getStrings("es-US");
     expect(es["result.unknown"].toLowerCase()).not.toMatch(/no aplica|no parece aplicar|no existe/);
-    expect(es["result.unknown"].toLowerCase()).toContain("no se puede determinar");
+    expect(es["result.unknown"].toLowerCase()).toMatch(/faltan datos|no se puede determinar/);
     expect(es["result.does_not_apply"].toLowerCase()).toContain("no parece aplicar");
   });
 
