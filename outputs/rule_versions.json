@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T00:11:38.117Z",
+  "generated_at": "2026-10-04T01:10:59.995Z",
   "by_key": {
     "doc:D001|berkeley municipal code § 13.63.030(a)|prohibition on sale of coordinated pricing algorithms in ber": [
       {
@@ -1589,6 +1589,14 @@
     ],
     "alias:NJ-ALG-01": [
       {
+        "version": "v3",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "not_yet_effective",
+        "quoted_span": "device” means a device that uses one or more algorithms to process or otherwise\nperform calculations of data, including, but not limited to, data concerning\nrental prices, material lease terms, or occupancy l",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
         "version": "v2",
         "corpus_release": "2026.10",
         "released_at": "2026-10-03",
@@ -1678,6 +1686,14 @@
       }
     ],
     "alias:MA-RENT-P1": [
+      {
+        "version": "v3",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "failed",
+        "quoted_span": "No city or town may enact, maintain or enforce rent control of any kind, except that any city or town that accepts this chapter may adopt rent control regulation that provides:\n(a) after six months fr",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
       {
         "version": "v2",
         "corpus_release": "2026.10",
@@ -2840,6 +2856,236 @@
         "released_at": "2026-10-03",
         "status": "in_force",
         "quoted_span": "Any fee shall only be paid by the party, lessor or tenant who originally engaged and entered into a contract with the licensed broker or salesperson.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D004|berkeley ellis implementation ordinance|ellis act eviction relocation assistance payment (2026)": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "The Ellis Implementation Ordinance requires the same relocation assistance payments for tenants evicted so the owner can remove a property from the rental housing market.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D004|berkeley rent stabilization and good cause for eviction ordinance|owner move-in relocation assistance payment (2026)": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "The standard relocation assistance payment will increase to\n$19,413\n.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D004|berkeley rent stabilization and good cause for eviction ordinance|additional owner move-in relocation assistance for qualifyin": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "The additional relocation assistance payment for qualifying households will increase to\n$6,471\n.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D004|berkeley ellis implementation ordinance|additional ellis act relocation assistance for qualifying ho": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "The additional relocation assistance payment for qualifying households will increase to\n$6,471\n.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D014|boston housing stability notification act (sec. 10-11.7), ordinance passed octob|housing stability notification act - non-waivability": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "The requirements of this Ordinance may not be waived, and any term of any\nlease, contract, or other agreement that purports to waive or limit a tenant’s or\nformer homeowner’s substantive or procedural rights under this Ordinance are\ncontrary to public policy, unenforceable, and void.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D053|mass. gen. laws ch. 186, § 18|anti-retaliation protection for tenants reporting violations": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "Any person or agent thereof who threatens to or takes reprisals against any tenant of residential premises for the tenant's act of, commencing, proceeding with, or obtaining relief in any judicial or administrative action",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D053|mass. gen. laws ch. 186, § 18|rebuttable presumption of retaliation within six months": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "The receipt of any notice of termination of tenancy, except for nonpayment of rent, or, of increase in rent, or, of any substantial alteration in the terms of tenancy within six months after the tenant has commenced",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D068|n.j. law against discrimination (lad)|prohibition on extra fees for service animals": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "A landlord may not charge a tenant with a disability\nan extra fee for keeping a service or guide dog; and",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D014|boston housing stability notification act (sec. 10-11.7), ordinance passed octob|housing stability notification act - notice requirements": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "requires any landlord planning to end a tenancy\nagreement to provide the tenant with a Notice of Tenants’ Rights and Resources.\nThe HSNA requires that landlords give this Notice of Tenants’ Rights and Resources\nto tenants when the landlord starts the eviction process, or when the",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D039|los angeles city council motion, september 3, 2024|los angeles motion to study and consider ban on algorithm-ba": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "pending",
+        "quoted_span": "the City Council instruct the Los Angeles Housing Department to \nreport on the number of ownership and management entities that are using algorithm-based \nsoftware to establish rents and the feasibility of instituting a ban",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D012|boston fair housing regulations|prohibition on discrimination based on rental assistance": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "The landlord tells you they don't accept rental assistance. This includes Section\n8 vouchers, social security disability vouchers, and veterans vouchers.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D012|boston fair housing regulations|prohibition on family status discrimination": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "For example, a landlord can’t discriminate against someone if they have children",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D013|boston city ordinance sec. 10-11.7|housing stability notification act - notice of tenant rights": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "The Housing Stability Notification Act requires\nALL LANDLORDS\nplanning to end a tenancy agreement to provide the tenant with a Notice of Tenants’ Rights and Resources.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D013|boston city ordinance sec. 10-11.7|housing stability notification act - penalty for non-complia": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "Failure to submit this information may result in a fine up to $300 per day.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D068|n.j. law against discrimination (lad)|prohibition on source of income discrimination in housing": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "The LAD also prohibits housing discrimination  based\non the source of lawful income or source of lawful rent\nor mortgage payment a tenant or purchaser uses. This\nmeans, for example, that a landlord cannot deny the\nlawful recipient of a Section 8 HUD voucher the right to\nrent an apartment based solely on that source of lawful\nincome.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D068|n.j. law against discrimination (lad)|equal treatment in housing terms and conditions": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "All persons, regardless of their membership in one\nof the protected classes stated above or source of\nlawful income used for rent or mortgage payments,\nare entitled to equal treatment in the terms,\nconditions or privileges of the sale or rental of\nany real property  (e.g., it is illegal to deny that\nhousing is available for inspection, sale or rent when\nit really is available.)",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D012|boston fair housing regulations|prohibition on lead paint-based family discrimination": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "You were told your family can't rent a property because there is lead paint.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D031|mass. gen. laws c.186 § 15b|massachusetts security deposit and upfront fee limits": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "ement for the first time or tenders the first month’s rent. The Ordinance also requires that a landlord provide the Guide to tenants when legal steps to terminate a tenancy are taken (ex. Notice to Qu",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D016|fair employment and housing act (feha)|source of income discrimination prohibition": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "California law protects tenants from discrimination based on how a tenant will be paying rent (“source of income”). This includes the State of California’s COVID-19 Rent Relief Program, Housing Choice (Section 8) vouchers",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D016|fair employment and housing act (feha)|criminal history screening limitations": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "Housing  providers cannot consider some types of criminal history including arrests that did not lead to a conviction, records that are sealed or expunged, or records or matters processed in the juvenile justice system. Housing providers are also prohibited from having “blanket bans” of all people with a criminal history.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D016|fair employment and housing act (feha)|reasonable accommodation for disabilities required": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "Tenants, residents, and applicants with disabilities are entitled to reasonable accommodations and/or modifications that are necessary to allow them an equal opportunity to use and enjoy housing, including a housing unit and any common areas. The refusal to grant reasonable accommodations and modifications constitutes unlawful discrimination",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D011|h.3744, 193rd general court (2023-2024)|an act petition for a special law authorizing the city of bo": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "pending",
+        "quoted_span": "An Act petition for a special law authorizing the city of Boston to implement rent stabilization and tenant eviction protections",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D047|s.2983, 194th general court|an act prohibiting algorithmic rent setting": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "pending",
+        "quoted_span": "An Act prohibiting algorithmic rent setting\nSenate, March 12, 2026 -- The committee on Housing, to whom was referred the petitions (accompanied by bill, Senate, No. 994) of Cindy F. Friedman and Julian Cyr for legislation to prohibit algorithmic rent setting",
         "change_note": "Initial extraction from capturable corpus text."
       }
     ]
