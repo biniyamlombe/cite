@@ -232,12 +232,24 @@ export function DisclaimerBar() {
   );
 }
 
-export function PageHeader({ eyebrow, title, children }: { eyebrow: string; title: string; children?: React.ReactNode }) {
+export function PageHeader({
+  eyebrow,
+  title,
+  children,
+}: {
+  eyebrow?: string;
+  title: string;
+  children?: React.ReactNode;
+}) {
   return (
-    <div className="mb-8 fade-up">
-      <div className="eyebrow">{eyebrow}</div>
-      <h1 className="mt-2 font-serif text-3xl text-ink sm:text-4xl">{title}</h1>
-      {children && <div className="mt-3 max-w-2xl text-muted-foreground">{children}</div>}
+    <div className="mb-8 fade-up sm:mb-10">
+      {eyebrow ? <div className="eyebrow text-primary/80">{eyebrow}</div> : null}
+      <h1 className={`font-serif text-3xl tracking-[-0.03em] text-ink sm:text-[2.5rem] ${eyebrow ? "mt-2" : ""}`}>
+        {title}
+      </h1>
+      {children ? (
+        <p className="mt-3 max-w-xl text-base leading-relaxed text-muted-foreground">{children}</p>
+      ) : null}
     </div>
   );
 }
