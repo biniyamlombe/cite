@@ -71,6 +71,8 @@ Before upload / pitch: `npm run submission:check` (artifacts + smoke tests) and 
 
 Organizer zip (runs check first): `npm run submission:pack` → `dist/cite-submission-latest.zip` (`rules.json`, `lookups.json`, `changes.json`, `METHOD.md`, `DEMO.md`).
 
+API operator console (HTML): open `http://localhost:4000/` while the backend is running.
+
 ## Run the demo
 
 ```bash
