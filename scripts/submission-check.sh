@@ -97,6 +97,9 @@ else:
     print("  ✓ T6 absent (correct for participant-final-no-hour16)")
 
 text = {p.stem: p.read_text() for p in (root / "data/pack/corpus/text").glob("*.txt")}
+# Stretch secondary reports (HOB/JC city news) when pack primary pages are link-only.
+for p in (root / "data/stretch/secondary_corpus").glob("*.txt"):
+    text[p.stem] = p.read_text()
 bad_span = 0
 for r in rules:
     doc = text.get(r.get("source_doc_id") or "")

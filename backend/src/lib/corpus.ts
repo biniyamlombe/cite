@@ -1,7 +1,8 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { readCsv } from "./csv.js";
-import { packRoot } from "./paths.js";
+import { packRoot, secondaryCorpusDir } from "./paths.js";
+import { readdir } from "node:fs/promises";
 
 export type ManifestRow = {
   doc_id: string;
@@ -30,7 +31,7 @@ function parseHeader(text: string): { url?: string; retrieved?: string; body: st
   let url: string | undefined;
   let retrieved: string | undefined;
   let i = 0;
-  while (i < Math.min(lines.length, 8)) {
+  while (i < Math.min(lines.length, 16)) {
     const line = lines[i] ?? "";
     if (line.startsWith("SOURCE:")) {
       url = line.slice("SOURCE:".length).trim();
@@ -39,6 +40,11 @@ function parseHeader(text: string): { url?: string; retrieved?: string; body: st
     }
     if (line.startsWith("RETRIEVED:")) {
       retrieved = line.slice("RETRIEVED:".length).trim();
+      i += 1;
+      continue;
+    }
+    // Stretch secondary headers (not pack corpus).
+    if (line.startsWith("JURISDICTION:") || line.startsWith("NOTE:")) {
       i += 1;
       continue;
     }
@@ -87,9 +93,53 @@ export async function loadCapturableDocs(): Promise<CorpusDoc[]> {
   return docs;
 }
 
+/**
+ * Public secondary reports (city news) captured under data/stretch/secondary_corpus.
+ * Used when pack primary ordinance pages are link-only — never presented as municipal code.
+ */
+export async function loadSecondaryDocs(): Promise<CorpusDoc[]> {
+  const dir = secondaryCorpusDir();
+  let names: string[];
+  try {
+    names = await readdir(dir);
+  } catch {
+    return [];
+  }
+  const docs: CorpusDoc[] = [];
+  for (const name of names) {
+    if (!name.endsWith(".txt")) continue;
+    const textPath = path.join(dir, name);
+    let text: string;
+    try {
+      text = await readFile(textPath, "utf8");
+    } catch {
+      continue;
+    }
+    const header = parseHeader(text);
+    const jurisLine = text.split(/\r?\n/).find((l) => l.startsWith("JURISDICTION:"));
+    const jurisdictions = (jurisLine?.slice("JURISDICTION:".length) ?? "")
+      .split(/[|;,]/)
+      .map((j) => j.trim())
+      .filter(Boolean);
+    docs.push({
+      doc_id: path.basename(name, ".txt"),
+      jurisdictions,
+      url: header.url || "",
+      retrieved_at: header.retrieved || "",
+      text_file: textPath,
+      text,
+      body: header.body,
+    });
+  }
+  return docs;
+}
+
 export async function loadDocById(docId: string): Promise<CorpusDoc | null> {
   const docs = await loadCapturableDocs();
-  return docs.find((d) => d.doc_id === docId) ?? null;
+  const hit = docs.find((d) => d.doc_id === docId);
+  if (hit) return hit;
+  const secondary = await loadSecondaryDocs();
+  return secondary.find((d) => d.doc_id === docId) ?? null;
 }
 
 /**

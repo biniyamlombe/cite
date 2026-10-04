@@ -16,3 +16,8 @@ export function outputsDir(): string {
 export function cacheDir(): string {
   return path.join(REPO_ROOT, "backend", ".cache", "extract");
 }
+
+/** City secondary reports captured outside the pack (HOB/JC news when ecode360 is link-only). */
+export function secondaryCorpusDir(): string {
+  return path.join(REPO_ROOT, "data", "stretch", "secondary_corpus");
+}
