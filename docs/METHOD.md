@@ -42,13 +42,16 @@ Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no
 
 ## Current submission snapshot
 
-- ~116 rules across the six required categories; all change-test aliases present  
+- ~138 rules across the six required categories; all change-test aliases present  
+- 52/54 capturable corpus docs yield ≥1 rule; D029/D078 are honest empties (no in-category text)  
 - Lookups for all 500 addresses at `as_of=2026-10-01`  
 - T1–T5 green in `npm test` (T5 affected set empty; no MA rent **cap**)
 
 ## Limits (honest)
 
-- Not every capturable doc yields rules under the default Haiku extract.  
+- Default extract uses Haiku; empty-cache docs and `npm run extract -- --retry-failed` upgrade once with Sonnet (`ANTHROPIC_RETRY_MODEL`).  
+- Some capturable pages are nav chrome / fair-housing portals with no extractable text in the six categories — we return zero rules rather than invent.  
+- Quote snapping folds curly apostrophes/dashes so model spans match corpus bytes.  
 - Rule version history is rebuilt from git snapshots of `rules.json` (`npm run build-versions` → `outputs/rule_versions.json`).  
 - Stretch: Santa Ana uses the same pipeline via `data/stretch/santa_ana_addresses.csv` + `npm run stretch` (pack’s 500 change-test addresses unchanged).  
 - This is a prototype, not counsel-reviewed advice.

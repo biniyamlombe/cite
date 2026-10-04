@@ -33,7 +33,7 @@ npm install --prefix frontend
 # Backend env
 cp backend/.env.example backend/.env
 # Add ANTHROPIC_API_KEY for Claude extraction (optional; heuristic fallback works without it)
-# Default model is claude-haiku-4-5 (cheapest/fastest). Override with ANTHROPIC_MODEL.
+# Default model is claude-haiku-4-5. Empty docs / --retry-failed use ANTHROPIC_RETRY_MODEL (Sonnet).
 # PACK_ROOT is optional; defaults to ./data/pack
 
 # Frontend env — point at local API
@@ -57,7 +57,8 @@ npm test
 npm run pipeline
 
 # Or step by step
-npm run extract
+npm run extract                 # Haiku default; auto-upgrades empty caches with Sonnet
+npm run extract -- --retry-failed   # Sonnet on uncovered capturable docs (merges)
 npm run enrich-coverage         # plain-language text + executable predicates
 npm run geocode                 # Census Geocoder; add -- --heuristic-only to skip network
 npm run lookup                  # default as_of=2026-10-01
