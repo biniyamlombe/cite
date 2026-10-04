@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Quote } from "lucide-react";
 import { useT, type StringKey } from "@/lib/i18n";
 import { PageHeader } from "@/components/cite/layout";
 
@@ -9,7 +8,7 @@ export const Route = createFileRoute("/about")({
       { title: "About — Cite" },
       { name: "description", content: "How Cite turns legal text into traceable, deterministic regulatory answers." },
       { property: "og:title", content: "About — Cite" },
-      { property: "og:description", content: "AI structures regulation. Deterministic systems evaluate applicability. Evidence supports the conclusion." },
+      { property: "og:description", content: "AI structures regulation. Code evaluates coverage. Evidence supports every answer." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -29,38 +28,39 @@ const STEPS: { title: StringKey; body: StringKey }[] = [
 function AboutPage() {
   const t = useT();
   return (
-    <div className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-14">
-      <PageHeader eyebrow={t("about.eyebrow")} title={t("about.title")} />
-      <blockquote className="rounded-md bg-quote/70 px-5 py-4">
-        <div className="flex items-start gap-3">
-          <Quote className="mt-1 size-4 shrink-0 text-primary/70" />
-          <p className="font-serif text-2xl leading-snug text-ink">{t("about.philosophy")}</p>
-        </div>
-      </blockquote>
-      <p className="mt-6 text-muted-foreground">{t("about.body")}</p>
-      <p className="mt-3 font-mono text-sm text-ink">{t("about.chain")}</p>
+    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
+      <PageHeader title={t("about.title")}>
+        {t("about.body")}
+      </PageHeader>
 
-      <h2 className="eyebrow mt-12 mb-4">{t("about.architecture")}</h2>
-      <ol className="grid gap-px overflow-hidden rounded-lg border bg-border sm:grid-cols-2">
+      <blockquote className="fade-up surface px-6 py-5">
+        <p className="font-serif text-xl italic leading-snug text-ink sm:text-2xl">{t("about.philosophy")}</p>
+        <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.12em] text-primary/80">{t("about.chain")}</p>
+      </blockquote>
+
+      <h2 className="mt-12 font-serif text-xl text-ink">{t("about.architecture")}</h2>
+      <ol className="mt-4 grid gap-3 sm:grid-cols-2">
         {STEPS.map((step, i) => (
-          <li key={step.title} className="bg-card p-5">
-            <div className="font-mono text-xs text-primary">{String(i + 1).padStart(2, "0")}</div>
-            <div className="mt-1 font-medium text-ink">{t(step.title)}</div>
-            <p className="mt-1 text-sm text-muted-foreground">{t(step.body)}</p>
+          <li key={step.title} className="surface p-4 transition-shadow duration-300 hover:shadow-dossier">
+            <div className="font-mono text-[11px] tabular-nums text-primary">{String(i + 1).padStart(2, "0")}</div>
+            <div className="mt-1.5 font-medium text-ink">{t(step.title)}</div>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t(step.body)}</p>
           </li>
         ))}
       </ol>
 
-      <h2 className="eyebrow mt-12 mb-4">{t("about.stretch")}</h2>
-      <p className="text-sm text-muted-foreground">{t("about.stretch.body")}</p>
-
-      <h2 className="eyebrow mt-10 mb-4">{t("about.limits")}</h2>
-      <p className="text-sm text-muted-foreground">{t("about.limits.body")}</p>
-
-      <div className="mt-12 rounded-lg border bg-paper p-5 text-sm">
-        <div className="font-medium text-ink">{t("disclaimer")}</div>
-        <p className="mt-1 text-muted-foreground">{t("about.demoNote")}</p>
+      <div className="mt-10 grid gap-3 sm:grid-cols-2">
+        <div className="surface p-4">
+          <div className="font-medium text-ink">{t("about.stretch")}</div>
+          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t("about.stretch.body")}</p>
+        </div>
+        <div className="surface p-4">
+          <div className="font-medium text-ink">{t("about.limits")}</div>
+          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t("about.limits.body")}</p>
+        </div>
       </div>
+
+      <p className="mt-10 text-center text-xs text-muted-foreground">{t("about.demoNote")}</p>
     </div>
   );
 }
