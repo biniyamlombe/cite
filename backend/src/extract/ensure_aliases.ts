@@ -133,6 +133,8 @@ function localAlgScaffold(opts: {
     quoted_span: quotedSpan,
     confidence: 0.35,
     conflict_flag: true,
+    requires_human_review: true,
+    extraction_method: "link_only_scaffold",
     conflict_note:
       `${links} Quoted evidence is NJ FAIR Act (D069), not ${city} code. ` +
       `Scaffold kept for T2 jurisdiction-scope and T3 preemption-conflict demos only.`,

@@ -43,6 +43,8 @@ async function main() {
   await run("lookup.ts");
   console.log("=== 7/8 Changes ===");
   await run("changes.ts");
+  console.log("=== 8/8 Provenance companion ===");
+  await run("write_provenance.ts");
   console.log("=== stretch/Santa Ana (optional demo jurisdiction) ===");
   await run("stretch.ts", heuristicGeo ? ["--heuristic-geo"] : []);
   console.log("=== Verify generated artifacts and refresh offline snapshots ===");

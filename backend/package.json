@@ -19,7 +19,10 @@
     "lookup": "tsx src/cli/lookup.ts",
     "changes": "tsx src/cli/changes.ts",
     "score": "tsx src/cli/score.ts",
-    "pipeline": "tsx src/cli/pipeline.ts"
+    "pipeline": "tsx src/cli/pipeline.ts",
+    "write-provenance": "tsx src/cli/write_provenance.ts",
+    "enrich-quote-offsets": "tsx src/cli/enrich_quote_offsets.ts",
+    "enrich-geocode-ids": "tsx src/cli/enrich_geocode_ids.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
