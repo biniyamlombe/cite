@@ -61,7 +61,7 @@ Renter tools (API-grounded): `POST /check` (rent-increase verdict from applying 
 
 ## Limits (honest)
 
-- Default extract uses Haiku; empty-cache docs and `npm run extract -- --retry-failed` upgrade once with Sonnet (`ANTHROPIC_RETRY_MODEL`).  
+- Default extract uses Sonnet 5.5 (`ANTHROPIC_MODEL`); empty-cache docs and `npm run extract -- --retry-failed` upgrade once with Opus 5.5 (`ANTHROPIC_RETRY_MODEL`).  
 - Thin capturable pages: D029/D078 now yield `screening_restrictions` scaffolds from verbatim FAQ/summary sentences (not full ordinance bodies).  
 - Newark local pages (D070–D072) stay check-terms with **no** invented city rules; Lookup returns `corpus_gaps` for uncaptured local documents even when other city rules exist.
 - Quote snapping folds curly apostrophes/dashes so model spans match corpus bytes.  
