@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.1.0",
+  "pipeline_version": "cite-1.1.0",
+  "generated_at": "2026-10-04T04:45:59.185Z",
+  "pack_root": "data/pack",
+  "input_hashes": {
+    "corpus_manifest": "a5e2a29265d5c29f",
+    "sample_addresses": "0a5ebe8cd9c422f5",
+    "change_tests": "f22b82ebc8e783d1",
+    "rule_schema": "4e8a02526b85b965",
+    "rules.json": "fc4df8d1c2d82c0e",
+    "lookups.json": "48e0f20acb86eb38",
+    "changes.json": "8f1c1a390872e06c",
+    "geocode_cache.json": "be1864e2719a1cb3"
+  },
+  "notes": "Updated after change-test generation. Pack-shaped changes.json; provenance companion. Not legal advice."
+}
