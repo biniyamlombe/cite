@@ -17,6 +17,7 @@ import {
   snapQuotedSpanToSource,
 } from "../lib/corpus.js";
 import { packRoot } from "../lib/paths.js";
+import { groundRuleEffectiveDates } from "./effective_dates.js";
 
 function quoteFrom(text: string, needle: RegExp, min = 40): string | null {
   const m = text.match(needle);
@@ -135,6 +136,9 @@ function localAlgScaffold(opts: {
     conflict_flag: true,
     requires_human_review: true,
     extraction_method: "link_only_scaffold",
+    status_basis:
+      `unverified: status follows the pack change test (T2), not captured ${city} ordinance text. ` +
+      `Effective date unknown.`,
     conflict_note:
       `${links} Quoted evidence is NJ FAIR Act (D069), not ${city} code. ` +
       `Scaffold kept for T2 jurisdiction-scope and T3 preemption-conflict demos only.`,
@@ -142,11 +146,51 @@ function localAlgScaffold(opts: {
   };
 }
 
+const NJ_FAIR_SYNTHETIC_TITLE = "New Jersey FAIR Act algorithmic rent restrictions";
+
+const NJ_FAIR_CONFLICT_NOTE =
+  "Possible preemption conflict with Jersey City and Hoboken local algorithmic bans once effective " +
+  "(FAIR Act §6b: a municipality shall be prohibited from enacting an ordinance that conflicts with this act). " +
+  "Human review required; Cite does not decide which rule prevails.";
+
+/**
+ * Prefer an extracted operative FAIR Act provision over the synthetic anchor:
+ * move NJ-ALG-01 onto it and drop the synthetic duplicate.
+ */
+function promoteExtractedNjFair(rules: RuleRecord[]): RuleRecord[] {
+  const isSynthetic = (r: RuleRecord) =>
+    r.title === NJ_FAIR_SYNTHETIC_TITLE || r.extraction_method === "corpus_anchor";
+  const candidate = rules
+    .filter(
+      (r) =>
+        r.source_doc_id === "D069" &&
+        r.level === "state" &&
+        r.category === "algorithmic_rent_setting" &&
+        !isSynthetic(r) &&
+        (!r.alias_id || r.alias_id === "NJ-ALG-01"),
+    )
+    .sort((a, b) => (b.confidence ?? 0) - (a.confidence ?? 0))[0];
+  if (!candidate) return rules;
+  return rules
+    .filter((r) => r === candidate || !(r.alias_id === "NJ-ALG-01" || (isSynthetic(r) && r.source_doc_id === "D069")))
+    .map((r) =>
+      r === candidate
+        ? {
+            ...r,
+            alias_id: "NJ-ALG-01",
+            conflict_flag: true,
+            conflict_note: NJ_FAIR_CONFLICT_NOTE,
+            interaction: "May conflict with existing local algorithmic bans once effective",
+          }
+        : r,
+    );
+}
+
 export async function ensureChangeTestAliases(
   rules: RuleRecord[],
 ): Promise<RuleRecord[]> {
-  const have = new Set(rules.map((r) => r.alias_id).filter(Boolean));
-  const out = [...rules];
+  const out = promoteExtractedNjFair([...rules]);
+  const have = new Set(out.map((r) => r.alias_id).filter(Boolean));
 
   const fair = await loadDocById("D069");
   if (fair) {
@@ -172,23 +216,23 @@ export async function ensureChangeTestAliases(
         level: "state",
         category: "algorithmic_rent_setting",
         status: "not_yet_effective",
-        title: "New Jersey FAIR Act algorithmic rent restrictions",
+        title: NJ_FAIR_SYNTHETIC_TITLE,
         requirement:
-          "The NJ FAIR Act restricts algorithmic rent-setting tools statewide; effective the first day of the twelfth month after enactment (July 1, 2027). Municipal ordinances that conflict are prohibited.",
+          "The NJ FAIR Act restricts algorithmic rent-setting tools statewide. Municipal ordinances that conflict with the act are prohibited.",
         key_value: null,
         coverage_conditions: "Statewide New Jersey residential rentals",
         exemptions: null,
         overrides: [],
         interaction: "May conflict with existing local algorithmic bans once effective",
-        effective_date: "2027-07-01",
-        citation: "N.J. FAIR Act (P.L.2026)",
+        effective_date: null,
+        citation: "N.J. FAIR Act (P.L.2026, c.43)",
         source_doc_id: fair.doc_id,
         source_url: fair.url,
         quoted_span: muniQuote || algQuote,
         confidence: 0.8,
         conflict_flag: true,
-        conflict_note:
-          "Possible preemption conflict with Jersey City and Hoboken local algorithmic bans once effective.",
+        conflict_note: NJ_FAIR_CONFLICT_NOTE,
+        extraction_method: "corpus_anchor",
         alias_id: "NJ-ALG-01",
       });
       have.add("NJ-ALG-01");
@@ -347,29 +391,28 @@ export async function ensureChangeTestAliases(
     }
   }
 
-  return normalizeChangeTestEffectiveDates(out);
+  return groundRuleEffectiveDates(mergeSameBillDuplicates(out));
+}
+
+/** "S.2983, 194th General Court" and "S.2983 (194th Legislature)" name the same bill. */
+function billKey(r: RuleRecord): string | null {
+  const m = /\b([SH])\.?\s?(\d{2,5})\b/.exec(r.citation);
+  return m ? `${r.jurisdiction}|${r.category}|${m[1]}.${m[2]}` : null;
 }
 
 /**
- * Pack change_tests pin specific effective dates. Claude sometimes extracts
- * enactment/chapter dates instead; pin the dates the as_of tests assert.
+ * A pending bill captured from several pack pages (bill text, bill history) is one
+ * rule: keep the change-test alias record and drop un-aliased copies of the same bill.
  */
-export function normalizeChangeTestEffectiveDates(
-  rules: RuleRecord[],
-): RuleRecord[] {
-  return rules.map((r) => {
-    if (r.alias_id === "CA-ALG-01") {
-      // AB 325 / SB 763: not_yet_effective on 2025-12-31, applies on 2026-01-02
-      return { ...r, effective_date: "2026-01-01" };
-    }
-    if (r.alias_id === "NJ-ALG-01") {
-      // FAIR Act: not_yet_effective on 2026-10-01, applies on 2027-07-02
-      return {
-        ...r,
-        status: "not_yet_effective",
-        effective_date: "2027-07-01",
-      };
-    }
-    return r;
+export function mergeSameBillDuplicates(rules: RuleRecord[]): RuleRecord[] {
+  const aliased = new Map<string, RuleRecord>();
+  for (const r of rules) {
+    const k = r.status === "pending" && r.alias_id ? billKey(r) : null;
+    if (k) aliased.set(k, r);
+  }
+  return rules.filter((r) => {
+    if (r.alias_id || r.status !== "pending") return true;
+    const k = billKey(r);
+    return !k || !aliased.has(k);
   });
 }
