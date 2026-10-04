@@ -573,6 +573,9 @@ const STRINGS = {
     "date.equation": "How this date was computed",
     "date.unverified":
       "Legal status is not asserted: the primary ordinance is link-only in the pack.",
+    "date.unverified.softGap":
+      "Legal status is not asserted: this quote is from a thin FAQ/summary page, not the full municipal code.",
+    "date.unverified.short": "Legal status not asserted",
     "changes.beat.T1":
       "Effective-date flip: California algorithmic pricing moves from not yet effective to applies.",
     "changes.beat.T2":
@@ -724,6 +727,30 @@ const STRINGS = {
     "about.step6.body": "Every answer is reproducible from its inputs and sources.",
     "about.demoNote":
       "Data shown in this demonstration is illustrative and must not be relied on as legal advice.",
+    "sources.eyebrow": "Download center",
+    "sources.title": "Source documents",
+    "sources.body":
+      "Every source behind the determination for {address} as of {asOf}.",
+    "sources.back": "Back to lookup",
+    "sources.loading": "Loading…",
+    "sources.downloadPack": "Download source pack",
+    "sources.open": "Open source",
+    "sources.copyQuote": "Copy quote",
+    "sources.copied": "Copied",
+    "sources.retrieved": "retrieved",
+    "audit.eyebrow": "Audit log",
+    "audit.title": "Lookup history",
+    "audit.body":
+      "Every property you opened while signed in, with the results you saw. Entries can't be edited.",
+    "audit.signin": "Sign in",
+    "audit.signinHint": "to see your lookup history.",
+    "audit.export": "Export CSV",
+    "audit.empty": "No lookups recorded yet.",
+    "audit.when": "When",
+    "audit.property": "Property",
+    "audit.asOf": "As of",
+    "audit.result": "Result",
+    "audit.open": "Open",
     "postal.remap": "Postal city",
     "postal.toLegal": "legal city",
     "postal.remapHint": "Rules attach to legal jurisdiction, not the postal label.",
@@ -736,8 +763,11 @@ const STRINGS = {
     "confidence.medium.hint":
       "Medium extraction confidence. Review the quoted span before relying on the structured fields.",
     "confidence.legend":
-      "Confidence bands: high ≥ 85% · medium 50–85% · low < 50% (often link-only sources).",
+      "Confidence bands: high ≥ 85% · medium 50–85% · low < 50%. Low often means soft-gap FAQ extracts or thin pack pages — not legal certainty.",
+    "confidence.bandCount": "{n} rules",
     "rules.confidence": "Confidence",
+    "rules.confidence.hint":
+      "Extraction confidence only. Soft-gap FAQ and low-confidence rows need human review before you rely on structured fields.",
     "changes.type.as_of": "Date flip",
     "changes.type.boundary": "Scope",
     "changes.type.pending": "Pending",
@@ -1438,6 +1468,9 @@ const STRINGS = {
     "date.equation": "Cómo se calculó esta fecha",
     "date.unverified":
       "No se afirma el estado legal: la ordenanza principal solo tiene enlace en el paquete.",
+    "date.unverified.softGap":
+      "No se afirma el estado legal: esta cita proviene de un FAQ/resumen breve, no del código municipal completo.",
+    "date.unverified.short": "Estado legal no afirmado",
     "changes.beat.T1":
       "Cambio de fecha: la fijación algorítmica de California pasa de aún no vigente a aplica.",
     "changes.beat.T2":
@@ -1591,6 +1624,30 @@ const STRINGS = {
     "about.step6.body": "Cada respuesta es reproducible a partir de sus entradas y fuentes.",
     "about.demoNote":
       "Los datos de esta demostración son ilustrativos y no deben usarse como asesoría legal.",
+    "sources.eyebrow": "Centro de descargas",
+    "sources.title": "Documentos fuente",
+    "sources.body":
+      "Todas las fuentes de la determinación para {address} a la fecha {asOf}.",
+    "sources.back": "Volver a la consulta",
+    "sources.loading": "Cargando…",
+    "sources.downloadPack": "Descargar paquete de fuentes",
+    "sources.open": "Abrir fuente",
+    "sources.copyQuote": "Copiar cita",
+    "sources.copied": "Copiado",
+    "sources.retrieved": "recuperado",
+    "audit.eyebrow": "Registro de auditoría",
+    "audit.title": "Historial de consultas",
+    "audit.body":
+      "Cada propiedad que abrió mientras estaba conectado, con los resultados que vio. Las entradas no se pueden editar.",
+    "audit.signin": "Iniciar sesión",
+    "audit.signinHint": "para ver su historial de consultas.",
+    "audit.export": "Exportar CSV",
+    "audit.empty": "Aún no hay consultas registradas.",
+    "audit.when": "Cuándo",
+    "audit.property": "Propiedad",
+    "audit.asOf": "A la fecha",
+    "audit.result": "Resultado",
+    "audit.open": "Abrir",
     "postal.remap": "Ciudad postal",
     "postal.toLegal": "ciudad legal",
     "postal.remapHint": "Las normas se vinculan a la jurisdicción legal, no a la etiqueta postal.",
@@ -1603,8 +1660,11 @@ const STRINGS = {
     "confidence.medium.hint":
       "Confianza de extracción media. Revise el fragmento citado antes de confiar en los campos estructurados.",
     "confidence.legend":
-      "Bandas de confianza: alta ≥ 85% · media 50–85% · baja < 50% (a menudo fuentes solo-enlace).",
+      "Bandas de confianza: alta ≥ 85% · media 50–85% · baja < 50%. Baja suele indicar extractos FAQ soft-gap o páginas del pack delgadas — no es certeza legal.",
+    "confidence.bandCount": "{n} normas",
     "rules.confidence": "Confianza",
+    "rules.confidence.hint":
+      "Solo confianza de extracción. Los FAQ soft-gap y filas de baja confianza requieren revisión humana antes de confiar en los campos estructurados.",
     "changes.type.as_of": "Cambio de fecha",
     "changes.type.boundary": "Alcance",
     "changes.type.pending": "Pendiente",

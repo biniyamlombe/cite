@@ -4,6 +4,7 @@ import { useAuth } from "@/lib/auth";
 import { listAudit } from "@/lib/cite/team";
 import { downloadText } from "@/lib/cite/export";
 import { PageHeader } from "@/components/cite/layout";
+import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/audit")({
   head: () => ({
@@ -23,6 +24,7 @@ export const Route = createFileRoute("/audit")({
 });
 
 function AuditPage() {
+  const t = useT();
   const { user, ready } = useAuth();
   const q = useQuery({ queryKey: ["audit", user?.id], queryFn: listAudit, enabled: !!user });
   const csv = () =>
@@ -39,16 +41,15 @@ function AuditPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <PageHeader eyebrow="Audit log" title="Lookup history">
-        Every property you opened while signed in, with the results you saw. Entries can't be
-        edited.
+      <PageHeader eyebrow={t("audit.eyebrow")} title={t("audit.title")}>
+        {t("audit.body")}
       </PageHeader>
       {ready && !user && (
         <p className="mt-8 text-sm">
           <Link to="/auth" className="text-primary hover:underline">
-            Sign in
+            {t("audit.signin")}
           </Link>{" "}
-          to see your lookup history.
+          {t("audit.signinHint")}
         </p>
       )}
       {q.data && q.data.length > 0 && (
@@ -56,20 +57,20 @@ function AuditPage() {
           onClick={csv}
           className="mt-6 rounded-md border px-3 py-1.5 text-sm hover:bg-secondary"
         >
-          Export CSV
+          {t("audit.export")}
         </button>
       )}
       {q.data?.length === 0 && (
-        <p className="mt-8 text-sm text-muted-foreground">No lookups recorded yet.</p>
+        <p className="mt-8 text-sm text-muted-foreground">{t("audit.empty")}</p>
       )}
       {q.data && q.data.length > 0 && (
         <table className="mt-4 w-full overflow-hidden rounded-lg border bg-card text-sm">
           <thead className="bg-secondary text-left text-xs uppercase text-muted-foreground">
             <tr>
-              <th className="px-3 py-2">When</th>
-              <th className="px-3 py-2">Property</th>
-              <th className="px-3 py-2">As of</th>
-              <th className="px-3 py-2">Result</th>
+              <th className="px-3 py-2">{t("audit.when")}</th>
+              <th className="px-3 py-2">{t("audit.property")}</th>
+              <th className="px-3 py-2">{t("audit.asOf")}</th>
+              <th className="px-3 py-2">{t("audit.result")}</th>
               <th className="px-3 py-2" />
             </tr>
           </thead>
@@ -92,7 +93,7 @@ function AuditPage() {
                     search={{ address: e.address_id, as_of: e.as_of }}
                     className="text-primary hover:underline"
                   >
-                    Open
+                    {t("audit.open")}
                   </Link>
                 </td>
               </tr>

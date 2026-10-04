@@ -7,6 +7,7 @@ import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
 import { downloadText } from "@/lib/cite/export";
 import { PageHeader } from "@/components/cite/layout";
 import { fmtDate } from "@/lib/cite/labels";
+import { useT } from "@/lib/i18n";
 
 function quotePlaintext(rule: {
   citation: string;
@@ -39,6 +40,7 @@ export const Route = createFileRoute("/sources")({
 });
 
 function SourcesPage() {
+  const t = useT();
   const s = Route.useSearch();
   const addressId = s.address ?? "A0001";
   const asOf = s.as_of ?? DEFAULT_AS_OF;
@@ -86,17 +88,17 @@ function SourcesPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      <PageHeader eyebrow="Download center" title="Source documents">
-        Every source behind the determination for {addressId} as of {asOf}.{" "}
+      <PageHeader eyebrow={t("sources.eyebrow")} title={t("sources.title")}>
+        {t("sources.body", { address: addressId, asOf })}{" "}
         <Link
           to="/"
           search={{ address: addressId, as_of: asOf }}
           className="text-primary hover:underline"
         >
-          Back to lookup
+          {t("sources.back")}
         </Link>
       </PageHeader>
-      {q.isLoading && <p className="mt-8 text-sm text-muted-foreground">Loading…</p>}
+      {q.isLoading && <p className="mt-8 text-sm text-muted-foreground">{t("sources.loading")}</p>}
       {q.error && <p className="mt-8 text-sm text-destructive">{(q.error as Error).message}</p>}
       {q.data && (
         <>
@@ -104,7 +106,7 @@ function SourcesPage() {
             onClick={manifest}
             className="mt-6 inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-sm text-primary-foreground"
           >
-            <Download className="size-4" /> Download source pack
+            <Download className="size-4" /> {t("sources.downloadPack")}
           </button>
           <ul className="mt-6 divide-y rounded-lg border bg-card">
             {rules.map((r) => (
@@ -113,7 +115,7 @@ function SourcesPage() {
                   <div>
                     <div className="font-medium text-ink">{r.rule.title}</div>
                     <div className="font-mono text-[11px] text-muted-foreground">
-                      {r.rule.citation} · doc {r.rule.source_doc_id ?? "—"} · retrieved{" "}
+                      {r.rule.citation} · doc {r.rule.source_doc_id ?? "—"} · {t("sources.retrieved")}{" "}
                       {fmtDate(r.rule.retrieved_at)}
                     </div>
                   </div>
@@ -124,7 +126,7 @@ function SourcesPage() {
                       rel="noreferrer"
                       className="inline-flex items-center gap-1 rounded-md border px-3 py-1.5 text-sm hover:bg-secondary"
                     >
-                      Open source <ExternalLink className="size-3.5" />
+                      {t("sources.open")} <ExternalLink className="size-3.5" />
                     </a>
                     <button
                       type="button"
@@ -136,7 +138,7 @@ function SourcesPage() {
                       ) : (
                         <Copy className="size-3.5" />
                       )}
-                      {copiedId === r.id ? "Copied" : "Copy quote"}
+                      {copiedId === r.id ? t("sources.copied") : t("sources.copyQuote")}
                     </button>
                   </div>
                 </div>
