@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
+import { useMemo } from "react";
+import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
 import { getCiteClient } from "@/lib/cite/client";
 import { listAudit, listMemos } from "@/lib/cite/team";
@@ -10,6 +12,14 @@ import { useWatchlist } from "@/lib/cite/watchlist";
 import { useT } from "@/lib/i18n";
 import { PageHeader } from "@/components/cite/layout";
 import { SignInCard } from "@/components/cite/sign-in-card";
+
+type PulseItem = {
+  id: string;
+  at: number;
+  kind: "lookup" | "memo" | "recheckChanged" | "recheckDue";
+  label: string;
+  href?: { to: "/"; search: { address: string } } | { to: "/memos" };
+};
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
@@ -63,10 +73,60 @@ function Dashboard() {
   const sched = useQuery({ queryKey: ["schedules", user?.id], queryFn: listSchedules, enabled: !!user });
   const runNow = useMutation({
     mutationFn: () => run(),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["schedules"] }),
+    onSuccess: (data) => {
+      qc.invalidateQueries({ queryKey: ["schedules"] });
+      toast.success(
+        t("dashboard.runSummary")
+          .replace("{ran}", String(data.ran))
+          .replace("{changed}", String(data.changed))
+          .replace("{delivered}", String(data.delivered)),
+      );
+    },
   });
   const muted = "text-sm text-muted-foreground";
   const viewAll = t("dashboard.viewAll");
+
+  const pulse = useMemo(() => {
+    const items: PulseItem[] = [];
+    for (const a of audit.data ?? []) {
+      items.push({
+        id: `lookup-${a.id}`,
+        at: new Date(a.created_at).getTime(),
+        kind: "lookup",
+        label: t("dashboard.activity.lookup").replace("{id}", a.address_id),
+        href: { to: "/", search: { address: a.address_id } },
+      });
+    }
+    for (const m of memos.data ?? []) {
+      items.push({
+        id: `memo-${m.id}`,
+        at: new Date(m.created_at).getTime(),
+        kind: "memo",
+        label: t("dashboard.activity.memo").replace("{title}", m.title),
+        href: { to: "/memos" },
+      });
+    }
+    for (const s of sched.data ?? []) {
+      if (s.last_changed && s.last_run_at) {
+        items.push({
+          id: `changed-${s.id}`,
+          at: new Date(s.last_run_at).getTime(),
+          kind: "recheckChanged",
+          label: t("dashboard.activity.recheckChanged").replace("{id}", s.address_id),
+          href: { to: "/", search: { address: s.address_id } },
+        });
+      } else if (isScheduleDue(s.frequency, s.last_run_at)) {
+        items.push({
+          id: `due-${s.id}`,
+          at: s.last_run_at ? new Date(s.last_run_at).getTime() : Date.now(),
+          kind: "recheckDue",
+          label: t("dashboard.activity.recheckDue").replace("{id}", s.address_id),
+          href: { to: "/", search: { address: s.address_id } },
+        });
+      }
+    }
+    return items.sort((a, b) => b.at - a.at).slice(0, 12);
+  }, [audit.data, memos.data, sched.data, t]);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
@@ -75,6 +135,42 @@ function Dashboard() {
       </PageHeader>
 
       {ready && !user && <SignInCard messageKey="dashboard.signin" />}
+
+      {user && (
+        <section className="surface mt-8 p-5 fade-up">
+          <h3 className="eyebrow mb-3">{t("dashboard.activity")}</h3>
+          {pulse.length ? (
+            <ul className="divide-y text-sm">
+              {pulse.map((item) => (
+                <li key={item.id} className="flex flex-wrap items-center justify-between gap-2 py-2.5">
+                  {item.href?.to === "/" ? (
+                    <Link
+                      to="/"
+                      search={item.href.search}
+                      className="text-ink hover:text-primary hover:underline"
+                    >
+                      {item.label}
+                    </Link>
+                  ) : item.href?.to === "/memos" ? (
+                    <Link to="/memos" className="text-ink hover:text-primary hover:underline">
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <span className="text-ink">{item.label}</span>
+                  )}
+                  <span className="font-mono text-[11px] text-muted-foreground">
+                    {Number.isFinite(item.at)
+                      ? new Date(item.at).toISOString().slice(0, 16).replace("T", " ")
+                      : "—"}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p className={muted}>{t("dashboard.activityEmpty")}</p>
+          )}
+        </section>
+      )}
 
       <div className="mt-8 grid gap-5 md:grid-cols-2">
         <Card title={t("dashboard.rechecks")} to="/settings" viewAll={viewAll}>
