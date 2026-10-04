@@ -18,7 +18,7 @@ export function ToolsStrip({
   const on = "bg-ink text-paper";
   const off = "border border-border/80 bg-paper/80 text-muted-foreground hover:bg-secondary hover:text-ink";
   return (
-    <nav className="mb-8 flex flex-wrap gap-2" aria-label={t("tools.nav")}>
+    <nav className="mb-4 flex flex-wrap gap-2" aria-label={t("tools.nav")}>
       <Link
         to="/"
         search={{ address, as_of: asOf }}
@@ -66,7 +66,7 @@ export function QuoteCard({
   sourceLabel: string;
 }) {
   return (
-    <blockquote className="surface border-l-[3px] border-l-primary/50 px-4 py-3.5 sm:px-5">
+    <blockquote className="rounded-lg bg-quote px-4 py-3.5 sm:px-5">
       <div className="font-mono text-[11px] text-primary">
         {citation}
         {meta ? <span className="text-muted-foreground"> · {meta}</span> : null}

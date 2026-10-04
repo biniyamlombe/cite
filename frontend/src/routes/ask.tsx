@@ -4,7 +4,7 @@ import { z } from "zod";
 import { useState } from "react";
 import { AsOfDateSchema } from "@rhl/shared";
 import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
-import { useLocale, useT } from "@/lib/i18n";
+import { useLocale, useT, type StringKey } from "@/lib/i18n";
 import { PageHeader } from "@/components/cite/layout";
 import {
   AnswerLines,
@@ -19,11 +19,7 @@ const search = z.object({
   as_of: AsOfDateSchema.optional(),
 });
 
-const SUGGESTIONS = [
-  "What is the rent increase limit?",
-  "Is just-cause eviction required?",
-  "What are the security deposit rules?",
-] as const;
+const SUGGESTIONS: ReadonlyArray<StringKey> = ["ask.q.rent", "ask.q.evict", "ask.q.deposit"];
 
 export const Route = createFileRoute("/ask")({
   validateSearch: search,
@@ -49,7 +45,7 @@ function AskPage() {
   const nav = useNavigate({ from: "/ask" });
   const addressId = s.address ?? "A0016";
   const asOf = s.as_of ?? DEFAULT_AS_OF;
-  const [question, setQuestion] = useState(SUGGESTIONS[0]);
+  const [question, setQuestion] = useState(() => t("ask.q.rent"));
   const [current, setCurrent] = useState("2400");
   const [next, setNext] = useState("2600");
   const [showLetterForm, setShowLetterForm] = useState(false);
@@ -84,14 +80,15 @@ function AskPage() {
   const selected = (addrs.data ?? []).find((a) => a.address_id === addressId);
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
+    <div className="mx-auto max-w-3xl px-4 py-4 sm:px-6 sm:py-6">
       <ToolsStrip address={addressId} asOf={asOf} active="ask" />
-      <PageHeader eyebrow={t("ask.eyebrow")} title={t("ask.title")}>
+      <PageHeader className="mb-4 fade-up" eyebrow={t("ask.eyebrow")} title={t("ask.title")}>
         {t("ask.lede")}
       </PageHeader>
 
       <form
-        className="surface mt-8 space-y-5 p-5 sm:p-6"
+        className="space-y-5"
+        aria-busy={ask.isPending}
         onSubmit={(e) => {
           e.preventDefault();
           ask.mutate();
@@ -104,7 +101,7 @@ function AskPage() {
             onChange={(e) =>
               void nav({ search: (p) => ({ ...p, address: e.target.value }), replace: true })
             }
-            className="w-full rounded-lg border border-border/80 bg-background px-3 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+            className="w-full rounded-lg border border-border/80 bg-card px-3 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
           >
             {(addrs.data ?? []).map((a) => (
               <option key={a.address_id} value={a.address_id}>
@@ -115,52 +112,55 @@ function AskPage() {
           {selected && (
             <p className="mt-1.5 text-xs text-muted-foreground">
               {selected.street_address}
-              {selected.legal_city ? ` · ${selected.legal_city}` : ""}
-              {` · as of ${asOf}`}
+              {selected.legal_city ? `, ${selected.legal_city}` : ""}
+              {`, as of ${asOf}`}
             </p>
           )}
         </label>
 
         <div>
-          <FieldLabel>{t("ask.suggestions")}</FieldLabel>
-          <div className="mt-1.5 flex flex-wrap gap-2">
-            {SUGGESTIONS.map((q) => (
-              <button
-                key={q}
-                type="button"
-                onClick={() => {
-                  setQuestion(q);
-                  ask.mutate(q);
-                }}
-                className={`rounded-full border px-3 py-1.5 text-left text-xs transition-colors sm:text-sm ${
-                  question === q
-                    ? "border-primary/40 bg-accent text-ink"
-                    : "border-border/80 bg-paper/80 text-muted-foreground hover:bg-secondary hover:text-ink"
-                }`}
-              >
-                {q}
-              </button>
-            ))}
+          <label htmlFor="ask-question" className="block text-sm">
+            <FieldLabel>{t("ask.question")}</FieldLabel>
+          </label>
+          <div className="bezel">
+            <textarea
+              id="ask-question"
+              required
+              minLength={3}
+              rows={2}
+              value={question}
+              onChange={(e) => setQuestion(e.target.value)}
+              className="w-full rounded-[calc(var(--radius-xl)-2px)] bg-card px-4 py-4 font-serif text-lg leading-relaxed text-ink focus-visible:outline-none"
+            />
+          </div>
+          <div className="mt-2 flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:gap-x-4 sm:gap-y-1">
+            {SUGGESTIONS.map((key) => {
+              const q = t(key);
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  onClick={() => {
+                    setQuestion(q);
+                    ask.mutate(q);
+                  }}
+                  className={`py-1 text-left text-sm underline-offset-4 transition-colors hover:text-primary hover:underline ${
+                    question === q ? "font-medium text-ink" : "text-muted-foreground"
+                  }`}
+                >
+                  {q}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        <label className="block text-sm">
-          <FieldLabel>{t("ask.question")}</FieldLabel>
-          <textarea
-            required
-            rows={3}
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
-            className="w-full rounded-lg border border-border/80 bg-background px-3 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
-          />
-        </label>
-
         <button
           type="submit"
-          disabled={ask.isPending}
-          className="w-full rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:bg-primary/90 active:scale-[0.99] disabled:opacity-60"
+          disabled={ask.isPending || question.trim().length < 3}
+          className="rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:bg-primary/90 active:scale-[0.98] disabled:opacity-60"
         >
-          {ask.isPending ? t("common.loading") : t("ask.submit")}
+          {ask.isPending ? t("ask.reading") : t("ask.submit")}
         </button>
         {ask.isError && (
           <p role="alert" className="text-sm text-conflict">
@@ -169,8 +169,17 @@ function AskPage() {
         )}
       </form>
 
-      {ask.data && (
-        <div className="mt-10 space-y-5 fade-up">
+      {ask.isPending && (
+        <div aria-live="polite" className="mt-10 space-y-3">
+          <p className="text-sm text-muted-foreground">{t("ask.reading")}</p>
+          <div className="skeleton-shimmer h-5 w-4/5 rounded" />
+          <div className="skeleton-shimmer h-5 w-3/5 rounded" />
+          <div className="skeleton-shimmer h-5 w-2/3 rounded" />
+        </div>
+      )}
+
+      {ask.data && !ask.isPending && (
+        <div className="fade-up mt-10 space-y-5">
           {ask.data.refused && (
             <p
               role="status"
@@ -199,7 +208,7 @@ function AskPage() {
         </div>
       )}
 
-      <section className="surface mt-10 p-5 sm:p-6">
+      <section className="mt-12 border-t border-border/80 pt-8">
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <h2 className="font-serif text-xl text-ink">{t("ask.letterTitle")}</h2>
