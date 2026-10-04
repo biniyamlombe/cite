@@ -63,7 +63,7 @@ function ScenarioStrip({
 }) {
   const t = useT();
   return (
-    <div className="fade-up mb-8 grid gap-2 sm:grid-cols-5">
+    <nav aria-label={t("changes.title")} className="fade-up mb-8 grid gap-2 sm:grid-cols-5">
       {ORDER.map((id) => {
         const present = tests.some((x) => x.test_id === id);
         const n = results[id]?.affected_address_ids.length ?? 0;
@@ -73,24 +73,25 @@ function ScenarioStrip({
           <a
             key={id}
             href={`#${id}`}
-            className={`rounded-xl border px-3.5 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-dossier ${
+            aria-current={active ? "true" : undefined}
+            className={`touch-manipulation rounded-xl border px-3.5 py-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-dossier ${
               present ? "bg-card/95" : "opacity-45"
             } ${active ? "border-primary/40 bg-accent/50 shadow-dossier" : "border-border/80"}`}
           >
             <div className="flex items-baseline justify-between gap-2">
-              <span className="font-mono text-xs font-semibold text-primary">{id}</span>
+              <span translate="no" className="font-mono text-xs font-semibold text-primary">{id}</span>
               <span className="font-mono text-lg tabular-nums text-ink">{present ? n : "—"}</span>
             </div>
             <div className="mt-1.5 text-[11px] leading-snug text-muted-foreground">{t(PUNCH_KEYS[id])}</div>
             {conflicts > 0 && (
               <div className="mt-2 font-mono text-[10px] uppercase tracking-wider text-conflict">
-                {conflicts} conflict
+                {conflicts} {t("status.conflict").toLowerCase()}
               </div>
             )}
           </a>
         );
       })}
-    </div>
+    </nav>
   );
 }
 
