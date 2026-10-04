@@ -74,13 +74,18 @@ Outputs land in `outputs/` matching the challenge templates.
 npm run dev:backend
 
 # Terminal 2 — UI
+echo 'VITE_API_URL=http://localhost:4000' > frontend/.env.local
 npm run dev:frontend
+
+# Before pitching
+npm run demo:preflight
 ```
 
 - UI: Vite/Lovable app (check terminal for port, often `http://localhost:8080`)
 - API: http://localhost:4000/health
+- Lovable cloud: `npm run demo:tunnel` → set that HTTPS URL as `VITE_API_URL`
 
-Set backend `CORS_ORIGIN` to match the UI origin (see `backend/.env.example`).
+Set backend `CORS_ORIGIN` to match the UI origin (see `backend/.env.example`). Lovable preview hosts are allowed by default in the API CORS helper.
 
 Judge walkthrough: **[docs/DEMO.md](docs/DEMO.md)** (~4 minutes).
 

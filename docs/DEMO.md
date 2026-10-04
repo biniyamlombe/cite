@@ -4,11 +4,33 @@
 **Default as-of:** `2026-10-01`  
 **Stack:** API `:4000` · UI (`VITE_API_URL`) · method note `docs/METHOD.md`
 
+## Preflight (90 seconds before judges)
+
 ```bash
-# if not already running
+# Terminal 1 — API
 npm run dev:backend
+
+# Terminal 2 — local UI (preferred for reliability)
+echo 'VITE_API_URL=http://localhost:4000' > frontend/.env.local
 npm run dev:frontend
+
+# Verify critical paths
+npm run demo:preflight
 ```
+
+Expect: Live API badge in the UI, `/health` ok, A0005 / A0065 / A0002 / SA0001 lookups 200.
+
+**Lovable cloud only:** localhost won’t reach your laptop. In a third terminal:
+
+```bash
+npm run demo:tunnel
+# copy the https://….trycloudflare.com URL into Lovable:
+#   VITE_API_URL=https://YOUR-TUNNEL.trycloudflare.com
+```
+
+Quick tunnels mint a **new URL every restart** — re-run `demo:preflight` with `VITE_API_URL=https://…` after changing it.
+
+Prefer **local UI + local API** for the pitch if Wi‑Fi is flaky.
 
 ---
 
