@@ -66,11 +66,17 @@ export async function loadChangeTests(): Promise<ChangeTest[]> {
   );
 }
 
+function sortIds(ids: string[]): string[] {
+  return [...ids].sort((a, b) => a.localeCompare(b));
+}
+
 export function runChangeTests(options: {
   tests: ChangeTest[];
   rules: RuleRecord[];
   addresses: SampleAddress[];
   geos: Map<string, GeocodeResult>;
+  /** When the pack has no T6 yet, still emit an honest hour-16 placeholder. */
+  includeT6Placeholder?: boolean;
 }): Record<string, ChangeResult> {
   const { tests, rules, addresses, geos } = options;
   const out: Record<string, ChangeResult> = {};
@@ -114,7 +120,7 @@ export function runChangeTests(options: {
         })
         .map((a) => a.address_id);
       out.T1 = {
-        affected_address_ids: affected,
+        affected_address_ids: sortIds(affected),
         before_status: "not_yet_effective",
         after_status: "applies",
         notes:
@@ -148,7 +154,7 @@ export function runChangeTests(options: {
         return g?.legal_city === "Newark";
       });
       out.T2 = {
-        affected_address_ids: affected,
+        affected_address_ids: sortIds(affected),
         notes:
           test.expected_behavior +
           (newarkLeak.length
@@ -177,40 +183,55 @@ export function runChangeTests(options: {
         rules,
         asOf: test.as_of_after || "2027-07-02",
       });
-      const affected = nj.map((a) => a.address_id);
+      // Full flip check (same bar as T1), not a single sample address.
+      const flipped = nj.filter((a) => {
+        const b = lookupHasRule(
+          before[a.address_id] || [],
+          rule.team_rule_id,
+          "not_yet_effective",
+        );
+        const af = lookupHasRule(
+          after[a.address_id] || [],
+          rule.team_rule_id,
+          "applies",
+        );
+        return b && af;
+      });
+      const affected = flipped.map((a) => a.address_id);
+      const beforeOk = flipped.length === nj.length;
+      const afterOk = beforeOk;
+
+      // Prefer live conflict_flag from post-effective lookups; fall back to city set.
       const conflictCities = new Set(["Jersey City", "Hoboken"]);
       const conflict_flag_address_ids = nj
         .filter((a) => {
           const g = geos.get(a.address_id);
-          return g && conflictCities.has(g.legal_city);
+          if (!g || !conflictCities.has(g.legal_city)) return false;
+          const entry = (after[a.address_id] || []).find(
+            (e) => e.team_rule_id === rule.team_rule_id,
+          );
+          return Boolean(entry?.conflict_flag) || conflictCities.has(g.legal_city);
         })
         .map((a) => a.address_id);
 
-      // sanity: before NTE, after applies
-      const sample = nj[0];
-      const beforeOk =
-        !sample ||
-        lookupHasRule(
-          before[sample.address_id] || [],
-          rule.team_rule_id,
-          "not_yet_effective",
+      const flaggedLive = conflict_flag_address_ids.filter((id) => {
+        const entry = (after[id] || []).find(
+          (e) => e.team_rule_id === rule.team_rule_id,
         );
-      const afterOk =
-        !sample ||
-        lookupHasRule(
-          after[sample.address_id] || [],
-          rule.team_rule_id,
-          "applies",
-        );
+        return Boolean(entry?.conflict_flag);
+      }).length;
 
       out.T3 = {
-        affected_address_ids: affected,
-        conflict_flag_address_ids,
+        affected_address_ids: sortIds(affected),
+        conflict_flag_address_ids: sortIds(conflict_flag_address_ids),
         before_status: "not_yet_effective",
         after_status: "applies",
         notes:
           test.expected_behavior +
-          ` before_check=${beforeOk} after_check=${afterOk}`,
+          ` before_check=${beforeOk} after_check=${afterOk}` +
+          ` date_flip_ok=${flipped.length}/${nj.length}` +
+          ` conflict_flag_live=${flaggedLive}/${conflict_flag_address_ids.length}` +
+          " Open question: NJ FAIR Act may preempt Hoboken/Jersey City algorithmic ordinances once effective.",
       };
       continue;
     }
@@ -221,20 +242,23 @@ export function runChangeTests(options: {
       const ma = addressesInStates(addresses, geos, ["MA"]);
       const asOf = test.as_of || "2026-10-01";
       const lookups = applyAll({ addresses: ma, geos, rules, asOf });
+      const bothRequired = Boolean(p1 && p2);
       const affected = ma
         .filter((a) => {
           const e = lookups[a.address_id] || [];
           const hit1 = p1 && lookupHasRule(e, p1.team_rule_id, "pending");
           const hit2 = p2 && lookupHasRule(e, p2.team_rule_id, "pending");
-          return Boolean(hit1 || hit2);
+          // Prefer both pending aliases when both exist; else either.
+          return bothRequired ? Boolean(hit1 && hit2) : Boolean(hit1 || hit2);
         })
         .map((a) => a.address_id);
       out.T4 = {
-        affected_address_ids: affected,
+        affected_address_ids: sortIds(affected),
         notes:
           test.expected_behavior +
           (affected.length === ma.length
-            ? ` pending_ok=${affected.length}/${ma.length}`
+            ? ` pending_ok=${affected.length}/${ma.length}` +
+              (bothRequired ? " (MA-ALG-P1 and MA-ALG-P2)" : "")
             : ` WARNING: pending_ok=${affected.length}/${ma.length}; expected all MA addresses pending for MA-ALG-P1/P2.`),
       };
       continue;
@@ -262,12 +286,25 @@ export function runChangeTests(options: {
             x.team_rule_id === rule.team_rule_id,
         );
       });
+      // Also guard: no MA city rent_increase_limits "applies" that looks like a rent cap.
+      const rogueCap = maCities.filter((a) => {
+        const e = lookups[a.address_id] || [];
+        return e.some((x) => {
+          if (x.result !== "applies") return false;
+          const r = rules.find((rr) => rr.team_rule_id === x.team_rule_id);
+          if (!r || r.category !== "rent_increase_limits") return false;
+          if (r.status === "failed") return true;
+          return /rent control|rent cap|IP\s*25-21/i.test(
+            `${r.title} ${r.citation}`,
+          );
+        });
+      });
       out.T5 = {
         affected_address_ids: [],
         notes:
           test.expected_behavior +
-          (wrongly.length
-            ? ` WARNING: ${wrongly.length} addresses incorrectly show failed ballot as applies`
+          (wrongly.length || rogueCap.length
+            ? ` WARNING: wrongly_applies=${wrongly.length} rogue_cap=${rogueCap.length}`
             : " Failed ballot correctly omitted from applies."),
       };
       continue;
@@ -289,8 +326,8 @@ export function runChangeTests(options: {
       });
 
       if (t6Rules.length === 0) {
-        out.T6 = {
-          affected_address_ids: cambridge.map((a) => a.address_id),
+      out.T6 = {
+          affected_address_ids: sortIds(cambridge.map((a) => a.address_id)),
           notes:
             "T6 ready: hour-16 ordinance not yet in rules.json. Re-run extract when the pack drops the new Cambridge doc, then re-run changes. Placeholder lists all Cambridge sample addresses.",
         };
@@ -340,7 +377,7 @@ export function runChangeTests(options: {
       }
 
       out.T6 = {
-        affected_address_ids: affected,
+        affected_address_ids: sortIds(affected),
         ...(before_status ? { before_status } : {}),
         ...(after_status ? { after_status } : {}),
         notes:
@@ -350,6 +387,21 @@ export function runChangeTests(options: {
       };
       continue;
     }
+  }
+
+  // Honest hour-16 stub when organizers have not shipped T6 in the pack yet.
+  if (
+    options.includeT6Placeholder !== false &&
+    !out.T6 &&
+    !tests.some((t) => t.test_id === "T6")
+  ) {
+    const cambridge = addressesInCity(addresses, geos, "Cambridge");
+    out.T6 = {
+      affected_address_ids: [],
+      notes:
+        "T6 placeholder (hour-16 Cambridge ordinance not in this pack). " +
+        `Cambridge sample size=${cambridge.length}. Awaiting corpus release — do not invent results.`,
+    };
   }
 
   return out;
