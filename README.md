@@ -67,7 +67,7 @@ These are product constraints, not polish:
 - **Postal ≠ legal city.** City rules attach to Census legal jurisdiction (e.g. Dorchester postal → Boston legal).
 - **Dual status.** Coverage applicability (`appears to apply` / `unknown` / …) is separate from legal status (`in force` / `pending` / `not yet effective` / `failed`).
 - **Pending / NTE are not current law.** They never sit under “Appear to apply.”
-- **Link-only municipalities.** Hoboken / Jersey City primary ordinance pages are scaffolds quoting **NJ FAIR Act (D069)** — never invented municipal code. Live applicability stays `unknown` / scenario-labeled.
+- **Link-only municipalities.** Hoboken / Jersey City primary ordinance pages stay link-only (ecode360). Cite quotes public **secondary city reports** in `data/stretch/secondary_corpus/` — never invented municipal code. Live applicability stays `unknown` / scenario-labeled.
 - **Conflicts need humans.** Overlaps (e.g. NJ FAIR vs local alg rules) flag `needs_human_review` without picking a legal winner.
 - **Session fact overrides.** Year/units entered in the UI preview coverage for this session only; they are marked `user_provided` and are not corpus truth.
 - **UI is display-only.** No browser-side legal evaluation — live Hono API or offline corpus snapshots only.

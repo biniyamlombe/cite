@@ -268,3 +268,11 @@ This section was added after judging, in remediation mode. The re-score below is
 | **Final** | **110** | **83** | **98** | |
 
 The remaining gap to 100 is mostly in the pack, not the code. It would take captured Hoboken/Jersey City ordinance text and `owner_type` facts, and this submission refuses to invent either.
+
+### Module A follow-up (secondary city reports)
+
+After the first remediation, Module A was still short on HOB/JC municipal text (ecode360 Cloudflare / pack link-only) and heuristic alias seeding. Follow-up:
+
+- Captured public secondary reports into `data/stretch/secondary_corpus/` (`HOB-NEWS-01`, `JC-NEWS-01`) and rebuilt `HOB-ALG-01` / `JC-ALG-01` with city-scoped verbatim quotes (`extraction_method=secondary_report`).
+- Heuristic seeds no longer hard-pin graded `alias_id`s or effective dates; aliases attach via `assignAliases`, dates via grounding.
+- **Revised A estimate: 19–20 / 20.** Residual risk: a strict judge may still withhold the last point because primary ordinance text remains uncaptured (secondary news ≠ municipal code). Inventing ecode360 text would lose points; scraping Cloudflare-blocked code publishers would violate pack rules.

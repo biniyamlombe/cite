@@ -69,7 +69,7 @@ Call out:
 **Rule detail:** `HOB-ALG-01` (current `team_rule_id` in Rules / lookup evidence)
 
 Call out:
-- Primary Hoboken/JC ordinance pages are **link-only** in the pack
+- Primary Hoboken/JC ordinance pages are **link-only** in the pack; evidence quotes are city **secondary reports**, not municipal code
 - Applicability **unknown**, confidence **0.35**, conflict flag, `conflict_note` lists primary URLs
 - The municipal effective date is unverified; T2/T3 encode challenge scenario membership, not a verified municipal determination
 - Quoted span is **NJ FAIR Act (D069)** — not invented municipal code
