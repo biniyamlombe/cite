@@ -132,7 +132,7 @@ function RootComponent() {
             Skip to content / Ir al contenido
           </a>
           <SiteHeader />
-          <main id="main-content" tabIndex={-1} className="flex-1 pb-16">
+          <main id="main-content" tabIndex={-1} className="flex-1 pb-28">
             <Outlet />
           </main>
           <DisclaimerBar />

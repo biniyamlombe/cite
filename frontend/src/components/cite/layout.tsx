@@ -16,7 +16,7 @@ function AccountButton() {
     return (
       <Link
         to="/auth"
-        className="rounded-full border border-border/80 bg-paper/80 px-3 py-1 text-xs text-ink transition-colors duration-200 hover:bg-secondary"
+        className="rounded-md bg-primary px-3.5 py-1.5 text-[13px] font-medium text-primary-foreground shadow-sm transition-colors duration-200 hover:bg-primary/90"
       >
         {t("nav.signin")}
       </Link>
@@ -26,7 +26,7 @@ function AccountButton() {
     <button
       onClick={() => supabase.auth.signOut()}
       title={user.email ?? ""}
-      className="rounded-full border border-border/80 bg-paper/80 px-3 py-1 text-xs text-muted-foreground transition-colors duration-200 hover:text-ink"
+      className="rounded-md px-2.5 py-1.5 text-[13px] text-muted-foreground transition-colors duration-200 hover:text-ink"
     >
       {t("nav.signout")}
     </button>
@@ -74,21 +74,15 @@ type MoreLink = {
   key: StringKey;
 };
 
-/** Tier-3 product surfaces — grouped so More reads as product structure */
+/** More menu — lean product surfaces only; power tools live in ⌘K */
 const MORE_MONITOR: ReadonlyArray<MoreLink> = [
-  { to: "/dashboard", key: "nav.dashboard" },
   { to: "/inbox", key: "nav.inbox" },
   { to: "/portfolio", key: "nav.portfolio" },
-  { to: "/bulk", key: "nav.bulk" },
-  { to: "/coverage", key: "nav.coverage" },
 ];
 
 const MORE_TEAM: ReadonlyArray<MoreLink> = [
-  { to: "/audit", key: "nav.audit" },
   { to: "/workspace", key: "nav.workspace" },
   { to: "/memos", key: "nav.memos" },
-  { to: "/rules", key: "nav.rules" },
-  { to: "/pipeline", key: "nav.pipeline" },
   { to: "/settings", key: "nav.settings" },
 ];
 
@@ -127,8 +121,8 @@ function MoreNav() {
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen((v) => !v)}
-        className={`rounded-full px-3 py-1.5 text-muted-foreground transition-all duration-200 hover:text-ink ${
-          moreActive || open ? "bg-secondary text-ink font-medium shadow-sm" : ""
+        className={`rounded-md px-2.5 py-1.5 font-medium text-muted-foreground transition-colors duration-200 hover:text-ink ${
+          moreActive || open ? "!text-primary" : ""
         }`}
       >
         {t("nav.more")}
@@ -178,41 +172,19 @@ function MoreNav() {
 function LocaleToggle() {
   const { locale, setLocale } = useLocale();
   const t = useT();
-  const options = [
-    { id: "en-US" as const, label: t("nav.lang.en"), short: "EN" },
-    { id: "es-US" as const, label: t("nav.lang.es"), short: "ES" },
-  ];
+  const isEn = locale === "en-US";
+  const next = isEn ? "es-US" : "en-US";
+  const nextLabel = isEn ? t("nav.lang.es") : t("nav.lang.en");
   return (
-    <div
-      className="inline-flex max-w-full flex-wrap items-center gap-1 rounded-full border border-border/80 bg-paper/70 p-0.5 text-[11px]"
-      role="group"
-      aria-label={t("nav.changeLanguage")}
+    <button
+      type="button"
+      onClick={() => setLocale(next)}
+      aria-label={`${t("nav.changeLanguage")}: ${nextLabel}`}
+      title={nextLabel}
+      className="rounded-md px-1.5 py-1 font-mono text-[11px] font-semibold tracking-wide text-muted-foreground transition-colors duration-200 hover:text-ink"
     >
-      <span className="sr-only" id="cite-lang-label">
-        {t("nav.changeLanguage")}
-      </span>
-      {options.map((opt) => {
-        const active = locale === opt.id;
-        // Opposite-language affordance: show Español while in English, English while in Spanish.
-        const visible = opt.id === "es-US" ? t("nav.lang.es") : t("nav.lang.en");
-        return (
-          <button
-            key={opt.id}
-            type="button"
-            onClick={() => setLocale(opt.id)}
-            aria-pressed={active}
-            aria-label={`${t("nav.changeLanguage")}: ${visible}`}
-            title={visible}
-            className={`rounded-full px-2.5 py-0.5 font-medium transition-all duration-200 ${
-              active ? "bg-ink text-paper shadow-sm" : "text-muted-foreground hover:text-ink"
-            }`}
-          >
-            <span className="sm:hidden">{opt.short}</span>
-            <span className="hidden sm:inline">{visible}</span>
-          </button>
-        );
-      })}
-    </div>
+      {isEn ? "EN" : "ES"}
+    </button>
   );
 }
 
@@ -238,47 +210,38 @@ export function SiteHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   useEffect(() => setMenu(false), [pathname]);
   return (
-    <header className="print:hidden sticky top-0 z-40 px-3 pt-3 sm:px-4 sm:pt-4">
-      <div className="mx-auto max-w-6xl rounded-2xl border border-border/70 bg-paper/80 shadow-island backdrop-blur-xl">
-        <div className="flex items-center gap-3 px-3.5 py-2.5 sm:gap-5 sm:px-5">
+    <header className="print:hidden sticky top-0 z-40 border-b border-border/70 bg-paper/85 backdrop-blur-xl">
+      <div className="mx-auto max-w-6xl">
+        <div className="flex h-14 items-center gap-6 px-4 sm:px-6">
           <Wordmark />
-          <span
-            className="hidden rounded-full border border-border/70 bg-secondary/50 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground lg:inline"
-            title={t("scope.help")}
-          >
-            {t("scope.chip")}
-          </span>
           <nav
             aria-label={t("nav.primary")}
-            className="hidden min-w-0 flex-1 flex-wrap items-center gap-0.5 text-sm md:flex"
+            className="hidden min-w-0 flex-1 items-center gap-1 text-[13px] md:flex"
           >
             {PRIMARY_NAV.map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
                 activeOptions={{ exact: n.to === "/" }}
-                className="rounded-full px-2.5 py-1.5 text-muted-foreground transition-all duration-200 hover:bg-secondary/80 hover:text-ink"
-                activeProps={{ className: "bg-secondary !text-ink font-medium shadow-sm" }}
+                className="rounded-md px-2.5 py-1.5 font-medium text-muted-foreground transition-colors duration-200 hover:text-ink"
+                activeProps={{ className: "!text-primary" }}
               >
                 {t(n.key)}
               </Link>
             ))}
             <MoreNav />
           </nav>
-          <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-2.5 md:ml-0">
+          <div className="ml-auto flex shrink-0 items-center gap-3 md:ml-0">
             <span
-              className={`font-mono text-[10px] uppercase tracking-wider ${
+              className={`hidden items-center sm:flex ${
                 mode === "live" && health.data?.ok && !health.isError
                   ? "text-applies"
-                  : "text-muted-foreground/80"
+                  : "text-muted-foreground/70"
               }`}
               title={t(modeLabel)}
+              aria-label={t(modeLabel)}
             >
-              <span
-                className="mr-1.5 inline-block size-1.5 rounded-full bg-current opacity-80"
-                aria-hidden
-              />
-              {t(modeLabel)}
+              <span className="inline-block size-1.5 rounded-full bg-current" aria-hidden />
             </span>
             <CommandPaletteTrigger />
             <LocaleToggle />
@@ -288,7 +251,7 @@ export function SiteHeader() {
               onClick={() => setMenu((v) => !v)}
               aria-expanded={menu}
               aria-label={t("nav.menu")}
-              className="inline-flex size-10 items-center justify-center rounded-full border border-border/80 text-ink transition-transform active:scale-[0.98] md:hidden"
+              className="inline-flex size-9 items-center justify-center rounded-md text-ink transition-colors hover:bg-secondary md:hidden"
             >
               {menu ? <X className="size-4" /> : <Menu className="size-4" />}
             </button>

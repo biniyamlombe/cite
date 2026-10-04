@@ -10,6 +10,7 @@ import {
   CommandSeparator,
 } from "@/components/ui/command";
 import { DialogTitle } from "@/components/ui/dialog";
+import { Search } from "lucide-react";
 import { useT, type StringKey } from "@/lib/i18n";
 
 type NavTo =
@@ -122,10 +123,10 @@ export function CommandPaletteTrigger() {
       type="button"
       onClick={() => window.dispatchEvent(new Event("cite:command"))}
       aria-label={t("command.open")}
-      className="hidden items-center gap-1.5 rounded-full border border-border/80 bg-paper/80 px-2.5 py-1 font-mono text-[11px] text-muted-foreground transition-colors hover:bg-secondary hover:text-ink sm:inline-flex"
+      className="hidden items-center gap-1 rounded-md px-1.5 py-1 text-muted-foreground transition-colors hover:text-ink sm:inline-flex"
     >
-      <span>{t("command.openShort")}</span>
-      <kbd className="rounded border border-border/70 bg-secondary/80 px-1 py-px text-[10px]">
+      <Search className="size-3.5" aria-hidden />
+      <kbd className="rounded border border-border/70 bg-secondary/80 px-1 py-px font-mono text-[10px]">
         {t("command.shortcut")}
       </kbd>
     </button>
