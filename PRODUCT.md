@@ -23,6 +23,7 @@ Meaningfully different mechanism: verbatim `quoted_span` evidence + dual coverag
 - Change Radar (T1–T5; T6 placeholder)
 - Rules / Pipeline / About surfaces for the judge demo
 - EN/ES chrome locale; citations stay in source language
+- Responsible design: as-of, unknown-over-guess, conflict/open-question callouts, link-only honesty, not a compliance certification
 - Live Hono API or mock client
 
 ## Constraints

@@ -56,4 +56,6 @@ Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no
 - Rule version history is rebuilt from git snapshots of `rules.json` (`npm run build-versions` → `outputs/rule_versions.json`).  
 - Stretch: Santa Ana uses the same pipeline via `data/stretch/santa_ana_addresses.csv` + `npm run stretch` (pack’s 500 change-test addresses unchanged).  
 - UI surfaces pack §9 open questions as distinct callouts; Spanish locale covers chrome only.  
+- Link-only primary pages (HOB/JC) show an explicit honesty banner: quotes stay on capturable corpus text; no invented municipal code.  
+- Sticky disclaimer: not legal advice and not a compliance certification; About lists pack §8 commitments + §9 open questions.  
 - This is a prototype, not counsel-reviewed advice.
