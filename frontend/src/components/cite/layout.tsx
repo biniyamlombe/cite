@@ -56,18 +56,25 @@ const PRIMARY_NAV: ReadonlyArray<{
   { to: "/about", key: "nav.about" },
 ];
 
-/** Tier-3 product surfaces — collapsed so they do not distract the challenge demo */
-const MORE_NAV: ReadonlyArray<{
+type MoreLink = {
   to: "/dashboard" | "/portfolio" | "/bulk" | "/coverage" | "/memos" | "/settings";
   key: StringKey;
-}> = [
-  { to: "/dashboard", key: "nav.dashboard" },
+};
+
+/** Tier-3 product surfaces — grouped so More reads as product structure */
+const MORE_MONITOR: ReadonlyArray<MoreLink> = [
   { to: "/portfolio", key: "nav.portfolio" },
   { to: "/bulk", key: "nav.bulk" },
   { to: "/coverage", key: "nav.coverage" },
+];
+
+const MORE_TEAM: ReadonlyArray<MoreLink> = [
+  { to: "/dashboard", key: "nav.dashboard" },
   { to: "/memos", key: "nav.memos" },
   { to: "/settings", key: "nav.settings" },
 ];
+
+const MORE_NAV: ReadonlyArray<MoreLink> = [...MORE_MONITOR, ...MORE_TEAM];
 
 function MoreNav() {
   const t = useT();
@@ -92,6 +99,9 @@ function MoreNav() {
     };
   }, [open]);
 
+  const linkClass =
+    "block px-3.5 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-ink";
+
   return (
     <div className="relative" ref={ref}>
       <button
@@ -108,15 +118,34 @@ function MoreNav() {
       {open && (
         <div
           role="menu"
-          className="absolute left-0 top-full z-50 mt-2 min-w-[11rem] overflow-hidden rounded-xl border border-border/80 bg-popover/95 py-1 shadow-dropdown backdrop-blur-xl"
+          className="absolute left-0 top-full z-50 mt-2 min-w-[12.5rem] overflow-hidden rounded-xl border border-border/80 bg-popover/95 py-1.5 shadow-dropdown backdrop-blur-xl"
         >
-          {MORE_NAV.map((n) => (
+          <div className="px-3.5 pb-1 pt-1.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground/80">
+            {t("nav.more.monitor")}
+          </div>
+          {MORE_MONITOR.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               role="menuitem"
               onClick={() => setOpen(false)}
-              className="block px-3.5 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-ink"
+              className={linkClass}
+              activeProps={{ className: "bg-secondary !text-ink font-medium" }}
+            >
+              {t(n.key)}
+            </Link>
+          ))}
+          <div className="my-1.5 border-t border-border/60" />
+          <div className="px-3.5 pb-1 pt-0.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground/80">
+            {t("nav.more.team")}
+          </div>
+          {MORE_TEAM.map((n) => (
+            <Link
+              key={n.to}
+              to={n.to}
+              role="menuitem"
+              onClick={() => setOpen(false)}
+              className={linkClass}
               activeProps={{ className: "bg-secondary !text-ink font-medium" }}
             >
               {t(n.key)}
@@ -130,11 +159,12 @@ function MoreNav() {
 
 function LocaleToggle() {
   const { locale, setLocale } = useLocale();
+  const t = useT();
   return (
     <div
       className="inline-flex rounded-full border border-border/80 bg-paper/70 p-0.5 font-mono text-[11px]"
       role="group"
-      aria-label="Language"
+      aria-label={t("nav.language")}
     >
       {(["en", "es"] as const).map((l) => (
         <button
@@ -163,7 +193,7 @@ export function SiteHeader() {
       <div className="mx-auto max-w-6xl rounded-2xl border border-border/70 bg-paper/80 shadow-island backdrop-blur-xl">
         <div className="flex items-center gap-3 px-3.5 py-2.5 sm:gap-5 sm:px-5">
           <Wordmark />
-          <nav aria-label="Primary" className="hidden min-w-0 flex-1 flex-wrap items-center gap-0.5 text-sm md:flex">
+          <nav aria-label={t("nav.primary")} className="hidden min-w-0 flex-1 flex-wrap items-center gap-0.5 text-sm md:flex">
             {PRIMARY_NAV.map((n) => (
               <Link
                 key={n.to}
@@ -201,7 +231,7 @@ export function SiteHeader() {
           </div>
         </div>
         {menu && (
-          <nav aria-label="Mobile" className="border-t border-border/60 px-3 py-2 md:hidden">
+          <nav aria-label={t("nav.mobile")} className="border-t border-border/60 px-3 py-2 md:hidden">
             {[...PRIMARY_NAV, ...MORE_NAV].map((n) => (
               <Link
                 key={n.to}
