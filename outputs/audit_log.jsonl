@@ -713,3 +713,8 @@
 {"ts":"2026-10-04T09:43:23.547Z","kind":"schema_check","message":"OK — sample_rule_record.json validates (Zod + Ajv)"}
 {"ts":"2026-10-04T09:43:24.899Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-04T09:43:25.284Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T19:38:28.652Z","kind":"extract_corpus","source":"claude","model":"claude-opus-5-5","rule_count":146,"message":"Claude ok=1 failed=0 raw_rules=1","meta":{"docs_processed":1,"claude_docs_ok":1,"claude_docs_failed":0,"merge":true,"doc_ids":["D047"],"retry_failed":true,"upgraded_docs":[],"retry_model":"claude-opus-5-5"}}
+{"ts":"2026-10-04T19:38:30.366Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T19:38:30.789Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-sonnet-5-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T19:40:00.460Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T19:40:00.897Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-sonnet-5-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
