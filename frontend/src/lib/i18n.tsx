@@ -348,6 +348,8 @@ const STRINGS = {
       "Pending or not-yet-effective measures are listed separately. They are not current enforceable law for the selected date.",
     "lookup.honesty.linkOnly":
       "Primary ordinance pages are link-only in the pack; quoted evidence stays on capturable corpus text.",
+    "lookup.honesty.softGap":
+      "Screening rules quoted from thin FAQ/summary pages — provisional, not full municipal code.",
     "lookup.honesty.corpusGap.title": "Uncaptured local corpus",
     "lookup.honesty.corpusGap":
       "This city’s local ordinance pages are link-only or check-terms in the pack (no capturable body). Cite shows statewide rules only and will not invent municipal code.",
@@ -763,11 +765,18 @@ const STRINGS = {
       "Primary page has no capturable body. Quote is from a capturable corpus doc, not invented municipal text.",
     "rule.linkOnly.body":
       "The pack marks this ordinance page as link-only. Cite does not invent municipal code. The quoted span comes from a capturable corpus document (e.g. NJ FAIR Act), and primary URLs stay in the conflict note for human review.",
+    "rule.softGap": "Soft-gap screening extract",
+    "rule.softGap.badge": "Soft-gap FAQ",
+    "rule.softGap.short":
+      "Quoted from a thin FAQ/summary page, not the full municipal code. Treat as provisional.",
+    "rule.softGap.body":
+      "This screening rule is a disclosed soft-gap extract from a capturable FAQ or agency summary. It is not a full ordinance body. Prefer human review of the primary municipal text before relying on structured fields.",
+    "rule.municipal.badge": "Municipal ordinance",
     "rule.source": "Source",
     "rule.meta": "Meta",
     "about.limits": "Honesty limits",
     "about.limits.body":
-      "No invented ordinance text for link-only pages. Missing year/units → unknown. Open legal questions surface as callouts, not guesses. Pending bills never appear as applies.",
+      "No invented ordinance text for link-only pages. Soft-gap FAQ extracts are labeled provisional. Missing year/units → unknown. Open legal questions surface as callouts, not guesses. Pending bills never appear as applies.",
     "about.responsible": "Responsible design",
     "about.responsible.lede":
       "Built to the pack’s Do / Don’t list. Honesty over a false single answer.",
@@ -781,7 +790,7 @@ const STRINGS = {
     "about.commit.conflict": "State/local overlaps are conflict-flagged for human review.",
     "about.commit.audit": "Extract, lookup, and change-test runs leave an audit trail.",
     "about.commit.noInvent":
-      "No invented ordinance text for link-only pages; scaffolds quote only capturable corpus spans.",
+      "No invented ordinance text: municipal bans use adopted city PDFs; soft-gap FAQs are labeled provisional; link-only pack pages stay uncaptured.",
     "about.commit.noAdvice":
       "Not legal advice and not a compliance certification. Always verify with qualified counsel.",
     "about.openQuestions": "Known open questions in the law",
@@ -1200,6 +1209,8 @@ const STRINGS = {
       "Las medidas pendientes o aún no vigentes se listan aparte. No son ley exigible para la fecha seleccionada.",
     "lookup.honesty.linkOnly":
       "Las páginas primarias son solo-enlace en el pack; la evidencia citada permanece en el corpus capturable.",
+    "lookup.honesty.softGap":
+      "Normas de screening citadas de FAQ/resúmenes breves — provisionales, no el código municipal completo.",
     "lookup.honesty.corpusGap.title": "Corpus local no capturado",
     "lookup.honesty.corpusGap":
       "Las ordenanzas locales de esta ciudad son solo-enlace o check-terms en el pack (sin cuerpo capturable). Cite muestra solo normas estatales y no inventa código municipal.",
@@ -1622,11 +1633,18 @@ const STRINGS = {
       "La página primaria no tiene cuerpo capturable. La cita viene de un documento del corpus, no de texto municipal inventado.",
     "rule.linkOnly.body":
       "El pack marca esta ordenanza como solo-enlace. Cite no inventa código municipal. El fragmento citado proviene de un documento capturable del corpus (p. ej. NJ FAIR Act), y las URL primarias quedan en la nota de conflicto para revisión humana.",
+    "rule.softGap": "Extracto de screening soft-gap",
+    "rule.softGap.badge": "FAQ soft-gap",
+    "rule.softGap.short":
+      "Citado de una página FAQ/resumen breve, no del código municipal completo. Trátelo como provisional.",
+    "rule.softGap.body":
+      "Esta norma de screening es un extracto soft-gap divulgado de un FAQ o resumen institucional capturable. No es el cuerpo completo de la ordenanza. Prefiera revisión humana del texto municipal primario antes de confiar en los campos estructurados.",
+    "rule.municipal.badge": "Ordenanza municipal",
     "rule.source": "Fuente",
     "rule.meta": "Meta",
     "about.limits": "Límites de honestidad",
     "about.limits.body":
-      "Sin texto inventado en páginas solo-enlace. Año/unidades faltantes → desconocido. Las preguntas jurídicas abiertas aparecen como avisos, no como conjeturas. Los proyectos pendientes nunca aparecen como aplica.",
+      "Sin texto inventado en páginas solo-enlace. Los extractos FAQ soft-gap se etiquetan como provisionales. Año/unidades faltantes → desconocido. Las preguntas jurídicas abiertas aparecen como avisos, no como conjeturas. Los proyectos pendientes nunca aparecen como aplica.",
     "about.responsible": "Diseño responsable",
     "about.responsible.lede":
       "Construido según la lista Do / Don’t del pack. Honestidad antes que una respuesta falsa única.",
@@ -1642,7 +1660,7 @@ const STRINGS = {
     "about.commit.audit":
       "Extracción, consultas y pruebas de cambio dejan un registro de auditoría.",
     "about.commit.noInvent":
-      "Sin texto inventado en páginas solo-enlace; los andamiajes solo citan fragmentos capturables del corpus.",
+      "Sin texto inventado: las prohibiciones municipales usan PDF oficiales de la ciudad; los FAQ soft-gap se etiquetan como provisionales; las páginas solo-enlace del pack quedan sin capturar.",
     "about.commit.noAdvice":
       "No es asesoría legal ni certificación de cumplimiento. Siempre verifique con un abogado calificado.",
     "about.openQuestions": "Preguntas jurídicas abiertas conocidas",

@@ -11,8 +11,10 @@ import {
   ConflictWarning,
   LinkOnlyWarning,
   OpenQuestionWarning,
+  SoftGapWarning,
   UnknownFactWarning,
   isLinkOnlyScaffold,
+  isSoftGapScaffold,
   splitOpenQuestion,
 } from "./warnings";
 import { PropertyFacts } from "./property";
@@ -64,6 +66,8 @@ export function RuleCard({
   const prominent = result === "applies";
   const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
+  const softGap = isSoftGapScaffold(rule);
+  const municipal = rule.extraction_method === "municipal_ordinance";
   const review = needsHumanReview || conflict;
   const cardExplanation =
     locale === "es-US" &&
@@ -107,6 +111,16 @@ export function RuleCard({
               {t("rule.linkOnly.badge")}
             </span>
           )}
+          {softGap && (
+            <span className="inline-flex items-center rounded-sm border border-pending/30 bg-pending-soft px-2 py-0.5 text-[11px] font-medium text-pending">
+              {t("rule.softGap.badge")}
+            </span>
+          )}
+          {municipal && (
+            <span className="inline-flex items-center rounded-sm border border-applies/25 bg-applies-soft px-2 py-0.5 text-[11px] font-medium text-applies">
+              {t("rule.municipal.badge")}
+            </span>
+          )}
           {band && (
             <span
               className={cn(
@@ -144,6 +158,11 @@ export function RuleCard({
       {linkOnly ? (
         <div className="mt-3">
           <LinkOnlyWarning compact />
+        </div>
+      ) : null}
+      {softGap ? (
+        <div className="mt-3">
+          <SoftGapWarning compact />
         </div>
       ) : null}
       {factsMissing && factsMissing.length > 0 && result === "unknown" ? (
@@ -320,6 +339,11 @@ export function CitationPanel({
         {isLinkOnlyScaffold(rule) ? (
           <div className="mb-3">
             <LinkOnlyWarning note={rule.conflict_note} />
+          </div>
+        ) : null}
+        {isSoftGapScaffold(rule) ? (
+          <div className="mb-3">
+            <SoftGapWarning note={rule.conflict_note} />
           </div>
         ) : null}
         <figure className="quote-enter relative rounded-sm bg-quote px-4 py-3.5">
@@ -511,6 +535,8 @@ export function RuleDetailDrawer({
   const cov = coverageText(rule.coverage_conditions);
   const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
+  const softGap = isSoftGapScaffold(rule);
+  const municipal = rule.extraction_method === "municipal_ordinance";
   const copyEvidenceLink = async () => {
     if (!addressId) return;
     const url = new URL(window.location.origin + "/");
@@ -547,6 +573,16 @@ export function RuleDetailDrawer({
                   {t("rule.linkOnly.badge")}
                 </span>
               )}
+              {softGap && (
+                <span className="inline-flex items-center rounded-sm border border-pending/30 bg-pending-soft px-2 py-0.5 text-[11px] font-medium text-pending">
+                  {t("rule.softGap.badge")}
+                </span>
+              )}
+              {municipal && (
+                <span className="inline-flex items-center rounded-sm border border-applies/25 bg-applies-soft px-2 py-0.5 text-[11px] font-medium text-applies">
+                  {t("rule.municipal.badge")}
+                </span>
+              )}
               {result && <StatusBadge value={result} size="md" />}
               <StatusBadge
                 value={rule.evidence_status === "scenario_only" ? "unknown" : legalStatus}
@@ -575,10 +611,10 @@ export function RuleDetailDrawer({
         </header>
         <div className="space-y-6 px-6 py-6">
           <WhyThisApplies result={result} explanation={explanation} plainLanguage={plainLanguage} />
-          {(conflict || rule.conflict_note) && !linkOnly && (
+          {(conflict || rule.conflict_note) && !linkOnly && !softGap && (
             <ConflictWarning note={rule.conflict_note} />
           )}
-          {conflict && linkOnly && <ConflictWarning />}
+          {conflict && (linkOnly || softGap) && <ConflictWarning />}
           <CitationPanel rule={rule} asOf={asOf} />
           <section
             className={cn(

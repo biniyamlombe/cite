@@ -37,7 +37,11 @@ import { lookupToCsv, downloadText } from "@/lib/cite/export";
 import { useWatchlist } from "@/lib/cite/watchlist";
 import { EffectiveTimeline } from "@/components/cite/timeline";
 import { RuleCard, RuleDetailDrawer, type RuleView } from "@/components/cite/rule";
-import { CorpusGapWarning, isLinkOnlyScaffold } from "@/components/cite/warnings";
+import {
+  CorpusGapWarning,
+  isLinkOnlyScaffold,
+  isSoftGapScaffold,
+} from "@/components/cite/warnings";
 import { createCase } from "@/lib/cite/cases";
 import { MissingFactsPanel, type FactOverrides } from "@/components/cite/missing-facts";
 import { AuditTrailPanel } from "@/components/cite/audit-panel";
@@ -561,11 +565,21 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
     (r) => r.result === "pending" || r.result === "not_yet_effective",
   ).length;
   const linkOnlyN = data.results.filter((r) => r.rule && isLinkOnlyScaffold(r.rule)).length;
+  const softGapN = data.results.filter((r) => r.rule && isSoftGapScaffold(r.rule)).length;
   const gaps = data.corpus_gaps ?? [];
   const userFacts =
     data.building_facts?.facts_source === "user_provided" ||
     data.audit?.user_provided_facts === true;
-  if (!unknownN && !conflictN && !pendingN && !linkOnlyN && !gaps.length && !userFacts) return null;
+  if (
+    !unknownN &&
+    !conflictN &&
+    !pendingN &&
+    !linkOnlyN &&
+    !softGapN &&
+    !gaps.length &&
+    !userFacts
+  )
+    return null;
   return (
     <div className="space-y-2">
       {gaps.length > 0 && <CorpusGapWarning gaps={gaps} />}
@@ -626,6 +640,18 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{linkOnlyN}</span>{" "}
             {t("rule.linkOnly.badge").toLowerCase()} · {t("lookup.honesty.linkOnly")}
+          </p>
+        </div>
+      )}
+      {softGapN > 0 && (
+        <div
+          role="status"
+          className="flex gap-2.5 rounded-md border border-pending/30 bg-pending-soft px-3 py-2.5 text-sm"
+        >
+          <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-pending" />
+          <p className="text-ink/90">
+            <span className="font-mono tabular-nums font-semibold">{softGapN}</span>{" "}
+            {t("rule.softGap.badge").toLowerCase()} · {t("lookup.honesty.softGap")}
           </p>
         </div>
       )}
