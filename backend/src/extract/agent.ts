@@ -1,6 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { createHash } from "node:crypto";
-import { mkdir, readFile, writeFile, unlink } from "node:fs/promises";
+import { mkdir, readFile, unlink } from "node:fs/promises";
 import path from "node:path";
 import type { RuleRecord } from "@rhl/shared";
 import { RuleRecordSchema } from "@rhl/shared";
@@ -31,23 +31,24 @@ import {
   preferClaudeRules,
 } from "./heuristic.js";
 import { appendAudit } from "../lib/audit.js";
+import { writeJson } from "../lib/io.js";
 
 function nextId(n: number): string {
   return `r-${String(n).padStart(4, "0")}`;
 }
 
-function cacheKey(docId: string, body: string): string {
-  const h = createHash("sha256").update(body).digest("hex").slice(0, 16);
+function cacheKey(docId: string, body: string, model = defaultModel()): string {
+  const h = createHash("sha256").update(JSON.stringify({ body, version: 2, prompt: EXTRACTION_SYSTEM, retry: RETRY_EXTRACTION_SYSTEM, model, retryModel: retryModel() })).digest("hex").slice(0, 16);
   return `${docId}-${h}.json`;
 }
 
-function cachePath(doc: CorpusDoc): string {
-  return path.join(cacheDir(), cacheKey(doc.doc_id, doc.body));
+function cachePath(doc: CorpusDoc, model = defaultModel()): string {
+  return path.join(cacheDir(), cacheKey(doc.doc_id, doc.body, model));
 }
 
-async function loadCache(doc: CorpusDoc): Promise<unknown | null> {
+async function loadCache(doc: CorpusDoc, model = defaultModel()): Promise<unknown | null> {
   try {
-    const parsed = JSON.parse(await readFile(cachePath(doc), "utf8"));
+    const parsed = JSON.parse(await readFile(cachePath(doc, model), "utf8"));
     // Treat prior parse-failure placeholders as cache misses so we can retry.
     if (
       parsed &&
@@ -64,9 +65,9 @@ async function loadCache(doc: CorpusDoc): Promise<unknown | null> {
   }
 }
 
-async function saveCache(doc: CorpusDoc, data: unknown): Promise<void> {
+async function saveCache(doc: CorpusDoc, data: unknown, model = defaultModel()): Promise<void> {
   await mkdir(cacheDir(), { recursive: true });
-  await writeFile(cachePath(doc), JSON.stringify(data, null, 2), "utf8");
+  await writeJson(cachePath(doc, model), data);
 }
 
 export async function clearDocCache(docId: string): Promise<number> {
@@ -79,6 +80,19 @@ export async function clearDocCache(docId: string): Promise<number> {
   } catch {
     return 0;
   }
+}
+
+/** Read only the current source/prompt/model cache; never pick an arbitrary older file. */
+export async function validatedCacheFor(docId: string, model = defaultModel()): Promise<RuleRecord[]> {
+  const doc = await loadDocById(docId);
+  if (!doc) return [];
+  const cached = await loadCache(doc, model) as CachedExtract | null;
+  const validated: RuleRecord[] = [];
+  for (const candidate of cached?._validated ?? []) {
+    const result = await validateRuleRecord(candidate, doc.text);
+    if (result.ok) validated.push(result.rule);
+  }
+  return validated;
 }
 
 function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
@@ -397,7 +411,7 @@ async function claudeExtractDoc(
   const client = new Anthropic({ apiKey, timeout: 120_000 });
   const model = opts.model || defaultModel();
 
-  const cached = (await loadCache(doc)) as CachedExtract | null;
+  const cached = (await loadCache(doc, model)) as CachedExtract | null;
   // Trust non-empty validated caches. Empty validated + raw rules means an older
   // snapper rejected recoverable quotes — re-validate without another API call.
   if (
@@ -462,7 +476,7 @@ async function claudeExtractDoc(
       ...parsed,
       _empty_upgraded:
         opts.markEmptyUpgraded || Boolean(cached?._empty_upgraded),
-    });
+    }, model);
   }
 
   const rulesRaw = Array.isArray(parsed.rules) ? parsed.rules : [];
@@ -486,7 +500,7 @@ async function claudeExtractDoc(
     _model: parsed._model || model,
     _empty_upgraded:
       opts.markEmptyUpgraded || Boolean(cached?._empty_upgraded),
-  });
+  }, model);
   return finalRules;
 }
 
@@ -510,7 +524,13 @@ export async function extractDocument(
     merged = heuristicRules;
     source = "heuristic";
   }
-  const withAlias = assignAliases(merged);
+  const validated: RuleRecord[] = [];
+  for (const candidate of merged) {
+    const result = await validateRuleRecord(candidate, doc.text);
+    if (!result.ok) throw new Error(`Validation failed for ${docId}: ${result.errors.join("; ")}`);
+    validated.push(result.rule);
+  }
+  const withAlias = assignAliases(validated);
   return {
     rules: withAlias.map((r, i) => ({ ...r, team_rule_id: nextId(i + 1) })),
     source,
@@ -613,7 +633,13 @@ export async function extractAllCorpus(options?: {
       }
     }
     const heur = rules.length ? [] : heuristicExtractDoc(doc);
-    return [...rules, ...heur];
+    const validated: RuleRecord[] = [];
+    for (const candidate of [...rules, ...heur]) {
+      const result = await validateRuleRecord(candidate, doc.text);
+      if (!result.ok) throw new Error(`Validation failed for ${doc.doc_id}: ${result.errors.join("; ")}`);
+      validated.push(result.rule);
+    }
+    return validated;
   }
 
   async function worker(): Promise<void> {

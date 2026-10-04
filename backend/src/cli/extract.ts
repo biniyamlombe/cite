@@ -1,14 +1,15 @@
 import "dotenv/config";
 import path from "node:path";
-import { readFile, readdir } from "node:fs/promises";
 import {
   extractAllCorpus,
+  validatedCacheFor,
   clearDocCache,
   retryModel,
 } from "../extract/agent.js";
 import { readJsonIfExists, writeJson } from "../lib/io.js";
-import { cacheDir, outputsDir } from "../lib/paths.js";
-import { loadCapturableDocs } from "../lib/corpus.js";
+import { outputsDir } from "../lib/paths.js";
+import { validateRuleRecord } from "../lib/validate.js";
+import { loadCapturableDocs, loadDocById } from "../lib/corpus.js";
 import type { RuleRecord } from "@rhl/shared";
 import { assignAliases } from "../extract/aliases.js";
 import { dedupeRules } from "../extract/heuristic.js";
@@ -18,23 +19,6 @@ import {
 } from "../extract/ensure_aliases.js";
 import { appendAudit } from "../lib/audit.js";
 import { enrichRuleCoverage } from "../apply/compile_coverage.js";
-
-/** Best validated rules still on disk for a doc (survives alias-merge loss). */
-async function loadValidatedFromCache(
-  docId: string,
-): Promise<RuleRecord[]> {
-  try {
-    const files = await readdir(cacheDir());
-    const hit = files.find((f) => f.startsWith(`${docId}-`) && f.endsWith(".json"));
-    if (!hit) return [];
-    const raw = JSON.parse(await readFile(path.join(cacheDir(), hit), "utf8")) as {
-      _validated?: RuleRecord[];
-    };
-    return Array.isArray(raw._validated) ? raw._validated : [];
-  } catch {
-    return [];
-  }
-}
 
 function argValue(prefix: string): string | undefined {
   const hit = process.argv.find((a) => a.startsWith(prefix));
@@ -144,7 +128,7 @@ async function main() {
       if (haveDocs.has(id) || candidates.some((r) => r.source_doc_id === id)) {
         continue;
       }
-      candidates.push(...(await loadValidatedFromCache(id)));
+      candidates.push(...(await validatedCacheFor(id, model)));
     }
     for (const r of [...candidates].sort(
       (a, b) => (b.confidence ?? 0) - (a.confidence ?? 0),
@@ -168,6 +152,12 @@ async function main() {
   }
 
   finalRules = finalRules.map((r) => enrichRuleCoverage(r));
+  for (const rule of finalRules) {
+    const doc = rule.source_doc_id ? await loadDocById(rule.source_doc_id) : null;
+    if (!doc) throw new Error(`Missing corpus document for ${rule.team_rule_id}`);
+    const result = await validateRuleRecord(rule, doc.text);
+    if (!result.ok) throw new Error(`Invalid output ${rule.team_rule_id}: ${result.errors.join("; ")}`);
+  }
   await writeJson(outPath, { rules: finalRules });
   const mode = usedClaude
     ? `Claude ok=${claudeDocsOk} failed=${claudeDocsFailed} raw_rules=${claudeRuleCount}`
