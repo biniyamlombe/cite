@@ -341,11 +341,39 @@ async function testRulesOutput() {
     "MA-ALG-P1",
     "MA-ALG-P2",
     "MA-RENT-P1",
+    "CAM-FH-01",
+    "SF-FC-01",
   ];
   for (const id of aliases) {
     const hit = rules.find((r) => r.alias_id === id || r.team_rule_id === id);
     if (hit) pass(`alias ${id} → ${hit.team_rule_id}`);
     else fail(`missing alias ${id}`);
+  }
+
+  const camFh = rules.find((r) => r.alias_id === "CAM-FH-01");
+  if (
+    camFh &&
+    camFh.source_doc_id === "D029" &&
+    camFh.category === "screening_restrictions" &&
+    /Cambridge/i.test(camFh.jurisdiction) &&
+    (camFh.quoted_span?.length ?? 0) >= 40
+  ) {
+    pass("CAM-FH-01 from D029 with verbatim screening quote");
+  } else {
+    fail("CAM-FH-01 missing or incomplete D029 screening scaffold");
+  }
+  const sfFc = rules.find((r) => r.alias_id === "SF-FC-01");
+  if (
+    sfFc &&
+    sfFc.source_doc_id === "D078" &&
+    sfFc.category === "screening_restrictions" &&
+    /San Francisco/i.test(sfFc.jurisdiction) &&
+    /Fair Chance/i.test(sfFc.quoted_span || "") &&
+    (sfFc.confidence ?? 1) < 0.8
+  ) {
+    pass("SF-FC-01 from D078 thin Fair Chance quote (low conf)");
+  } else {
+    fail("SF-FC-01 missing or incomplete D078 Fair Chance scaffold");
   }
 
   for (const id of ["HOB-ALG-01", "JC-ALG-01"]) {
@@ -639,6 +667,32 @@ async function testModuleBLookupEdges() {
     }
   } else {
     fail("A0002 Hoboken missing for open-question test");
+  }
+
+  // Newark: uncaptured local pages + no city rules → corpus_gaps honesty
+  const { corpusGapsForGeo } = await import("../apply/corpus_gaps.js");
+  const newarkId = [...geos.entries()].find(
+    ([, g]) => g.legal_city === "Newark" && g.state === "NJ",
+  )?.[0];
+  if (!newarkId) {
+    fail("no geocoded Newark address for corpus_gaps test");
+  } else {
+    const gaps = await corpusGapsForGeo(geos.get(newarkId)!, rulesFile.rules);
+    if (
+      gaps.length > 0 &&
+      /D070|D071|D072/.test(gaps.join(" ")) &&
+      /check-terms|link-only/i.test(gaps.join(" "))
+    ) {
+      pass(`Newark corpus_gaps surfaces D070–D072 (${newarkId})`);
+    } else {
+      fail(`Newark corpus_gaps incomplete: ${JSON.stringify(gaps)}`);
+    }
+    const hobGaps = ghob ? await corpusGapsForGeo(ghob, rulesFile.rules) : [];
+    if (hobGaps.length === 0) {
+      pass("Hoboken has city rules → no corpus_gaps");
+    } else {
+      fail(`Hoboken unexpectedly has corpus_gaps: ${JSON.stringify(hobGaps)}`);
+    }
   }
 }
 
