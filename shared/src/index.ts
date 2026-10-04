@@ -203,6 +203,35 @@ export const RulesFileSchema = z.object({
 
 export type RulesFile = z.infer<typeof RulesFileSchema>;
 
+/** Companion one-line answers per rule (not part of graded rules.json). */
+export const PlainLanguageRecordSchema = z.object({
+  team_rule_id: z.string(),
+  category: RuleCategory,
+  status: RuleStatus,
+  source: z.enum(["template"]),
+  headline_en: z.string().min(1).max(140),
+  headline_es: z.string().min(1).max(160),
+  why_en: z.string().min(1).max(280),
+  why_es: z.string().min(1).max(320),
+});
+export type PlainLanguageRecord = z.infer<typeof PlainLanguageRecordSchema>;
+
+export const PlainLanguageFileSchema = z.object({
+  generated_at: z.string(),
+  pipeline_version: z.string(),
+  count: z.number().int().nonnegative(),
+  records: z.record(PlainLanguageRecordSchema),
+});
+export type PlainLanguageFile = z.infer<typeof PlainLanguageFileSchema>;
+
+export const ResultHeadlineSchema = z.object({
+  text: z.string(),
+  why: z.string().optional(),
+  locale: z.enum(["en-US", "es-US"]),
+  authoritative_language: z.literal("en"),
+});
+export type ResultHeadline = z.infer<typeof ResultHeadlineSchema>;
+
 export const ChangeEvidenceSchema = z.object({
   address_id: z.string(),
   included: z.boolean(),
@@ -389,6 +418,8 @@ export const LookupResponseSchema = z.object({
       rule: ApiRuleSchema.nullable(),
       status_label: z.string().nullable().optional(),
       applicability_label: z.string().nullable().optional(),
+      /** One-line plain answer for the lookup card (companion plain_language.json). */
+      headline: ResultHeadlineSchema.optional(),
       /** Language-neutral status/result codes remain on `result` / `applicability`. */
       plain_language_summary: z
         .object({

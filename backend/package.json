@@ -22,7 +22,8 @@
     "pipeline": "tsx src/cli/pipeline.ts",
     "write-provenance": "tsx src/cli/write_provenance.ts",
     "enrich-quote-offsets": "tsx src/cli/enrich_quote_offsets.ts",
-    "enrich-geocode-ids": "tsx src/cli/enrich_geocode_ids.ts"
+    "enrich-geocode-ids": "tsx src/cli/enrich_geocode_ids.ts",
+    "build-plain": "tsx src/cli/build_plain.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",

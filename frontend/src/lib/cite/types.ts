@@ -87,6 +87,12 @@ export interface LookupResult {
   legal_status_at_as_of_date?: RuleStatus;
   status_label?: string | null;
   applicability_label?: string | null;
+  headline?: {
+    text: string;
+    why?: string;
+    locale: "en-US" | "es-US";
+    authoritative_language: "en";
+  };
   plain_language_summary?: {
     text: string;
     translation_status:

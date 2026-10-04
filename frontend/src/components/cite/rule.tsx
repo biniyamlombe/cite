@@ -22,6 +22,7 @@ export interface RuleView {
   rule: Rule;
   result?: LookupResultValue | undefined;
   explanation?: string | undefined;
+  headline?: string | undefined;
   plainLanguage?:
     | {
         text: string;
@@ -48,8 +49,16 @@ export function RuleCard({
   const t = useT();
   const tx = useTx();
   const { locale } = useLocale();
-  const { rule, result, explanation, plainLanguage, conflict, needsHumanReview, factsMissing } =
-    view;
+  const {
+    rule,
+    result,
+    explanation,
+    headline,
+    plainLanguage,
+    conflict,
+    needsHumanReview,
+    factsMissing,
+  } = view;
   const prominent = result === "applies";
   const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
@@ -73,7 +82,12 @@ export function RuleCard({
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
-          <h4 className="font-medium text-ink">{rule.title}</h4>
+          {headline ? (
+            <p className="text-[15px] font-medium leading-snug text-ink">{headline}</p>
+          ) : null}
+          <h4 className={cn("font-medium text-ink", headline && "mt-1 text-sm text-muted-foreground")}>
+            {rule.title}
+          </h4>
           <div className="mt-1 font-mono text-xs text-muted-foreground">
             {rule.citation} · {t(rule.level === "city" ? "level.city" : "level.state")} ·{" "}
             {rule.jurisdiction}
@@ -409,7 +423,7 @@ export function RuleDetailDrawer({
     return () => window.removeEventListener("keydown", k);
   }, [onClose]);
   if (!view) return null;
-  const { rule, result, explanation, plainLanguage, conflict } = view;
+  const { rule, result, explanation, headline, plainLanguage, conflict } = view;
   const cov = coverageText(rule.coverage_conditions);
   const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
@@ -439,6 +453,9 @@ export function RuleDetailDrawer({
               {t(rule.level === "city" ? "level.city" : "level.state")} · {rule.jurisdiction}
             </div>
             <h3 className="mt-1.5 font-serif text-2xl text-ink">{rule.title}</h3>
+            {headline ? (
+              <p className="mt-2 text-[15px] font-medium leading-snug text-ink/90">{headline}</p>
+            ) : null}
             <div className="mt-3 flex flex-wrap gap-2">
               {conflict && <StatusBadge value="conflict" label={t("status.conflict")} size="md" />}
               {linkOnly && (

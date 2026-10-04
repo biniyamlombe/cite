@@ -11,9 +11,11 @@ import {
   BuildingFactOverridesSchema,
   DEFAULT_AS_OF,
   PIPELINE_VERSION,
+  type PlainLanguageFile,
   type RuleRecord,
   type SupportedLocale,
 } from "@rhl/shared";
+import { headlineForLookup } from "../plain/headlines.js";
 import {
   displayApplicabilityLabel,
   displayStatusLabel,
@@ -99,6 +101,17 @@ app.use(
     },
   }),
 );
+
+let plainLanguageCache: PlainLanguageFile | null | undefined;
+
+async function loadPlainLanguage(): Promise<PlainLanguageFile | null> {
+  if (plainLanguageCache !== undefined) return plainLanguageCache;
+  plainLanguageCache =
+    (await readJsonIfExists<PlainLanguageFile>(
+      path.join(outputsDir(), "plain_language.json"),
+    )) ?? null;
+  return plainLanguageCache;
+}
 
 async function loadRules(): Promise<RuleRecord[]> {
   return cachedRules();
@@ -361,6 +374,7 @@ async function handleLookup(
   });
   const byId = new Map(rules.map((r) => [r.team_rule_id, r]));
   const retrievedAtByDoc = await loadRetrievedAtByDocId();
+  const plainFile = await loadPlainLanguage();
   const corpus_gaps = await corpusGapsForGeo(geo, rules);
   const stack = jurisdictionStack(geo);
   const generated_at = new Date().toISOString();
@@ -373,6 +387,12 @@ async function handleLookup(
       locale,
       conflictFlag: e.conflict_flag,
     });
+    const headline = headlineForLookup({
+      record: plainFile?.records?.[e.team_rule_id],
+      result: e.result,
+      locale,
+      factsMissing: e.facts_missing,
+    });
     return {
       ...e,
       // Keep English explanation as authoritative corpus text; Spanish goes in plain_language_summary.
@@ -380,6 +400,7 @@ async function handleLookup(
       status_label: displayStatusLabel(statusCode, locale) ?? statusCode,
       applicability_label:
         displayApplicabilityLabel(applicabilityCode, locale) ?? applicabilityCode,
+      headline,
       plain_language_summary: localized.plain_language_summary,
       source_evidence: sourceEvidenceBlock(rule, locale),
       translation: localized.translation,
