@@ -538,3 +538,6 @@
 {"ts":"2026-10-04T01:49:50.485Z","kind":"extract_doc","doc_id":"D069","source":"claude","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D069 via claude"}
 {"ts":"2026-10-04T01:50:10.403Z","kind":"extract_doc","doc_id":"D001","source":"claude","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D001 via claude"}
 {"ts":"2026-10-04T01:58:57.315Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T02:08:22.684Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T02:12:01.412Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T02:13:19.230Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
