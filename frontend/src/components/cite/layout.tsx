@@ -178,24 +178,40 @@ function MoreNav() {
 function LocaleToggle() {
   const { locale, setLocale } = useLocale();
   const t = useT();
+  const options = [
+    { id: "en-US" as const, label: t("nav.lang.en"), short: "EN" },
+    { id: "es-US" as const, label: t("nav.lang.es"), short: "ES" },
+  ];
   return (
     <div
-      className="inline-flex rounded-full border border-border/80 bg-paper/70 p-0.5 font-mono text-[11px]"
+      className="inline-flex max-w-full flex-wrap items-center gap-1 rounded-full border border-border/80 bg-paper/70 p-0.5 text-[11px]"
       role="group"
-      aria-label={t("nav.language")}
+      aria-label={t("nav.changeLanguage")}
     >
-      {(["en", "es"] as const).map((l) => (
-        <button
-          key={l}
-          onClick={() => setLocale(l)}
-          aria-pressed={locale === l}
-          className={`rounded-full px-2.5 py-0.5 uppercase transition-all duration-200 ${
-            locale === l ? "bg-ink text-paper shadow-sm" : "text-muted-foreground hover:text-ink"
-          }`}
-        >
-          {l}
-        </button>
-      ))}
+      <span className="sr-only" id="cite-lang-label">
+        {t("nav.changeLanguage")}
+      </span>
+      {options.map((opt) => {
+        const active = locale === opt.id;
+        // Opposite-language affordance: show Español while in English, English while in Spanish.
+        const visible = opt.id === "es-US" ? t("nav.lang.es") : t("nav.lang.en");
+        return (
+          <button
+            key={opt.id}
+            type="button"
+            onClick={() => setLocale(opt.id)}
+            aria-pressed={active}
+            aria-label={`${t("nav.changeLanguage")}: ${visible}`}
+            title={visible}
+            className={`rounded-full px-2.5 py-0.5 font-medium transition-all duration-200 ${
+              active ? "bg-ink text-paper shadow-sm" : "text-muted-foreground hover:text-ink"
+            }`}
+          >
+            <span className="sm:hidden">{opt.short}</span>
+            <span className="hidden sm:inline">{visible}</span>
+          </button>
+        );
+      })}
     </div>
   );
 }
