@@ -28,7 +28,16 @@ for (const filename of ["geocode_cache.json", "stretch_geocode.json"]) {
   for (const geo of file.geocoded) geos.set(geo.address_id, geo);
 }
 const addresses = await loadAllAddresses();
-const catalog = rules.map(r => ({ ...r, stable_id: stableRuleKey(r), evidence_status: ["HOB-ALG-01", "JC-ALG-01"].includes(r.alias_id ?? "") ? "scenario_only" : "captured", retrieved_at: docs.find(d => d.doc_id === r.source_doc_id)?.retrieved_at ?? null }));
+const catalog = rules.map((r) => {
+  const method = (r as { extraction_method?: string | null }).extraction_method;
+  const scenarioOnly = method === "link_only_scaffold" || method === "secondary_report";
+  return {
+    ...r,
+    stable_id: stableRuleKey(r),
+    evidence_status: scenarioOnly ? "scenario_only" : "captured",
+    retrieved_at: docs.find((d) => d.doc_id === r.source_doc_id)?.retrieved_at ?? null,
+  };
+});
 const entries: ReturnType<typeof evaluateAddress> = [];
 const indexes = new Map<string, number>();
 const snapshots: Record<string, Record<string, number[]>> = {};

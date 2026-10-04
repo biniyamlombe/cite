@@ -46,15 +46,12 @@ function enrichEntry(
   asOf: string,
 ): LookupEntry {
   const facts = buildingFacts(addr, geo);
-  const scaffold = rule.extraction_method === "link_only_scaffold" ||
-    rule.alias_id === "HOB-ALG-01" || rule.alias_id === "JC-ALG-01";
+  const scaffold =
+    rule.extraction_method === "link_only_scaffold" ||
+    rule.extraction_method === "secondary_report";
   const conflict = Boolean(entry.conflict_flag);
-  // Human review: legal conflicts / scenario-only municipal bans — not every missing fact.
-  const needsReview =
-    conflict ||
-    rule.requires_human_review === true ||
-    rule.alias_id === "HOB-ALG-01" ||
-    rule.alias_id === "JC-ALG-01";
+  // Human review: legal conflicts and rules that still require a human — not every missing fact.
+  const needsReview = conflict || rule.requires_human_review === true;
   const covText = coveragePlainText(rule.coverage_conditions);
   const coverage_conditions_evaluated = [
     `jurisdiction_match=${rule.jurisdiction}`,
@@ -147,9 +144,6 @@ export function evaluateStatus(
   asOf: string,
 ): EvalResult | null {
   AsOfDateSchema.parse(asOf);
-  if (rule.alias_id === "HOB-ALG-01" || rule.alias_id === "JC-ALG-01") {
-    return { result: "unknown", explanation: `${rule.title}: municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.`, conflict_flag: true };
-  }
   if (rule.status === "failed") {
     return { omit: true, result: "pending", explanation: "", conflict_flag: false };
   }

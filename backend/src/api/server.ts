@@ -137,7 +137,15 @@ function withRetrievedAt<T extends RuleRecord | null>(
     rule.retrieved_at ||
     (rule.source_doc_id && retrievedAtByDoc.get(rule.source_doc_id)) ||
     null;
-  return { ...rule, retrieved_at, stable_id: stableRuleKey(rule), evidence_status: ["HOB-ALG-01", "JC-ALG-01"].includes(rule.alias_id ?? "") ? "scenario_only" : "captured" } as never;
+  const method = (rule as { extraction_method?: string | null }).extraction_method;
+  const scenarioOnly =
+    method === "link_only_scaffold" || method === "secondary_report";
+  return {
+    ...rule,
+    retrieved_at,
+    stable_id: stableRuleKey(rule),
+    evidence_status: scenarioOnly ? "scenario_only" : "captured",
+  } as never;
 }
 
 async function loadGeos() {

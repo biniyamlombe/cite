@@ -101,33 +101,31 @@ function upsertByAlias(
   }
 }
 
-function localAlgScaffold(opts: {
+type CityEvidenceKind = "municipal_ordinance" | "secondary_report" | "fair_fallback";
+
+function localAlgRecord(opts: {
   city: "Hoboken" | "Jersey City";
   aliasId: "HOB-ALG-01" | "JC-ALG-01";
   primaryUrls: string[];
   evidenceUrl: string;
   evidenceDocId: string;
   quotedSpan: string;
-  evidenceKind: "secondary_report" | "fair_fallback";
+  evidenceKind: CityEvidenceKind;
+  citation: string;
+  title: string;
+  requirement: string;
 }): Omit<RuleRecord, "team_rule_id"> {
   const { city, primaryUrls, evidenceUrl, evidenceDocId, quotedSpan, evidenceKind } = opts;
   const links = formatPrimaryLinks(primaryUrls);
+  const municipal = evidenceKind === "municipal_ordinance";
   const secondary = evidenceKind === "secondary_report";
   return {
     jurisdiction: `${city}, NJ`,
     level: "city",
     category: "algorithmic_rent_setting",
     status: "in_force",
-    title: secondary
-      ? `${city} algorithmic rent ban (secondary report; primary ordinance link-only)`
-      : `${city} algorithmic rent ban (link-only primary; FAIR Act quote)`,
-    requirement: secondary
-      ? `Public ${city} reporting describes a local ban on algorithmic rent-setting. ` +
-        `Pack primary ordinance pages remain link-only (ecode360 / check-terms), so this is not a municipal-code extract. ` +
-        `quoted_span is verbatim from the secondary report ${evidenceDocId}. Live applicability stays unknown pending primary text.`
-      : `Challenge change tests treat ${city} as having a local algorithmic rent-setting ban (T2/T3). ` +
-        `The pack marks primary ${city} ordinance/news pages as link-only, so this record is a jurisdiction-scoped scaffold. ` +
-        `quoted_span is verbatim from the capturable NJ FAIR Act (D069) — not ${city} Municipal Code.`,
+    title: opts.title,
+    requirement: opts.requirement,
     key_value: null,
     coverage_conditions: `Residential dwelling units in ${city}, NJ`,
     exemptions: null,
@@ -135,49 +133,112 @@ function localAlgScaffold(opts: {
     interaction:
       "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
     effective_date: null,
-    citation: secondary
-      ? `${city} local algorithmic ban (primary link-only); evidence: ${evidenceDocId} secondary report`
-      : `${city} local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)`,
+    citation: opts.citation,
     source_doc_id: evidenceDocId,
     source_url: evidenceUrl,
     quoted_span: quotedSpan,
-    confidence: secondary ? 0.55 : 0.35,
+    confidence: municipal ? 0.9 : secondary ? 0.55 : 0.35,
     conflict_flag: true,
-    requires_human_review: true,
-    extraction_method: secondary ? "secondary_report" : "link_only_scaffold",
-    status_basis:
-      `unverified: status follows the pack change test (T2), not captured ${city} ordinance text. ` +
-      `Effective date unknown.`,
-    conflict_note: secondary
-      ? `${links} Quoted evidence is a secondary public report (${evidenceDocId}), not ${city} Municipal Code. ` +
-        `Kept for T2 jurisdiction-scope and T3 conflict demos; human review of the primary ordinance is required.`
-      : `${links} Quoted evidence is NJ FAIR Act (D069), not ${city} code. ` +
-        `Scaffold kept for T2 jurisdiction-scope and T3 preemption-conflict demos only.`,
+    requires_human_review: !municipal,
+    extraction_method: municipal
+      ? "municipal_ordinance"
+      : secondary
+        ? "secondary_report"
+        : "link_only_scaffold",
+    status_basis: municipal
+      ? null
+      : `unverified: status follows the pack change test (T2), not captured ${city} ordinance text. Effective date unknown.`,
+    conflict_note: municipal
+      ? `${links} Quoted evidence is the adopted ${city} ordinance PDF (${evidenceDocId}). ` +
+        `Pack ecode360/news pages remain link-only; possible FAIR Act preemption once statewide law is effective.`
+      : secondary
+        ? `${links} Quoted evidence is a secondary public report (${evidenceDocId}), not ${city} Municipal Code. ` +
+          `Kept for T2 jurisdiction-scope and T3 conflict demos; human review of the primary ordinance is required.`
+        : `${links} Quoted evidence is NJ FAIR Act (D069), not ${city} code. ` +
+          `Scaffold kept for T2 jurisdiction-scope and T3 preemption-conflict demos only.`,
     alias_id: opts.aliasId,
   };
 }
 
-async function secondaryCityEvidence(
+async function cityAlgEvidence(
   city: "Hoboken" | "Jersey City",
-): Promise<{ docId: string; url: string; quote: string } | null> {
-  const docId = city === "Hoboken" ? "HOB-NEWS-01" : "JC-NEWS-01";
-  const doc = await loadDocById(docId);
-  if (!doc?.body) return null;
-  const needles =
-    city === "Hoboken"
-      ? [
-          /City of Hoboken has outlawed the use of algorithmic rent-setting software/i,
-          /outlawed the use of algorithmic rent-setting software in the rental housing market/i,
-          /no longer use software, algorithms, or data-sharing platforms to coordinate/i,
-        ]
-      : [
-          /Jersey City Council unanimously approved \(9-0\) a measure banning rent-setting algorithms/i,
-          /measure banning rent-setting algorithms such as RealPage/i,
-          /banning rent-setting algorithms such as RealPage/i,
-        ];
-  for (const needle of needles) {
-    const quote = quoteFrom(doc.body, needle, 60);
-    if (quote) return { docId, url: doc.url, quote };
+): Promise<{
+  docId: string;
+  url: string;
+  quote: string;
+  kind: CityEvidenceKind;
+  citation: string;
+  title: string;
+  requirement: string;
+} | null> {
+  // Prefer official adopted ordinance PDFs captured under stretch secondary_corpus.
+  const ordId = city === "Hoboken" ? "HOB-ORD-01" : "JC-ORD-01";
+  const ord = await loadDocById(ordId);
+  if (ord?.body) {
+    const needles =
+      city === "Hoboken"
+        ? [
+            /Landlords who rent any residential dwelling unit[\s\S]{0,220}?algorithmic pricing/i,
+            /prohibited from price fixing using algorithmic pricing/i,
+            /PROHIBITION AGAINST ALGORITHMIC RENT-FIXING/i,
+          ]
+        : [
+            /It is unlawful for any real estate lessor[\s\S]{0,220}?Service Provider/i,
+            /§\s*218-12 Preventing Algorithmic Rent Fixing/i,
+            /unlawful for any real estate lessor, agent, or subcontractor/i,
+          ];
+    for (const needle of needles) {
+      const quote = quoteFrom(ord.body, needle, 60);
+      if (!quote) continue;
+      return {
+        docId: ordId,
+        url: ord.url,
+        quote,
+        kind: "municipal_ordinance",
+        citation:
+          city === "Hoboken"
+            ? "Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)"
+            : "Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
+        title:
+          city === "Hoboken"
+            ? "Hoboken prohibition against algorithmic rent-fixing"
+            : "Jersey City preventing algorithmic rent-fixing in the rental housing market",
+        requirement:
+          city === "Hoboken"
+            ? "Landlords renting residential dwelling units in Hoboken are prohibited from price fixing using algorithmic pricing (software, algorithms, or data-sharing platforms that collect and analyze nonpublic competitor data)."
+            : "It is unlawful for Jersey City real estate lessors to subscribe to or contract for service-provider algorithmic coordinating services; service providers may not facilitate non-compete agreements among lessors.",
+      };
+    }
+  }
+
+  const newsId = city === "Hoboken" ? "HOB-NEWS-01" : "JC-NEWS-01";
+  const news = await loadDocById(newsId);
+  if (news?.body) {
+    const needles =
+      city === "Hoboken"
+        ? [
+            /City of Hoboken has outlawed the use of algorithmic rent-setting software/i,
+            /no longer use software, algorithms, or data-sharing platforms to coordinate/i,
+          ]
+        : [
+            /Jersey City Council unanimously approved \(9-0\) a measure banning rent-setting algorithms/i,
+            /measure banning rent-setting algorithms such as RealPage/i,
+          ];
+    for (const needle of needles) {
+      const quote = quoteFrom(news.body, needle, 60);
+      if (!quote) continue;
+      return {
+        docId: newsId,
+        url: news.url,
+        quote,
+        kind: "secondary_report",
+        citation: `${city} local algorithmic ban; evidence: ${newsId} secondary report`,
+        title: `${city} algorithmic rent ban (secondary report; primary ordinance link-only)`,
+        requirement:
+          `Public ${city} reporting describes a local ban on algorithmic rent-setting. ` +
+          `Pack primary ordinance pages remain link-only; quoted_span is verbatim from ${newsId}.`,
+      };
+    }
   }
   return null;
 }
@@ -274,33 +335,36 @@ export async function ensureChangeTestAliases(
       have.add("NJ-ALG-01");
     }
 
-    // Prefer city-scoped secondary public reports; FAIR Act quote only as last resort.
+    // Prefer adopted municipal ordinance PDFs; then secondary news; FAIR quote last.
     const localQuote = algQuote || muniQuote;
     const hobUrls = await linkOnlyUrlsFor("Hoboken");
     const jcUrls = await linkOnlyUrlsFor("Jersey City");
     for (const city of ["Hoboken", "Jersey City"] as const) {
       const aliasId = city === "Hoboken" ? "HOB-ALG-01" : "JC-ALG-01";
-      const secondary = await secondaryCityEvidence(city);
+      const evidence = await cityAlgEvidence(city);
       const urls = city === "Hoboken" ? hobUrls : jcUrls;
-      if (secondary) {
+      if (evidence) {
         upsertByAlias(
           out,
           aliasId,
-          localAlgScaffold({
+          localAlgRecord({
             city,
             aliasId,
             primaryUrls: urls,
-            evidenceUrl: secondary.url,
-            evidenceDocId: secondary.docId,
-            quotedSpan: secondary.quote,
-            evidenceKind: "secondary_report",
+            evidenceUrl: evidence.url,
+            evidenceDocId: evidence.docId,
+            quotedSpan: evidence.quote,
+            evidenceKind: evidence.kind,
+            citation: evidence.citation,
+            title: evidence.title,
+            requirement: evidence.requirement,
           }),
         );
       } else if (localQuote) {
         upsertByAlias(
           out,
           aliasId,
-          localAlgScaffold({
+          localAlgRecord({
             city,
             aliasId,
             primaryUrls: urls,
@@ -308,6 +372,11 @@ export async function ensureChangeTestAliases(
             evidenceDocId: fair.doc_id,
             quotedSpan: localQuote,
             evidenceKind: "fair_fallback",
+            citation: `${city} local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)`,
+            title: `${city} algorithmic rent ban (link-only primary; FAIR Act quote)`,
+            requirement:
+              `Challenge change tests treat ${city} as having a local algorithmic rent-setting ban (T2/T3). ` +
+              `quoted_span is verbatim from the capturable NJ FAIR Act (D069) — not ${city} Municipal Code.`,
           }),
         );
       }

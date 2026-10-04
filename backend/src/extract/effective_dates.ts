@@ -77,9 +77,15 @@ function monthIndex(name: string): number | null {
 /** Enactment / approval date as printed in session laws ("Approved June 18, 2021."). */
 export function enactmentDate(body: string): { iso: string; text: string } | null {
   const t = flat(body);
-  const m = t.match(
-    /\bapproved(?:\s+by\s+governor)?\s+([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})/i,
+  // Municipal council records often use adoption / meeting dates instead of "approved by Governor".
+  const municipal = t.match(
+    /\b(?:adopted on second and final reading after hearing on|meeting date:|approved:)\s*([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})/i,
   );
+  const m =
+    municipal ??
+    t.match(
+      /\bapproved(?:\s+by\s+governor)?\s+([A-Za-z]+)\s+(\d{1,2}),?\s+(\d{4})/i,
+    );
   if (!m) return null;
   const month = monthIndex(m[1]!);
   if (!month) return null;
@@ -137,12 +143,25 @@ export function deriveActEffectiveDate(
     }
   }
 
-  const immediate = t.match(/\b(?:act|law) shall take effect immediately/i);
+  const immediate = t.match(/\b(?:act|law|ordinance|this ordinance) shall take effect immediately/i);
   if (immediate && enacted) {
     return {
       effective_date: enacted.iso,
       kind: "derived",
       note: `"${immediate[0]}" + "${enacted.text}"`,
+    };
+  }
+
+  // Municipal ordinance PDFs often state final adoption without a delayed effective clause.
+  if (
+    enacted &&
+    /\badopted on second and final reading\b/i.test(enacted.text) &&
+    !/\bshall take effect on\b|\beffective (?:date|on)\b/i.test(t)
+  ) {
+    return {
+      effective_date: enacted.iso,
+      kind: "derived",
+      note: `"${enacted.text}" (no delayed effective-date clause in the ordinance PDF)`,
     };
   }
 
@@ -250,6 +269,7 @@ export function applyEffectiveDateGrounding(
         "not_stated: primary ordinance is link-only in the pack; secondary report is not dating authority",
     };
   }
+  // municipal_ordinance extracts are dated from the ordinance PDF itself.
   const g = groundEffectiveDate(rule, body);
   return {
     ...rule,
