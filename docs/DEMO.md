@@ -16,7 +16,7 @@ npm run dev:frontend
 
 “Cite answers which housing rules apply at an address *today*, with exact corpus citations — Modules A extract, B geocode/coverage, C change tests.”
 
-Show: Lookup page + as-of date control.
+Show: Lookup page + as-of date control + Live API badge.
 
 ---
 
@@ -41,16 +41,17 @@ Call out:
 
 ---
 
-### 3 · HOB/JC honesty + conflict (60s)
+### 3 · HOB/JC honesty + conflict + open question (60s)
 
 **Address:** `A0002` — Hoboken  
-**Rule detail:** `HOB-ALG-01` (`r-0115`)
+**Rule detail:** `HOB-ALG-01` (current `team_rule_id` in Rules / lookup evidence)
 
 Call out:
 - Primary Hoboken/JC ordinance pages are **link-only** in the pack
 - Confidence **0.35**, conflict flag, `conflict_note` lists primary URLs
 - Quoted span is **NJ FAIR Act (D069)** — not invented municipal code
-- Open **Version history** on `r-0115` — multiple versions from re-extract/scaffold hardening
+- **Open legal question** chip on NJ FAIR / local overlap (pack §9 preemption)
+- Open **Version history** on the Hoboken alias — multiple versions from re-extract/scaffold hardening
 
 Optional: flip as-of toward `2027-07-02` and mention NJ FAIR (`NJ-ALG-01`) NTE → applies + local conflict (Change Radar T3).
 
@@ -67,6 +68,7 @@ Open **Change Radar** / `changes.json` summary:
 | **T3** | NJ FAIR NTE → applies · HOB/JC conflict flags |
 | **T4** | MA pending alg bills |
 | **T5** | MA rent ballot failed · affected = 0 |
+| **T6** | Hour-16 Cambridge placeholder — no invented results |
 
 “Deterministic tests, not a slide deck.”
 
@@ -80,12 +82,14 @@ Search **`SA0001`** (1968, 24 units) vs **`SA0003`** (2018):
 - `SA0001`: Santa Ana rent + just-cause **apply** (+ CA state layering)
 - `SA0003`: **15-year** just-cause exemption → that city just-cause rule omitted
 
+Optional: toggle **ES** locale — UI chrome translates; citations stay in source language.
+
 ---
 
 ### 6 · Close (20s)
 
 - Automated extract with **verbatim** `quoted_span`s  
 - Reproducible: `npm run pipeline` · `npm test`  
-- Limits called out in `docs/METHOD.md` (link-only HOB/JC, Haiku coverage gaps)
+- Limits on **About** / `docs/METHOD.md` (link-only HOB/JC, open questions, empty chrome docs)
 
 **One-liner:** “Cite won’t invent ordinance text or invent building facts — it cites the corpus and says unknown when the data isn’t there.”

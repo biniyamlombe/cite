@@ -167,7 +167,9 @@ function ChangesPage() {
                 <Clock className="size-3" /> T6 · Upcoming
               </div>
               <h3 className="mt-1.5 font-serif text-xl text-ink">{t("changes.t6Title")}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{t("changes.t6Body")}</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {changes.data.results["T6"]?.notes || t("changes.t6Body")}
+              </p>
             </article>
           </div>
         </>
