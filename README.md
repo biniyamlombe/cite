@@ -368,7 +368,6 @@ One-page method: **[docs/method-note.md](docs/method-note.md)** · Data-flow dia
 - **Status UX:** icon + label + `sr-only` help; confidence is an **extraction band** (high / medium / low), not legal certainty %
 - **Grouping:** Appear to apply · Need more facts · Need human review · Do not appear to apply (toggle) · Pending / not yet effective
 - **Nav IA:** Lookup → Change scenarios → How it works → Sources; Audit under More; sticky disclaimer + Sources link
-- **Baseline / plan / report:** [`docs/ux-audit-baseline.md`](docs/ux-audit-baseline.md) · [`docs/ux-improvement-plan.md`](docs/ux-improvement-plan.md) · [`docs/ux-implementation-report.md`](docs/ux-implementation-report.md)
 
 ---
 
@@ -410,55 +409,23 @@ Be ready to say these out loud:
 | `score.py` | Not in pack until organizers ship it — see `docs/organizer-scoring.md` |
 | Spanish locale | `en-US`/`es-US` UI + API labels; English quotes remain authoritative; non-template explanations may stay EN with notice |
 
-Audit evidence of gaps closed vs remaining: **[docs/gap-register.md](docs/gap-register.md)** · **[docs/audit-report.md](docs/audit-report.md)** · **[docs/localization/](docs/localization/)**.
+Audit evidence: **[docs/gap-register.md](docs/gap-register.md)** · **[docs/audit-report.md](docs/audit-report.md)**.
 
 ---
 
 ## Spanish / localization
 
-**Supported languages:** `en-US` (default), `es-US` (U.S. Spanish). Generic `es` is accepted as an alias to `es-US`.
+Supported: **`en-US`** (default) and **`es-US`** (alias: `es`).
 
-### How to run Spanish mode
+- UI: header **Español** / **English**, or shareable `?lang=es-US` (keeps `address` / `as_of`)
+- API: `GET /lookup/:id?as_of=YYYY-MM-DD&locale=es-US`
+- English corpus quotes, citations, and bill IDs stay authoritative — not certified translation
+- **Not legal advice** / **No es asesoramiento legal**
 
-1. Start the app (`npm run dev:backend` + `npm run dev:frontend`).
-2. Use the header language control (**Español** / **English**), or open a shareable URL with `?lang=es-US` (keeps `address` / `as_of`).
-3. Live API: `GET /lookup/A0005?as_of=2026-10-01&locale=es-US` (or `Accept-Language: es-US`).
-
-### Translation-status policy
-
-| Status | Meaning |
-|--------|---------|
-| `human_reviewed` | Bilingual reviewer approved (none claimed until queue clears) |
-| `machine_generated` | Deterministic template Spanish; may show UI badge |
-| `untranslated` | English content as-is |
-| `not_available` | No safe Spanish template; English shown with notice |
-
-Legal status (`vigente` / `pendiente` / …) is **not** the same as translation status.
-
-### Official-source policy
-
-- Corpus quotations, citations, bill IDs, section numbers, and official titles stay in **English**.
-- Spanish UI labels them as **texto legal original en inglés** / authoritative source.
-- Automatic Spanish translation of quotes is **disabled** (`informational_translation_es: null`).
-
-### Glossary & human review
-
-- Glossary: [`data/localization/legal_housing_glossary.en-es.json`](data/localization/legal_housing_glossary.en-es.json) · [`docs/localization/LEGAL_HOUSING_GLOSSARY_EN_ES.md`](docs/localization/LEGAL_HOUSING_GLOSSARY_EN_ES.md)
-- Review protocol / queue: [`docs/localization/SPANISH_REVIEW_PROTOCOL.md`](docs/localization/SPANISH_REVIEW_PROTOCOL.md) · [`docs/localization/translation_review_queue.json`](docs/localization/translation_review_queue.json)
-- Architecture: [`docs/localization/LOCALIZATION_ARCHITECTURE.md`](docs/localization/LOCALIZATION_ARCHITECTURE.md)
-
-### Limitations (Spanish)
-
-- Not legal advice / **No es asesoramiento legal**.
-- Not a certified translation and not a substitute for counsel.
-- Rule titles/requirements from the English corpus are not auto-translated.
-- High-risk strings remain awaiting human review — do not claim certified bilingual legal accuracy.
-
-### Validation
+Details: **[docs/localization/LOCALIZATION_ARCHITECTURE.md](docs/localization/LOCALIZATION_ARCHITECTURE.md)** · folder: [`docs/localization/`](docs/localization/)
 
 ```bash
-npm run build -w shared
-npm test -w backend -- --test-name-pattern locale
+npm run build -w shared && npm test -w backend -- --test-name-pattern locale
 npm test --prefix frontend -- i18n-parity spanish-localization
 ```
 
@@ -468,25 +435,17 @@ npm test --prefix frontend -- i18n-parity spanish-localization
 
 | Doc | Purpose |
 |-----|---------|
-| [docs/localization/SPANISH_LOCALIZATION_BASELINE.md](docs/localization/SPANISH_LOCALIZATION_BASELINE.md) | Spanish baseline audit |
-| [docs/localization/LOCALIZATION_GAP_REGISTER.md](docs/localization/LOCALIZATION_GAP_REGISTER.md) | Localization gaps |
-| [docs/localization/SPANISH_LOCALIZATION_IMPLEMENTATION_REPORT.md](docs/localization/SPANISH_LOCALIZATION_IMPLEMENTATION_REPORT.md) | What shipped for ES |
 | [docs/method-note.md](docs/method-note.md) | One-page method (extract → geocode → lookup → T1–T5) |
-| [docs/demo-script.md](docs/demo-script.md) | ~4 minute judge walkthrough + preflight |
-| [docs/system-architecture.md](docs/system-architecture.md) | Stack + Mermaid data flow + failure modes |
-| [docs/product-overview.md](docs/product-overview.md) | Product framing and demo story |
-| [docs/challenge-brief.md](docs/challenge-brief.md) | Challenge requirements summary |
-| [docs/brief-scorecard.md](docs/brief-scorecard.md) | Self-grade against the brief |
-| [docs/organizer-scoring.md](docs/organizer-scoring.md) | How `score.py` / auto-grader fits in |
-| [docs/lovable-ui-prompt.md](docs/lovable-ui-prompt.md) | Prompt used to build the Lovable frontend |
-| [docs/design-system.md](docs/design-system.md) | Paper + ink tokens and status semantics |
+| [docs/demo-script.md](docs/demo-script.md) | ~4 minute judge walkthrough |
+| [docs/system-architecture.md](docs/system-architecture.md) | Stack + data flow |
 | [docs/api-ux-contract.md](docs/api-ux-contract.md) | API meta, warnings, product states, errors |
-| [docs/ux-audit-baseline.md](docs/ux-audit-baseline.md) | UX baseline before the overhaul |
-| [docs/ux-improvement-plan.md](docs/ux-improvement-plan.md) | Prioritized UX fix plan |
-| [docs/ux-test-checklist.md](docs/ux-test-checklist.md) | Demo-day manual acceptance checklist |
-| [docs/ux-implementation-report.md](docs/ux-implementation-report.md) | What shipped + browser checklist results |
-| [docs/audit-report.md](docs/audit-report.md) | End-to-end audit evidence |
 | [docs/gap-register.md](docs/gap-register.md) | Closed gaps and remaining limits |
+| [docs/audit-report.md](docs/audit-report.md) | End-to-end audit evidence |
+| [docs/localization/LOCALIZATION_ARCHITECTURE.md](docs/localization/LOCALIZATION_ARCHITECTURE.md) | Spanish / en-US–es-US localization |
+| [docs/organizer-scoring.md](docs/organizer-scoring.md) | How `score.py` fits in |
+| [docs/ux-test-checklist.md](docs/ux-test-checklist.md) | Demo-day acceptance checklist |
+
+Deeper notes (design system, UX history, brief scorecard, glossary, review queue) live under [`docs/`](docs/) and are not required for the demo path.
 
 ---
 
