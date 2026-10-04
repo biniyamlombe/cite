@@ -340,6 +340,18 @@ const STRINGS = {
     "lookup.demo.unknown": "Unknown over guessing",
     "lookup.demo.remap": "Postal ≠ legal",
     "lookup.demo.conflict": "Conflict + citation",
+    "lookup.demo.stretch": "Stretch · Santa Ana",
+    "stretch.badge": "Stretch",
+    "stretch.title": "Santa Ana stretch jurisdiction",
+    "stretch.body":
+      "Same extract → geocode → coverage pipeline as the pack 500, with demo addresses outside graded T1–T5.",
+    "stretch.tip.applies":
+      "SA0001 (1968): Santa Ana rent + just-cause rules can apply, layered with CA state rules. Compare SA0003 for the 15-year just-cause exemption.",
+    "stretch.tip.exempt":
+      "SA0003 (2018): city just-cause with a 15-year housing exemption is omitted at the default as-of. Jump to 2040 (or SA0001) to see the contrast.",
+    "stretch.tip.generic":
+      "Stretch address — results use Santa Ana city rules already in the corpus plus California state layering.",
+    "stretch.compare": "Compare SA0001 ↔ SA0003",
     "lookup.honesty.unknown":
       "We could not determine coverage when building facts are missing. Cite will not invent year built or unit counts.",
     "lookup.honesty.conflict":
@@ -1230,6 +1242,18 @@ const STRINGS = {
     "lookup.demo.unknown": "Desconocido antes que adivinar",
     "lookup.demo.remap": "Postal ≠ legal",
     "lookup.demo.conflict": "Conflicto + cita",
+    "lookup.demo.stretch": "Stretch · Santa Ana",
+    "stretch.badge": "Stretch",
+    "stretch.title": "Jurisdicción stretch Santa Ana",
+    "stretch.body":
+      "El mismo pipeline extract → geocode → cobertura que el pack de 500, con direcciones demo fuera de T1–T5 puntuados.",
+    "stretch.tip.applies":
+      "SA0001 (1968): pueden aplicar normas de renta y just cause de Santa Ana, con capa estatal de CA. Compare SA0003 para la exención de 15 años.",
+    "stretch.tip.exempt":
+      "SA0003 (2018): el just cause municipal con exención de vivienda de 15 años se omite en la fecha por defecto. Salte a 2040 (o SA0001) para ver el contraste.",
+    "stretch.tip.generic":
+      "Dirección stretch — los resultados usan normas municipales de Santa Ana del corpus más la capa estatal de California.",
+    "stretch.compare": "Comparar SA0001 ↔ SA0003",
     "lookup.honesty.unknown":
       "No pudimos determinar la cobertura cuando faltan hechos del edificio. Cite no inventa año ni unidades.",
     "lookup.honesty.conflict":
