@@ -1,0 +1,17 @@
+# Cite API on Render (free Docker web service)
+# Dashboard: https://dashboard.render.com → New → Blueprint → connect this repo
+services:
+  - type: web
+    name: cite-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "4000"
+      # After the Vercel URL exists, set in Render dashboard:
+      # CORS_ORIGIN=https://YOUR-APP.vercel.app

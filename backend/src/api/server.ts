@@ -91,7 +91,9 @@ function isAllowedOrigin(origin: string): boolean {
       host === "lovableproject.com" ||
       host.endsWith(".lovableproject.com") ||
       host === "vercel.app" ||
-      host.endsWith(".vercel.app")
+      host.endsWith(".vercel.app") ||
+      host === "onrender.com" ||
+      host.endsWith(".onrender.com")
     );
   } catch {
     return false;
