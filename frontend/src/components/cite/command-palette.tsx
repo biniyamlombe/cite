@@ -40,10 +40,10 @@ const PRIMARY: ReadonlyArray<{ to: NavTo; key: StringKey }> = [
 ];
 
 const MORE: ReadonlyArray<{ to: NavTo; key: StringKey }> = [
+  { to: "/dashboard", key: "nav.dashboard" },
   { to: "/portfolio", key: "nav.portfolio" },
   { to: "/bulk", key: "nav.bulk" },
   { to: "/coverage", key: "nav.coverage" },
-  { to: "/dashboard", key: "nav.dashboard" },
   { to: "/memos", key: "nav.memos" },
   { to: "/settings", key: "nav.settings" },
 ];

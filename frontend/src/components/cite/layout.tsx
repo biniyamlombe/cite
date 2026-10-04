@@ -65,6 +65,7 @@ type MoreLink = {
 
 /** Tier-3 product surfaces — grouped so More reads as product structure */
 const MORE_MONITOR: ReadonlyArray<MoreLink> = [
+  { to: "/dashboard", key: "nav.dashboard" },
   { to: "/inbox", key: "nav.inbox" },
   { to: "/portfolio", key: "nav.portfolio" },
   { to: "/bulk", key: "nav.bulk" },
@@ -72,7 +73,6 @@ const MORE_MONITOR: ReadonlyArray<MoreLink> = [
 ];
 
 const MORE_TEAM: ReadonlyArray<MoreLink> = [
-  { to: "/dashboard", key: "nav.dashboard" },
   { to: "/workspace", key: "nav.workspace" },
   { to: "/memos", key: "nav.memos" },
   { to: "/settings", key: "nav.settings" },
