@@ -20,7 +20,7 @@ export const Route = createFileRoute("/pipeline")({
       {
         property: "og:description",
         content:
-          "Live extract demo: source text to structured rules, with schema validation and verbatim citations.",
+          "Turn a legal source document into structured, validated rules with citations.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -34,6 +34,27 @@ const DEMO_DOC_HINTS = ["D001", "D069", "D002"];
 
 function pickDemoDoc<T extends { doc_id: string }>(docs: T[]) {
   return DEMO_DOC_HINTS.map((id) => docs.find((d) => d.doc_id === id)).find(Boolean);
+}
+
+/** Map legacy/internal extract check names to user-facing labels. */
+function publicCheckLabel(check: string): string {
+  const map: Record<string, string> = {
+    "Schema + Zod/Ajv": "Schema validation",
+    "Schema validation": "Schema validation",
+    "Verbatim quoted span in corpus": "Quotation matches source",
+    "Quotation matches source": "Quotation matches source",
+    "Source document loaded": "Source document loaded",
+  };
+  return map[check] ?? check;
+}
+
+function publicCheckDetail(detail: string): string {
+  return detail
+    .replace(/\bZod\/Ajv\b/gi, "schema")
+    .replace(/\bspan\(s\)\b/gi, "quotation(s)")
+    .replace(/\bcorpus document\b/gi, "source document")
+    .replace(/\bcorpus\b/gi, "source")
+    .replace(/\s*\(\d+\s*chars? shown\)/gi, "");
 }
 
 function ExtractStages({ pending, done }: { pending: boolean; done: boolean }) {
@@ -284,8 +305,7 @@ function PipelinePage() {
             {t("pipeline.summary")
               .replace("{rules}", String(run.data.rules.length))
               .replace("{pass}", String(validationPass))
-              .replace("{total}", String(validationTotal))
-              .replace("{via}", run.data.source ?? "—")}
+              .replace("{total}", String(validationTotal))}
           </p>
 
           <div className="grid gap-10 lg:grid-cols-2">
@@ -310,19 +330,23 @@ function PipelinePage() {
                 </span>
               </h2>
               <ul className="mt-2 divide-y divide-border/70">
-                {run.data.validation.map((c) => (
-                  <li key={c.check} className="flex gap-3 py-2.5 text-sm">
-                    {c.passed ? (
-                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-applies stage-check" />
-                    ) : (
-                      <XCircle className="mt-0.5 size-4 shrink-0 text-conflict" />
-                    )}
-                    <div>
-                      <div className="font-medium text-ink">{c.check}</div>
-                      <div className="text-muted-foreground">{c.detail}</div>
-                    </div>
-                  </li>
-                ))}
+                {run.data.validation.map((c) => {
+                  const label = publicCheckLabel(c.check);
+                  const detail = publicCheckDetail(c.detail);
+                  return (
+                    <li key={c.check} className="flex gap-3 py-2.5 text-sm">
+                      {c.passed ? (
+                        <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-applies stage-check" />
+                      ) : (
+                        <XCircle className="mt-0.5 size-4 shrink-0 text-conflict" />
+                      )}
+                      <div>
+                        <div className="font-medium text-ink">{label}</div>
+                        <div className="text-muted-foreground">{detail}</div>
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </section>
 
