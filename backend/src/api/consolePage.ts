@@ -34,11 +34,11 @@ const ENDPOINTS: ReadonlyArray<{
   {
     method: "GET",
     path: "/addresses",
-    note: "Search sample + stretch addresses",
+    note: "Search sample addresses",
     try: "/addresses?q=A0005&limit=5",
   },
   { method: "GET", path: "/rules", note: "Full extracted rule catalog" },
-  { method: "GET", path: "/changes", note: "Change tests T1–T6" },
+  { method: "GET", path: "/changes", note: "Change tests T1-T6" },
   { method: "GET", path: "/corpus/docs", note: "Capturable corpus for Pipeline" },
   {
     method: "POST",
@@ -79,7 +79,7 @@ export function renderConsolePage(stats: ConsoleStats): string {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cite API — regulatory intelligence</title>
+  <title>Cite API · regulatory intelligence</title>
   <meta name="description" content="Cite Hono API: extract, geocode, lookup, and change tests with verbatim citations." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -297,7 +297,7 @@ export function renderConsolePage(stats: ConsoleStats): string {
 
     <div class="try">
       <a href="${esc(base)}/lookup/A0005?as_of=${esc(stats.asOf)}" target="_blank" rel="noreferrer">
-        <div><strong>A0005</strong><em>Unknown over guessing — missing year / units</em></div>
+        <div><strong>A0005</strong><em>Unknown over guessing: missing year / units</em></div>
         <span>→</span>
       </a>
       <a href="${esc(base)}/lookup/A0065?as_of=${esc(stats.asOf)}" target="_blank" rel="noreferrer">
@@ -305,7 +305,7 @@ export function renderConsolePage(stats: ConsoleStats): string {
         <span>→</span>
       </a>
       <a href="${esc(base)}/lookup/SA0001?as_of=${esc(stats.asOf)}" target="_blank" rel="noreferrer">
-        <div><strong>SA0001</strong><em>Stretch jurisdiction — Santa Ana</em></div>
+        <div><strong>SA0001</strong><em>Santa Ana, CA</em></div>
         <span>→</span>
       </a>
     </div>

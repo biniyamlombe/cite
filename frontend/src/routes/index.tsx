@@ -15,7 +15,7 @@ import { Button } from "@/components/ui/button";
 import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
 import { CATEGORY_ORDER } from "@/lib/cite/labels";
 import type { AddressRow, LookupResponse } from "@/lib/cite/types";
-import { PropertySummary, isStretchAddress } from "@/components/cite/property";
+import { PropertySummary } from "@/components/cite/property";
 import { ResultSummaryChips } from "@/components/cite/status";
 import { EvidenceFreshness } from "@/components/cite/evidence-freshness";
 import { lookupToCsv, downloadText } from "@/lib/cite/export";
@@ -28,9 +28,9 @@ import { createCase } from "@/lib/cite/cases";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Property Lookup — Cite" },
+      { title: "Property Lookup · Cite" },
       { name: "description", content: "See which rental-housing regulations apply to a property, why they apply, and what is about to change." },
-      { property: "og:title", content: "Property Lookup — Cite" },
+      { property: "og:title", content: "Property Lookup · Cite" },
       { property: "og:description", content: "Know what applies. And why. Traceable rental-housing regulation lookup." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -44,11 +44,10 @@ export const Route = createFileRoute("/")({
   component: LookupPage,
 });
 
-const DEMO_CHIPS: ReadonlyArray<{ q: string; labelKey: "lookup.demo.unknown" | "lookup.demo.remap" | "lookup.demo.conflict" | "lookup.demo.stretch"; id: string }> = [
+const DEMO_CHIPS: ReadonlyArray<{ q: string; labelKey: "lookup.demo.unknown" | "lookup.demo.remap" | "lookup.demo.conflict"; id: string }> = [
   { q: "A0005", labelKey: "lookup.demo.unknown", id: "A0005" },
   { q: "A0065", labelKey: "lookup.demo.remap", id: "A0065" },
   { q: "A0002", labelKey: "lookup.demo.conflict", id: "A0002" },
-  { q: "SA0001", labelKey: "lookup.demo.stretch", id: "SA0001" },
 ];
 
 export function AddressSearch({ onSelect, prominent = false, onOpenChange }: { onSelect: (a: AddressRow) => void; prominent?: boolean; onOpenChange?: (open: boolean) => void }) {
@@ -389,7 +388,7 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
           <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-unknown" />
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{unknownN}</span>{" "}
-            {t("result.unknown").toLowerCase()} — {t("lookup.honesty.unknown")}
+            {t("result.unknown").toLowerCase()} · {t("lookup.honesty.unknown")}
           </p>
         </div>
       )}
@@ -398,7 +397,7 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
           <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-conflict" />
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{conflictN}</span>{" "}
-            {t("result.conflict").toLowerCase()} — {t("lookup.honesty.conflict")}
+            {t("result.conflict").toLowerCase()} · {t("lookup.honesty.conflict")}
           </p>
         </div>
       )}
@@ -407,7 +406,7 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
           <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{pendingN}</span>{" "}
-            {t("result.pending").toLowerCase()} — {t("lookup.honesty.pending")}
+            {t("result.pending").toLowerCase()} · {t("lookup.honesty.pending")}
           </p>
         </div>
       )}
@@ -416,7 +415,7 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
           <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-unknown" />
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{linkOnlyN}</span>{" "}
-            {t("rule.linkOnly.badge").toLowerCase()} — {t("lookup.honesty.linkOnly")}
+            {t("rule.linkOnly.badge").toLowerCase()} · {t("lookup.honesty.linkOnly")}
           </p>
         </div>
       )}
@@ -448,12 +447,6 @@ function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; 
         </div>
         <ResultSummaryChips results={data.results} />
         <EvidenceFreshness data={data} />
-        {isStretchAddress(data.address.address_id) && (
-          <div className="flex gap-2.5 rounded-md border border-primary/25 bg-accent px-3 py-2.5 text-sm">
-            <AlertCircle className="mt-0.5 size-4 shrink-0 text-primary" />
-            <p className="text-ink/90">{t("stretch.demoTip")}</p>
-          </div>
-        )}
         <HonestyCallouts data={data} />
         <EffectiveTimeline data={data} />
       </section>
@@ -549,7 +542,7 @@ function MemoBar({ data }: { data: LookupResponse }) {
   return (
     <>
       <div className="hidden border-b pb-4 print:block">
-        <div className="font-serif text-2xl text-ink">Cite — {t("memo.title")}</div>
+        <div className="font-serif text-2xl text-ink">Cite · {t("memo.title")}</div>
         <div className="mt-1 font-mono text-xs text-muted-foreground">
           {data.address.address_id} · as of {data.as_of} · {t("memo.generated")} {generated}
         </div>

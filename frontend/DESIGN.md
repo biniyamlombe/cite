@@ -42,7 +42,7 @@ Soft companions (`*-soft`) are tinted surfaces for chips and callouts.
 
 ## Demo-critical patterns
 
-1. **Lookup empty** — labeled demo chips (A0005 unknown, A0065 remap, A0002 conflict, SA0001 stretch).
+1. **Lookup empty** — labeled demo chips (A0005 unknown, A0065 remap, A0002 conflict).
 2. **Postal ≠ legal** — accent callout on property summary when cities differ.
 3. **Honesty callouts** — unknown / conflict counts above rule list.
 4. **Evidence drawer** — why/conflict → verbatim quote → confidence → versions (expanded by default).

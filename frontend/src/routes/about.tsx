@@ -5,9 +5,9 @@ import { PageHeader } from "@/components/cite/layout";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About — Cite" },
+      { title: "About · Cite" },
       { name: "description", content: "How Cite turns legal text into traceable, deterministic regulatory answers." },
-      { property: "og:title", content: "About — Cite" },
+      { property: "og:title", content: "About · Cite" },
       { property: "og:description", content: "AI structures regulation. Code evaluates coverage. Evidence supports every answer." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -88,11 +88,7 @@ function AboutPage() {
         ))}
       </ul>
 
-      <div className="mt-10 grid gap-3 sm:grid-cols-2">
-        <div className="surface p-4">
-          <div className="font-medium text-ink">{t("about.stretch")}</div>
-          <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t("about.stretch.body")}</p>
-        </div>
+      <div className="mt-10">
         <div className="surface p-4">
           <div className="font-medium text-ink">{t("about.limits")}</div>
           <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t("about.limits.body")}</p>

@@ -29,7 +29,6 @@ const DEMO: ReadonlyArray<{ id: string; labelKey: StringKey }> = [
   { id: "A0005", labelKey: "lookup.demo.unknown" },
   { id: "A0065", labelKey: "lookup.demo.remap" },
   { id: "A0002", labelKey: "lookup.demo.conflict" },
-  { id: "SA0001", labelKey: "lookup.demo.stretch" },
 ];
 
 const PRIMARY: ReadonlyArray<{ to: NavTo; key: StringKey }> = [
