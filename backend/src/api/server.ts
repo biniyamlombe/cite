@@ -11,6 +11,7 @@ import { outputsDir } from "../lib/paths.js";
 import type { GeocodeResult } from "../geocode/census.js";
 import { jurisdictionStack } from "../geocode/census.js";
 import { evaluateAddress } from "../apply/coverage.js";
+import { corpusGapsForGeo } from "../apply/corpus_gaps.js";
 import { extractDocument } from "../extract/agent.js";
 import { loadChangeTests } from "../changes/tracker.js";
 import { appendAudit, readAuditLog } from "../lib/audit.js";
@@ -222,6 +223,7 @@ app.get("/lookup/:addressId", async (c) => {
   const entries = evaluateAddress({ address: addr, geo, rules, asOf });
   const byId = new Map(rules.map((r) => [r.team_rule_id, r]));
   const retrievedAtByDoc = await loadRetrievedAtByDocId();
+  const corpus_gaps = await corpusGapsForGeo(geo, rules);
 
   return c.json({
     disclaimer:
@@ -229,6 +231,7 @@ app.get("/lookup/:addressId", async (c) => {
     as_of: asOf,
     address: addr,
     jurisdiction: jurisdictionStack(geo),
+    corpus_gaps,
     results: entries.map((e) => ({
       ...e,
       rule: withRetrievedAt(byId.get(e.team_rule_id) ?? null, retrievedAtByDoc),
