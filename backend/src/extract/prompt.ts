@@ -15,8 +15,10 @@ level ("state"|"city"), category (one of the six), status ("in_force"|"not_yet_e
 title, requirement (1-2 plain sentences), citation, source_url, quoted_span (EXACT contiguous text from the document, >=20 chars),
 source_doc_id, effective_date (YYYY-MM-DD or YYYY-MM or YYYY or null),
 key_value (string or null — never an object), coverage_conditions, exemptions (string or null),
+penalty (string or null — civil fine, misdemeanor, treble damages, attorney fees, or other remedy when stated),
 overrides (array), interaction (string or null), confidence (0-1),
 conflict_flag (boolean), conflict_note (string or null).
+When the statute states exemptions or a penalty/remedy near the rule, capture them; use null only when the text does not state them.
 Keep quoted_span short (<= 220 chars) and copied verbatim.
 
 Status is relative to query date 2026-10-01:
@@ -43,7 +45,7 @@ Constraints to avoid JSON breakage:
 - quoted_span must be <= 180 characters, copied verbatim, with " escaped as \\"
 - Use only double quotes for JSON keys/strings
 - No trailing commas
-- conflict_note/exemptions/interaction may be null
+- conflict_note/exemptions/interaction/penalty may be null
 - overrides must be []
 
 Categories: rent_increase_limits | just_cause_eviction | security_deposits | application_screening_fees | screening_restrictions | algorithmic_rent_setting

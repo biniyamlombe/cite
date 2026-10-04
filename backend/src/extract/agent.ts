@@ -197,6 +197,7 @@ function normalizeCandidate(candidate: unknown): Record<string, unknown> {
       : {};
   if ("key_value" in base) base.key_value = coerceScalarString(base.key_value);
   if ("exemptions" in base) base.exemptions = coerceScalarString(base.exemptions);
+  if ("penalty" in base) base.penalty = coerceScalarString(base.penalty);
   if ("interaction" in base) base.interaction = coerceScalarString(base.interaction);
   if ("conflict_note" in base) {
     base.conflict_note = coerceScalarString(base.conflict_note);

@@ -93,7 +93,9 @@ function withRetrievedAt<T extends RuleRecord | null>(
   : T & { retrieved_at: string | null } {
   if (!rule) return null as never;
   const retrieved_at =
-    (rule.source_doc_id && retrievedAtByDoc.get(rule.source_doc_id)) || null;
+    rule.retrieved_at ||
+    (rule.source_doc_id && retrievedAtByDoc.get(rule.source_doc_id)) ||
+    null;
   return { ...rule, retrieved_at, stable_id: stableRuleKey(rule), evidence_status: ["HOB-ALG-01", "JC-ALG-01"].includes(rule.alias_id ?? "") ? "scenario_only" : "captured" } as never;
 }
 

@@ -27,19 +27,21 @@ function run(script: string, args: string[] = []): Promise<void> {
 
 async function main() {
   const heuristicGeo = process.argv.includes("--heuristic-geo");
-  console.log("=== 0/7 Schema shape gate ===");
+  console.log("=== 0/8 Schema shape gate ===");
   await run("check_schema.ts");
-  console.log("=== 1/7 Extract ===");
+  console.log("=== 1/8 Extract ===");
   await run("extract.ts");
-  console.log("=== 2/7 Enrich dual coverage ===");
+  console.log("=== 2/8 Enrich dual coverage ===");
   await run("enrich_coverage.ts");
-  console.log("=== 3/7 Rule version history ===");
+  console.log("=== 3/8 Enrich penalty / retrieved_at / exemptions / dates ===");
+  await run("enrich_fields.ts");
+  console.log("=== 4/8 Rule version history ===");
   await run("build_versions.ts");
-  console.log("=== 4/7 Geocode ===");
+  console.log("=== 5/8 Geocode ===");
   await run("geocode.ts", heuristicGeo ? ["--heuristic-only"] : []);
-  console.log("=== 5/7 Lookup ===");
+  console.log("=== 6/8 Lookup ===");
   await run("lookup.ts");
-  console.log("=== 6/7 Changes ===");
+  console.log("=== 7/8 Changes ===");
   await run("changes.ts");
   console.log("=== stretch/Santa Ana (optional demo jurisdiction) ===");
   await run("stretch.ts", heuristicGeo ? ["--heuristic-geo"] : []);

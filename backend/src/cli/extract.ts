@@ -19,6 +19,7 @@ import {
 } from "../extract/ensure_aliases.js";
 import { appendAudit } from "../lib/audit.js";
 import { enrichRuleCoverage } from "../apply/compile_coverage.js";
+import { enrichRuleFields } from "../extract/enrich_fields.js";
 
 function argValue(prefix: string): string | undefined {
   const hit = process.argv.find((a) => a.startsWith(prefix));
@@ -152,6 +153,8 @@ async function main() {
   }
 
   finalRules = finalRules.map((r) => enrichRuleCoverage(r));
+  const enriched = await enrichRuleFields(finalRules);
+  finalRules = enriched.rules;
   for (const rule of finalRules) {
     const doc = rule.source_doc_id ? await loadDocById(rule.source_doc_id) : null;
     if (!doc) throw new Error(`Missing corpus document for ${rule.team_rule_id}`);
