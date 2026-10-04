@@ -1,8 +1,15 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
-import { useMemo } from "react";
-import { ArrowRight, Bell, Loader2 } from "lucide-react";
+import { useMemo, useState } from "react";
+import {
+  ArrowRight,
+  Bell,
+  FileText,
+  Loader2,
+  RefreshCw,
+  Search,
+} from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
 import { getCiteClient } from "@/lib/cite/client";
@@ -10,17 +17,21 @@ import { listAudit, listMemos } from "@/lib/cite/team";
 import { isScheduleDue, listSchedules } from "@/lib/cite/ops";
 import { runMyRechecks } from "@/lib/cite/ops.functions";
 import { useWatchlist } from "@/lib/cite/watchlist";
-import { useT } from "@/lib/i18n";
+import { useLocale, useT, type StringKey } from "@/lib/i18n";
 import { PageHeader } from "@/components/cite/layout";
 import { SignInCard } from "@/components/cite/sign-in-card";
 import { StatusBadge } from "@/components/cite/status";
 import type { TestId } from "@/lib/cite/types";
 
+type ActivityKind = "lookup" | "memo" | "recheckChanged";
+type ActivityFilter = "all" | ActivityKind;
+
 type PulseItem = {
   id: string;
   at: number;
-  kind: "lookup" | "memo" | "recheckChanged" | "recheckDue";
-  label: string;
+  kind: ActivityKind;
+  subject: string;
+  detail: string;
   href?: { to: "/"; search: { address: string } } | { to: "/memos" };
 };
 
@@ -30,6 +41,8 @@ type AttentionItem = {
   tone: "due" | "changed";
   detail: string;
 };
+
+type DayBucket = "today" | "yesterday" | "earlier";
 
 const ORDER: TestId[] = ["T1", "T2", "T3", "T4", "T5"];
 
@@ -43,6 +56,81 @@ const PUNCH_KEYS: Record<
   T4: "changes.punch.T4",
   T5: "changes.punch.T5",
 };
+
+const KIND_META: Record<
+  ActivityKind,
+  {
+    labelKey: StringKey;
+    icon: typeof Search;
+    tone: string;
+  }
+> = {
+  lookup: {
+    labelKey: "dashboard.activity.kind.lookup",
+    icon: Search,
+    tone: "bg-primary/10 text-primary",
+  },
+  memo: {
+    labelKey: "dashboard.activity.kind.memo",
+    icon: FileText,
+    tone: "bg-secondary text-ink",
+  },
+  recheckChanged: {
+    labelKey: "dashboard.activity.kind.changed",
+    icon: RefreshCw,
+    tone: "bg-conflict-soft text-conflict",
+  },
+};
+
+const FILTERS: ReadonlyArray<{ id: ActivityFilter; labelKey: StringKey }> = [
+  { id: "all", labelKey: "dashboard.activity.filter.all" },
+  { id: "lookup", labelKey: "dashboard.activity.filter.lookups" },
+  { id: "memo", labelKey: "dashboard.activity.filter.memos" },
+  { id: "recheckChanged", labelKey: "dashboard.activity.filter.changes" },
+];
+
+function dayBucket(at: number, now = Date.now()): DayBucket {
+  const startToday = new Date(now);
+  startToday.setHours(0, 0, 0, 0);
+  const startYesterday = new Date(startToday);
+  startYesterday.setDate(startYesterday.getDate() - 1);
+  if (at >= startToday.getTime()) return "today";
+  if (at >= startYesterday.getTime()) return "yesterday";
+  return "earlier";
+}
+
+function relativeStamp(at: number, locale: string, now = Date.now()): string {
+  const diffSec = Math.round((at - now) / 1000);
+  const abs = Math.abs(diffSec);
+  const rtf = new Intl.RelativeTimeFormat(locale, { numeric: "auto" });
+  if (abs < 60) return rtf.format(diffSec, "second");
+  const diffMin = Math.round(diffSec / 60);
+  if (Math.abs(diffMin) < 60) return rtf.format(diffMin, "minute");
+  const diffHr = Math.round(diffSec / 3600);
+  if (Math.abs(diffHr) < 24) return rtf.format(diffHr, "hour");
+  const diffDay = Math.round(diffSec / 86400);
+  if (Math.abs(diffDay) < 7) return rtf.format(diffDay, "day");
+  return new Date(at).toLocaleString(locale, {
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
+
+function lookupDetail(summary: Record<string, number>, t: (k: StringKey) => string): string {
+  const conflicts = summary["conflicts"] ?? 0;
+  const rules = Object.entries(summary)
+    .filter(([k]) => k !== "conflicts")
+    .reduce((n, [, v]) => n + (typeof v === "number" ? v : 0), 0);
+  if (rules === 0 && conflicts === 0) return t("dashboard.activity.lookupBare");
+  if (conflicts > 0) {
+    return t("dashboard.activity.lookupWithConflict")
+      .replace("{rules}", String(rules))
+      .replace("{conflicts}", String(conflicts));
+  }
+  return t("dashboard.activity.lookupRules").replace("{rules}", String(rules));
+}
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
@@ -73,10 +161,12 @@ function fmtStamp(iso?: string | null) {
 
 function Dashboard() {
   const t = useT();
+  const { locale } = useLocale();
   const { user, ready } = useAuth();
   const qc = useQueryClient();
   const watch = useWatchlist();
   const run = useServerFn(runMyRechecks);
+  const [activityFilter, setActivityFilter] = useState<ActivityFilter>("all");
   const changes = useQuery({
     queryKey: ["changes", "dash"],
     queryFn: () => getCiteClient().changes(),
@@ -144,7 +234,8 @@ function Dashboard() {
         id: `lookup-${a.id}`,
         at: new Date(a.created_at).getTime(),
         kind: "lookup",
-        label: t("dashboard.activity.lookup").replace("{id}", a.address_id),
+        subject: a.address_id,
+        detail: lookupDetail(a.summary ?? {}, t),
         href: { to: "/", search: { address: a.address_id } },
       });
     }
@@ -153,31 +244,52 @@ function Dashboard() {
         id: `memo-${m.id}`,
         at: new Date(m.created_at).getTime(),
         kind: "memo",
-        label: t("dashboard.activity.memo").replace("{title}", m.title),
+        subject: m.address_id,
+        detail: m.title,
         href: { to: "/memos" },
       });
     }
+    // Only events that happened — due work stays in Needs attention
     for (const s of sched.data ?? []) {
       if (s.last_changed && s.last_run_at) {
         items.push({
           id: `changed-${s.id}`,
           at: new Date(s.last_run_at).getTime(),
           kind: "recheckChanged",
-          label: t("dashboard.activity.recheckChanged").replace("{id}", s.address_id),
-          href: { to: "/", search: { address: s.address_id } },
-        });
-      } else if (isScheduleDue(s.frequency, s.last_run_at)) {
-        items.push({
-          id: `due-${s.id}`,
-          at: s.last_run_at ? new Date(s.last_run_at).getTime() : Date.now(),
-          kind: "recheckDue",
-          label: t("dashboard.activity.recheckDue").replace("{id}", s.address_id),
+          subject: s.address_id,
+          detail: t("dashboard.activity.recheckChangedDetail").replace(
+            "{when}",
+            fmtStamp(s.last_run_at) ?? t("dashboard.notRun"),
+          ),
           href: { to: "/", search: { address: s.address_id } },
         });
       }
     }
-    return items.sort((a, b) => b.at - a.at).slice(0, 8);
+    return items.sort((a, b) => b.at - a.at);
   }, [audit.data, memos.data, sched.data, t]);
+
+  const filteredPulse = useMemo(() => {
+    const list =
+      activityFilter === "all" ? pulse : pulse.filter((p) => p.kind === activityFilter);
+    return list.slice(0, 16);
+  }, [pulse, activityFilter]);
+
+  const groupedPulse = useMemo(() => {
+    const groups: { bucket: DayBucket; items: PulseItem[] }[] = [];
+    for (const item of filteredPulse) {
+      const bucket = dayBucket(item.at);
+      const last = groups[groups.length - 1];
+      if (last && last.bucket === bucket) last.items.push(item);
+      else groups.push({ bucket, items: [item] });
+    }
+    return groups;
+  }, [filteredPulse]);
+
+  const activityCounts = useMemo(() => {
+    const counts = { all: pulse.length, lookup: 0, memo: 0, recheckChanged: 0 };
+    for (const p of pulse) counts[p.kind] += 1;
+    return counts;
+  }, [pulse]);
 
   const results = changes.data?.results ?? {};
   const conflictCount = results["T3"]?.conflict_flag_address_ids?.length ?? 0;
@@ -375,8 +487,8 @@ function Dashboard() {
         )}
       </section>
 
-      {/* Secondary: watched + activity — quieter, not twin cards */}
-      <div className="fade-up mt-12 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
+      {/* Secondary context — watched + recent memos */}
+      <div className="fade-up mt-12 grid gap-10 sm:grid-cols-2">
         <section aria-labelledby="dash-watched">
           <div className="flex items-end justify-between gap-3 border-b border-border/70 pb-3">
             <h2 id="dash-watched" className="font-serif text-xl tracking-[-0.02em] text-ink">
@@ -402,72 +514,179 @@ function Dashboard() {
           ) : (
             <p className="mt-4 text-sm text-muted-foreground">{t("dashboard.watchedEmpty")}</p>
           )}
-
-          {user && (
-            <>
-              <h3 className="mt-8 font-serif text-lg text-ink">{t("dashboard.memos")}</h3>
-              {memos.data?.length ? (
-                <ul className="mt-2 divide-y divide-border/60 text-sm">
-                  {memos.data.slice(0, 4).map((m) => (
-                    <li key={m.id} className="py-2.5">
-                      <Link to="/memos" className="text-ink hover:text-primary hover:underline">
-                        {m.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="mt-2 text-sm text-muted-foreground">{t("dashboard.memosEmpty")}</p>
-              )}
-            </>
-          )}
         </section>
 
-        <section aria-labelledby="dash-activity">
+        <section aria-labelledby="dash-memos">
           <div className="flex items-end justify-between gap-3 border-b border-border/70 pb-3">
-            <h2 id="dash-activity" className="font-serif text-xl tracking-[-0.02em] text-ink">
-              {t("dashboard.activity")}
+            <h2 id="dash-memos" className="font-serif text-xl tracking-[-0.02em] text-ink">
+              {t("dashboard.memos")}
             </h2>
             {user && (
-              <Link to="/audit" className="text-xs text-primary hover:underline">
-                {t("dashboard.lookups")}
+              <Link to="/memos" className="text-xs text-primary hover:underline">
+                {t("dashboard.viewAll")}
               </Link>
             )}
           </div>
           {!user ? (
             <p className="mt-4 text-sm text-muted-foreground">{t("dashboard.activity.signedOut")}</p>
-          ) : pulse.length ? (
+          ) : memos.data?.length ? (
             <ul className="mt-2 divide-y divide-border/60 text-sm">
-              {pulse.map((item) => (
-                <li key={item.id} className="flex flex-wrap items-center justify-between gap-2 py-2.5">
-                  {item.href?.to === "/" ? (
-                    <Link
-                      to="/"
-                      search={item.href.search}
-                      className="text-ink hover:text-primary hover:underline"
-                    >
-                      {item.label}
-                    </Link>
-                  ) : item.href?.to === "/memos" ? (
-                    <Link to="/memos" className="text-ink hover:text-primary hover:underline">
-                      {item.label}
-                    </Link>
-                  ) : (
-                    <span className="text-ink">{item.label}</span>
-                  )}
-                  <span className="font-mono text-[11px] tabular-nums text-muted-foreground">
-                    {Number.isFinite(item.at)
-                      ? new Date(item.at).toISOString().slice(0, 16).replace("T", " ")
-                      : "—"}
-                  </span>
+              {memos.data.slice(0, 4).map((m) => (
+                <li key={m.id} className="py-2.5">
+                  <Link to="/memos" className="text-ink hover:text-primary hover:underline">
+                    {m.title}
+                  </Link>
+                  <p className="mt-0.5 font-mono text-[11px] text-muted-foreground">{m.address_id}</p>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="mt-4 text-sm text-muted-foreground">{t("dashboard.activityEmpty")}</p>
+            <p className="mt-4 text-sm text-muted-foreground">{t("dashboard.memosEmpty")}</p>
           )}
         </section>
       </div>
+
+      {/* Activity feed — full width, filterable, day-grouped */}
+      <section className="fade-up mt-12" aria-labelledby="dash-activity">
+        <div className="flex flex-wrap items-end justify-between gap-3 border-b border-border/70 pb-3">
+          <div>
+            <h2 id="dash-activity" className="font-serif text-2xl tracking-[-0.02em] text-ink">
+              {t("dashboard.activity")}
+            </h2>
+            <p className="mt-1 text-sm text-muted-foreground">{t("dashboard.activity.lede")}</p>
+          </div>
+          {user && (
+            <Link to="/audit" className="text-sm text-primary hover:underline">
+              {t("dashboard.lookups")}
+            </Link>
+          )}
+        </div>
+
+        {!user ? (
+          <p className="mt-5 text-sm text-muted-foreground">{t("dashboard.activity.signedOut")}</p>
+        ) : (
+          <>
+            <div
+              className="mt-5 flex flex-wrap gap-1.5"
+              role="tablist"
+              aria-label={t("dashboard.activity.filter.label")}
+            >
+              {FILTERS.map((f) => {
+                const active = activityFilter === f.id;
+                const count = activityCounts[f.id];
+                return (
+                  <button
+                    key={f.id}
+                    type="button"
+                    role="tab"
+                    aria-selected={active}
+                    onClick={() => setActivityFilter(f.id)}
+                    className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs transition-colors ${
+                      active
+                        ? "border-primary/40 bg-primary/10 text-primary"
+                        : "border-border/80 bg-card text-muted-foreground hover:border-primary/25 hover:text-ink"
+                    }`}
+                  >
+                    {t(f.labelKey)}
+                    <span className="font-mono tabular-nums opacity-70">{count}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {pulse.length === 0 ? (
+              <div className="mt-5 rounded-md border border-border/80 bg-card/80 px-4 py-5">
+                <p className="text-sm text-ink">{t("dashboard.activityEmpty")}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{t("dashboard.activity.emptyHint")}</p>
+                <Link
+                  to="/"
+                  className="mt-3 inline-flex items-center gap-1 text-sm text-primary hover:underline"
+                >
+                  {t("dashboard.cta.lookup")}
+                  <ArrowRight className="size-3" />
+                </Link>
+              </div>
+            ) : filteredPulse.length === 0 ? (
+              <p className="mt-5 text-sm text-muted-foreground">{t("dashboard.activity.filterEmpty")}</p>
+            ) : (
+              <div className="mt-4 space-y-6">
+                {groupedPulse.map((group) => (
+                  <div key={group.bucket}>
+                    <h3 className="eyebrow text-muted-foreground">
+                      {t(
+                        group.bucket === "today"
+                          ? "dashboard.activity.day.today"
+                          : group.bucket === "yesterday"
+                            ? "dashboard.activity.day.yesterday"
+                            : "dashboard.activity.day.earlier",
+                      )}
+                    </h3>
+                    <ul className="mt-2 divide-y divide-border/70 border-t border-border/70">
+                      {group.items.map((item) => {
+                        const meta = KIND_META[item.kind];
+                        const Icon = meta.icon;
+                        const stamp = Number.isFinite(item.at)
+                          ? relativeStamp(item.at, locale)
+                          : "—";
+                        const body = (
+                          <>
+                            <span
+                              className={`inline-flex size-8 shrink-0 items-center justify-center rounded-md ${meta.tone}`}
+                              aria-hidden
+                            >
+                              <Icon className="size-3.5" />
+                            </span>
+                            <span className="min-w-0 flex-1">
+                              <span className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5">
+                                <span className="text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
+                                  {t(meta.labelKey)}
+                                </span>
+                                <span className="font-mono text-sm text-ink">{item.subject}</span>
+                              </span>
+                              <span className="mt-0.5 block truncate text-sm text-muted-foreground">
+                                {item.detail}
+                              </span>
+                            </span>
+                            <time
+                              dateTime={new Date(item.at).toISOString()}
+                              title={new Date(item.at).toLocaleString(locale)}
+                              className="shrink-0 font-mono text-[11px] tabular-nums text-muted-foreground"
+                            >
+                              {stamp}
+                            </time>
+                          </>
+                        );
+                        return (
+                          <li key={item.id}>
+                            {item.href?.to === "/" ? (
+                              <Link
+                                to="/"
+                                search={item.href.search}
+                                className="flex items-start gap-3 py-3 transition-colors hover:bg-accent/30"
+                              >
+                                {body}
+                              </Link>
+                            ) : item.href?.to === "/memos" ? (
+                              <Link
+                                to="/memos"
+                                className="flex items-start gap-3 py-3 transition-colors hover:bg-accent/30"
+                              >
+                                {body}
+                              </Link>
+                            ) : (
+                              <div className="flex items-start gap-3 py-3">{body}</div>
+                            )}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            )}
+          </>
+        )}
+      </section>
     </div>
   );
 }
