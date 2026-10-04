@@ -228,7 +228,9 @@ export function SiteHeader() {
                 to={n.to}
                 activeOptions={{ exact: n.to === "/" }}
                 className="rounded-md px-2.5 py-1.5 font-medium text-muted-foreground transition-colors duration-200 hover:text-ink"
-                activeProps={{ className: "!text-primary" }}
+                activeProps={{
+                  className: "!text-ink shadow-[inset_0_-2px_0_0_var(--color-primary)]",
+                }}
               >
                 {t(n.key)}
               </Link>
@@ -237,15 +239,15 @@ export function SiteHeader() {
           </nav>
           <div className="ml-auto flex shrink-0 items-center gap-3 md:ml-0">
             <span
-              className={`hidden items-center sm:flex ${
+              className={`hidden items-center gap-1.5 font-mono text-[11px] sm:flex ${
                 mode === "live" && health.data?.ok && !health.isError
                   ? "text-applies"
-                  : "text-muted-foreground/70"
+                  : "text-muted-foreground"
               }`}
               title={t(modeLabel)}
-              aria-label={t(modeLabel)}
             >
               <span className="inline-block size-1.5 rounded-full bg-current" aria-hidden />
+              {t(modeLabel)}
             </span>
             <CommandPaletteTrigger />
             <LocaleToggle />
@@ -315,13 +317,15 @@ export function PageHeader({
   eyebrow,
   title,
   children,
+  className = "mb-8 fade-up sm:mb-10",
 }: {
   eyebrow?: string;
   title: string;
   children?: React.ReactNode;
+  className?: string;
 }) {
   return (
-    <div className="mb-8 fade-up sm:mb-10">
+    <div className={className}>
       {eyebrow ? <div className="eyebrow text-primary/80">{eyebrow}</div> : null}
       <h1
         className={`font-serif text-3xl tracking-[-0.03em] text-ink sm:text-[2.5rem] ${eyebrow ? "mt-2" : ""}`}
