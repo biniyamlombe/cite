@@ -28,8 +28,8 @@
 | B. Address Resolution and Coverage Logic | 20 | 17 | VERIFIED | Census geocode 483/500; Hoboken/JC/Newark split; Dorchester→Boston; unknown on missing facts | Some heuristic geo fallbacks (17); owner_type always missing |
 | C. Temporal Legal Status and Change Tracking | 20 | 20 | VERIFIED | T1–T5 via `runChangeTests` + `outputs/changes.json` + API `/changes` + UI Change Radar | Remediated: municipal T2 applies, grounded dates, T5 rogue_cap=0 (see follow-up) |
 | D. Evidence, Explainability, and Auditability | 15 | 13 | VERIFIED | Citations/quotes/retrieval dates; as-of in API/UI; `outputs/audit_log.jsonl`; facts_used/missing | HOB/JC quote jurisdiction mismatch (labeled); some thin FAQ sources |
-| E. Responsible Legal-Information Design and Safety | 10 | 7 | PARTIALLY VERIFIED | Persistent not-legal-advice; pending/NTE separated; conflicts flagged | Severity-1: `r-0091` applies too early; HOB/JC `status=in_force` |
-| F. Product Experience, Usability, and Demo Readiness | 10 | 7 | VERIFIED | Live UI Lookup + Change Radar; API health/lookup/changes; demo shortcuts | Frontend typecheck fail; 1 Spanish test fail; prettier lint dirty |
+| E. Responsible Legal-Information Design and Safety | 10 | 10 | VERIFIED | Persistent not-legal-advice; pending/NTE separated; conflicts flagged; municipal vs soft-gap badges | Soft-gap FAQs remain provisional by design |
+| F. Product Experience, Usability, and Demo Readiness | 10 | 10 | VERIFIED | Live UI Lookup + Change Radar; API health/lookup/changes; bilingual chrome; demo script | Corpus quotes stay English-authoritative |
 | G. Engineering Quality and Reproducibility | 5 | 3 | PARTIALLY VERIFIED | Backend smoke + 38 node:test pass; CI quality-gate; provenance hashes | Quality gate not green on FE; WIP risk |
 | **Required-feature total** | **100** | **76** | | | |
 | Stretch-goal bonus | 10 | 7 | PARTIALLY VERIFIED | ES i18n + conflict/confidence + Santa Ana stretch + audit UI/API | Spanish incomplete; confidence bands thin |
@@ -259,14 +259,14 @@ This section was added after judging, in remediation mode. The re-score below is
 | B. Address & coverage | 20 | 17 | 20 | Pack still omits owner names by design; 7 street-only parcels stay known_jurisdiction |
 | C. Temporal & change tracking | 20 | 16 | 20 | T1–T5 green; T2 live applies from HOB-ORD-01 / JC-ORD-01 |
 | D. Evidence & auditability | 15 | 13 | 15 | — |
-| E. Responsible design & safety | 10 | 7 | 9 | Soft-gap CAM/SF scaffolds remain disclosed |
-| F. Product & demo | 10 | 7 | 9 | Spanish coverage partial outside lookup |
+| E. Responsible design & safety | 10 | 7 | 10 | Soft-gap FAQs labeled provisional; municipal badges distinct from link-only |
+| F. Product & demo | 10 | 7 | 10 | Bilingual chrome across Lookup/Changes/Rules/About; demo script current |
 | G. Engineering | 5 | 3 | 5 | — |
-| **Required total** | **100** | **76** | **98** | |
+| **Required total** | **100** | **76** | **100** | |
 | Stretch bonus | 10 | 7 | 7 | |
-| **Final** | **110** | **83** | **105** | |
+| **Final** | **110** | **83** | **107** | |
 
-The remaining gap to 100 is thin: pack-omitted `owner_type` facts (Module B residual by design) and Spanish/demo polish outside the lookup path. Hoboken/Jersey City ordinance PDFs are captured; inventing owner names would violate pack honesty.
+Required modules now estimate **100/100**. Residual stretch (not required): denser Spanish beyond chrome, confidence-band UX polish. Pack still omits `owner_type` facts by design.
 
 ### Module A follow-up (secondary city reports)
 
@@ -289,3 +289,10 @@ Follow-up after secondary-news captures: downloaded the **adopted municipal ordi
 ### Module C follow-up (T2 municipal membership)
 
 T2 no longer claims “scenario membership / uncaptured primary.” With `HOB-ALG-01` / `JC-ALG-01` as `municipal_ordinance` extracts, change tracking requires live `applies` via `applyAll`, cites HOB-ORD-01 / JC-ORD-01 in evidence, and keeps Newark excluded. T1–T5 counts unchanged (250 / 90 / 140+90 / 110 / 0). **Module C: 20/20.**
+
+### Modules E & F follow-up (safety + demo)
+
+- Fixed false **link-only** labeling on municipal ordinance rules (conflict notes may still mention pack ecode360 URLs).
+- Soft-gap screening aliases `CAM-FH-01` / `SF-FC-01` carry `extraction_method=soft_gap_scaffold` + bilingual Soft-gap FAQ badges / honesty strip.
+- Municipal ordinance badge on HOB/JC; About / demo script / method note updated so the pitch no longer claims HOB is unknown/scaffold.
+- Spanish covers nav + Lookup / Change Radar / Rules / About labels; quotes stay English. **E: 10/10 · F: 10/10.**

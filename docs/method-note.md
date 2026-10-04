@@ -67,7 +67,7 @@ Renter tools (API-grounded): `POST /check` (rent-increase verdict from applying 
 - Quote snapping folds curly apostrophes/dashes so model spans match corpus bytes.  
 - Rule version history is rebuilt from git snapshots of `rules.json` (`npm run build-versions` → `outputs/rule_versions.json`).  
 - Stretch: Santa Ana uses the same pipeline via `data/stretch/santa_ana_addresses.csv` + `npm run stretch` (pack’s 500 change-test addresses unchanged); Lookup shows a Stretch badge + demo tip for SA* IDs.  
-- Confidence bands (high ≥0.85 / medium / low <0.5) filter on Rules; Spanish locale covers primary-nav chrome only.  
+- Confidence bands (high ≥0.85 / medium / low <0.5) filter on Rules. Spanish (`es-US`) covers nav + Lookup / Change Radar / Rules / About chrome and status labels; corpus quotes stay English-authoritative. Soft-gap FAQ extracts and municipal ordinance badges are bilingual.  
 - UI surfaces pack §9 open questions as distinct callouts.  
 - Link-only primary pages (HOB/JC) show an explicit honesty banner: quotes stay on capturable corpus text; no invented municipal code.  
 - Sticky disclaimer: not legal advice and not a compliance certification; About lists pack §8 commitments + §9 open questions.  

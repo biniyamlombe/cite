@@ -63,18 +63,17 @@ Call out:
 
 ---
 
-### 3 · HOB/JC honesty + conflict + open question (60s)
+### 3 · HOB/JC municipal ordinance + conflict + open question (60s)
 
 **Address:** `A0002` — Hoboken  
 **Rule detail:** `HOB-ALG-01` (current `team_rule_id` in Rules / lookup evidence)
 
 Call out:
-- Pack ecode360 pages stay link-only; Cite quotes the **adopted city ordinance PDFs** (`HOB-ORD-01` / `JC-ORD-01`) — municipal extracts, not FAIR Act text
-- Applicability **unknown**, confidence **0.35**, conflict flag, `conflict_note` lists primary URLs
-- Hoboken applies locally with FAIR Act conflict flagged for human review (T3); Newark correctly excludes the Hoboken ban
-- Quoted span is **NJ FAIR Act (D069)** — not invented municipal code
-- **Open legal question** chip on NJ FAIR / local overlap (pack §9 preemption)
-- Open **Version history** on the Hoboken alias — multiple versions from re-extract/scaffold hardening
+- Badge **Municipal ordinance** — quote is from the adopted city PDF (`HOB-ORD-01`), not invented ecode360 text
+- Pack ecode360 pages stay link-only and unused for quotes; `conflict_note` still lists those primary URLs for review
+- Result **applies** in Hoboken (confidence high); Newark correctly excludes the Hoboken ban
+- **Conflict / open legal question** on NJ FAIR Act preemption once statewide law is effective (T3)
+- Soft-gap contrast (optional): Rules filter → `CAM-FH-01` / `SF-FC-01` show **Soft-gap FAQ** badges (thin pack pages, provisional)
 
 Optional, time travel: in the **Effective-date timeline**, click **Day before** and then **On this date** for July 1, 2027. The backend re-evaluates NJ FAIR (`NJ-ALG-01`), which goes from "Not in effect yet" to "Appears to apply". Open the rule: the **Effective date** proof shows "approved July 20, 2026" + the twelfth-month clause = July 1, 2027, computed from the statute's own words (Change Radar T3 shows the local conflict).
 
@@ -108,8 +107,8 @@ Search **`SA0001`** (1968, 24 units) vs **`SA0003`** (2018):
 
 Optional beats in the same minute:
 
-- **Rules** → Confidence filter **Low** → HOB/JC scaffolds (0.35) with link-only honesty
-- Toggle **ES** — primary-nav chrome translates; citations / quotes stay in source language
+- **Rules** → Confidence filter **Low** → soft-gap FAQ badges (`CAM-FH-01` / `SF-FC-01`)
+- Toggle **ES** — nav + lookup/changes/rules/about labels translate; citations / quotes stay English-authoritative
 
 ---
 
@@ -117,7 +116,7 @@ Optional beats in the same minute:
 
 - Automated extract with **verbatim** `quoted_span`s  
 - Reproducible: `npm run pipeline` · `npm test`  
-- Limits on **About** / `docs/method-note.md` (link-only HOB/JC, open questions, empty chrome docs)
+- Limits on **About** / `docs/method-note.md` (soft-gap FAQs, Newark corpus gaps, open questions)
 
 **One-liner:** “Cite won’t invent ordinance text or invent building facts — it cites the corpus and says unknown when the data isn’t there.”
 

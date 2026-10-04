@@ -53,6 +53,16 @@ describe("i18n key parity", () => {
     expect(es["disclaimer.short"].toLowerCase()).toMatch(/no (es )?asesor/);
   });
 
+  it("localizes soft-gap and municipal honesty badges", () => {
+    const en = getStrings("en-US");
+    const es = getStrings("es-US");
+    expect(en["rule.softGap.badge"]).toMatch(/soft-gap/i);
+    expect(es["rule.softGap.badge"]).toMatch(/soft-gap/i);
+    expect(en["rule.municipal.badge"]).toMatch(/municipal/i);
+    expect(es["rule.municipal.badge"]).toMatch(/ordenanza|municipal/i);
+    expect(es["lookup.honesty.softGap"].toLowerCase()).toMatch(/provisional|faq/);
+  });
+
   it("formats legal dates unambiguously for en-US and es-US", () => {
     expect(fmtDate("2026-01-02", "en-US")).toMatch(/January/);
     expect(fmtDate("2026-01-02", "es-US")).toMatch(/enero/i);
