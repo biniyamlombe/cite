@@ -396,6 +396,7 @@ async function handleLookup(
       result: e.result,
       locale,
       factsMissing: e.facts_missing,
+      statusAtAsOf: e.legal_status_at_as_of_date ?? null,
     });
     return {
       ...e,

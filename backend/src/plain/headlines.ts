@@ -280,12 +280,20 @@ export function headlineForLookup(opts: {
   result: string;
   locale: SupportedLocale;
   factsMissing?: string[];
+  /** Legal status on the lookup's as-of date; the stored record carries pack-time status. */
+  statusAtAsOf?: RuleStatus | null;
 }): ResultHeadline | undefined {
-  const { record, result, locale, factsMissing } = opts;
+  const { record, result, locale, factsMissing, statusAtAsOf } = opts;
   if (!record) return undefined;
 
-  const baseText =
+  const lang = locale === "es-US" ? "es" : "en";
+  let baseText =
     locale === "es-US" ? record.headline_es : record.headline_en;
+  if (statusAtAsOf && statusAtAsOf !== record.status) {
+    const stale = statusPrefix(record.status, lang);
+    if (stale && baseText.startsWith(stale)) baseText = baseText.slice(stale.length);
+    baseText = `${statusPrefix(statusAtAsOf, lang)}${baseText}`;
+  }
   const baseWhy = locale === "es-US" ? record.why_es : record.why_en;
 
   if (result === "superseded") {

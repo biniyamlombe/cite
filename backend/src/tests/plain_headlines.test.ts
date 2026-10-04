@@ -69,4 +69,23 @@ describe("plain headlines", () => {
     assert.match(rec.headline_en, /2026-03-01/);
     assert.doesNotMatch(rec.headline_en, /\{/);
   });
+
+  it("uses the as-of legal status, not the pack-time status", () => {
+    const rec = buildPlainRecord(sample({ status: "not_yet_effective" }));
+    assert.match(rec.headline_en, /^Not yet in force — /);
+    const after = headlineForLookup({
+      record: rec,
+      result: "applies",
+      locale: "en-US",
+      statusAtAsOf: "in_force",
+    });
+    assert.doesNotMatch(after!.text, /Not yet in force/);
+    const before = headlineForLookup({
+      record: buildPlainRecord(sample()),
+      result: "does_not_apply",
+      locale: "es-US",
+      statusAtAsOf: "not_yet_effective",
+    });
+    assert.match(before!.text, /^Aún no vigente — /);
+  });
 });
