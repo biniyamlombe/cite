@@ -46,20 +46,31 @@ export function Wordmark() {
   );
 }
 
-/** Judge-facing primary nav — Lookup → Change Radar → Rules → Pipeline → About */
+/** Primary nav — Lookup → Change scenarios → How it works → Sources */
 const PRIMARY_NAV: ReadonlyArray<{
-  to: "/" | "/changes" | "/rules" | "/pipeline" | "/about";
+  to: "/" | "/changes" | "/about" | "/sources" | "/rules" | "/pipeline";
   key: StringKey;
 }> = [
   { to: "/", key: "nav.lookup" },
   { to: "/changes", key: "nav.changes" },
-  { to: "/rules", key: "nav.rules" },
-  { to: "/pipeline", key: "nav.pipeline" },
-  { to: "/about", key: "nav.about" },
+  { to: "/about", key: "nav.how" },
+  { to: "/sources", key: "nav.sources" },
 ];
 
 type MoreLink = {
-  to: "/dashboard" | "/portfolio" | "/bulk" | "/coverage" | "/memos" | "/settings" | "/workspace" | "/inbox";
+  to:
+    | "/dashboard"
+    | "/portfolio"
+    | "/bulk"
+    | "/coverage"
+    | "/memos"
+    | "/settings"
+    | "/workspace"
+    | "/inbox"
+    | "/audit"
+    | "/rules"
+    | "/pipeline"
+    | "/compare";
   key: StringKey;
 };
 
@@ -73,8 +84,11 @@ const MORE_MONITOR: ReadonlyArray<MoreLink> = [
 ];
 
 const MORE_TEAM: ReadonlyArray<MoreLink> = [
+  { to: "/audit", key: "nav.audit" },
   { to: "/workspace", key: "nav.workspace" },
   { to: "/memos", key: "nav.memos" },
+  { to: "/rules", key: "nav.rules" },
+  { to: "/pipeline", key: "nav.pipeline" },
   { to: "/settings", key: "nav.settings" },
 ];
 
@@ -188,8 +202,21 @@ function LocaleToggle() {
 
 export function SiteHeader() {
   const mode = getCiteClient().mode;
-  const health = useQuery({ queryKey: ["api-health"], queryFn: () => getCiteClient().health(), enabled: mode === "live", retry: false, refetchInterval: 30000 });
-  const modeLabel = mode === "mock" ? "mode.mock" : health.isPending ? "mode.checking" : health.isError || !health.data?.ok ? "mode.offline" : "mode.live";
+  const health = useQuery({
+    queryKey: ["api-health"],
+    queryFn: () => getCiteClient().health(),
+    enabled: mode === "live",
+    retry: false,
+    refetchInterval: 30000,
+  });
+  const modeLabel =
+    mode === "mock"
+      ? "mode.mock"
+      : health.isPending
+        ? "mode.checking"
+        : health.isError || !health.data?.ok
+          ? "mode.offline"
+          : "mode.live";
   const t = useT();
   const [menu, setMenu] = useState(false);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
@@ -199,7 +226,16 @@ export function SiteHeader() {
       <div className="mx-auto max-w-6xl rounded-2xl border border-border/70 bg-paper/80 shadow-island backdrop-blur-xl">
         <div className="flex items-center gap-3 px-3.5 py-2.5 sm:gap-5 sm:px-5">
           <Wordmark />
-          <nav aria-label={t("nav.primary")} className="hidden min-w-0 flex-1 flex-wrap items-center gap-0.5 text-sm md:flex">
+          <span
+            className="hidden rounded-full border border-border/70 bg-secondary/50 px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground lg:inline"
+            title={t("scope.help")}
+          >
+            {t("scope.chip")}
+          </span>
+          <nav
+            aria-label={t("nav.primary")}
+            className="hidden min-w-0 flex-1 flex-wrap items-center gap-0.5 text-sm md:flex"
+          >
             {PRIMARY_NAV.map((n) => (
               <Link
                 key={n.to}
@@ -216,11 +252,16 @@ export function SiteHeader() {
           <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-2.5 md:ml-0">
             <span
               className={`font-mono text-[10px] uppercase tracking-wider ${
-                mode === "live" && health.data?.ok && !health.isError ? "text-applies" : "text-muted-foreground/80"
+                mode === "live" && health.data?.ok && !health.isError
+                  ? "text-applies"
+                  : "text-muted-foreground/80"
               }`}
               title={t(modeLabel)}
             >
-              <span className="mr-1.5 inline-block size-1.5 rounded-full bg-current opacity-80" aria-hidden />
+              <span
+                className="mr-1.5 inline-block size-1.5 rounded-full bg-current opacity-80"
+                aria-hidden
+              />
               {t(modeLabel)}
             </span>
             <CommandPaletteTrigger />
@@ -238,7 +279,10 @@ export function SiteHeader() {
           </div>
         </div>
         {menu && (
-          <nav aria-label={t("nav.mobile")} className="border-t border-border/60 px-3 py-2 md:hidden">
+          <nav
+            aria-label={t("nav.mobile")}
+            className="border-t border-border/60 px-3 py-2 md:hidden"
+          >
             {[...PRIMARY_NAV, ...MORE_NAV].map((n) => (
               <Link
                 key={n.to}
@@ -262,9 +306,23 @@ export function DisclaimerBar() {
   const t = useT();
   return (
     <div className="print:static sticky bottom-0 z-30 px-3 pb-3 sm:px-4 sm:pb-4">
-      <div className="mx-auto flex max-w-6xl items-center gap-2 rounded-full border border-border/70 bg-paper/90 px-4 py-2 text-xs text-muted-foreground shadow-island backdrop-blur-xl">
-        <Scale className="size-3.5 shrink-0 text-primary/70" />
-        {t("disclaimer")}
+      <div
+        role="note"
+        className="mx-auto flex max-w-6xl flex-col gap-1 rounded-2xl border border-border/70 bg-paper/95 px-4 py-2.5 text-xs text-muted-foreground shadow-island backdrop-blur-xl sm:flex-row sm:items-center sm:gap-3"
+      >
+        <div className="flex items-start gap-2 sm:items-center">
+          <Scale className="mt-0.5 size-3.5 shrink-0 text-primary/80 sm:mt-0" aria-hidden="true" />
+          <span>
+            <span className="font-medium text-ink">{t("disclaimer.short")}. </span>
+            {t("disclaimer")}
+          </span>
+        </div>
+        <Link
+          to="/sources"
+          className="shrink-0 font-medium text-primary hover:underline sm:ml-auto"
+        >
+          {t("footer.sources")}
+        </Link>
       </div>
     </div>
   );
@@ -282,7 +340,9 @@ export function PageHeader({
   return (
     <div className="mb-8 fade-up sm:mb-10">
       {eyebrow ? <div className="eyebrow text-primary/80">{eyebrow}</div> : null}
-      <h1 className={`font-serif text-3xl tracking-[-0.03em] text-ink sm:text-[2.5rem] ${eyebrow ? "mt-2" : ""}`}>
+      <h1
+        className={`font-serif text-3xl tracking-[-0.03em] text-ink sm:text-[2.5rem] ${eyebrow ? "mt-2" : ""}`}
+      >
         {title}
       </h1>
       {children ? (

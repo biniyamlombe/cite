@@ -8,11 +8,11 @@ Editorial “paper + ink” product UI for rental-housing regulatory lookup. Ref
 
 ## Typography
 
-| Role | Face | Notes |
-|------|------|--------|
+| Role             | Face                          | Notes                                       |
+| ---------------- | ----------------------------- | ------------------------------------------- |
 | Display / titles | Source Serif 4 (`font-serif`) | Property address, page titles, quoted spans |
-| UI / body | IBM Plex Sans (`font-sans`) | Controls, explanations, nav |
-| Data / IDs | IBM Plex Mono (`font-mono`) | Address IDs, dates, confidence, doc IDs |
+| UI / body        | IBM Plex Sans (`font-sans`)   | Controls, explanations, nav                 |
+| Data / IDs       | IBM Plex Mono (`font-mono`)   | Address IDs, dates, confidence, doc IDs     |
 
 Tracking on headings ≈ `-0.015em`. Eyebrows are mono, uppercase, wide tracking — used for section labels in this product (incumbent pattern).
 
@@ -22,14 +22,14 @@ Warm paper background (`--background` / `--paper`), cool ink foreground (`--ink`
 
 **Status tokens** (semantic; keep meanings stable):
 
-| Token | Meaning |
-|-------|---------|
-| `applies` | Rule applies to property |
-| `unknown` | Missing facts — prefer honesty over guess |
-| `superseded` | No longer governing |
-| `future` / `not_yet_effective` | Not yet in force |
-| `pending` | Legislation pending |
-| `conflict` | State/local conflict — human review |
+| Token                          | Meaning                                   |
+| ------------------------------ | ----------------------------------------- |
+| `applies`                      | Rule applies to property                  |
+| `unknown`                      | Missing facts — prefer honesty over guess |
+| `superseded`                   | No longer governing                       |
+| `future` / `not_yet_effective` | Not yet in force                          |
+| `pending`                      | Legislation pending                       |
+| `conflict`                     | State/local conflict — human review       |
 
 Soft companions (`*-soft`) are tinted surfaces for chips and callouts.
 
