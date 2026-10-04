@@ -5,7 +5,13 @@ import { createGroup, deleteGroup, listGroups } from "@/lib/cite/ops";
 import { useT } from "@/lib/i18n";
 
 /** Saved portfolio groups (e.g. "NJ buildings"). Selecting one filters the portfolio table. */
-export function GroupBar({ allIds, onSelect }: { allIds: string[]; onSelect: (ids: string[] | null) => void }) {
+export function GroupBar({
+  allIds,
+  onSelect,
+}: {
+  allIds: string[];
+  onSelect: (ids: string[] | null) => void;
+}) {
   const t = useT();
   const { user } = useAuth();
   const qc = useQueryClient();
@@ -52,7 +58,11 @@ export function GroupBar({ allIds, onSelect }: { allIds: string[]; onSelect: (id
         </button>
         {groups.data?.map((g) => (
           <span key={g.id} className="inline-flex items-center">
-            <button type="button" className={chip(active === g.id)} onClick={() => pick(g.id, g.address_ids)}>
+            <button
+              type="button"
+              className={chip(active === g.id)}
+              onClick={() => pick(g.id, g.address_ids)}
+            >
               {g.name} ({g.address_ids.length})
             </button>
             {active === g.id && (
@@ -89,7 +99,9 @@ export function GroupBar({ allIds, onSelect }: { allIds: string[]; onSelect: (id
           {t("groups.create")}
         </button>
       </div>
-      {create.error && <p className="mt-2 text-xs text-destructive">{(create.error as Error).message}</p>}
+      {create.error && (
+        <p className="mt-2 text-xs text-destructive">{(create.error as Error).message}</p>
+      )}
     </section>
   );
 }

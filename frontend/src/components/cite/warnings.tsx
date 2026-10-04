@@ -21,7 +21,13 @@ export function isLinkOnlyScaffold(rule: {
   return blob.includes("link-only") || blob.includes("link only");
 }
 
-export function UnknownFactWarning({ explanation, compact }: { explanation: string; compact?: boolean | undefined }) {
+export function UnknownFactWarning({
+  explanation,
+  compact,
+}: {
+  explanation: string;
+  compact?: boolean | undefined;
+}) {
   const t = useT();
   const { body, openQuestion } = splitOpenQuestion(explanation);
   return (
@@ -85,8 +91,12 @@ export function LinkOnlyWarning({
       <FileWarning className="mt-0.5 size-4 shrink-0 text-unknown" />
       <div>
         <div className="font-medium text-ink">{t("rule.linkOnly")}</div>
-        <p className="text-foreground/80">{compact ? t("rule.linkOnly.short") : t("rule.linkOnly.body")}</p>
-        {note && !compact ? <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{note}</p> : null}
+        <p className="text-foreground/80">
+          {compact ? t("rule.linkOnly.short") : t("rule.linkOnly.body")}
+        </p>
+        {note && !compact ? (
+          <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{note}</p>
+        ) : null}
       </div>
     </div>
   );
@@ -97,7 +107,10 @@ export function CorpusGapWarning({ gaps }: { gaps: string[] }) {
   const t = useT();
   if (!gaps.length) return null;
   return (
-    <div role="status" className="flex gap-2.5 rounded-md border border-unknown/30 bg-unknown-soft px-3 py-2.5 text-sm">
+    <div
+      role="status"
+      className="flex gap-2.5 rounded-md border border-unknown/30 bg-unknown-soft px-3 py-2.5 text-sm"
+    >
       <FileWarning aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-unknown" />
       <div>
         <div className="font-medium text-ink">{t("lookup.honesty.corpusGap.title")}</div>

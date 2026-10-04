@@ -2,7 +2,12 @@ import { Link } from "@tanstack/react-router";
 import { useT } from "@/lib/i18n";
 
 /** Shared signed-out empty state for Team surfaces under More. */
-export function SignInCard({ messageKey }: { messageKey: "dashboard.signin" | "memos.signin" | "settings.signin" | "workspace.signin" | "inbox.signin" }) {
+export function SignInCard({
+  messageKey,
+}: {
+  messageKey:
+    "dashboard.signin" | "memos.signin" | "settings.signin" | "workspace.signin" | "inbox.signin";
+}) {
   const t = useT();
   return (
     <div className="surface mt-8 flex flex-col items-start gap-3 px-5 py-6 sm:flex-row sm:items-center sm:justify-between">
