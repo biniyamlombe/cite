@@ -10,6 +10,7 @@
     "check-schema": "tsx src/cli/check_schema.ts",
     "test": "tsx src/cli/run_tests.ts",
     "enrich-coverage": "tsx src/cli/enrich_coverage.ts",
+    "build-versions": "tsx src/cli/build_versions.ts",
     "extract": "tsx src/cli/extract.ts",
     "repair-spans": "tsx src/cli/repair_spans.ts",
     "geocode": "tsx src/cli/geocode.ts",

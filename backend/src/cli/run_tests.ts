@@ -38,6 +38,11 @@ import { heuristicExtractDoc } from "../extract/heuristic.js";
 import { validateRuleRecord } from "../lib/validate.js";
 import { appendAudit } from "../lib/audit.js";
 import { readJsonIfExists } from "../lib/io.js";
+import {
+  loadRuleVersionsFile,
+  stableRuleKey,
+  versionsForRule,
+} from "../lib/rule_versions.js";
 
 type AjvConstructor = new (opts?: object) => {
   compile: (schema: object) => ValidateFunction;
@@ -542,6 +547,52 @@ async function testChangeTestsT1T5() {
   }
 }
 
+async function testRuleVersions() {
+  console.log("rule version history");
+  const file = await loadRuleVersionsFile();
+  const keys = Object.keys(file.by_key);
+  if (keys.length > 0) {
+    pass(`rule_versions.json has ${keys.length} stable keys`);
+  } else {
+    fail("rule_versions.json missing or empty — run npm run build-versions");
+    return;
+  }
+  const rulesPath = path.join(outputsDir(), "rules.json");
+  const rulesFile = await readJsonIfExists<{ rules: RuleRecord[] }>(rulesPath);
+  const rules = rulesFile?.rules ?? [];
+  const hob = rules.find((r) => r.alias_id === "HOB-ALG-01");
+  const ca = rules.find((r) => r.alias_id === "CA-ALG-01");
+  if (!hob || !ca) {
+    fail("missing HOB-ALG-01 or CA-ALG-01 for version probe");
+    return;
+  }
+  const hobVers = versionsForRule(file, hob);
+  const caVers = versionsForRule(file, ca);
+  if (hobVers.length >= 2 && hobVers[0]!.version.startsWith("v")) {
+    pass(
+      `HOB-ALG-01 has ${hobVers.length} versions (newest ${hobVers[0]!.version})`,
+    );
+  } else {
+    fail(
+      `HOB-ALG-01 expected ≥2 versions from git history, got ${hobVers.length}`,
+    );
+  }
+  if (caVers.length >= 1 && caVers[0]!.quoted_span) {
+    pass(`CA-ALG-01 versions resolve via ${stableRuleKey(ca)}`);
+  } else {
+    fail("CA-ALG-01 missing version tip");
+  }
+  // Newest-first ordering
+  if (
+    hobVers.length >= 2 &&
+    Number(hobVers[0]!.version.slice(1)) >= Number(hobVers[1]!.version.slice(1))
+  ) {
+    pass("versions listed newest-first");
+  } else if (hobVers.length >= 2) {
+    fail("versions not newest-first");
+  }
+}
+
 async function main() {
   console.log("Running smoke tests…\n");
   await testSchemaSample();
@@ -550,6 +601,7 @@ async function main() {
   await testFakeSpanRejected();
   await testDualCoverage();
   await testRulesOutput();
+  await testRuleVersions();
   await testGeocodeResolution();
   await testChangeTestsT1T5();
 

@@ -16,6 +16,7 @@ Smoke coverage (no Anthropic call required):
 6. `outputs/rules.json` exact citations + change-test aliases
 7. HOB/JC aliases are honest link-only scaffolds (low confidence, primary URLs in
    `conflict_note`, quoted evidence from capturable D069 only)
+8. Rule version history file present; alias keys have newest-first versions
 
 Primary Hoboken / Jersey City ordinance pages are `links_only` in the pack —
 tests assert we do **not** invent capturable municipal text for those docs.

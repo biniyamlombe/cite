@@ -10,6 +10,7 @@ import { ensureChangeTestAliases } from "../extract/ensure_aliases.js";
 import { readJson, writeJson } from "../lib/io.js";
 import { outputsDir } from "../lib/paths.js";
 import { appendAudit } from "../lib/audit.js";
+import { recordCurrentRuleVersions } from "../lib/rule_versions.js";
 
 async function main() {
   const outPath = path.join(outputsDir(), "rules.json");
@@ -22,6 +23,7 @@ async function main() {
     return enriched;
   });
   await writeJson(outPath, { rules });
+  await recordCurrentRuleVersions(rules);
   await appendAudit({
     ts: new Date().toISOString(),
     kind: "note",

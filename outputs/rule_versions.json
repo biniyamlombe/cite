@@ -1,0 +1,2847 @@
+{
+  "generated_at": "2026-10-04T00:04:10.420Z",
+  "by_key": {
+    "doc:D001|berkeley municipal code § 13.63.030(a)|prohibition on sale of coordinated pricing algorithms in ber": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "It shall be unlawful to sell, license, or otherwise provide to City of Berkeley \nlandlords any coordinated pricing algorithm that sets or recommends rents or occupancy \nlevels that may be achieved for residential dwelling units in the City of Berkeley.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "It shall be unlawful to sell, license, or otherwise provide to City of Berkeley landlords any coordinated pricing algorithm that sets or recommends rents or occupancy levels that may be achieved for residential dwelling units in the City of Berkeley.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D001|berkeley municipal code § 13.63.030(b)|prohibition on landlord use of coordinated pricing algorithm": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "It shall be unlawful for a landlord to use a coordinated pricing algorithm described \nin subsection A when setting rents or occupancy levels for residential dwelling units in \nthe City of Berkeley. Each separate month that a violation exists or continues, and each \nseparate residential dwelling unit for which the landlord used the coordinated pricing \nalgorithm, shall constitute a separate and distinct violation.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "It shall be unlawful for a landlord to use a coordinated pricing algorithm described in subsection A when setting rents or occupancy levels for residential dwelling units in the City of Berkeley. Each separate month that a violation exists or continues, and each separate residential dwelling unit for which the landlord used the coordinated pricing algorithm, shall constitute a separate and distinct violation.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D005|berkeley municipal code 13.78; california civil code section 1950.6|maximum tenant screening fee for 2026": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The maximum tenant screening fee for 2026 is\n$68.96\nLandlords may use screening fees to obtain information about a prospective tenant like a consumer credit report. Prospective tenants should expect to receive a copy of their credit report within 7 days of receipt by the landlord, a receipt for the fee paid and an itemized list of any out-of-pocket expenses and time spent by the landlord on the screening, and a refund of any unused portion of the fee.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The maximum tenant screening fee for 2026 is $68.96 Landlords may use screening fees to obtain information about a prospective tenant like a consumer credit report. Prospective tenants should expect to receive a copy of their credit report within 7 days of receipt by the landlord, a receipt for the fee paid and an itemized list of any out-of-pocket expenses and time spent by the landlord on the screening, and a refund of any unused portion of the fee.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D005|berkeley municipal code 13.78; california civil code section 1950.6|requirement to use reusable screening report": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If the tenant provides a reusable screening report, the landlord must use it.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D005|berkeley municipal code 13.78; california civil code section 1950.6|prohibition on screening fees when no unit available": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The landlord cannot charge a prospective tenant a screening fee if no rental unit is actually available. The landlord must also return a screening fee to any applicant not selected, or have a policy under which they: (1) review applications in the order received and the first qualified applicant gets the unit, and (2) do not charge a screening fee to any applicant not considered.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The landlord cannot charge a prospective tenant a screening fee if no rental unit is actually available. The landlord must also return a screening fee to any applicant not selected, or have a policy under which they: (1) review applications in the order received and the first qualified applicant gets the unit, and (2) do not charge a screening fee to any applicant not considered.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D005|berkeley municipal code 13.78.018|applicability to existing rental agreements": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Chapter 13.78 applies to all residential rental agreements regardless of any contractual language in any rental agreement or lease to the contrary. Any provision of an existing rental agreement or lease that violates the provisions of this chapter are unenforceable.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D025|cal. civ. code § 1950.5(c)(5)(b)|service member security deposit protection": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Subparagraph (A) shall not apply if the prospective tenant is a service member. A landlord shall not refuse to enter into a rental agreement for residential property with a prospective tenant who is a service member because this subparagraph prohibits the landlord from demanding or receiving a greater amount of security than that which is established in paragraph (1).",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D025|cal. civ. code § 1950.5(c)(4)|service member higher security disclosure and return": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "On or after April 1, 2025, if a landlord or its agent charges a service member who rents residential property in which the service member will reside a higher than standard or advertised security pursuant to paragraph (1) due to the credit history, credit score, housing history, or other factor related to the tenant, the landlord shall provide the tenant with a written statement, on or before the date the lease is signed, of the amount of the higher security and an explanation why the higher security amount is being charged. The additional amount of security shall be returned to the tenant after no more than six months of residency if the tenant\nis not in arrears for any rent due during that period.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "On or after April 1, 2025, if a landlord or its agent charges a service member who rents residential property in which the service member will reside a higher than standard or advertised security pursuant to paragraph (1) due to the credit history, credit score, housing history, or other factor related to the tenant, the landlord shall provide the tenant with a written statement, on or before the date the lease is signed, of the amount of the higher security and an explanation why the higher security amount is being charged. The additional amount of security shall be returned to the tenant after no more than six months of residency if the tenant is not in arrears for any rent due during that period.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D025|cal. civ. code § 1950.5(g)(1)|photograph documentation requirement - inception": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "For tenancies that begin on or after July 1, 2025, the landlord shall take photographs of the unit immediately before, or at the\ninception of, the tenancy.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "For tenancies that begin on or after July 1, 2025, the landlord shall take photographs of the unit immediately before, or at the inception of, the tenancy.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D025|cal. civ. code § 1950.5(g)(2)|photograph documentation requirement - move-out": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Beginning April 1, 2025, the landlord shall take photographs of the unit within a reasonable time after the possession of the unit is returned to the landlord, but prior to any repairs or cleanings for which the landlord will make a deduction from or claim against the security deposit pursuant to this section, and shall also take photographs of the unit within a reasonable time after such repairs or cleanings are completed.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D025|cal. civ. code § 1950.5(h)|security deposit return timeline and itemized statement": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "No later than 21 calendar days after the tenant has vacated the premises, but not earlier than the time that either the landlord or the tenant provides a notice to terminate the tenancy under Section 1946 or 1946.1, Section 1161 of the Code of Civil Procedure, or not earlier than 60 calendar days prior to\nthe expiration of a fixed-term lease, the landlord shall furnish the tenant, a copy of an itemized statement indicating the basis for, and the amount of, any security received and the disposition of the security, and shall return any remaining portion of the security to the tenant",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "No later than 21 calendar days after the tenant has vacated the premises, but not earlier than the time that either the landlord or the tenant provides a notice to terminate the tenancy under Section 1946 or 1946.1, Section 1161 of the Code of Civil Procedure, or not earlier than 60 calendar days prior to the expiration of a fixed-term lease, the landlord shall furnish the tenant, a copy of an itemized statement indicating the basis for, and the amount of, any security received and the disposition of the security, and shall return any remaining portion of the security to the tenant",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D025|cal. civ. code § 1950.5(h)(1)(a)(ii)|electronic security deposit return requirement": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If the landlord received the security or rental payments from the tenant electronically, the landlord shall return the remainder of the security electronically to a bank account or other financial\ninstitution designated by the tenant in writing, or by any electronic or virtual method available to the landlord if agreed to in writing by the tenant. Alternatively, the landlord and tenant may, by written agreement, designate another method of return",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If the landlord received the security or rental payments from the tenant electronically, the landlord shall return the remainder of the security electronically to a bank account or other financial institution designated by the tenant in writing, or by any electronic or virtual method available to the landlord if agreed to in writing by the tenant. Alternatively, the landlord and tenant may, by written agreement, designate another method of return",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D042|city of los angeles rent stabilization ordinance (rso)|los angeles rso prohibition on utility pass-through increase": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Beginning February 2, 2026, a landlord can no longer include any additional percentage increase for utilities.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D048|m.g.l. c. 40p, § 4|general prohibition on rent control in massachusetts": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "No city or town may enact, maintain or enforce rent control of any kind, except that any city or town that accepts this chapter may adopt rent control regulation that provides:\n(a) after six months from the date of the initial adoption of rent control regulation by a particular city or town, compliance on the part of property owners as to the rent control regulation or any subsequently adopted rent control regulation shall be entirely voluntary and uncoerced, and the property of a person or entity declining to have his or its property subjected to such regulation shall be wholly unaffected by any aspect of the rent control regulation",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "No city or town may enact, maintain or enforce rent control of any kind, except that any city or town that accepts this chapter may adopt rent control regulation that provides: (a) after six months from the date of the initial adoption of rent control regulation by a particular city or town, compliance on the part of property owners as to the rent control regulation or any subsequently adopted rent control regulation shall be entirely voluntary and uncoerced, and the property of a person or entity declining to have his or its property subjected to such regulation shall be wholly unaffected by any aspect of the rent control regulation",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D048|m.g.l. c. 40p, § 4(b)|exemptions from voluntary rent control - small landlords and": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "such regulation may not include the regulation of occupancy, services, evictions, condominium conversion or the removal of properties from such regulation, nor may such regulation apply to any rental unit that is owned by a person or entity owning less than ten rental units or that has a fair market rent exceeding $400",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D048|m.g.l. c. 40p, § 4(b)|prohibition on eviction regulation in voluntary rent control": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "such regulation may not include the regulation of occupancy, services, evictions, condominium conversion or the removal of properties from such regulation",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D066|n.j. stat. § 46:8-18.1(a), (d); p.l. 2025, c.405|new jersey residential rental application fee cap": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A landlord, or\nagent thereof, shall not require an application or other similar fee to apply\nto lease or sublease a residential rental property for dwelling purposes, which\nexceeds $50.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A landlord, or agent thereof, shall not require an application or other similar fee to apply to lease or sublease a residential rental property for dwelling purposes, which exceeds $50.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D080|san francisco rent board annual allowable increase announcement|san francisco annual allowable rent increase 3/1/26-2/28/27": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "not_yet_effective",
+        "quoted_span": "For rent-controlled units, the annual allowable increase amount effective March 1, 2026 through February 28, 2027 is 1.6%.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D083|san francisco rent ordinance|san francisco allowable rent increase march 2026-february 20": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Allowable Rent Increase:\n1.6% for March 1, 2026 – February 28, 2027",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D083|san francisco rent ordinance|san francisco security deposit interest rate march 2026-febr": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Security Deposit Interest:\n4.2% for March 1, 2026 – February 28, 2027",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D085|santa ana rent stabilization ordinance (2021)|santa ana rent stabilization ordinance - annual rent increas": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Increase in residential rents are limited to the lower of 3% per year, or 80% of the percent change in the Consumer Price Index over the most recent 12-month period. If the CPI is negative, no rent increase is permitted.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D085|santa ana just cause eviction ordinance (2021)|santa ana just cause eviction - no-fault relocation assistan": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Under a no-fault just cause termination, the owner shall either provide 3 months of relocation assistance or waive payment of rent for the final 3 months of the tenancy.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D085|santa ana just cause eviction ordinance (2021)|santa ana just cause eviction - notice to tenants": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Property owners must provide notice to existing tenants before December 19, 2021, or at commencement or renewal of their lease of the Just Cause Eviction Ordinance protections.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D079|san francisco rent ordinance section 37.9(a)|san francisco just cause eviction requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "In order to evict a tenant from a rental unit covered by the Rent Ordinance, a landlord must have a \"just cause\" reason that is the dominant motive for pursuing the eviction. Note that the mere expiration of a rental agreement or a change in ownership does not constitute \"just cause\" for eviction.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D079|san francisco rent ordinance section 37.9(a)(1)|non-payment of rent as just cause": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Non-payment of rent, habitual late payment of rent, or frequent bounced checks;",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D079|san francisco rent ordinance section 37.9(a)(2)|breach of lease as just cause": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Failure to cure a substantial breach of a rental agreement or lease;",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Failure to cure a substantial breach of a rental agreement or lease;",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D079|san francisco rent ordinance section 37.9(a)(3)|nuisance as just cause": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Nuisance or substantial interference with the comfort, safety, or enjoyment of the landlord or other tenants in the building, the nature of which must be severe, continuing or reoccurring in nature;",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D079|san francisco rent ordinance section 37.9(a)(5)|refusal to renew lease as just cause": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The tenant has refused, after written request by the landlord, to execute a written extension or renewal of an expired rental agreement for a further term of like duration and under terms that are materially the same as the previous agreement;",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D079|san francisco rent ordinance section 37.9(a)(6)|refusal of landlord access as just cause": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The tenant has refused, after written notice to cease, to allow the\nlandlord access to the rental unit\nas required by state or local law;",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The tenant has refused, after written notice to cease, to allow the landlord access to the rental unit as required by state or local law;",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D079|san francisco rent ordinance section 37.9(a)(8)|owner-occupancy as just cause": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Owner-occupancy\nor, in limited circumstances, occupancy by a member of the landlord's immediate family;",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Owner-occupancy or, in limited circumstances, occupancy by a member of the landlord's immediate family;",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D079|san francisco rent ordinance section 37.9(a)(9)|condo conversion sale as just cause": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The landlord seeks to recover possession in good faith in order to sell the unit in accordance with a condominium conversion approved under the San Francisco subdivision ordinance;",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D079|san francisco rent ordinance section 37.9(a)(10)|demolition or permanent removal as just cause": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "To\ndemolish or to otherwise permanently remove an individual rental unit\nfrom housing use;",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "To demolish or to otherwise permanently remove an individual rental unit from housing use;",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D006|berkeley rent ordinance, as amended by measure bb (november 2024)|berkeley minimum rental debt threshold for nonpayment evicti": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "For a landlord to evict a tenant for nonpayment of rent, the tenant must owe an amount of rental debt equal to or greater than one month of the Fair Market Rent (FMR) value for a unit of equivalent size in the metro area Oakland-Fremont, CA HUD Metro FMR as determined by the US Department of Housing and Urban Development for the fiscal year in which the rent is demanded.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D006|berkeley rent ordinance, as amended by measure bb (november 2024)|berkeley prohibition on eviction for failure to sign new lea": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A landlord cannot evict a tenant for failing to sign a substantially similar lease upon expiration of a fixed-term lease.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D040|los angeles just cause ordinance (jco)|jco eviction notice filing requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Applies to all JCO & RSO rental properties – All eviction notices issued to tenants in the City of Los Angeles must be filed with LAHD within three (3) business days of service on the tenant.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D051|m.g.l. c. 186, § 12|notice to quit for nonpayment of rent": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "In case of neglect or refusal to pay the rent due from a tenant at will, fourteen days' notice to quit, given in writing by the landlord to the tenant, shall be sufficient to determine the tenancy; provided, that the tenancy of a tenant who has not received a similar notice from the landlord within the twelve months next preceding the receipt of such notice shall not be determined if the tenant, within ten days after the receipt thereof, pays or tenders to the landlord, the landlord's attorney, or the person to whom the tenant customarily pays rent, the full amount of any rent due.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D051|m.g.l. c. 186, § 12|required notification in nonpayment notice to quit": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Every notice to determine an estate at will for nonpayment of rent shall contain the following notification to the tenant: ''If you have not received a notice to quit for nonpayment of rent within the last twelve months, you have a right to prevent termination of your tenancy by paying or tendering to your landlord, your landlord's attorney or the person to whom you customarily pay your rent the full amount of rent due within ten days after your receipt of this notice.'' If any notice to determine an estate at will for nonpayment of rent shall fail to contain such notification, the time within which the tenant receiving the notice would be entitled to pay or tender rent pursuant to this section shall be extended to the day the answer is due in any action by the landlord to recover possession of the premises.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D065|n.j.s.a. 46:8-56(a)|prohibited criminal records for housing consideration": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A housing provider shall not, either before\nor after the issuance of a conditional offer, evaluate an applicant based on\nany of the following types of criminal records:\n(1)   arrests or charges that have not resulted in a\ncriminal conviction;\n(2)   expunged convictions;\n(3)   convictions erased through executive pardon;\n(4)   vacated and otherwise legally nullified\nconvictions;\n(5)   juvenile adjudications of delinquency; and\n(6)   records that have been sealed.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A housing provider shall not, either before or after the issuance of a conditional offer, evaluate an applicant based on any of the following types of criminal records: (1) arrests or charges that have not resulted in a criminal conviction; (2) expunged convictions; (3) convictions erased through executive pardon; (4) vacated and otherwise legally nullified convictions; (5) juvenile adjudications of delinquency; and (6) records that have been sealed.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D003|berkeley municipal code 13.106|prohibition on criminal history inquiries in rental applicat": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "It is unlawful to do any of the following with regard to current or prospective tenants\nInquire about criminal history\nIndicate that persons with criminal backgrounds will not be considered for housing, including in rental advertisements, application materials, or verbally\nRefuse to rent or terminate a tenancy based on criminal history",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "It is unlawful to do any of the following with regard to current or prospective tenants Inquire about criminal history Indicate that persons with criminal backgrounds will not be considered for housing, including in rental advertisements, application materials, or verbally Refuse to rent or terminate a tenancy based on criminal history",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D003|berkeley municipal code 13.106|prohibition on criminal background check requirements": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The Fair Chance Access to Housing Ordinance prohibits rental housing providers in Berkeley from asking about and using criminal history and/or criminal background checks in their rental housing advertising, applications, tenant selection process, or decision-making.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D006|berkeley rent ordinance, as amended by measure bb (november 2024)|berkeley annual general adjustment (aga) cap at 5%": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The maximum AGA is 5%. This means that, if the formula in the Rent Ordinance results in an AGA that is greater than 5%, the AGA approved by the Board for that year can be no more than 5%.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The maximum AGA is 5%. This means that, if the formula in the Rent Ordinance results in an AGA that is greater than 5%, the AGA approved by the Board for that year can be no more than 5%.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D008|berkeley municipal code section 13.76.110a; rent board regulation 1148|berkeley 2026 annual general adjustment (aga) - 1.0% rent in": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "not_yet_effective",
+        "quoted_span": "the Berkeley Rent Stabilization Board \nadopted the Annual General Adjustment (AGA) Order for Year 2026 which will allow \neligible landlords to increase the 2025 permanent rent ceilings by 1.0% no earlier than \nJanuary 1, 2026. The 2026 AGA of 1.0% represents 65% of the increase in the Consumer \nPrice Index (CPI) for All Urban Consumers in the Bay Area during the period from July 1, \n2024 - June 30, 2025, which was 1.5% as posted by the Bureau of Labor Statistics. The \n65% of CPI formula was approved by Berkeley voters in the November 2004 general \nmunicipal election.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "not_yet_effective",
+        "quoted_span": "the Berkeley Rent Stabilization Board adopted the Annual General Adjustment (AGA) Order for Year 2026 which will allow eligible landlords to increase the 2025 permanent rent ceilings by 1.0% no earlier than January 1, 2026. The 2026 AGA of 1.0% represents 65% of the increase in the Consumer Price Index (CPI) for All Urban Consumers in the Bay Area during the period from July 1, 2024 - June 30, 2025, which was 1.5% as posted by the Bureau of Labor Statistics. The 65% of CPI formula was approved by Berkeley voters in the November 2004 general municipal election.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D023|cal. civ. code § 1946.2(a)|just cause eviction requirement after 12 months occupancy": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Notwithstanding any other law, after a tenant has continuously and lawfully occupied a residential real property for 12 months, the owner of the residential real property shall not terminate a tenancy without just cause, which shall be stated in the written notice to terminate tenancy.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D027|cal. gov. code § 12955(a), (c), (k), (p)|prohibition on source of income discrimination in housing": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "For the owner of any housing accommodation to discriminate against or harass any person because of the race, color, religion, sex, gender, gender identity, gender expression, sexual orientation, marital status, national origin, ancestry, familial status, source of income, disability, veteran or military status, or genetic information of that person.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D051|m.g.l. c. 186, § 12|notice period to terminate estate at will tenancy": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Estates at will may be determined by either party by three months' notice in writing for that purpose given to the other party; and, if the rent reserved is payable at periods of less than three months, the time of such notice shall be sufficient if it is equal to the interval between the days of payment or thirty days, whichever is longer.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D053|mass. gen. laws ch. 186, § 18|anti-retaliation protection for tenant reporting and organiz": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Any person or agent thereof who threatens to or takes reprisals against any tenant of residential premises for the tenant's act of, commencing, proceeding with, or obtaining relief in any judicial or administrative action the purpose of which action is to obtain damages under, or otherwise enforce, any federal, state or local law, regulation, by-law or ordinance, which has as its objective the regulation of residential premises; or exercising the tenant's rights pursuant to section one hundred and twenty-four D of chapter one hundred and sixty-four; or reporting to the board of health or, in the city of Boston to the commissioner of housing inspection or to any other board having as its objective the regulation of residential premises a violation or a suspected violation of any health or building code or of any other municipal by-law or ordinance, or state or federal law or regulation which has as its objective the regulation of residential premises; or reporting or complaining of such violation or suspected violation in writing to the landlord or to the agent of the landlord; or for organizing or joining a tenants' union or similar organization, or for making or expressing an intention to make, a payment of rent to an organization of unit owners pursuant to paragraph (c) of section six of chapter one hundred and eighty-three A shall be liable for damages which shall not be less than one month's rent or more than three month's rent, or the actual damages sustained by the tenant, whichever is greater, and the costs of the suit, including a reasonable attorney's fee.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D057|m.g.l. c. 112, § 87ddd 1/2 (as amended by 2025, 9, sec. 43)|broker fee payment restriction - effective august 1, 2025": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A licensed broker or salesperson may solely contract with a prospective tenant to find rental residential real property for a tenant and present an offer to lease to the landlord or landlord's agent and negotiate on behalf of the tenant or may solely contract with a landlord or landlord's agent to find a tenant for a property.  Any fee shall only be paid by the party, lessor or tenant who originally engaged and entered into a contract with the licensed broker or salesperson.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D065|n.j.s.a. 46:8-56(c)|individualized assessment required for criminal record denia": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A housing provider may withdraw a\nconditional offer based on an applicant's criminal record only if the housing\nprovider determines, by preponderance of the evidence, that the withdrawal is\nnecessary to fulfill a substantial, legitimate, and nondiscriminatory interest.\n(2)   If a housing provider withdraws a conditional\noffer, the housing provider shall provide the applicant with written\nnotification that includes, with specificity, the reason or reasons for the\nwithdrawal of the conditional offer and an opportunity to appeal the denial by\nproviding evidence to the housing provider demonstrating inaccuracies within\nthe applicant's criminal record or evidence of rehabilitation or other\nmitigating factors.\n(3)   The housing provider shall perform an\nindividualized assessment of the application in light of the following factors:\n(a)   the nature and severity of the criminal offense;\n(b)   the age of the applicant at the time of the\noccurrence of the criminal offense;\n(c)   the time which has elapsed since the occurrence\nof the criminal offense;\n(d)   any information produced by the applicant, or\nproduced on the applicant's behalf, in regard to the applicant's rehabilitation\nand good conduct since the occurrence of the criminal offense;\n(e)   the degree to which the criminal offense, if it\nreoccurred, would negatively impact the safety of the housing provider's other\ntenants or property; and\n(f)   whether the criminal offense occurred on or was\nconnected to property that was rented or leased by the applicant.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A housing provider may withdraw a conditional offer based on an applicant's criminal record only if the housing provider determines, by preponderance of the evidence, that the withdrawal is necessary to fulfill a substantial, legitimate, and nondiscriminatory interest. (2) If a housing provider withdraws a conditional offer, the housing provider shall provide the applicant with written notification that includes, with specificity, the reason or reasons for the withdrawal of the conditional offer and an opportunity to appeal the denial by providing evidence to the housing provider demonstrating inaccuracies within the applicant's criminal record or evidence of rehabilitation or other mitigating factors. (3) The housing provider shall perform an individualized assessment of the application in light of the following factors: (a) the nature and severity of the criminal offense; (b) the age of the applicant at the time of the occurrence of the criminal offense; (c) the time which has elapsed since the occurrence of the criminal offense; (d) any information produced by the applicant, or produced on the applicant's behalf, in regard to the applicant's rehabilitation and good conduct since the occurrence of the criminal offense; (e) the degree to which the criminal offense, if it reoccurred, would negatively impact the safety of the housing provider's other tenants or property; and (f) whether the criminal offense occurred on or was connected to property that was rented or leased by the applicant.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D082|san francisco rent ordinance section 37.9c|relocation payments for owner/relative move-in, demolition, ": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Relocation Payments for Evictions based on Owner/Relative Move-in OR Demolition/Permanent Removal of Unit from Housing Use OR Temporary Capital Improvement Work* OR Substantial Rehabilitation",
+        "change_note": "effective_date 2025-03-01 → 2006-08-10; quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "3/01/25 – 2/28/26\n$8,062.00\n$24,184.00\n$5,375.00",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D082|san francisco rent ordinance (ellis act provisions)|relocation payments for ellis act evictions (2025-2026)": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "3/01/25 – 2/28/26\n$10,863.45\n$32,590.33\n$7,278.67",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D041|los angeles rent stabilization ordinance; lamc section 151.28|rso applies to pre-october 1978 buildings": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Generally, the RSO applies to rental properties that were first built on or before October 1, 1978, as well as replacement units under\nLAMC Section 151.28",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Generally, the RSO applies to rental properties that were first built on or before October 1, 1978, as well as replacement units under LAMC Section 151.28",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-53, 2a:18-61.1 to 61.12|good cause eviction requirement": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A landlord must have \ngood cause to evict a tenant (N.J.S.A. 2A:18-53). There are several grounds for a good cause \neviction. Each cause, except for nonpayment of rent, must be described in detail by the landlord \nin a written notice to the tenant.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A landlord must have good cause to evict a tenant (N.J.S.A. 2A:18-53). There are several grounds for a good cause eviction. Each cause, except for nonpayment of rent, must be described in detail by the landlord in a written notice to the tenant.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-57|warrant for possession timing requirements": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The warrant for possession may not be issued unt il three (3) business \ndays after the judgment for possession is granted. The tenant has three (3) business days to move \nall persons and belongings from the premises. If the tenant does not move after three (3) business \ndays from the time the warrant for possession was served on the tenant, the landlord may arrange \nfor the Court Officer to have the tenant evicted or locked out (N.J.S.A. 2A:18-57).",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The warrant for possession may not be issued unt il three (3) business days after the judgment for possession is granted. The tenant has three (3) business days to move all persons and belongings from the premises. If the tenant does not move after three (3) business days from the time the warrant for possession was served on the tenant, the landlord may arrange for the Court Officer to have the tenant evicted or locked out (N.J.S.A. 2A:18-57).",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D073|san diego municipal code § 98.0704|san diego just cause eviction requirement": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A landlord shall not terminate a tenancy without just cause. For purposes of this \nDivision, just cause includes at-fault just cause and no-fault just cause.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A landlord shall not terminate a tenancy without just cause. For purposes of this Division, just cause includes at-fault just cause and no-fault just cause.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D003|berkeley municipal code 13.106|prohibition on higher security deposits based on criminal hi": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "It is unlawful to do any of the following with regard to current or prospective tenants\nInquire about criminal history\nIndicate that persons with criminal backgrounds will not be considered for housing, including in rental advertisements, application materials, or verbally\nRefuse to rent or terminate a tenancy based on criminal history\nRequire disclosure or authorization for release of criminal history\nDemand a higher security deposit or rental amount based on criminal history",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "It is unlawful to do any of the following with regard to current or prospective tenants Inquire about criminal history Indicate that persons with criminal backgrounds will not be considered for housing, including in rental advertisements, application materials, or verbally Refuse to rent or terminate a tenancy based on criminal history Require disclosure or authorization for release of criminal history Demand a higher security deposit or rental amount based on criminal history",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D023|cal. civ. code § 1946.2(b)(1)|at-fault just cause grounds for eviction": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "At-fault just cause, which means any of the following:\n(A) Default in the payment of rent.\n(B) A breach of a material term of the lease, as described in paragraph (3) of Section 1161 of the Code of Civil Procedure, including, but not limited to, violation of a provision of the lease after being issued a written notice to correct the violation.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "At-fault just cause, which means any of the following: (A) Default in the payment of rent. (B) A breach of a material term of the lease, as described in paragraph (3) of Section 1161 of the Code of Civil Procedure, including, but not limited to, violation of a provision of the lease after being issued a written notice to correct the violation.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D027|cal. gov. code § 12955(o)(1)(a)|income standard for government rent subsidy recipients must ": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "In instances in which there is a government rent subsidy, to do either of the following:\n(A) Use a financial or income standard in assessing eligibility for the rental of housing that is not based on the portion of the rent to be paid by the tenant.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "In instances in which there is a government rent subsidy, to do either of the following: (A) Use a financial or income standard in assessing eligibility for the rental of housing that is not based on the portion of the rent to be paid by the tenant.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D053|mass. gen. laws ch. 186, § 18|rebuttable presumption of retaliation for termination or ren": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The receipt of any notice of termination of tenancy, except for nonpayment of rent, or, of increase in rent, or, of any substantial alteration in the terms of tenancy within six months after the tenant has commenced, proceeded with, or obtained relief in such action, exercised such rights, made such report or complaint, or organized or joined such tenants' union or within six months after any other person has taken such action or actions on behalf of the tenant or in, or relating to, the building in which the tenant resides, shall create a rebuttable presumption that such notice or other action is a reprisal against the tenant for engaging in such activities. Such presumption shall be rebutted only by clear and convincing evidence that such person's action was not a reprisal against the tenant and that such person had sufficient independent justification for taking such action, and would have in fact taken such action, in the same manner and at the same time the action was taken, regardless of tenants engaging in, or the belief that tenants had engaged in, activities protected under this section.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D065|n.j.s.a. 46:8-58(a)|prohibition on discriminatory housing advertisements": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A housing provider shall not knowingly or\npurposefully publish, or cause to be published, any housing advertisement that\nexplicitly provides that the housing provider will not consider any applicant\nwho has been arrested or convicted of one or more crimes or offenses, except\nfor\ndrug-related criminal activity for the\nmanufacture or production of methamphetamine on the premises of federally\nassisted housing, and whether the applicant is subject to a lifetime\nregistration requirement under a State sex offender registration program.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A housing provider shall not knowingly or purposefully publish, or cause to be published, any housing advertisement that explicitly provides that the housing provider will not consider any applicant who has been arrested or convicted of one or more crimes or offenses, except for drug-related criminal activity for the manufacture or production of methamphetamine on the premises of federally assisted housing, and whether the applicant is subject to a lifetime registration requirement under a State sex offender registration program.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D041|los angeles rent stabilization ordinance|rent increase moratorium (march 2020 - january 2024)": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Effective March 30, 2020, through January 31, 2024, rent increases are prohibited for rental units subject to the Rent Stabilization Ordinance (RSO).",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D041|los angeles rent stabilization ordinance; lamc 151.09|no-fault just cause eviction grounds": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Tenant is not at-fault\nThe owner or immediate family member will move into the rental unit\nA resident manager will move into the rental unit\nDemolition and permanent removal from the rental market\nGovernment order\nConversion to affordable housing",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-61.1(a)|eviction for failure to pay rent - notice requirements": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If a tenant fails to pay rent, the landlord may immediately take legal action to have the \ntenant evicted. The landlord is not required to give the tenant notice before filing an \neviction suit, except if the tenant resides in federally subsidized housing. I f the tenant \nresides in federally subsidized housing a 14-day notice must be given before filing a suite \nfor eviction (N.J.S.A. 2A:18-61.1(a)).",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If a tenant fails to pay rent, the landlord may immediately take legal action to have the tenant evicted. The landlord is not required to give the tenant notice before filing an eviction suit, except if the tenant resides in federally subsidized housing. I f the tenant resides in federally subsidized housing a 14-day notice must be given before filing a suite for eviction (N.J.S.A. 2A:18-61.1(a)).",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D073|san diego municipal code § 98.0706(b)(1)(b)(i)|relocation assistance payment timing": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If the landlord elects to provide relocation assistance by \na direct payment to the tenant, the notice shall state the \namount of relocation assistance available to the tenant \nand that the landlord shall provide the payment within \n15 days from the date of the notice.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If the landlord elects to provide relocation assistance by a direct payment to the tenant, the notice shall state the amount of relocation assistance available to the tenant and that the landlord shall provide the payment within 15 days from the date of the notice.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D040|los angeles just cause ordinance (jco)|jco non-payment eviction threshold": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Applies to all RSO & JCO rental units. Effective March 27, 2023, landlords may not evict a tenant who falls behind in rent unless the tenant owes an amount higher than the Fair Market Rent (FMR). The FMR depends on the bedroom size of the rental unit.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D065|n.j.s.a. 46:8-55(b)|pre-application fee disclosure requirements": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Prior to\naccepting any application fee, a housing provider shall disclose in writing to\nthe applicant:\n(1)   Whether the eligibility criteria of the housing\nprovider include the review and consideration of criminal history; and\n(2)   A statement that the applicant, pursuant to\nsubsection a. of this section, may provide evidence demonstrating inaccuracies\nwithin the applicant's criminal record or evidence of rehabilitation or other\nmitigating factors.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Prior to accepting any application fee, a housing provider shall disclose in writing to the applicant: (1) Whether the eligibility criteria of the housing provider include the review and consideration of criminal history; and (2) A statement that the applicant, pursuant to subsection a. of this section, may provide evidence demonstrating inaccuracies within the applicant's criminal record or evidence of rehabilitation or other mitigating factors.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D041|los angeles rent stabilization ordinance; lamc 151.09|at-fault just cause eviction grounds": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Tenant is at-fault\nFailure to pay rent\nFailure to fix or address a violation of the rental agreement\nCreating a nuisance or causing damage to the rental unit\nUsing the rental unit for an illegal purpose\nFailure to renew a similar rental agreement\nFailure to provide the landlord with reasonable access to the rental unit\nThe person at the end of the lease term is a subtenant not approved by the landlord",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-61.1(b)|eviction for disorderly conduct - notice requirements": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If after given written Notice to Cease disorderly conduct, the tenant continues the \ndisorderly conduct and that conduct destroys the peace and quiet of the other tenants living \nin the building or neighborhood, the landlord may file a suite for eviction. A Notice to Quit \nmust be served on the tenant at least three days prior to filing a suit for eviction (N.J.S.A. \n2A:18-61.1(b)).",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If after given written Notice to Cease disorderly conduct, the tenant continues the disorderly conduct and that conduct destroys the peace and quiet of the other tenants living in the building or neighborhood, the landlord may file a suite for eviction. A Notice to Quit must be served on the tenant at least three days prior to filing a suit for eviction (N.J.S.A. 2A:18-61.1(b)).",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-61.1(d)|eviction for lease rule violations - notice requirements": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If after given a written Notice to Cease violating or breaching reasonable rules and \nregulations contained in the lease or accepted in writing by the tenant, the tenant continues \nto substantially violate or breach the rules and regulations, the  landlord may file a suit for \neviction. A Notice to Quit must be served on the tenant at least one month prior to filing \nthe suit for eviction. In addition, any notices must be given on or before the start of a \nnew month (N.J.S.A. 2A:18-61.1(d)).",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If after given a written Notice to Cease violating or breaching reasonable rules and regulations contained in the lease or accepted in writing by the tenant, the tenant continues to substantially violate or breach the rules and regulations, the  landlord may file a suit for eviction. A Notice to Quit must be served on the tenant at least one month prior to filing the suit for eviction. In addition, any notices must be given on or before the start of a new month (N.J.S.A. 2A:18-61.1(d)).",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D073|san diego municipal code § 98.0707(d)|minimum buyout agreement amount": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Buyout agreements must be for an amount that is \ngreater than the amount of relocation assistance available to the tenant in \nsection 98.0706(c). A buyout agreement for less than the amount of relocation \nassistance owed to the tenant violates this Division and is void.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Buyout agreements must be for an amount that is greater than the amount of relocation assistance available to the tenant in section 98.0706(c). A buyout agreement for less than the amount of relocation assistance owed to the tenant violates this Division and is void.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D003|berkeley municipal code 13.106|prohibition on disqualifying tenants from rental assistance ": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Disqualify tenants from rental assistance programs such as Section 8 based on criminal history (subject to certain exceptions below)",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D007|assembly bill 12|security deposit limit - one month's rent (most landlords)": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Starting July 1, 2024, many landlords may only charge one month's rent for unfurnished and furnished units",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Starting July 1, 2024, many landlords may only charge one month's rent for unfurnished and furnished units",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D007|assembly bill 12|security deposit limit - two months' rent (small landlords)": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Starting July 1, 2024, landlords who own only two rental properties with no more than four residential units total can charge up to two months' rent for furnished and unfurnished units if ownership is held by a natural person, family trust, or limited liability company (LLC) where all members are natural persons",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D007|california state law|landlord requirement to photograph unit before new tenancy": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "not_yet_effective",
+        "quoted_span": "For tenancies that begin on or after July 1, 2025, a landlord must photograph the unit immediately before or at the start of a new tenancy to document the condition of the unit.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D007|california state law|security deposit return timeline and documentation": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "All or any remaining portion of a security deposit must be returned\nwithin 21 days\nafter the tenant/s leave the unit vacant. If deductions were made, the landlord must give the tenant a written statement itemizing the amount of and and purpose for any security deposit deductions, accompanied by copies of documents showing charges incurred and deducted by the landlord to repair or clean the premises, including a copy of any bill, invoice, or receipt for materials or supplies deductions.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "All or any remaining portion of a security deposit must be returned within 21 days after the tenant/s leave the unit vacant. If deductions were made, the landlord must give the tenant a written statement itemizing the amount of and and purpose for any security deposit deductions, accompanied by copies of documents showing charges incurred and deducted by the landlord to repair or clean the premises, including a copy of any bill, invoice, or receipt for materials or supplies deductions.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D007|california state law|proof of completed repairs requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Starting January 1, 2025, landlords must provide proof that necessary repairs were completed.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D007|california state law|post-possession photograph requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Starting April 1, 2025, landlords must take photographs of a unit after regaining possession, but before any repairs or cleaning for which the landlord intends to make a deduction from the security deposit. These photos and a written explanation of the cost of the repairs/cleaning must be given to the tenant along with the itemized statement.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D007|berkeley rent ordinance|security deposit interest requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "For tenancies in units fully or partially covered by Berkeley's Rent Ordinance, landlords must pay tenants interest on their security deposit at the end of each year and a prorated amount if the tenant moves out before the end of the year.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|rent control for pre-1980 multifamily units": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Most units in multifamily properties built before 1980** Fully Covered Yes Yes Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|rent control for single-family homes with pre-1996 tenancies": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Single family homes with current tenancies that began before 1996** Fully Covered Yes Yes Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|rent control for rooming houses": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Rooming house: single-family homes with five or more rooms rented \nout individually with separate leases** \nFully Covered Yes Yes Yes Yes",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Rooming house: single-family homes with five or more rooms rented out individually with separate leases** Fully Covered Yes Yes Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|rent control exemption for post-1980 new construction": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "New construction: units that were built and received a Certificate of \nOccupancy after June 1980** \nPartially Covered Yes No Yes Yes",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "New construction: units that were built and received a Certificate of Occupancy after June 1980** Partially Covered Yes No Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|rent control exemption for single-family homes with post-199": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Single-family home with a tenancy that began on or after January 1, \n1996** \nPartially Covered Yes No Yes Yes",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Single-family home with a tenancy that began on or after January 1, 1996** Partially Covered Yes No Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|just cause eviction for pre-1980 multifamily units": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Most units in multifamily properties built before 1980** Fully Covered Yes Yes Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|just cause eviction for single-family homes with pre-1996 te": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Single family homes with current tenancies that began before 1996** Fully Covered Yes Yes Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|just cause eviction for post-1980 new construction": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "New construction: units that were built and received a Certificate of \nOccupancy after June 1980** \nPartially Covered Yes No Yes Yes",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "New construction: units that were built and received a Certificate of Occupancy after June 1980** Partially Covered Yes No Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|just cause eviction exemption for owner-occupied shared unit": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Unit where the owner shares a kitchen or bath with the tenant if the \nowner lived on the property at the time the tenancy started \nExempt No No No No",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Unit where the owner shares a kitchen or bath with the tenant if the owner lived on the property at the time the tenancy started Exempt No No No No",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|just cause eviction exemption for adu properties with owner ": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Tenancies started after Nov 7, 2018, on properties where one unit is \nan ADU and either unit is owner-occupied. \nExempt No No No No",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Tenancies started after Nov 7, 2018, on properties where one unit is an ADU and either unit is owner-occupied. Exempt No No No No",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|security deposit interest for pre-1980 multifamily units": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Most units in multifamily properties built before 1980** Fully Covered Yes Yes Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|security deposit interest for post-1980 new construction": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "New construction: units that were built and received a Certificate of \nOccupancy after June 1980** \nPartially Covered Yes No Yes Yes",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "New construction: units that were built and received a Certificate of Occupancy after June 1980** Partially Covered Yes No Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|security deposit interest for single-family homes with post-": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Single-family home with a tenancy that began on or after January 1, \n1996** \nPartially Covered Yes No Yes Yes",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Single-family home with a tenancy that began on or after January 1, 1996** Partially Covered Yes No Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D010|boston fair chance tenant selection policy, section 1(a)|boston fair chance tenant selection - prohibition on arrest-": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The Developer/Agent (Agent) agrees to not consider any of the following categories when \ndetermining housing eligibility and or considering eviction: \n \na) Arrests that did not result in conviction. This includes dismissed charges, diversion \nprograms, and similar non-convictions.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The Developer/Agent (Agent) agrees to not consider any of the following categories when determining housing eligibility and or considering eviction: a) Arrests that did not result in conviction. This includes dismissed charges, diversion programs, and similar non-convictions.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D010|boston fair chance tenant selection policy, section 5(a)|boston fair chance tenant selection - prohibition on credit ": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Credit. \n  a) The agent agrees not to use the applicant credit score to approve or deny housing    \napplications.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Credit. a) The agent agrees not to use the applicant credit score to approve or deny housing applications.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "alias:CA-ALG-01": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce in violation of this chapter.\n(b) It shall be unlawful for a person to use or distribute a comm",
+        "change_note": "effective_date 2025-10-06 → 2026-01-01; quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce in violation of this chapter.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D023|cal. civ. code § 1946.2(b)(2)(b)|no-fault just cause: withdrawal from rental market": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Withdrawal of the residential real property from the rental market.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D027|cal. gov. code § 12955(n)|income standard must account for aggregate income of unmarri": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "To use a financial or income standard in the rental of housing that fails to account for the aggregate income of persons residing together or proposing to reside together on the same basis as the aggregate income\nof married persons residing together or proposing to reside together.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "To use a financial or income standard in the rental of housing that fails to account for the aggregate income of persons residing together or proposing to reside together on the same basis as the aggregate income of married persons residing together or proposing to reside together.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D039|los angeles city council motion, september 3, 2024|los angeles motion to study and potentially ban algorithm-ba": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "I THEREFORE MOVE that the City Council instruct the Los Angeles Housing Department to \nreport on the number of ownership and management entities that are using algorithm-based \nsoftware to establish rents and the feasibility of instituting a ban on the use of this software to set \nrents in the City.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "I THEREFORE MOVE that the City Council instruct the Los Angeles Housing Department to report on the number of ownership and management entities that are using algorithm-based software to establish rents and the feasibility of instituting a ban on the use of this software to set rents in the City.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D040|los angeles just cause ordinance (jco)|just cause for eviction ordinance - coverage requirements": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "In order to apply to a tenancy, it requires that the tenant either has lived in the same unit for at least six months or that their original lease expired, whichever comes first.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "alias:MA-ALG-P1": [
+      {
+        "version": "v3",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "An Act prohibiting algorithmic rent setting",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "An Act prohibiting algorithmic rent setting\nSenate, March 12, 2026 -- The committee on Housing, to whom was referred the petitions (accompanied by bill, Senate, No. 994) of Cindy F. Friedman and Julian Cyr for legislation to prohibit algorithmic rent setting; and (accompanied by bill, Senate, No. 1016) of Michael O. Moore, Patricia D. Jehlen and James B. Eldridge for legislation to establish the Preventing Algorithmic Rent Fixing in the Rental Housing Market Act., report the accompanying bill (Senate, No. 2983).",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "An Act prohibiting algorithmic rent setting Senate, March 12, 2026 -- The committee on Housing, to whom was referred the petitions (accompanied by bill, Senate, No. 994) of Cindy F. Friedman and Julian Cyr for legislation to prohibit algorithmic rent setting; and (accompanied by bill, Senate, No. 1016) of Michael O. Moore, Patricia D. Jehlen and James B. Eldridge for legislation to establish the Preventing Algorithmic Rent Fixing in the Rental Housing Market Act., report the accompanying bill (Senate, No. 2983).",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D076|san diego municipal code § 98.1103(a)|prohibition of anti-competitive automated rent price-fixing ": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "It is unlawful for a person to sell, license, or otherwise provide an\nalgorithmic device to a landlord.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "It is unlawful for a person to sell, license, or otherwise provide an algorithmic device to a landlord.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D076|san diego municipal code § 98.1103(b)|prohibition of anti-competitive automated rent price-fixing ": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "It is unlawful for a landlord to use an algorithmic device to set rental rates\nor occupancy levels for residential rental property.\nFor each month a violation of section 98.1103(b) exists or continues, and\nfor each residential rental property a landlord uses an algorithmic device,\nit shall constitute a separate and distinct violation.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "It is unlawful for a landlord to use an algorithmic device to set rental rates or occupancy levels for residential rental property. For each month a violation of section 98.1103(b) exists or continues, and for each residential rental property a landlord uses an algorithmic device, it shall constitute a separate and distinct violation.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D084|santa ana rent stabilization and just cause eviction ordinance|santa ana maximum allowable rent increase": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Your landlord can only raise your rent by a certain amount each year. The increase cannot be more than 3% of your current rent or 80% of the Consumer Price Index (CPI) change, whichever is less.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D016|fair employment and housing act (feha)|prohibition on discriminatory tenant screening": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Screening prospective tenants – including when done by a third-party such as a tenant screening company – in a way that discriminates based on a protected characteristic",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D073|san diego municipal code § 98.0706(b)(2)|notice to commission for no-fault evictions": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The landlord shall provide written notice to the \nCommission of the no-fault just cause termination of tenancy under \nsection 98.0704(b) no later than three business days after the date the \nlandlord provided the required notice to tenant. Section 98.0706(b)(2) \nshall not apply until 30 days after the Commission establishes a \nsubmission portal and provides the public notice of its creation.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The landlord shall provide written notice to the Commission of the no-fault just cause termination of tenancy under section 98.0704(b) no later than three business days after the date the landlord provided the required notice to tenant. Section 98.0706(b)(2) shall not apply until 30 days after the Commission establishes a submission portal and provides the public notice of its creation.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D041|los angeles rent stabilization ordinance|additional tenant rent increase (10% for non-dependent)": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Effective February 2, 2026, an additonal 10% increase for an additional dependent added to the tenancy is no longer permitted. However, a 10% for an additional tenant is allowed (not a dependent) if moves into a rental unit: Landlords can increase the rent within 60 days of learning about the additional tenant.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D041|ord. no. 187,108, eff. 8/6/21|systematic code enforcement fee surcharge (1/12 of 50% month": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Effective January 1, 2022, a landlord may collect 1/12 of 50% of the annual Systematic Code Enforcement Fee from the tenant of the rental unit per month. (Added by Ord. No. 187,108, Eff. 8/6/21.)",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Effective January 1, 2022, a landlord may collect 1/12 of 50% of the annual Systematic Code Enforcement Fee from the tenant of the rental unit per month. (Added by Ord. No. 187,108, Eff. 8/6/21.)",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D007|california state law|move-out walk-through inspection requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Under state law, landlords must offer a walk-through inspection during the last two weeks of a tenancy to identify any items that need repair/cleaning. This is to give tenants a chance to correct issues in order to avoid security deposit deductions.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|rent control exemption for most condominiums": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Most condominiums** Partially Covered Yes No Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|just cause eviction for condominiums": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Most condominiums** Partially Covered Yes No Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|security deposit interest for condominiums": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Most condominiums** Partially Covered Yes No Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D036|jersey city rent control ordinance, chapter 260|illegal rent petition process": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A tenant claiming the rent they are being charged is illegal may file an Illegal Rent Petition:\nIllegal Rent Petition\nA tenant seeking a rent reduction due to the conditions of the building and/or apartment may file a Failure to Maintain Service Petition:\nFailure to Maintain Service Petition",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A tenant claiming the rent they are being charged is illegal may file an Illegal Rent Petition: Illegal Rent Petition A tenant seeking a rent reduction due to the conditions of the building and/or apartment may file a Failure to Maintain Service Petition: Failure to Maintain Service Petition",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D084|santa ana rent stabilization and just cause eviction ordinance|santa ana just cause eviction requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Your landlord must have a valid reason to evict you. This could be for not paying rent, breaking the lease, or if the landlord wants to move into the property themselves.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D016|fair employment and housing act (feha)|prohibition on discriminatory security deposit practices": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Prohibiting housing providers from having conditions or rules that discriminate against households with children, such as charging a higher security deposit to households with children or excluding children from playing in common areas open to other tenants.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D036|jersey city municipal code chapter 260|jersey city rent control ordinance": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The Office of Landlord Tenant Relations administers and enforces the\nRent Control Ordinance, Chapter 260\nof the Jersey City Municipal Code and provides education, information and referrals to city residents in connection with landlord/tenant issues.",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The Office of Landlord Tenant Relations administers and enforces the Rent Control Ordinance, Chapter 260 of the Jersey City Municipal Code and provides education, information and referrals to city residents in connection with landlord/tenant issues.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "alias:NJ-ALG-01": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "not_yet_effective",
+        "quoted_span": "ment software or an algorithmic device\n1\nthat\nperforms a coordinating function for any rental property owner, including a\nrental property owner performing a coordinating function f",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "not_yet_effective",
+        "quoted_span": "ment software or an algorithmic device 1 that performs a coordinating function for any rental property owner, including a rental property owner performing a coordinating function f",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D024|cal. civ. code § 1947.12|california statewide rent cap (ab 1482)": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "California Code,  CIV 1947.12\nskip to content\nhome\naccessibility\nFAQ\nfeedback\nsitemap\nlogin\nx\nQuick Search:\nBill Number\nBill Keyword\nHome\nBill Information\nCalifornia Law\nPublications",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "California Code, CIV 1947.12 skip to content home accessibility FAQ feedback sitemap login x Quick Search: Bill Number Bill Keyword Home Bill Information California Law Publications",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D026|cal. civ. code § 1950.6|california application screening fee cap": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "California Code,  CIV 1950.6\nskip to content\nhome\naccessibility\nFAQ\nfeedback\nsitemap\nlogin\nx\nQuick Search:\nBill Number\nBill Keyword\nHome\nBill Information\nCalifornia Law\nPublications",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "California Code, CIV 1950.6 skip to content home accessibility FAQ feedback sitemap login x Quick Search: Bill Number Bill Keyword Home Bill Information California Law Publications",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "alias:MA-ALG-P2": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "Bill H.5222\nSkip to Content\nBill H.5222\n194th (Current)\nSearch the Legislature\nSearch the Legislature\nSearch\nAn Act relative to preventing algorithmic rent fixing in",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "Bill H.5222 Skip to Content Bill H.5222 194th (Current) Search the Legislature Search the Legislature Search An Act relative to preventing algorithmic rent fixing in",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D081|s.f. admin. code § 37.10c|san francisco algorithmic pricing ban": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "ber 16, 2024\nLegislation\nadding Section 37.10C to the Rent Ordinance went into effect on October 14, 2024. The law prohibits the sale or use of algorithmic devices to set rents or manage occupancy lev",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "ber 16, 2024 Legislation adding Section 37.10C to the Rent Ordinance went into effect on October 14, 2024. The law prohibits the sale or use of algorithmic devices to set rents or manage occupancy lev",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "alias:MA-RENT-P1": [
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "failed",
+        "quoted_span": "xception\nSection 4. No city or town may enact, maintain or enforce rent control of any kind, except that any city or town that accepts this chapter may adopt rent control regulatio",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "failed",
+        "quoted_span": "xception Section 4. No city or town may enact, maintain or enforce rent control of any kind, except that any city or town that accepts this chapter may adopt rent control regulatio",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "alias:HOB-ALG-01": [
+      {
+        "version": "v4",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "device” means a device that uses one or more algorithms to process or otherwise\nperform calculations of data, including, but not limited to, data concerning\nrental prices, material lease terms, or occupancy l",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v3",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A municipality shall be prohibited from enacting\nan ordinance that conflicts with this act.  This subsection shall not be\nconstrued to prohibit the enactment of ordinances explicitly authorized or\nreq",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "ment software or an algorithmic device\n1\nthat\nperforms a coordinating function for any rental property owner, including a\nrental property owner performing a coordinating function f",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "ment software or an algorithmic device 1 that performs a coordinating function for any rental property owner, including a rental property owner performing a coordinating function f",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "alias:JC-ALG-01": [
+      {
+        "version": "v4",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "device” means a device that uses one or more algorithms to process or otherwise\nperform calculations of data, including, but not limited to, data concerning\nrental prices, material lease terms, or occupancy l",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v3",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A municipality shall be prohibited from enacting\nan ordinance that conflicts with this act.  This subsection shall not be\nconstrued to prohibit the enactment of ordinances explicitly authorized or\nreq",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v2",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "ment software or an algorithmic device\n1\nthat\nperforms a coordinating function for any rental property owner, including a\nrental property owner performing a coordinating function f",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "ment software or an algorithmic device 1 that performs a coordinating function for any rental property owner, including a rental property owner performing a coordinating function f",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D023|california civil code § 1946.2(a)|just cause requirement for eviction after 12 months": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "after a tenant has continuously and lawfully occupied a residential real property for 12 months, the owner of the residential real property shall not terminate a tenancy without just cause, which shall be stated in the written notice to terminate tenancy",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D023|california civil code § 1946.2(b)(1)|at-fault just cause grounds for eviction": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "At-fault just cause, which means any of the following:\n(A) Default in the payment of rent.\n(B) A breach of a material term of the lease",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D024|california civil code § 1947.12(e)|rent increase notice requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "An owner shall provide notice of any increase in the rental rate, pursuant to subdivision (a), to each tenant in accordance with Section 827.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D024|california civil code § 1947.12(k)|remedies for excessive rent demands": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "An owner who demands, accepts, receives, or retains any payment of rent in excess of the maximum rent allowed by this section shall be liable in a civil action to the tenant from whom those payments are demanded, accepted, received, or retained for all of the following:\n(A) Injun",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D025|california civil code § 1950.5(c)(4)|service member higher security deposit disclosure": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "On or after April 1, 2025, if a landlord or its agent charges a service member who rents residential property in which the service member will reside a higher than standard or advertised security pursuant to paragraph (1) due to the credit history, credit score, housing history, ",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D025|california civil code § 1950.5(e)(2)|security deposit - prohibited deductions": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The landlord shall not assert a claim against the tenant or the security for damages to the premises or any defective conditions that preexisted the tenancy, for ordinary wear and tear or the effects thereof, whether the wear and tear preexisted the tenancy or occurred during the tenancy, or for the cumulative effects of ordinary wear and tear occurring during any one or more tenancies",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D065|n.j.s.a. c.46:8-56(a)|prohibition on consideration of certain criminal records": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A housing provider shall not, either before\nor after the issuance of a conditional offer, evaluate an applicant based on\nany of the following types of criminal records:\n(1)   arrests or charges that have not resulted in a\ncriminal conviction;\n(2)   expunged convictions;\n(3)   convictio",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D001|berkeley municipal code chapter 13.63, sections 13.63.030(a) and 13.63.030(b)|prohibition on sale or use of coordinated pricing algorithms": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "It shall be unlawful to sell, license, or otherwise provide to City of Berkeley \nlandlords any coordinated pricing algorithm that sets or recommends rents or occupancy \nlevels that may be achieved for residential dwelling units in the City of Berkeley. \nB. It shall be unlawful for a",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D024|california civil code § 1947.12(a)|statewide rent increase cap": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "an owner of residential real property shall not, over the course of any 12-month period, increase the gross rental rate for a dwelling or a unit more than 5 percent plus the percentage change in the cost of living, or 10 percent, whichever is lower",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D051|massachusetts general law, part ii, title i, chapter 186, section 12|mandatory notification language for nonpayment notices": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Every notice to determine an estate at will for nonpayment of rent shall contain the following notification to the tenant: ''If you have not received a notice to quit for nonpayment of rent within the last twelve months, you have a right to prevent termination of your tenancy by ",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D052|mass. gen. laws c. 186, § 15b(3)(a)|security deposit account requirements": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Any security deposit received by such lessor shall be held in a separate, interest-bearing account in a bank, located within the commonwealth under such terms as will place such deposit beyond the claim of creditors of the lessor, including a foreclosing mortgagee or trustee in b",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D052|massachusetts general laws, part ii, title i, chapter 186, section 15b(8)|void lease provisions conflicting with rental advance requir": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Any provision of a lease which conflicts with any provision of this section and any waiver by a tenant or prospective tenant of any provision of this section shall be deemed to be against public policy and therefore void and unenforceable.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D052|mass. gen. laws c. 186, § 15b(3)(b)|security deposit interest payment": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A lessor of residential real property who holds a security deposit pursuant to this section for a period of one year or longer from the commencement of the term of the tenancy shall, beginning with the first day of the tenancy, pay interest at the rate of five per cent per year, ",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D052|mass. gen. laws c. 186, § 15b(2)(c)|statement of condition requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Any lessor of residential real property, or his agent, who accepts a security deposit from a tenant or prospective tenant shall, upon receipt of such security deposit, or within ten days after commencement of the tenancy, whichever is later, furnish to such tenant or prospective ",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 46:8-21.1|security deposit return upon displacement by casualty": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Within five (5) business days after a tenant is displaced by fire, flood, condemnation, or \nevacuation, the landlord must return the security deposit. The law requires the return when either \nan authorized public official has posted a notice prohibiting occupancy or has certified t",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D003|berkeley municipal code 13.106 (ronald v. dellums fair chance access to housing |prohibition on criminal history inquiries in rental housing": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The Fair Chance Access to Housing Ordinance prohibits rental housing providers in Berkeley from asking about and using criminal history and/or criminal background checks in their rental housing advertising, applications, tenant selection process, or decision-making.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D005|berkeley municipal code 13.78.010; california civil code section 1950.6|maximum tenant screening fee cap for 2026": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The maximum tenant screening fee for 2026 is\n$68.96",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D005|berkeley municipal code 13.78.010; california civil code section 1950.6(b)|tenant screening fee disclosure requirements": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "the owner must provide, either in the rental application or in a separate disclosure before receiving the fee, a clear and conspicuous tenant screening fee rights statement and a statement of the maximum fee cap permitted under\nCalifornia Civil Code Section 1950.6(b)",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D005|california civil code section 1950.6|prohibition on screening fees when no unit available": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The landlord cannot charge a prospective tenant a screening fee if no rental unit is actually available. The landlord must also return a screening fee to any applicant not selected, or have a policy under which they: (1) review applications in the order received and the first qualified applicant gets the unit, and (2) do not charge a screening fee to any applicant not considered.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D008|berkeley municipal code section 13.76.110a; rent board regulation 1148|2026 annual general adjustment (aga) rent increase limit": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "adopted the Annual General Adjustment (AGA) Order for Year 2026 which will allow \neligible landlords to increase the 2025 permanent rent ceilings by 1.0% no earlier than \nJanuary 1, 2026",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D006|berkeley rent ordinance, as amended by measure bb|eviction for nonpayment threshold": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Eviction for nonpayment of rent is no longer allowed for rental debt less than one month of the Fair Market Rent for the unit",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D006|berkeley rent ordinance, as amended by measure bb|prohibition on eviction for failure to sign new lease": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A landlord cannot evict a tenant for failing to sign a substantially similar lease upon expiration of a fixed-term lease.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D006|berkeley rent ordinance, as amended by measure bb|annual general adjustment cap": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The maximum AGA is 5%. This means that, if the formula in the Rent Ordinance results in an AGA that is greater than 5%, the AGA approved by the Board for that year can be no more than 5%.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D006|berkeley rent ordinance, as amended by measure bb|capital improvements rent increase limitation": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Landlords can only file a petition for rent increases for completed capital improvements (they can no longer petition to have rent increases preliminarily authorized for planned capital improvements).",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D007|assembly bill 12; berkeley rent ordinance|security deposit cap - general landlords": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Starting July 1, 2024, many landlords may only charge one month's rent for unfurnished and furnished units",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D007|assembly bill 12; berkeley rent ordinance|security deposit cap - small landlords": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Starting July 1, 2024, landlords who own only two rental properties with no more than four residential units total can charge up to two months' rent for furnished and unfurnished units if ownership is held by a natural person, family trust, or limited liability company (LLC) where all members are natural persons",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D007|berkeley rent ordinance|landlord unit photography requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "For tenancies that begin on or after July 1, 2025, a landlord must photograph the unit immediately before or at the start of a new tenancy to document the condition of the unit.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D007|berkeley rent ordinance|security deposit return timeline": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "All or any remaining portion of a security deposit must be returned\nwithin 21 days\nafter the tenant/s leave the unit vacant.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D010|boston fair chance tenant selection policy, section 1(a)|fair chance tenant selection - arrests without conviction": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Arrests that did not result in conviction. This includes dismissed charges, diversion \nprograms, and similar non-convictions.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D010|boston fair chance tenant selection policy, section 1(b)|fair chance tenant selection - convictions subject to judici": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Convictions that are subject to a form of judicial relief, such as expungement, sealing, \nand certificates for relief from disabilities.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D010|boston fair chance tenant selection policy, section 5(a)|fair chance tenant selection - credit score prohibition": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The agent agrees not to use the applicant credit score to approve or deny housing    \napplications.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|just cause for eviction - multifamily properties built befor": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Most units in multifamily properties built before 1980** Fully Covered Yes Yes Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|just cause for eviction - single family homes with tenancies": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Single family homes with current tenancies that began before 1996** Fully Covered Yes Yes Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|just cause for eviction - rooming houses": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Rooming house: single-family homes with five or more rooms rented \nout individually with separate leases** \nFully Covered Yes Yes Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|just cause for eviction - new construction built after june ": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "New construction: units that were built and received a Certificate of \nOccupancy after June 1980** \nPartially Covered Yes No Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D009|berkeley rent stabilization and eviction for just cause ordinance|just cause for eviction - condominiums": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Most condominiums** Partially Covered Yes No Yes Yes",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D023|california civil code § 1946.2|just cause for termination of residential tenancy": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A residential real property shall not be subject to both a local ordinance requiring just cause for termination of a residential tenancy and this section.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D026|california civil code § 1950.6(b)|application screening fee cap": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "In no case shall the amount of the application screening fee charged by the landlord or their agent be greater than thirty dollars ($30) per applicant. The thirty dollar ($30) application screening fee may be adjusted annually by the landlord or their agent commensurate with an increase in the Consumer Price Index, beginning on January 1, 1998.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D026|california civil code § 1950.6(d), (f)|application screening fee receipt and itemization requiremen": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The landlord or their agent shall provide, personally, or by mail, the applicant with a receipt for the fee paid by the applicant, which receipt shall itemize the out-of-pocket expenses and time spent by the landlord or their agent to obtain and process the information about the applicant.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D026|california civil code § 1950.6(c)(2)(b)|application screening fee refund - alternative process": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "An application screening process in which the landlord or their agent returns the entire screening fee to any applicant who is not selected for tenancy, regardless of the reason, within 7 days of selecting an applicant for tenancy or 30 days of when the application was submitted, whichever occurs first.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D026|california civil code § 1950.6(e)|unused application screening fee refund": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If the landlord or their agent does\nnot perform a personal reference check or does not obtain a consumer credit report, the landlord or their agent shall return any amount of the screening fee that is not used for the purposes authorized by this section to the applicant.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D027|california government code § 12955(b)|prohibition on discriminatory inquiries in housing": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "For the owner of any housing accommodation to make or to cause to be made any written or oral inquiry concerning the race, color, religion, sex, gender, gender identity, gender expression, sexual orientation, marital status, national origin, ancestry, familial status, disability,",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D027|california government code § 12955(o)(1)(a)|prohibition on discriminatory financial or income standards ": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Use a financial or income standard in assessing eligibility for the rental of housing that is not based on the portion of the rent to be paid by the tenant.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D027|california government code § 12955(n)|prohibition on discriminatory aggregate income standards": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "To use a financial or income standard in the rental of housing that fails to account for the aggregate income of persons residing together or proposing to reside together on the same basis as the aggregate income\nof married persons residing together or proposing to reside together.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D025|california civil code § 1950.5(i)-(j)|security deposit return and accounting requirements": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Return the portion of the security remaining after any lawful deductions are made under subdivision (e) to the tenant, together with an accounting as provided in subdivision (h)",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D041|los angeles municipal code, rent stabilization ordinance (rso)|annual allowable rent increase percentage": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Rent may be increased once every 12 months by the allowable rent increase percentage (click here to\nview the allowable rent increase PDF\n). Effective February 2, 2026, the landlord can no longer include an additional percentage increase for utilities.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D041|los angeles municipal code, rent stabilization ordinance (rso)|rent increase prohibition period": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Effective March 30, 2020, through January 31, 2024, rent increases are prohibited for rental units subject to the Rent Stabilization Ordinance (RSO).",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D042|los angeles rent stabilization ordinance (rso)|rso annual rent increase limit": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Annual rent increases for rental units subject to the City of Los Angeles Rent Stabilization Ordinance (RSO), effective\nJuly 1, 2025, through June 30, 2026\nis\n3%",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D042|los angeles rent stabilization ordinance (rso)|prohibition on utility surcharge pass-through": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Beginning February 2, 2026, a landlord can no longer include any additional percentage increase for utilities.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D048|massachusetts general law, part i, title vii, chapter 40p, section 4|massachusetts rent control prohibition with limited municipa": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "No city or town may enact, maintain or enforce rent control of any kind, except that any city or town that accepts this chapter may adopt rent control regulation",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D050|massachusetts general law, part ii, title i, chapter 186, section 11|notice to quit for nonpayment of rent": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Upon the neglect or refusal to pay the rent due under a written lease, fourteen days' notice to quit, given in writing by the landlord to the tenant, shall be sufficient to determine the lease, unless the tenant, on or before the day the answer is due, in an action by the landlor",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D051|massachusetts general law, part ii, title i, chapter 186, section 12|notice requirements for terminating estates at will": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Estates at will may be determined by either party by three months' notice in writing for that purpose given to the other party; and, if the rent reserved is payable at periods of less than three months, the time of such notice shall be sufficient if it is equal to the interval between the days of payment or thirty days, whichever is longer.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D052|mass. gen. laws c. 186, § 15b(1)(b)(iii)|security deposit limit": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "a security deposit equal to the first month's rent provided that such security deposit is deposited as required by subsection (3) and that the tenant is given the statement of condition as required by subsection (2)",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D052|massachusetts general laws, part ii, title i, chapter 186, section 15b|rental advance transfer and interest obligations": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Upon such transfer, the lessor or his agent shall continue to be liable with respect to the provisions of this section until:--(a) there has been a credit of the amount of the rental advance so held to the lessor's successor in interest and the tenant has been notified in writing",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D066|n.j.s.a. 46:8-18.1|residential rental property application fee cap": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A landlord, or\nagent thereof, shall not require an application or other similar fee to apply\nto lease or sublease a residential rental property for dwelling purposes, which\nexceeds $50.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D058|massachusetts general law, part ii, title i, chapter 186, section 31|notice to quit for nonpayment of rent - required form and di": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A notice to quit for nonpayment of rent given in writing by a landlord to a residential tenant pursuant to this chapter shall be accompanied by a form that shall include, but not be limited to: (i) documentation of any agreements between the tenant and landlord for the tenant to ",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-61.31|prohibition on rent increases to cover conversion costs": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "rents may not be increased to cover cos ts resulting solely from the \nconversion (N.J.S.A. 2A:18-61.31). This does not mean that rents may not be increased to cover \nthe cost of new services or amenities.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-59.1|stay of eviction for special circumstances": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A tenant may ask the court for permission to stay in the premises due to special \ncircumstances that moving may cause. This action is a stay of eviction. If permission is granted, \nthe tenant may not stay in the premises for more than one year, unless there is an agreed upon \nextens",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-61.1(a)|failure to pay rent - eviction ground": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If a tenant fails to pay rent, the landlord may immediately take legal action to have the \ntenant evicted. The landlord is not required to give the tenant notice before filing an \neviction suit, except if the tenant resides in federally subsidized housing. I f the tenant \nresides in federally subsidized housing a 14-day notice must be given before filing a suite \nfor eviction",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-61.1(b)|disorderly conduct - eviction ground": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If after given written Notice to Cease disorderly conduct, the tenant continues the \ndisorderly conduct and that conduct destroys the peace and quiet of the other tenants living \nin the building or neighborhood, the landlord may file a suite for eviction. A Notice to Quit \nmust be served on the tenant at least three days prior to filing a suit for eviction",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-61.1(c)|damage or destruction to property - eviction ground": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The tenant may be evicted if they have intentionally or by reason of gross negligence \ncaused or allowed destruction, damage, or injury to the property. A Notice to Quit must be \nserved on the tenant at least three days prior to filing a suit for eviction",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-61.1(d)|substantial violation of landlord's rules and regulations - ": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If after given a written Notice to Cease violating or breaching reasonable rules and \nregulations contained in the lease or accepted in writing by the tenant, the tenant continues \nto substantially violate or breach the rules and regulations, the  landlord may file a suit for \nevict",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-61.1(e)|violation of lease covenants or agreements - eviction ground": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If the tenant continues to substantially violate or breach the reasonable covenants or \nagreements contained in the lease, after given written Notice to Cease violating or \nbreaching those covenants or agreements and if the landlord has reserved a right of re-entry \nin the lease, th",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D073|san diego municipal code § 98.0704|just cause required for termination of tenancy": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "A landlord shall not terminate a tenancy without just cause. For purposes of this \nDivision, just cause includes at-fault just cause and no-fault just cause.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D073|san diego municipal code § 98.0704(b)(4)|demolition or substantial remodel no-fault just cause requir": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The landlord seeks to recover possession to demolish or to \nsubstantially remodel the residential rental property.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D073|san diego municipal code § 98.0706(a)(1)|at-fault just cause termination requirements": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Before a landlord issues a notice to terminate a \ntenancy for at-fault just cause that is a curable lease violation, the \nlandlord shall first give written notice of the violation including a \ndescription of the violation and an opportunity to cure the violation \nunder California Code of Civil Procedure section 1161(3), as may be \namended.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D073|san diego municipal code § 98.0706(b)(1)|no-fault just cause termination notice requirements": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The landlord shall give written notice to the tenant \nat least 30 or 60 days prior to the proposed date of termination as \nrequired by California Civil Code section 1946.1, as may be amended, \nin no less than 12-point font. The written notice shall contain the \nfollowing: \n(A) The landlord shall provide a description of the basis for the \ntermination.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D073|san diego municipal code § 98.0706(d)|right to renew tenancy after no-fault eviction": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If a residential rental property is offered for rent or lease for residential \npurposes within five years of the date the tenant was evicted under \nsections 98.0704(b)(1), (3), or (4), landlord shall first offer to lease the \nresidential rental property in writing to the tenant disp",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D073|san diego municipal code § 98.0706(c)|relocation assistance for no-fault just cause terminations": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "This \nDivision protects the rights of tenants by requiring just cause for termination of a \ntenancy consistent with California Civil Code section 1946.2, limiting the grounds for \ntermination of a tenancy, requiring greater tenant relocation assistance in specified \ncircumstances, and providing additional tenant protections.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D069|p.l. 2026, c.43, §4|prohibition on algorithmic revenue management software and c": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "not_yet_effective",
+        "quoted_span": "Landlords engaging with the software supply\nreal-time prices and additional lease information to companies managing the\nsoftware, who proceed to use algorithms to fix rental prices.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D079|san francisco ordinance section 37.9(a)|just cause requirement for eviction": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "In order to evict a tenant from a rental unit covered by the Rent Ordinance, a landlord must have a \"just cause\" reason that is the dominant motive for pursuing the eviction. Note that the mere expiration of a rental agreement or a change in ownership does not constitute \"just cause\" for eviction.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D079|san francisco ordinance section 37.9(a)|enumerated just cause reasons for eviction": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The 17 just cause reasons for eviction under\nOrdinance Section 37.9(a)\nare summarized below:\nNon-payment of rent, habitual late payment of rent, or frequent bounced checks;\nFailure to cure a substantial breach of a rental agreement or lease;\nNuisance or substantial interference w",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D080|san francisco rent board annual allowable increase announcement|annual rent increase for rent-controlled units (3/1/26 - 2/2": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "For rent-controlled units, the annual allowable increase amount effective March 1, 2026 through February 28, 2027 is 1.6%.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D081|san francisco rent ordinance section 37.10c|prohibition on algorithmic devices for rent setting": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The law prohibits the sale or use of algorithmic devices to set rents or manage occupancy levels for residential units in San Francisco.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D084|santa ana rent stabilization and just cause eviction ordinance|maximum annual rent increase cap": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Your landlord can only raise your rent by a certain amount each year. The increase cannot be more than 3% of your current rent or 80% of the Consumer Price Index (CPI) change, whichever is less.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D082|san francisco rent ordinance section 37.9c; california ellis act|relocation payments for ellis act evictions": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Relocation payments for tenants evicted under the Ellis Act",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D083|san francisco rent ordinance section 571|allowable rent increase for march 1, 2026 – february 28, 202": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Allowable Rent Increase:\n1.6% for March 1, 2026 – February 28, 2027",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D083|san francisco rent ordinance section 572|security deposit interest rate for march 1, 2026 – february ": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Security Deposit Interest:\n4.2% for March 1, 2026 – February 28, 2027",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D083|san francisco rent ordinance section 37.9a|relocation payments for ellis act evictions": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "PLUS Additional Amount Due for Each Elderly (62 years or older) or Disabled Tenant\n3/01/26 – 2/28/27\n$11,110.05\n$33,330.13\n$7,443.90",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D083|san francisco rent ordinance section 37.9c|relocation payments for temporary displacement less than 20 ": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Date of Service of Notice of Termination of Tenancy (\"Eviction Notice\")\nRelocation Amount Due Per Tenant Household\n3/01/26 – 2/28/27\n$446.00/day (plus actual moving expenses)",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D085|santa ana rent stabilization ordinance|annual rent increase cap": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Increase in residential rents are limited to the lower of 3% per year, or 80% of the percent change in the Consumer Price Index over the most recent 12-month period. If the CPI is negative, no rent increase is permitted.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D085|santa ana just cause eviction ordinance|just cause eviction requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "After 30 days, an owner shall not terminate a tenancy without just cause, which shall be stated in a written notice.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D085|santa ana just cause eviction ordinance|no-fault eviction relocation assistance": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Under a no-fault just cause termination, the owner shall either provide 3 months of relocation assistance or waive payment of rent for the final 3 months of the tenancy.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D043|lamc 151.30, 165.06.a.(6)|reduced relocation assistance for mom and pop properties": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Mom and Pop properties may pay reduced relocation assistance payments to their tenants\nfor a good faith eviction for occupancy by the owner or eligible relative, provided that\nrequirements  in Section 151.30 of the LAMC are met.  This applies only for evictions  for\noccupancy by owner, family, or manager.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-61.6(a)|penalties for false eviction claims - personal occupancy": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "When a tenant vacates a dwelling unit after having been given notice that the  landlord \nwishes to personally occupy the unit the landlord must occupy the unit for at least six (6) months. \nIf instead the landlord permits personal occupancy of the unit by another tenant or registrat",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 2a:18-61.6(c)|penalties for false eviction claims - permanent removal from": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "When a tenant vacates a dwelling unit after having been given notice that the landlord seeks \nto permanently board up or demolish the building or to permanently retire it from residential use, \nthe landlord must not use this property for residential use for a period of five (5) yea",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D051|massachusetts general law, part ii, title i, chapter 186, section 12|eviction delay for government benefit payment delays": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If the neglect or refusal to pay the rent due was caused by a failure or delay of the federal government, the commonwealth or any municipality, or any departments, agencies or authorities thereof, in the mailing or delivery of any subsistence or rental payment, check or voucher o",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 54:4-6.2 to 6.13; n.j.a.c. 5:33-3.1 et seq.|tenant property tax rebate pass-through requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "may require owners of properties with five (5) or more rental units to \npass on to their tenants as a rent credit or cash rebate, the full amount of any current property tax \nreduction",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D084|santa ana rent stabilization and just cause eviction ordinance|pass-through fee cap and reimbursement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "If a landlord charges a tenant a pass-through fee greater than $50, the landlord shall reimburse the tenant for the registration fee pass-through overpayment. The pass-through fee is charged by rental unit, not by the number of tenants in a rental unit.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D005|california civil code section 1950.6|tenant screening fee refund and documentation requirements": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Prospective tenants should expect to receive a copy of their credit report within 7 days of receipt by the landlord, a receipt for the fee paid and an itemized list of any out-of-pocket expenses and time spent by the landlord on the screening, and a refund of any unused portion of the fee. If the tenant provides a reusable screening report, the landlord must use it.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D041|los angeles municipal code, rent stabilization ordinance (rso)|additional tenant rent increase": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Effective February 2, 2026, an additonal 10% increase for an additional dependent added to the tenancy is no longer permitted. However, a 10% for an additional tenant is allowed (not a dependent) if moves into a rental unit: Landlords can increase the rent within 60 days of learning about the additional tenant.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D067|n.j.s.a. 46:8 (general)|lease termination and eviction distinctions": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "The only reason a landlord can terminate a lease is if they offer a new lease to the tenant \nwith different terms, i.e. higher rent or new rules and regulations, and the tenant does not agree. A \nlandlord cannot evict a tenant just because the lease term has ended. It is important to note that \ntermination is distinguishable from eviction.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D076|san diego municipal code § 98.1104(a)|tenant remedies for algorithmic rent-setting violations": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "A tenant may seek injunctive relief, damages, or civil penalties of up to\n$1,000 per violation of this Division, in a civil action against a landlord.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D084|santa ana rent stabilization and just cause eviction ordinance|just cause eviction requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Your landlord must have a valid reason to evict you. This could be for not paying rent, breaking the lease, or if the landlord wants to move into the property themselves.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D041|los angeles municipal code section 187,108, effective 8/6/21|systematic code enforcement fee surcharge": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Effective January 1, 2022, a landlord may collect 1/12 of 50% of the annual Systematic Code Enforcement Fee from the tenant of the rental unit per month. (Added by Ord. No. 187,108, Eff. 8/6/21.)",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D076|san diego municipal code § 98.1103(a)|prohibition of sale and licensing of algorithmic rent-settin": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "It is unlawful for a person to sell, license, or otherwise provide an\nalgorithmic device to a landlord.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D076|san diego municipal code § 98.1103(b)|prohibition of landlord use of algorithmic rent-setting devi": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "pending",
+        "quoted_span": "It is unlawful for a landlord to use an algorithmic device to set rental rates\nor occupancy levels for residential rental property.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D004|berkeley rent stabilization and good cause for eviction ordinance; ellis impleme|berkeley relocation assistance for omi and ellis act evictio": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "2026 Adjustments of Relocation Assistance Payments | Berkeley Rent Board\nSkip to main content\nSkip to site search\nCity of Berkeley\nShare\nPrint\n2026 Adjustments of Relocation Assist",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D036|jersey city rent control ordinance, chapter 260|jersey city rent control ordinance (chapter 260)": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Relations administers and enforces the\nRent Control Ordinance, Chapter 260\nof the Jersey City Municipal Code and provides education, information and referrals to city residents in connection with lan",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D049|mass. gen. laws c.151b § 4|massachusetts fair housing rental screening restrictions": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "dominium or housing cooperative: (a) to refuse to rent or lease or sell or negotiate for sale or otherwise to deny to or withhold from any person or group of persons such accommodations because of the",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D053|mass. gen. laws c.186 § 18|massachusetts anti-reprisal protections for tenant organizin": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "agent thereof who threatens to or takes reprisals against any tenant of residential premises for the tenant's act of, commencing, proceeding with, or obtaining relief in any judicial or administrative",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D040|los angeles just cause for eviction ordinance (jco)|just cause for eviction ordinance - prohibited terminations": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "It prohibits terminations of tenancies without just cause and requires relocation assistance for no-fault evictions.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D040|los angeles just cause for eviction ordinance (jco)|at-fault eviction reasons - no relocation assistance": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Failure to pay rent\nFailure to cure a violation of the rental agreement\nCreating a nuisance or causing damage to the property\nUsing the rental unit for an illegal purpose\nFailure to renew a similar rental agreement\nFailure to provide the landlord with reasonable access to the rental unit\nThe person at the end of the lease term is a subtenant not approved by the landlord",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D040|los angeles just cause for eviction ordinance (jco), effective march 27, 2023|non-payment of rent eviction threshold": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Effective March 27, 2023, landlords may not evict a tenant who falls behind in rent unless the tenant owes an amount higher than the Fair Market Rent (FMR).",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D040|los angeles just cause for eviction ordinance (jco)|eviction notice filing requirement": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "All eviction notices issued to tenants in the City of Los Angeles must be filed with LAHD within three (3) business days of service on the tenant.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D040|los angeles just cause for eviction ordinance (jco)|notice of right to counsel": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Beginning August 20, 2025, landlords must post a\nNotice of Right to Counsel\nin a conspicuous common area of the residential building where the tenant resides.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D057|massachusetts general law, part i, title xvi, chapter 112, section 87ddd 1/2|licensing requirement for persons finding dwelling accommoda": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "No person shall engage in the business of finding dwelling accommodations for prospective tenants for a fee unless such person is a licensed broker or salesman",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D057|massachusetts general law, part i, title xvi, chapter 112, section 87ddd 1/2 (as|fee payment restriction for broker/salesperson services": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-03",
+        "status": "in_force",
+        "quoted_span": "Any fee shall only be paid by the party, lessor or tenant who originally engaged and entered into a contract with the licensed broker or salesperson.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ]
+  }
+}

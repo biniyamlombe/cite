@@ -36,6 +36,7 @@ Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no
 - **Layering.** Local rent control can `supersede` statewide caps; conflict flags mark NJ FAIR vs Hoboken/Jersey City overlaps for human review.
 - **Change-test aliases.** Stable IDs `CA-ALG-01`, `NJ-ALG-01`, `MA-ALG-P1/P2`, `MA-RENT-P1`, `HOB-ALG-01`, `JC-ALG-01` for T1–T5.
 - **Link-only cities.** Hoboken / Jersey City algorithmic ordinance pages are link-only in the pack (`links_only.csv`: ecode360 / news). We **upsert** `HOB-ALG-01` / `JC-ALG-01` every enrich with low confidence, conflict flags, the primary link-only URLs in `conflict_note`, and a **verbatim NJ FAIR Act (D069) quote** — never invented municipal code — so T2/T3 stay deterministic and demo-honest.
+- **Version history.** `GET /rules/:id/versions` reads `outputs/rule_versions.json`, keyed by alias/source so renumbered `team_rule_id`s still resolve. Built from git snapshots of `rules.json` plus the current tip.
 - **Auditability.** `outputs/audit_log.jsonl` and `GET /audit` record extract / quote / test events.
 
 ## Current submission snapshot
@@ -47,6 +48,6 @@ Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no
 ## Limits (honest)
 
 - Not every capturable doc yields rules under the default Haiku extract.  
-- Version history API is a stub.  
+- Rule version history is rebuilt from git snapshots of `rules.json` (`npm run build-versions` → `outputs/rule_versions.json`).  
 - Santa Ana is extract-only (no sample addresses in the pack).  
 - This is a prototype, not counsel-reviewed advice.

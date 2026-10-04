@@ -487,3 +487,6 @@
 {"ts":"2026-10-04T00:00:28.806Z","kind":"extract_corpus","source":"claude","model":"claude-haiku-4-5","rule_count":118,"message":"Claude ok=1 failed=0 raw_rules=2","meta":{"docs_processed":1,"claude_docs_ok":1,"claude_docs_failed":0,"merge":true,"doc_ids":["D057"]}}
 {"ts":"2026-10-04T00:00:47.030Z","kind":"note","message":"Enriched coverage_conditions dual form on 116/116 rules","meta":{"dual":116,"total":116}}
 {"ts":"2026-10-04T00:00:48.342Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T00:02:33.385Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T00:04:10.421Z","kind":"note","message":"Built rule version history for 229 keys (64 with >1 version)","meta":{"keys":229,"multi":64}}
+{"ts":"2026-10-04T00:04:11.245Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}

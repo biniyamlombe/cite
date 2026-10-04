@@ -14,6 +14,11 @@ import { evaluateAddress } from "../apply/coverage.js";
 import { extractDocument } from "../extract/agent.js";
 import { loadChangeTests } from "../changes/tracker.js";
 import { appendAudit, readAuditLog } from "../lib/audit.js";
+import {
+  loadRuleVersionsFile,
+  recordCurrentRuleVersions,
+  versionsForRule,
+} from "../lib/rule_versions.js";
 
 const app = new Hono();
 
@@ -202,13 +207,16 @@ app.get("/changes/:testId", async (c) => {
 });
 
 app.get("/rules/:teamRuleId/versions", async (c) => {
-  // Version history is not persisted yet; return an empty list so the UI
-  // can render a clean empty state instead of a 404.
   const teamRuleId = c.req.param("teamRuleId");
   const rules = await loadRules();
-  const exists = rules.some((r) => r.team_rule_id === teamRuleId);
-  if (!exists) return c.json({ error: "Unknown rule", versions: [] }, 404);
-  return c.json({ versions: [] });
+  const rule = rules.find((r) => r.team_rule_id === teamRuleId);
+  if (!rule) return c.json({ error: "Unknown rule", versions: [] }, 404);
+  let file = await loadRuleVersionsFile();
+  // Lazy seed: if history file missing/empty, record current tip so UI is never blank.
+  if (!Object.keys(file.by_key).length) {
+    file = await recordCurrentRuleVersions(rules);
+  }
+  return c.json({ versions: versionsForRule(file, rule) });
 });
 
 /** Capturable corpus docs for the live Pipeline picker (Module A). */

@@ -14,7 +14,7 @@ Hack-Nation × RealPage · Challenge 02 — Rental Housing Law Navigator
 | `frontend/` | Lovable / Vite Cite UI — talks to the Hono API |
 | `shared/` | Zod schemas shared by FE/BE |
 | `data/pack` | Vendored participant starter pack (corpus, addresses, schema, change tests) |
-| `outputs/` | `rules.json`, `lookups.json`, `changes.json`, `geocode_cache.json` |
+| `outputs/` | `rules.json`, `lookups.json`, `changes.json`, `geocode_cache.json`, `rule_versions.json` |
 | `docs/METHOD.md` | One-page method note (extract → geocode → lookup → T1–T5) |
 | `docs/CITE_LOVABLE_PROMPT.md` | Prompt used to build the Lovable frontend |
 
