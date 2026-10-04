@@ -32,7 +32,11 @@ const ORDER: TestId[] = ["T1", "T2", "T3", "T4", "T5"];
 
 const PUNCH_KEYS: Record<
   TestId,
-  "changes.punch.T1" | "changes.punch.T2" | "changes.punch.T3" | "changes.punch.T4" | "changes.punch.T5"
+  | "changes.punch.T1"
+  | "changes.punch.T2"
+  | "changes.punch.T3"
+  | "changes.punch.T4"
+  | "changes.punch.T5"
 > = {
   T1: "changes.punch.T1",
   T2: "changes.punch.T2",
@@ -127,7 +131,10 @@ function ChangesPage() {
   const t = useT();
   const client = getCiteClient();
   const changes = useQuery({ queryKey: ["changes"], queryFn: () => client.changes() });
-  const addrs = useQuery({ queryKey: ["addresses", "", 500], queryFn: () => client.addresses("", 500) });
+  const addrs = useQuery({
+    queryKey: ["addresses", "", 500],
+    queryFn: () => client.addresses("", 500),
+  });
   const [activeId, setActiveId] = useState<string | undefined>(
     typeof window !== "undefined" ? window.location.hash.replace("#", "") || undefined : undefined,
   );
@@ -188,7 +195,11 @@ function ChangesPage() {
               .replace("{conflicts}", String(summary.conflicts))}
           </p>
 
-          <ScenarioStrip tests={changes.data.tests} results={changes.data.results} activeId={activeId} />
+          <ScenarioStrip
+            tests={changes.data.tests}
+            results={changes.data.results}
+            activeId={activeId}
+          />
 
           <div className="space-y-12">
             {ORDER.map((id) => {
@@ -200,7 +211,9 @@ function ChangesPage() {
                   key={id}
                   id={id}
                   className={`scroll-mt-28 fade-up ${
-                    highlighted ? "rounded-md ring-1 ring-primary/25 ring-offset-4 ring-offset-background" : ""
+                    highlighted
+                      ? "rounded-md ring-1 ring-primary/25 ring-offset-4 ring-offset-background"
+                      : ""
                   }`}
                 >
                   <ChangeImpactCard

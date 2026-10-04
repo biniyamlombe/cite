@@ -123,7 +123,9 @@ export function AffectedPropertiesTable({
                   <td className="text-muted-foreground">
                     {a ? `${a.legal_city ?? a.postal_city}, ${a.state}` : "—"}
                   </td>
-                  <td>{result.before_status ? <StatusBadge value={result.before_status} /> : "—"}</td>
+                  <td>
+                    {result.before_status ? <StatusBadge value={result.before_status} /> : "—"}
+                  </td>
                   <td>{result.after_status ? <StatusBadge value={result.after_status} /> : "—"}</td>
                   <td>
                     {conflicts?.includes(id) ? (
@@ -160,13 +162,7 @@ export function AffectedPropertiesTable({
   );
 }
 
-function ScopeStory({
-  affected,
-  addresses,
-}: {
-  affected: string[];
-  addresses: AddressRow[];
-}) {
+function ScopeStory({ affected, addresses }: { affected: string[]; addresses: AddressRow[] }) {
   const t = useT();
   const byCity = useMemo(() => scopeSummary(affected, addresses), [affected, addresses]);
   const newark = addresses.filter((a) => (a.legal_city || a.postal_city) === "Newark");
@@ -190,8 +186,8 @@ function ScopeStory({
       </ul>
       {newark.length > 0 && (
         <p className="mt-3 text-sm text-muted-foreground">
-          <span className="font-medium text-ink">{t("changes.excluded")}:</span>{" "}
-          Newark ({newark.length} {t("changes.newarkSample")}
+          <span className="font-medium text-ink">{t("changes.excluded")}:</span> Newark (
+          {newark.length} {t("changes.newarkSample")}
           {newarkLeak.length
             ? ` · WARNING: ${newarkLeak.length} ${t("changes.newarkWarn")}`
             : ` · ${t("changes.newarkNone")}`}
@@ -223,7 +219,9 @@ function ChangeNotes({
   const showTally = !hideStorySummary || conflicts > 0;
   const tally =
     conflicts > 0
-      ? t("changes.notesTallyConflict").replace("{a}", String(affected)).replace("{c}", String(conflicts))
+      ? t("changes.notesTallyConflict")
+          .replace("{a}", String(affected))
+          .replace("{c}", String(conflicts))
       : t("changes.notesTally").replace("{a}", String(affected));
   const showSummary = Boolean(summary) && !hideStorySummary;
 
@@ -281,8 +279,20 @@ export function ChangeImpactCard({
   const typeLabel = typeKey ? t(typeKey) : test.type.replace(/_/g, " ");
   const dateLine = [test.as_of_before, test.as_of_after || test.as_of].filter(Boolean).join(" → ");
 
+  const scenarioKind = focus === "pending" || focus === "failed" ? "hypothetical" : "currentLaw";
+
   return (
     <article>
+      <p
+        className={`mb-3 rounded-md border px-3 py-2 text-xs ${
+          scenarioKind === "hypothetical"
+            ? "border-pending/30 bg-pending-soft text-ink"
+            : "border-border/80 bg-secondary/40 text-muted-foreground"
+        }`}
+      >
+        <span className="font-medium text-ink">{t("changes.scenarioLabel")}. </span>
+        {scenarioKind === "hypothetical" ? t("changes.hypothetical") : t("changes.currentLaw")}
+      </p>
       <div className="flex flex-wrap items-start justify-between gap-4 border-b border-border/70 pb-4">
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
@@ -300,7 +310,9 @@ export function ChangeImpactCard({
               </>
             ) : null}
           </div>
-          <h2 className="mt-2 font-serif text-xl tracking-[-0.02em] text-ink sm:text-2xl">{test.title}</h2>
+          <h2 className="mt-2 font-serif text-xl tracking-[-0.02em] text-ink sm:text-2xl">
+            {test.title}
+          </h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             {t(beatKey) || test.expected_behavior}
           </p>
