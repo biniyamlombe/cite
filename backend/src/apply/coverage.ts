@@ -43,8 +43,11 @@ function enrichEntry(
   rule: RuleRecord,
   addr: SampleAddress,
   geo: GeocodeResult,
+  asOf: string,
 ): LookupEntry {
   const facts = buildingFacts(addr, geo);
+  const scaffold = rule.extraction_method === "link_only_scaffold" ||
+    rule.alias_id === "HOB-ALG-01" || rule.alias_id === "JC-ALG-01";
   const conflict = Boolean(entry.conflict_flag);
   // Human review: legal conflicts / scenario-only municipal bans — not every missing fact.
   const needsReview =
@@ -74,7 +77,8 @@ function enrichEntry(
         : facts.missing.includes("owner_type")
           ? ["owner_type"]
           : [],
-    legal_status_at_as_of_date: rule.status,
+    // Scaffolds have no captured law text, so no legal status is asserted for them.
+    ...(scaffold ? {} : { legal_status_at_as_of_date: statusAsOf(rule, asOf) }),
     coverage_conditions_evaluated,
     exemptions_evaluated,
   };
@@ -86,6 +90,15 @@ function parseDate(s: string | null | undefined): Date | null {
   if (/^\d{4}-\d{2}$/.test(s)) return new Date(`${s}-01T00:00:00Z`);
   if (/^\d{4}-\d{2}-\d{2}$/.test(s)) return new Date(`${s}T00:00:00Z`);
   return null;
+}
+
+/** Legal status on the query date: an enacted rule flips to in_force once its effective date passes. */
+export function statusAsOf(rule: RuleRecord, asOf: string): RuleRecord["status"] {
+  if (rule.status !== "in_force" && rule.status !== "not_yet_effective") return rule.status;
+  const cmp = compareAsOf(asOf, rule.effective_date);
+  if (cmp === "before") return "not_yet_effective";
+  if (cmp === "on_or_after") return "in_force";
+  return rule.status;
 }
 
 function compareAsOf(
@@ -572,7 +585,7 @@ export function evaluateAddress(options: {
       ...entry,
       explanation: withOpenQuestionNote(p.rule, entry.explanation),
     };
-    entries.push(enrichEntry(entry, p.rule, address, geo));
+    entries.push(enrichEntry(entry, p.rule, address, geo, asOf));
   }
 
   // Deterministic ordering by team_rule_id for reproducible lookups.json
