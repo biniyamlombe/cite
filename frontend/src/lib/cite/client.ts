@@ -278,16 +278,40 @@ export class MockCiteApiClient implements CiteApiClient {
         citations: [],
       };
     }
-    const rent = lookup.results.filter(
-      (r) => r.result === "applies" && r.rule?.category === "rent_increase_limits",
+    const hints: Array<{ category: string; re: RegExp }> = [
+      { category: "rent_increase_limits", re: /\brent|increase|renta|aumento|alquiler|tope\b/i },
+      { category: "just_cause_eviction", re: /\bevict|just cause|desalojo|justa causa\b/i },
+      { category: "security_deposits", re: /\bdeposit|dep[oó]sito\b/i },
+      { category: "application_screening_fees", re: /\bapplication fee|screening fee|tarifa de solicitud\b/i },
+      { category: "screening_restrictions", re: /\bscreening|credit check|evaluaci[oó]n\b/i },
+      { category: "algorithmic_rent_setting", re: /\balgorithm|yieldstar|algor[ií]tm/i },
+    ];
+    const cats = hints.filter((h) => h.re.test(q)).map((h) => h.category);
+    const overview = /\b(what applies|which rules|all rules|overview|normas)\b/i.test(q);
+    const es = input.locale === "es-US";
+    if (!cats.length && !overview) {
+      return {
+        disclaimer: DISCLAIMER,
+        as_of: input.as_of ?? DEFAULT_AS_OF,
+        locale: input.locale ?? "en-US",
+        address_id: input.address_id,
+        question: input.question,
+        answer: es
+          ? "Nombre un tema que Cite puede recuperar: aumentos de renta, desalojo con justa causa, depósitos de seguridad, tarifas de solicitud, evaluación, o fijación algorítmica de renta."
+          : "Name a topic Cite can retrieve: rent increases, just-cause eviction, security deposits, application fees, screening, or algorithmic rent setting.",
+        refused: false,
+        refusal_reason: null,
+        citations: [],
+      };
+    }
+    const pool = lookup.results.filter((r) =>
+      ["applies", "unknown", "pending", "not_yet_effective"].includes(r.result),
     );
-    const cites = (rent.length ? rent : lookup.results.filter((r) => r.result === "applies")).slice(
+    const cites = (cats.length ? pool.filter((r) => r.rule && cats.includes(r.rule.category)) : pool).slice(
       0,
-      3,
+      4,
     );
-    const lines = cites.map(
-      (r) => r.headline?.text ?? r.rule?.citation ?? r.team_rule_id,
-    );
+    const lines = cites.map((r) => r.headline?.text ?? r.rule?.citation ?? r.team_rule_id);
     return {
       disclaimer: DISCLAIMER,
       as_of: input.as_of ?? DEFAULT_AS_OF,
@@ -295,8 +319,10 @@ export class MockCiteApiClient implements CiteApiClient {
       address_id: input.address_id,
       question: input.question,
       answer: lines.length
-        ? `Based on retrieved applying rules:\n\n${lines.map((l) => `• ${l}`).join("\n")}`
-        : "No applying rules were retrieved for this address.",
+        ? lines.map((l) => `• ${l}`).join("\n")
+        : es
+          ? "No se recuperaron normas aplicables o desconocidas que coincidan con esta pregunta para esta dirección y fecha."
+          : "No matching applying or unknown rules were retrieved for this question at this address and as-of date.",
       refused: false,
       refusal_reason: null,
       citations: cites
