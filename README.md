@@ -69,6 +69,8 @@ Outputs land in `outputs/` matching the challenge templates.
 
 Before upload / pitch: `npm run submission:check` (artifacts + smoke tests) and `npm run demo:preflight` (live API).
 
+Organizer zip (runs check first): `npm run submission:pack` → `dist/cite-submission-latest.zip` (`rules.json`, `lookups.json`, `changes.json`, `METHOD.md`, `DEMO.md`).
+
 ## Run the demo
 
 ```bash
