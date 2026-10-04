@@ -7,7 +7,10 @@
       "state": "CA",
       "matched_address": "6238 DE LONGPRE AVE, LOS ANGELES, CA, 90028",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0002",
@@ -16,7 +19,10 @@
       "state": "NJ",
       "matched_address": "1035 CLINTON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0003",
@@ -25,7 +31,10 @@
       "state": "NJ",
       "matched_address": "878 S 14TH ST, NEWARK, NJ, 07108",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0004",
@@ -34,7 +43,10 @@
       "state": "CA",
       "matched_address": "10050 MOUNTAIR AVE, TUJUNGA, CA, 91042",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0005",
@@ -43,7 +55,10 @@
       "state": "CA",
       "matched_address": "1609 ADDISON ST, BERKELEY, CA, 94703",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0006",
@@ -52,7 +67,10 @@
       "state": "MA",
       "matched_address": "71 WESTLAND AVE, BOSTON, MA, 02115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0007",
@@ -61,7 +79,10 @@
       "state": "CA",
       "matched_address": "4257 SAN PEDRO PL, LOS ANGELES, CA, 90011",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0008",
@@ -70,7 +91,10 @@
       "state": "NJ",
       "matched_address": "1065 SUMMIT AVE, JERSEY CITY, NJ, 07307",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0009",
@@ -79,7 +103,10 @@
       "state": "MA",
       "matched_address": "5 WESTERN AVE, CAMBRIDGE, MA, 02163",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0010",
@@ -88,7 +115,10 @@
       "state": "MA",
       "matched_address": "134 OXFORD ST, CAMBRIDGE, MA, 02140",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0011",
@@ -97,7 +127,10 @@
       "state": "NJ",
       "matched_address": "836 RAYMOND BLVD, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0012",
@@ -106,7 +139,10 @@
       "state": "NJ",
       "matched_address": "1064 SUMMIT AVE, JERSEY CITY, NJ, 07307",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0013",
@@ -115,7 +151,10 @@
       "state": "NJ",
       "matched_address": "137 N 11TH ST, NEWARK, NJ, 07107",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0014",
@@ -124,7 +163,10 @@
       "state": "CA",
       "matched_address": "5907 CAHUENGA BLVD, NORTH HOLLYWOOD, CA, 91601",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0015",
@@ -133,7 +175,10 @@
       "state": "MA",
       "matched_address": "15 EVERETT ST, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0016",
@@ -142,7 +187,10 @@
       "state": "CA",
       "matched_address": "3515 FILLMORE ST, SAN FRANCISCO, CA, 94123",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0017",
@@ -151,7 +199,10 @@
       "state": "NJ",
       "matched_address": "225 DUNCAN AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0018",
@@ -160,7 +211,10 @@
       "state": "CA",
       "matched_address": "1906 BONITA AVE, BERKELEY, CA, 94704",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0019",
@@ -169,7 +223,10 @@
       "state": "CA",
       "matched_address": "3820 HAINES ST, SAN DIEGO, CA, 92109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0020",
@@ -178,7 +235,10 @@
       "state": "NJ",
       "matched_address": "648 N 6TH ST, NEWARK, NJ, 07107",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0021",
@@ -187,7 +247,10 @@
       "state": "CA",
       "matched_address": "22 PRECITA AVE, SAN FRANCISCO, CA, 94110",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0022",
@@ -196,7 +259,10 @@
       "state": "CA",
       "matched_address": "10908 HARTSOOK ST, NORTH HOLLYWOOD, CA, 91601",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0023",
@@ -205,7 +271,10 @@
       "state": "CA",
       "matched_address": "843 IROLO ST, LOS ANGELES, CA, 90005",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0024",
@@ -214,7 +283,10 @@
       "state": "MA",
       "matched_address": "227 CHARLES ST, CAMBRIDGE, MA, 02141",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0025",
@@ -223,7 +295,10 @@
       "state": "CA",
       "matched_address": "2341 8TH ST, BERKELEY, CA, 94710",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0026",
@@ -232,7 +307,10 @@
       "state": "NJ",
       "matched_address": "59 OAK ST, JERSEY CITY, NJ, 07304",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0027",
@@ -241,7 +319,10 @@
       "state": "CA",
       "matched_address": "3918 FULTON ST, SAN FRANCISCO, CA, 94118",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0028",
@@ -250,7 +331,10 @@
       "state": "NJ",
       "matched_address": "585 N 5TH ST, NEWARK, NJ, 07107",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0029",
@@ -259,7 +343,10 @@
       "state": "NJ",
       "matched_address": "284 VERONA AVE, NEWARK, NJ, 07104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0030",
@@ -268,7 +355,10 @@
       "state": "CA",
       "matched_address": "2051 DIVISADERO ST, SAN FRANCISCO, CA, 94115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0031",
@@ -277,7 +367,10 @@
       "state": "CA",
       "matched_address": "5624 S SAN PEDRO ST, LOS ANGELES, CA, 90011",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0032",
@@ -286,7 +379,10 @@
       "state": "NJ",
       "matched_address": "63 OAK ST, JERSEY CITY, NJ, 07304",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0033",
@@ -295,7 +391,10 @@
       "state": "CA",
       "matched_address": "1260 KEARNY ST, SAN FRANCISCO, CA, 94133",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0034",
@@ -304,7 +403,10 @@
       "state": "MA",
       "matched_address": "25 GORE ST, CAMBRIDGE, MA, 02141",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0035",
@@ -313,7 +415,10 @@
       "state": "CA",
       "matched_address": "5239 HARMONY AVE, NORTH HOLLYWOOD, CA, 91601",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0036",
@@ -322,7 +427,10 @@
       "state": "MA",
       "matched_address": "33 WARD ST, SOUTH BOSTON, MA, 02127",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0037",
@@ -331,7 +439,10 @@
       "state": "CA",
       "matched_address": "770 IROLO ST, LOS ANGELES, CA, 90005",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0038",
@@ -340,7 +451,10 @@
       "state": "CA",
       "matched_address": "154 YUKON ST, SAN FRANCISCO, CA, 94114",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0039",
@@ -349,7 +463,10 @@
       "state": "MA",
       "matched_address": "1 CRAIGIE ST, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0040",
@@ -358,7 +475,10 @@
       "state": "NJ",
       "matched_address": "75 JACKSON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0041",
@@ -367,7 +487,10 @@
       "state": "CA",
       "matched_address": "122 TIFFANY AVE, SAN FRANCISCO, CA, 94110",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0042",
@@ -376,7 +499,10 @@
       "state": "NJ",
       "matched_address": "320 FORREST ST, JERSEY CITY, NJ, 07304",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0043",
@@ -385,7 +511,10 @@
       "state": "MA",
       "matched_address": "4 ORCHARD ST, CAMBRIDGE, MA, 02140",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0044",
@@ -394,7 +523,10 @@
       "state": "NJ",
       "matched_address": "775 SANDFORD AVE, NEWARK, NJ, 07106",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0045",
@@ -403,7 +535,10 @@
       "state": "CA",
       "matched_address": "12829 BRANFORD ST, PACOIMA, CA, 91331",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0046",
@@ -412,7 +547,10 @@
       "state": "MA",
       "matched_address": "12 SODEN ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0047",
@@ -421,7 +559,10 @@
       "state": "NJ",
       "matched_address": "14 RUTGERS AVE, JERSEY CITY, NJ, 07305",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0048",
@@ -430,7 +571,10 @@
       "state": "MA",
       "matched_address": "1619 COMMONWEALTH AVE, BRIGHTON, MA, 02135",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0049",
@@ -439,7 +583,10 @@
       "state": "NJ",
       "matched_address": "721 CLINTON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0050",
@@ -448,7 +595,10 @@
       "state": "CA",
       "matched_address": "36 HOFF ST, SAN FRANCISCO, CA, 94110",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0051",
@@ -457,7 +607,10 @@
       "state": "NJ",
       "matched_address": "65 OAKLAND AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0052",
@@ -466,7 +619,10 @@
       "state": "MA",
       "matched_address": "88 GARDNER ST, ALLSTON, MA, 02134",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0053",
@@ -475,7 +631,10 @@
       "state": "MA",
       "matched_address": "32 GARRISON ST, BOSTON, MA, 02116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0054",
@@ -484,7 +643,10 @@
       "state": "MA",
       "matched_address": "13 SHETLAND ST, ROXBURY, MA, 02119",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0055",
@@ -493,7 +655,10 @@
       "state": "CA",
       "matched_address": "305 10TH AVE, SAN FRANCISCO, CA, 94118",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0056",
@@ -502,7 +667,10 @@
       "state": "MA",
       "matched_address": "43 EDGERLY RD, BOSTON, MA, 02115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0057",
@@ -511,7 +679,10 @@
       "state": "NJ",
       "matched_address": "57 STONE ST, NEWARK, NJ, 07104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0058",
@@ -520,7 +691,10 @@
       "state": "CA",
       "matched_address": "3137 BOSTON AVE, SAN DIEGO, CA, 92113",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0059",
@@ -529,7 +703,10 @@
       "state": "NJ",
       "matched_address": "86 WALNUT ST, NEWARK, NJ, 07102",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0060",
@@ -538,7 +715,10 @@
       "state": "CA",
       "matched_address": "5737 WILLOWCREST AVE, NORTH HOLLYWOOD, CA, 91601",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0061",
@@ -547,7 +727,10 @@
       "state": "CA",
       "matched_address": "106 18TH AVE, SAN FRANCISCO, CA, 94121",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0062",
@@ -556,7 +739,10 @@
       "state": "CA",
       "matched_address": "77 HOFF ST, SAN FRANCISCO, CA, 94110",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0063",
@@ -565,7 +751,10 @@
       "state": "MA",
       "matched_address": "11 CORTES ST, BOSTON, MA, 02116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0064",
@@ -574,7 +763,10 @@
       "state": "MA",
       "matched_address": "26 CONCORD AVE, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0065",
@@ -583,7 +775,10 @@
       "state": "MA",
       "matched_address": "63 BAILEY ST, DORCHESTER, MA, 02124",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0066",
@@ -592,7 +787,10 @@
       "state": "CA",
       "matched_address": "1318 N ORANGE DR, LOS ANGELES, CA, 90028",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0067",
@@ -601,7 +799,10 @@
       "state": "CA",
       "matched_address": "1335 N VISTA ST, LOS ANGELES, CA, 90046",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0068",
@@ -610,7 +811,10 @@
       "state": "MA",
       "matched_address": "42 CLEARWAY ST, BOSTON, MA, 02115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0069",
@@ -619,7 +823,10 @@
       "state": "CA",
       "matched_address": "2277 UNION ST, SAN FRANCISCO, CA, 94123",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0070",
@@ -628,7 +835,10 @@
       "state": "MA",
       "matched_address": "43 FAYETTE ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0071",
@@ -637,7 +847,10 @@
       "state": "MA",
       "matched_address": "16 VANDINE ST, CAMBRIDGE, MA, 02141",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0072",
@@ -646,7 +859,10 @@
       "state": "CA",
       "matched_address": "1251 10TH AVE, SAN FRANCISCO, CA, 94122",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0073",
@@ -655,7 +871,10 @@
       "state": "MA",
       "matched_address": "37 INMAN ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0074",
@@ -664,7 +883,10 @@
       "state": "CA",
       "matched_address": "717 S BERENDO ST, LOS ANGELES, CA, 90005",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0075",
@@ -673,7 +895,10 @@
       "state": "MA",
       "matched_address": "27 EVERETT ST, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0076",
@@ -682,7 +907,10 @@
       "state": "NJ",
       "matched_address": "304 E KINNEY ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0077",
@@ -691,7 +919,10 @@
       "state": "MA",
       "matched_address": "91 BROOKLINE ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0078",
@@ -700,7 +931,10 @@
       "state": "NJ",
       "matched_address": "115 BAYVIEW AVE, JERSEY CITY, NJ, 07305",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0079",
@@ -709,7 +943,10 @@
       "state": "CA",
       "matched_address": "2361 PORTLAND ST, LOS ANGELES, CA, 90007",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0080",
@@ -718,7 +955,10 @@
       "state": "CA",
       "matched_address": "690 S CATALINA ST, LOS ANGELES, CA, 90005",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0081",
@@ -727,7 +967,10 @@
       "state": "CA",
       "matched_address": "145 TAYLOR ST, SAN FRANCISCO, CA, 94102",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0082",
@@ -736,7 +979,10 @@
       "state": "MA",
       "matched_address": "63 INMAN ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0083",
@@ -745,7 +991,10 @@
       "state": "MA",
       "matched_address": "38 KENILWORTH ST, ROXBURY, MA, 02119",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0084",
@@ -754,7 +1003,10 @@
       "state": "CA",
       "matched_address": "1725 CHESTNUT ST, SAN FRANCISCO, CA, 94123",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0085",
@@ -763,7 +1015,10 @@
       "state": "CA",
       "matched_address": "1101 CHURCH ST, SAN FRANCISCO, CA, 94114",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0086",
@@ -772,7 +1027,10 @@
       "state": "MA",
       "matched_address": "67 PLYMOUTH ST, CAMBRIDGE, MA, 02141",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0087",
@@ -781,7 +1039,10 @@
       "state": "NJ",
       "matched_address": "323 BLOOMFIELD ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0088",
@@ -790,7 +1051,10 @@
       "state": "CA",
       "matched_address": "201 CLEMENT ST, SAN FRANCISCO, CA, 94118",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0089",
@@ -799,7 +1063,10 @@
       "state": "NJ",
       "matched_address": "935 PARK AVE, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0090",
@@ -808,7 +1075,10 @@
       "state": "NJ",
       "matched_address": "30 JACKSON ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0091",
@@ -817,7 +1087,10 @@
       "state": "CA",
       "matched_address": "2229 DWIGHT WAY, BERKELEY, CA, 94704",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0092",
@@ -826,7 +1099,10 @@
       "state": "CA",
       "matched_address": "2514 PIEDMONT AVE, BERKELEY, CA, 94704",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0093",
@@ -835,7 +1111,10 @@
       "state": "MA",
       "matched_address": "90 BICKFORD ST, JAMAICA PLAIN, MA, 02130",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0094",
@@ -844,7 +1123,10 @@
       "state": "CA",
       "matched_address": "1371 27TH ST, SAN DIEGO, CA, 92154",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0095",
@@ -853,7 +1135,10 @@
       "state": "MA",
       "matched_address": "23 ELM ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0096",
@@ -862,7 +1147,10 @@
       "state": "MA",
       "matched_address": "81 WESTLAND AVE, BOSTON, MA, 02115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0097",
@@ -871,7 +1159,10 @@
       "state": "CA",
       "matched_address": "1560 MASON ST, SAN FRANCISCO, CA, 94133",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0098",
@@ -880,7 +1171,10 @@
       "state": "MA",
       "matched_address": "WILLOWWOOD ST, Boston, MA 02124",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0099",
@@ -889,7 +1183,10 @@
       "state": "NJ",
       "matched_address": "822 WASHINGTON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0100",
@@ -898,7 +1195,10 @@
       "state": "CA",
       "matched_address": "4732 BANCROFT ST, SAN DIEGO, CA, 92116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0101",
@@ -907,7 +1207,10 @@
       "state": "NJ",
       "matched_address": "319 FAIRMOUNT AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0102",
@@ -916,7 +1219,10 @@
       "state": "NJ",
       "matched_address": "124 BLOOMFIELD ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0103",
@@ -925,7 +1231,10 @@
       "state": "CA",
       "matched_address": "2161 ALLSTON WAY, BERKELEY, CA, 94704",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0104",
@@ -934,7 +1243,10 @@
       "state": "NJ",
       "matched_address": "409 N 5TH ST, NEWARK, NJ, 07107",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0105",
@@ -943,7 +1255,10 @@
       "state": "CA",
       "matched_address": "140 PORTOLA DR, SAN FRANCISCO, CA, 94131",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0106",
@@ -952,7 +1267,10 @@
       "state": "CA",
       "matched_address": "250 FREMONT ST, SAN FRANCISCO, CA, 94105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0107",
@@ -961,7 +1279,10 @@
       "state": "CA",
       "matched_address": "10635 SHERMAN GROVE AVE, SUNLAND, CA, 91040",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0108",
@@ -970,7 +1291,10 @@
       "state": "NJ",
       "matched_address": "13 JEFFERSON AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0109",
@@ -979,7 +1303,10 @@
       "state": "CA",
       "matched_address": "2922 OTIS ST, BERKELEY, CA, 94703",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0110",
@@ -988,7 +1315,10 @@
       "state": "NJ",
       "matched_address": "132 2ND AVE, NEWARK, NJ, 07104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0111",
@@ -997,7 +1327,10 @@
       "state": "CA",
       "matched_address": "10075 TUJUNGA CANYON BLVD, TUJUNGA, CA, 91042",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0112",
@@ -1006,7 +1339,10 @@
       "state": "CA",
       "matched_address": "448 BRODERICK ST, SAN FRANCISCO, CA, 94117",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0113",
@@ -1015,7 +1351,10 @@
       "state": "CA",
       "matched_address": "3151 ETON AVE, BERKELEY, CA, 94705",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0114",
@@ -1024,7 +1363,10 @@
       "state": "CA",
       "matched_address": "3743 INDIA ST, SAN DIEGO, CA, 92103",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0115",
@@ -1033,7 +1375,10 @@
       "state": "CA",
       "matched_address": "397 05TH AV, San Francisco, CA ",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0116",
@@ -1042,7 +1387,10 @@
       "state": "NJ",
       "matched_address": "36 PROSPECT ST, JERSEY CITY, NJ, 07307",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0117",
@@ -1051,7 +1399,10 @@
       "state": "CA",
       "matched_address": "1733 N CHEROKEE AVE, LOS ANGELES, CA, 90028",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0118",
@@ -1060,7 +1411,10 @@
       "state": "MA",
       "matched_address": "34 KINGBIRD RD, DORCHESTER, MA, 02124",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0119",
@@ -1069,7 +1423,10 @@
       "state": "NJ",
       "matched_address": "607 ADAMS ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0120",
@@ -1078,7 +1435,10 @@
       "state": "NJ",
       "matched_address": "139 ELM ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0121",
@@ -1087,7 +1447,10 @@
       "state": "CA",
       "matched_address": "4079 FRONT ST, SAN DIEGO, CA, 92103",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0122",
@@ -1096,7 +1459,10 @@
       "state": "CA",
       "matched_address": "4812 S BROADWAY, LOS ANGELES, CA, 90037",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0123",
@@ -1105,7 +1471,10 @@
       "state": "MA",
       "matched_address": "123 CONDOR ST, EAST BOSTON, MA, 02128",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0124",
@@ -1114,7 +1483,10 @@
       "state": "MA",
       "matched_address": "35 BROOKLINE ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0125",
@@ -1123,7 +1495,10 @@
       "state": "NJ",
       "matched_address": "227 GRAND ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0126",
@@ -1132,7 +1507,10 @@
       "state": "CA",
       "matched_address": "1350 POTRERO AVE, SAN FRANCISCO, CA, 94110",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0127",
@@ -1141,7 +1519,10 @@
       "state": "CA",
       "matched_address": "10029 N SEPULVEDA BLVD, MISSION HILLS, CA, 91345",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0128",
@@ -1150,7 +1531,10 @@
       "state": "MA",
       "matched_address": "Harvard ST, Boston, MA 02124",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0129",
@@ -1159,7 +1543,10 @@
       "state": "NJ",
       "matched_address": "532 MULBERRY ST, NEWARK, NJ, 07114",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0130",
@@ -1168,7 +1555,10 @@
       "state": "NJ",
       "matched_address": "554 MARKET ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0131",
@@ -1177,7 +1567,10 @@
       "state": "NJ",
       "matched_address": "43 POPLAR ST, JERSEY CITY, NJ, 07307",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0132",
@@ -1186,7 +1579,10 @@
       "state": "NJ",
       "matched_address": "587 N 6TH ST, NEWARK, NJ, 07107",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0133",
@@ -1195,7 +1591,10 @@
       "state": "CA",
       "matched_address": "8819 LANKERSHIM BLVD, SUN VALLEY, CA, 91352",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0134",
@@ -1204,7 +1603,10 @@
       "state": "MA",
       "matched_address": "101 NORFOLK ST, DORCHESTER, MA, 02124",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0135",
@@ -1213,7 +1615,10 @@
       "state": "CA",
       "matched_address": "843 CLAY ST, SAN FRANCISCO, CA, 94108",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0136",
@@ -1222,7 +1627,10 @@
       "state": "NJ",
       "matched_address": "920 HUDSON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0137",
@@ -1231,7 +1639,10 @@
       "state": "NJ",
       "matched_address": "71 NORFOLK ST, NEWARK, NJ, 07103",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0138",
@@ -1240,7 +1651,10 @@
       "state": "CA",
       "matched_address": "1033 E 51ST ST, LOS ANGELES, CA, 90011",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0139",
@@ -1249,7 +1663,10 @@
       "state": "NJ",
       "matched_address": "54 STUYVESANT AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0140",
@@ -1258,7 +1675,10 @@
       "state": "MA",
       "matched_address": "459 BEACON ST, BOSTON, MA, 02115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0141",
@@ -1267,7 +1687,10 @@
       "state": "CA",
       "matched_address": "2601 43RD AVE, SAN FRANCISCO, CA, 94116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0142",
@@ -1276,7 +1699,10 @@
       "state": "CA",
       "matched_address": "4615 AVALON BLVD, LOS ANGELES, CA, 90011",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0143",
@@ -1285,7 +1711,10 @@
       "state": "MA",
       "matched_address": "75 ELM HILL AVE, DORCHESTER, MA, 02121",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0144",
@@ -1294,7 +1723,10 @@
       "state": "MA",
       "matched_address": "114 AMORY ST, ROXBURY, MA, 02119",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0145",
@@ -1303,7 +1735,10 @@
       "state": "CA",
       "matched_address": "4515 FELTON ST, SAN DIEGO, CA, 92116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0146",
@@ -1312,7 +1747,10 @@
       "state": "NJ",
       "matched_address": "93-95 HAWKINS ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0147",
@@ -1321,7 +1759,10 @@
       "state": "CA",
       "matched_address": "2850 GOLDEN GATE AVE, SAN FRANCISCO, CA, 94118",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0148",
@@ -1330,7 +1771,10 @@
       "state": "NJ",
       "matched_address": "166 5TH ST, NEWARK, NJ, 07107",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0149",
@@ -1339,7 +1783,10 @@
       "state": "MA",
       "matched_address": "25 EVERETT ST, EAST BOSTON, MA, 02128",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0150",
@@ -1348,7 +1795,10 @@
       "state": "CA",
       "matched_address": "3784 BROADWAY, SAN DIEGO, CA, 92102",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0151",
@@ -1357,7 +1807,10 @@
       "state": "MA",
       "matched_address": "16 QUEENSBERRY ST, BOSTON, MA, 02215",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0152",
@@ -1366,7 +1819,10 @@
       "state": "CA",
       "matched_address": "1669 SUNSET CLIFFS BLVD, SAN DIEGO, CA, 92107",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0153",
@@ -1375,7 +1831,10 @@
       "state": "CA",
       "matched_address": "366 E 55TH ST, LOS ANGELES, CA, 90011",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0154",
@@ -1384,7 +1843,10 @@
       "state": "CA",
       "matched_address": "4568 IDAHO ST, SAN DIEGO, CA, 92116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0155",
@@ -1393,7 +1855,10 @@
       "state": "MA",
       "matched_address": "473 HARVARD ST, DORCHESTER, MA, 02124",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0156",
@@ -1402,7 +1867,10 @@
       "state": "CA",
       "matched_address": "290 GREEN ST, SAN FRANCISCO, CA, 94111",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0157",
@@ -1411,7 +1879,10 @@
       "state": "CA",
       "matched_address": "2701 RIDGE RD, BERKELEY, CA, 94709",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0158",
@@ -1420,7 +1891,10 @@
       "state": "CA",
       "matched_address": "2522 HILGARD AVE, BERKELEY, CA, 94709",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0159",
@@ -1429,7 +1903,10 @@
       "state": "NJ",
       "matched_address": "104 SUNSET AVE, NEWARK, NJ, 07106",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0160",
@@ -1438,7 +1915,10 @@
       "state": "NJ",
       "matched_address": "86 CHARLES ST, JERSEY CITY, NJ, 07307",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0161",
@@ -1447,7 +1927,10 @@
       "state": "NJ",
       "matched_address": "317 UNION ST, JERSEY CITY, NJ, 07304",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0162",
@@ -1456,7 +1939,10 @@
       "state": "CA",
       "matched_address": "1640 N POINSETTIA PL, LOS ANGELES, CA, 90046",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0163",
@@ -1465,7 +1951,10 @@
       "state": "NJ",
       "matched_address": "235 2ND ST, JERSEY CITY, NJ, 07302",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0164",
@@ -1474,7 +1963,10 @@
       "state": "CA",
       "matched_address": "725 14TH ST, SAN FRANCISCO, CA, 94114",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0165",
@@ -1483,7 +1975,10 @@
       "state": "CA",
       "matched_address": "734 JAMAICA CT, SAN DIEGO, CA, 92109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0166",
@@ -1492,7 +1987,10 @@
       "state": "MA",
       "matched_address": "1 POTTER PARK, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0167",
@@ -1501,7 +1999,10 @@
       "state": "CA",
       "matched_address": "4616 FLORIDA ST, SAN DIEGO, CA, 92116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0168",
@@ -1510,7 +2011,10 @@
       "state": "NJ",
       "matched_address": "600 JACKSON/601 HARRISON, Hoboken, NJ 07030",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0169",
@@ -1519,7 +2023,10 @@
       "state": "MA",
       "matched_address": "115 KILSYTH RD, BRIGHTON, MA, 02135",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0170",
@@ -1528,7 +2035,10 @@
       "state": "CA",
       "matched_address": "8917 CEDROS AVE, PANORAMA CITY, CA, 91402",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0171",
@@ -1537,7 +2047,10 @@
       "state": "NJ",
       "matched_address": "127 OGDEN AVE, JERSEY CITY, NJ, 07307",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0172",
@@ -1546,7 +2059,10 @@
       "state": "CA",
       "matched_address": "8504 WILLIS AVE, PANORAMA CITY, CA, 91402",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0173",
@@ -1555,7 +2071,10 @@
       "state": "CA",
       "matched_address": "13180 FOOTHILL BLVD, SYLMAR, CA, 91342",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0174",
@@ -1564,7 +2083,10 @@
       "state": "MA",
       "matched_address": "84 HAMPSHIRE ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0175",
@@ -1573,7 +2095,10 @@
       "state": "MA",
       "matched_address": "10 DOVER ST, CAMBRIDGE, MA, 02140",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0176",
@@ -1582,7 +2107,10 @@
       "state": "MA",
       "matched_address": "15 CHESTER ST, CAMBRIDGE, MA, 02140",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0177",
@@ -1591,7 +2119,10 @@
       "state": "NJ",
       "matched_address": "166 HIGHLAND AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0178",
@@ -1600,7 +2131,10 @@
       "state": "CA",
       "matched_address": "5308 RIVERTON AVE, NORTH HOLLYWOOD, CA, 91601",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0179",
@@ -1609,7 +2143,10 @@
       "state": "CA",
       "matched_address": "7006 LANEWOOD AVE, LOS ANGELES, CA, 90028",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0180",
@@ -1618,7 +2155,10 @@
       "state": "CA",
       "matched_address": "845 S KINGSLEY DR, LOS ANGELES, CA, 90005",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0181",
@@ -1627,7 +2167,10 @@
       "state": "NJ",
       "matched_address": "931 GARDEN ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0182",
@@ -1636,7 +2179,10 @@
       "state": "NJ",
       "matched_address": "923 CLINTON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0183",
@@ -1645,7 +2191,10 @@
       "state": "CA",
       "matched_address": "2427 HILGARD AVE, BERKELEY, CA, 94709",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0184",
@@ -1654,7 +2203,10 @@
       "state": "CA",
       "matched_address": "156 W 32ND ST, LOS ANGELES, CA, 90007",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0185",
@@ -1663,7 +2215,10 @@
       "state": "NJ",
       "matched_address": "154 TERHUNE AVE, JERSEY CITY, NJ, 07305",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0186",
@@ -1672,7 +2227,10 @@
       "state": "NJ",
       "matched_address": "107 BEACON AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0187",
@@ -1681,7 +2239,10 @@
       "state": "NJ",
       "matched_address": "146 CARLTON AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0188",
@@ -1690,7 +2251,10 @@
       "state": "CA",
       "matched_address": "2819 MCGEE AVE, BERKELEY, CA, 94703",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0189",
@@ -1699,7 +2263,10 @@
       "state": "CA",
       "matched_address": "1811 CARLETON ST, BERKELEY, CA, 94703",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0190",
@@ -1708,7 +2275,10 @@
       "state": "NJ",
       "matched_address": "283 ADAMS ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0191",
@@ -1717,7 +2287,10 @@
       "state": "MA",
       "matched_address": "60 KIRKLAND ST, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0192",
@@ -1726,7 +2299,10 @@
       "state": "CA",
       "matched_address": "780 POST ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0193",
@@ -1735,7 +2311,10 @@
       "state": "CA",
       "matched_address": "1626 BONITA AVE, BERKELEY, CA, 94709",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0194",
@@ -1744,7 +2323,10 @@
       "state": "MA",
       "matched_address": "72 BURBANK ST, BOSTON, MA, 02115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0195",
@@ -1753,7 +2335,10 @@
       "state": "MA",
       "matched_address": "1848 COMMONWEALTH AVE, BRIGHTON, MA, 02135",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0196",
@@ -1762,7 +2347,10 @@
       "state": "CA",
       "matched_address": "16915 BLACKHAWK ST, GRANADA HILLS, CA, 91344",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0197",
@@ -1771,7 +2359,10 @@
       "state": "CA",
       "matched_address": "1611 62ND ST, BERKELEY, CA, 94703",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0198",
@@ -1780,7 +2371,10 @@
       "state": "MA",
       "matched_address": "194 HAVRE ST, EAST BOSTON, MA, 02128",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0199",
@@ -1789,7 +2383,10 @@
       "state": "MA",
       "matched_address": "42 BAY STATE RD, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0200",
@@ -1798,7 +2395,10 @@
       "state": "CA",
       "matched_address": "1853 N HIGHLAND AVE, LOS ANGELES, CA, 90028",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0201",
@@ -1807,7 +2407,10 @@
       "state": "CA",
       "matched_address": "2737 BENVENUE AVE, BERKELEY, CA, 94705",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0202",
@@ -1816,7 +2419,10 @@
       "state": "CA",
       "matched_address": "1446 JACKSON ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0203",
@@ -1825,7 +2431,10 @@
       "state": "MA",
       "matched_address": "2930 WASHINGTON ST, ROXBURY, MA, 02119",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0204",
@@ -1834,7 +2443,10 @@
       "state": "NJ",
       "matched_address": "208 6TH AVE W, NEWARK, NJ, 07107",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0205",
@@ -1843,7 +2455,10 @@
       "state": "CA",
       "matched_address": "2425 GRANT ST, BERKELEY, CA, 94703",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0206",
@@ -1852,7 +2467,10 @@
       "state": "CA",
       "matched_address": "401 43RD AVE, SAN FRANCISCO, CA, 94121",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0207",
@@ -1861,7 +2479,10 @@
       "state": "CA",
       "matched_address": "705 W 23RD ST, LOS ANGELES, CA, 90007",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0208",
@@ -1870,7 +2491,10 @@
       "state": "NJ",
       "matched_address": "126 ADAMS ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0209",
@@ -1879,7 +2503,10 @@
       "state": "MA",
       "matched_address": "19 TROWBRIDGE ST, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0210",
@@ -1888,7 +2515,10 @@
       "state": "CA",
       "matched_address": "1432 N CURSON AVE, LOS ANGELES, CA, 90046",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0211",
@@ -1897,7 +2527,10 @@
       "state": "MA",
       "matched_address": "499 BEACON ST, BOSTON, MA, 02215",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0212",
@@ -1906,7 +2539,10 @@
       "state": "CA",
       "matched_address": "1311 S VAN NESS AVE, SAN FRANCISCO, CA, 94110",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0213",
@@ -1915,7 +2551,10 @@
       "state": "CA",
       "matched_address": "11649 ACAMA ST, STUDIO CITY, CA, 91604",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0214",
@@ -1924,7 +2563,10 @@
       "state": "MA",
       "matched_address": "358 HARVARD ST, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0215",
@@ -1933,7 +2575,10 @@
       "state": "CA",
       "matched_address": "2295 CALIFORNIA ST, SAN FRANCISCO, CA, 94115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0216",
@@ -1942,7 +2587,10 @@
       "state": "CA",
       "matched_address": "2309 HASTE ST, BERKELEY, CA, 94704",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0217",
@@ -1951,7 +2599,10 @@
       "state": "MA",
       "matched_address": "172 MAVERICK ST, EAST BOSTON, MA, 02128",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0218",
@@ -1960,7 +2611,10 @@
       "state": "MA",
       "matched_address": "15 RICHDALE AVE, CAMBRIDGE, MA, 02140",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0219",
@@ -1969,7 +2623,10 @@
       "state": "CA",
       "matched_address": "3735 32ND ST, SAN DIEGO, CA, 92104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0220",
@@ -1978,7 +2635,10 @@
       "state": "MA",
       "matched_address": "23 FAULKNER ST, DORCHESTER, MA, 02122",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0221",
@@ -1987,7 +2647,10 @@
       "state": "MA",
       "matched_address": "191 PARK DR, BOSTON, MA, 02215",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0222",
@@ -1996,7 +2659,10 @@
       "state": "CA",
       "matched_address": "1901 VALLEJO ST, SAN FRANCISCO, CA, 94123",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0223",
@@ -2005,7 +2671,10 @@
       "state": "NJ",
       "matched_address": "504 COURT ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0224",
@@ -2014,7 +2683,10 @@
       "state": "CA",
       "matched_address": "8727 TOBIAS AVE, PANORAMA CITY, CA, 91402",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0225",
@@ -2023,7 +2695,10 @@
       "state": "CA",
       "matched_address": "1627 JACKSON ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0226",
@@ -2032,7 +2707,10 @@
       "state": "MA",
       "matched_address": "663 MASSACHUSETTS AVE, BOSTON, MA, 02118",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0227",
@@ -2041,7 +2719,10 @@
       "state": "NJ",
       "matched_address": "1401 HUDSON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0228",
@@ -2050,7 +2731,10 @@
       "state": "CA",
       "matched_address": "225 COLLINGWOOD ST, SAN FRANCISCO, CA, 94114",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0229",
@@ -2059,7 +2743,10 @@
       "state": "CA",
       "matched_address": "5164 03RD ST, San Francisco, CA ",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0230",
@@ -2068,7 +2755,10 @@
       "state": "MA",
       "matched_address": "85 HANCOCK ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0231",
@@ -2077,7 +2767,10 @@
       "state": "CA",
       "matched_address": "521 ARGUELLO BLVD, SAN FRANCISCO, CA, 94118",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0232",
@@ -2086,7 +2779,10 @@
       "state": "MA",
       "matched_address": "189 3RD ST, CAMBRIDGE, MA, 02141",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0233",
@@ -2095,7 +2791,10 @@
       "state": "MA",
       "matched_address": "30 MEDFIELD ST, BOSTON, MA, 02215",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0234",
@@ -2104,7 +2803,10 @@
       "state": "CA",
       "matched_address": "2212 BLAKE ST, BERKELEY, CA, 94704",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0235",
@@ -2113,7 +2815,10 @@
       "state": "CA",
       "matched_address": "6736 SELMA AVE, LOS ANGELES, CA, 90028",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0236",
@@ -2122,7 +2827,10 @@
       "state": "CA",
       "matched_address": "1110 JACKSON ST, SAN FRANCISCO, CA, 94133",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0237",
@@ -2131,7 +2839,10 @@
       "state": "CA",
       "matched_address": "36 VALLEY ST, SAN FRANCISCO, CA, 94110",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0238",
@@ -2140,7 +2851,10 @@
       "state": "CA",
       "matched_address": "15256 ACRE ST, NORTH HILLS, CA, 91343",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0239",
@@ -2149,7 +2863,10 @@
       "state": "CA",
       "matched_address": "1476 UNIVERSITY AVE, BERKELEY, CA, 94702",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0240",
@@ -2158,7 +2875,10 @@
       "state": "CA",
       "matched_address": "4135 38TH ST, SAN DIEGO, CA, 92105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0241",
@@ -2167,7 +2887,10 @@
       "state": "NJ",
       "matched_address": "913 GARDEN ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0242",
@@ -2176,7 +2899,10 @@
       "state": "MA",
       "matched_address": "87 SIERRA RD, HYDE PARK, MA, 02136",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0243",
@@ -2185,7 +2911,10 @@
       "state": "NJ",
       "matched_address": "664 OCEAN AVE, JERSEY CITY, NJ, 07305",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0244",
@@ -2194,7 +2923,10 @@
       "state": "NJ",
       "matched_address": "1126 HUDSON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0245",
@@ -2203,7 +2935,10 @@
       "state": "MA",
       "matched_address": "30 W HOWELL ST, DORCHESTER, MA, 02125",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0246",
@@ -2212,7 +2947,10 @@
       "state": "CA",
       "matched_address": "4386 COPELAND AVE, SAN DIEGO, CA, 92105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0247",
@@ -2221,7 +2959,10 @@
       "state": "CA",
       "matched_address": "4957 CAPE MAY AVE, SAN DIEGO, CA, 92107",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0248",
@@ -2230,7 +2971,10 @@
       "state": "CA",
       "matched_address": "941 S KENMORE AVE, LOS ANGELES, CA, 90006",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0249",
@@ -2239,7 +2983,10 @@
       "state": "NJ",
       "matched_address": "500 HAWTHORNE AVE, NEWARK, NJ, 07112",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0250",
@@ -2248,7 +2995,10 @@
       "state": "NJ",
       "matched_address": "211 BALDWIN AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0251",
@@ -2257,7 +3007,10 @@
       "state": "CA",
       "matched_address": "4663 33RD ST, SAN DIEGO, CA, 92116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0252",
@@ -2266,7 +3019,10 @@
       "state": "CA",
       "matched_address": "15514 CHASE ST, NORTH HILLS, CA, 91343",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0253",
@@ -2275,7 +3031,10 @@
       "state": "CA",
       "matched_address": "2250 N POINT ST, SAN FRANCISCO, CA, 94123",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0254",
@@ -2284,7 +3043,10 @@
       "state": "NJ",
       "matched_address": "805 WASHINGTON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0255",
@@ -2293,7 +3055,10 @@
       "state": "CA",
       "matched_address": "851 E 51ST ST, LOS ANGELES, CA, 90011",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0256",
@@ -2302,7 +3067,10 @@
       "state": "NJ",
       "matched_address": "327 JACKSON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0257",
@@ -2311,7 +3079,10 @@
       "state": "CA",
       "matched_address": "5 COMMER CT, SAN FRANCISCO, CA, 94124",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0258",
@@ -2320,7 +3091,10 @@
       "state": "MA",
       "matched_address": "471 COLUMBIA RD, DORCHESTER, MA, 02125",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0259",
@@ -2329,7 +3103,10 @@
       "state": "CA",
       "matched_address": "872 N POINT ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0260",
@@ -2338,7 +3115,10 @@
       "state": "CA",
       "matched_address": "2479 LE CONTE AVE, BERKELEY, CA, 94709",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0261",
@@ -2347,7 +3127,10 @@
       "state": "NJ",
       "matched_address": "525 ADAMS ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0262",
@@ -2356,7 +3139,10 @@
       "state": "CA",
       "matched_address": "2924 JUNIPER ST, SAN DIEGO, CA, 92104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0263",
@@ -2365,7 +3151,10 @@
       "state": "CA",
       "matched_address": "1636 MARTIN LUTHER KING JR WAY, BERKELEY, CA, 94709",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0264",
@@ -2374,7 +3163,10 @@
       "state": "NJ",
       "matched_address": "589 ELIZABETH AVE, NEWARK, NJ, 07112",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0265",
@@ -2383,7 +3175,10 @@
       "state": "NJ",
       "matched_address": "102 BALDWIN AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0266",
@@ -2392,7 +3187,10 @@
       "state": "NJ",
       "matched_address": "52 BRIGHT ST, JERSEY CITY, NJ, 07302",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0267",
@@ -2401,7 +3199,10 @@
       "state": "CA",
       "matched_address": "1314 N VAN NESS AVE, LOS ANGELES, CA, 90038",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0268",
@@ -2410,7 +3211,10 @@
       "state": "CA",
       "matched_address": "1848 FRANKLIN ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0269",
@@ -2419,7 +3223,10 @@
       "state": "NJ",
       "matched_address": "1015 CLINTON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0270",
@@ -2428,7 +3235,10 @@
       "state": "NJ",
       "matched_address": "29 CONCORD ST, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0271",
@@ -2437,7 +3247,10 @@
       "state": "CA",
       "matched_address": "4115 LINCOLN WAY, SAN FRANCISCO, CA, 94122",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0272",
@@ -2446,7 +3259,10 @@
       "state": "MA",
       "matched_address": "5 EVERETT ST, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0273",
@@ -2455,7 +3271,10 @@
       "state": "CA",
       "matched_address": "3911 CENTRE ST, SAN DIEGO, CA, 92103",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0274",
@@ -2464,7 +3283,10 @@
       "state": "CA",
       "matched_address": "7072 EASTMAN ST, SAN DIEGO, CA, 92111",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0275",
@@ -2473,7 +3295,10 @@
       "state": "CA",
       "matched_address": "4091 MORRELL ST, SAN DIEGO, CA, 92109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0276",
@@ -2482,7 +3307,10 @@
       "state": "CA",
       "matched_address": "4361 ILLINOIS ST, SAN DIEGO, CA, 92104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0277",
@@ -2491,7 +3319,10 @@
       "state": "CA",
       "matched_address": "2736 GRANT ST, BERKELEY, CA, 94703",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0278",
@@ -2500,7 +3331,10 @@
       "state": "CA",
       "matched_address": "1800 FRANKLIN ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0279",
@@ -2509,7 +3343,10 @@
       "state": "NJ",
       "matched_address": "90 KENSINGTON AVE, JERSEY CITY, NJ, 07304",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0280",
@@ -2518,7 +3355,10 @@
       "state": "CA",
       "matched_address": "1215 11TH AVE, SAN FRANCISCO, CA, 94122",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0281",
@@ -2527,7 +3367,10 @@
       "state": "CA",
       "matched_address": "1725 N GOWER ST, LOS ANGELES, CA, 90028",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0282",
@@ -2536,7 +3379,10 @@
       "state": "CA",
       "matched_address": "2240 10TH ST, BERKELEY, CA, 94710",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0283",
@@ -2545,7 +3391,10 @@
       "state": "CA",
       "matched_address": "90 BARTLETT ST, SAN FRANCISCO, CA, 94110",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0284",
@@ -2554,7 +3403,10 @@
       "state": "MA",
       "matched_address": "345 COLUMBIA ST, CAMBRIDGE, MA, 02141",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0285",
@@ -2563,7 +3415,10 @@
       "state": "CA",
       "matched_address": "5255 HARMONY AVE, NORTH HOLLYWOOD, CA, 91601",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0286",
@@ -2572,7 +3427,10 @@
       "state": "MA",
       "matched_address": "27 IRVING TER, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0287",
@@ -2581,7 +3439,10 @@
       "state": "NJ",
       "matched_address": "404 GRAND ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0288",
@@ -2590,7 +3451,10 @@
       "state": "NJ",
       "matched_address": "75 CLENDENNY AVE, JERSEY CITY, NJ, 07304",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0289",
@@ -2599,7 +3463,10 @@
       "state": "CA",
       "matched_address": "1741 MARTIN LUTHER KING JR WAY, BERKELEY, CA, 94709",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0290",
@@ -2608,7 +3475,10 @@
       "state": "MA",
       "matched_address": "21 FOREST ST, CAMBRIDGE, MA, 02140",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0291",
@@ -2617,7 +3487,10 @@
       "state": "MA",
       "matched_address": "165 CAMBRIDGEPARK DR, CAMBRIDGE, MA, 02140",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0292",
@@ -2626,7 +3499,10 @@
       "state": "MA",
       "matched_address": "24 BERKSHIRE ST, CAMBRIDGE, MA, 02141",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0293",
@@ -2635,7 +3511,10 @@
       "state": "CA",
       "matched_address": "1314 NATOMA ST, SAN FRANCISCO, CA, 94103",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0294",
@@ -2644,7 +3523,10 @@
       "state": "MA",
       "matched_address": "178 RICHDALE AVE, CAMBRIDGE, MA, 02140",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0295",
@@ -2653,7 +3535,10 @@
       "state": "MA",
       "matched_address": "Harvard ST LOT 2A-13, Boston, MA 02124",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0296",
@@ -2662,7 +3547,10 @@
       "state": "NJ",
       "matched_address": "85 MCWHORTER ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0297",
@@ -2671,7 +3559,10 @@
       "state": "NJ",
       "matched_address": "213 SUMMER AVE, NEWARK, NJ, 07104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0298",
@@ -2680,7 +3571,10 @@
       "state": "MA",
       "matched_address": "361 WASHINGTON ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0299",
@@ -2689,7 +3583,10 @@
       "state": "NJ",
       "matched_address": "1037 WASHINGTON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0300",
@@ -2698,7 +3595,10 @@
       "state": "MA",
       "matched_address": "36 TROWBRIDGE ST, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0301",
@@ -2707,7 +3607,10 @@
       "state": "MA",
       "matched_address": "165 HAMPSHIRE ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0302",
@@ -2716,7 +3619,10 @@
       "state": "MA",
       "matched_address": "6 CLINTON ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0303",
@@ -2725,7 +3631,10 @@
       "state": "CA",
       "matched_address": "188 E 35TH ST, LOS ANGELES, CA, 90011",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0304",
@@ -2734,7 +3643,10 @@
       "state": "CA",
       "matched_address": "4541 HAMILTON ST, SAN DIEGO, CA, 92116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0305",
@@ -2743,7 +3655,10 @@
       "state": "CA",
       "matched_address": "638 45TH AVE, SAN FRANCISCO, CA, 94121",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0306",
@@ -2752,7 +3667,10 @@
       "state": "MA",
       "matched_address": "335A HARVARD ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0307",
@@ -2761,7 +3679,10 @@
       "state": "NJ",
       "matched_address": "296 VAN BUREN ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0308",
@@ -2770,7 +3691,10 @@
       "state": "NJ",
       "matched_address": "1032 HUDSON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0309",
@@ -2779,7 +3703,10 @@
       "state": "CA",
       "matched_address": "1706 N STANLEY AVE, LOS ANGELES, CA, 90046",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0310",
@@ -2788,7 +3715,10 @@
       "state": "MA",
       "matched_address": "55 ASHFORD ST, ALLSTON, MA, 02134",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0311",
@@ -2797,7 +3727,10 @@
       "state": "NJ",
       "matched_address": "38 SOMME ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0312",
@@ -2806,7 +3739,10 @@
       "state": "MA",
       "matched_address": "25 ORLANDO ST, MATTAPAN, MA, 02126",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0313",
@@ -2815,7 +3751,10 @@
       "state": "NJ",
       "matched_address": "319 W RUNYON ST, NEWARK, NJ, 07108",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0314",
@@ -2824,7 +3763,10 @@
       "state": "CA",
       "matched_address": "6640 LELAND WAY, LOS ANGELES, CA, 90028",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0315",
@@ -2833,7 +3775,10 @@
       "state": "CA",
       "matched_address": "5233 CARTWRIGHT AVE, NORTH HOLLYWOOD, CA, 91601",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0316",
@@ -2842,7 +3787,10 @@
       "state": "CA",
       "matched_address": "3978 FLORIDA ST, SAN DIEGO, CA, 92104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0317",
@@ -2851,7 +3799,10 @@
       "state": "CA",
       "matched_address": "2233 CHANNING WAY, BERKELEY, CA, 94704",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0318",
@@ -2860,7 +3811,10 @@
       "state": "CA",
       "matched_address": "2041 FRANCISCO ST, BERKELEY, CA, 94709",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0319",
@@ -2869,7 +3823,10 @@
       "state": "CA",
       "matched_address": "2315 GRANT ST, BERKELEY, CA, 94703",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0320",
@@ -2878,7 +3835,10 @@
       "state": "NJ",
       "matched_address": "408 MADISON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0321",
@@ -2887,7 +3847,10 @@
       "state": "NJ",
       "matched_address": "200 NUNDA AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0322",
@@ -2896,7 +3859,10 @@
       "state": "CA",
       "matched_address": "227 CYPRESS DR, SAN YSIDRO, CA, 92173",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0323",
@@ -2905,7 +3871,10 @@
       "state": "CA",
       "matched_address": "4627 COMPTON AVE, LOS ANGELES, CA, 90011",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0324",
@@ -2914,7 +3883,10 @@
       "state": "CA",
       "matched_address": "2003 FRANKLIN ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0325",
@@ -2923,7 +3895,10 @@
       "state": "NJ",
       "matched_address": "38A GAUTIER AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0326",
@@ -2932,7 +3907,10 @@
       "state": "NJ",
       "matched_address": "46 JEFFERSON ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0327",
@@ -2941,7 +3919,10 @@
       "state": "CA",
       "matched_address": "1605 N MARTEL AVE, LOS ANGELES, CA, 90046",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0328",
@@ -2950,7 +3931,10 @@
       "state": "CA",
       "matched_address": "1845 08TH AV, San Francisco, CA ",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0329",
@@ -2959,7 +3943,10 @@
       "state": "NJ",
       "matched_address": "51 MADISON ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0330",
@@ -2968,7 +3955,10 @@
       "state": "CA",
       "matched_address": "5229 WILLOWCREST AVE, NORTH HOLLYWOOD, CA, 91601",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0331",
@@ -2977,7 +3967,10 @@
       "state": "NJ",
       "matched_address": "344 IRVINE TURNER BLVD, NEWARK, NJ, 07108",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0332",
@@ -2986,7 +3979,10 @@
       "state": "MA",
       "matched_address": "26 SONOMA ST, DORCHESTER, MA, 02121",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0333",
@@ -2995,7 +3991,10 @@
       "state": "CA",
       "matched_address": "3752 33RD ST, SAN DIEGO, CA, 92104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0334",
@@ -3004,7 +4003,10 @@
       "state": "CA",
       "matched_address": "2025 FRANCISCO ST, BERKELEY, CA, 94709",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0335",
@@ -3013,7 +4015,10 @@
       "state": "CA",
       "matched_address": "125 BEMIS ST, SAN FRANCISCO, CA, 94131",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0336",
@@ -3022,7 +4027,10 @@
       "state": "MA",
       "matched_address": "151 N FIRST ST, CAMBRIDGE, MA, 02141",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0337",
@@ -3031,7 +4039,10 @@
       "state": "NJ",
       "matched_address": "66 MONROE ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0338",
@@ -3040,7 +4051,10 @@
       "state": "NJ",
       "matched_address": "521-523 S 17TH, Newark, NJ 07417",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0339",
@@ -3049,7 +4063,10 @@
       "state": "MA",
       "matched_address": "124 BERKSHIRE ST, CAMBRIDGE, MA, 02141",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0340",
@@ -3058,7 +4075,10 @@
       "state": "CA",
       "matched_address": "14735 ROSCOE BLVD, PANORAMA CITY, CA, 91402",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0341",
@@ -3067,7 +4087,10 @@
       "state": "CA",
       "matched_address": "4225 50TH ST, SAN DIEGO, CA, 92115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0342",
@@ -3076,7 +4099,10 @@
       "state": "MA",
       "matched_address": "49 ROSELAND ST, CAMBRIDGE, MA, 02140",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0343",
@@ -3085,7 +4111,10 @@
       "state": "NJ",
       "matched_address": "408-410 5TH ST, Newark, NJ 10997",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0344",
@@ -3094,7 +4123,10 @@
       "state": "NJ",
       "matched_address": "242 GARFIELD AVE, JERSEY CITY, NJ, 07305",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0345",
@@ -3103,7 +4135,10 @@
       "state": "CA",
       "matched_address": "153 W VERNON AVE, LOS ANGELES, CA, 90037",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0346",
@@ -3112,7 +4147,10 @@
       "state": "CA",
       "matched_address": "AUBURN DR, San Diego, CA 92105",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0347",
@@ -3121,7 +4159,10 @@
       "state": "CA",
       "matched_address": "2142 2ND AVE, SAN DIEGO, CA, 92101",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0348",
@@ -3130,7 +4171,10 @@
       "state": "NJ",
       "matched_address": "229 CLINTON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0349",
@@ -3139,7 +4183,10 @@
       "state": "CA",
       "matched_address": "2400 DANA ST, BERKELEY, CA, 94704",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0350",
@@ -3148,7 +4195,10 @@
       "state": "NJ",
       "matched_address": "1051 W SIDE AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0351",
@@ -3157,7 +4207,10 @@
       "state": "CA",
       "matched_address": "628 HYDE ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0352",
@@ -3166,7 +4219,10 @@
       "state": "NJ",
       "matched_address": "42 MT PROSPECT AVE, NEWARK, NJ, 07104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0353",
@@ -3175,7 +4231,10 @@
       "state": "CA",
       "matched_address": "1044 E JEFFERSON BLVD, LOS ANGELES, CA, 90011",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0354",
@@ -3184,7 +4243,10 @@
       "state": "MA",
       "matched_address": "73 LUBEC ST, EAST BOSTON, MA, 02128",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0355",
@@ -3193,7 +4255,10 @@
       "state": "CA",
       "matched_address": "10701 AMESTOY AVE, GRANADA HILLS, CA, 91344",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0356",
@@ -3202,7 +4267,10 @@
       "state": "MA",
       "matched_address": "16 BRAINERD RD, ALLSTON, MA, 02134",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0357",
@@ -3211,7 +4279,10 @@
       "state": "CA",
       "matched_address": "173 07TH ST, San Francisco, CA ",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0358",
@@ -3220,7 +4291,10 @@
       "state": "NJ",
       "matched_address": "717 N 6TH ST, NEWARK, NJ, 07107",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0359",
@@ -3229,7 +4303,10 @@
       "state": "NJ",
       "matched_address": "925 PARK AVE, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0360",
@@ -3238,7 +4315,10 @@
       "state": "NJ",
       "matched_address": "140 NEW YORK AVE, JERSEY CITY, NJ, 07307",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0361",
@@ -3247,7 +4327,10 @@
       "state": "MA",
       "matched_address": "15 BERKSHIRE ST, CAMBRIDGE, MA, 02141",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0362",
@@ -3256,7 +4339,10 @@
       "state": "MA",
       "matched_address": "368 RIVERWAY, BOSTON, MA, 02115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0363",
@@ -3265,7 +4351,10 @@
       "state": "CA",
       "matched_address": "2451 SHATTUCK AVE, BERKELEY, CA, 94704",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0364",
@@ -3274,7 +4363,10 @@
       "state": "CA",
       "matched_address": "125 03RD AV, San Francisco, CA ",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0365",
@@ -3283,7 +4375,10 @@
       "state": "CA",
       "matched_address": "3940 IDAHO ST, SAN DIEGO, CA, 92104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0366",
@@ -3292,7 +4387,10 @@
       "state": "MA",
       "matched_address": "230 EVERETT ST, EAST BOSTON, MA, 02128",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0367",
@@ -3301,7 +4399,10 @@
       "state": "CA",
       "matched_address": "219 S 35TH ST, SAN DIEGO, CA, 92113",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0368",
@@ -3310,7 +4411,10 @@
       "state": "CA",
       "matched_address": "1430 FRANCISCO ST, SAN FRANCISCO, CA, 94123",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0369",
@@ -3319,7 +4423,10 @@
       "state": "CA",
       "matched_address": "3260 CALIFORNIA ST, BERKELEY, CA, 94703",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0370",
@@ -3328,7 +4435,10 @@
       "state": "CA",
       "matched_address": "2222 TOBERMAN ST, LOS ANGELES, CA, 90007",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0371",
@@ -3337,7 +4447,10 @@
       "state": "NJ",
       "matched_address": "80 BRUEN ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0372",
@@ -3346,7 +4459,10 @@
       "state": "NJ",
       "matched_address": "314 7TH ST, JERSEY CITY, NJ, 07302",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0373",
@@ -3355,7 +4471,10 @@
       "state": "CA",
       "matched_address": "1315 SPRUCE ST, BERKELEY, CA, 94709",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0374",
@@ -3364,7 +4483,10 @@
       "state": "CA",
       "matched_address": "686 S ARDMORE AVE, LOS ANGELES, CA, 90005",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0375",
@@ -3373,7 +4495,10 @@
       "state": "CA",
       "matched_address": "1880 FULTON ST, SAN FRANCISCO, CA, 94117",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0376",
@@ -3382,7 +4507,10 @@
       "state": "MA",
       "matched_address": "ST JAMES ST, Boston, MA 02119",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0377",
@@ -3391,7 +4519,10 @@
       "state": "NJ",
       "matched_address": "206 BLOOMFIELD ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0378",
@@ -3400,7 +4531,10 @@
       "state": "CA",
       "matched_address": "4053 IDAHO ST, SAN DIEGO, CA, 92104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0379",
@@ -3409,7 +4543,10 @@
       "state": "CA",
       "matched_address": "1336 BRUNNER ST, SAN DIEGO, CA, 92110",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0380",
@@ -3418,7 +4555,10 @@
       "state": "MA",
       "matched_address": "GREENVILLE ST, Boston, MA 02119",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0381",
@@ -3427,7 +4567,10 @@
       "state": "NJ",
       "matched_address": "523 MARKET ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0382",
@@ -3436,7 +4579,10 @@
       "state": "CA",
       "matched_address": "119 DAY ST, SAN FRANCISCO, CA, 94131",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0383",
@@ -3445,7 +4591,10 @@
       "state": "CA",
       "matched_address": "1908 CALIFORNIA ST, BERKELEY, CA, 94703",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0384",
@@ -3454,7 +4603,10 @@
       "state": "CA",
       "matched_address": "21 GUERRERO ST, San Francisco, CA ",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0385",
@@ -3463,7 +4615,10 @@
       "state": "CA",
       "matched_address": "1059 UNION ST, SAN FRANCISCO, CA, 94133",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0386",
@@ -3472,7 +4627,10 @@
       "state": "CA",
       "matched_address": "3654 ARIZONA ST, SAN DIEGO, CA, 92104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0387",
@@ -3481,7 +4639,10 @@
       "state": "CA",
       "matched_address": "10303 CMT ALVAREZ, SAN DIEGO, CA, 92126",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0388",
@@ -3490,7 +4651,10 @@
       "state": "NJ",
       "matched_address": "155 CLERK ST, JERSEY CITY, NJ, 07305",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0389",
@@ -3499,7 +4663,10 @@
       "state": "NJ",
       "matched_address": "923 GARDEN ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0390",
@@ -3508,7 +4675,10 @@
       "state": "NJ",
       "matched_address": "70 DARCY ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0391",
@@ -3517,7 +4687,10 @@
       "state": "CA",
       "matched_address": "265 22ND ST, SAN DIEGO, CA, 92102",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0392",
@@ -3526,7 +4699,10 @@
       "state": "CA",
       "matched_address": "4545 39TH ST, SAN DIEGO, CA, 92116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0393",
@@ -3535,7 +4711,10 @@
       "state": "NJ",
       "matched_address": "91 JORDAN AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0394",
@@ -3544,7 +4723,10 @@
       "state": "NJ",
       "matched_address": "45 RAVINE AVE, JERSEY CITY, NJ, 07307",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0395",
@@ -3553,7 +4735,10 @@
       "state": "CA",
       "matched_address": "1632 RUSSELL ST, BERKELEY, CA, 94703",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0396",
@@ -3562,7 +4747,10 @@
       "state": "CA",
       "matched_address": "3244 CLAIREMONT DR, SAN DIEGO, CA, 92117",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0397",
@@ -3571,7 +4759,10 @@
       "state": "CA",
       "matched_address": "1677 BUSH ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0398",
@@ -3580,7 +4771,10 @@
       "state": "CA",
       "matched_address": "890 GREEN ST, SAN FRANCISCO, CA, 94133",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0399",
@@ -3589,7 +4783,10 @@
       "state": "NJ",
       "matched_address": "227 WILLOW AVE, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0400",
@@ -3598,7 +4795,10 @@
       "state": "NJ",
       "matched_address": "174 MT PROSPECT AVE, NEWARK, NJ, 07104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0401",
@@ -3607,7 +4807,10 @@
       "state": "CA",
       "matched_address": "257 14TH ST, SAN FRANCISCO, CA, 94103",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0402",
@@ -3616,7 +4819,10 @@
       "state": "CA",
       "matched_address": "2914 LARKIN ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0403",
@@ -3625,7 +4831,10 @@
       "state": "MA",
       "matched_address": "45 MYRTLE ST, BOSTON, MA, 02114",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0404",
@@ -3634,7 +4843,10 @@
       "state": "NJ",
       "matched_address": "240 BOWERS ST, JERSEY CITY, NJ, 07307",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0405",
@@ -3643,7 +4855,10 @@
       "state": "CA",
       "matched_address": "10214 FERNGLEN AVE, TUJUNGA, CA, 91042",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0406",
@@ -3652,7 +4867,10 @@
       "state": "MA",
       "matched_address": "170 W SPRINGFIELD ST, BOSTON, MA, 02118",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0407",
@@ -3661,7 +4879,10 @@
       "state": "CA",
       "matched_address": "4188 GREENBUSH AVE, SHERMAN OAKS, CA, 91423",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0408",
@@ -3670,7 +4891,10 @@
       "state": "CA",
       "matched_address": "14375 POLK ST, SYLMAR, CA, 91342",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0409",
@@ -3679,7 +4903,10 @@
       "state": "CA",
       "matched_address": "4428 GRESHAM ST, SAN DIEGO, CA, 92109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0410",
@@ -3688,7 +4915,10 @@
       "state": "NJ",
       "matched_address": "319 SUMMIT AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0411",
@@ -3697,7 +4927,10 @@
       "state": "CA",
       "matched_address": "1833 BERKELEY WAY, BERKELEY, CA, 94703",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0412",
@@ -3706,7 +4939,10 @@
       "state": "NJ",
       "matched_address": "231 GRAFTON AVE, NEWARK, NJ, 07104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0413",
@@ -3715,7 +4951,10 @@
       "state": "CA",
       "matched_address": "2209 GRAND AVE, SAN DIEGO, CA, 92109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0414",
@@ -3724,7 +4963,10 @@
       "state": "CA",
       "matched_address": "1987 CALIFORNIA ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0415",
@@ -3733,7 +4975,10 @@
       "state": "NJ",
       "matched_address": "95 WAYNE ST, JERSEY CITY, NJ, 07302",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0416",
@@ -3742,7 +4987,10 @@
       "state": "NJ",
       "matched_address": "882 PAVONIA AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0417",
@@ -3751,7 +4999,10 @@
       "state": "CA",
       "matched_address": "4957 CAHUENGA BLVD, NORTH HOLLYWOOD, CA, 91601",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0418",
@@ -3760,7 +5011,10 @@
       "state": "NJ",
       "matched_address": "221 SIP AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0419",
@@ -3769,7 +5023,10 @@
       "state": "CA",
       "matched_address": "1538 HENRY ST, BERKELEY, CA, 94709",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0420",
@@ -3778,7 +5035,10 @@
       "state": "CA",
       "matched_address": "4419 CLEVELAND AVE, SAN DIEGO, CA, 92116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0421",
@@ -3787,7 +5047,10 @@
       "state": "CA",
       "matched_address": "17106 CHATSWORTH ST, GRANADA HILLS, CA, 91344",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0422",
@@ -3796,7 +5059,10 @@
       "state": "MA",
       "matched_address": "23 MARION ST, CAMBRIDGE, MA, 02141",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0423",
@@ -3805,7 +5071,10 @@
       "state": "MA",
       "matched_address": "10 CAMELOT CT, BRIGHTON, MA, 02135",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0424",
@@ -3814,7 +5083,10 @@
       "state": "NJ",
       "matched_address": "208 JEFFERSON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0425",
@@ -3823,7 +5095,10 @@
       "state": "CA",
       "matched_address": "650 POST ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0426",
@@ -3832,7 +5107,10 @@
       "state": "CA",
       "matched_address": "1307 COLUSA ST, SAN DIEGO, CA, 92110",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0427",
@@ -3841,7 +5119,10 @@
       "state": "CA",
       "matched_address": "7665 W FOUNTAIN AVE, LOS ANGELES, CA, 90046",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0428",
@@ -3850,7 +5131,10 @@
       "state": "NJ",
       "matched_address": "314 MT PROSPECT AVE, NEWARK, NJ, 07104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0429",
@@ -3859,7 +5143,10 @@
       "state": "MA",
       "matched_address": "12 BLACKWOOD ST, BOSTON, MA, 02115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0430",
@@ -3868,7 +5155,10 @@
       "state": "CA",
       "matched_address": "1950 ADDISON ST, BERKELEY, CA, 94704",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0431",
@@ -3877,7 +5167,10 @@
       "state": "CA",
       "matched_address": "245 EUCLID AVE, SAN DIEGO, CA, 92114",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0432",
@@ -3886,7 +5179,10 @@
       "state": "CA",
       "matched_address": "14605 RAYEN ST, PANORAMA CITY, CA, 91402",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0433",
@@ -3895,7 +5191,10 @@
       "state": "CA",
       "matched_address": "720 W 27TH ST, LOS ANGELES, CA, 90007",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0434",
@@ -3904,7 +5203,10 @@
       "state": "CA",
       "matched_address": "1225 HYDE ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0435",
@@ -3913,7 +5215,10 @@
       "state": "NJ",
       "matched_address": "310 MONROE ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0436",
@@ -3922,7 +5227,10 @@
       "state": "NJ",
       "matched_address": "832 WILLOW AVE, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0437",
@@ -3931,7 +5239,10 @@
       "state": "CA",
       "matched_address": "2969 SAN MARINO ST, LOS ANGELES, CA, 90006",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0438",
@@ -3940,7 +5251,10 @@
       "state": "NJ",
       "matched_address": "62 CAMBRIDGE AVE, JERSEY CITY, NJ, 07307",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0439",
@@ -3949,7 +5263,10 @@
       "state": "CA",
       "matched_address": "225 25TH AVE, SAN FRANCISCO, CA, 94121",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0440",
@@ -3958,7 +5275,10 @@
       "state": "CA",
       "matched_address": "4042 FULTON ST, SAN FRANCISCO, CA, 94118",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0441",
@@ -3967,7 +5287,10 @@
       "state": "CA",
       "matched_address": "4017 ILLINOIS ST, SAN DIEGO, CA, 92104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0442",
@@ -3976,7 +5299,10 @@
       "state": "CA",
       "matched_address": "7014 LANEWOOD AVE, LOS ANGELES, CA, 90028",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0443",
@@ -3985,7 +5311,10 @@
       "state": "CA",
       "matched_address": "3526 FAIRMOUNT AVE, SAN DIEGO, CA, 92105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0444",
@@ -3994,7 +5323,10 @@
       "state": "MA",
       "matched_address": "231 COMMONWEALTH AVE, BOSTON, MA, 02116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0445",
@@ -4003,7 +5335,10 @@
       "state": "CA",
       "matched_address": "8790 VAN NUYS BLVD, PANORAMA CITY, CA, 91402",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0446",
@@ -4012,7 +5347,10 @@
       "state": "MA",
       "matched_address": "610 COLUMBUS AVE, BOSTON, MA, 02118",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0447",
@@ -4021,7 +5359,10 @@
       "state": "NJ",
       "matched_address": "208 CLINTON ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0448",
@@ -4030,7 +5371,10 @@
       "state": "NJ",
       "matched_address": "153 LAFAYETTE ST, NEWARK, NJ, 07105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0449",
@@ -4039,7 +5383,10 @@
       "state": "NJ",
       "matched_address": "338 CLINTON PL, NEWARK, NJ, 07112",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0450",
@@ -4048,7 +5395,10 @@
       "state": "NJ",
       "matched_address": "94 NEPTUNE AVE, JERSEY CITY, NJ, 07305",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0451",
@@ -4057,7 +5407,10 @@
       "state": "CA",
       "matched_address": "7300 VALMONT ST, TUJUNGA, CA, 91042",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0452",
@@ -4066,7 +5419,10 @@
       "state": "CA",
       "matched_address": "1310 N LAS PALMAS AVE, LOS ANGELES, CA, 90028",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0453",
@@ -4075,7 +5431,10 @@
       "state": "MA",
       "matched_address": "11 CARLISLE ST, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0454",
@@ -4084,7 +5443,10 @@
       "state": "CA",
       "matched_address": "8944 COLUMBUS AVE, NORTH HILLS, CA, 91343",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0455",
@@ -4093,7 +5455,10 @@
       "state": "NJ",
       "matched_address": "78 STEVENS AVE, JERSEY CITY, NJ, 07305",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0456",
@@ -4102,7 +5467,10 @@
       "state": "CA",
       "matched_address": "2151 CHATSWORTH BLVD, SAN DIEGO, CA, 92107",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0457",
@@ -4111,7 +5479,10 @@
       "state": "CA",
       "matched_address": "1856 GREEN ST, SAN FRANCISCO, CA, 94123",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0458",
@@ -4120,7 +5491,10 @@
       "state": "CA",
       "matched_address": "1670 E 48TH PL, LOS ANGELES, CA, 90011",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0459",
@@ -4129,7 +5503,10 @@
       "state": "NJ",
       "matched_address": "202 SOUTH ST, JERSEY CITY, NJ, 07307",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0460",
@@ -4138,7 +5515,10 @@
       "state": "NJ",
       "matched_address": "229 SHEPHARD AVE, NEWARK, NJ, 07112",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0461",
@@ -4147,7 +5527,10 @@
       "state": "CA",
       "matched_address": "735 11TH AVE, SAN FRANCISCO, CA, 94118",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0462",
@@ -4156,7 +5539,10 @@
       "state": "NJ",
       "matched_address": "128 ST PAULS AVE, JERSEY CITY, NJ, 07306",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0463",
@@ -4165,7 +5551,10 @@
       "state": "MA",
       "matched_address": "4 BEECHWOOD ST, DORCHESTER, MA, 02121",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0464",
@@ -4174,7 +5563,10 @@
       "state": "MA",
       "matched_address": "98 DABNEY ST, ROXBURY, MA, 02119",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0465",
@@ -4183,7 +5575,10 @@
       "state": "MA",
       "matched_address": "141 OXFORD ST, CAMBRIDGE, MA, 02140",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0466",
@@ -4192,7 +5587,10 @@
       "state": "MA",
       "matched_address": "115 NORWAY ST, BOSTON, MA, 02115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0467",
@@ -4201,7 +5599,10 @@
       "state": "MA",
       "matched_address": "24 ST ALBANS RD, BOSTON, MA, 02115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0468",
@@ -4210,7 +5611,10 @@
       "state": "MA",
       "matched_address": "13 SHEPARD ST, CAMBRIDGE, MA, 02138",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0469",
@@ -4219,7 +5623,10 @@
       "state": "CA",
       "matched_address": "2701 SHATTUCK AVE, BERKELEY, CA, 94705",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0470",
@@ -4228,7 +5635,10 @@
       "state": "CA",
       "matched_address": "1919 CURTIS ST, BERKELEY, CA, 94702",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06001",
+      "place_geoid": "0606000"
     },
     {
       "address_id": "A0471",
@@ -4237,7 +5647,10 @@
       "state": "NJ",
       "matched_address": "334 GARDEN ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0472",
@@ -4246,7 +5659,10 @@
       "state": "NJ",
       "matched_address": "321 WILLOW AVE, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0473",
@@ -4255,7 +5671,10 @@
       "state": "MA",
       "matched_address": "20 PHILLIPS ST, BOSTON, MA, 02114",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0474",
@@ -4264,7 +5683,10 @@
       "state": "CA",
       "matched_address": "3438 MCKINLEY AVE, LOS ANGELES, CA, 90011",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0475",
@@ -4273,7 +5695,10 @@
       "state": "NJ",
       "matched_address": "361 1ST ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0476",
@@ -4282,7 +5707,10 @@
       "state": "NJ",
       "matched_address": "28 COTTAGE ST, NEWARK, NJ, 07102",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0477",
@@ -4291,7 +5719,10 @@
       "state": "CA",
       "matched_address": "2250 MISSION ST, SAN FRANCISCO, CA, 94110",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0478",
@@ -4300,7 +5731,10 @@
       "state": "CA",
       "matched_address": "3860 CHEROKEE AVE, SAN DIEGO, CA, 92104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0479",
@@ -4309,7 +5743,10 @@
       "state": "CA",
       "matched_address": "12948 MOORPARK ST, STUDIO CITY, CA, 91604",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0480",
@@ -4318,7 +5755,10 @@
       "state": "CA",
       "matched_address": "4046 43RD ST, SAN DIEGO, CA, 92105",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0481",
@@ -4327,7 +5767,10 @@
       "state": "CA",
       "matched_address": "536 LEAVENWORTH ST, SAN FRANCISCO, CA, 94109",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0482",
@@ -4336,7 +5779,10 @@
       "state": "NJ",
       "matched_address": "101 CLIFTON PL, JERSEY CITY, NJ, 07304",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0483",
@@ -4345,7 +5791,10 @@
       "state": "CA",
       "matched_address": "1580 MARKET ST, SAN FRANCISCO, CA, 94102",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0484",
@@ -4354,7 +5803,10 @@
       "state": "CA",
       "matched_address": "1801 08TH AV, San Francisco, CA ",
       "source": "heuristic",
-      "resolution": "known_jurisdiction"
+      "resolution": "known_jurisdiction",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0485",
@@ -4363,7 +5815,10 @@
       "state": "MA",
       "matched_address": "302 WESTERN AVE, CAMBRIDGE, MA, 02139",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25017",
+      "place_geoid": "2511000"
     },
     {
       "address_id": "A0486",
@@ -4372,7 +5827,10 @@
       "state": "CA",
       "matched_address": "2280 MISSION ST, SAN FRANCISCO, CA, 94110",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0487",
@@ -4381,7 +5839,10 @@
       "state": "CA",
       "matched_address": "2118 FILLMORE ST, SAN FRANCISCO, CA, 94115",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0488",
@@ -4390,7 +5851,10 @@
       "state": "MA",
       "matched_address": "197 BEACON ST, BOSTON, MA, 02116",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "25",
+      "county_fips": "25025",
+      "place_geoid": "2507000"
     },
     {
       "address_id": "A0489",
@@ -4399,7 +5863,10 @@
       "state": "NJ",
       "matched_address": "204 GRAND ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0490",
@@ -4408,7 +5875,10 @@
       "state": "NJ",
       "matched_address": "526 ADAMS ST, HOBOKEN, NJ, 07030",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3432250"
     },
     {
       "address_id": "A0491",
@@ -4417,7 +5887,10 @@
       "state": "NJ",
       "matched_address": "37 IRVING ST, NEWARK, NJ, 07104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0492",
@@ -4426,7 +5899,10 @@
       "state": "CA",
       "matched_address": "800 S HARVARD BLVD, LOS ANGELES, CA, 90005",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0493",
@@ -4435,7 +5911,10 @@
       "state": "CA",
       "matched_address": "4450 GEARY BLVD, SAN FRANCISCO, CA, 94118",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0494",
@@ -4444,7 +5923,10 @@
       "state": "CA",
       "matched_address": "2641 FRANKLIN ST, SAN FRANCISCO, CA, 94123",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06075",
+      "place_geoid": "0667000"
     },
     {
       "address_id": "A0495",
@@ -4453,7 +5935,10 @@
       "state": "NJ",
       "matched_address": "230 VAN HORNE ST, JERSEY CITY, NJ, 07304",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34017",
+      "place_geoid": "3436000"
     },
     {
       "address_id": "A0496",
@@ -4462,7 +5947,10 @@
       "state": "CA",
       "matched_address": "512 32ND ST, SAN DIEGO, CA, 92102",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0497",
@@ -4471,7 +5959,10 @@
       "state": "CA",
       "matched_address": "3750 29TH ST, SAN DIEGO, CA, 92104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06073",
+      "place_geoid": "0666000"
     },
     {
       "address_id": "A0498",
@@ -4480,7 +5971,10 @@
       "state": "NJ",
       "matched_address": "686 SUMMER AVE, NEWARK, NJ, 07104",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "34",
+      "county_fips": "34013",
+      "place_geoid": "3451000"
     },
     {
       "address_id": "A0499",
@@ -4489,7 +5983,10 @@
       "state": "CA",
       "matched_address": "8519 WILLIS AVE, PANORAMA CITY, CA, 91402",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     },
     {
       "address_id": "A0500",
@@ -4498,7 +5995,10 @@
       "state": "CA",
       "matched_address": "8811 BURNET AVE, NORTH HILLS, CA, 91343",
       "source": "census",
-      "resolution": "census"
+      "resolution": "census",
+      "state_fips": "06",
+      "county_fips": "06037",
+      "place_geoid": "0644000"
     }
   ],
   "count": 500
