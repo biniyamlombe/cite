@@ -1,6 +1,10 @@
-import { CalendarDays, ChevronRight, MapPin, TriangleAlert } from "lucide-react";
+import { CalendarDays, ChevronRight, MapPin, Sparkles, TriangleAlert } from "lucide-react";
 import { useT } from "@/lib/i18n";
 import type { LookupResponse } from "@/lib/cite/types";
+
+export function isStretchAddress(addressId?: string | null): boolean {
+  return !!addressId && /^SA/i.test(addressId);
+}
 
 export function JurisdictionStack({ state, county, city }: { state: string; county: string; city: string }) {
   const parts = [state, county, city].filter(Boolean);
@@ -59,17 +63,30 @@ export function PropertySummary({ data, asOf, onAsOf }: { data: LookupResponse; 
   const t = useT();
   const { address: a, jurisdiction: j } = data;
   const differs = j.city && a.postal_city && j.city.toLowerCase() !== a.postal_city.toLowerCase();
+  const stretch = isStretchAddress(a.address_id);
   return (
     <section className="surface fade-up p-5 sm:p-7">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="min-w-0">
-          <div className="eyebrow flex items-center gap-1.5">
+          <div className="eyebrow flex flex-wrap items-center gap-1.5">
             <MapPin className="size-3" /> {t("fact.property")} · {a.address_id}
+            {stretch && (
+              <span className="ml-1 inline-flex items-center gap-1 rounded-sm border border-primary/30 bg-accent px-1.5 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wider text-primary">
+                <Sparkles className="size-2.5" />
+                {t("stretch.badge")}
+              </span>
+            )}
           </div>
           <h1 className="mt-2 font-serif text-2xl tracking-[-0.025em] text-ink sm:text-[2rem]">{a.street_address}</h1>
           <p className="mt-1 text-sm text-muted-foreground">
             {a.postal_city}, {a.state} {a.zip}
           </p>
+          {stretch && (
+            <div className="mt-3 rounded-md border border-primary/25 bg-accent px-3 py-2.5">
+              <div className="text-xs font-medium text-accent-foreground">{t("stretch.title")}</div>
+              <p className="mt-1 text-xs leading-relaxed text-accent-foreground/90">{t("stretch.body")}</p>
+            </div>
+          )}
           {differs && (
             <div className="mt-3 rounded-md border border-primary/25 bg-accent px-3 py-2.5">
               <div className="text-xs font-medium text-accent-foreground">
@@ -88,7 +105,7 @@ export function PropertySummary({ data, asOf, onAsOf }: { data: LookupResponse; 
         <div className="mt-4 flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">
           <TriangleAlert className="mt-0.5 size-4 shrink-0 text-unknown" />
           <p>
-            Legal city is an <strong>{t("untrusted.title")}</strong>. {t("untrusted.body")}
+            {t("untrusted.prefix")} <strong>{t("untrusted.title")}</strong>. {t("untrusted.body")}
           </p>
         </div>
       )}

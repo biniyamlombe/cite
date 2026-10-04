@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
 import { CATEGORY_ORDER } from "@/lib/cite/labels";
 import type { AddressRow, LookupResponse } from "@/lib/cite/types";
-import { PropertySummary } from "@/components/cite/property";
+import { PropertySummary, isStretchAddress } from "@/components/cite/property";
 import { ResultSummaryChips } from "@/components/cite/status";
 import { lookupToCsv, downloadText } from "@/lib/cite/export";
 import { useWatchlist } from "@/lib/cite/watchlist";
@@ -395,6 +395,12 @@ function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; 
           <p className="mt-1 text-sm text-muted-foreground">{t("lookup.stepWhat")}</p>
         </div>
         <ResultSummaryChips results={data.results} />
+        {isStretchAddress(data.address.address_id) && (
+          <div className="flex gap-2.5 rounded-md border border-primary/25 bg-accent px-3 py-2.5 text-sm">
+            <AlertCircle className="mt-0.5 size-4 shrink-0 text-primary" />
+            <p className="text-ink/90">{t("stretch.demoTip")}</p>
+          </div>
+        )}
         <HonestyCallouts data={data} />
         <EffectiveTimeline data={data} />
       </section>
