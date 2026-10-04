@@ -1,6 +1,6 @@
 /**
  * Attach dual coverage_conditions ({ text, all, unknown_if, omit_if }) to rules.json.
- * Also refreshes HOB/JC link-only scaffold honesty metadata (no re-extract needed).
+ * Also refreshes HOB/JC municipal + soft-gap honesty metadata (no re-extract needed).
  */
 import path from "node:path";
 import type { RuleRecord } from "@rhl/shared";

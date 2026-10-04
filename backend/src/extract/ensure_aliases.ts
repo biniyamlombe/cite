@@ -460,6 +460,9 @@ export async function ensureChangeTestAliases(
         conflict_note:
           "Quoted from capturable Cambridge HRC page (D029). Pack text is FAQ/summary of the ordinance, not the full municipal code body.",
         alias_id: "CAM-FH-01",
+        extraction_method: "soft_gap_scaffold",
+        status_basis:
+          "unverified: soft-gap FAQ/summary extract (D029); not a full municipal code body.",
       });
     }
   }
@@ -499,6 +502,9 @@ export async function ensureChangeTestAliases(
           "D078 pack page is mostly agency chrome; quoted_span is the only Fair Chance sentence captured. " +
           "Do not treat as a full ordinance extract — human review of the primary ordinance is recommended.",
         alias_id: "SF-FC-01",
+        extraction_method: "soft_gap_scaffold",
+        status_basis:
+          "unverified: soft-gap FAQ/summary extract (D078); not a full municipal code body.",
       });
     }
   }
