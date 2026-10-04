@@ -96,15 +96,19 @@ Open **Change Radar** / `changes.json` summary:
 
 ---
 
-### 5 · Stretch — Santa Ana (45s)
+### 5 · Stretch — Santa Ana + confidence + ES (45s)
 
 Search **`SA0001`** (1968, 24 units) vs **`SA0003`** (2018):
 
-- Same pipeline as the pack; addresses live under `data/stretch/` (not in the 500)
+- Property summary shows a **Stretch** badge + Santa Ana callout (same pipeline; outside the 500)
+- Demo tip on the result: SA0001 applies vs SA0003 15-year just-cause omit
 - `SA0001`: Santa Ana rent + just-cause **apply** (+ CA state layering)
 - `SA0003`: **15-year** just-cause exemption → that city just-cause rule omitted
 
-Optional: toggle **ES** locale — UI chrome translates; citations stay in source language.
+Optional beats in the same minute:
+
+- **Rules** → Confidence filter **Low** → HOB/JC scaffolds (0.35) with link-only honesty
+- Toggle **ES** — primary-nav chrome translates; citations / quotes stay in source language
 
 ---
 
