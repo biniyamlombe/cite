@@ -101,6 +101,15 @@ function defaultModel(): string {
   return process.env.ANTHROPIC_MODEL || "claude-haiku-4-5";
 }
 
+/** Stronger model for empty-cache / --retry-failed passes (Haiku stays the cheap default). */
+export function retryModel(): string {
+  return (
+    process.env.ANTHROPIC_RETRY_MODEL ||
+    process.env.EXTRACT_RETRY_MODEL ||
+    "claude-sonnet-4-5"
+  );
+}
+
 function extractConcurrency(): number {
   const n = Number(process.env.EXTRACT_CONCURRENCY || "4");
   return Number.isFinite(n) && n >= 1 ? Math.min(8, Math.floor(n)) : 4;
@@ -364,22 +373,54 @@ type CachedExtract = {
   _parse_error?: string;
   /** Validated rules after quote-retry — skip API on cache hit. */
   _validated?: RuleRecord[];
+  /** Model that produced the raw `rules` payload. */
+  _model?: string;
+  /** True after a Sonnet (retry-model) empty-cache upgrade attempt. */
+  _empty_upgraded?: boolean;
 };
 
-async function claudeExtractDoc(doc: CorpusDoc): Promise<RuleRecord[]> {
+type ClaudeExtractOpts = {
+  model?: string;
+  /** Ignore cache and call the API again. */
+  forceApi?: boolean;
+  /** Persist that an empty-cache upgrade was attempted. */
+  markEmptyUpgraded?: boolean;
+};
+
+async function claudeExtractDoc(
+  doc: CorpusDoc,
+  opts: ClaudeExtractOpts = {},
+): Promise<RuleRecord[]> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) return [];
 
   const client = new Anthropic({ apiKey, timeout: 120_000 });
-  const model = defaultModel();
+  const model = opts.model || defaultModel();
 
   const cached = (await loadCache(doc)) as CachedExtract | null;
-  if (cached?._validated && Array.isArray(cached._validated)) {
+  // Trust non-empty validated caches. Empty validated + raw rules means an older
+  // snapper rejected recoverable quotes — re-validate without another API call.
+  if (
+    !opts.forceApi &&
+    cached?._validated &&
+    Array.isArray(cached._validated) &&
+    cached._validated.length > 0
+  ) {
     process.stdout.write(` [cache:validated:${cached._validated.length}]`);
     return cached._validated;
   }
 
-  let parsed: CachedExtract | null = cached;
+  let parsed: CachedExtract | null = opts.forceApi ? null : cached;
+  // Empty raw payloads are not reusable when forcing a stronger-model retry.
+  if (
+    parsed &&
+    Array.isArray(parsed.rules) &&
+    parsed.rules.length === 0 &&
+    opts.forceApi
+  ) {
+    parsed = null;
+  }
+
   if (!parsed) {
     const chunks = chunkDocBody(doc.body);
     const allRules: unknown[] = [];
@@ -400,20 +441,28 @@ async function claudeExtractDoc(doc: CorpusDoc): Promise<RuleRecord[]> {
       for (const r of results) {
         allRules.push(...r.rules);
         methods.push(r.method);
-        process.stdout.write(` [${r.label}:${r.method}:${r.rules.length}]`);
+        process.stdout.write(
+          ` [${r.label}:${r.method}:${r.rules.length}:${model.replace("claude-", "")}]`,
+        );
       }
       parsed = {
         rules: allRules,
         _methods: methods,
         _chunks: chunks.length,
+        _model: model,
       };
     } catch (err) {
       parsed = {
         rules: [],
         _parse_error: err instanceof Error ? err.message : String(err),
+        _model: model,
       };
     }
-    await saveCache(doc, parsed);
+    await saveCache(doc, {
+      ...parsed,
+      _empty_upgraded:
+        opts.markEmptyUpgraded || Boolean(cached?._empty_upgraded),
+    });
   }
 
   const rulesRaw = Array.isArray(parsed.rules) ? parsed.rules : [];
@@ -434,6 +483,9 @@ async function claudeExtractDoc(doc: CorpusDoc): Promise<RuleRecord[]> {
   await saveCache(doc, {
     ...parsed,
     _validated: finalRules,
+    _model: parsed._model || model,
+    _empty_upgraded:
+      opts.markEmptyUpgraded || Boolean(cached?._empty_upgraded),
   });
   return finalRules;
 }
@@ -469,6 +521,14 @@ export async function extractAllCorpus(options?: {
   limit?: number;
   docIds?: string[];
   clearFailedCache?: boolean;
+  /** Override default (Haiku) model for this run. */
+  model?: string;
+  /**
+   * When a doc yields 0 Claude rules and has not been empty-upgraded yet,
+   * clear cache and retry once with this model (default: retryModel / Sonnet).
+   * Pass `false` to disable.
+   */
+  upgradeEmptyWith?: string | false;
 }): Promise<{
   rules: RuleRecord[];
   docsProcessed: number;
@@ -476,6 +536,7 @@ export async function extractAllCorpus(options?: {
   claudeDocsOk: number;
   claudeDocsFailed: number;
   claudeRuleCount: number;
+  upgradedDocIds: string[];
 }> {
   let docs = await loadCapturableDocs();
   if (options?.docIds?.length) {
@@ -491,10 +552,16 @@ export async function extractAllCorpus(options?: {
   }
 
   const keyPresent = Boolean(process.env.ANTHROPIC_API_KEY);
+  const primaryModel = options?.model || defaultModel();
+  const upgradeModel =
+    options?.upgradeEmptyWith === false
+      ? null
+      : options?.upgradeEmptyWith || retryModel();
   const all: RuleRecord[] = [];
   let claudeDocsOk = 0;
   let claudeDocsFailed = 0;
   let claudeRuleCount = 0;
+  const upgradedDocIds: string[] = [];
   const concurrency = extractConcurrency();
   let completed = 0;
   let cursor = 0;
@@ -503,7 +570,25 @@ export async function extractAllCorpus(options?: {
     let rules: RuleRecord[] = [];
     if (keyPresent) {
       try {
-        rules = await claudeExtractDoc(doc);
+        rules = await claudeExtractDoc(doc, { model: primaryModel });
+        if (
+          rules.length === 0 &&
+          upgradeModel &&
+          upgradeModel !== primaryModel
+        ) {
+          const cached = (await loadCache(doc)) as CachedExtract | null;
+          const alreadyUpgraded = Boolean(cached?._empty_upgraded);
+          if (!alreadyUpgraded) {
+            process.stdout.write(` [upgrade:${upgradeModel.replace("claude-", "")}]`);
+            await clearDocCache(doc.doc_id);
+            rules = await claudeExtractDoc(doc, {
+              model: upgradeModel,
+              forceApi: true,
+              markEmptyUpgraded: true,
+            });
+            upgradedDocIds.push(doc.doc_id);
+          }
+        }
         if (rules.length === 0) {
           const cached = await loadCache(doc);
           const failed =
@@ -567,5 +652,6 @@ export async function extractAllCorpus(options?: {
     claudeDocsOk,
     claudeDocsFailed,
     claudeRuleCount,
+    upgradedDocIds,
   };
 }
