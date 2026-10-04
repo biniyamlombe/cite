@@ -7,13 +7,26 @@ import { useAuth } from "@/lib/auth";
 import { listAlertSubs, logLookup, saveMemo, setEmailAlert } from "@/lib/cite/team";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import {
-  Search, ArrowRight, Loader2, AlertCircle, FileSearch, Printer, Link2, Check, Download,
-  Eye, Mail, Save, GitCompare, FileText, ClipboardList,
+  Search,
+  ArrowRight,
+  Loader2,
+  AlertCircle,
+  FileSearch,
+  Printer,
+  Link2,
+  Check,
+  Download,
+  Eye,
+  Mail,
+  Save,
+  GitCompare,
+  FileText,
+  ClipboardList,
+  X,
 } from "lucide-react";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
-import { CATEGORY_ORDER } from "@/lib/cite/labels";
 import type { AddressRow, LookupResponse } from "@/lib/cite/types";
 import { PropertySummary } from "@/components/cite/property";
 import { ResultSummaryChips } from "@/components/cite/status";
@@ -24,14 +37,28 @@ import { EffectiveTimeline } from "@/components/cite/timeline";
 import { RuleCard, RuleDetailDrawer, type RuleView } from "@/components/cite/rule";
 import { CorpusGapWarning, isLinkOnlyScaffold } from "@/components/cite/warnings";
 import { createCase } from "@/lib/cite/cases";
+import { MissingFactsPanel, type FactOverrides } from "@/components/cite/missing-facts";
+import { AuditTrailPanel } from "@/components/cite/audit-panel";
+import { EmptyState, ErrorState, LoadingSkeleton } from "@/components/cite/states";
+import { groupResults } from "@/lib/cite/result-groups";
+import { CiteApiError } from "@/lib/cite/api-error";
+import type { StringKey } from "@/lib/i18n";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Property Lookup · Cite" },
-      { name: "description", content: "See which rental-housing regulations apply to a property, why they apply, and what is about to change." },
+      {
+        name: "description",
+        content:
+          "Legal information (not advice): see which rental-housing rules appear to apply, what is unknown, and cited sources.",
+      },
       { property: "og:title", content: "Property Lookup · Cite" },
-      { property: "og:description", content: "Know what applies. And why. Traceable rental-housing regulation lookup." },
+      {
+        property: "og:description",
+        content:
+          "Rules that appear to apply — with citations, uncertainty, and human-review flags. Not legal advice.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -44,13 +71,25 @@ export const Route = createFileRoute("/")({
   component: LookupPage,
 });
 
-const DEMO_CHIPS: ReadonlyArray<{ q: string; labelKey: "lookup.demo.unknown" | "lookup.demo.remap" | "lookup.demo.conflict"; id: string }> = [
+const DEMO_CHIPS: ReadonlyArray<{
+  q: string;
+  labelKey: "lookup.demo.unknown" | "lookup.demo.remap" | "lookup.demo.conflict";
+  id: string;
+}> = [
   { q: "A0005", labelKey: "lookup.demo.unknown", id: "A0005" },
   { q: "A0065", labelKey: "lookup.demo.remap", id: "A0065" },
   { q: "A0002", labelKey: "lookup.demo.conflict", id: "A0002" },
 ];
 
-export function AddressSearch({ onSelect, prominent = false, onOpenChange }: { onSelect: (a: AddressRow) => void; prominent?: boolean; onOpenChange?: (open: boolean) => void }) {
+export function AddressSearch({
+  onSelect,
+  prominent = false,
+  onOpenChange,
+}: {
+  onSelect: (a: AddressRow) => void;
+  prominent?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}) {
   const t = useT();
   const [q, setQ] = useState("");
   const listId = useId();
@@ -59,7 +98,12 @@ export function AddressSearch({ onSelect, prominent = false, onOpenChange }: { o
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
-  const { data = [], isFetching, isError, refetch } = useQuery({
+  const {
+    data = [],
+    isFetching,
+    isError,
+    refetch,
+  } = useQuery({
     queryKey: ["addresses", q],
     queryFn: () => getCiteClient().addresses(q, 8),
     enabled: open,
@@ -68,14 +112,21 @@ export function AddressSearch({ onSelect, prominent = false, onOpenChange }: { o
     onOpenChange?.(open);
   }, [open, onOpenChange]);
   useEffect(() => {
-    const h = (e: MouseEvent) => ref.current && !ref.current.contains(e.target as Node) && setOpen(false);
+    const h = (e: MouseEvent) =>
+      ref.current && !ref.current.contains(e.target as Node) && setOpen(false);
     document.addEventListener("mousedown", h);
     return () => document.removeEventListener("mousedown", h);
   }, []);
   useEffect(() => {
-    if (open) document.getElementById(`${listId}-${active}`)?.scrollIntoView?.({ block: "nearest" });
+    if (open)
+      document.getElementById(`${listId}-${active}`)?.scrollIntoView?.({ block: "nearest" });
   }, [active, open, listId]);
-  const pick = (a: AddressRow) => { onSelect(a); setQ(a.street_address); setOpen(false); inputRef.current?.focus(); };
+  const pick = (a: AddressRow) => {
+    onSelect(a);
+    setQ(a.street_address);
+    setOpen(false);
+    inputRef.current?.focus();
+  };
   const searchFirst = async () => {
     if (!q.trim()) return;
     setSearchError(false);
@@ -83,12 +134,34 @@ export function AddressSearch({ onSelect, prominent = false, onOpenChange }: { o
       const matches = await getCiteClient().addresses(q, 1);
       if (matches[0]) pick(matches[0]);
       else setOpen(true);
-    } catch { setSearchError(true); setOpen(true); }
+    } catch {
+      setSearchError(true);
+      setOpen(true);
+    }
   };
   return (
-    <div ref={ref} className="relative" onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false); }}>
-      <div className={prominent ? "relative flex items-center overflow-hidden rounded-[calc(var(--radius-xl)-2px)] border border-border/60 bg-card transition-[border-color,box-shadow] duration-300 focus-within:border-primary/35 focus-within:shadow-dossier" : "flex items-center gap-3 rounded-xl border border-input bg-card/95 px-4 py-3.5 shadow-sm transition-[border-color,box-shadow] duration-200 focus-within:border-ring focus-within:shadow-dossier"}>
-        <Search aria-hidden="true" className={prominent ? "ml-5 mr-3 size-5 shrink-0 text-muted-foreground" : "size-5 text-muted-foreground"} />
+    <div
+      ref={ref}
+      className="relative"
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false);
+      }}
+    >
+      <div
+        className={
+          prominent
+            ? "relative flex items-center overflow-hidden rounded-[calc(var(--radius-xl)-2px)] border border-border/60 bg-card transition-[border-color,box-shadow] duration-300 focus-within:border-primary/35 focus-within:shadow-dossier"
+            : "flex items-center gap-3 rounded-xl border border-input bg-card/95 px-4 py-3.5 shadow-sm transition-[border-color,box-shadow] duration-200 focus-within:border-ring focus-within:shadow-dossier"
+        }
+      >
+        <Search
+          aria-hidden="true"
+          className={
+            prominent
+              ? "ml-5 mr-3 size-5 shrink-0 text-muted-foreground"
+              : "size-5 text-muted-foreground"
+          }
+        />
         <input
           ref={inputRef}
           role="combobox"
@@ -100,19 +173,62 @@ export function AddressSearch({ onSelect, prominent = false, onOpenChange }: { o
           aria-controls={listId}
           aria-activedescendant={open && data[active] ? `${listId}-${active}` : undefined}
           value={q}
-          onChange={(e) => { setQ(e.target.value); setSearchError(false); setOpen(true); setActive(0); }}
+          onChange={(e) => {
+            setQ(e.target.value);
+            setSearchError(false);
+            setOpen(true);
+            setActive(0);
+          }}
           onFocus={() => setOpen(true)}
           onKeyDown={(e) => {
-            if (e.key === "ArrowDown") { e.preventDefault(); setOpen(true); setActive((i) => Math.max(0, Math.min(i + 1, data.length - 1))); }
-            if (e.key === "ArrowUp") { e.preventDefault(); setOpen(true); setActive((i) => Math.max(i - 1, 0)); }
-            if (e.key === "Enter") { e.preventDefault(); if (open && data[active]) pick(data[active]); else void searchFirst(); }
+            if (e.key === "ArrowDown") {
+              e.preventDefault();
+              setOpen(true);
+              setActive((i) => Math.max(0, Math.min(i + 1, data.length - 1)));
+            }
+            if (e.key === "ArrowUp") {
+              e.preventDefault();
+              setOpen(true);
+              setActive((i) => Math.max(i - 1, 0));
+            }
+            if (e.key === "Enter") {
+              e.preventDefault();
+              if (open && data[active]) pick(data[active]);
+              else void searchFirst();
+            }
             if (e.key === "Escape") setOpen(false);
           }}
           placeholder={t("lookup.placeholder")}
-          className={prominent ? "min-w-0 flex-1 bg-transparent py-5 text-lg text-ink outline-none placeholder:text-muted-foreground/55 focus-visible:outline-none" : "w-full bg-transparent text-lg text-ink outline-none placeholder:text-muted-foreground/70 focus-visible:outline-none"}
+          className={
+            prominent
+              ? "min-w-0 flex-1 bg-transparent py-5 text-lg text-ink outline-none placeholder:text-muted-foreground/55 focus-visible:outline-none"
+              : "w-full bg-transparent text-lg text-ink outline-none placeholder:text-muted-foreground/70 focus-visible:outline-none"
+          }
           aria-label={t("lookup.label")}
         />
-        {isFetching && <Loader2 aria-hidden="true" className="size-4 animate-spin text-muted-foreground" />}
+        {isFetching && (
+          <Loader2 aria-hidden="true" className="size-4 animate-spin text-muted-foreground" />
+        )}
+        {q.trim().length > 0 && (
+          <button
+            type="button"
+            onClick={() => {
+              setQ("");
+              setSearchError(false);
+              setActive(0);
+              setOpen(false);
+              inputRef.current?.focus();
+            }}
+            className={
+              prominent
+                ? "mr-1 flex size-9 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-secondary hover:text-ink"
+                : "flex size-8 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-secondary hover:text-ink"
+            }
+            aria-label={t("lookup.clear")}
+          >
+            <X className="size-4" aria-hidden="true" />
+          </button>
+        )}
         {prominent && (
           <Button
             type="button"
@@ -131,14 +247,39 @@ export function AddressSearch({ onSelect, prominent = false, onOpenChange }: { o
         <div className="absolute z-30 mt-2 w-full overflow-hidden border bg-popover shadow-dropdown">
           {data.length > 0 && (
             <div className="flex items-center justify-between border-b border-border/60 bg-secondary/40 px-5 py-2.5">
-              <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">{t("lookup.results")}</span>
-              <span className="font-mono text-[10px] tabular-nums text-muted-foreground">{data.length}</span>
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                {t("lookup.results")}
+              </span>
+              <span className="font-mono text-[10px] tabular-nums text-muted-foreground">
+                {data.length}
+              </span>
             </div>
           )}
-          {(isError || searchError) && <div role="alert" className="px-5 py-4 text-sm">{t("search.error")} <button type="button" className="underline" onClick={() => { setSearchError(false); void refetch(); }}>{t("lookup.retry")}</button></div>}
-          <div id={listId} role="listbox" aria-label={t("lookup.results")} className="max-h-80 overflow-y-auto">
+          {(isError || searchError) && (
+            <div role="alert" className="px-5 py-4 text-sm">
+              {t("search.error")}{" "}
+              <button
+                type="button"
+                className="underline"
+                onClick={() => {
+                  setSearchError(false);
+                  void refetch();
+                }}
+              >
+                {t("lookup.retry")}
+              </button>
+            </div>
+          )}
+          <div
+            id={listId}
+            role="listbox"
+            aria-label={t("lookup.results")}
+            className="max-h-80 overflow-y-auto"
+          >
             {data.length === 0 && !isFetching && !isError && !searchError && (
-              <div className="px-5 py-6 text-center text-sm text-muted-foreground">{t("lookup.none")}</div>
+              <div className="px-5 py-6 text-center text-sm text-muted-foreground">
+                {t("lookup.none")}
+              </div>
             )}
             {data.map((a, i) => {
               const differs = a.legal_city && a.legal_city !== a.postal_city;
@@ -156,21 +297,40 @@ export function AddressSearch({ onSelect, prominent = false, onOpenChange }: { o
                   className={`group flex w-full items-center justify-between gap-4 border-b border-border/50 px-5 py-4 text-left transition-colors last:border-b-0 ${i === active ? "bg-secondary" : "hover:bg-secondary/50"}`}
                 >
                   <span className="min-w-0">
-                    <span className={`block truncate text-sm font-semibold tracking-wide transition-colors ${i === active ? "text-primary" : "text-ink group-hover:text-primary"}`}>{a.street_address}</span>
+                    <span
+                      className={`block truncate text-sm font-semibold tracking-wide transition-colors ${i === active ? "text-primary" : "text-ink group-hover:text-primary"}`}
+                    >
+                      {a.street_address}
+                    </span>
                     <span className="mt-0.5 block text-xs text-muted-foreground">
-                      {a.postal_city}{differs && <> → <span className="font-medium text-foreground">{a.legal_city}</span></>}, {a.state}
+                      {a.postal_city}
+                      {differs && (
+                        <>
+                          {" "}
+                          → <span className="font-medium text-foreground">{a.legal_city}</span>
+                        </>
+                      )}
+                      , {a.state}
                     </span>
                   </span>
-                  <span className="shrink-0 font-mono text-[10px] text-muted-foreground/70">{a.address_id}</span>
+                  <span className="shrink-0 font-mono text-[10px] text-muted-foreground/70">
+                    {a.address_id}
+                  </span>
                 </button>
               );
             })}
           </div>
           <div className="flex items-center justify-between border-t bg-secondary/50 px-5 py-2.5">
             <span className="flex items-center gap-1.5 text-[10px] text-muted-foreground">
-              <kbd className="rounded-sm border bg-background px-1 font-mono text-[10px] shadow-sm">↑↓</kbd> {t("lookup.kbdNavigate")}
+              <kbd className="rounded-sm border bg-background px-1 font-mono text-[10px] shadow-sm">
+                ↑↓
+              </kbd>{" "}
+              {t("lookup.kbdNavigate")}
               <span aria-hidden="true">·</span>
-              <kbd className="rounded-sm border bg-background px-1 font-mono text-[10px] shadow-sm">↵</kbd> {t("lookup.kbdSelect")}
+              <kbd className="rounded-sm border bg-background px-1 font-mono text-[10px] shadow-sm">
+                ↵
+              </kbd>{" "}
+              {t("lookup.kbdSelect")}
             </span>
             {isFetching && <Loader2 className="size-3 animate-spin text-muted-foreground" />}
           </div>
@@ -189,7 +349,10 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
   return (
     <div className="mx-auto flex max-w-3xl flex-col items-center px-1 pb-10 pt-8 text-center sm:pt-12">
       <div className="fade-up">
-        <h1 translate="no" className="font-serif text-[clamp(3.25rem,10vw,4.75rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-pretty text-ink">
+        <h1
+          translate="no"
+          className="font-serif text-[clamp(3.25rem,10vw,4.75rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-pretty text-ink"
+        >
           Cite
         </h1>
         <p className="mx-auto mt-5 max-w-md text-pretty font-serif text-lg italic leading-relaxed text-muted-foreground sm:text-xl">
@@ -202,7 +365,11 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
           {t("lookup.label")}
         </label>
         <div className="bezel">
-          <AddressSearch prominent onSelect={(a) => onSelect(a.address_id)} onOpenChange={setSearchOpen} />
+          <AddressSearch
+            prominent
+            onSelect={(a) => onSelect(a.address_id)}
+            onOpenChange={setSearchOpen}
+          />
         </div>
       </div>
 
@@ -220,18 +387,30 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
                 className="group flex touch-manipulation items-center justify-between gap-3 rounded-xl border border-border/80 bg-card/90 p-4 text-left shadow-sm transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-dossier active:scale-[0.99]"
               >
                 <span className="min-w-0">
-                  <span translate="no" className="block font-mono text-[10px] font-semibold text-primary">{chip.id}</span>
-                  <span className="mt-1 block truncate font-serif text-sm italic text-ink">{t(chip.labelKey)}</span>
+                  <span
+                    translate="no"
+                    className="block font-mono text-[10px] font-semibold text-primary"
+                  >
+                    {chip.id}
+                  </span>
+                  <span className="mt-1 block truncate font-serif text-sm italic text-ink">
+                    {t(chip.labelKey)}
+                  </span>
                 </span>
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary transition-transform duration-300 group-hover:translate-x-0.5 group-hover:bg-accent">
-                  <ArrowRight aria-hidden="true" className="size-3.5 text-muted-foreground group-hover:text-primary" />
+                  <ArrowRight
+                    aria-hidden="true"
+                    className="size-3.5 text-muted-foreground group-hover:text-primary"
+                  />
                 </span>
               </button>
             ))}
           </div>
         </div>
         <blockquote className="fade-up-delay-3 mx-auto mt-12 max-w-lg text-center">
-          <p className="font-serif text-sm italic leading-relaxed text-muted-foreground">{t("lookup.philosophy")}</p>
+          <p className="font-serif text-sm italic leading-relaxed text-muted-foreground">
+            {t("lookup.philosophy")}
+          </p>
         </blockquote>
       </div>
     </div>
@@ -241,40 +420,16 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
 function LookupLoading() {
   const t = useT();
   return (
-    <div className="space-y-6 fade-up" aria-busy="true" aria-live="polite">
-      <div className="flex items-center gap-3 text-sm text-muted-foreground">
-        <Loader2 className="size-4 animate-spin text-primary" />
-        <div>
-          <div className="font-medium text-ink">{t("lookup.loading")}</div>
-          <p className="text-xs">{t("lookup.loadingHint")}</p>
-        </div>
-      </div>
-      <div className="surface overflow-hidden p-5 sm:p-6">
-        <div className="skeleton-shimmer h-3 w-24 rounded-sm" />
-        <div className="skeleton-shimmer mt-3 h-8 w-2/3 max-w-md rounded-sm" />
-        <div className="skeleton-shimmer mt-2 h-4 w-1/2 max-w-sm rounded-sm" />
-        <div className="mt-5 grid grid-cols-3 gap-2">
-          <div className="skeleton-shimmer h-14 rounded-md" />
-          <div className="skeleton-shimmer h-14 rounded-md" />
-          <div className="skeleton-shimmer h-14 rounded-md" />
-        </div>
-      </div>
-      <div>
-        <div className="eyebrow mb-3">{t("lookup.summary")}</div>
-        <div className="flex flex-wrap gap-2">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="skeleton-shimmer h-9 w-28 rounded-md" />
-          ))}
-        </div>
-      </div>
-      <div>
-        <div className="eyebrow mb-3">{t("lookup.rulesHeading")}</div>
-        <div className="grid gap-3">
-          <div className="skeleton-shimmer h-36 rounded-lg" />
-          <div className="skeleton-shimmer h-36 rounded-lg" />
-        </div>
-      </div>
-    </div>
+    <LoadingSkeleton
+      title={t("lookup.loading")}
+      hint={t("lookup.loadingHint")}
+      stages={[
+        t("lookup.loading.jurisdiction"),
+        t("lookup.loading.dates"),
+        t("lookup.loading.coverage"),
+        t("lookup.loading.citations"),
+      ]}
+    />
   );
 }
 
@@ -285,12 +440,23 @@ function LookupPage() {
   const addressId = search.address ?? null;
   const asOf = search.as_of ?? DEFAULT_AS_OF;
   const ruleId = search.rule ?? null;
-  const setAddressId = (id: string) => navigate({ search: (p) => ({ ...p, address: id, rule: undefined }) });
+  const setAddressId = (id: string) =>
+    navigate({ search: (p) => ({ ...p, address: id, rule: undefined }) });
   const setAsOf = (v: string) => navigate({ search: (p) => ({ ...p, as_of: v }), replace: true });
   const [openRule, setOpenRule] = useState<RuleView | null>(null);
+  const [factOverrides, setFactOverrides] = useState<FactOverrides>({});
+  const [includeNonApplicable, setIncludeNonApplicable] = useState(false);
   const lookup = useQuery({
-    queryKey: ["lookup", addressId, asOf],
-    queryFn: () => getCiteClient().lookup(addressId!, asOf),
+    queryKey: ["lookup", addressId, asOf, factOverrides, includeNonApplicable],
+    queryFn: ({ signal }) => {
+      const opts: import("@/lib/cite/client").LookupOptions = {
+        includeNonApplicable,
+        signal,
+      };
+      if (factOverrides.yearBuilt) opts.yearBuilt = factOverrides.yearBuilt;
+      if (factOverrides.units) opts.units = factOverrides.units;
+      return getCiteClient().lookup(addressId!, asOf, opts);
+    },
     enabled: !!addressId,
   });
 
@@ -314,6 +480,9 @@ function LookupPage() {
       result: r.result,
       explanation: r.explanation,
       conflict: r.conflict_flag,
+      needsHumanReview: r.needs_human_review,
+      factsMissing: r.facts_missing,
+      applicability: r.applicability,
     });
   }, [lookup.data, ruleId]);
 
@@ -341,22 +510,29 @@ function LookupPage() {
           {lookup.isPending && <LookupLoading />}
 
           {lookup.isError && (
-            <div className="surface fade-up flex gap-3 p-5">
-              <AlertCircle className="size-5 shrink-0 text-destructive" />
-              <div>
-                <div className="font-medium text-ink">{t("lookup.errorTitle")}</div>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  {(lookup.error as Error).message}. {t("lookup.errorHint")}
-                </p>
-                <button onClick={() => lookup.refetch()} className="mt-3 text-sm font-medium text-primary hover:underline">
-                  {t("lookup.retry")}
-                </button>
-              </div>
-            </div>
+            <ErrorState
+              title={t("lookup.errorTitle")}
+              description={`${
+                lookup.error instanceof CiteApiError
+                  ? lookup.error.userMessage
+                  : (lookup.error as Error).message
+              } ${t("lookup.errorHint")}`}
+              onRetry={() => void lookup.refetch()}
+              retryLabel={t("lookup.retry")}
+            />
           )}
 
           {lookup.data && (
-            <LookupResults data={lookup.data} asOf={asOf} setAsOf={setAsOf} onOpen={openRuleView} />
+            <LookupResults
+              data={lookup.data}
+              asOf={asOf}
+              setAsOf={setAsOf}
+              onOpen={openRuleView}
+              factOverrides={factOverrides}
+              onFactOverrides={setFactOverrides}
+              includeNonApplicable={includeNonApplicable}
+              onIncludeNonApplicable={setIncludeNonApplicable}
+            />
           )}
         </>
       )}
@@ -365,7 +541,15 @@ function LookupPage() {
         view={openRule}
         addressId={lookup.data?.address.address_id}
         asOf={lookup.data?.as_of}
-        facts={lookup.data ? { yearBuilt: lookup.data.address.year_built, units: lookup.data.address.units, legalCity: lookup.data.jurisdiction.city } : undefined}
+        facts={
+          lookup.data
+            ? {
+                yearBuilt: lookup.data.address.year_built,
+                units: lookup.data.address.units,
+                legalCity: lookup.data.jurisdiction.city,
+              }
+            : undefined
+        }
         onClose={closeRule}
       />
     </div>
@@ -376,15 +560,35 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
   const t = useT();
   const unknownN = data.results.filter((r) => r.result === "unknown").length;
   const conflictN = data.results.filter((r) => r.conflict_flag).length;
-  const pendingN = data.results.filter((r) => r.result === "pending").length;
+  const pendingN = data.results.filter(
+    (r) => r.result === "pending" || r.result === "not_yet_effective",
+  ).length;
   const linkOnlyN = data.results.filter((r) => r.rule && isLinkOnlyScaffold(r.rule)).length;
   const gaps = data.corpus_gaps ?? [];
-  if (!unknownN && !conflictN && !pendingN && !linkOnlyN && !gaps.length) return null;
+  const userFacts =
+    data.building_facts?.facts_source === "user_provided" ||
+    data.audit?.user_provided_facts === true;
+  if (!unknownN && !conflictN && !pendingN && !linkOnlyN && !gaps.length && !userFacts) return null;
   return (
     <div className="space-y-2">
       {gaps.length > 0 && <CorpusGapWarning gaps={gaps} />}
+      {userFacts && (
+        <div
+          role="status"
+          className="flex gap-2.5 rounded-md border border-border/80 bg-secondary/50 px-3 py-2.5 text-sm"
+        >
+          <AlertCircle
+            aria-hidden="true"
+            className="mt-0.5 size-4 shrink-0 text-muted-foreground"
+          />
+          <p className="text-ink/90">{t("lookup.honesty.userFacts")}</p>
+        </div>
+      )}
       {unknownN > 0 && (
-        <div role="status" className="flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">
+        <div
+          role="status"
+          className="flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm"
+        >
           <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-unknown" />
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{unknownN}</span>{" "}
@@ -393,7 +597,10 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
         </div>
       )}
       {conflictN > 0 && (
-        <div role="status" className="flex gap-2.5 rounded-md border border-conflict/25 bg-conflict-soft px-3 py-2.5 text-sm">
+        <div
+          role="status"
+          className="flex gap-2.5 rounded-md border border-conflict/25 bg-conflict-soft px-3 py-2.5 text-sm"
+        >
           <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-conflict" />
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{conflictN}</span>{" "}
@@ -402,16 +609,22 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
         </div>
       )}
       {pendingN > 0 && (
-        <div role="status" className="flex gap-2.5 rounded-md border border-border/80 bg-secondary/50 px-3 py-2.5 text-sm">
-          <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+        <div
+          role="status"
+          className="flex gap-2.5 rounded-md border border-pending/30 bg-pending-soft px-3 py-2.5 text-sm"
+        >
+          <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-pending" />
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{pendingN}</span>{" "}
-            {t("result.pending").toLowerCase()} · {t("lookup.honesty.pending")}
+            {t("group.pending").toLowerCase()} · {t("lookup.honesty.pending")}
           </p>
         </div>
       )}
       {linkOnlyN > 0 && (
-        <div role="status" className="flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">
+        <div
+          role="status"
+          className="flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm"
+        >
           <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-unknown" />
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{linkOnlyN}</span>{" "}
@@ -423,13 +636,36 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
   );
 }
 
-function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; asOf: string; setAsOf: (v: string) => void; onOpen: (v: RuleView) => void }) {
+const GROUP_HEADING: Record<string, StringKey> = {
+  applies: "group.applies",
+  unknown: "group.unknown",
+  needs_human_review: "group.review",
+  does_not_apply: "group.does_not_apply",
+  pending_future: "group.pending",
+};
+
+function LookupResults({
+  data,
+  asOf,
+  setAsOf,
+  onOpen,
+  factOverrides,
+  onFactOverrides,
+  includeNonApplicable,
+  onIncludeNonApplicable,
+}: {
+  data: LookupResponse;
+  asOf: string;
+  setAsOf: (v: string) => void;
+  onOpen: (v: RuleView) => void;
+  factOverrides: FactOverrides;
+  onFactOverrides: (v: FactOverrides) => void;
+  includeNonApplicable: boolean;
+  onIncludeNonApplicable: (v: boolean) => void;
+}) {
   const t = useT();
-  const tx = useTx();
-  const grouped = useMemo(() => {
-    const withRule = data.results.filter((r) => r.rule);
-    return CATEGORY_ORDER.map((c) => [c, withRule.filter((r) => r.rule!.category === c)] as const).filter(([, l]) => l.length);
-  }, [data]);
+  const grouped = useMemo(() => groupResults(data.results), [data]);
+  const [showMoreDna, setShowMoreDna] = useState(false);
 
   return (
     <div className="space-y-10">
@@ -437,60 +673,108 @@ function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; 
 
       <div className="fade-up">
         <PropertySummary data={data} asOf={asOf} onAsOf={setAsOf} />
+        <p className="mt-2 max-w-2xl text-xs text-muted-foreground">{t("lookup.asOfHelp")}</p>
       </div>
 
-      {/* What applies */}
-      <section className="fade-up-delay-1 space-y-3">
+      <section className="fade-up-delay-1 space-y-3" aria-labelledby="answer-summary">
         <div>
-          <h2 className="scroll-mt-24 text-pretty font-serif text-xl text-ink">{t("lookup.summary")}</h2>
+          <h2 id="answer-summary" className="scroll-mt-24 text-pretty font-serif text-xl text-ink">
+            {t("lookup.summary")}
+          </h2>
           <p className="mt-1 text-sm text-muted-foreground">{t("lookup.stepWhat")}</p>
         </div>
         <ResultSummaryChips results={data.results} />
         <EvidenceFreshness data={data} />
         <HonestyCallouts data={data} />
+        <MissingFactsPanel
+          data={data}
+          overrides={factOverrides}
+          onApply={onFactOverrides}
+          onClear={() => onFactOverrides({})}
+        />
         <EffectiveTimeline data={data} />
+        <AuditTrailPanel data={data} />
       </section>
 
-      {/* Why + Evidence via rule cards */}
       <section className="fade-up-delay-2 space-y-4">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <h2 className="font-serif text-xl text-ink">{t("lookup.rulesHeading")}</h2>
             <p className="mt-1 max-w-2xl text-sm text-muted-foreground">{t("lookup.rulesLede")}</p>
           </div>
+          <label className="flex items-center gap-2 text-sm text-ink">
+            <input
+              type="checkbox"
+              checked={includeNonApplicable}
+              onChange={(e) => onIncludeNonApplicable(e.target.checked)}
+              className="size-4 rounded border-border"
+            />
+            {t("lookup.includeNonApplicable")}
+          </label>
         </div>
 
         {grouped.length === 0 ? (
-          <div className="surface flex flex-col items-center gap-2 px-6 py-14 text-center">
-            <FileSearch className="size-6 text-muted-foreground" />
-            <div className="font-medium text-ink">{t("lookup.emptyRules")}</div>
-            <p className="max-w-md text-sm text-muted-foreground">
-              {t("lookup.emptyRulesHint")} ({data.as_of})
-            </p>
-          </div>
+          <EmptyState
+            title={t("lookup.emptyRules")}
+            description={`${t("lookup.emptyRulesHint")} (${data.as_of})`}
+            icon={FileSearch}
+          />
         ) : (
-          grouped.map(([cat, list]) => (
-            <div key={cat}>
-              <h3 className="eyebrow mb-3 flex items-center gap-2">
-                {tx(`category.${cat}`)} <span className="h-px flex-1 bg-border" />
-                <span className="font-mono text-[10px] normal-case tracking-normal text-muted-foreground">{list.length}</span>
-              </h3>
-              <div className="grid gap-3">
-                {list.map((r, i) => {
-                  const v: RuleView = {
-                    id: r.team_rule_id,
-                    rule: r.rule!,
-                    result: r.result,
-                    explanation: r.explanation,
-                    conflict: r.conflict_flag,
-                  };
-                  return <RuleCard key={r.team_rule_id} view={v} index={i} onOpen={() => onOpen(v)} />;
-                })}
+          grouped.map(([groupKey, list]) => {
+            const capped =
+              groupKey === "does_not_apply" && !showMoreDna && list.length > 8
+                ? list.slice(0, 8)
+                : list;
+            return (
+              <div key={groupKey}>
+                <h3 className="eyebrow mb-2 flex items-center gap-2">
+                  {t(GROUP_HEADING[groupKey]!)} <span className="h-px flex-1 bg-border" />
+                  <span className="font-mono text-[10px] normal-case tracking-normal text-muted-foreground">
+                    {list.length}
+                  </span>
+                </h3>
+                {groupKey === "pending_future" ? (
+                  <p className="mb-3 text-xs text-muted-foreground">{t("group.pending.note")}</p>
+                ) : null}
+                <div className="grid gap-3">
+                  {capped.map((r, i) => {
+                    const v: RuleView = {
+                      id: r.team_rule_id,
+                      rule: r.rule!,
+                      result: r.result,
+                      explanation: r.explanation,
+                      conflict: r.conflict_flag,
+                      needsHumanReview: r.needs_human_review,
+                      factsMissing: r.facts_missing,
+                      applicability: r.applicability,
+                    };
+                    return (
+                      <RuleCard key={r.team_rule_id} view={v} index={i} onOpen={() => onOpen(v)} />
+                    );
+                  })}
+                </div>
+                {groupKey === "does_not_apply" && list.length > 8 ? (
+                  <button
+                    type="button"
+                    className="mt-2 text-sm font-medium text-primary hover:underline"
+                    onClick={() => setShowMoreDna((v) => !v)}
+                  >
+                    {showMoreDna ? t("changes.showFewer") : t("changes.showAll")}
+                  </button>
+                ) : null}
               </div>
-            </div>
-          ))
+            );
+          })
         )}
       </section>
+
+      <footer className="border-t border-border/70 pt-6 text-xs text-muted-foreground">
+        <p>{t("footer.boundary")}</p>
+        <p className="mt-1">{t("footer.coverage")}</p>
+        <p className="mt-1">
+          {data.disclaimer} · {t("disclaimer.asOf")} {data.as_of}
+        </p>
+      </footer>
     </div>
   );
 }
@@ -507,7 +791,11 @@ function MemoBar({ data }: { data: LookupResponse }) {
   const { user } = useAuth();
   const navigate = useNavigate();
   const qc = useQueryClient();
-  const subs = useQuery({ queryKey: ["alert-subs", user?.id], queryFn: listAlertSubs, enabled: !!user });
+  const subs = useQuery({
+    queryKey: ["alert-subs", user?.id],
+    queryFn: listAlertSubs,
+    enabled: !!user,
+  });
   const emailOn = !!subs.data?.some((s) => s.address_id === id && s.email_enabled);
   const [saved, setSaved] = useState(false);
   const save = useMutation({
@@ -527,9 +815,15 @@ function MemoBar({ data }: { data: LookupResponse }) {
     },
     onError: (error: Error) => toast.error(error.message),
   });
-  const toggleEmail = useMutation({ mutationFn: () => setEmailAlert(id, !emailOn), onSuccess: () => qc.invalidateQueries({ queryKey: ["alert-subs"] }) });
+  const toggleEmail = useMutation({
+    mutationFn: () => setEmailAlert(id, !emailOn),
+    onSuccess: () => qc.invalidateQueries({ queryKey: ["alert-subs"] }),
+  });
   const needAuth = (fn: () => void) => () => (user ? fn() : navigate({ to: "/auth" }));
-  useEffect(() => setGenerated(new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC"), [data]);
+  useEffect(
+    () => setGenerated(new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC"),
+    [data],
+  );
   useEffect(() => {
     if (!moreOpen) return;
     const onDoc = (e: MouseEvent) => {
@@ -547,10 +841,20 @@ function MemoBar({ data }: { data: LookupResponse }) {
           {data.address.address_id} · as of {data.as_of} · {t("memo.generated")} {generated}
         </div>
         <p className="mt-2 text-xs">{t("disclaimer")}</p>
-        <p className="mt-1 text-xs text-muted-foreground">{t("disclaimer.asOf")} {data.as_of}</p>
+        <p className="mt-1 text-xs text-muted-foreground">
+          {t("disclaimer.asOf")} {data.as_of}
+        </p>
       </div>
       <div className="mb-2 flex flex-wrap items-center justify-end gap-2 print:hidden">
-        <Button variant="outline" disabled={createReview.isPending} onClick={needAuth(() => createReview.mutate())} className="rounded-full"><ClipboardList />{t("workspace.openCase")}</Button>
+        <Button
+          variant="outline"
+          disabled={createReview.isPending}
+          onClick={needAuth(() => createReview.mutate())}
+          className="rounded-full"
+        >
+          <ClipboardList />
+          {t("workspace.openCase")}
+        </Button>
         <button
           onClick={async () => {
             await navigator.clipboard.writeText(window.location.href);
@@ -586,28 +890,56 @@ function MemoBar({ data }: { data: LookupResponse }) {
                   const next = !w;
                   watch.toggle(id);
                   setMoreOpen(false);
-                  toast.success((next ? t("toast.watching") : t("toast.unwatched")).replace("{id}", id));
+                  toast.success(
+                    (next ? t("toast.watching") : t("toast.unwatched")).replace("{id}", id),
+                  );
                 }}
                 className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary"
               >
                 <Eye className="size-3.5" /> {w ? t("action.watching") : t("action.watch")}
               </button>
-              <button onClick={needAuth(() => { toggleEmail.mutate(); setMoreOpen(false); })} className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary">
+              <button
+                onClick={needAuth(() => {
+                  toggleEmail.mutate();
+                  setMoreOpen(false);
+                })}
+                className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary"
+              >
                 <Mail className="size-3.5" /> {t("action.emailAlerts")}
               </button>
-              <button onClick={needAuth(() => { save.mutate(); setMoreOpen(false); })} className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary">
-                {saved ? <Check className="size-3.5" /> : <Save className="size-3.5" />} {saved ? t("action.saved") : t("action.saveMemo")}
+              <button
+                onClick={needAuth(() => {
+                  save.mutate();
+                  setMoreOpen(false);
+                })}
+                className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary"
+              >
+                {saved ? <Check className="size-3.5" /> : <Save className="size-3.5" />}{" "}
+                {saved ? t("action.saved") : t("action.saveMemo")}
               </button>
-              <Link to="/compare" search={{ address: id, a: data.as_of }} onClick={() => setMoreOpen(false)}
-                className="flex items-center gap-2 px-3 py-1.5 text-sm hover:bg-secondary">
+              <Link
+                to="/compare"
+                search={{ address: id, a: data.as_of }}
+                onClick={() => setMoreOpen(false)}
+                className="flex items-center gap-2 px-3 py-1.5 text-sm hover:bg-secondary"
+              >
                 <GitCompare className="size-3.5" /> {t("action.compare")}
               </Link>
-              <Link to="/sources" search={{ address: id, as_of: data.as_of }} onClick={() => setMoreOpen(false)}
-                className="flex items-center gap-2 px-3 py-1.5 text-sm hover:bg-secondary">
+              <Link
+                to="/sources"
+                search={{ address: id, as_of: data.as_of }}
+                onClick={() => setMoreOpen(false)}
+                className="flex items-center gap-2 px-3 py-1.5 text-sm hover:bg-secondary"
+              >
                 <FileText className="size-3.5" /> {t("action.sources")}
               </Link>
-              <button onClick={() => { downloadText(`cite-${id}-${data.as_of}.csv`, lookupToCsv(data)); setMoreOpen(false); }}
-                className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary">
+              <button
+                onClick={() => {
+                  downloadText(`cite-${id}-${data.as_of}.csv`, lookupToCsv(data));
+                  setMoreOpen(false);
+                }}
+                className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary"
+              >
                 <Download className="size-3.5" /> {t("action.csv")}
               </button>
             </div>
