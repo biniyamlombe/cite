@@ -4,25 +4,34 @@
 
 The frontend is display-only. Set `VITE_API_URL` to the API URL so Lookup/Change Radar hit live coverage.
 
-## 1. Backend (Render — recommended free path)
+## 1. Backend (Render — free Node web service)
 
-1. Push this repo to GitHub (if it isn’t already).
-2. Open [Render Dashboard → New → Blueprint](https://dashboard.render.com/select-repo?type=blueprint).
-3. Select the repo. It reads `render.yaml` and creates **cite-api**.
-4. After deploy, copy the service URL (e.g. `https://cite-api.onrender.com`).
-5. Optional env in Render: `CORS_ORIGIN=https://YOUR-APP.vercel.app`
+Repo: `biniyamlombe/hacknation702` (`render.yaml` at root).
 
-Health check:
+### One-time in the dashboard
+
+1. Open [New → Blueprint](https://dashboard.render.com/select-repo?type=blueprint) (or **New → Web Service**).
+2. Connect GitHub and select **`biniyamlombe/hacknation702`**, branch `main`.
+3. Blueprint reads `render.yaml` and creates **cite-api** (free Node).
+   - Or manual Web Service settings:
+     - **Runtime:** Node
+     - **Build:** `npm ci && npm run build -w shared`
+     - **Start:** `npm run start -w backend`
+     - **Health check path:** `/health`
+     - **Plan:** Free
+4. Deploy → copy URL (e.g. `https://cite-api.onrender.com`).
+5. Optional env: `CORS_ORIGIN=https://YOUR-APP.vercel.app`
 
 ```bash
 curl -sS https://cite-api.onrender.com/health
+curl -sS "https://cite-api.onrender.com/lookup/A0005?as_of=2026-10-01" | head -c 200
 ```
 
-Free Render services sleep after idle; first request can take ~30–60s.
+Free services sleep after ~15 min idle; first hit can take 30–60s. A `Dockerfile` remains for paid Docker / Fly if you prefer.
 
 ### Alternative: Fly.io
 
-Needs a payment method on the Fly account (`flyctl auth login` then `flyctl deploy`). App name in `fly.toml`: `cite-api` → `https://cite-api.fly.dev`.
+Needs a payment method (`flyctl deploy`). App name in `fly.toml`: `cite-api`.
 
 ## 2. Frontend (Vercel)
 

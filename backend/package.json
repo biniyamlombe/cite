@@ -27,6 +27,9 @@
     "selfcheck": "tsx src/cli/selfcheck.ts",
     "build-no-rule-findings": "tsx src/cli/build_no_rule_findings.ts"
   },
+  "engines": {
+    "node": ">=22"
+  },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",
     "@hono/node-server": "^1.14.1",
@@ -35,11 +38,11 @@
     "csv-parse": "^5.6.0",
     "dotenv": "^16.4.7",
     "hono": "^4.7.5",
+    "tsx": "^4.19.3",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@types/node": "^22.13.10",
-    "tsx": "^4.19.3",
     "typescript": "^5.8.2"
   }
 }
