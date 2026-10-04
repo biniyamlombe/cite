@@ -62,10 +62,14 @@ function enrichEntry(
   const facts = buildingFacts(addr, geo);
   const scaffold =
     rule.extraction_method === "link_only_scaffold" ||
-    rule.extraction_method === "secondary_report";
+    rule.extraction_method === "secondary_report" ||
+    rule.extraction_method === "soft_gap_scaffold";
   const conflict = Boolean(entry.conflict_flag);
-  // Human review: legal conflicts and rules that still require a human — not every missing fact.
-  const needsReview = conflict || rule.requires_human_review === true;
+  // Human review: legal conflicts, soft-gap FAQ extracts, and explicitly flagged rules.
+  const needsReview =
+    conflict ||
+    rule.requires_human_review === true ||
+    rule.extraction_method === "soft_gap_scaffold";
   const covText = coveragePlainText(rule.coverage_conditions);
   const coverage_conditions_evaluated = [
     `jurisdiction_match=${rule.jurisdiction}`,
