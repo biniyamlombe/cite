@@ -2,6 +2,5 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
   "installCommand": "cd .. && npm install && npm install --prefix frontend --legacy-peer-deps",
-  "buildCommand": "cd .. && npm run build -w shared && cd frontend && NITRO_PRESET=vercel npm run build",
-  "outputDirectory": ".vercel/output/static"
+  "buildCommand": "cd .. && npm run build -w shared && cd frontend && NITRO_PRESET=vercel npm run build"
 }
