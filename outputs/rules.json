@@ -31,7 +31,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 677,
+      "quote_end_offset": 847
     },
     {
       "team_rule_id": "r-0002",
@@ -60,7 +62,9 @@
       },
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
-      "exemptions": "None stated in source document"
+      "exemptions": "None stated in source document",
+      "quote_start_offset": 1139,
+      "quote_end_offset": 1208
     },
     {
       "team_rule_id": "r-0003",
@@ -89,7 +93,9 @@
       },
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
-      "exemptions": "None stated in source document"
+      "exemptions": "None stated in source document",
+      "quote_start_offset": 1209,
+      "quote_end_offset": 1305
     },
     {
       "team_rule_id": "r-0004",
@@ -118,7 +124,9 @@
       },
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
-      "exemptions": "None stated in source document"
+      "exemptions": "None stated in source document",
+      "quote_start_offset": 1209,
+      "quote_end_offset": 1305
     },
     {
       "team_rule_id": "r-0005",
@@ -171,7 +179,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "may seek injunctive relief based on violations of this"
+      "penalty": "may seek injunctive relief based on violations of this",
+      "quote_start_offset": 1278,
+      "quote_end_offset": 1532
     },
     {
       "team_rule_id": "r-0006",
@@ -204,7 +214,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "may seek injunctive relief based on violations of this"
+      "penalty": "may seek injunctive relief based on violations of this",
+      "quote_start_offset": 2095,
+      "quote_end_offset": 2230
     },
     {
       "team_rule_id": "r-0007",
@@ -237,7 +249,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "injunctive relief based on violations of this · injunctive relief, it shall be presumed that a tenant suffers irreparable harm through violation of this"
+      "penalty": "injunctive relief based on violations of this · injunctive relief, it shall be presumed that a tenant suffers irreparable harm through violation of this",
+      "quote_start_offset": 6426,
+      "quote_end_offset": 6567
     },
     {
       "team_rule_id": "r-0008",
@@ -270,7 +284,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "injunctive relief based on violations of this · injunctive relief, it shall be presumed that a tenant suffers irreparable harm through violation of this"
+      "penalty": "injunctive relief based on violations of this · injunctive relief, it shall be presumed that a tenant suffers irreparable harm through violation of this",
+      "quote_start_offset": 12886,
+      "quote_end_offset": 13166
     },
     {
       "team_rule_id": "r-0009",
@@ -303,7 +319,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "liable for damages as provided in subdivision (m), or any security not transferred pursuant to subdivision"
+      "penalty": "liable for damages as provided in subdivision (m), or any security not transferred pursuant to subdivision",
+      "quote_start_offset": 3507,
+      "quote_end_offset": 3787
     },
     {
       "team_rule_id": "r-0010",
@@ -336,7 +354,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "liable for damages as provided in subdivision (m), or any security not transferred pursuant to subdivision"
+      "penalty": "liable for damages as provided in subdivision (m), or any security not transferred pursuant to subdivision",
+      "quote_start_offset": 6385,
+      "quote_end_offset": 6773
     },
     {
       "team_rule_id": "r-0011",
@@ -381,7 +401,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 5221,
+      "quote_end_offset": 5507
     },
     {
       "team_rule_id": "r-0012",
@@ -414,7 +436,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:44 UTC",
-      "penalty": "injunctive relief, restitution/return of illegal profits, and/or civil penalties of up to $1,000 per · injunctive relief, money damages, and/or civil penalties of up to $1,000 per"
+      "penalty": "injunctive relief, restitution/return of illegal profits, and/or civil penalties of up to $1,000 per · injunctive relief, money damages, and/or civil penalties of up to $1,000 per",
+      "quote_start_offset": 4829,
+      "quote_end_offset": 5112
     },
     {
       "team_rule_id": "r-0013",
@@ -447,7 +471,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "punishable by a warning or fine in accordance with the provisions of City of Boston Ordinances and/or Boston City Charter, shown"
+      "penalty": "punishable by a warning or fine in accordance with the provisions of City of Boston Ordinances and/or Boston City Charter, shown",
+      "quote_start_offset": 3643,
+      "quote_end_offset": 3927
     },
     {
       "team_rule_id": "r-0014",
@@ -487,7 +513,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "injunctive relief based on violations of this · injunctive relief, it shall be presumed that a tenant suffers irreparable harm through violation of this"
+      "penalty": "injunctive relief based on violations of this · injunctive relief, it shall be presumed that a tenant suffers irreparable harm through violation of this",
+      "quote_start_offset": 1284,
+      "quote_end_offset": 1532
     },
     {
       "team_rule_id": "r-0015",
@@ -520,7 +548,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 1609,
+      "quote_end_offset": 1889
     },
     {
       "team_rule_id": "r-0016",
@@ -553,7 +583,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 12573,
+      "quote_end_offset": 12853
     },
     {
       "team_rule_id": "r-0017",
@@ -586,7 +618,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 24807,
+      "quote_end_offset": 25046
     },
     {
       "team_rule_id": "r-0018",
@@ -619,7 +653,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "liable for damages which shall not be less than one month's rent or more than three month's rent, or the actual damages sustained by the tenant, whichever is greater, and the costs of the suit, including a reasonable attorney's"
+      "penalty": "liable for damages which shall not be less than one month's rent or more than three month's rent, or the actual damages sustained by the tenant, whichever is greater, and the costs of the suit, including a reasonable attorney's",
+      "quote_start_offset": 580,
+      "quote_end_offset": 801
     },
     {
       "team_rule_id": "r-0019",
@@ -652,7 +688,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 30818,
+      "quote_end_offset": 31062
     },
     {
       "team_rule_id": "r-0020",
@@ -685,7 +723,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 13321,
+      "quote_end_offset": 13601
     },
     {
       "team_rule_id": "r-0021",
@@ -718,7 +758,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "liable for damages which shall not be less than one month's rent or more than three month's rent, or the actual damages sustained by the tenant, whichever is greater, and the costs of the suit, including a reasonable attorney's"
+      "penalty": "liable for damages which shall not be less than one month's rent or more than three month's rent, or the actual damages sustained by the tenant, whichever is greater, and the costs of the suit, including a reasonable attorney's",
+      "quote_start_offset": 2172,
+      "quote_end_offset": 2387
     },
     {
       "team_rule_id": "r-0022",
@@ -751,7 +793,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 4552,
+      "quote_end_offset": 4657
     },
     {
       "team_rule_id": "r-0023",
@@ -784,7 +828,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 9091,
+      "quote_end_offset": 9371
     },
     {
       "team_rule_id": "r-0024",
@@ -817,7 +863,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "penalty of not less than $500 or not more than $2,000 for each"
+      "penalty": "penalty of not less than $500 or not more than $2,000 for each",
+      "quote_start_offset": 49136,
+      "quote_end_offset": 49418
     },
     {
       "team_rule_id": "r-0025",
@@ -862,7 +910,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 294,
+      "quote_end_offset": 560
     },
     {
       "team_rule_id": "r-0026",
@@ -895,7 +945,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 459,
+      "quote_end_offset": 510
     },
     {
       "team_rule_id": "r-0027",
@@ -928,7 +980,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 1755,
+      "quote_end_offset": 2022
     },
     {
       "team_rule_id": "r-0028",
@@ -961,7 +1015,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 993,
+      "quote_end_offset": 1375
     },
     {
       "team_rule_id": "r-0029",
@@ -994,7 +1050,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 6528,
+      "quote_end_offset": 6653
     },
     {
       "team_rule_id": "r-0030",
@@ -1027,7 +1085,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 7230,
+      "quote_end_offset": 7351
     },
     {
       "team_rule_id": "r-0031",
@@ -1060,7 +1120,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 11884,
+      "quote_end_offset": 12071
     },
     {
       "team_rule_id": "r-0032",
@@ -1093,7 +1155,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 11090,
+      "quote_end_offset": 11290
     },
     {
       "team_rule_id": "r-0033",
@@ -1126,7 +1190,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 406,
+      "quote_end_offset": 512
     },
     {
       "team_rule_id": "r-0034",
@@ -1159,7 +1225,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 513,
+      "quote_end_offset": 826
     },
     {
       "team_rule_id": "r-0035",
@@ -1192,7 +1260,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 1432,
+      "quote_end_offset": 1609
     },
     {
       "team_rule_id": "r-0036",
@@ -1225,7 +1295,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 2908,
+      "quote_end_offset": 3032
     },
     {
       "team_rule_id": "r-0037",
@@ -1258,7 +1330,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 470,
+      "quote_end_offset": 656
     },
     {
       "team_rule_id": "r-0038",
@@ -1291,7 +1365,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 2693,
+      "quote_end_offset": 2846
     },
     {
       "team_rule_id": "r-0039",
@@ -1324,7 +1400,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 2441,
+      "quote_end_offset": 2521
     },
     {
       "team_rule_id": "r-0040",
@@ -1376,7 +1454,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 662,
+      "quote_end_offset": 748
     },
     {
       "team_rule_id": "r-0041",
@@ -1409,7 +1489,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 750,
+      "quote_end_offset": 847
     },
     {
       "team_rule_id": "r-0042",
@@ -1442,7 +1524,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 849,
+      "quote_end_offset": 986
     },
     {
       "team_rule_id": "r-0043",
@@ -1475,7 +1559,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 988,
+      "quote_end_offset": 1120
     },
     {
       "team_rule_id": "r-0044",
@@ -1508,7 +1594,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 1233,
+      "quote_end_offset": 1285
     },
     {
       "team_rule_id": "r-0045",
@@ -1541,7 +1629,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:44 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 917,
+      "quote_end_offset": 1042
     },
     {
       "team_rule_id": "r-0046",
@@ -1574,7 +1664,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:44 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 1047,
+      "quote_end_offset": 1183
     },
     {
       "team_rule_id": "r-0047",
@@ -1607,7 +1699,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:44 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 4403,
+      "quote_end_offset": 4502
     },
     {
       "team_rule_id": "r-0048",
@@ -1640,7 +1734,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "punishable by a warning or fine in accordance with the provisions of City of Boston Ordinances and/or Boston City Charter, shown"
+      "penalty": "punishable by a warning or fine in accordance with the provisions of City of Boston Ordinances and/or Boston City Charter, shown",
+      "quote_start_offset": 1736,
+      "quote_end_offset": 1903
     },
     {
       "team_rule_id": "r-0049",
@@ -1668,7 +1764,9 @@
       },
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "punishable by a warning or fine in accordance with the provisions of City of Boston Ordinances and/or Boston City Charter, shown",
-      "exemptions": "None stated in source document"
+      "exemptions": "None stated in source document",
+      "quote_start_offset": 2988,
+      "quote_end_offset": 3063
     },
     {
       "team_rule_id": "r-0050",
@@ -1702,7 +1800,9 @@
       "conflict_note": null,
       "alias_id": "CA-ALG-01",
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 3789,
+      "quote_end_offset": 4069
     },
     {
       "team_rule_id": "r-0051",
@@ -1735,7 +1835,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "Civil penalties or punitive damages Attorney’s fees FAQ What types of housing are covered by the Fair Employment and Housing"
+      "penalty": "Civil penalties or punitive damages Attorney’s fees FAQ What types of housing are covered by the Fair Employment and Housing",
+      "quote_start_offset": 20575,
+      "quote_end_offset": 20796
     },
     {
       "team_rule_id": "r-0052",
@@ -1768,7 +1870,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "Civil penalties or punitive damages Attorney’s fees FAQ What types of housing are covered by the Fair Employment and Housing"
+      "penalty": "Civil penalties or punitive damages Attorney’s fees FAQ What types of housing are covered by the Fair Employment and Housing",
+      "quote_start_offset": 21866,
+      "quote_end_offset": 22189
     },
     {
       "team_rule_id": "r-0053",
@@ -1801,7 +1905,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "Civil penalties or punitive damages Attorney’s fees FAQ What types of housing are covered by the Fair Employment and Housing"
+      "penalty": "Civil penalties or punitive damages Attorney’s fees FAQ What types of housing are covered by the Fair Employment and Housing",
+      "quote_start_offset": 10407,
+      "quote_end_offset": 10750
     },
     {
       "team_rule_id": "r-0054",
@@ -1836,7 +1942,9 @@
       "conflict_flag": true,
       "conflict_note": "Section has sunset provision repealing it as of January 1, 2030. Potential conflict between state and local just cause requirements depending on ordinance adoption date and protective level.",
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "may seek injunctive relief based on violations of this"
+      "penalty": "may seek injunctive relief based on violations of this",
+      "quote_start_offset": 23674,
+      "quote_end_offset": 23828
     },
     {
       "team_rule_id": "r-0055",
@@ -1869,7 +1977,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "punishable by a warning or fine in accordance with the provisions of City of Boston Ordinances and/or Boston City Charter, shown"
+      "penalty": "punishable by a warning or fine in accordance with the provisions of City of Boston Ordinances and/or Boston City Charter, shown",
+      "quote_start_offset": 400,
+      "quote_end_offset": 680
     },
     {
       "team_rule_id": "r-0056",
@@ -1902,7 +2012,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 2307,
+      "quote_end_offset": 2653
     },
     {
       "team_rule_id": "r-0057",
@@ -1935,7 +2047,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 4850,
+      "quote_end_offset": 5140
     },
     {
       "team_rule_id": "r-0058",
@@ -1968,7 +2082,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 4541,
+      "quote_end_offset": 4845
     },
     {
       "team_rule_id": "r-0059",
@@ -2001,7 +2117,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 5333,
+      "quote_end_offset": 5604
     },
     {
       "team_rule_id": "r-0060",
@@ -2034,7 +2152,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 1790,
+      "quote_end_offset": 2070
     },
     {
       "team_rule_id": "r-0061",
@@ -2067,7 +2187,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 8499,
+      "quote_end_offset": 8655
     },
     {
       "team_rule_id": "r-0062",
@@ -2100,7 +2222,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 8115,
+      "quote_end_offset": 8397
     },
     {
       "team_rule_id": "r-0063",
@@ -2129,7 +2253,9 @@
       },
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "liable for damages as provided in subdivision (m), or any security not transferred pursuant to subdivision",
-      "exemptions": "This subdivision shall not apply to a security collected or demanded by the landlord before July 1,"
+      "exemptions": "This subdivision shall not apply to a security collected or demanded by the landlord before July 1,",
+      "quote_start_offset": 23073,
+      "quote_end_offset": 23250
     },
     {
       "team_rule_id": "r-0064",
@@ -2162,7 +2288,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 153,
+      "quote_end_offset": 376
     },
     {
       "team_rule_id": "r-0065",
@@ -2195,7 +2323,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 570,
+      "quote_end_offset": 686
     },
     {
       "team_rule_id": "r-0066",
@@ -2228,7 +2358,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 1898,
+      "quote_end_offset": 2270
     },
     {
       "team_rule_id": "r-0067",
@@ -2261,7 +2393,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 4106,
+      "quote_end_offset": 4262
     },
     {
       "team_rule_id": "r-0068",
@@ -2294,7 +2428,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 4569,
+      "quote_end_offset": 4715
     },
     {
       "team_rule_id": "r-0069",
@@ -2327,7 +2463,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 3424,
+      "quote_end_offset": 3582
     },
     {
       "team_rule_id": "r-0070",
@@ -2380,7 +2518,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 1934,
+      "quote_end_offset": 2185
     },
     {
       "team_rule_id": "r-0071",
@@ -2433,7 +2573,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 2186,
+      "quote_end_offset": 2335
     },
     {
       "team_rule_id": "r-0072",
@@ -2486,7 +2628,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 257,
+      "quote_end_offset": 418
     },
     {
       "team_rule_id": "r-0073",
@@ -2539,7 +2683,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 421,
+      "quote_end_offset": 531
     },
     {
       "team_rule_id": "r-0074",
@@ -2579,7 +2725,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 425,
+      "quote_end_offset": 586
     },
     {
       "team_rule_id": "r-0075",
@@ -2612,7 +2760,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 443,
+      "quote_end_offset": 723
     },
     {
       "team_rule_id": "r-0076",
@@ -2645,7 +2795,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 432,
+      "quote_end_offset": 774
     },
     {
       "team_rule_id": "r-0077",
@@ -2678,7 +2830,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 2184,
+      "quote_end_offset": 2399
     },
     {
       "team_rule_id": "r-0078",
@@ -2711,7 +2865,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 23270,
+      "quote_end_offset": 23550
     },
     {
       "team_rule_id": "r-0079",
@@ -2744,7 +2900,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:56 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 616,
+      "quote_end_offset": 775
     },
     {
       "team_rule_id": "r-0080",
@@ -2777,7 +2935,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:56 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 1726,
+      "quote_end_offset": 1875
     },
     {
       "team_rule_id": "r-0081",
@@ -2810,7 +2970,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:54 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 439,
+      "quote_end_offset": 719
     },
     {
       "team_rule_id": "r-0082",
@@ -2843,7 +3005,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "penalty of up to $500 for a first offense, up to $750 for a second offense, and up to $1,000 for each subsequent offense, which shall be collected and enforced by summary proceedings pursuant to the \"Penalty Enforcement Law of 1999,\""
+      "penalty": "penalty of up to $500 for a first offense, up to $750 for a second offense, and up to $1,000 for each subsequent offense, which shall be collected and enforced by summary proceedings pursuant to the \"Penalty Enforcement Law of 1999,\"",
+      "quote_start_offset": 427,
+      "quote_end_offset": 612
     },
     {
       "team_rule_id": "r-0083",
@@ -2876,7 +3040,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain"
+      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
+      "quote_start_offset": 68572,
+      "quote_end_offset": 68776
     },
     {
       "team_rule_id": "r-0084",
@@ -2909,7 +3075,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "liable for damages to the tenant"
+      "penalty": "liable for damages to the tenant",
+      "quote_start_offset": 113872,
+      "quote_end_offset": 114155
     },
     {
       "team_rule_id": "r-0085",
@@ -2942,7 +3110,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "liable for damages to the tenant"
+      "penalty": "liable for damages to the tenant",
+      "quote_start_offset": 116818,
+      "quote_end_offset": 117196
     },
     {
       "team_rule_id": "r-0086",
@@ -2975,7 +3145,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "liable for damages to the tenant"
+      "penalty": "liable for damages to the tenant",
+      "quote_start_offset": 117832,
+      "quote_end_offset": 118190
     },
     {
       "team_rule_id": "r-0087",
@@ -3008,7 +3180,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "liable for damages to the tenant"
+      "penalty": "liable for damages to the tenant",
+      "quote_start_offset": 118264,
+      "quote_end_offset": 118519
     },
     {
       "team_rule_id": "r-0088",
@@ -3041,7 +3215,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain"
+      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
+      "quote_start_offset": 118627,
+      "quote_end_offset": 118910
     },
     {
       "team_rule_id": "r-0089",
@@ -3074,7 +3250,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain"
+      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
+      "quote_start_offset": 119205,
+      "quote_end_offset": 119488
     },
     {
       "team_rule_id": "r-0090",
@@ -3119,7 +3297,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 3509,
+      "quote_end_offset": 3843
     },
     {
       "team_rule_id": "r-0091",
@@ -3148,7 +3328,9 @@
       },
       "retrieved_at": "2026-10-01 22:56 UTC",
       "penalty": "None stated in source document",
-      "exemptions": "None stated in source document"
+      "exemptions": "None stated in source document",
+      "quote_start_offset": 1455,
+      "quote_end_offset": 1636
     },
     {
       "team_rule_id": "r-0092",
@@ -3181,7 +3363,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this"
+      "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this",
+      "quote_start_offset": 10256,
+      "quote_end_offset": 10413
     },
     {
       "team_rule_id": "r-0093",
@@ -3214,7 +3398,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this"
+      "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this",
+      "quote_start_offset": 18470,
+      "quote_end_offset": 18584
     },
     {
       "team_rule_id": "r-0094",
@@ -3247,7 +3433,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this"
+      "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this",
+      "quote_start_offset": 25274,
+      "quote_end_offset": 25615
     },
     {
       "team_rule_id": "r-0095",
@@ -3280,7 +3468,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this"
+      "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this",
+      "quote_start_offset": 26427,
+      "quote_end_offset": 26780
     },
     {
       "team_rule_id": "r-0096",
@@ -3313,7 +3503,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this"
+      "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this",
+      "quote_start_offset": 30990,
+      "quote_end_offset": 31273
     },
     {
       "team_rule_id": "r-0097",
@@ -3342,7 +3534,9 @@
       },
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this",
-      "exemptions": "None stated in source document"
+      "exemptions": "None stated in source document",
+      "quote_start_offset": 752,
+      "quote_end_offset": 1078
     },
     {
       "team_rule_id": "r-0098",
@@ -3375,7 +3569,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 390,
+      "quote_end_offset": 688
     },
     {
       "team_rule_id": "r-0099",
@@ -3408,7 +3604,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 689,
+      "quote_end_offset": 969
     },
     {
       "team_rule_id": "r-0100",
@@ -3461,7 +3659,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 258,
+      "quote_end_offset": 380
     },
     {
       "team_rule_id": "r-0101",
@@ -3494,7 +3694,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 572,
+      "quote_end_offset": 708
     },
     {
       "team_rule_id": "r-0102",
@@ -3527,7 +3729,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 198,
+      "quote_end_offset": 389
     },
     {
       "team_rule_id": "r-0103",
@@ -3560,7 +3764,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 2073,
+      "quote_end_offset": 2132
     },
     {
       "team_rule_id": "r-0104",
@@ -3613,7 +3819,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 346,
+      "quote_end_offset": 413
     },
     {
       "team_rule_id": "r-0105",
@@ -3646,7 +3854,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 414,
+      "quote_end_offset": 483
     },
     {
       "team_rule_id": "r-0106",
@@ -3675,7 +3885,9 @@
       },
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
-      "exemptions": "None stated in source document"
+      "exemptions": "None stated in source document",
+      "quote_start_offset": 3945,
+      "quote_end_offset": 4077
     },
     {
       "team_rule_id": "r-0107",
@@ -3704,7 +3916,9 @@
       },
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
-      "exemptions": "None stated in source document"
+      "exemptions": "None stated in source document",
+      "quote_start_offset": 4309,
+      "quote_end_offset": 4483
     },
     {
       "team_rule_id": "r-0108",
@@ -3737,7 +3951,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 886,
+      "quote_end_offset": 1080
     },
     {
       "team_rule_id": "r-0109",
@@ -3772,7 +3988,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 1208,
+      "quote_end_offset": 1428
     },
     {
       "team_rule_id": "r-0110",
@@ -3825,7 +4043,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 2701,
+      "quote_end_offset": 2817
     },
     {
       "team_rule_id": "r-0111",
@@ -3858,7 +4078,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 3358,
+      "quote_end_offset": 3527
     },
     {
       "team_rule_id": "r-0112",
@@ -3891,7 +4113,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 13010,
+      "quote_end_offset": 13233
     },
     {
       "team_rule_id": "r-0113",
@@ -3924,7 +4148,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 20162,
+      "quote_end_offset": 20404
     },
     {
       "team_rule_id": "r-0114",
@@ -3957,7 +4183,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 23432,
+      "quote_end_offset": 23693
     },
     {
       "team_rule_id": "r-0115",
@@ -3997,7 +4225,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 26542,
+      "quote_end_offset": 26790
     },
     {
       "team_rule_id": "r-0116",
@@ -4030,7 +4260,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 31067,
+      "quote_end_offset": 31462
     },
     {
       "team_rule_id": "r-0117",
@@ -4063,7 +4295,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 37389,
+      "quote_end_offset": 37758
     },
     {
       "team_rule_id": "r-0118",
@@ -4108,7 +4342,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 4396,
+      "quote_end_offset": 4702
     },
     {
       "team_rule_id": "r-0119",
@@ -4141,7 +4377,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain"
+      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
+      "quote_start_offset": 139459,
+      "quote_end_offset": 139742
     },
     {
       "team_rule_id": "r-0120",
@@ -4174,7 +4412,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain"
+      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
+      "quote_start_offset": 139955,
+      "quote_end_offset": 140237
     },
     {
       "team_rule_id": "r-0121",
@@ -4219,7 +4459,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 3876,
+      "quote_end_offset": 4256
     },
     {
       "team_rule_id": "r-0122",
@@ -4252,7 +4494,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 2520,
+      "quote_end_offset": 2800
     },
     {
       "team_rule_id": "r-0123",
@@ -4285,7 +4529,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain"
+      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
+      "quote_start_offset": 70164,
+      "quote_end_offset": 70348
     },
     {
       "team_rule_id": "r-0124",
@@ -4318,7 +4564,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 3861,
+      "quote_end_offset": 4114
     },
     {
       "team_rule_id": "r-0125",
@@ -4351,7 +4599,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 23432,
+      "quote_end_offset": 23673
     },
     {
       "team_rule_id": "r-0126",
@@ -4384,7 +4634,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 624,
+      "quote_end_offset": 992
     },
     {
       "team_rule_id": "r-0127",
@@ -4417,7 +4669,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 3054,
+      "quote_end_offset": 3130
     },
     {
       "team_rule_id": "r-0128",
@@ -4470,7 +4724,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 2336,
+      "quote_end_offset": 2648
     },
     {
       "team_rule_id": "r-0129",
@@ -4503,7 +4759,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain"
+      "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
+      "quote_start_offset": 23883,
+      "quote_end_offset": 24224
     },
     {
       "team_rule_id": "r-0130",
@@ -4538,7 +4796,9 @@
       "conflict_flag": false,
       "conflict_note": "Document is a staff report and proposed ordinance; status is pending City Council adoption.",
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "may seek injunctive relief, damages, or civil penalties of up to $1,000 per violation of this Division, in a civil action against a · may seek injunctive relief, damages, or civil penalties of up to $1,000 per violation against a"
+      "penalty": "may seek injunctive relief, damages, or civil penalties of up to $1,000 per violation of this Division, in a civil action against a · may seek injunctive relief, damages, or civil penalties of up to $1,000 per violation against a",
+      "quote_start_offset": 16017,
+      "quote_end_offset": 16167
     },
     {
       "team_rule_id": "r-0131",
@@ -4571,7 +4831,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 1122,
+      "quote_end_offset": 1292
     },
     {
       "team_rule_id": "r-0132",
@@ -4616,7 +4878,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 4313,
+      "quote_end_offset": 4593
     },
     {
       "team_rule_id": "r-0133",
@@ -4669,7 +4933,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 3318,
+      "quote_end_offset": 3513
     },
     {
       "team_rule_id": "r-0134",
@@ -4702,7 +4968,9 @@
       "conflict_flag": false,
       "conflict_note": "Document is a staff report and proposed ordinance; status is pending City Council adoption. Final passage date and effective date not yet determined as of document date (February 27, 2025). Ordinance would take effect 30 days after final passage.",
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "may seek injunctive relief, damages, or civil penalties of up to $1,000 per violation of this Division, in a civil action against a"
+      "penalty": "may seek injunctive relief, damages, or civil penalties of up to $1,000 per violation of this Division, in a civil action against a",
+      "quote_start_offset": 15520,
+      "quote_end_offset": 15623
     },
     {
       "team_rule_id": "r-0135",
@@ -4735,7 +5003,9 @@
       "conflict_flag": false,
       "conflict_note": "Document is a staff report and proposed ordinance; status is pending City Council adoption. Final passage date and effective date not yet determined as of document date (February 27, 2025).",
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "may seek injunctive relief, damages, or civil penalties of up to $1,000 per violation of this Division, in a civil action against a"
+      "penalty": "may seek injunctive relief, damages, or civil penalties of up to $1,000 per violation of this Division, in a civil action against a",
+      "quote_start_offset": 15628,
+      "quote_end_offset": 15759
     },
     {
       "team_rule_id": "r-0136",
@@ -4768,7 +5038,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 1545,
+      "quote_end_offset": 1708
     },
     {
       "team_rule_id": "r-0137",
@@ -4808,7 +5080,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 3043,
+      "quote_end_offset": 3292
     },
     {
       "team_rule_id": "r-0138",
@@ -4842,7 +5116,9 @@
       "conflict_note": "Possible preemption conflict with Jersey City and Hoboken local algorithmic bans once effective.",
       "alias_id": "NJ-ALG-01",
       "retrieved_at": "2026-10-01 22:56 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 3204,
+      "quote_end_offset": 3412
     },
     {
       "team_rule_id": "r-0139",
@@ -4875,7 +5151,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:35 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 196,
+      "quote_end_offset": 324
     },
     {
       "team_rule_id": "r-0140",
@@ -4909,7 +5187,9 @@
       "conflict_note": null,
       "alias_id": "MA-ALG-P1",
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 192,
+      "quote_end_offset": 235
     },
     {
       "team_rule_id": "r-0141",
@@ -4943,7 +5223,9 @@
       "conflict_note": null,
       "alias_id": "MA-ALG-P2",
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 192,
+      "quote_end_offset": 274
     },
     {
       "team_rule_id": "r-0142",
@@ -4977,7 +5259,9 @@
       "conflict_note": "Ballot-news page is link-only; status recorded as failed per challenge brief, anchored to c.40P corpus text.",
       "alias_id": "MA-RENT-P1",
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 425,
+      "quote_end_offset": 625
     },
     {
       "jurisdiction": "Hoboken, NJ",
@@ -5011,7 +5295,9 @@
       "alias_id": "HOB-ALG-01",
       "team_rule_id": "r-0143",
       "retrieved_at": "2026-10-01 22:56 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 3204,
+      "quote_end_offset": 3412
     },
     {
       "jurisdiction": "Jersey City, NJ",
@@ -5045,7 +5331,9 @@
       "alias_id": "JC-ALG-01",
       "team_rule_id": "r-0144",
       "retrieved_at": "2026-10-01 22:56 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 3204,
+      "quote_end_offset": 3412
     },
     {
       "team_rule_id": "r-0145",
@@ -5078,7 +5366,9 @@
       "conflict_flag": false,
       "conflict_note": null,
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 204,
+      "quote_end_offset": 462
     },
     {
       "jurisdiction": "Cambridge, MA",
@@ -5124,7 +5414,9 @@
       "alias_id": "CAM-FH-01",
       "team_rule_id": "r-0146",
       "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "injunctive relief, and seeking an award of damages, expenses and other"
+      "penalty": "injunctive relief, and seeking an award of damages, expenses and other",
+      "quote_start_offset": 6175,
+      "quote_end_offset": 6375
     },
     {
       "jurisdiction": "San Francisco, CA",
@@ -5158,7 +5450,9 @@
       "alias_id": "SF-FC-01",
       "team_rule_id": "r-0147",
       "retrieved_at": "2026-10-01 22:37 UTC",
-      "penalty": "None stated in source document"
+      "penalty": "None stated in source document",
+      "quote_start_offset": 5114,
+      "quote_end_offset": 5317
     }
   ]
 }
