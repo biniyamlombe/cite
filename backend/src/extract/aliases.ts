@@ -1,5 +1,5 @@
 /**
- * Stable alias IDs used by change_tests.json.
+ * Stable alias IDs used by change_tests.json and pack-honest soft-gap scaffolds.
  * Matched after extraction by citation / title / jurisdiction heuristics.
  */
 export const CHANGE_TEST_ALIASES = [
@@ -12,7 +12,15 @@ export const CHANGE_TEST_ALIASES = [
   "MA-RENT-P1",
 ] as const;
 
-export type AliasId = (typeof CHANGE_TEST_ALIASES)[number];
+/** Soft-gap screening scaffolds from thin-but-capturable corpus pages. */
+export const SOFT_GAP_ALIASES = ["CAM-FH-01", "SF-FC-01"] as const;
+
+export const STABLE_ALIASES = [
+  ...CHANGE_TEST_ALIASES,
+  ...SOFT_GAP_ALIASES,
+] as const;
+
+export type AliasId = (typeof STABLE_ALIASES)[number];
 
 export function assignAliases<
   T extends {
@@ -65,10 +73,22 @@ export function assignAliases<
       (r.jurisdiction === "MA" || /Massachusetts/i.test(r.jurisdiction)) &&
       (r.status === "failed" ||
         /ballot|IP\s*25|Initiative/i.test(`${r.title} ${r.citation} ${r.requirement}`)),
+    "CAM-FH-01": (r) =>
+      r.category === "screening_restrictions" &&
+      /Cambridge/i.test(r.jurisdiction) &&
+      /Fair Housing|source of income|Section 8/i.test(
+        `${r.title} ${r.citation} ${r.requirement}`,
+      ),
+    "SF-FC-01": (r) =>
+      r.category === "screening_restrictions" &&
+      /San Francisco/i.test(r.jurisdiction) &&
+      /Fair Chance|arrest or conviction|criminal history/i.test(
+        `${r.title} ${r.citation} ${r.requirement}`,
+      ),
   };
 
   const out = rules.map((r) => ({ ...r }));
-  for (const alias of CHANGE_TEST_ALIASES) {
+  for (const alias of STABLE_ALIASES) {
     const hit = out.find((r) => !r.alias_id && matchers[alias](r));
     if (hit) hit.alias_id = alias;
   }

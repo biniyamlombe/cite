@@ -1,6 +1,9 @@
 /**
  * Ensures change-test alias rules exist when primary city ordinance pages
- * are link-only in the pack. Quotes are always taken from capturable corpus text.
+ * are link-only in the pack. Also upserts soft-gap screening rules from thin
+ * capturable pages (D029 / D078) that extract often skips.
+ *
+ * Quotes are always taken from capturable corpus text.
  *
  * HOB-ALG-01 / JC-ALG-01 are upserted every run so honesty metadata (confidence,
  * conflict_note, primary link-only URLs) cannot drift after a live extract.
@@ -64,6 +67,15 @@ function formatPrimaryLinks(urls: string[]): string {
   return `Primary sources (link-only, no capturable body): ${shown}${more}.`;
 }
 
+function nextTeamRuleId(rules: RuleRecord[]): string {
+  let max = 0;
+  for (const r of rules) {
+    const m = /^r-(\d+)$/.exec(r.team_rule_id);
+    if (m) max = Math.max(max, Number(m[1]));
+  }
+  return `r-${String(max + 1).padStart(4, "0")}`;
+}
+
 function upsertByAlias(
   rules: RuleRecord[],
   aliasId: string,
@@ -81,7 +93,7 @@ function upsertByAlias(
   } else {
     rules.push({
       ...patch,
-      team_rule_id: patch.team_rule_id || "tmp",
+      team_rule_id: patch.team_rule_id || nextTeamRuleId(rules),
       alias_id: aliasId,
     } as RuleRecord);
   }
@@ -153,7 +165,7 @@ export async function ensureChangeTestAliases(
 
     if (!have.has("NJ-ALG-01") && algQuote) {
       out.push({
-        team_rule_id: "tmp",
+        team_rule_id: nextTeamRuleId(out),
         jurisdiction: "NJ",
         level: "state",
         category: "algorithmic_rent_setting",
@@ -221,7 +233,7 @@ export async function ensureChangeTestAliases(
     );
     if (span) {
       out.push({
-        team_rule_id: "tmp",
+        team_rule_id: nextTeamRuleId(out),
         jurisdiction: "MA",
         level: "state",
         category: "rent_increase_limits",
@@ -246,6 +258,90 @@ export async function ensureChangeTestAliases(
         alias_id: "MA-RENT-P1",
       });
       have.add("MA-RENT-P1");
+    }
+  }
+
+  // Soft gaps: capturable pages extract often skips (portal chrome + FAQ text).
+  const cam = await loadDocById("D029");
+  if (cam) {
+    const fhQuote =
+      quoteFrom(
+        cam.body,
+        /The Fair Housing Ordinance prohibits discrimination in real estate transactions such as:/i,
+      ) ||
+      quoteFrom(
+        cam.body,
+        /Source of Income, includes Section 8 and public benefits/i,
+        30,
+      );
+    if (fhQuote) {
+      upsertByAlias(out, "CAM-FH-01", {
+        jurisdiction: "Cambridge, MA",
+        level: "city",
+        category: "screening_restrictions",
+        status: "in_force",
+        title:
+          "Cambridge Fair Housing Ordinance — source of income and rental discrimination",
+        requirement:
+          "Cambridge's Fair Housing Ordinance prohibits discrimination in rental transactions " +
+          "(including viewing or renting an apartment) based on protected categories that include " +
+          "source of income (Section 8 and public benefits).",
+        key_value: null,
+        coverage_conditions:
+          "Housing / real estate transactions in Cambridge, MA (owner-occupied 2-family exemption noted in source FAQ)",
+        exemptions: "Exemption noted for 2-family dwellings when the owner lives there",
+        overrides: [],
+        interaction: null,
+        effective_date: null,
+        citation: "Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        source_doc_id: cam.doc_id,
+        source_url: cam.url,
+        quoted_span: fhQuote,
+        confidence: 0.65,
+        conflict_flag: false,
+        conflict_note:
+          "Quoted from capturable Cambridge HRC page (D029). Pack text is FAQ/summary of the ordinance, not the full municipal code body.",
+        alias_id: "CAM-FH-01",
+      });
+    }
+  }
+
+  const sfHrc = await loadDocById("D078");
+  if (sfHrc) {
+    const fcQuote = quoteFrom(
+      sfHrc.body,
+      /San Francisco's Fair Chance Ordinance protects residents with arrest or conviction history in affordable housing decisions\./i,
+      40,
+    );
+    if (fcQuote) {
+      upsertByAlias(out, "SF-FC-01", {
+        jurisdiction: "San Francisco, CA",
+        level: "city",
+        category: "screening_restrictions",
+        status: "in_force",
+        title:
+          "San Francisco Fair Chance Ordinance — affordable housing criminal history",
+        requirement:
+          "San Francisco's Fair Chance Ordinance protects residents with arrest or conviction history " +
+          "in affordable housing decisions. Pack capture is a one-sentence HRC summary, not the full ordinance.",
+        key_value: null,
+        coverage_conditions:
+          "Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)",
+        exemptions: null,
+        overrides: [],
+        interaction: null,
+        effective_date: null,
+        citation: "San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        source_doc_id: sfHrc.doc_id,
+        source_url: sfHrc.url,
+        quoted_span: fcQuote,
+        confidence: 0.4,
+        conflict_flag: true,
+        conflict_note:
+          "D078 pack page is mostly agency chrome; quoted_span is the only Fair Chance sentence captured. " +
+          "Do not treat as a full ordinance extract — human review of the primary ordinance is recommended.",
+        alias_id: "SF-FC-01",
+      });
     }
   }
 
