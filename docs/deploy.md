@@ -1,61 +1,70 @@
 # Deploy Cite
 
-**UI → Vercel** · **API → Render** (Docker) · optional **Fly.io** if you have billing
+**UI → Vercel** · **API → Google Cloud Run**
 
-The frontend is display-only. Set `VITE_API_URL` to the API URL so Lookup/Change Radar hit live coverage.
+The frontend is display-only. Set `VITE_API_URL` to the Cloud Run URL so Lookup/Change Radar hit live coverage.
 
-## 1. Backend (Render — free Node web service)
+## 1. Backend (Google Cloud Run)
 
-Repo: [`biniyamlombe/cite`](https://github.com/biniyamlombe/cite) (`render.yaml` at root).
-
-### One-time in the dashboard
-
-1. Open [New → Blueprint](https://dashboard.render.com/select-repo?type=blueprint) (or **New → Web Service**).
-2. Connect GitHub and select **`biniyamlombe/cite`**, branch `main`.
-3. Blueprint reads `render.yaml` and creates **cite-api** (free Node).
-   - Or manual Web Service settings:
-     - **Runtime:** Node
-     - **Build:** `npm ci && npm run build -w shared`
-     - **Start:** `npm run start -w backend`
-     - **Health check path:** `/health`
-     - **Plan:** Free
-4. Deploy → copy URL (e.g. `https://cite-api.onrender.com`).
-5. Optional env: `CORS_ORIGIN=https://YOUR-APP.vercel.app`
+Prereqs: [gcloud CLI](https://cloud.google.com/sdk/docs/install) (Homebrew: `brew install --cask gcloud-cli`).
 
 ```bash
-curl -sS https://cite-api.onrender.com/health
-curl -sS "https://cite-api.onrender.com/lookup/A0005?as_of=2026-10-01" | head -c 200
+# One-time auth + project
+gcloud auth login
+gcloud projects create cite-api-YOURNICK --name="Cite API"   # or reuse an existing project
+gcloud config set project YOUR_PROJECT_ID
+gcloud billing projects link YOUR_PROJECT_ID --billing-account=ACCOUNT_ID  # free tier still needs billing linked
+
+# Deploy (builds Dockerfile via Cloud Build)
+bash scripts/deploy-cloudrun.sh
 ```
 
-Free services sleep after ~15 min idle; first hit can take 30–60s. A `Dockerfile` remains for paid Docker / Fly if you prefer.
+Defaults: service `cite-api`, region `us-central1`, 512Mi, scale-to-zero.
 
-### Alternative: Fly.io
+```bash
+# Override if needed
+GCP_PROJECT=my-project GCP_REGION=us-east1 bash scripts/deploy-cloudrun.sh
 
-Needs a payment method (`flyctl deploy`). App name in `fly.toml`: `cite-api`.
+curl -sS https://cite-api-xxxxx-uc.a.run.app/health
+```
+
+Optional env after the Vercel URL exists:
+
+```bash
+gcloud run services update cite-api \
+  --region=us-central1 \
+  --set-env-vars="NODE_ENV=production,CORS_ORIGIN=https://YOUR-APP.vercel.app"
+```
+
+`*.vercel.app` and `*.run.app` are allowed in API CORS by default.
+
+**Billing note:** Cloud Run has a generous free tier, but Google usually requires a billing account linked to the project (you won’t be charged if you stay in free limits).
 
 ## 2. Frontend (Vercel)
 
 ```bash
 cd frontend
-vercel link --yes --project cite --scope biniyamlombe   # first time
+vercel link --yes --project cite
 vercel env add VITE_API_URL production
-# paste: https://cite-api.onrender.com   (or your Fly URL)
+# paste the Cloud Run URL from step 1
 
 vercel --prod
 ```
 
-Build uses `NITRO_PRESET=vercel` (see `frontend/vercel.json`).
-
-`*.vercel.app` and `*.onrender.com` are allowed in API CORS by default.
-
 ## 3. Smoke
 
 ```bash
+API=https://cite-api-xxxxx-uc.a.run.app
 curl -sS "$API/health"
-curl -sS "$API/lookup/A0005?as_of=2026-10-01" | jq '.results|length'
+curl -sS "$API/lookup/A0005?as_of=2026-10-01" | head -c 200
 # Open the Vercel URL → Connected badge → A0005 / SA0001 / Change Radar
 ```
 
 ## Offline fallback
 
-If `VITE_API_URL` is unset, the UI uses corpus-backed snapshots (no live API). Good for a UI-only preview while the API is still deploying.
+If `VITE_API_URL` is unset, the UI uses corpus-backed snapshots (no live API).
+
+## Other API hosts (optional)
+
+- **Render** — `render.yaml` free Node service
+- **Fly.io** — `Dockerfile` + `fly.toml` (billing required on this account)

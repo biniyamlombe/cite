@@ -15,8 +15,9 @@ COPY data ./data
 COPY outputs ./outputs
 
 ENV NODE_ENV=production
-ENV PORT=4000
-EXPOSE 4000
+# Cloud Run sets PORT; default locally / other hosts
+ENV PORT=8080
+EXPOSE 8080
 
 # Build shared package for workspace import
 RUN npm run build -w shared
