@@ -45,7 +45,7 @@ Current checked-in artifacts (re-run `npm run pipeline` / `npm run submission:ch
 
 | Artifact | Location | Snapshot |
 |----------|----------|----------|
-| Extracted rules | `outputs/rules.json` | **147** rules · six required categories · change-test aliases present |
+| Extracted rules | `outputs/rules.json` | **145** rules · six required categories · change-test aliases present |
 | Address lookups | `outputs/lookups.json` | **500** pack addresses @ `2026-10-01` |
 | Change tests | `outputs/changes.json` | **T1–T5** (`T1=250`, `T2=90`, `T3=140` +90 conflicts, `T4=110`, `T5=0`) |
 | Geocode cache | `outputs/geocode_cache.json` | Census + FIPS / place GEOID enrichment |

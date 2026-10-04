@@ -76,7 +76,7 @@ Call out:
 - **Open legal question** chip on NJ FAIR / local overlap (pack §9 preemption)
 - Open **Version history** on the Hoboken alias — multiple versions from re-extract/scaffold hardening
 
-Optional: flip as-of toward `2027-07-02` and mention NJ FAIR (`NJ-ALG-01`) NTE → applies + local conflict (Change Radar T3).
+Optional, time travel: in the **Effective-date timeline**, click **Day before** and then **On this date** for July 1, 2027. The backend re-evaluates NJ FAIR (`NJ-ALG-01`), which goes from "Not in effect yet" to "Appears to apply". Open the rule: the **Effective date** proof shows "approved July 20, 2026" + the twelfth-month clause = July 1, 2027, computed from the statute's own words (Change Radar T3 shows the local conflict).
 
 ---
 
