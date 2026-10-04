@@ -40,35 +40,47 @@ function ExtractStages({ pending, done }: { pending: boolean; done: boolean }) {
   }, [pending]);
   const active = pending ? tick % 3 : -1;
 
+  const statusLabel = pending
+    ? stages[active]?.label ?? t("pipeline.running")
+    : done
+      ? t("pipeline.stepRules")
+      : t("pipeline.empty");
+
   return (
-    <ol className="flex flex-wrap items-center gap-2 sm:gap-3">
-      {stages.map((s, i) => {
-        const complete = done || (pending && i < active);
-        const current = pending && i === active;
-        return (
-          <li key={s.key} className="flex items-center gap-2">
-            {i > 0 && <span className="hidden text-muted-foreground/40 sm:inline" aria-hidden>→</span>}
-            <div
-              className={cn(
-                "inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm transition-colors",
-                complete && "border-applies/30 bg-applies-soft text-applies",
-                current && "border-ring bg-accent text-ink stage-pulse",
-                !complete && !current && "bg-card text-muted-foreground",
-              )}
-            >
-              {complete ? (
-                <CheckCircle2 className="size-3.5 stage-check" />
-              ) : current ? (
-                <Loader2 className="size-3.5 animate-spin" />
-              ) : (
-                <span className="font-mono text-[11px] tabular-nums">{i + 1}</span>
-              )}
-              {s.label}
-            </div>
-          </li>
-        );
-      })}
-    </ol>
+    <div>
+      <p className="sr-only" aria-live="polite">
+        {statusLabel}
+      </p>
+      <ol className="flex flex-wrap items-center gap-2 sm:gap-3" aria-label={t("pipeline.title")}>
+        {stages.map((s, i) => {
+          const complete = done || (pending && i < active);
+          const current = pending && i === active;
+          return (
+            <li key={s.key} className="flex items-center gap-2">
+              {i > 0 && <span className="hidden text-muted-foreground/40 sm:inline" aria-hidden="true">→</span>}
+              <div
+                aria-current={current ? "step" : undefined}
+                className={cn(
+                  "inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm transition-colors duration-200",
+                  complete && "border-applies/30 bg-applies-soft text-applies",
+                  current && "border-ring bg-accent text-ink stage-pulse",
+                  !complete && !current && "bg-card text-muted-foreground",
+                )}
+              >
+                {complete ? (
+                  <CheckCircle2 aria-hidden="true" className="size-3.5 stage-check" />
+                ) : current ? (
+                  <Loader2 aria-hidden="true" className="size-3.5 animate-spin" />
+                ) : (
+                  <span className="font-mono text-[11px] tabular-nums">{i + 1}</span>
+                )}
+                {s.label}
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
   );
 }
 
@@ -119,7 +131,11 @@ function PipelinePage() {
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
                 placeholder={t("pipeline.filter")}
-                className="w-full max-w-xs rounded-full border border-border/80 bg-paper/80 px-3.5 py-2 text-sm text-ink outline-none focus:border-ring sm:w-56"
+                name="corpus-filter"
+                autoComplete="off"
+                spellCheck={false}
+                aria-label={t("pipeline.filter")}
+                className="w-full max-w-xs rounded-full border border-border/80 bg-paper/80 px-3.5 py-2 text-sm text-ink outline-none transition-[border-color,box-shadow] focus:border-ring focus-visible:outline-none sm:w-56"
               />
             ) : (
               <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
@@ -177,11 +193,12 @@ function PipelinePage() {
                 </select>
               </label>
               <button
+                type="button"
                 onClick={() => run.mutate(docId)}
                 disabled={!docId || run.isPending || !filtered.length}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-transform duration-200 hover:bg-primary/92 active:scale-[0.98] disabled:opacity-60"
+                className="inline-flex touch-manipulation items-center justify-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground shadow-sm transition-[transform,background-color] duration-200 hover:bg-primary/92 active:scale-[0.98] disabled:opacity-60"
               >
-                {run.isPending ? <Loader2 className="size-4 animate-spin" /> : <Play className="size-4" />}
+                {run.isPending ? <Loader2 aria-hidden="true" className="size-4 animate-spin" /> : <Play aria-hidden="true" className="size-4" />}
                 {run.isPending ? t("pipeline.running") : t("pipeline.run")}
               </button>
             </div>
