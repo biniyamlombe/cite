@@ -38,7 +38,7 @@ const ENDPOINTS: ReadonlyArray<{
     try: "/addresses?q=A0005&limit=5",
   },
   { method: "GET", path: "/rules", note: "Full extracted rule catalog" },
-  { method: "GET", path: "/changes", note: "Module C change tests T1–T6" },
+  { method: "GET", path: "/changes", note: "Change tests T1–T6" },
   { method: "GET", path: "/corpus/docs", note: "Capturable corpus for Pipeline" },
   {
     method: "POST",
@@ -178,14 +178,14 @@ export function renderConsolePage(stats: ConsoleStats): string {
       overflow: hidden; animation: rise 0.55s var(--ease) 0.18s both;
     }
     .panel-head {
-      display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
       padding: 1.1rem 1.25rem; border-bottom: 1px solid var(--line);
     }
     .panel-head h2 {
       margin: 0; font-family: "Source Serif 4", Georgia, serif;
       font-size: 1.35rem; font-weight: 600; letter-spacing: -0.02em;
     }
-    .panel-head span {
+    .panel-head .meta {
+      display: block; margin-top: 0.35rem;
       font-family: "IBM Plex Mono", monospace; font-size: 0.68rem;
       color: var(--muted); letter-spacing: 0.04em;
     }
@@ -206,7 +206,8 @@ export function renderConsolePage(stats: ConsoleStats): string {
     .method-get { background: var(--primary-soft); color: var(--get); }
     .method-post { background: oklch(0.96 0.04 85); color: var(--post); }
     .path {
-      font-family: "IBM Plex Mono", monospace; font-size: 0.84rem; font-weight: 500;
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 0.84rem; font-weight: 500; letter-spacing: -0.01em;
       color: var(--ink); text-decoration: none;
     }
     a.path:hover { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
@@ -282,7 +283,7 @@ export function renderConsolePage(stats: ConsoleStats): string {
     <section class="panel">
       <div class="panel-head">
         <h2>Endpoints</h2>
-        <span>${esc(stats.aliases)} change-test aliases wired</span>
+        <span class="meta">${esc(stats.aliases)} change-test aliases wired</span>
       </div>
       <table>
         <thead>
