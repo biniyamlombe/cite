@@ -10,18 +10,36 @@ function AccountButton() {
   const { user, ready } = useAuth();
   const t = useT();
   if (!ready) return null;
-  if (!user) return <Link to="/auth" className="rounded-md border px-2.5 py-1 text-xs text-ink hover:bg-secondary">{t("nav.signin")}</Link>;
+  if (!user) {
+    return (
+      <Link
+        to="/auth"
+        className="rounded-full border border-border/80 bg-paper/80 px-3 py-1 text-xs text-ink transition-colors duration-200 hover:bg-secondary"
+      >
+        {t("nav.signin")}
+      </Link>
+    );
+  }
   return (
-    <button onClick={() => supabase.auth.signOut()} title={user.email ?? ""}
-      className="rounded-md border px-2.5 py-1 text-xs text-muted-foreground hover:text-ink">{t("nav.signout")}</button>
+    <button
+      onClick={() => supabase.auth.signOut()}
+      title={user.email ?? ""}
+      className="rounded-full border border-border/80 bg-paper/80 px-3 py-1 text-xs text-muted-foreground transition-colors duration-200 hover:text-ink"
+    >
+      {t("nav.signout")}
+    </button>
   );
 }
 
 export function Wordmark() {
   return (
-    <Link to="/" className="flex items-baseline gap-1 text-ink">
-      <span className="font-serif text-2xl font-semibold tracking-tight">Cite</span>
-      <sup className="font-mono text-[10px] text-primary">[1]</sup>
+    <Link to="/" className="group flex items-baseline gap-1 text-ink">
+      <span className="font-serif text-[1.65rem] font-semibold leading-none tracking-[-0.03em] transition-colors duration-200 group-hover:text-primary">
+        Cite
+      </span>
+      <sup className="font-mono text-[10px] font-medium text-primary/80 transition-transform duration-300 group-hover:-translate-y-px">
+        [1]
+      </sup>
     </Link>
   );
 }
@@ -81,8 +99,8 @@ function MoreNav() {
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen((v) => !v)}
-        className={`rounded-md px-3 py-1.5 text-muted-foreground transition-colors hover:text-ink ${
-          moreActive || open ? "bg-secondary !text-ink font-medium" : ""
+        className={`rounded-full px-3 py-1.5 text-muted-foreground transition-all duration-200 hover:text-ink ${
+          moreActive || open ? "bg-secondary text-ink font-medium shadow-sm" : ""
         }`}
       >
         {t("nav.more")}
@@ -90,7 +108,7 @@ function MoreNav() {
       {open && (
         <div
           role="menu"
-          className="absolute left-0 top-full z-50 mt-1 min-w-[10rem] rounded-md border bg-background py-1 shadow-sm"
+          className="absolute left-0 top-full z-50 mt-2 min-w-[11rem] overflow-hidden rounded-xl border border-border/80 bg-popover/95 py-1 shadow-dropdown backdrop-blur-xl"
         >
           {MORE_NAV.map((n) => (
             <Link
@@ -98,7 +116,7 @@ function MoreNav() {
               to={n.to}
               role="menuitem"
               onClick={() => setOpen(false)}
-              className="block px-3 py-1.5 text-sm text-muted-foreground hover:bg-secondary hover:text-ink"
+              className="block px-3.5 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-ink"
               activeProps={{ className: "bg-secondary !text-ink font-medium" }}
             >
               {t(n.key)}
@@ -113,10 +131,22 @@ function MoreNav() {
 function LocaleToggle() {
   const { locale, setLocale } = useLocale();
   return (
-    <div className="inline-flex rounded-md border p-0.5 font-mono text-[11px]" role="group" aria-label="Language">
+    <div
+      className="inline-flex rounded-full border border-border/80 bg-paper/70 p-0.5 font-mono text-[11px]"
+      role="group"
+      aria-label="Language"
+    >
       {(["en", "es"] as const).map((l) => (
-        <button key={l} onClick={() => setLocale(l)} aria-pressed={locale === l}
-          className={`rounded-sm px-2 py-0.5 uppercase ${locale === l ? "bg-secondary text-ink" : "text-muted-foreground hover:text-ink"}`}>{l}</button>
+        <button
+          key={l}
+          onClick={() => setLocale(l)}
+          aria-pressed={locale === l}
+          className={`rounded-full px-2.5 py-0.5 uppercase transition-all duration-200 ${
+            locale === l ? "bg-ink text-paper shadow-sm" : "text-muted-foreground hover:text-ink"
+          }`}
+        >
+          {l}
+        </button>
       ))}
     </div>
   );
@@ -129,58 +159,63 @@ export function SiteHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   useEffect(() => setMenu(false), [pathname]);
   return (
-    <header className="print:hidden sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-2.5 sm:gap-6 sm:px-6">
-        <Wordmark />
-        <nav aria-label="Primary" className="hidden min-w-0 flex-1 flex-wrap items-center gap-0.5 text-sm md:flex">
-          {PRIMARY_NAV.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              activeOptions={{ exact: n.to === "/" }}
-              className="rounded-md px-2.5 py-1.5 text-muted-foreground transition-colors hover:text-ink"
-              activeProps={{ className: "bg-secondary !text-ink font-medium" }}
+    <header className="print:hidden sticky top-0 z-40 px-3 pt-3 sm:px-4 sm:pt-4">
+      <div className="mx-auto max-w-6xl rounded-2xl border border-border/70 bg-paper/80 shadow-island backdrop-blur-xl">
+        <div className="flex items-center gap-3 px-3.5 py-2.5 sm:gap-5 sm:px-5">
+          <Wordmark />
+          <nav aria-label="Primary" className="hidden min-w-0 flex-1 flex-wrap items-center gap-0.5 text-sm md:flex">
+            {PRIMARY_NAV.map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                activeOptions={{ exact: n.to === "/" }}
+                className="rounded-full px-2.5 py-1.5 text-muted-foreground transition-all duration-200 hover:bg-secondary/80 hover:text-ink"
+                activeProps={{ className: "bg-secondary !text-ink font-medium shadow-sm" }}
+              >
+                {t(n.key)}
+              </Link>
+            ))}
+            <MoreNav />
+          </nav>
+          <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-2.5 md:ml-0">
+            <span
+              className={`hidden font-mono text-[10px] uppercase tracking-wider lg:inline ${
+                mode === "live" ? "text-applies" : "text-muted-foreground/80"
+              }`}
+              title={t(mode === "mock" ? "mode.mock" : "mode.live")}
             >
-              {t(n.key)}
-            </Link>
-          ))}
-          <MoreNav />
-        </nav>
-        <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-2.5 md:ml-0">
-          <span
-            className="hidden font-mono text-[10px] uppercase tracking-wider text-muted-foreground/80 lg:inline"
-            title={t(mode === "mock" ? "mode.mock" : "mode.live")}
-          >
-            {t(mode === "mock" ? "mode.mock" : "mode.live")}
-          </span>
-          <LocaleToggle />
-          <AccountButton />
-          <button
-            type="button"
-            onClick={() => setMenu((v) => !v)}
-            aria-expanded={menu}
-            aria-label={t("nav.menu")}
-            className="inline-flex size-10 items-center justify-center rounded-md border text-ink md:hidden"
-          >
-            {menu ? <X className="size-4" /> : <Menu className="size-4" />}
-          </button>
+              <span className="mr-1.5 inline-block size-1.5 rounded-full bg-current opacity-80" aria-hidden />
+              {t(mode === "mock" ? "mode.mock" : "mode.live")}
+            </span>
+            <LocaleToggle />
+            <AccountButton />
+            <button
+              type="button"
+              onClick={() => setMenu((v) => !v)}
+              aria-expanded={menu}
+              aria-label={t("nav.menu")}
+              className="inline-flex size-10 items-center justify-center rounded-full border border-border/80 text-ink transition-transform active:scale-[0.98] md:hidden"
+            >
+              {menu ? <X className="size-4" /> : <Menu className="size-4" />}
+            </button>
+          </div>
         </div>
+        {menu && (
+          <nav aria-label="Mobile" className="border-t border-border/60 px-3 py-2 md:hidden">
+            {[...PRIMARY_NAV, ...MORE_NAV].map((n) => (
+              <Link
+                key={n.to}
+                to={n.to}
+                activeOptions={{ exact: n.to === "/" }}
+                className="block rounded-lg px-3 py-2.5 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-ink"
+                activeProps={{ className: "bg-secondary !text-ink font-medium" }}
+              >
+                {t(n.key)}
+              </Link>
+            ))}
+          </nav>
+        )}
       </div>
-      {menu && (
-        <nav aria-label="Mobile" className="border-t px-4 py-2 md:hidden">
-          {[...PRIMARY_NAV, ...MORE_NAV].map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              activeOptions={{ exact: n.to === "/" }}
-              className="block rounded-md px-3 py-2.5 text-sm text-muted-foreground hover:bg-secondary hover:text-ink"
-              activeProps={{ className: "bg-secondary !text-ink font-medium" }}
-            >
-              {t(n.key)}
-            </Link>
-          ))}
-        </nav>
-      )}
     </header>
   );
 }
@@ -188,9 +223,9 @@ export function SiteHeader() {
 export function DisclaimerBar() {
   const t = useT();
   return (
-    <div className="print:static sticky bottom-0 z-30 border-t bg-paper/95 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center gap-2 px-4 py-2 text-xs text-muted-foreground sm:px-6">
-        <Scale className="size-3.5 shrink-0" />
+    <div className="print:static sticky bottom-0 z-30 px-3 pb-3 sm:px-4 sm:pb-4">
+      <div className="mx-auto flex max-w-6xl items-center gap-2 rounded-full border border-border/70 bg-paper/90 px-4 py-2 text-xs text-muted-foreground shadow-island backdrop-blur-xl">
+        <Scale className="size-3.5 shrink-0 text-primary/70" />
         {t("disclaimer")}
       </div>
     </div>
@@ -199,7 +234,7 @@ export function DisclaimerBar() {
 
 export function PageHeader({ eyebrow, title, children }: { eyebrow: string; title: string; children?: React.ReactNode }) {
   return (
-    <div className="mb-8">
+    <div className="mb-8 fade-up">
       <div className="eyebrow">{eyebrow}</div>
       <h1 className="mt-2 font-serif text-3xl text-ink sm:text-4xl">{title}</h1>
       {children && <div className="mt-3 max-w-2xl text-muted-foreground">{children}</div>}
