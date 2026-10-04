@@ -6,6 +6,7 @@ import { useT, useTx } from "@/lib/i18n";
 import { getCiteClient } from "@/lib/cite/client";
 import { PageHeader } from "@/components/cite/layout";
 import { CitationPanel } from "@/components/cite/rule";
+import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/pipeline")({
   head: () => ({
@@ -19,6 +20,56 @@ export const Route = createFileRoute("/pipeline")({
   component: PipelinePage,
 });
 
+const DEMO_DOC_HINTS = ["D069", "D001", "D002"];
+
+function ExtractStages({ pending, done }: { pending: boolean; done: boolean }) {
+  const t = useT();
+  const stages = [
+    { key: "source", label: t("pipeline.stageSource") },
+    { key: "validate", label: t("pipeline.stageValidate") },
+    { key: "rules", label: t("pipeline.stageRules") },
+  ] as const;
+  // While pending, cycle visual emphasis; when done, all complete.
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    if (!pending) return;
+    const id = window.setInterval(() => setTick((n) => n + 1), 900);
+    return () => window.clearInterval(id);
+  }, [pending]);
+  const active = pending ? tick % 3 : -1;
+
+  return (
+    <ol className="flex flex-wrap items-center gap-2 sm:gap-3">
+      {stages.map((s, i) => {
+        const complete = done || (pending && i < active);
+        const current = pending && i === active;
+        return (
+          <li key={s.key} className="flex items-center gap-2">
+            {i > 0 && <span className="hidden text-muted-foreground/40 sm:inline" aria-hidden>→</span>}
+            <div
+              className={cn(
+                "inline-flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm transition-colors",
+                complete && "border-applies/30 bg-applies-soft text-applies",
+                current && "border-ring bg-accent text-ink stage-pulse",
+                !complete && !current && "bg-card text-muted-foreground",
+              )}
+            >
+              {complete ? (
+                <CheckCircle2 className="size-3.5 stage-check" />
+              ) : current ? (
+                <Loader2 className="size-3.5 animate-spin" />
+              ) : (
+                <span className="font-mono text-[11px] tabular-nums">{i + 1}</span>
+              )}
+              {s.label}
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  );
+}
+
 function PipelinePage() {
   const t = useT();
   const tx = useTx();
@@ -30,11 +81,14 @@ function PipelinePage() {
   const docs = docsQuery.data ?? [];
   const [docId, setDocId] = useState("");
   const [filter, setFilter] = useState("");
+  const [hintApplied, setHintApplied] = useState(false);
 
   useEffect(() => {
     if (!docs.length) return;
     if (!docId || !docs.some((d) => d.doc_id === docId)) {
-      setDocId(docs[0]!.doc_id);
+      const preferred = DEMO_DOC_HINTS.map((id) => docs.find((d) => d.doc_id === id)).find(Boolean);
+      setDocId(preferred?.doc_id ?? docs[0]!.doc_id);
+      if (preferred) setHintApplied(true);
     }
   }, [docs, docId]);
 
@@ -47,6 +101,7 @@ function PipelinePage() {
   }, [docs, filter]);
 
   const selected = docs.find((d) => d.doc_id === docId);
+  const demoHint = docs.find((d) => DEMO_DOC_HINTS.includes(d.doc_id));
   const run = useMutation({ mutationFn: (id: string) => client.extract(id) });
 
   return (
@@ -103,7 +158,7 @@ function PipelinePage() {
               <span className="eyebrow">{t("pipeline.sourceDoc")}</span>
               <select
                 value={docId}
-                onChange={(e) => setDocId(e.target.value)}
+                onChange={(e) => { setDocId(e.target.value); setHintApplied(false); }}
                 className="mt-1 w-full rounded-md border bg-card px-3 py-2 text-ink outline-none focus:border-ring"
               >
                 {filtered.map((d) => (
@@ -124,6 +179,22 @@ function PipelinePage() {
           </div>
         )}
 
+        {demoHint && (
+          <p className="text-xs text-muted-foreground">
+            {t("pipeline.tryThis")}{" "}
+            <button
+              type="button"
+              onClick={() => { setDocId(demoHint.doc_id); setHintApplied(true); }}
+              className="font-mono text-primary hover:underline"
+            >
+              {demoHint.doc_id}
+            </button>
+            {" — "}
+            {demoHint.title}
+            {hintApplied && docId === demoHint.doc_id ? " ✓" : ""}
+          </p>
+        )}
+
         {selected && (
           <div className="flex flex-wrap gap-x-4 gap-y-1 border-t pt-3 font-mono text-[11px] text-muted-foreground">
             <span>{selected.doc_id}</span>
@@ -139,10 +210,13 @@ function PipelinePage() {
       </div>
 
       {run.isPending && (
-        <div className="mt-8 space-y-4 fade-up" aria-busy="true">
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Loader2 className="size-4 animate-spin text-primary" />
-            {t("pipeline.running")} {docId}
+        <div className="mt-8 space-y-5 fade-up" aria-busy="true">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <Loader2 className="size-4 animate-spin text-primary" />
+              {t("pipeline.running")} {docId}
+            </div>
+            <ExtractStages pending done={false} />
           </div>
           <div className="grid gap-4 lg:grid-cols-2">
             <div className="skeleton-shimmer h-64 rounded-lg" />
@@ -166,12 +240,15 @@ function PipelinePage() {
       )}
 
       {run.data && (
-        <div className="mt-8 space-y-2 fade-up">
-          {run.data.source && (
-            <div className="font-mono text-xs text-muted-foreground">
-              {t("pipeline.via")} <span className="text-ink">{run.data.source}</span>
-            </div>
-          )}
+        <div className="mt-8 space-y-4 fade-up">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            {run.data.source && (
+              <div className="font-mono text-xs text-muted-foreground">
+                {t("pipeline.via")} <span className="text-ink">{run.data.source}</span>
+              </div>
+            )}
+            <ExtractStages pending={false} done />
+          </div>
           <div className="grid gap-6 lg:grid-cols-2">
             <section>
               <h2 className="eyebrow mb-2">{t("pipeline.stepSource")}</h2>
@@ -183,7 +260,7 @@ function PipelinePage() {
                 {run.data.validation.map((c) => (
                   <li key={c.check} className="flex gap-3 px-4 py-2.5 text-sm">
                     {c.passed ? (
-                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-applies" />
+                      <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-applies stage-check" />
                     ) : (
                       <XCircle className="mt-0.5 size-4 shrink-0 text-conflict" />
                     )}
@@ -205,7 +282,7 @@ function PipelinePage() {
                     {t("pipeline.noRules")}
                   </p>
                 ) : (
-                  run.data.rules.map((r) => (
+                  run.data.rules.map((r, i) => (
                     <div key={r.team_rule_id} className="surface p-4">
                       <div className="font-mono text-xs text-muted-foreground">{r.team_rule_id}</div>
                       <div className="mt-1 font-medium text-ink">{r.title}</div>
@@ -215,7 +292,7 @@ function PipelinePage() {
                       </div>
                       <p className="mt-2 text-sm leading-relaxed">{r.requirement}</p>
                       <div className="mt-3">
-                        <CitationPanel rule={r} />
+                        <CitationPanel rule={r} emphasize={i === 0} />
                       </div>
                     </div>
                   ))

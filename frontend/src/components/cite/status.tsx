@@ -50,21 +50,30 @@ export function ResultSummaryChips({ results }: { results: LookupResult[] }) {
     ),
     ["conflict", t("result.conflict"), conflicts],
   ];
+  const highlight = new Set(["unknown", "conflict", "applies"]);
   return (
     <div className="flex flex-wrap gap-2">
-      {items.map(([k, label, n]) => (
-        <div
-          key={k}
-          className={cn(
-            "flex items-center gap-2 rounded-md border bg-card px-3 py-1.5 text-sm",
-            n === 0 && "opacity-45",
-          )}
-        >
-          <span className={cn("size-1.5 rounded-full", DOT[k])} />
-          <span className="font-mono tabular-nums font-semibold text-ink">{n}</span>
-          <span className="text-muted-foreground">{label}</span>
-        </div>
-      ))}
+      {items.map(([k, label, n], i) => {
+        const hot = n > 0 && highlight.has(k);
+        return (
+          <div
+            key={k}
+            style={{ animationDelay: `${i * 40}ms` }}
+            className={cn(
+              "chip-stagger flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm",
+              n === 0 && "opacity-35",
+              hot && k === "unknown" && "border-unknown/35 bg-unknown-soft",
+              hot && k === "conflict" && "border-conflict/35 bg-conflict-soft",
+              hot && k === "applies" && "border-applies/30 bg-applies-soft/60",
+              !hot && "bg-card",
+            )}
+          >
+            <span className={cn("size-1.5 rounded-full", DOT[k])} />
+            <span className="font-mono tabular-nums font-semibold text-ink">{n}</span>
+            <span className={hot ? "text-ink/80" : "text-muted-foreground"}>{label}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }

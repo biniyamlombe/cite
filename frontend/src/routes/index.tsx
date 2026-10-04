@@ -35,7 +35,12 @@ export const Route = createFileRoute("/")({
   component: LookupPage,
 });
 
-const SAMPLES = ["A0001", "Dorchester", "Hoboken", "A0006"];
+const DEMO_CHIPS: ReadonlyArray<{ q: string; labelKey: "lookup.demo.unknown" | "lookup.demo.remap" | "lookup.demo.conflict" | "lookup.demo.stretch"; id: string }> = [
+  { q: "A0005", labelKey: "lookup.demo.unknown", id: "A0005" },
+  { q: "A0065", labelKey: "lookup.demo.remap", id: "A0065" },
+  { q: "A0002", labelKey: "lookup.demo.conflict", id: "A0002" },
+  { q: "SA0001", labelKey: "lookup.demo.stretch", id: "SA0001" },
+];
 
 function AddressSearch({ onSelect }: { onSelect: (a: AddressRow) => void }) {
   const t = useT();
@@ -108,13 +113,14 @@ function ReadingOrder() {
   const t = useT();
   const steps = [t("lookup.stepWhat"), t("lookup.stepWhy"), t("lookup.stepEvidence")];
   return (
-    <div className="fade-up-delay-2 mt-10 border-t pt-8">
-      <div className="eyebrow">{t("lookup.reading")}</div>
-      <ol className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-0 sm:divide-x sm:divide-border">
+    <div className="fade-up-delay-2 mt-8">
+      <div className="eyebrow text-center">{t("lookup.reading")}</div>
+      <ol className="mt-2 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-sm">
         {steps.map((label, i) => (
-          <li key={label} className="flex items-baseline gap-2 sm:px-4 sm:first:pl-0 sm:last:pr-0">
-            <span className="font-mono text-[11px] tabular-nums text-primary">{String(i + 1).padStart(2, "0")}</span>
-            <span className="text-sm text-ink">{label}</span>
+          <li key={label} className="flex items-baseline gap-1.5 text-ink">
+            {i > 0 && <span className="mx-1 text-muted-foreground/50" aria-hidden>→</span>}
+            <span className="font-mono text-[11px] tabular-nums text-primary">{i + 1}</span>
+            <span>{label}</span>
           </li>
         ))}
       </ol>
@@ -126,8 +132,7 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
   const t = useT();
   return (
     <div className="mx-auto max-w-3xl py-10 text-center sm:py-16">
-      <div className="fade-up eyebrow">{t("lookup.eyebrow")}</div>
-      <h1 className="fade-up-delay-1 mt-3 font-serif text-4xl text-ink sm:text-5xl">
+      <h1 className="fade-up font-serif text-4xl text-ink sm:text-5xl">
         {t("lookup.title1")}{" "}
         <span className="text-primary">{t("lookup.title2")}</span>
       </h1>
@@ -138,31 +143,36 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
       <div className="fade-up-delay-2 mt-8 text-left">
         <label className="mb-2 block text-sm font-medium text-ink">{t("lookup.label")}</label>
         <AddressSearch onSelect={(a) => onSelect(a.address_id)} />
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-xs text-muted-foreground">
-          {t("lookup.try")}
-          {SAMPLES.map((s) => (
-            <button
-              key={s}
-              onClick={async () => {
-                const r = await getCiteClient().addresses(s, 1);
-                if (r[0]) onSelect(r[0].address_id);
-              }}
-              className="rounded-sm border bg-card px-2 py-1 font-mono transition-colors hover:border-ring hover:text-ink"
-            >
-              {s}
-            </button>
-          ))}
+        <div className="mt-4 space-y-2">
+          <div className="text-center text-xs text-muted-foreground">{t("lookup.try")}</div>
+          <div className="flex flex-wrap items-stretch justify-center gap-2">
+            {DEMO_CHIPS.map((chip) => (
+              <button
+                key={chip.id}
+                type="button"
+                onClick={async () => {
+                  const r = await getCiteClient().addresses(chip.q, 1);
+                  if (r[0]) onSelect(r[0].address_id);
+                  else onSelect(chip.id);
+                }}
+                className="group flex min-w-[8.5rem] flex-col items-start rounded-md border bg-card px-3 py-2 text-left transition-colors hover:border-ring hover:bg-secondary/60"
+              >
+                <span className="font-mono text-[11px] text-primary">{chip.id}</span>
+                <span className="mt-0.5 text-xs text-ink group-hover:text-ink">{t(chip.labelKey)}</span>
+              </button>
+            ))}
+          </div>
         </div>
       </div>
 
-      <blockquote className="fade-up-delay-3 mx-auto mt-12 max-w-xl rounded-md bg-quote/70 px-4 py-3 text-left">
+      <ReadingOrder />
+
+      <blockquote className="fade-up-delay-3 mx-auto mt-10 max-w-xl rounded-md bg-quote/70 px-4 py-3 text-left">
         <div className="flex items-start gap-2">
           <Quote className="mt-0.5 size-3.5 shrink-0 text-primary/70" />
           <p className="font-serif text-[15px] leading-relaxed text-ink/85">{t("lookup.philosophy")}</p>
         </div>
       </blockquote>
-
-      <ReadingOrder />
     </div>
   );
 }
@@ -276,6 +286,35 @@ function LookupPage() {
   );
 }
 
+function HonestyCallouts({ data }: { data: LookupResponse }) {
+  const t = useT();
+  const unknownN = data.results.filter((r) => r.result === "unknown").length;
+  const conflictN = data.results.filter((r) => r.conflict_flag).length;
+  if (!unknownN && !conflictN) return null;
+  return (
+    <div className="space-y-2">
+      {unknownN > 0 && (
+        <div className="flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">
+          <AlertCircle className="mt-0.5 size-4 shrink-0 text-unknown" />
+          <p className="text-ink/90">
+            <span className="font-mono tabular-nums font-semibold">{unknownN}</span>{" "}
+            {t("result.unknown").toLowerCase()} — {t("lookup.honesty.unknown")}
+          </p>
+        </div>
+      )}
+      {conflictN > 0 && (
+        <div className="flex gap-2.5 rounded-md border border-conflict/25 bg-conflict-soft px-3 py-2.5 text-sm">
+          <AlertCircle className="mt-0.5 size-4 shrink-0 text-conflict" />
+          <p className="text-ink/90">
+            <span className="font-mono tabular-nums font-semibold">{conflictN}</span>{" "}
+            {t("result.conflict").toLowerCase()} — {t("lookup.honesty.conflict")}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; asOf: string; setAsOf: (v: string) => void; onOpen: (v: RuleView) => void }) {
   const t = useT();
   const tx = useTx();
@@ -295,10 +334,11 @@ function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; 
       {/* What applies */}
       <section className="fade-up-delay-1 space-y-3">
         <div>
-          <div className="eyebrow">{t("lookup.stepWhat")}</div>
-          <h2 className="mt-1 font-serif text-xl text-ink">{t("lookup.summary")}</h2>
+          <h2 className="font-serif text-xl text-ink">{t("lookup.summary")}</h2>
+          <p className="mt-1 text-sm text-muted-foreground">{t("lookup.stepWhat")}</p>
         </div>
         <ResultSummaryChips results={data.results} />
+        <HonestyCallouts data={data} />
         <EffectiveTimeline data={data} />
       </section>
 
@@ -306,8 +346,7 @@ function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; 
       <section className="fade-up-delay-2 space-y-4">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
-            <div className="eyebrow">{t("lookup.stepWhy")} · {t("lookup.stepEvidence")}</div>
-            <h2 className="mt-1 font-serif text-xl text-ink">{t("lookup.rulesHeading")}</h2>
+            <h2 className="font-serif text-xl text-ink">{t("lookup.rulesHeading")}</h2>
             <p className="mt-1 max-w-2xl text-sm text-muted-foreground">{t("lookup.rulesLede")}</p>
           </div>
         </div>

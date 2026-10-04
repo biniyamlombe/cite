@@ -181,15 +181,6 @@ export function ChangeImpactCard({
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             {t(beatKey) || test.expected_behavior}
           </p>
-          <div className="mt-2 font-mono text-xs text-muted-foreground">
-            {t("changes.rulesMeta")}: {test.rule_ids.join(", ")}
-            {test.as_of && (
-              <>
-                {" "}
-                · {t("changes.asOfMeta")} {test.as_of}
-              </>
-            )}
-          </div>
         </div>
         <div className="flex gap-3">
           <div className="rounded-md border bg-paper px-4 py-2.5 text-center">
@@ -233,8 +224,18 @@ export function ChangeImpactCard({
         </div>
       )}
 
+      <div className="mt-4 font-mono text-xs text-muted-foreground">
+        {t("changes.rulesMeta")}: {test.rule_ids.join(", ")}
+        {test.as_of && (
+          <>
+            {" "}
+            · {t("changes.asOfMeta")} {test.as_of}
+          </>
+        )}
+      </div>
+
       {result?.notes && (
-        <p className="mt-4 text-sm leading-relaxed text-foreground/85">{result.notes}</p>
+        <p className="mt-3 text-sm leading-relaxed text-foreground/85">{result.notes}</p>
       )}
 
       {result && (

@@ -126,16 +126,16 @@ export function SiteHeader() {
   const mode = getCiteClient().mode;
   const t = useT();
   return (
-    <header className="print:hidden sticky top-0 z-40 border-b bg-background/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-3 sm:px-6">
+    <header className="print:hidden sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-2.5 sm:gap-6 sm:px-6">
         <Wordmark />
-        <nav className="flex flex-wrap items-center gap-1 text-sm">
+        <nav className="flex min-w-0 flex-1 flex-wrap items-center gap-0.5 text-sm">
           {PRIMARY_NAV.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               activeOptions={{ exact: n.to === "/" }}
-              className="rounded-md px-3 py-1.5 text-muted-foreground transition-colors hover:text-ink"
+              className="rounded-md px-2.5 py-1.5 text-muted-foreground transition-colors hover:text-ink"
               activeProps={{ className: "bg-secondary !text-ink font-medium" }}
             >
               {t(n.key)}
@@ -143,8 +143,11 @@ export function SiteHeader() {
           ))}
           <MoreNav />
         </nav>
-        <div className="flex items-center gap-3">
-          <span className="hidden font-mono text-[10px] uppercase tracking-wider text-muted-foreground md:inline">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
+          <span
+            className="hidden font-mono text-[10px] uppercase tracking-wider text-muted-foreground/80 lg:inline"
+            title={t(mode === "mock" ? "mode.mock" : "mode.live")}
+          >
             {t(mode === "mock" ? "mode.mock" : "mode.live")}
           </span>
           <LocaleToggle />

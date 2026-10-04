@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { AlertCircle, Clock, Loader2 } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useT } from "@/lib/i18n";
 import { getCiteClient } from "@/lib/cite/client";
 import { PageHeader } from "@/components/cite/layout";
@@ -20,6 +21,14 @@ export const Route = createFileRoute("/changes")({
 });
 
 const ORDER: TestId[] = ["T1", "T2", "T3", "T4", "T5"];
+
+const PUNCH_KEYS: Record<TestId, "changes.punch.T1" | "changes.punch.T2" | "changes.punch.T3" | "changes.punch.T4" | "changes.punch.T5"> = {
+  T1: "changes.punch.T1",
+  T2: "changes.punch.T2",
+  T3: "changes.punch.T3",
+  T4: "changes.punch.T4",
+  T5: "changes.punch.T5",
+};
 
 function ChangesLoading() {
   const t = useT();
@@ -44,28 +53,35 @@ function ChangesLoading() {
 function ScenarioStrip({
   tests,
   results,
+  activeId,
 }: {
   tests: { test_id: TestId }[];
   results: Record<string, { affected_address_ids: string[]; conflict_flag_address_ids?: string[] }>;
+  activeId?: string | undefined;
 }) {
+  const t = useT();
   return (
     <div className="fade-up mb-8 grid gap-2 sm:grid-cols-5">
       {ORDER.map((id) => {
-        const present = tests.some((t) => t.test_id === id);
+        const present = tests.some((x) => x.test_id === id);
         const n = results[id]?.affected_address_ids.length ?? 0;
         const conflicts = results[id]?.conflict_flag_address_ids?.length ?? 0;
+        const active = activeId === id;
         return (
           <a
             key={id}
             href={`#${id}`}
             className={`rounded-md border px-3 py-2.5 transition-colors hover:border-ring/50 ${
               present ? "bg-card" : "opacity-50"
-            }`}
+            } ${active ? "border-ring bg-accent/60 shadow-sm" : ""}`}
           >
             <div className="font-mono text-xs text-primary">{id}</div>
-            <div className="mt-1 font-mono text-lg tabular-nums text-ink">{present ? n : "—"}</div>
-            <div className="eyebrow mt-0.5">
-              {conflicts > 0 ? `${conflicts} conflict` : "affected"}
+            <div className="mt-1 text-[11px] leading-snug text-ink">{t(PUNCH_KEYS[id])}</div>
+            <div className="mt-2 flex items-baseline justify-between gap-2">
+              <span className="font-mono text-lg tabular-nums text-ink">{present ? n : "—"}</span>
+              <span className="eyebrow">
+                {conflicts > 0 ? `${conflicts} conflict` : "affected"}
+              </span>
             </div>
           </a>
         );
@@ -79,6 +95,16 @@ function ChangesPage() {
   const client = getCiteClient();
   const changes = useQuery({ queryKey: ["changes"], queryFn: () => client.changes() });
   const addrs = useQuery({ queryKey: ["addresses", "", 500], queryFn: () => client.addresses("", 500) });
+  const [activeId, setActiveId] = useState<string | undefined>(
+    typeof window !== "undefined" ? window.location.hash.replace("#", "") || undefined : undefined,
+  );
+
+  useEffect(() => {
+    const sync = () => setActiveId(window.location.hash.replace("#", "") || undefined);
+    sync();
+    window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, []);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
@@ -111,13 +137,20 @@ function ChangesPage() {
 
       {changes.data && (
         <>
-          <ScenarioStrip tests={changes.data.tests} results={changes.data.results} />
+          <ScenarioStrip tests={changes.data.tests} results={changes.data.results} activeId={activeId} />
           <div className="space-y-5">
             {ORDER.map((id) => {
               const test = changes.data.tests.find((x) => x.test_id === id);
               if (!test) return null;
+              const highlighted = activeId === id;
               return (
-                <div key={id} id={id} className="scroll-mt-24">
+                <div
+                  key={id}
+                  id={id}
+                  className={`scroll-mt-24 rounded-lg transition-[box-shadow,background-color] ${
+                    highlighted ? "ring-2 ring-ring/40 ring-offset-2 ring-offset-background" : ""
+                  }`}
+                >
                   <ChangeImpactCard
                     test={test}
                     result={changes.data.results[id]}

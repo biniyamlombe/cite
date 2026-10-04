@@ -69,12 +69,16 @@ export function PropertySummary({ data, asOf, onAsOf }: { data: LookupResponse; 
           <h2 className="mt-1.5 font-serif text-2xl text-ink sm:text-3xl">{a.street_address}</h2>
           <p className="mt-1 text-sm text-muted-foreground">
             {a.postal_city}, {a.state} {a.zip}
-            {differs && (
-              <span className="ml-2 inline-flex items-center gap-1 rounded-sm bg-accent px-1.5 py-0.5 text-xs text-accent-foreground">
-                {t("postal.remap")} “{a.postal_city}” → {t("postal.toLegal")} <strong>{j.city}</strong>
-              </span>
-            )}
           </p>
+          {differs && (
+            <div className="mt-3 rounded-md border border-primary/25 bg-accent px-3 py-2.5">
+              <div className="text-xs font-medium text-accent-foreground">
+                {t("postal.remap")} “{a.postal_city}” → {t("postal.toLegal")}{" "}
+                <strong className="text-ink">{j.city}</strong>
+              </div>
+              <p className="mt-1 text-xs text-accent-foreground/90">{t("postal.remapHint")}</p>
+            </div>
+          )}
           <div className="mt-3"><JurisdictionStack state={j.state} county={j.county} city={j.city} /></div>
         </div>
         <AsOfDate value={asOf} onChange={onAsOf} />

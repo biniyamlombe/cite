@@ -1,10 +1,12 @@
 import { Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
-import { Trash2 } from "lucide-react";
+import { ChevronDown, Trash2 } from "lucide-react";
 import { useAuth } from "@/lib/auth";
 import { addComment, deleteComment, listComments } from "@/lib/cite/team";
 import { getCiteClient } from "@/lib/cite/client";
+import { useT } from "@/lib/i18n";
+import { cn } from "@/lib/utils";
 import { StatusBadge } from "./status";
 
 export function RuleComments({ ruleId }: { ruleId: string }) {
@@ -70,36 +72,56 @@ function wordDiff(a: string, b: string) {
   return out;
 }
 
-export function RuleVersionHistory({ ruleId }: { ruleId: string }) {
+export function RuleVersionHistory({ ruleId, defaultOpen = false }: { ruleId: string; defaultOpen?: boolean | undefined }) {
+  const t = useT();
   const q = useQuery({ queryKey: ["versions", ruleId], queryFn: () => getCiteClient().ruleVersions(ruleId) });
   const v = q.data ?? [];
+  const [open, setOpen] = useState(defaultOpen);
+  const count = v.length;
   return (
-    <section>
-      <div className="eyebrow mb-2">Version history</div>
-      {q.isLoading && <p className="text-sm text-muted-foreground">Loading…</p>}
-      {q.data?.length === 0 && <p className="text-sm text-muted-foreground">No earlier versions.</p>}
-      <ol className="space-y-3">
-        {v.map((ver, idx) => {
-          const prev = v[idx + 1];
-          return (
-            <li key={ver.version} className="rounded-md border bg-card px-3 py-2">
-              <div className="flex flex-wrap items-center gap-2 font-mono text-[11px] text-muted-foreground">
-                <span className="text-ink">{ver.version}</span>
-                <span>release {ver.corpus_release} · {ver.released_at}</span>
-                <StatusBadge value={ver.status} />
-              </div>
-              <p className="mt-1 text-xs text-muted-foreground">{ver.change_note}</p>
-              <blockquote className="mt-2 font-serif text-sm leading-relaxed">
-                {prev && prev.quoted_span !== ver.quoted_span
-                  ? wordDiff(prev.quoted_span, ver.quoted_span).map((p, k) => (
-                      <span key={k} className={p.t === "+" ? "bg-applies/15 text-ink" : p.t === "-" ? "text-muted-foreground line-through" : ""}>{p.w} </span>
-                    ))
-                  : ver.quoted_span}
-              </blockquote>
-            </li>
-          );
-        })}
-      </ol>
+    <section className="rounded-md border bg-card">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left"
+        aria-expanded={open}
+      >
+        <div>
+          <div className="eyebrow">{t("rule.versions")}</div>
+          <p className="mt-0.5 text-xs text-muted-foreground">
+            {count > 0 ? `${count} version${count === 1 ? "" : "s"}` : t("rule.versionsHint")}
+          </p>
+        </div>
+        <ChevronDown className={cn("size-4 shrink-0 text-muted-foreground transition-transform", open && "rotate-180")} />
+      </button>
+      {open && (
+        <div className="border-t px-4 py-3">
+          {q.isLoading && <p className="text-sm text-muted-foreground">Loading…</p>}
+          {q.data?.length === 0 && <p className="text-sm text-muted-foreground">No earlier versions.</p>}
+          <ol className="space-y-3">
+            {v.map((ver, idx) => {
+              const prev = v[idx + 1];
+              return (
+                <li key={ver.version} className="rounded-md border bg-background px-3 py-2">
+                  <div className="flex flex-wrap items-center gap-2 font-mono text-[11px] text-muted-foreground">
+                    <span className="text-ink">{ver.version}</span>
+                    <span>release {ver.corpus_release} · {ver.released_at}</span>
+                    <StatusBadge value={ver.status} />
+                  </div>
+                  <p className="mt-1 text-xs text-muted-foreground">{ver.change_note}</p>
+                  <blockquote className="mt-2 font-serif text-sm leading-relaxed">
+                    {prev && prev.quoted_span !== ver.quoted_span
+                      ? wordDiff(prev.quoted_span, ver.quoted_span).map((p, k) => (
+                          <span key={k} className={p.t === "+" ? "bg-applies/15 text-ink" : p.t === "-" ? "text-muted-foreground line-through" : ""}>{p.w} </span>
+                        ))
+                      : ver.quoted_span}
+                  </blockquote>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+      )}
     </section>
   );
 }

@@ -22,12 +22,14 @@ export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void 
   const tx = useTx();
   const { rule, result, explanation, conflict } = view;
   const prominent = result === "applies";
+  const lowConf = rule.confidence != null && rule.confidence < 0.5;
   return (
     <button
       onClick={onOpen}
       className={cn(
         "group surface w-full p-4 text-left transition-[border-color,box-shadow,background-color] duration-200 hover:border-ring/50 hover:shadow-sm sm:p-5",
         prominent && "bg-applies-soft/40",
+        conflict && "border-conflict/30",
         result === "superseded" && "opacity-80",
       )}
     >
@@ -38,8 +40,13 @@ export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void 
             {rule.citation} · {t(rule.level === "city" ? "level.city" : "level.state")} · {rule.jurisdiction}
           </div>
         </div>
-        <div className="flex items-center gap-1.5">
+        <div className="flex flex-wrap items-center justify-end gap-1.5">
           {conflict && <StatusBadge value="conflict" label={t("status.conflict")} />}
+          {lowConf && (
+            <span className="inline-flex items-center rounded-sm border border-unknown/30 bg-unknown-soft px-2 py-0.5 text-[11px] font-medium text-unknown">
+              {t("rule.lowConfidence")} · {Math.round((rule.confidence ?? 0) * 100)}%
+            </span>
+          )}
           {result ? (
             <StatusBadge value={result} size="md" />
           ) : (
@@ -105,29 +112,27 @@ function CopyCitation({ rule }: { rule: Rule }) {
   );
 }
 
-export function CitationPanel({ rule, asOf }: { rule: Rule; asOf?: string | undefined }) {
+export function CitationPanel({ rule, asOf, emphasize }: { rule: Rule; asOf?: string | undefined; emphasize?: boolean | undefined }) {
   const t = useT();
   const { locale } = useLocale();
   const [open, setOpen] = useState(true);
+  const [metaOpen, setMetaOpen] = useState(false);
   const long = rule.quoted_span.length > 220;
   return (
-    <section className="rounded-md border bg-paper">
+    <section className={cn("rounded-md border bg-paper", emphasize && "border-primary/30 ring-1 ring-primary/15")}>
       <div className="flex items-center justify-between border-b px-4 py-3">
         <div>
-          <div className="eyebrow">{t("rule.evidence")}</div>
+          <div className="eyebrow">{emphasize ? t("pipeline.verbatim") : t("rule.evidence")}</div>
           <div className="mt-0.5 font-mono text-sm font-medium text-ink">{rule.citation}</div>
         </div>
         <a href={rule.source_url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
           Source <ExternalLink className="size-3" />
         </a>
       </div>
-      <div className="flex justify-end border-b px-4 py-1.5 print:hidden">
-        <CopyCitation rule={rule} />
-      </div>
       <div className="px-4 py-4">
-        <figure className="relative rounded-sm bg-quote px-4 py-3">
+        <figure className="quote-enter relative rounded-sm bg-quote px-4 py-3.5">
           <Quote className="mb-2 size-3.5 text-primary" />
-          <blockquote className={cn("font-serif text-[15px] leading-relaxed text-ink", !open && long && "line-clamp-2")}>
+          <blockquote className={cn("font-serif text-[16px] leading-relaxed text-ink", !open && long && "line-clamp-2")}>
             “{rule.quoted_span}”
           </blockquote>
         </figure>
@@ -137,11 +142,24 @@ export function CitationPanel({ rule, asOf }: { rule: Rule; asOf?: string | unde
             {open ? t("rule.collapseQuote") : t("rule.expandQuote")}
           </button>
         )}
-        <dl className="mt-4 grid grid-cols-2 gap-3 text-xs">
-          <div><dt className="eyebrow">{t("rule.retrieved")}</dt><dd className="mt-0.5 font-mono">{fmtDate(rule.retrieved_at, locale)}</dd></div>
-          <div><dt className="eyebrow">{t("rule.analysisAsOf")}</dt><dd className="mt-0.5 font-mono">{fmtDate(asOf, locale)}</dd></div>
-          <div className="col-span-2 break-all"><dt className="eyebrow">URL</dt><dd className="mt-0.5 font-mono text-muted-foreground">{rule.source_url}</dd></div>
-        </dl>
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-2 print:hidden">
+          <CopyCitation rule={rule} />
+          <button
+            type="button"
+            onClick={() => setMetaOpen((v) => !v)}
+            className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-ink"
+          >
+            <ChevronDown className={cn("size-3 transition-transform", metaOpen && "rotate-180")} />
+            Meta
+          </button>
+        </div>
+        {metaOpen && (
+          <dl className="mt-3 grid grid-cols-2 gap-3 border-t pt-3 text-xs">
+            <div><dt className="eyebrow">{t("rule.retrieved")}</dt><dd className="mt-0.5 font-mono">{fmtDate(rule.retrieved_at, locale)}</dd></div>
+            <div><dt className="eyebrow">{t("rule.analysisAsOf")}</dt><dd className="mt-0.5 font-mono">{fmtDate(asOf, locale)}</dd></div>
+            <div className="col-span-2 break-all"><dt className="eyebrow">URL</dt><dd className="mt-0.5 font-mono text-muted-foreground">{rule.source_url}</dd></div>
+          </dl>
+        )}
       </div>
     </section>
   );
@@ -179,10 +197,11 @@ export function RuleDetailDrawer({
   if (!view) return null;
   const { rule, result, explanation, conflict } = view;
   const cov = coverageText(rule.coverage_conditions);
+  const lowConf = rule.confidence != null && rule.confidence < 0.5;
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
-      <div className="absolute inset-0 bg-ink/25 animate-in fade-in" onClick={onClose} />
-      <aside className="relative flex h-full w-full max-w-2xl flex-col overflow-y-auto bg-background shadow-2xl animate-in slide-in-from-right duration-200">
+      <div className="absolute inset-0 bg-ink/30 animate-in fade-in duration-150" onClick={onClose} />
+      <aside className="relative flex h-full w-full max-w-2xl flex-col overflow-y-auto bg-background shadow-2xl animate-in slide-in-from-right duration-200 ease-out">
         <header className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b bg-background/95 px-6 py-5 backdrop-blur">
           <div>
             <div className="eyebrow">
@@ -190,6 +209,7 @@ export function RuleDetailDrawer({
             </div>
             <h3 className="mt-1.5 font-serif text-2xl text-ink">{rule.title}</h3>
             <div className="mt-3 flex flex-wrap gap-2">
+              {conflict && <StatusBadge value="conflict" label={t("status.conflict")} size="md" />}
               {result && <StatusBadge value={result} size="md" />}
               <StatusBadge
                 value={rule.status}
@@ -203,12 +223,20 @@ export function RuleDetailDrawer({
           </button>
         </header>
         <div className="space-y-6 px-6 py-6">
+          <WhyThisApplies result={result} explanation={explanation} />
+          {(conflict || rule.conflict_note) && <ConflictWarning note={rule.conflict_note} />}
+          <CitationPanel rule={rule} asOf={asOf} />
+          <section className={cn("rounded-md border p-4", lowConf && "border-unknown/30 bg-unknown-soft/50")}>
+            <div className="eyebrow">{t("rule.confidence")}</div>
+            <div className="mt-2"><Confidence value={rule.confidence} /></div>
+            {lowConf && (
+              <p className="mt-2 text-sm text-unknown">{t("rule.lowConfidence")}</p>
+            )}
+          </section>
           <section>
             <div className="eyebrow">{t("rule.requirement")}</div>
             <p className="mt-2 text-lg leading-snug text-ink">{rule.requirement}</p>
           </section>
-          <WhyThisApplies result={result} explanation={explanation} />
-          {(conflict || rule.conflict_note) && <ConflictWarning note={rule.conflict_note} />}
           {rule.precedence_note && (
             <section className="rounded-md border bg-card p-4">
               <div className="eyebrow">{t("rule.precedence")}</div>
@@ -226,10 +254,6 @@ export function RuleDetailDrawer({
               <dt className="eyebrow">{t("rule.effective")}</dt>
               <dd className="mt-1 font-mono text-sm">{fmtDate(rule.effective_date, locale)}</dd>
             </div>
-            <div>
-              <dt className="eyebrow">{t("rule.confidence")}</dt>
-              <dd className="mt-1"><Confidence value={rule.confidence} /></dd>
-            </div>
             <div className="sm:col-span-2">
               <dt className="eyebrow">{t("rule.coverage")}</dt>
               <dd className="mt-1 text-sm">{cov ?? "—"}</dd>
@@ -239,8 +263,7 @@ export function RuleDetailDrawer({
               <dd className="mt-1 text-sm">{rule.exemptions ?? "—"}</dd>
             </div>
           </dl>
-          <CitationPanel rule={rule} asOf={asOf} />
-          <RuleVersionHistory ruleId={view.id} />
+          <RuleVersionHistory ruleId={view.id} defaultOpen />
           <RuleComments ruleId={view.id} />
         </div>
       </aside>
