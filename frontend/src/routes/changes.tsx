@@ -81,10 +81,7 @@ function ScenarioStrip({
 }) {
   const t = useT();
   return (
-    <nav
-      aria-label={t("changes.jump")}
-      className="fade-up sticky top-16 z-10 -mx-1 mb-10 border-b border-border/70 bg-paper/90 px-1 py-3 backdrop-blur-md"
-    >
+    <nav aria-label={t("changes.jump")} className="fade-up mb-10">
       <div className="grid gap-2 sm:grid-cols-5">
         {ORDER.map((id) => {
           const present = tests.some((x) => x.test_id === id);
@@ -202,7 +199,7 @@ function ChangesPage() {
                 <div
                   key={id}
                   id={id}
-                  className={`scroll-mt-36 fade-up ${
+                  className={`scroll-mt-28 fade-up ${
                     highlighted ? "rounded-md ring-1 ring-primary/25 ring-offset-4 ring-offset-background" : ""
                   }`}
                 >
@@ -215,7 +212,7 @@ function ChangesPage() {
               );
             })}
 
-            <article id="T6" className="scroll-mt-36 fade-up border-t border-dashed border-border/80 pt-8 opacity-90">
+            <article id="T6" className="scroll-mt-28 fade-up border-t border-dashed border-border/80 pt-8 opacity-90">
               <div className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
                 <Clock className="size-3" /> T6 · {t("changes.t6Badge")}
               </div>
