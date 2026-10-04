@@ -1,5 +1,10 @@
 import path from "node:path";
-import type { ChangeResult, LookupEntry, RuleRecord } from "@rhl/shared";
+import type {
+  ChangeEvidence,
+  ChangeResult,
+  LookupEntry,
+  RuleRecord,
+} from "@rhl/shared";
 import { loadAddresses, type SampleAddress } from "../lib/addresses.js";
 import { readJson } from "../lib/io.js";
 import { packRoot } from "../lib/paths.js";
@@ -70,6 +75,14 @@ function sortIds(ids: string[]): string[] {
   return [...ids].sort((a, b) => a.localeCompare(b));
 }
 
+function sampleEvidence(
+  included: ChangeEvidence[],
+  excluded: ChangeEvidence[],
+  limit = 6,
+): ChangeEvidence[] {
+  return [...included.slice(0, Math.ceil(limit / 2)), ...excluded.slice(0, Math.floor(limit / 2))];
+}
+
 export function runChangeTests(options: {
   tests: ChangeTest[];
   rules: RuleRecord[];
@@ -107,6 +120,8 @@ export function runChangeTests(options: {
         rules,
         asOf: test.as_of_after || "2026-01-02",
       });
+      const includedEv: ChangeEvidence[] = [];
+      const excludedEv: ChangeEvidence[] = [];
       const affected = ca
         .filter((a) => {
           const b = lookupHasRule(
@@ -119,13 +134,25 @@ export function runChangeTests(options: {
             rule.team_rule_id,
             "applies",
           );
-          return b && af;
+          const ok = Boolean(b && af);
+          const ev: ChangeEvidence = {
+            address_id: a.address_id,
+            included: ok,
+            reason: ok
+              ? `CA-ALG-01 not_yet_effective on ${test.as_of_before} and applies on ${test.as_of_after}`
+              : `Did not flip NTE→applies for CA-ALG-01 across ${test.as_of_before}→${test.as_of_after}`,
+            rule_ids: [rule.alias_id || rule.team_rule_id],
+          };
+          (ok ? includedEv : excludedEv).push(ev);
+          return ok;
         })
         .map((a) => a.address_id);
       out.T1 = {
         affected_address_ids: sortIds(affected),
         before_status: "not_yet_effective",
         after_status: "applies",
+        evidence_summary: `included=${includedEv.length} excluded=${excludedEv.length} (CA legal geography only)`,
+        sample_evidence: sampleEvidence(includedEv, excludedEv),
         notes:
           test.expected_behavior +
           (affected.length
@@ -141,14 +168,39 @@ export function runChangeTests(options: {
       const asOf = test.as_of || "2026-10-01";
       const lookups = applyAll({ addresses, geos, rules, asOf });
       const affected: string[] = [];
+      const includedEv: ChangeEvidence[] = [];
+      const excludedEv: ChangeEvidence[] = [];
       for (const a of addresses) {
         const g = geos.get(a.address_id);
         if (!g) continue;
         const entries = lookups[a.address_id] || [];
         if (hob && g.legal_city === "Hoboken") {
-          if (lookupHasRule(entries, hob.team_rule_id)) affected.push(a.address_id);
+          if (lookupHasRule(entries, hob.team_rule_id)) {
+            affected.push(a.address_id);
+            includedEv.push({
+              address_id: a.address_id,
+              included: true,
+              reason: "Legal city Hoboken matches HOB-ALG-01 jurisdiction scope",
+              rule_ids: ["HOB-ALG-01"],
+            });
+          }
         } else if (jc && g.legal_city === "Jersey City") {
-          if (lookupHasRule(entries, jc.team_rule_id)) affected.push(a.address_id);
+          if (lookupHasRule(entries, jc.team_rule_id)) {
+            affected.push(a.address_id);
+            includedEv.push({
+              address_id: a.address_id,
+              included: true,
+              reason: "Legal city Jersey City matches JC-ALG-01 jurisdiction scope",
+              rule_ids: ["JC-ALG-01"],
+            });
+          }
+        } else if (g.state === "NJ" && g.legal_city === "Newark") {
+          excludedEv.push({
+            address_id: a.address_id,
+            included: false,
+            reason: "Newark is outside Hoboken/Jersey City legal city boundaries",
+            rule_ids: ["HOB-ALG-01", "JC-ALG-01"],
+          });
         }
       }
       // Verify Newark not included
@@ -158,6 +210,8 @@ export function runChangeTests(options: {
       });
       out.T2 = {
         affected_address_ids: sortIds(affected),
+        evidence_summary: `included=${includedEv.length}; Newark exclusions sampled=${excludedEv.length}`,
+        sample_evidence: sampleEvidence(includedEv, excludedEv),
         notes:
           test.expected_behavior +
           (newarkLeak.length
@@ -224,11 +278,35 @@ export function runChangeTests(options: {
         return Boolean(entry?.conflict_flag);
       }).length;
 
+      const conflictSet = new Set(conflict_flag_address_ids);
+      const t3Included: ChangeEvidence[] = flipped.slice(0, 3).map((a) => ({
+        address_id: a.address_id,
+        included: true,
+        reason: `NJ-ALG-01 NTE on ${test.as_of_before} → applies on ${test.as_of_after}`,
+        rule_ids: ["NJ-ALG-01"],
+      }));
+      const t3Excluded: ChangeEvidence[] = nj
+        .filter((a) => !affected.includes(a.address_id))
+        .slice(0, 2)
+        .map((a) => ({
+          address_id: a.address_id,
+          included: false,
+          reason: "NJ address did not complete NTE→applies flip for NJ-ALG-01",
+          rule_ids: ["NJ-ALG-01"],
+        }));
+      const t3Conflicts: ChangeEvidence[] = [...conflictSet].slice(0, 2).map((id) => ({
+        address_id: id,
+        included: true,
+        reason: "Conflict flag: possible FAIR Act preemption vs Hoboken/Jersey City local ban",
+        rule_ids: ["NJ-ALG-01", "HOB-ALG-01", "JC-ALG-01"],
+      }));
       out.T3 = {
         affected_address_ids: sortIds(affected),
         conflict_flag_address_ids: sortIds(conflict_flag_address_ids),
         before_status: "not_yet_effective",
         after_status: "applies",
+        evidence_summary: `flip_ok=${flipped.length}/${nj.length}; conflicts=${conflict_flag_address_ids.length}; live_flags=${flaggedLive}`,
+        sample_evidence: [...t3Included, ...t3Conflicts, ...t3Excluded].slice(0, 6),
         notes:
           test.expected_behavior +
           ` before_check=${beforeOk} after_check=${afterOk}` +
@@ -257,6 +335,24 @@ export function runChangeTests(options: {
         .map((a) => a.address_id);
       out.T4 = {
         affected_address_ids: sortIds(affected),
+        evidence_summary: `if_enacted_scenario pending_ok=${affected.length}/${ma.length} (not current law)`,
+        sample_evidence: [
+          ...affected.slice(0, 3).map((id) => ({
+            address_id: id,
+            included: true,
+            reason: "MA address would be affected if pending bills were enacted (scenario, not in force)",
+            rule_ids: ["MA-ALG-P1", "MA-ALG-P2"],
+          })),
+          ...ma
+            .filter((a) => !affected.includes(a.address_id))
+            .slice(0, 2)
+            .map((a) => ({
+              address_id: a.address_id,
+              included: false,
+              reason: "Missing pending status for MA-ALG-P1/P2",
+              rule_ids: ["MA-ALG-P1", "MA-ALG-P2"],
+            })),
+        ],
         notes:
           test.expected_behavior +
           (affected.length === ma.length
@@ -304,6 +400,14 @@ export function runChangeTests(options: {
       });
       out.T5 = {
         affected_address_ids: [],
+        evidence_summary: `affected=0; wrongly_applies=${wrongly.length}; rogue_cap=${rogueCap.length}`,
+        sample_evidence: maCities.slice(0, 4).map((a) => ({
+          address_id: a.address_id,
+          included: false,
+          reason:
+            "MA rent-control ballot (IP 25-21) is failed/struck — no rent cap reported; affected set empty",
+          rule_ids: ["MA-RENT-P1"],
+        })),
         notes:
           test.expected_behavior +
           (wrongly.length || rogueCap.length

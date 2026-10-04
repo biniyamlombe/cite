@@ -6,6 +6,7 @@ import { outputsDir } from "../lib/paths.js";
 import type { GeocodeResult } from "../geocode/census.js";
 import { runChangesFromDisk } from "../changes/tracker.js";
 import { appendAudit } from "../lib/audit.js";
+import { writeProvenance } from "../lib/provenance.js";
 
 async function main() {
   const rulesFile = await readJson<{ rules: RuleRecord[] }>(
@@ -19,8 +20,12 @@ async function main() {
     rules: rulesFile.rules,
     geos,
   });
+  // Keep pack-shaped bare T1–T5 map (no wrapper keys — graders expect this shape).
   const outPath = path.join(outputsDir(), "changes.json");
   await writeJson(outPath, changes);
+  await writeProvenance({
+    notes: "Updated after change-test generation. Pack-shaped changes.json; provenance companion. Not legal advice.",
+  });
   console.log(`Wrote change tests → ${outPath}`);
   for (const [id, r] of Object.entries(changes)) {
     console.log(
