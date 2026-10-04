@@ -1,4 +1,5 @@
 import type { SampleAddress } from "../lib/addresses.js";
+import { withJurisdictionIds } from "./jurisdiction_ids.js";
 
 /** How legal_city was obtained — postal_fallback means we did not trust the result for city rules. */
 export type GeocodeResolution =
@@ -15,6 +16,16 @@ export type GeocodeResult = {
   source: "census" | "heuristic" | "cache";
   /** Absent on older cache rows — treated as census/trusted. */
   resolution?: GeocodeResolution;
+  /** Census state FIPS (2-digit), when known. */
+  state_fips?: string | null;
+  /** Census county FIPS (5-digit), when known. */
+  county_fips?: string | null;
+  /** Census place GEOID (7-digit), when legal city is trusted. */
+  place_geoid?: string | null;
+  latitude?: number | null;
+  longitude?: number | null;
+  retrieved_at?: string | null;
+  confidence?: number | null;
 };
 
 /** Postal city → legal city for challenge jurisdictions (used only when Census has no place). */
@@ -88,7 +99,7 @@ function heuristicGeocode(addr: SampleAddress): GeocodeResult {
   const key = postal.toLowerCase();
   const mapped = POSTAL_TO_LEGAL[key];
   if (mapped) {
-    return {
+    return withJurisdictionIds({
       address_id: addr.address_id,
       legal_city: mapped.city,
       county:
@@ -97,34 +108,46 @@ function heuristicGeocode(addr: SampleAddress): GeocodeResult {
         "",
       state: addr.state,
       matched_address: `${addr.street_address}, ${mapped.city}, ${addr.state} ${addr.zip}`,
-      source: "heuristic",
-      resolution: "known_jurisdiction",
-    };
+      source: "heuristic" as const,
+      resolution: "known_jurisdiction" as const,
+      latitude: null,
+      longitude: null,
+      retrieved_at: null,
+      confidence: 0.7,
+    });
   }
 
   const legal = knownLegalCity(addr.state, postal);
   if (legal) {
-    return {
+    return withJurisdictionIds({
       address_id: addr.address_id,
       legal_city: legal,
       county: STATE_COUNTY_DEFAULTS[addr.state]![legal]!,
       state: addr.state,
       matched_address: `${addr.street_address}, ${legal}, ${addr.state} ${addr.zip}`,
-      source: "heuristic",
-      resolution: "known_jurisdiction",
-    };
+      source: "heuristic" as const,
+      resolution: "known_jurisdiction" as const,
+      latitude: null,
+      longitude: null,
+      retrieved_at: null,
+      confidence: 0.75,
+    });
   }
 
   // Last resort: keep postal for display, but mark untrusted.
-  return {
+  return withJurisdictionIds({
     address_id: addr.address_id,
     legal_city: postal,
     county: "",
     state: addr.state,
     matched_address: `${addr.street_address}, ${postal}, ${addr.state} ${addr.zip}`,
-    source: "heuristic",
-    resolution: "postal_fallback",
-  };
+    source: "heuristic" as const,
+    resolution: "postal_fallback" as const,
+    latitude: null,
+    longitude: null,
+    retrieved_at: null,
+    confidence: 0.2,
+  });
 }
 
 /**
@@ -172,10 +195,20 @@ async function censusGeocodeOne(
       result?: {
         addressMatches?: Array<{
           matchedAddress?: string;
+          coordinates?: { x?: number; y?: number };
           geographies?: {
-            "Incorporated Places"?: Array<{ NAME?: string }>;
-            Counties?: Array<{ NAME?: string }>;
-            States?: Array<{ STUSAB?: string; NAME?: string }>;
+            "Incorporated Places"?: Array<{
+              NAME?: string;
+              GEOID?: string;
+              PLACE?: string;
+            }>;
+            Counties?: Array<{ NAME?: string; GEOID?: string; COUNTY?: string }>;
+            States?: Array<{
+              STUSAB?: string;
+              NAME?: string;
+              GEOID?: string;
+              STATE?: string;
+            }>;
           };
         }>;
       };
@@ -183,24 +216,39 @@ async function censusGeocodeOne(
     const match = data.result?.addressMatches?.[0];
     if (!match) return null;
 
-    const placeName = match.geographies?.["Incorporated Places"]?.[0]?.NAME;
+    const placeGeo = match.geographies?.["Incorporated Places"]?.[0];
+    const placeName = placeGeo?.NAME;
     const place = placeName?.replace(/ city$/i, "").trim();
     if (!place) {
       // Matched coordinates but no incorporated place — do not invent from postal.
       return null;
     }
 
-    const county = match.geographies?.Counties?.[0]?.NAME || "";
-    const state = match.geographies?.States?.[0]?.STUSAB || addr.state;
-    return {
+    const countyGeo = match.geographies?.Counties?.[0];
+    const stateGeo = match.geographies?.States?.[0];
+    const county = countyGeo?.NAME || "";
+    const state = stateGeo?.STUSAB || addr.state;
+    const state_fips = stateGeo?.GEOID || stateGeo?.STATE || null;
+    const county_fips = countyGeo?.GEOID || null;
+    const place_geoid = placeGeo?.GEOID || null;
+    const longitude = match.coordinates?.x ?? null;
+    const latitude = match.coordinates?.y ?? null;
+    return withJurisdictionIds({
       address_id: addr.address_id,
       legal_city: place,
       county,
       state,
       matched_address: match.matchedAddress,
-      source: "census",
-      resolution: "census",
-    };
+      source: "census" as const,
+      resolution: "census" as const,
+      state_fips,
+      county_fips,
+      place_geoid,
+      latitude,
+      longitude,
+      retrieved_at: new Date().toISOString(),
+      confidence: 0.9,
+    });
   } catch {
     return null;
   }
@@ -226,7 +274,7 @@ export async function geocodeAddresses(
         await new Promise((r) => setTimeout(r, 100));
       }
       const raw = result ?? heuristicGeocode(addr);
-      results[idx] = correctGeocode(addr, raw);
+      results[idx] = withJurisdictionIds(correctGeocode(addr, raw));
       if ((idx + 1) % 25 === 0) {
         process.stdout.write(`\rGeocoded ${idx + 1}/${addresses.length}`);
       }
@@ -239,18 +287,41 @@ export async function geocodeAddresses(
 }
 
 export function jurisdictionStack(g: GeocodeResult): {
+  status: "resolved" | "ambiguous" | "failed" | "unknown";
   state: string;
   county: string;
   city: string;
+  state_fips: string | null;
+  county_fips: string | null;
+  place_geoid: string | null;
+  latitude: number | null;
+  longitude: number | null;
+  source: string;
+  retrieved_at: string | null;
+  confidence: number | null;
   resolution: GeocodeResolution;
   trusted: boolean;
 } {
+  const enriched = withJurisdictionIds(g);
+  const resolution = enriched.resolution ?? "census";
+  const trusted = resolution !== "postal_fallback";
   return {
-    state: g.state,
-    county: g.county,
-    city: g.legal_city,
-    resolution: g.resolution ?? "census",
-    trusted: (g.resolution ?? "census") !== "postal_fallback",
+    status: trusted ? "resolved" : "unknown",
+    state: enriched.state,
+    county: enriched.county,
+    city: enriched.legal_city,
+    state_fips: enriched.state_fips ?? null,
+    county_fips: enriched.county_fips ?? null,
+    place_geoid: enriched.place_geoid ?? null,
+    latitude: enriched.latitude ?? null,
+    longitude: enriched.longitude ?? null,
+    source: enriched.source,
+    retrieved_at: enriched.retrieved_at ?? null,
+    confidence:
+      enriched.confidence ??
+      (resolution === "census" ? 0.9 : resolution === "known_jurisdiction" ? 0.7 : 0.2),
+    resolution,
+    trusted,
   };
 }
 
