@@ -3,21 +3,56 @@ import { useT } from "@/lib/i18n";
 import type { LookupResponse } from "@/lib/cite/types";
 import { FactCorrection } from "@/components/cite/fact-correction";
 
-export function JurisdictionStack({ state, county, city }: { state: string; county: string; city: string }) {
+export function JurisdictionStack({
+  state,
+  county,
+  city,
+  countyFips,
+  placeGeoid,
+  status,
+}: {
+  state: string;
+  county: string;
+  city: string;
+  countyFips?: string | null;
+  placeGeoid?: string | null;
+  status?: string | null;
+}) {
   const parts = [state, county, city].filter(Boolean);
   return (
-    <div className="flex flex-wrap items-center gap-1 font-mono text-xs text-muted-foreground">
-      {parts.map((p, i) => (
-        <span key={i} className="flex items-center gap-1">
-          {i > 0 && <ChevronRight className="size-3 opacity-50" />}
-          <span className={i === parts.length - 1 ? "text-ink font-medium" : ""}>{p}</span>
-        </span>
-      ))}
+    <div className="space-y-1">
+      <div className="flex flex-wrap items-center gap-1 font-mono text-xs text-muted-foreground">
+        {parts.map((p, i) => (
+          <span key={i} className="flex items-center gap-1">
+            {i > 0 && <ChevronRight className="size-3 opacity-50" />}
+            <span className={i === parts.length - 1 ? "text-ink font-medium" : ""}>{p}</span>
+          </span>
+        ))}
+      </div>
+      {(countyFips || placeGeoid || status) && (
+        <div className="font-mono text-[11px] text-muted-foreground/90">
+          {[
+            status ? `status=${status}` : null,
+            countyFips ? `county_fips=${countyFips}` : null,
+            placeGeoid ? `place_geoid=${placeGeoid}` : null,
+          ]
+            .filter(Boolean)
+            .join(" · ")}
+        </div>
+      )}
     </div>
   );
 }
 
-export function PropertyFacts({ yearBuilt, units, legalCity }: { yearBuilt?: string | undefined; units?: string | undefined; legalCity?: string | undefined }) {
+export function PropertyFacts({
+  yearBuilt,
+  units,
+  legalCity,
+}: {
+  yearBuilt?: string | undefined;
+  units?: string | undefined;
+  legalCity?: string | undefined;
+}) {
   const t = useT();
   const facts = [
     [t("fact.yearBuilt"), yearBuilt],
@@ -56,7 +91,15 @@ export function AsOfDate({ value, onChange }: { value: string; onChange?: (v: st
   );
 }
 
-export function PropertySummary({ data, asOf, onAsOf }: { data: LookupResponse; asOf: string; onAsOf: (v: string) => void }) {
+export function PropertySummary({
+  data,
+  asOf,
+  onAsOf,
+}: {
+  data: LookupResponse;
+  asOf: string;
+  onAsOf: (v: string) => void;
+}) {
   const t = useT();
   const { address: a, jurisdiction: j } = data;
   const differs = j.city && a.postal_city && j.city.toLowerCase() !== a.postal_city.toLowerCase();
@@ -67,7 +110,9 @@ export function PropertySummary({ data, asOf, onAsOf }: { data: LookupResponse; 
           <div className="eyebrow flex flex-wrap items-center gap-1.5">
             <MapPin className="size-3" /> {t("fact.property")} · {a.address_id}
           </div>
-          <h1 className="mt-2 font-serif text-2xl tracking-[-0.025em] text-ink sm:text-[2rem]">{a.street_address}</h1>
+          <h1 className="mt-2 font-serif text-2xl tracking-[-0.025em] text-ink sm:text-[2rem]">
+            {a.street_address}
+          </h1>
           <p className="mt-1 text-sm text-muted-foreground">
             {a.postal_city}, {a.state} {a.zip}
           </p>
@@ -80,11 +125,34 @@ export function PropertySummary({ data, asOf, onAsOf }: { data: LookupResponse; 
               <p className="mt-1 text-xs text-accent-foreground/90">{t("postal.remapHint")}</p>
             </div>
           )}
-          <div className="mt-3"><JurisdictionStack state={j.state} county={j.county} city={j.city} /></div>
+          <div className="mt-3">
+            <JurisdictionStack
+              state={j.state}
+              county={j.county}
+              city={j.city}
+              countyFips={j.county_fips ?? null}
+              placeGeoid={j.place_geoid ?? null}
+              status={j.status ?? null}
+            />
+          </div>
         </div>
         <AsOfDate value={asOf} onChange={onAsOf} />
       </div>
-      <div className="mt-5"><PropertyFacts yearBuilt={a.year_built} units={a.units} legalCity={j.city} /></div>
+      <div className="mt-5">
+        <PropertyFacts
+          yearBuilt={
+            data.building_facts?.year_built != null
+              ? String(data.building_facts.year_built)
+              : a.year_built
+          }
+          units={
+            data.building_facts?.unit_count != null
+              ? String(data.building_facts.unit_count)
+              : a.units
+          }
+          legalCity={j.city}
+        />
+      </div>
       <FactCorrection data={data} />
       {j.trusted === false && (
         <div className="mt-4 flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">

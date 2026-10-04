@@ -23,6 +23,9 @@ export interface RuleView {
   result?: LookupResultValue | undefined;
   explanation?: string | undefined;
   conflict?: boolean | undefined;
+  needsHumanReview?: boolean | undefined;
+  factsMissing?: string[] | undefined;
+  applicability?: string | undefined;
 }
 
 export function RuleCard({
@@ -36,10 +39,11 @@ export function RuleCard({
 }) {
   const t = useT();
   const tx = useTx();
-  const { rule, result, explanation, conflict } = view;
+  const { rule, result, explanation, conflict, needsHumanReview, factsMissing } = view;
   const prominent = result === "applies";
   const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
+  const review = needsHumanReview || conflict;
   return (
     <button
       onClick={onOpen}
@@ -47,7 +51,7 @@ export function RuleCard({
       className={cn(
         "rule-card-enter group surface w-full p-4 text-left transition-[border-color,box-shadow,background-color] duration-200 hover:border-ring/50 hover:shadow-sm sm:p-5",
         prominent && "bg-applies-soft/40",
-        conflict && "border-conflict/30",
+        (conflict || review) && "border-conflict/30",
         result === "superseded" && "opacity-80",
       )}
     >
@@ -55,37 +59,69 @@ export function RuleCard({
         <div className="min-w-0 flex-1">
           <h4 className="font-medium text-ink">{rule.title}</h4>
           <div className="mt-1 font-mono text-xs text-muted-foreground">
-            {rule.citation} · {t(rule.level === "city" ? "level.city" : "level.state")} · {rule.jurisdiction}
+            {rule.citation} · {t(rule.level === "city" ? "level.city" : "level.state")} ·{" "}
+            {rule.jurisdiction}
           </div>
         </div>
         <div className="flex flex-wrap items-center justify-end gap-1.5">
-          {conflict && <StatusBadge value="conflict" label={t("status.conflict")} />}
+          {review && (
+            <StatusBadge value="needs_human_review" label={t("result.needs_human_review")} />
+          )}
+          {conflict && !review && <StatusBadge value="conflict" label={t("status.conflict")} />}
           {linkOnly && (
             <span className="inline-flex items-center rounded-sm border border-unknown/30 bg-unknown-soft px-2 py-0.5 text-[11px] font-medium text-unknown">
               {t("rule.linkOnly.badge")}
             </span>
           )}
-          {band === "low" && (
-            <span className="inline-flex items-center rounded-sm border border-unknown/30 bg-unknown-soft px-2 py-0.5 text-[11px] font-medium text-unknown">
-              {t("confidence.low")} · {Math.round((rule.confidence ?? 0) * 100)}%
-            </span>
-          )}
-          {band === "medium" && (
-            <span className="inline-flex items-center rounded-sm border border-border/80 bg-secondary/70 px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
-              {t("confidence.medium")} · {Math.round((rule.confidence ?? 0) * 100)}%
+          {band && (
+            <span
+              className={cn(
+                "inline-flex items-center rounded-sm border px-2 py-0.5 text-[11px] font-medium",
+                band === "low"
+                  ? "border-unknown/30 bg-unknown-soft text-unknown"
+                  : "border-border/80 bg-secondary/70 text-muted-foreground",
+              )}
+              title={t("confidence.notLegal")}
+            >
+              {t("confidence.extraction")}: {tx(`confidence.${band}`)}
             </span>
           )}
           {result ? (
-            <StatusBadge value={result} size="md" />
-          ) : (
-            <StatusBadge value={rule.evidence_status === "scenario_only" ? "unknown" : rule.status} label={rule.evidence_status === "scenario_only" ? t("result.unknown") : tx(`status.${rule.status}`)} size="md" />
-          )}
+            <StatusBadge
+              value={view.applicability ?? result}
+              label={
+                view.applicability
+                  ? tx(`result.${view.applicability}`, result)
+                  : tx(`result.${result}`, result)
+              }
+              size="md"
+              kind="applicability"
+            />
+          ) : null}
+          <StatusBadge
+            value={rule.status}
+            label={tx(`status.${rule.status}`)}
+            size="md"
+            kind="legal_status"
+          />
         </div>
       </div>
       <p className="mt-3 text-sm leading-relaxed text-foreground/85">{rule.requirement}</p>
-      {linkOnly ? <div className="mt-3"><LinkOnlyWarning compact /></div> : null}
+      {linkOnly ? (
+        <div className="mt-3">
+          <LinkOnlyWarning compact />
+        </div>
+      ) : null}
+      {factsMissing && factsMissing.length > 0 && result === "unknown" ? (
+        <div className="mt-3 rounded-md border border-unknown/30 bg-unknown-soft px-3 py-2 text-xs text-unknown">
+          <span className="font-medium">{t("label.missingFacts")}: </span>
+          {factsMissing.join(", ")}
+        </div>
+      ) : null}
       {result === "unknown" && explanation ? (
-        <div className="mt-3"><UnknownFactWarning explanation={explanation} compact /></div>
+        <div className="mt-3">
+          <UnknownFactWarning explanation={explanation} compact />
+        </div>
       ) : explanation ? (
         (() => {
           const { body, openQuestion } = splitOpenQuestion(explanation);
@@ -112,7 +148,13 @@ export function RuleCard({
   );
 }
 
-export function WhyThisApplies({ result, explanation }: { result?: LookupResultValue | undefined; explanation?: string | undefined }) {
+export function WhyThisApplies({
+  result,
+  explanation,
+}: {
+  result?: LookupResultValue | undefined;
+  explanation?: string | undefined;
+}) {
   const t = useT();
   if (!explanation) return null;
   const unknown = result === "unknown";
@@ -120,7 +162,12 @@ export function WhyThisApplies({ result, explanation }: { result?: LookupResultV
   return (
     <div className="space-y-2">
       {body ? (
-        <section className={cn("rounded-md border p-4", unknown ? "border-unknown/25 bg-unknown-soft" : "border-applies/20 bg-applies-soft")}>
+        <section
+          className={cn(
+            "rounded-md border p-4",
+            unknown ? "border-unknown/25 bg-unknown-soft" : "border-applies/20 bg-applies-soft",
+          )}
+        >
           <div className="eyebrow">{unknown ? t("rule.unable") : t("rule.whyApplies")}</div>
           <p className="mt-2 text-[15px] leading-relaxed text-ink">{body}</p>
         </section>
@@ -150,27 +197,54 @@ function CopyCitation({ rule }: { rule: Rule }) {
       {done ? <Check className="size-3" /> : <Copy className="size-3" />}
       <span>{done ? `${t("action.copied")} (${done})` : t("action.copyCitation")}:</span>
       {Object.entries(f).map(([k, v]) => (
-        <button key={k} onClick={async () => { await navigator.clipboard.writeText(v); setDone(k); setTimeout(() => setDone(null), 1500); }}
-          className="rounded-sm border px-1.5 py-0.5 hover:bg-secondary hover:text-ink">{k}</button>
+        <button
+          key={k}
+          onClick={async () => {
+            await navigator.clipboard.writeText(v);
+            setDone(k);
+            setTimeout(() => setDone(null), 1500);
+          }}
+          className="rounded-sm border px-1.5 py-0.5 hover:bg-secondary hover:text-ink"
+        >
+          {k}
+        </button>
       ))}
     </div>
   );
 }
 
-export function CitationPanel({ rule, asOf, emphasize }: { rule: Rule; asOf?: string | undefined; emphasize?: boolean | undefined }) {
+export function CitationPanel({
+  rule,
+  asOf,
+  emphasize,
+}: {
+  rule: Rule;
+  asOf?: string | undefined;
+  emphasize?: boolean | undefined;
+}) {
   const t = useT();
   const { locale } = useLocale();
   const [open, setOpen] = useState(true);
   const [metaOpen, setMetaOpen] = useState(false);
   const long = rule.quoted_span.length > 220;
   return (
-    <section className={cn("rounded-md border bg-paper", emphasize && "border-primary/30 ring-1 ring-primary/15")}>
+    <section
+      className={cn(
+        "rounded-md border bg-paper",
+        emphasize && "border-primary/30 ring-1 ring-primary/15",
+      )}
+    >
       <div className="flex items-center justify-between border-b px-4 py-3">
         <div>
           <div className="eyebrow">{emphasize ? t("pipeline.verbatim") : t("rule.evidence")}</div>
           <div className="mt-0.5 font-mono text-sm font-medium text-ink">{rule.citation}</div>
         </div>
-        <a href={rule.source_url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
+        <a
+          href={rule.source_url}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1 text-xs text-primary hover:underline"
+        >
           {t("rule.source")} <ExternalLink className="size-3" />
         </a>
       </div>
@@ -182,12 +256,20 @@ export function CitationPanel({ rule, asOf, emphasize }: { rule: Rule; asOf?: st
         ) : null}
         <figure className="quote-enter relative rounded-sm bg-quote px-4 py-3.5">
           <Quote className="mb-2 size-3.5 text-primary" />
-          <blockquote className={cn("font-serif text-[16px] leading-relaxed text-ink", !open && long && "line-clamp-2")}>
+          <blockquote
+            className={cn(
+              "font-serif text-[16px] leading-relaxed text-ink",
+              !open && long && "line-clamp-2",
+            )}
+          >
             “{rule.quoted_span}”
           </blockquote>
         </figure>
         {long && (
-          <button onClick={() => setOpen(!open)} className="mt-2 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-ink">
+          <button
+            onClick={() => setOpen(!open)}
+            className="mt-2 inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-ink"
+          >
             <ChevronDown className={cn("size-3 transition-transform", open && "rotate-180")} />
             {open ? t("rule.collapseQuote") : t("rule.expandQuote")}
           </button>
@@ -205,9 +287,18 @@ export function CitationPanel({ rule, asOf, emphasize }: { rule: Rule; asOf?: st
         </div>
         {metaOpen && (
           <dl className="mt-3 grid grid-cols-2 gap-3 border-t pt-3 text-xs">
-            <div><dt className="eyebrow">{t("rule.retrieved")}</dt><dd className="mt-0.5 font-mono">{fmtDate(rule.retrieved_at, locale)}</dd></div>
-            <div><dt className="eyebrow">{t("rule.analysisAsOf")}</dt><dd className="mt-0.5 font-mono">{fmtDate(asOf, locale)}</dd></div>
-            <div className="col-span-2 break-all"><dt className="eyebrow">URL</dt><dd className="mt-0.5 font-mono text-muted-foreground">{rule.source_url}</dd></div>
+            <div>
+              <dt className="eyebrow">{t("rule.retrieved")}</dt>
+              <dd className="mt-0.5 font-mono">{fmtDate(rule.retrieved_at, locale)}</dd>
+            </div>
+            <div>
+              <dt className="eyebrow">{t("rule.analysisAsOf")}</dt>
+              <dd className="mt-0.5 font-mono">{fmtDate(asOf, locale)}</dd>
+            </div>
+            <div className="col-span-2 break-all">
+              <dt className="eyebrow">URL</dt>
+              <dd className="mt-0.5 font-mono text-muted-foreground">{rule.source_url}</dd>
+            </div>
           </dl>
         )}
       </div>
@@ -216,25 +307,38 @@ export function CitationPanel({ rule, asOf, emphasize }: { rule: Rule; asOf?: st
 }
 
 function Confidence({ value }: { value?: number | null | undefined }) {
+  const t = useT();
   if (value == null) return <span className="font-mono text-sm">—</span>;
-  const pct = Math.round(value * 100);
+  const band = confidenceBand(value);
   return (
-    <div className="flex items-center gap-2">
-      <div className="h-1.5 w-20 overflow-hidden rounded-full bg-muted">
-        <div className="h-full bg-primary" style={{ width: `${pct}%` }} />
-      </div>
-      <span className="font-mono text-sm tabular-nums">{pct}%</span>
+    <div className="flex flex-col gap-0.5">
+      <span className="font-mono text-sm capitalize">
+        {band === "low"
+          ? t("confidence.low")
+          : band === "medium"
+            ? t("confidence.medium")
+            : band === "high"
+              ? t("confidence.high")
+              : "—"}
+      </span>
+      <span className="text-xs text-muted-foreground">{t("confidence.notLegal")}</span>
     </div>
   );
 }
 
 export function RuleDetailDrawer({
-  view, addressId, asOf, facts, onClose,
+  view,
+  addressId,
+  asOf,
+  facts,
+  onClose,
 }: {
   view: RuleView | null;
   addressId?: string | undefined;
   asOf?: string | undefined;
-  facts?: { yearBuilt?: string | undefined; units?: string | undefined; legalCity?: string | undefined } | undefined;
+  facts?:
+    | { yearBuilt?: string | undefined; units?: string | undefined; legalCity?: string | undefined }
+    | undefined;
   onClose: () => void;
 }) {
   const t = useT();
@@ -264,12 +368,16 @@ export function RuleDetailDrawer({
   };
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
-      <div className="absolute inset-0 bg-ink/30 animate-in fade-in duration-150" onClick={onClose} />
+      <div
+        className="absolute inset-0 bg-ink/30 animate-in fade-in duration-150"
+        onClick={onClose}
+      />
       <aside className="relative flex h-full w-full max-w-2xl flex-col overflow-y-auto bg-background shadow-2xl animate-in slide-in-from-right duration-200 ease-out">
         <header className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b bg-background/95 px-6 py-5 backdrop-blur">
           <div>
             <div className="eyebrow">
-              {tx(`category.${rule.category}`)} · {t(rule.level === "city" ? "level.city" : "level.state")} · {rule.jurisdiction}
+              {tx(`category.${rule.category}`)} ·{" "}
+              {t(rule.level === "city" ? "level.city" : "level.state")} · {rule.jurisdiction}
             </div>
             <h3 className="mt-1.5 font-serif text-2xl text-ink">{rule.title}</h3>
             <div className="mt-3 flex flex-wrap gap-2">
@@ -297,13 +405,19 @@ export function RuleDetailDrawer({
               </button>
             )}
           </div>
-          <button onClick={onClose} aria-label={t("rule.close")} className="rounded-md p-1.5 text-muted-foreground hover:bg-muted">
+          <button
+            onClick={onClose}
+            aria-label={t("rule.close")}
+            className="rounded-md p-1.5 text-muted-foreground hover:bg-muted"
+          >
             <X className="size-5" />
           </button>
         </header>
         <div className="space-y-6 px-6 py-6">
           <WhyThisApplies result={result} explanation={explanation} />
-          {(conflict || rule.conflict_note) && !linkOnly && <ConflictWarning note={rule.conflict_note} />}
+          {(conflict || rule.conflict_note) && !linkOnly && (
+            <ConflictWarning note={rule.conflict_note} />
+          )}
           {conflict && linkOnly && <ConflictWarning />}
           <CitationPanel rule={rule} asOf={asOf} />
           <section
@@ -375,13 +489,25 @@ export function SourceMeta({ rule }: { rule: Rule }) {
   const t = useT();
   const { locale } = useLocale();
   if (rule.confidence == null && !rule.retrieved_at) return null;
-  const days = rule.retrieved_at ? Math.floor((Date.now() - new Date(rule.retrieved_at).getTime()) / 86400000) : null;
+  const days = rule.retrieved_at
+    ? Math.floor((Date.now() - new Date(rule.retrieved_at).getTime()) / 86400000)
+    : null;
   const stale = days != null && days > 180;
   return (
     <div className="mt-0 flex flex-wrap gap-x-4 gap-y-1 font-mono text-[11px] text-muted-foreground">
       {rule.confidence != null && (
-        <span className={rule.confidence < 0.85 ? "text-unknown" : ""}>
-          {t("rule.confidenceLabel")} {Math.round(rule.confidence * 100)}%
+        <span
+          className={rule.confidence < 0.85 ? "text-unknown" : ""}
+          title={t("confidence.notLegal")}
+        >
+          {t("confidence.extraction")}:{" "}
+          {t(
+            rule.confidence < 0.5
+              ? "confidence.low"
+              : rule.confidence < 0.85
+                ? "confidence.medium"
+                : "confidence.high",
+          )}
         </span>
       )}
       {rule.retrieved_at && (
