@@ -459,15 +459,18 @@ function MemoBar({ data }: { data: LookupResponse }) {
         </div>
         <p className="mt-2 text-xs">{data.disclaimer}</p>
       </div>
-      <div className="flex flex-wrap items-center justify-end gap-2 print:hidden">
+      <div className="mb-2 flex flex-wrap items-center justify-end gap-2 print:hidden">
         <button
           onClick={async () => { await navigator.clipboard.writeText(window.location.href); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
-          className="inline-flex items-center gap-1.5 rounded-md border bg-card px-3 py-1.5 text-sm text-ink hover:bg-secondary"
+          className="inline-flex items-center gap-1.5 rounded-full border border-border/80 bg-paper/80 px-3.5 py-1.5 text-sm text-ink transition-colors hover:bg-secondary"
         >
           {copied ? <Check className="size-4" /> : <Link2 className="size-4" />}
           {copied ? t("action.copied") : t("action.share")}
         </button>
-        <button onClick={() => window.print()} className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-sm text-primary-foreground hover:bg-primary/90">
+        <button
+          onClick={() => window.print()}
+          className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3.5 py-1.5 text-sm text-primary-foreground shadow-sm transition-transform active:scale-[0.98] hover:bg-primary/92"
+        >
           <Printer className="size-4" /> {t("action.print")}
         </button>
 
@@ -476,7 +479,7 @@ function MemoBar({ data }: { data: LookupResponse }) {
             type="button"
             aria-expanded={moreOpen}
             onClick={() => setMoreOpen((v) => !v)}
-            className="inline-flex items-center gap-1.5 rounded-md border bg-card px-3 py-1.5 text-sm text-muted-foreground hover:bg-secondary hover:text-ink"
+            className="inline-flex items-center gap-1.5 rounded-full border border-border/80 bg-paper/80 px-3.5 py-1.5 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-ink"
           >
             {t("lookup.actions")}
           </button>
