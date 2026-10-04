@@ -2,7 +2,11 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
-import { AsOfDateSchema, type RuleRecord } from "@rhl/shared";
+import {
+  AsOfDateSchema,
+  toCanonicalApplicability,
+  type RuleRecord,
+} from "@rhl/shared";
 import { evaluateAddress } from "../apply/coverage.js";
 import { evaluateExecutableCoverage } from "../apply/executable.js";
 import { loadAllAddresses } from "../lib/addresses.js";
@@ -15,6 +19,71 @@ const rules = JSON.parse(await readFile(path.join(outputsDir(), "rules.json"), "
 const addresses = await loadAllAddresses();
 const geos = (await Promise.all(["geocode_cache.json", "stretch_geocode.json"].map(async f => JSON.parse(await readFile(path.join(outputsDir(), f), "utf8")).geocoded))).flat() as GeocodeResult[];
 const lookup = (id: string, asOf: string) => evaluateAddress({ address: addresses.find(a => a.address_id === id)!, geo: geos.find(g => g.address_id === id)!, rules, asOf });
+
+test("canonical applicability maps pack results without collapsing unknown", () => {
+  assert.equal(toCanonicalApplicability("applies"), "applies");
+  assert.equal(toCanonicalApplicability("unknown"), "unknown");
+  assert.equal(toCanonicalApplicability("superseded"), "does_not_apply");
+  assert.equal(toCanonicalApplicability("pending"), "does_not_apply");
+  assert.equal(toCanonicalApplicability("not_yet_effective"), "does_not_apply");
+  assert.equal(toCanonicalApplicability("does_not_apply"), "does_not_apply");
+  assert.equal(toCanonicalApplicability("applies", true), "needs_human_review");
+});
+
+test("includeNonApplicable emits does_not_apply for coverage omissions", () => {
+  // SA0003 is a post-cutoff Santa Ana build: just-cause 15-year exemption omits the rule.
+  const addr = addresses.find((a) => a.address_id === "SA0003")!;
+  const geo = geos.find((g) => g.address_id === "SA0003")!;
+  assert.ok(addr && geo, "SA0003 stretch address required");
+  const withOmit = evaluateAddress({
+    address: addr,
+    geo,
+    rules,
+    asOf: "2026-10-01",
+    includeNonApplicable: true,
+  });
+  const dna = withOmit.filter((r) => r.result === "does_not_apply");
+  assert.ok(dna.length > 0, "expected at least one does_not_apply row");
+  const packShape = evaluateAddress({
+    address: addr,
+    geo,
+    rules,
+    asOf: "2026-10-01",
+    includeNonApplicable: false,
+  });
+  assert.equal(
+    packShape.some((r) => r.result === "does_not_apply"),
+    false,
+    "pack-shaped evaluateAddress omits does_not_apply",
+  );
+});
+
+test("geocode cache carries county FIPS and place GEOID for trusted cities", async () => {
+  const { withJurisdictionIds } = await import("../geocode/jurisdiction_ids.js");
+  const hob = geos.find((g) => g.legal_city === "Hoboken")!;
+  const enriched = withJurisdictionIds(hob);
+  assert.equal(enriched.county_fips, "34017");
+  assert.equal(enriched.place_geoid, "3432250");
+  const unk = withJurisdictionIds({
+    address_id: "x",
+    legal_city: "Somewhereville",
+    county: "",
+    state: "CA",
+    source: "heuristic" as const,
+    resolution: "postal_fallback" as const,
+  });
+  assert.equal(unk.place_geoid, null);
+});
+
+test("lookup enrichment exposes facts and human-review flags", () => {
+  const hob = rules.find((r) => r.alias_id === "HOB-ALG-01")!.team_rule_id;
+  const result = lookup("A0002", "2026-10-01").find((r) => r.team_rule_id === hob)!;
+  assert.equal(result.needs_human_review, true);
+  assert.equal(result.applicability, "needs_human_review");
+  assert.ok(Array.isArray(result.facts_used));
+  assert.ok(result.facts_used!.some((f) => f.startsWith("legal_city=")));
+  assert.ok(Array.isArray(result.facts_missing));
+});
 
 test("real dates only, including leap-year boundaries", () => {
   for (const date of ["nonsense", "2026-99-99", "2026-02-29", "2026-04-31"]) {
@@ -36,6 +105,7 @@ test("municipal scenarios stay unknown with conflict context", () => {
   const id = rules.find(r => r.alias_id === "HOB-ALG-01")!.team_rule_id;
   const result = lookup("A0002", "2026-10-01").find(r => r.team_rule_id === id)!;
   assert.equal(result.result, "unknown"); assert.equal(result.conflict_flag, true);
+  assert.equal(result.needs_human_review, true);
   assert.match(result.explanation, /uncaptured/);
 });
 test("all-only executable predicates are enforced and missing facts are unknown", () => {
