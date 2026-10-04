@@ -19,3 +19,6 @@
 - Rule version history comes from CiteApiClient.ruleVersions (GET /rules/:id/versions); the UI only renders a word diff for display.
 - Lookup audit log (lookup_audit table) is append-only and stores result counts copied from the lookup response; precedence text comes from the backend field rule.precedence_note, never decided in the UI. Why: audit integrity and no legal logic in the frontend.
 - Re-checks, API lookups and webhooks only copy backend lookup results and diff them (src/lib/cite/recheck.server.ts); roles live in user_roles with has_role(). Why: no legal logic in the frontend; no privilege escalation.
+- Review cases are owner-scoped snapshots of backend lookup responses; database triggers write immutable case events after edits. Why: reviewers can track decisions without letting frontend code reinterpret legal results or forge audit entries.
+- Fact correction requests are owner-readable, append-only for users, and do not update lookup facts; processing and any legal re-evaluation must happen in the backend. Why: intake cannot silently change a determination.
+- Case source dependency checks compare saved document metadata with current corpus metadata only, never claim content or legal changes; case packets serialize frozen responses and review events. Why: the API does not expose reliable content-version signals.

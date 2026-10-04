@@ -1,2 +1,10 @@
 - Tier 3 built: dashboard, groups, re-checks, roles, API keys, webhooks.
-- Automatic re-checks: due schedules run via authenticated `POST /api/public/cron/recheck`; Dashboard/Settings show due status; manual “Run re-checks now” remains on Dashboard.
+- Re-checks: due schedules can run via authenticated `POST /api/public/cron/recheck`; no timer is configured. Manual “Run re-checks now” remains on Dashboard.
+- [x] 1. Decision workspace: saved cases, ownership, questions, evidence, approval trail.
+- [x] 2. Change impact inbox for monitored properties with review states.
+- [x] 3. Evidence freshness and provenance, with honest stale/unknown signals (retrieval dates, missing metadata and human-review reminder; no automated source monitor).
+- [x] 4. Property fact correction requests without frontend legal re-evaluation (request intake and owner-visible status; backend review/repair still required).
+- [x] 5. Portfolio exposure grouped by legal city, change scenario and unresolved review count (topic unavailable in change feed).
+- [x] 6. Counsel-ready case packet as a text download with captured facts, original quotes, sources and review history (not PDF).
+- [ ] 7. Official source-change monitoring and dependent-case visibility. Case-level dependencies and on-open corpus metadata comparison built; continuous monitoring and content-hash change detection require backend support.
+- [ ] 8. Reliable delivery: signed-in case/correction/inbox flows verified; stable API pending a permanent address, scheduler not yet configured, and real email explicitly deferred.
