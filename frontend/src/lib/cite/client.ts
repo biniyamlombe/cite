@@ -49,10 +49,59 @@ export interface CiteApiClient {
     current_rent: number;
     new_rent: number;
   }): Promise<import("./types").RentCheckResponse>;
+  ask(input: {
+    address_id: string;
+    as_of?: string;
+    question: string;
+    locale?: "en-US" | "es-US";
+  }): Promise<AskResponse>;
+  letter(input: {
+    address_id: string;
+    as_of?: string;
+    current_rent: number;
+    new_rent: number;
+    locale?: "en-US" | "es-US";
+  }): Promise<LetterResponse>;
+  tts(input: {
+    address_id: string;
+    as_of?: string;
+    locale?: "en-US" | "es-US";
+    persona?: "renter" | "owner";
+  }): Promise<TtsResponse>;
   corpusDocs(): Promise<CorpusDocOption[]>;
   extract(docId: string): Promise<ExtractResponse>;
   ruleVersions(teamRuleId: string): Promise<RuleVersion[]>;
 }
+
+export type AskResponse = {
+  disclaimer: string;
+  as_of: string;
+  locale: string;
+  address_id: string;
+  question: string;
+  answer: string;
+  refused: boolean;
+  refusal_reason: string | null;
+  citations: Array<{
+    team_rule_id: string;
+    citation: string;
+    quoted_span: string;
+    result: string;
+    source_url?: string;
+  }>;
+};
+
+export type LetterResponse = {
+  disclaimer: string;
+  as_of: string;
+  address_id: string;
+  text: string;
+  verdict_kind: string;
+};
+
+export type TtsResponse =
+  | { fallback: true; text: string; reason?: string }
+  | { fallback: false; blob: Blob };
 
 const delay = (ms = 220) => new Promise((r) => setTimeout(r, ms));
 
@@ -216,6 +265,110 @@ export class MockCiteApiClient implements CiteApiClient {
       },
     };
   }
+  async ask(input: {
+    address_id: string;
+    as_of?: string;
+    question: string;
+    locale?: "en-US" | "es-US";
+  }): Promise<AskResponse> {
+    await delay();
+    const lookup = await this.lookup(input.address_id, input.as_of ?? DEFAULT_AS_OF);
+    const q = input.question.toLowerCase();
+    if (/\b(get around|evade|bypass|loophole)\b/.test(q)) {
+      return {
+        disclaimer: DISCLAIMER,
+        as_of: input.as_of ?? DEFAULT_AS_OF,
+        locale: input.locale ?? "en-US",
+        address_id: input.address_id,
+        question: input.question,
+        answer:
+          "I can only summarize applying rules from retrieved sources — not help evade them.",
+        refused: true,
+        refusal_reason: "evasion",
+        citations: [],
+      };
+    }
+    const rent = lookup.results.filter(
+      (r) => r.result === "applies" && r.rule?.category === "rent_increase_limits",
+    );
+    const cites = (rent.length ? rent : lookup.results.filter((r) => r.result === "applies")).slice(
+      0,
+      3,
+    );
+    const lines = cites.map(
+      (r) => r.headline?.text ?? r.rule?.citation ?? r.team_rule_id,
+    );
+    return {
+      disclaimer: DISCLAIMER,
+      as_of: input.as_of ?? DEFAULT_AS_OF,
+      locale: input.locale ?? "en-US",
+      address_id: input.address_id,
+      question: input.question,
+      answer: lines.length
+        ? `Based on retrieved applying rules:\n\n${lines.map((l) => `• ${l}`).join("\n")}`
+        : "No applying rules were retrieved for this address.",
+      refused: false,
+      refusal_reason: null,
+      citations: cites
+        .filter((r) => r.rule)
+        .map((r) => ({
+          team_rule_id: r.team_rule_id,
+          citation: r.rule!.citation,
+          quoted_span: r.rule!.quoted_span,
+          result: r.result,
+          source_url: r.rule!.source_url,
+        })),
+    };
+  }
+  async letter(input: {
+    address_id: string;
+    as_of?: string;
+    current_rent: number;
+    new_rent: number;
+    locale?: "en-US" | "es-US";
+  }): Promise<LetterResponse> {
+    await delay();
+    const check = await this.checkRent(input);
+    const quote = check.verdict.deciding_quotes[0];
+    const text = [
+      "Dear Landlord,",
+      "",
+      `I am writing about a proposed rent change from $${input.current_rent} to $${input.new_rent} (${check.verdict.values.increase_pct}% increase) as of ${check.as_of}.`,
+      check.verdict.values.cap_pct != null
+        ? `Retrieved rules state a cap of about ${check.verdict.values.cap_pct}%.`
+        : "No numeric rent cap was retrieved for this address.",
+      quote ? `Citation: ${quote.citation}. Quote: “${quote.quoted_span}”` : "",
+      "",
+      "This is not legal advice. Please verify with a qualified professional.",
+      "",
+      "Sincerely,",
+      "Tenant",
+    ]
+      .filter(Boolean)
+      .join("\n");
+    return {
+      disclaimer: DISCLAIMER,
+      as_of: check.as_of,
+      address_id: input.address_id,
+      text,
+      verdict_kind: check.verdict.kind,
+    };
+  }
+  async tts(input: {
+    address_id: string;
+    as_of?: string;
+    locale?: "en-US" | "es-US";
+    persona?: "renter" | "owner";
+  }): Promise<TtsResponse> {
+    await delay(80);
+    const ask = await this.ask({
+      address_id: input.address_id,
+      as_of: input.as_of,
+      question: "Summarize applying rent rules",
+      locale: input.locale,
+    });
+    return { fallback: true, text: ask.answer, reason: "mock" };
+  }
   async corpusDocs() {
     await delay(80);
     return (await fixtures()).MOCK_EXTRACT_DOCS;
@@ -286,8 +439,57 @@ export class HttpCiteApiClient implements CiteApiClient {
   }) {
     return (await this.request("/check", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(input),
     })) as import("./types").RentCheckResponse;
+  }
+  async ask(input: {
+    address_id: string;
+    as_of?: string;
+    question: string;
+    locale?: "en-US" | "es-US";
+  }): Promise<AskResponse> {
+    return (await this.request("/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(input),
+    })) as AskResponse;
+  }
+  async letter(input: {
+    address_id: string;
+    as_of?: string;
+    current_rent: number;
+    new_rent: number;
+    locale?: "en-US" | "es-US";
+  }): Promise<LetterResponse> {
+    return (await this.request("/letter", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(input),
+    })) as LetterResponse;
+  }
+  async tts(input: {
+    address_id: string;
+    as_of?: string;
+    locale?: "en-US" | "es-US";
+    persona?: "renter" | "owner";
+  }): Promise<TtsResponse> {
+    const res = await fetch(`${this.base.replace(/\/$/, "")}/tts`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(input),
+      signal: AbortSignal.timeout(180000),
+    });
+    const ctype = res.headers.get("content-type") ?? "";
+    if (!res.ok) {
+      const raw = await res.json().catch(() => ({}));
+      throw parseCiteApiError(res.status, raw);
+    }
+    if (ctype.includes("audio/")) {
+      return { fallback: false, blob: await res.blob() };
+    }
+    const raw = (await res.json()) as { text?: string; reason?: string; fallback?: boolean };
+    return { fallback: true, text: raw.text ?? "", reason: raw.reason };
   }
   async corpusDocs(): Promise<CorpusDocOption[]> {
     return z.object({ docs: z.array(CorpusDocSchema) }).parse(await this.request("/corpus/docs"))

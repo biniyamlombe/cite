@@ -71,7 +71,8 @@ type MoreLink = {
     | "/rules"
     | "/pipeline"
     | "/compare"
-    | "/check";
+    | "/check"
+    | "/ask";
   key: StringKey;
 };
 
@@ -80,6 +81,7 @@ const MORE_MONITOR: ReadonlyArray<MoreLink> = [
   { to: "/inbox", key: "nav.inbox" },
   { to: "/portfolio", key: "nav.portfolio" },
   { to: "/check", key: "nav.check" },
+  { to: "/ask", key: "nav.ask" },
 ];
 
 const MORE_TEAM: ReadonlyArray<MoreLink> = [

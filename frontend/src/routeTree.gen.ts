@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AskRouteImport } from './routes/ask'
 import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BulkRouteImport } from './routes/bulk'
@@ -39,6 +40,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AskRoute = AskRouteImport.update({
+  id: '/ask',
+  path: '/ask',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AuditRoute = AuditRouteImport.update({
@@ -141,6 +147,7 @@ const ApiPublicV1LookupAddressIdRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ask': typeof AskRoute
   '/audit': typeof AuditRoute
   '/auth': typeof AuthRoute
   '/bulk': typeof BulkRoute
@@ -164,6 +171,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ask': typeof AskRoute
   '/audit': typeof AuditRoute
   '/auth': typeof AuthRoute
   '/bulk': typeof BulkRoute
@@ -188,6 +196,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/ask': typeof AskRoute
   '/audit': typeof AuditRoute
   '/auth': typeof AuthRoute
   '/bulk': typeof BulkRoute
@@ -213,6 +222,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/ask'
     | '/audit'
     | '/auth'
     | '/bulk'
@@ -236,6 +246,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/ask'
     | '/audit'
     | '/auth'
     | '/bulk'
@@ -259,6 +270,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/ask'
     | '/audit'
     | '/auth'
     | '/bulk'
@@ -283,6 +295,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AskRoute: typeof AskRoute
   AuditRoute: typeof AuditRoute
   AuthRoute: typeof AuthRoute
   BulkRoute: typeof BulkRoute
@@ -318,6 +331,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ask': {
+      id: '/ask'
+      path: '/ask'
+      fullPath: '/ask'
+      preLoaderRoute: typeof AskRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/audit': {
@@ -459,6 +479,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AskRoute: AskRoute,
   AuditRoute: AuditRoute,
   AuthRoute: AuthRoute,
   BulkRoute: BulkRoute,
@@ -482,13 +503,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
