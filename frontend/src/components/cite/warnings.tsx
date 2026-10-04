@@ -12,13 +12,31 @@ export function splitOpenQuestion(text: string): { body: string; openQuestion: s
   };
 }
 
-/** True when the pack marked the primary source as link-only (no capturable ordinance body). */
+/** True when live applicability rests on an uncaptured / scenario-only primary source. */
 export function isLinkOnlyScaffold(rule: {
   conflict_note?: string | null | undefined;
   citation?: string | null | undefined;
+  extraction_method?: string | null | undefined;
+  evidence_status?: string | null | undefined;
 }): boolean {
+  const method = rule.extraction_method ?? "";
+  // Captured municipal PDFs may still mention pack ecode360 link-only URLs in conflict_note —
+  // those are disclosures, not evidence that the rule itself is a scaffold.
+  if (method === "municipal_ordinance") return false;
+  if (method === "soft_gap_scaffold") return false;
+  if (method === "link_only_scaffold" || method === "secondary_report") return true;
+  if (rule.evidence_status === "scenario_only") return true;
   const blob = `${rule.conflict_note ?? ""} ${rule.citation ?? ""}`.toLowerCase();
   return blob.includes("link-only") || blob.includes("link only");
+}
+
+/** Thin FAQ/summary page used as a disclosed soft-gap screening extract (not full ordinance). */
+export function isSoftGapScaffold(rule: {
+  extraction_method?: string | null | undefined;
+  alias_id?: string | null | undefined;
+}): boolean {
+  if (rule.extraction_method === "soft_gap_scaffold") return true;
+  return rule.alias_id === "CAM-FH-01" || rule.alias_id === "SF-FC-01";
 }
 
 export function UnknownFactWarning({
@@ -93,6 +111,31 @@ export function LinkOnlyWarning({
         <div className="font-medium text-ink">{t("rule.linkOnly")}</div>
         <p className="text-foreground/80">
           {compact ? t("rule.linkOnly.short") : t("rule.linkOnly.body")}
+        </p>
+        {note && !compact ? (
+          <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{note}</p>
+        ) : null}
+      </div>
+    </div>
+  );
+}
+
+/** Soft-gap FAQ/summary extracts — disclosed provisional screening rules, not full code. */
+export function SoftGapWarning({
+  note,
+  compact,
+}: {
+  note?: string | null | undefined;
+  compact?: boolean | undefined;
+}) {
+  const t = useT();
+  return (
+    <div className="flex gap-2.5 rounded-md border border-pending/30 bg-pending-soft px-3 py-2.5 text-sm">
+      <CircleHelp className="mt-0.5 size-4 shrink-0 text-pending" />
+      <div>
+        <div className="font-medium text-ink">{t("rule.softGap")}</div>
+        <p className="text-foreground/80">
+          {compact ? t("rule.softGap.short") : t("rule.softGap.body")}
         </p>
         {note && !compact ? (
           <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">{note}</p>
