@@ -43,6 +43,12 @@ export interface CiteApiClient {
   changes(): Promise<ChangesResponse>;
   rules(): Promise<CatalogRule[]>;
   noRuleFindings(): Promise<import("./types").NoRuleFindingsResponse>;
+  checkRent(input: {
+    address_id: string;
+    as_of?: string;
+    current_rent: number;
+    new_rent: number;
+  }): Promise<import("./types").RentCheckResponse>;
   corpusDocs(): Promise<CorpusDocOption[]>;
   extract(docId: string): Promise<ExtractResponse>;
   ruleVersions(teamRuleId: string): Promise<RuleVersion[]>;
@@ -148,6 +154,68 @@ export class MockCiteApiClient implements CiteApiClient {
       generated_at: null,
     };
   }
+  async checkRent(input: {
+    address_id: string;
+    as_of?: string;
+    current_rent: number;
+    new_rent: number;
+  }) {
+    await delay();
+    const lookup = await this.lookup(input.address_id, input.as_of ?? DEFAULT_AS_OF);
+    const cur = input.current_rent;
+    const neu = input.new_rent;
+    const increase = Number((((neu - cur) / cur) * 100).toFixed(2));
+    const applying = lookup.results.filter(
+      (r) => r.result === "applies" && r.rule?.category === "rent_increase_limits",
+    );
+    const kv = applying.map((r) => r.rule?.key_value).join(" ");
+    const pctM = kv.match(/(\d+(?:\.\d+)?)\s*%/);
+    const cap = pctM ? Number(pctM[1]) : null;
+    const values: import("./types").RentCheckVerdict["values"] = {
+      current_rent: cur,
+      new_rent: neu,
+      increase_pct: increase,
+    };
+    let kind: import("./types").RentCheckVerdict["kind"] = "none";
+    let code = "no_applying_cap";
+    let need: { key: string } | undefined;
+    if (applying.length && cap != null) {
+      values.cap_pct = cap;
+      values.max_rent = Number((cur * (1 + cap / 100)).toFixed(2));
+      if (neu <= (values.max_rent ?? 0) + 0.005) {
+        kind = "ok";
+        code = "within";
+      } else {
+        kind = "over";
+        code = "over";
+        values.over_amount = Number((neu - (values.max_rent ?? 0)).toFixed(2));
+      }
+    } else if (applying.length) {
+      kind = "unknown";
+      code = "need_figure";
+      need = { key: "rate_figure" };
+    }
+    return {
+      disclaimer: DISCLAIMER,
+      as_of: input.as_of ?? DEFAULT_AS_OF,
+      address_id: input.address_id,
+      verdict: {
+        kind,
+        code,
+        values,
+        need,
+        deciding_rule_ids: applying.map((r) => r.team_rule_id),
+        deciding_quotes: applying
+          .filter((r) => r.rule)
+          .map((r) => ({
+            team_rule_id: r.team_rule_id,
+            citation: r.rule!.citation,
+            quoted_span: r.rule!.quoted_span,
+            source_url: r.rule!.source_url,
+          })),
+      },
+    };
+  }
   async corpusDocs() {
     await delay(80);
     return (await fixtures()).MOCK_EXTRACT_DOCS;
@@ -209,6 +277,17 @@ export class HttpCiteApiClient implements CiteApiClient {
   }
   async noRuleFindings() {
     return (await this.request("/no-rule-findings")) as import("./types").NoRuleFindingsResponse;
+  }
+  async checkRent(input: {
+    address_id: string;
+    as_of?: string;
+    current_rent: number;
+    new_rent: number;
+  }) {
+    return (await this.request("/check", {
+      method: "POST",
+      body: JSON.stringify(input),
+    })) as import("./types").RentCheckResponse;
   }
   async corpusDocs(): Promise<CorpusDocOption[]> {
     return z.object({ docs: z.array(CorpusDocSchema) }).parse(await this.request("/corpus/docs"))

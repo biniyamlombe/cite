@@ -16,6 +16,8 @@ import {
   type SupportedLocale,
 } from "@rhl/shared";
 import { headlineForLookup } from "../plain/headlines.js";
+import { checkRentIncrease } from "../check/rent.js";
+import { z } from "zod";
 import {
   displayApplicabilityLabel,
   displayStatusLabel,
@@ -523,6 +525,93 @@ app.post("/lookup/:addressId", async (c) => {
     units: facts.success ? facts.data.units : undefined,
     locale,
     locale_warning,
+  });
+});
+
+const RentCheckBodySchema = z.object({
+  address_id: z.string().min(1),
+  as_of: AsOfDateSchema.optional(),
+  current_rent: z.number().positive(),
+  new_rent: z.number().positive(),
+  locale: z.string().optional(),
+});
+
+app.post("/check", async (c) => {
+  const requestId = newRequestId();
+  let body: unknown;
+  try {
+    body = await c.req.json();
+  } catch {
+    return apiError(c, 400, "VALIDATION_ERROR", "Invalid JSON body", "Request body must be JSON.", {
+      requestId,
+    });
+  }
+  const parsed = RentCheckBodySchema.safeParse(body);
+  if (!parsed.success) {
+    return apiError(
+      c,
+      400,
+      "VALIDATION_ERROR",
+      "Invalid rent check request",
+      "Provide address_id, current_rent, and new_rent.",
+      { requestId, field_errors: { body: "invalid" } },
+    );
+  }
+  const { locale } = localeFromRequest(c, parsed.data.locale);
+  const asOf = parsed.data.as_of || process.env.AS_OF_DEFAULT || DEFAULT_AS_OF;
+  const addresses = await cachedAddresses();
+  const addr = addresses.find((a) => a.address_id === parsed.data.address_id);
+  if (!addr) {
+    return apiError(
+      c,
+      404,
+      "ADDRESS_NOT_FOUND",
+      "Address not found",
+      localizedErrorUserMessage(
+        "ADDRESS_NOT_FOUND",
+        "That address is not in the supported sample set.",
+        locale,
+      ),
+      { requestId },
+    );
+  }
+  const geos = await loadGeos();
+  const geo = geos.get(addr.address_id);
+  if (!geo) {
+    return apiError(
+      c,
+      409,
+      "NOT_GEOCODED",
+      "Address not geocoded",
+      localizedErrorUserMessage(
+        "NOT_GEOCODED",
+        "Jurisdiction for this address is not ready yet.",
+        locale,
+      ),
+      { retryable: true, requestId },
+    );
+  }
+  const rules = await loadRules();
+  const entries = evaluateAddress({
+    address: addr,
+    geo,
+    rules,
+    asOf,
+    includeNonApplicable: false,
+  });
+  const verdict = checkRentIncrease({
+    currentRent: parsed.data.current_rent,
+    newRent: parsed.data.new_rent,
+    entries,
+    rulesById: new Map(rules.map((r) => [r.team_rule_id, r])),
+  });
+  return c.json({
+    disclaimer: localizedDisclaimer(locale),
+    as_of: asOf,
+    locale,
+    address_id: addr.address_id,
+    verdict,
+    meta: buildMeta({ requestId, asOf }),
   });
 });
 

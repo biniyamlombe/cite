@@ -186,6 +186,35 @@ export type NoRuleFindingsResponse = {
   generated_at: string | null;
 };
 
+export type RentCheckVerdict = {
+  kind: "ok" | "over" | "unknown" | "none";
+  code: string;
+  values: {
+    current_rent: number;
+    new_rent: number;
+    increase_pct: number;
+    cap_pct?: number;
+    max_rent?: number;
+    over_amount?: number;
+  };
+  need?: { key: string };
+  deciding_rule_ids: string[];
+  deciding_quotes: Array<{
+    team_rule_id: string;
+    citation: string;
+    quoted_span: string;
+    source_url: string;
+  }>;
+};
+
+export type RentCheckResponse = {
+  disclaimer: string;
+  as_of: string;
+  locale?: string;
+  address_id: string;
+  verdict: RentCheckVerdict;
+};
+
 export type TestId = "T1" | "T2" | "T3" | "T4" | "T5";
 
 export interface ChangeTest {

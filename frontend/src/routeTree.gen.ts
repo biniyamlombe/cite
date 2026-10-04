@@ -15,6 +15,7 @@ import { Route as AuditRouteImport } from './routes/audit'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as BulkRouteImport } from './routes/bulk'
 import { Route as ChangesRouteImport } from './routes/changes'
+import { Route as CheckRouteImport } from './routes/check'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as CoverageRouteImport } from './routes/coverage'
 import { Route as DashboardRouteImport } from './routes/dashboard'
@@ -58,6 +59,11 @@ const BulkRoute = BulkRouteImport.update({
 const ChangesRoute = ChangesRouteImport.update({
   id: '/changes',
   path: '/changes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CheckRoute = CheckRouteImport.update({
+  id: '/check',
+  path: '/check',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CompareRoute = CompareRouteImport.update({
@@ -139,6 +145,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRoute
   '/bulk': typeof BulkRoute
   '/changes': typeof ChangesRoute
+  '/check': typeof CheckRoute
   '/compare': typeof CompareRoute
   '/coverage': typeof CoverageRoute
   '/dashboard': typeof DashboardRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRoute
   '/bulk': typeof BulkRoute
   '/changes': typeof ChangesRoute
+  '/check': typeof CheckRoute
   '/compare': typeof CompareRoute
   '/coverage': typeof CoverageRoute
   '/dashboard': typeof DashboardRoute
@@ -184,6 +192,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRoute
   '/bulk': typeof BulkRoute
   '/changes': typeof ChangesRoute
+  '/check': typeof CheckRoute
   '/compare': typeof CompareRoute
   '/coverage': typeof CoverageRoute
   '/dashboard': typeof DashboardRoute
@@ -208,6 +217,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/bulk'
     | '/changes'
+    | '/check'
     | '/compare'
     | '/coverage'
     | '/dashboard'
@@ -230,6 +240,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/bulk'
     | '/changes'
+    | '/check'
     | '/compare'
     | '/coverage'
     | '/dashboard'
@@ -252,6 +263,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/bulk'
     | '/changes'
+    | '/check'
     | '/compare'
     | '/coverage'
     | '/dashboard'
@@ -275,6 +287,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRoute
   BulkRoute: typeof BulkRoute
   ChangesRoute: typeof ChangesRoute
+  CheckRoute: typeof CheckRoute
   CompareRoute: typeof CompareRoute
   CoverageRoute: typeof CoverageRoute
   DashboardRoute: typeof DashboardRoute
@@ -333,6 +346,13 @@ declare module '@tanstack/react-router' {
       path: '/changes'
       fullPath: '/changes'
       preLoaderRoute: typeof ChangesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/check': {
+      id: '/check'
+      path: '/check'
+      fullPath: '/check'
+      preLoaderRoute: typeof CheckRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/compare': {
@@ -443,6 +463,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRoute,
   BulkRoute: BulkRoute,
   ChangesRoute: ChangesRoute,
+  CheckRoute: CheckRoute,
   CompareRoute: CompareRoute,
   CoverageRoute: CoverageRoute,
   DashboardRoute: DashboardRoute,
