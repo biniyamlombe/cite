@@ -1649,6 +1649,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0010": [
@@ -1818,6 +1824,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -2567,6 +2579,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0016": [
@@ -2749,6 +2767,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0017": [
@@ -3629,6 +3653,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0022": [
@@ -4126,6 +4156,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -4709,6 +4745,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0028": [
@@ -5135,6 +5177,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0031": [
@@ -5651,6 +5699,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0034": [
@@ -5820,6 +5874,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -6561,6 +6621,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0039": [
@@ -6730,6 +6796,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -7041,6 +7113,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0042": [
@@ -7344,6 +7422,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -7800,6 +7884,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -8463,6 +8553,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0051": [
@@ -9469,6 +9565,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0056": [
@@ -10501,6 +10603,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0062": [
@@ -10683,6 +10791,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0063": [
@@ -11082,6 +11196,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -12089,6 +12209,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0070": [
@@ -12259,6 +12385,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0071": [
@@ -12428,6 +12560,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -12611,6 +12749,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0073": [
@@ -12780,6 +12924,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -13151,6 +13301,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0076": [
@@ -13442,6 +13598,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -14111,6 +14273,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0082": [
@@ -14280,6 +14448,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -14693,6 +14867,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0085": [
@@ -14875,6 +15055,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0086": [
@@ -15044,6 +15230,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -15355,6 +15547,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0089": [
@@ -16713,6 +16911,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0096": [
@@ -17125,6 +17329,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0098": [
@@ -18479,6 +18689,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0106": [
@@ -18661,6 +18877,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0107": [
@@ -19729,6 +19951,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0113": [
@@ -20353,6 +20581,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0116": [
@@ -21943,6 +22177,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0125": [
@@ -22253,6 +22493,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0127": [
@@ -23795,6 +24041,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0136": [
@@ -24791,6 +25043,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0142": [
@@ -25931,6 +26189,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0148": [
@@ -27653,6 +27917,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0157": [
@@ -29055,6 +29325,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0165": [
@@ -29400,6 +29676,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -30803,6 +31085,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0175": [
@@ -30973,6 +31261,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0176": [
@@ -31142,6 +31436,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -33789,6 +34089,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0192": [
@@ -33971,6 +34277,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0193": [
@@ -35563,6 +35875,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0200": [
@@ -36211,6 +36529,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0203": [
@@ -37011,6 +37335,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0207": [
@@ -37508,6 +37838,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -38085,6 +38421,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0213": [
@@ -38419,6 +38761,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0215": [
@@ -38601,6 +38949,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0216": [
@@ -39266,6 +39620,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -40085,6 +40445,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0223": [
@@ -40595,6 +40961,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0226": [
@@ -41135,6 +41507,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0229": [
@@ -41317,6 +41695,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0230": [
@@ -41486,6 +41870,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -41669,6 +42059,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0232": [
@@ -41838,6 +42234,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -42717,6 +43119,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0237": [
@@ -42899,6 +43307,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0238": [
@@ -45721,6 +46135,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0254": [
@@ -46359,6 +46779,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0258": [
@@ -46771,6 +47197,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0260": [
@@ -48379,6 +48811,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0269": [
@@ -48823,6 +49261,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0272": [
@@ -48992,6 +49436,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -50145,6 +50595,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0279": [
@@ -50461,6 +50917,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0281": [
@@ -51097,6 +51559,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0284": [
@@ -51266,6 +51734,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -51636,6 +52110,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -52335,6 +52815,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0291": [
@@ -52505,6 +52991,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0292": [
@@ -52674,6 +53166,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -52857,6 +53355,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0294": [
@@ -53026,6 +53530,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -53671,6 +54181,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0299": [
@@ -53969,6 +54485,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0301": [
@@ -54139,6 +54661,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0302": [
@@ -54308,6 +54836,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -54867,6 +55401,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0306": [
@@ -55036,6 +55576,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -58349,6 +58895,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0325": [
@@ -58987,6 +59539,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0329": [
@@ -60249,6 +60807,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0336": [
@@ -60418,6 +60982,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -60832,6 +61402,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -61378,6 +61954,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -62897,6 +63479,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0352": [
@@ -64013,6 +64601,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0358": [
@@ -64566,6 +65160,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -65245,6 +65845,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0365": [
@@ -66009,6 +66615,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0369": [
@@ -67343,6 +67955,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0376": [
@@ -68587,6 +69205,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0383": [
@@ -69035,6 +69659,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0385": [
@@ -69205,6 +69835,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0386": [
@@ -71185,6 +71821,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0398": [
@@ -71367,6 +72009,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0399": [
@@ -71799,6 +72447,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0402": [
@@ -71981,6 +72635,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0403": [
@@ -74195,6 +74855,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0415": [
@@ -75609,6 +76275,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0423": [
@@ -76149,6 +76821,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0426": [
@@ -77865,6 +78543,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0435": [
@@ -78589,6 +79273,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0440": [
@@ -78771,6 +79461,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0441": [
@@ -80987,6 +81683,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0454": [
@@ -81679,6 +82381,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0458": [
@@ -82317,6 +83025,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0462": [
@@ -83081,6 +83795,12 @@
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+        "conflict_flag": false
       }
     ],
     "A0466": [
@@ -83710,6 +84430,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -85361,6 +86087,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0478": [
@@ -86059,6 +86791,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0482": [
@@ -86375,6 +87113,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0484": [
@@ -86557,6 +87301,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0485": [
@@ -86726,6 +87476,12 @@
         "team_rule_id": "r-0145",
         "result": "pending",
         "explanation": "An Act prohibiting algorithmic rent setting is pending legislation, not in force as of 2026-10-01.",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0146",
+        "result": "applies",
+        "explanation": "Cambridge Fair Housing Ordinance — source of income and rental discrimination covers this address in Cambridge, MA as of 2026-10-01. Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
         "conflict_flag": false
       }
     ],
@@ -86909,6 +87665,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0487": [
@@ -87091,6 +87853,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0488": [
@@ -88045,6 +88813,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0494": [
@@ -88227,6 +89001,12 @@
         "result": "applies",
         "explanation": "Relocation Payments for Temporary Displacement Less Than 20 Days covers this address in San Francisco, CA as of 2026-10-01. San Francisco Rent Ordinance Section 37.9C",
         "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0147",
+        "result": "applies",
+        "explanation": "San Francisco Fair Chance Ordinance — affordable housing criminal history covers this address in San Francisco, CA as of 2026-10-01. San Francisco Fair Chance Ordinance (HRC summary; D078)",
+        "conflict_flag": true
       }
     ],
     "A0495": [

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T01:10:59.995Z",
+  "generated_at": "2026-10-04T02:47:13.886Z",
   "by_key": {
     "doc:D001|berkeley municipal code § 13.63.030(a)|prohibition on sale of coordinated pricing algorithms in ber": [
       {
@@ -1651,6 +1651,14 @@
     ],
     "alias:MA-ALG-P2": [
       {
+        "version": "v3",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "pending",
+        "quoted_span": "An Act relative to preventing algorithmic rent fixing in the rental housing market",
+        "change_note": "quoted_span updated (re-extract or span repair)"
+      },
+      {
         "version": "v2",
         "corpus_release": "2026.10",
         "released_at": "2026-10-03",
@@ -3086,6 +3094,136 @@
         "released_at": "2026-10-04",
         "status": "pending",
         "quoted_span": "An Act prohibiting algorithmic rent setting\nSenate, March 12, 2026 -- The committee on Housing, to whom was referred the petitions (accompanied by bill, Senate, No. 994) of Cindy F. Friedman and Julian Cyr for legislation to prohibit algorithmic rent setting",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D049|m.g.l. c. 151b, § 4(7a)|prohibition on higher rent for handicap-accessible housing": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "there shall not be established or imposed a rent or other charge for such handicap-accessible housing which is higher than the rent or other charge for comparable nonaccessible housing of the owner or other person having the right of ownership.",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D049|m.g.l. c. 151b, § 4(3)|prohibition on discriminatory employment inquiries and adver": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "For any employer or employment agency to print or circulate or cause to be printed or circulated any statement, advertisement or publication, or to use any form of application for employment or to make any inquiry or record",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D049|m.g.l. c. 151b, § 4(6)(c)|prohibition on discriminatory housing inquiries": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "to cause to be made any written or oral inquiry or record concerning the race, religious creed, color, national origin, sex, gender identity, sexual orientation, which shall not include persons whose sexual orientation involves minor children",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D049|m.g.l. c. 151b, § 4(7)|prohibition on discrimination in housing based on protected ": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "to refuse to rent or lease or sell or negotiate for sale or lease or otherwise to deny or withhold from any person or group of persons such accommodations or land because of race, color, religious creed, national origin, sex, gender identity, sexual orientation",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D049|m.g.l. c. 151b, § 4(7a)|reasonable modifications and accommodations for handicapped ": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "a refusal to permit or to make, at the expense of the handicapped person, reasonable modification of existing premises occupied or to be occupied by such person if such modification is necessary to afford such person full enjoyment of such premises",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D049|m.g.l. c. 151b, § 4(7b)|prohibition on discriminatory housing advertisements": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "For any person to make print, or publish, or cause to be made, printed, or published any notice, statement or advertisement, with respect to the sale or rental of multiple dwelling, contiguously located, publicly assisted or other covered housing accommodations that indicates any preference, limitation, or discrimination based on race, color, religion, sex, gender identity, sexual orientation",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D049|m.g.l. c. 151b, § 4(10)|prohibition on discrimination against public assistance reci": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "For any person furnishing credit, services or rental accommodations to discriminate against any individual who is a recipient of federal, state, or local public assistance, including medical assistance, or who is a tenant receiving federal, state, or local housing subsidies, including rental assistance or rental supplements, because the individual is such a recipient",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D049|m.g.l. c. 151b, § 4(7)|prohibition on discriminatory housing inquiries for other co": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "to refuse to rent or lease or sell or negotiate for sale or lease or otherwise to deny or withhold from any person or group of persons such accommodations or land because of race, color, religious creed, national origin, sex, gender identity",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D036|n.j. statute §40a:10a-1|new jersey liability insurance requirement for rental units": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "As of August 5, 2022, The State of New Jersey N.J. Statute §40A:10A-1 requires that business owners and owners of a rental unit or units maintain liability insurance coverage for negligent acts and omissions in a minimum amount of $500,000 and owners of a multifamily home which i",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D031|cambridge municipal code chapter 8.71|cambridge tenants rights and resources notification ordinanc": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "The Ordinance also requires that a landlord provide the Guide to tenants when legal steps to terminate a tenancy are taken (ex. Notice to Quit or Summary Process).",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "doc:D047|s.2983 (194th legislature)|an act prohibiting algorithmic rent setting": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "pending",
+        "quoted_span": "An Act prohibiting algorithmic rent setting\nSenate, March 12, 2026 -- The committee on Housing, to whom was referred the petitions (accompanied by bill, Senate, No. 994) of Cindy F. Friedman and Julian Cyr for legislation to prohibit algorithmic rent setting",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "alias:CAM-FH-01": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "The Fair Housing Ordinance prohibits discrimination in real estate transactions such as:\nviewing or renting an apartment\nterms and conditions of tenancy\nrefusing to reasonably accommodate a person wit",
+        "change_note": "Initial extraction from capturable corpus text."
+      }
+    ],
+    "alias:SF-FC-01": [
+      {
+        "version": "v1",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "San Francisco's Fair Chance Ordinance protects residents with arrest or conviction history in affordable housing decisions.\nLegal resources for housing discrimination\nGet legal information, advice, or re",
         "change_note": "Initial extraction from capturable corpus text."
       }
     ]

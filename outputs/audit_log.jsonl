@@ -541,3 +541,6 @@
 {"ts":"2026-10-04T02:08:22.684Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-04T02:12:01.412Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-04T02:13:19.230Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T02:30:07.698Z","kind":"extract_doc","doc_id":"D069","source":"claude","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D069 via claude"}
+{"ts":"2026-10-04T02:47:13.887Z","kind":"note","message":"Enriched coverage_conditions dual form on 147/147 rules","meta":{"dual":147,"total":147}}
+{"ts":"2026-10-04T02:47:14.988Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}

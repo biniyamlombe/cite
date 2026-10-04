@@ -4774,6 +4774,82 @@
       "confidence": 0.7,
       "conflict_flag": false,
       "conflict_note": null
+    },
+    {
+      "jurisdiction": "Cambridge, MA",
+      "level": "city",
+      "category": "screening_restrictions",
+      "status": "in_force",
+      "title": "Cambridge Fair Housing Ordinance — source of income and rental discrimination",
+      "requirement": "Cambridge's Fair Housing Ordinance prohibits discrimination in rental transactions (including viewing or renting an apartment) based on protected categories that include source of income (Section 8 and public benefits).",
+      "key_value": null,
+      "coverage_conditions": {
+        "text": "Housing / real estate transactions in Cambridge, MA (owner-occupied 2-family exemption noted in source FAQ)",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "Cambridge"
+          }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
+        ]
+      },
+      "exemptions": "Exemption noted for 2-family dwellings when the owner lives there",
+      "overrides": [],
+      "interaction": null,
+      "effective_date": null,
+      "citation": "Cambridge Fair Housing Ordinance (HRC FAQ summary; D029)",
+      "source_doc_id": "D029",
+      "source_url": "https://www.cambridgema.gov/departments/humanrightscommission",
+      "quoted_span": "The Fair Housing Ordinance prohibits discrimination in real estate transactions such as:\nviewing or renting an apartment\nterms and conditions of tenancy\nrefusing to reasonably accommodate a person wit",
+      "confidence": 0.65,
+      "conflict_flag": false,
+      "conflict_note": "Quoted from capturable Cambridge HRC page (D029). Pack text is FAQ/summary of the ordinance, not the full municipal code body.",
+      "alias_id": "CAM-FH-01",
+      "team_rule_id": "r-0146"
+    },
+    {
+      "jurisdiction": "San Francisco, CA",
+      "level": "city",
+      "category": "screening_restrictions",
+      "status": "in_force",
+      "title": "San Francisco Fair Chance Ordinance — affordable housing criminal history",
+      "requirement": "San Francisco's Fair Chance Ordinance protects residents with arrest or conviction history in affordable housing decisions. Pack capture is a one-sentence HRC summary, not the full ordinance.",
+      "key_value": null,
+      "coverage_conditions": {
+        "text": "Affordable housing decisions in San Francisco, CA (scope beyond this sentence is unknown from pack text)",
+        "all": [
+          {
+            "field": "legal_city",
+            "operator": "eq",
+            "value": "San Francisco"
+          }
+        ]
+      },
+      "exemptions": null,
+      "overrides": [],
+      "interaction": null,
+      "effective_date": null,
+      "citation": "San Francisco Fair Chance Ordinance (HRC summary; D078)",
+      "source_doc_id": "D078",
+      "source_url": "https://sf-hrc.org/fair-chance-ordinance",
+      "quoted_span": "San Francisco's Fair Chance Ordinance protects residents with arrest or conviction history in affordable housing decisions.\nLegal resources for housing discrimination\nGet legal information, advice, or re",
+      "confidence": 0.4,
+      "conflict_flag": true,
+      "conflict_note": "D078 pack page is mostly agency chrome; quoted_span is the only Fair Chance sentence captured. Do not treat as a full ordinance extract — human review of the primary ordinance is recommended.",
+      "alias_id": "SF-FC-01",
+      "team_rule_id": "r-0147"
     }
   ]
 }
