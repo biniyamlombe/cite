@@ -22,6 +22,8 @@ import {
   GitCompare,
   FileText,
   ClipboardList,
+  Calculator,
+  MessageSquareText,
   X,
 } from "lucide-react";
 import { toast } from "sonner";
@@ -932,6 +934,22 @@ function MemoBar({ data }: { data: LookupResponse }) {
                 className="flex items-center gap-2 px-3 py-1.5 text-sm hover:bg-secondary"
               >
                 <GitCompare className="size-3.5" /> {t("action.compare")}
+              </Link>
+              <Link
+                to="/check"
+                search={{ address: id, as_of: data.as_of }}
+                onClick={() => setMoreOpen(false)}
+                className="flex items-center gap-2 px-3 py-1.5 text-sm hover:bg-secondary"
+              >
+                <Calculator className="size-3.5" /> {t("nav.check")}
+              </Link>
+              <Link
+                to="/ask"
+                search={{ address: id, as_of: data.as_of }}
+                onClick={() => setMoreOpen(false)}
+                className="flex items-center gap-2 px-3 py-1.5 text-sm hover:bg-secondary"
+              >
+                <MessageSquareText className="size-3.5" /> {t("nav.ask")}
               </Link>
               <Link
                 to="/sources"

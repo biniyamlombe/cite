@@ -6,6 +6,11 @@ import { AsOfDateSchema } from "@rhl/shared";
 import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
 import { useT } from "@/lib/i18n";
 import { PageHeader } from "@/components/cite/layout";
+import {
+  FieldLabel,
+  QuoteCard,
+  ToolsStrip,
+} from "@/components/cite/renter-tools";
 
 const search = z.object({
   address: z.string().optional(),
@@ -55,30 +60,30 @@ function CheckPage() {
   });
 
   const verdict = m.data?.verdict;
+  const selected = (addrQ.data ?? []).find((a) => a.address_id === addressId);
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+    <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14">
+      <ToolsStrip address={addressId} asOf={asOf} active="check" />
       <PageHeader eyebrow={t("check.eyebrow")} title={t("check.title")}>
         {t("check.lede")}
       </PageHeader>
 
       <form
-        className="mt-8 space-y-4 rounded-2xl border border-border/70 bg-card p-6 shadow-xl shadow-ink/5"
+        className="surface mt-8 space-y-5 p-5 sm:p-6"
         onSubmit={(e) => {
           e.preventDefault();
           m.mutate();
         }}
       >
         <label className="block text-sm">
-          <span className="mb-1.5 block font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-            {t("check.address")}
-          </span>
+          <FieldLabel>{t("check.address")}</FieldLabel>
           <select
             value={addressId}
             onChange={(e) =>
               void nav({ search: (p) => ({ ...p, address: e.target.value }), replace: true })
             }
-            className="w-full rounded-lg border border-border/80 bg-background px-3 py-2.5"
+            className="w-full rounded-lg border border-border/80 bg-background px-3 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
           >
             {(addrQ.data ?? [{ address_id: addressId, street_address: addressId }]).map((a) => (
               <option key={a.address_id} value={a.address_id}>
@@ -86,105 +91,160 @@ function CheckPage() {
               </option>
             ))}
           </select>
+          {selected && (
+            <p className="mt-1.5 text-xs text-muted-foreground">
+              {selected.street_address}
+              {selected.legal_city ? ` · ${selected.legal_city}` : ""}
+              {` · as of ${asOf}`}
+            </p>
+          )}
         </label>
+
         <div className="grid gap-4 sm:grid-cols-2">
           <label className="block text-sm">
-            <span className="mb-1.5 block font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-              {t("check.current")}
-            </span>
-            <input
-              type="number"
-              min={1}
-              step="0.01"
-              required
-              value={current}
-              onChange={(e) => setCurrent(e.target.value)}
-              className="w-full rounded-lg border border-border/80 bg-background px-3 py-2.5"
-            />
+            <FieldLabel>{t("check.current")}</FieldLabel>
+            <div className="relative">
+              <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                $
+              </span>
+              <input
+                type="number"
+                min={1}
+                step="0.01"
+                required
+                value={current}
+                onChange={(e) => setCurrent(e.target.value)}
+                className="w-full rounded-lg border border-border/80 bg-background py-2.5 pl-7 pr-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+              />
+            </div>
           </label>
           <label className="block text-sm">
-            <span className="mb-1.5 block font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-              {t("check.new")}
-            </span>
-            <input
-              type="number"
-              min={1}
-              step="0.01"
-              required
-              value={next}
-              onChange={(e) => setNext(e.target.value)}
-              className="w-full rounded-lg border border-border/80 bg-background px-3 py-2.5"
-            />
+            <FieldLabel>{t("check.new")}</FieldLabel>
+            <div className="relative">
+              <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
+                $
+              </span>
+              <input
+                type="number"
+                min={1}
+                step="0.01"
+                required
+                value={next}
+                onChange={(e) => setNext(e.target.value)}
+                className="w-full rounded-lg border border-border/80 bg-background py-2.5 pl-7 pr-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
+              />
+            </div>
           </label>
         </div>
+
         <button
           type="submit"
           disabled={m.isPending}
-          className="w-full rounded-lg bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground hover:bg-primary/90 disabled:opacity-60"
+          className="w-full rounded-lg bg-primary px-3 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:bg-primary/90 active:scale-[0.99] disabled:opacity-60"
         >
-          {t("check.submit")}
+          {m.isPending ? t("common.loading") : t("check.submit")}
         </button>
-        {m.isError && <p className="text-sm text-conflict">{(m.error as Error).message}</p>}
+        {m.isError && (
+          <p role="alert" className="text-sm text-conflict">
+            {(m.error as Error).message}
+          </p>
+        )}
       </form>
 
       {verdict && (
-        <div className="mt-8 space-y-4">
+        <div className="mt-10 space-y-5 fade-up">
           <div
-            className={`rounded-2xl border px-5 py-4 ${
+            className={`surface px-5 py-6 sm:px-7 ${
               verdict.kind === "over"
-                ? "border-conflict/30 bg-conflict/5"
+                ? "border-conflict/35 bg-conflict/5"
                 : verdict.kind === "ok"
-                  ? "border-applies/30 bg-applies/5"
-                  : "border-border/70 bg-card"
+                  ? "border-applies/35 bg-applies/5"
+                  : ""
             }`}
           >
             <p className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
               {t(`check.kind.${verdict.kind}`)}
             </p>
-            <p className="mt-2 font-serif text-3xl text-ink">
-              {verdict.values.increase_pct}%
-              {verdict.values.cap_pct != null ? (
-                <span className="ml-2 text-base text-muted-foreground">
-                  / {verdict.values.cap_pct}% {t("check.cap")}
-                </span>
-              ) : null}
-            </p>
+            <div className="mt-3 flex flex-wrap items-baseline gap-x-3 gap-y-1">
+              <p className="font-serif text-5xl tracking-tight text-ink sm:text-6xl">
+                {verdict.values.increase_pct}
+                <span className="text-3xl">%</span>
+              </p>
+              {verdict.values.cap_pct != null && (
+                <p className="text-base text-muted-foreground">
+                  {t("check.vsCap")
+                    .replace("{cap}", String(verdict.values.cap_pct))
+                    .replace("{label}", t("check.cap"))}
+                </p>
+              )}
+            </div>
+            <dl className="mt-5 grid gap-3 border-t border-border/60 pt-4 text-sm sm:grid-cols-3">
+              <div>
+                <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  {t("check.current")}
+                </dt>
+                <dd className="mt-0.5 font-medium text-ink">${verdict.values.current_rent}</dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  {t("check.new")}
+                </dt>
+                <dd className="mt-0.5 font-medium text-ink">${verdict.values.new_rent}</dd>
+              </div>
+              {verdict.values.max_rent != null && (
+                <div>
+                  <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                    {t("check.maxRent")}
+                  </dt>
+                  <dd className="mt-0.5 font-medium text-ink">${verdict.values.max_rent}</dd>
+                </div>
+              )}
+            </dl>
             {verdict.values.over_amount != null && (
-              <p className="mt-2 text-sm text-conflict">
-                {t("check.overBy").replace("{n}", String(verdict.values.over_amount))}
+              <p className="mt-4 text-sm text-conflict">
+                {t("check.overBy").replace("{n}", `$${verdict.values.over_amount}`)}
               </p>
             )}
             {verdict.need && (
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="mt-4 text-sm text-muted-foreground">
                 {t("check.need").replace("{key}", verdict.need.key)}
               </p>
             )}
           </div>
-          {verdict.deciding_quotes.map((q) => (
-            <blockquote
-              key={q.team_rule_id}
-              className="rounded-xl border border-border/70 bg-card px-4 py-3 text-sm leading-relaxed"
-            >
-              <div className="font-mono text-[11px] text-primary">{q.citation}</div>
-              <p className="mt-2 font-serif text-ink">“{q.quoted_span}”</p>
-              <a
-                href={q.source_url}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 inline-block text-xs text-primary hover:underline"
-              >
-                {t("check.source")}
-              </a>
-            </blockquote>
-          ))}
+
+          {verdict.deciding_quotes.length > 0 && (
+            <div className="space-y-3">
+              <h2 className="font-serif text-xl text-ink">{t("check.evidence")}</h2>
+              {verdict.deciding_quotes.map((q) => (
+                <QuoteCard
+                  key={q.team_rule_id}
+                  citation={q.citation}
+                  quote={q.quoted_span}
+                  sourceUrl={q.source_url}
+                  sourceLabel={t("check.source")}
+                />
+              ))}
+            </div>
+          )}
+
           <p className="text-xs text-muted-foreground">{m.data?.disclaimer}</p>
-          <Link
-            to="/"
-            search={{ address: addressId, as_of: asOf }}
-            className="text-sm text-primary hover:underline"
-          >
-            {t("check.backLookup")}
-          </Link>
+
+          <div className="flex flex-wrap gap-4 text-sm">
+            <Link
+              to="/ask"
+              search={{ address: addressId, as_of: asOf }}
+              className="font-medium text-primary hover:underline"
+            >
+              {t("check.toAsk")}
+            </Link>
+            <Link
+              to="/"
+              search={{ address: addressId, as_of: asOf }}
+              className="text-muted-foreground hover:text-primary hover:underline"
+            >
+              {t("check.backLookup")}
+            </Link>
+          </div>
         </div>
       )}
     </div>
