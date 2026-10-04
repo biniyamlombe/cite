@@ -1,0 +1,23 @@
+name: ci
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install workspaces
+        run: npm ci
+      - name: Install frontend
+        run: npm install --prefix frontend --legacy-peer-deps
+      - name: Quality gate
+        run: bash scripts/quality-gate.sh
