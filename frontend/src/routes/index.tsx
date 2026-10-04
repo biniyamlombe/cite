@@ -88,11 +88,14 @@ export function AddressSearch({ onSelect, prominent = false, onOpenChange }: { o
   };
   return (
     <div ref={ref} className="relative" onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setOpen(false); }}>
-      <div className={prominent ? "relative flex items-center overflow-hidden rounded-[calc(var(--radius-xl)-2px)] border border-border/60 bg-card transition-shadow duration-300 focus-within:border-primary/35 focus-within:shadow-dossier" : "flex items-center gap-3 rounded-xl border border-input bg-card/95 px-4 py-3.5 shadow-sm transition-all duration-200 focus-within:border-ring focus-within:shadow-dossier"}>
-        <Search className={prominent ? "ml-5 mr-3 size-5 shrink-0 text-muted-foreground" : "size-5 text-muted-foreground"} />
+      <div className={prominent ? "relative flex items-center overflow-hidden rounded-[calc(var(--radius-xl)-2px)] border border-border/60 bg-card transition-[border-color,box-shadow] duration-300 focus-within:border-primary/35 focus-within:shadow-dossier" : "flex items-center gap-3 rounded-xl border border-input bg-card/95 px-4 py-3.5 shadow-sm transition-[border-color,box-shadow] duration-200 focus-within:border-ring focus-within:shadow-dossier"}>
+        <Search aria-hidden="true" className={prominent ? "ml-5 mr-3 size-5 shrink-0 text-muted-foreground" : "size-5 text-muted-foreground"} />
         <input
           ref={inputRef}
           role="combobox"
+          name="address-search"
+          autoComplete="off"
+          spellCheck={false}
           aria-autocomplete="list"
           aria-expanded={open}
           aria-controls={listId}
@@ -107,10 +110,10 @@ export function AddressSearch({ onSelect, prominent = false, onOpenChange }: { o
             if (e.key === "Escape") setOpen(false);
           }}
           placeholder={t("lookup.placeholder")}
-          className={prominent ? "min-w-0 flex-1 bg-transparent py-5 text-lg text-ink outline-none placeholder:text-muted-foreground/55" : "w-full bg-transparent text-lg text-ink outline-none placeholder:text-muted-foreground/70"}
+          className={prominent ? "min-w-0 flex-1 bg-transparent py-5 text-lg text-ink outline-none placeholder:text-muted-foreground/55 focus-visible:outline-none" : "w-full bg-transparent text-lg text-ink outline-none placeholder:text-muted-foreground/70 focus-visible:outline-none"}
           aria-label={t("lookup.label")}
         />
-        {isFetching && <Loader2 className="size-4 animate-spin text-muted-foreground" />}
+        {isFetching && <Loader2 aria-hidden="true" className="size-4 animate-spin text-muted-foreground" />}
         {prominent && (
           <Button
             type="button"
@@ -187,10 +190,10 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
   return (
     <div className="mx-auto flex max-w-3xl flex-col items-center px-1 pb-10 pt-8 text-center sm:pt-12">
       <div className="fade-up">
-        <h1 className="font-serif text-[clamp(3.25rem,10vw,4.75rem)] font-semibold leading-[0.92] tracking-[-0.035em] text-ink">
+        <h1 translate="no" className="font-serif text-[clamp(3.25rem,10vw,4.75rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-pretty text-ink">
           Cite
         </h1>
-        <p className="mx-auto mt-5 max-w-md font-serif text-lg italic leading-relaxed text-muted-foreground sm:text-xl">
+        <p className="mx-auto mt-5 max-w-md text-pretty font-serif text-lg italic leading-relaxed text-muted-foreground sm:text-xl">
           {t("lookup.title1")} {t("lookup.title2")}
         </p>
       </div>
@@ -215,14 +218,14 @@ function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
                 key={chip.id}
                 type="button"
                 onClick={() => onSelect(chip.id)}
-                className="group flex items-center justify-between gap-3 rounded-xl border border-border/80 bg-card/90 p-4 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-dossier active:scale-[0.99]"
+                className="group flex touch-manipulation items-center justify-between gap-3 rounded-xl border border-border/80 bg-card/90 p-4 text-left shadow-sm transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-dossier active:scale-[0.99]"
               >
                 <span className="min-w-0">
-                  <span className="block font-mono text-[10px] font-semibold text-primary">{chip.id}</span>
+                  <span translate="no" className="block font-mono text-[10px] font-semibold text-primary">{chip.id}</span>
                   <span className="mt-1 block truncate font-serif text-sm italic text-ink">{t(chip.labelKey)}</span>
                 </span>
                 <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary transition-transform duration-300 group-hover:translate-x-0.5 group-hover:bg-accent">
-                  <ArrowRight className="size-3.5 text-muted-foreground group-hover:text-primary" />
+                  <ArrowRight aria-hidden="true" className="size-3.5 text-muted-foreground group-hover:text-primary" />
                 </span>
               </button>
             ))}
@@ -382,8 +385,8 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
     <div className="space-y-2">
       {gaps.length > 0 && <CorpusGapWarning gaps={gaps} />}
       {unknownN > 0 && (
-        <div className="flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">
-          <AlertCircle className="mt-0.5 size-4 shrink-0 text-unknown" />
+        <div role="status" className="flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">
+          <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-unknown" />
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{unknownN}</span>{" "}
             {t("result.unknown").toLowerCase()} — {t("lookup.honesty.unknown")}
@@ -391,8 +394,8 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
         </div>
       )}
       {conflictN > 0 && (
-        <div className="flex gap-2.5 rounded-md border border-conflict/25 bg-conflict-soft px-3 py-2.5 text-sm">
-          <AlertCircle className="mt-0.5 size-4 shrink-0 text-conflict" />
+        <div role="status" className="flex gap-2.5 rounded-md border border-conflict/25 bg-conflict-soft px-3 py-2.5 text-sm">
+          <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-conflict" />
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{conflictN}</span>{" "}
             {t("result.conflict").toLowerCase()} — {t("lookup.honesty.conflict")}
@@ -400,8 +403,8 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
         </div>
       )}
       {pendingN > 0 && (
-        <div className="flex gap-2.5 rounded-md border border-border/80 bg-secondary/50 px-3 py-2.5 text-sm">
-          <AlertCircle className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
+        <div role="status" className="flex gap-2.5 rounded-md border border-border/80 bg-secondary/50 px-3 py-2.5 text-sm">
+          <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-muted-foreground" />
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{pendingN}</span>{" "}
             {t("result.pending").toLowerCase()} — {t("lookup.honesty.pending")}
@@ -409,8 +412,8 @@ function HonestyCallouts({ data }: { data: LookupResponse }) {
         </div>
       )}
       {linkOnlyN > 0 && (
-        <div className="flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">
-          <AlertCircle className="mt-0.5 size-4 shrink-0 text-unknown" />
+        <div role="status" className="flex gap-2.5 rounded-md border border-unknown/25 bg-unknown-soft px-3 py-2.5 text-sm">
+          <AlertCircle aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-unknown" />
           <p className="text-ink/90">
             <span className="font-mono tabular-nums font-semibold">{linkOnlyN}</span>{" "}
             {t("rule.linkOnly.badge").toLowerCase()} — {t("lookup.honesty.linkOnly")}
@@ -440,7 +443,7 @@ function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; 
       {/* What applies */}
       <section className="fade-up-delay-1 space-y-3">
         <div>
-          <h2 className="font-serif text-xl text-ink">{t("lookup.summary")}</h2>
+          <h2 className="scroll-mt-24 text-pretty font-serif text-xl text-ink">{t("lookup.summary")}</h2>
           <p className="mt-1 text-sm text-muted-foreground">{t("lookup.stepWhat")}</p>
         </div>
         <ResultSummaryChips results={data.results} />
