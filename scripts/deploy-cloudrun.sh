@@ -26,6 +26,7 @@ gcloud services enable \
 
 # One-shot source deploy (Cloud Build builds the Dockerfile)
 gcloud run deploy "$SERVICE" \
+  --quiet \
   --source="$ROOT" \
   --region="$REGION" \
   --project="$PROJECT" \
