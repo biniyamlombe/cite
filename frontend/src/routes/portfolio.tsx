@@ -10,6 +10,8 @@ import { AsOfDate } from "@/components/cite/property";
 import { StatusBadge } from "@/components/cite/status";
 import type { LookupResponse } from "@/lib/cite/types";
 import { GroupBar } from "@/components/cite/groups";
+import { useAuth } from "@/lib/auth";
+import { listChangeReviews } from "@/lib/cite/change-reviews";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -60,6 +62,9 @@ function PortfolioPage() {
   const [expanded, setExpanded] = useState(false);
   const horizon = plusYear(asOf);
   const watch = useWatchlist();
+  const { user } = useAuth();
+  const changesFeed = useQuery({ queryKey: ["changes"], queryFn: () => getCiteClient().changes() });
+  const reviews = useQuery({ queryKey: ["change-reviews", user?.id], queryFn: listChangeReviews, enabled: !!user });
   const addrs = useQuery({ queryKey: ["addresses", ""], queryFn: () => getCiteClient().addresses("", 100) });
   const [group, setGroup] = useState<string[] | null>(null);
 
@@ -109,6 +114,15 @@ function PortfolioPage() {
       : [],
   );
 
+  // The API supplies affected-address memberships; the client only groups those results for display.
+  const exposure = (changesFeed.data?.tests ?? []).flatMap((test) => {
+    const affected = new Set(changesFeed.data?.results[test.test_id]?.affected_address_ids ?? []);
+    return visible.filter((a) => affected.has(a.address_id)).map((a) => ({ test, address: a, review: reviews.data?.find((r) => r.change_id === test.test_id && r.address_id === a.address_id) }));
+  });
+  const byPlace = [...new Set(exposure.map((x) => `${x.address.legal_city ?? x.address.postal_city}, ${x.address.state}`))].map((place) => ({ place, count: exposure.filter((x) => `${x.address.legal_city ?? x.address.postal_city}, ${x.address.state}` === place).length })).sort((a, b) => b.count - a.count);
+  const byChange = (changesFeed.data?.tests ?? []).map((test) => ({ test, count: exposure.filter((x) => x.test.test_id === test.test_id).length })).filter((x) => x.count > 0);
+  const unresolved = exposure.filter((x) => !x.review || x.review.status === "unreviewed" || x.review.status === "needs_counsel").length;
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
       <PageHeader eyebrow={t("portfolio.eyebrow")} title={t("nav.portfolio")}>
@@ -140,6 +154,17 @@ function PortfolioPage() {
       </div>
 
       <GroupBar allIds={(addrs.data ?? []).map((a) => a.address_id)} onSelect={setGroup} />
+
+      <section className="surface mb-8 p-5 sm:p-6" aria-label={t("exposure.heading")}>
+        <div className="flex flex-wrap items-start justify-between gap-3 border-b pb-4"><div><h2 className="font-serif text-xl text-ink">{t("exposure.heading")}</h2><p className="mt-1 text-sm text-muted-foreground">{t("exposure.context")}</p></div><Link to="/inbox" className="text-sm font-medium text-primary hover:underline">{t("exposure.openInbox")} →</Link></div>
+        {changesFeed.isError && <p role="alert" className="mt-4 text-sm text-destructive">{t("exposure.error")} <button type="button" className="underline" onClick={() => changesFeed.refetch()}>{t("lookup.retry")}</button></p>}
+        {(addrs.isPending || changesFeed.isPending) && <p className="mt-4 text-sm text-muted-foreground" aria-busy="true">{t("common.loading")}</p>}
+        {!addrs.isPending && !changesFeed.isPending && !changesFeed.isError && <div className="mt-5 grid gap-7 md:grid-cols-[160px_1fr_1fr]">
+          <div><div className="font-serif text-4xl text-ink">{exposure.length}</div><p className="mt-1 text-xs text-muted-foreground">{t("exposure.matches")}</p><div className="mt-4 font-mono text-xl text-primary">{user ? unresolved : "—"}</div><p className="text-xs text-muted-foreground">{user ? t("exposure.unresolved") : t("exposure.signin")}</p></div>
+          <div><h3 className="eyebrow mb-3">{t("exposure.byPlace")}</h3>{byPlace.length ? byPlace.map((x) => <div key={x.place} className="flex justify-between gap-3 border-t py-2 text-sm"><span>{x.place}</span><span className="font-mono text-primary">{x.count}</span></div>) : <p className="text-sm text-muted-foreground">{t("exposure.empty")}</p>}</div>
+          <div><h3 className="eyebrow mb-3">{t("exposure.byChange")}</h3>{byChange.map((x) => <div key={x.test.test_id} className="flex justify-between gap-3 border-t py-2 text-sm"><span className="min-w-0 truncate" title={x.test.title}>{x.test.title}</span><span className="font-mono text-primary">{x.count}</span></div>)}</div>
+        </div>}
+      </section>
 
       <section className="surface mb-8 p-5">
         <h3 className="eyebrow mb-3 flex items-center gap-2">
