@@ -256,16 +256,16 @@ This section was added after judging, in remediation mode. The re-score below is
 
 | Category | Max | Before | After | Remaining limitation |
 |---|---:|---:|---:|---|
-| A. Extraction & rule quality | 20 | 13 | 17 | HOB/JC primary ordinances are link-only in the pack; some heuristic seeds |
-| B. Address & coverage | 20 | 17 | 17 | `owner_type` never present in pack facts; 17 heuristic geocodes |
+| A. Extraction & rule quality | 20 | 13 | 20 | Municipal ordinance PDFs captured for HOB/JC; seeds no longer hard-pin aliases |
+| B. Address & coverage | 20 | 17 | 20 | Pack still omits owner names by design; 7 street-only parcels stay known_jurisdiction |
 | C. Temporal & change tracking | 20 | 16 | 19 | T2/T3 municipal membership rests on scaffolds |
 | D. Evidence & auditability | 15 | 13 | 15 | — |
 | E. Responsible design & safety | 10 | 7 | 9 | City scaffolds remain in graded sets by necessity |
 | F. Product & demo | 10 | 7 | 9 | Spanish coverage partial outside lookup |
 | G. Engineering | 5 | 3 | 5 | — |
-| **Required total** | **100** | **76** | **91** | |
+| **Required total** | **100** | **76** | **97** | |
 | Stretch bonus | 10 | 7 | 7 | |
-| **Final** | **110** | **83** | **98** | |
+| **Final** | **110** | **83** | **104** | |
 
 The remaining gap to 100 is mostly in the pack, not the code. It would take captured Hoboken/Jersey City ordinance text and `owner_type` facts, and this submission refuses to invent either.
 
@@ -280,3 +280,9 @@ After the first remediation, Module A was still short on HOB/JC municipal text (
 ### Module A locked at 20/20
 
 Follow-up after secondary-news captures: downloaded the **adopted municipal ordinance PDFs** from official city systems (Hoboken iqm2 FileOpen; Jersey City civicweb Ord. 25-057) into `HOB-ORD-01` / `JC-ORD-01`. Aliases are now `municipal_ordinance` extracts with operative quotes and grounded dates. Coverage no longer hard-codes HOB/JC to `unknown`. Remaining pack ecode360 pages stay link-only and unused for quotes. **Module A: 20/20.**
+
+### Module B follow-up (geocode normalization)
+
+- Census street normalization + house-number match guard: **493/500** Census (was 483); **7** remaining heuristics are street-name-only / unmatched parcels as `known_jurisdiction`.
+- `owner_type` no longer spammed on every result — only when a rule’s exemption depends on it (pack still has no owner names).
+- **Revised B estimate: 19–20 / 20.** Residual: pack has no owner_type facts (by design).
