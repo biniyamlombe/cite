@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Check, ChevronDown, Copy, ExternalLink, Quote, X } from "lucide-react";
 import { useLocale, useT, useTx } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
-import { coverageText, fmtDate } from "@/lib/cite/labels";
+import { confidenceBand, coverageText, fmtDate } from "@/lib/cite/labels";
 import type { LookupResultValue, Rule } from "@/lib/cite/types";
 import { StatusBadge } from "./status";
 import {
@@ -29,7 +29,7 @@ export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void 
   const tx = useTx();
   const { rule, result, explanation, conflict } = view;
   const prominent = result === "applies";
-  const lowConf = rule.confidence != null && rule.confidence < 0.5;
+  const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
   return (
     <button
@@ -55,9 +55,14 @@ export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void 
               {t("rule.linkOnly.badge")}
             </span>
           )}
-          {lowConf && (
+          {band === "low" && (
             <span className="inline-flex items-center rounded-sm border border-unknown/30 bg-unknown-soft px-2 py-0.5 text-[11px] font-medium text-unknown">
-              {t("rule.lowConfidence")} · {Math.round((rule.confidence ?? 0) * 100)}%
+              {t("confidence.low")} · {Math.round((rule.confidence ?? 0) * 100)}%
+            </span>
+          )}
+          {band === "medium" && (
+            <span className="inline-flex items-center rounded-sm border border-border/80 bg-secondary/70 px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
+              {t("confidence.medium")} · {Math.round((rule.confidence ?? 0) * 100)}%
             </span>
           )}
           {result ? (
@@ -232,7 +237,7 @@ export function RuleDetailDrawer({
   if (!view) return null;
   const { rule, result, explanation, conflict } = view;
   const cov = coverageText(rule.coverage_conditions);
-  const lowConf = rule.confidence != null && rule.confidence < 0.5;
+  const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
@@ -268,11 +273,27 @@ export function RuleDetailDrawer({
           {(conflict || rule.conflict_note) && !linkOnly && <ConflictWarning note={rule.conflict_note} />}
           {conflict && linkOnly && <ConflictWarning />}
           <CitationPanel rule={rule} asOf={asOf} />
-          <section className={cn("rounded-md border p-4", lowConf && "border-unknown/30 bg-unknown-soft/50")}>
+          <section
+            className={cn(
+              "rounded-md border p-4",
+              band === "low" && "border-unknown/30 bg-unknown-soft/50",
+              band === "medium" && "border-border/80 bg-secondary/40",
+            )}
+          >
             <div className="eyebrow">{t("rule.confidence")}</div>
-            <div className="mt-2"><Confidence value={rule.confidence} /></div>
-            {lowConf && (
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <Confidence value={rule.confidence} />
+              {band && (
+                <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                  {tx(`confidence.${band}`)}
+                </span>
+              )}
+            </div>
+            {band === "low" && (
               <p className="mt-2 text-sm text-unknown">{t("rule.lowConfidence")}</p>
+            )}
+            {band === "medium" && (
+              <p className="mt-2 text-sm text-muted-foreground">{t("confidence.medium.hint")}</p>
             )}
           </section>
           <section>

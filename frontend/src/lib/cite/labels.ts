@@ -35,6 +35,16 @@ export const CATEGORY_LABEL: Record<Category, string> = {
 
 export const CATEGORY_ORDER = Object.keys(CATEGORY_LABEL) as Category[];
 
+export type ConfidenceBand = "high" | "medium" | "low";
+
+/** Display bands for extraction confidence (no legal logic). */
+export function confidenceBand(value?: number | null): ConfidenceBand | null {
+  if (value == null || Number.isNaN(value)) return null;
+  if (value < 0.5) return "low";
+  if (value < 0.85) return "medium";
+  return "high";
+}
+
 export function fmtDate(d?: string | null, locale: string = "en") {
   if (!d) return "—";
   const dt = new Date(d.length === 10 ? `${d}T12:00:00Z` : d);

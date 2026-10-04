@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { useT, useTx } from "@/lib/i18n";
 import { getCiteClient } from "@/lib/cite/client";
-import { CATEGORY_ORDER } from "@/lib/cite/labels";
+import { CATEGORY_ORDER, confidenceBand, type ConfidenceBand } from "@/lib/cite/labels";
 import type { Category, RuleStatus } from "@/lib/cite/types";
 import { PageHeader } from "@/components/cite/layout";
 import { RuleCard, RuleDetailDrawer, type RuleView } from "@/components/cite/rule";
@@ -23,6 +23,7 @@ export const Route = createFileRoute("/rules")({
 });
 
 const STATUSES: RuleStatus[] = ["in_force", "not_yet_effective", "pending", "failed"];
+const CONF_BANDS: ConfidenceBand[] = ["high", "medium", "low"];
 
 function FilterSelect({
   value,
@@ -63,11 +64,16 @@ function RulesPage() {
   const [jur, setJur] = useState("");
   const [cat, setCat] = useState("");
   const [status, setStatus] = useState("");
+  const [conf, setConf] = useState("");
   const [open, setOpen] = useState<RuleView | null>(null);
   const jurisdictions = useMemo(() => [...new Set((data ?? []).map((r) => r.jurisdiction))].sort(), [data]);
-  const filtered = (data ?? []).filter(
-    (r) => (!jur || r.jurisdiction === jur) && (!cat || r.category === cat) && (!status || r.status === status),
-  );
+  const filtered = (data ?? []).filter((r) => {
+    if (jur && r.jurisdiction !== jur) return false;
+    if (cat && r.category !== cat) return false;
+    if (status && r.status !== status) return false;
+    if (conf && confidenceBand(r.confidence) !== conf) return false;
+    return true;
+  });
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
@@ -75,7 +81,7 @@ function RulesPage() {
         {t("rules.lede")}
       </PageHeader>
 
-      <div className="fade-up mb-8 flex flex-wrap items-center gap-2 rounded-2xl border border-border/70 bg-paper/70 p-2 shadow-island backdrop-blur-xl">
+      <div className="fade-up mb-3 flex flex-wrap items-center gap-2 rounded-2xl border border-border/70 bg-paper/70 p-2 shadow-island backdrop-blur-xl">
         <FilterSelect
           label={t("rules.jurisdiction")}
           allLabel={t("rules.all")}
@@ -97,10 +103,18 @@ function RulesPage() {
           onChange={setStatus}
           options={STATUSES.map((s) => [s, tx(`status.${s}`)] as [RuleStatus, string])}
         />
+        <FilterSelect
+          label={t("rules.confidence")}
+          allLabel={t("rules.all")}
+          value={conf}
+          onChange={setConf}
+          options={CONF_BANDS.map((b) => [b, t(`confidence.${b}`)] as [ConfidenceBand, string])}
+        />
         <span className="ml-auto px-3 font-mono text-xs tabular-nums text-muted-foreground">
           {filtered.length} {t("rules.count")}
         </span>
       </div>
+      <p className="fade-up mb-8 text-xs text-muted-foreground">{t("confidence.legend")}</p>
 
       {isPending && (
         <div className="grid gap-3 md:grid-cols-2">
@@ -118,7 +132,7 @@ function RulesPage() {
       <div className="grid gap-3 md:grid-cols-2">
         {filtered.map((r) => {
           const v: RuleView = { id: r.team_rule_id, rule: r };
-          return <RuleCard key={r.team_rule_id} view={v} onOpen={() => setOpen(v)} headingLevel={2} />;
+          return <RuleCard key={r.team_rule_id} view={v} onOpen={() => setOpen(v)} />;
         })}
       </div>
       {data && filtered.length === 0 && (
