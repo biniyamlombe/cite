@@ -177,7 +177,9 @@ export function BeforeAfterStatus({
       {label && <div className="eyebrow mb-3">{label}</div>}
       <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-5">
         <div className="min-w-0">
-          <div className="eyebrow">{beforeDate ? fmtDate(beforeDate, locale) : t("changes.col.before")}</div>
+          <div className="eyebrow">
+            {beforeDate ? fmtDate(beforeDate, locale) : t("changes.col.before")}
+          </div>
           <div className="mt-2">
             {before ? (
               <StatusBadge value={before} size="md" kind="legal_status" />
@@ -190,7 +192,9 @@ export function BeforeAfterStatus({
           <ArrowRight className="size-4" aria-hidden="true" />
         </div>
         <div className="min-w-0">
-          <div className="eyebrow">{afterDate ? fmtDate(afterDate, locale) : t("changes.col.after")}</div>
+          <div className="eyebrow">
+            {afterDate ? fmtDate(afterDate, locale) : t("changes.col.after")}
+          </div>
           <div className="mt-2">
             {after ? (
               <StatusBadge value={after} size="md" kind="legal_status" />
