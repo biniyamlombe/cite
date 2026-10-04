@@ -11,9 +11,9 @@ import { RuleCard, RuleDetailDrawer, type RuleView } from "@/components/cite/rul
 export const Route = createFileRoute("/rules")({
   head: () => ({
     meta: [
-      { title: "Rules — Cite" },
+      { title: "Rules · Cite" },
       { name: "description", content: "Browse extracted rental-housing rules with citations." },
-      { property: "og:title", content: "Rules — Cite" },
+      { property: "og:title", content: "Rules · Cite" },
       { property: "og:description", content: "Extracted rules with official citations and quoted source." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

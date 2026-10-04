@@ -14,9 +14,9 @@ import { useT } from "@/lib/i18n";
 
 export const Route = createFileRoute("/inbox")({
   head: () => ({ meta: [
-    { title: "Change impact inbox — Cite" },
+    { title: "Change impact inbox · Cite" },
     { name: "description", content: "Triage change scenarios affecting monitored properties with review states and notes." },
-    { property: "og:title", content: "Change impact inbox — Cite" },
+    { property: "og:title", content: "Change impact inbox · Cite" },
     { property: "og:description", content: "Triage change scenarios affecting monitored properties with review states and notes." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },

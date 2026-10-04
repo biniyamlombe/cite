@@ -8,9 +8,9 @@ import { PageHeader } from "@/components/cite/layout";
 export const Route = createFileRoute("/audit")({
   head: () => ({
     meta: [
-      { title: "Lookup history — Cite" },
+      { title: "Lookup history · Cite" },
       { name: "description", content: "An audit log of every property you looked up, when, and what the result was." },
-      { property: "og:title", content: "Lookup history — Cite" },
+      { property: "og:title", content: "Lookup history · Cite" },
       { property: "og:description", content: "Audit log of property lookups." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

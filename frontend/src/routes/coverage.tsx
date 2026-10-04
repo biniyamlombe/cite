@@ -9,9 +9,9 @@ import type { Category } from "@/lib/cite/types";
 export const Route = createFileRoute("/coverage")({
   head: () => ({
     meta: [
-      { title: "Coverage — Cite" },
+      { title: "Coverage · Cite" },
       { name: "description", content: "Which jurisdictions and topics the Cite rule catalog covers, and where the gaps are." },
-      { property: "og:title", content: "Coverage — Cite" },
+      { property: "og:title", content: "Coverage · Cite" },
       { property: "og:description", content: "Jurisdiction and topic coverage of the rule catalog." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

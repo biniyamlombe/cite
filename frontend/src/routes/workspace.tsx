@@ -19,9 +19,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/workspace")({
   validateSearch: z.object({ case: z.string().uuid().optional() }),
   head: () => ({ meta: [
-    { title: "Decision workspace — Cite" },
+    { title: "Decision workspace · Cite" },
     { name: "description", content: "Review property cases with saved evidence, assignments and a decision history." },
-    { property: "og:title", content: "Decision workspace — Cite" },
+    { property: "og:title", content: "Decision workspace · Cite" },
     { property: "og:description", content: "Review property cases with saved evidence, assignments and a decision history." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },
@@ -60,7 +60,7 @@ function CaseEditor({ item }: { item: ReviewCase }) {
         `Quote: ${r.rule?.quoted_span ?? "—"}`, `Source: ${r.rule?.source_url ?? "—"}`,
         `Source document: ${r.rule?.source_doc_id ?? "—"}`, `Retrieved: ${r.rule?.retrieved_at ?? "unknown"}`,
       ]),
-      "", "REVIEW HISTORY", ...(events.data ?? []).map((e) => `${e.created_at} — ${e.detail}`), "", DISCLAIMER,
+      "", "REVIEW HISTORY", ...(events.data ?? []).map((e) => `${e.created_at} · ${e.detail}`), "", DISCLAIMER,
     ];
     downloadText(`cite-case-${item.address_id}-${item.id}.txt`, lines.join("\n"), "text/plain;charset=utf-8");
   };

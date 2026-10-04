@@ -17,9 +17,9 @@ import { listChangeReviews } from "@/lib/cite/change-reviews";
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
-      { title: "Portfolio — Cite" },
+      { title: "Portfolio · Cite" },
       { name: "description", content: "Every tracked property at a glance: rules that apply, conflicts, unknowns and upcoming changes." },
-      { property: "og:title", content: "Portfolio — Cite" },
+      { property: "og:title", content: "Portfolio · Cite" },
       { property: "og:description", content: "Monitor regulatory exposure across your rental portfolio." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

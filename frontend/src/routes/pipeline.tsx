@@ -11,9 +11,9 @@ import { cn } from "@/lib/utils";
 export const Route = createFileRoute("/pipeline")({
   head: () => ({
     meta: [
-      { title: "Pipeline — Cite" },
+      { title: "Pipeline · Cite" },
       { name: "description", content: "Watch Cite turn a legal source document into structured, validated, cited rules." },
-      { property: "og:title", content: "Pipeline — Cite" },
+      { property: "og:title", content: "Pipeline · Cite" },
       { property: "og:description", content: "Live extract demo: source text to structured rules, with schema validation and verbatim citations." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -187,7 +187,7 @@ function PipelinePage() {
                 >
                   {filtered.map((d) => (
                     <option key={d.doc_id} value={d.doc_id}>
-                      {d.doc_id} — {d.title}
+                      {d.doc_id} · {d.title}
                     </option>
                   ))}
                 </select>

@@ -11,9 +11,9 @@ import { SignInCard } from "@/components/cite/sign-in-card";
 export const Route = createFileRoute("/memos")({
   head: () => ({
     meta: [
-      { title: "Saved memos — Cite" },
+      { title: "Saved memos · Cite" },
       { name: "description", content: "Your saved regulatory applicability memos, kept for audit." },
-      { property: "og:title", content: "Saved memos — Cite" },
+      { property: "og:title", content: "Saved memos · Cite" },
       { property: "og:description", content: "Saved applicability memos for audit trails." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

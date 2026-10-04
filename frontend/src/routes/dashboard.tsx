@@ -24,9 +24,9 @@ type PulseItem = {
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "Dashboard — Cite" },
+      { title: "Dashboard · Cite" },
       { name: "description", content: "Your regulatory monitoring at a glance: re-checks, recent memos, lookups and rule changes." },
-      { property: "og:title", content: "Dashboard — Cite" },
+      { property: "og:title", content: "Dashboard · Cite" },
       { property: "og:description", content: "Re-checks, memos, lookups and recent rule changes in one place." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

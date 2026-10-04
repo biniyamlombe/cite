@@ -8,9 +8,9 @@ import { PageHeader } from "@/components/cite/layout";
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in — Cite" },
+      { title: "Sign in · Cite" },
       { name: "description", content: "Sign in to Cite to save memos, comment on rules and get email alerts." },
-      { property: "og:title", content: "Sign in — Cite" },
+      { property: "og:title", content: "Sign in · Cite" },
       { property: "og:description", content: "Sign in to save memos, comment on rules and get alerts." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

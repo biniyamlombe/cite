@@ -27,9 +27,9 @@ import { SignInCard } from "@/components/cite/sign-in-card";
 export const Route = createFileRoute("/settings")({
   head: () => ({
     meta: [
-      { title: "Team & integrations — Cite" },
+      { title: "Team & integrations · Cite" },
       { name: "description", content: "Manage team roles, scheduled re-checks, API keys and webhook notifications." },
-      { property: "og:title", content: "Team & integrations — Cite" },
+      { property: "og:title", content: "Team & integrations · Cite" },
       { property: "og:description", content: "Roles, re-checks, API access and webhooks for Cite." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

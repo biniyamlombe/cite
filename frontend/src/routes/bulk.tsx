@@ -11,9 +11,9 @@ import type { LookupResponse } from "@/lib/cite/types";
 export const Route = createFileRoute("/bulk")({
   head: () => ({
     meta: [
-      { title: "Bulk lookup — Cite" },
+      { title: "Bulk lookup · Cite" },
       { name: "description", content: "Check many rental properties at once and export the results." },
-      { property: "og:title", content: "Bulk lookup — Cite" },
+      { property: "og:title", content: "Bulk lookup · Cite" },
       { property: "og:description", content: "Applicability results for a whole list of addresses." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

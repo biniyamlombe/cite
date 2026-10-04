@@ -81,7 +81,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Cite — Know what applies. And why." },
+      { title: "Cite · Know what applies. And why." },
       { name: "description", content: "Regulatory intelligence for rental housing, traced to the source." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

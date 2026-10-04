@@ -189,8 +189,8 @@ function ScopeStory({
           <span className="font-medium text-ink">{t("changes.excluded")}:</span>{" "}
           Newark ({newark.length} {t("changes.newarkSample")}
           {newarkLeak.length
-            ? ` — WARNING: ${newarkLeak.length} ${t("changes.newarkWarn")}`
-            : ` — ${t("changes.newarkNone")}`}
+            ? ` · WARNING: ${newarkLeak.length} ${t("changes.newarkWarn")}`
+            : ` · ${t("changes.newarkNone")}`}
           )
         </p>
       )}
