@@ -51,7 +51,7 @@ Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no
 - Lookups for all **500** addresses at `as_of=2026-10-01`  
 - T1–T5 green (`T1=250`, `T2=90`, `T3=140` +90 conflicts, `T4=110`, `T5=0`); no T6 (participant-final-no-hour16)  
 - Verify before upload: `npm run quality` or `npm run submission:check` · pack: `npm run submission:pack`  
-- Audit evidence: `AUDIT_REPORT.md`, `GAP_REGISTER.md`, `docs/ARCHITECTURE.md`
+- Audit evidence: `docs/audit-report.md`, `docs/gap-register.md`, `docs/system-architecture.md`
 
 ## Limits (honest)
 

@@ -78,7 +78,7 @@ Meaningfully different mechanism: verbatim `quoted_span` evidence + dual coverag
 - Starter pack: `data/pack/` (corpus, addresses, schema, change tests)
 - Stretch addresses: `data/stretch/santa_ana_addresses.csv`
 - Pipeline outputs: `outputs/` (`rules.json`, `lookups.json`, `changes.json`, `geocode_cache.json`, `rule_versions.json`)
-- Method / demo: `docs/METHOD.md`, `docs/DEMO.md`
+- Method / demo: `docs/method-note.md`, `docs/demo-script.md`
 - Offline fixtures: `frontend/src/mocks/snapshots.json`
 - Do not fabricate: customer testimonials, non-public RealPage data, ordinance text absent from capturable corpus
 

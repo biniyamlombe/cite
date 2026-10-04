@@ -154,8 +154,8 @@ Public sources used: pack corpus, Census Geocoder, (optional) Claude for extract
 | 6.5 | `rules.json` with citations + quotes | ✅ | |
 | 6.6 | `lookups.json` all sample addresses | ✅ | 500 |
 | 6.7 | `changes.json` affected + conflicts | ✅ | T1–T5 |
-| 6.8 | Live demo | ✅ | API `:4000` + UI `:8080` · `docs/DEMO.md` |
-| 6.9 | One-page method note | ✅ | `docs/METHOD.md` |
+| 6.8 | Live demo | ✅ | API `:4000` + UI `:8080` · `docs/demo-script.md` |
+| 6.9 | One-page method note | ✅ | `docs/method-note.md` |
 
 ### Strong submission checklist (brief)
 
@@ -195,4 +195,4 @@ Public sources used: pack corpus, Census Geocoder, (optional) Claude for extract
 ## Verdict
 
 **Everything the OCR brief requires is done at 100%, including prior field nits.**  
-Hour-16 / T6 correctly omitted. Stretch goals are in place. Ship `rules.json` / `lookups.json` / `changes.json` + `docs/METHOD.md` + live demo.
+Hour-16 / T6 correctly omitted. Stretch goals are in place. Ship `rules.json` / `lookups.json` / `changes.json` + `docs/method-note.md` + live demo.

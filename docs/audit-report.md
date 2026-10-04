@@ -49,7 +49,7 @@ The repository was already a substantially complete Modules A–C pipeline with 
 
 ## 3. Architecture summary
 
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+See [docs/system-architecture.md](docs/system-architecture.md).
 
 Pipeline: corpus → extract (Claude/heuristic) → enrich coverage/fields → geocode → apply coverage → lookups → T1–T5 changes → provenance companion. UI is display-only over the Hono API / offline snapshots.
 
@@ -87,10 +87,10 @@ Pipeline: corpus → extract (Claude/heuristic) → enrich coverage/fields → g
 |----|----------|---------|-----|
 | G01 | High | No provenance / schema version metadata for artifacts | `outputs/provenance.json` + writer |
 | G02 | High | No quality gate combining typecheck/lint/tests/submission | `npm run quality` / `scripts/quality-gate.sh` |
-| G03 | High | Audit docs missing | `AUDIT_REPORT.md`, `GAP_REGISTER.md` |
+| G03 | High | Audit docs missing | `docs/audit-report.md`, `docs/gap-register.md` |
 | G04 | Medium | No canonical applicability / human-review enrichment | Shared helpers + coverage enrichment fields |
 | G05 | Medium | Quote offsets absent | Backfill + validate-time offsets (147/147) |
-| G06 | Medium | Architecture doc missing | `docs/ARCHITECTURE.md` |
+| G06 | Medium | Architecture doc missing | `docs/system-architecture.md` |
 | G07 | Medium | No CI workflow | `.github/workflows/ci.yml` |
 | G08 | Medium | Frontend `.env.example` missing | Added |
 | G09 | Low | `prefer-const` lint error in preview auth storage | Fixed |
@@ -114,7 +114,7 @@ Pipeline: corpus → extract (Claude/heuristic) → enrich coverage/fields → g
 
 ## 6. Issue register (observed → expected → status)
 
-See [GAP_REGISTER.md](GAP_REGISTER.md) for the full before/after table.
+See [docs/gap-register.md](docs/gap-register.md) for the full before/after table.
 
 ---
 

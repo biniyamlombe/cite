@@ -52,4 +52,4 @@ npm run typecheck
 npm run quality   # if time
 ```
 
-Record pass/fail honestly in `UI_UX_IMPLEMENTATION_REPORT.md`.
+Record pass/fail honestly in `docs/ux-implementation-report.md`.

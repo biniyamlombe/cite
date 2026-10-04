@@ -6,10 +6,10 @@
 |----|-------------|---------------|--------------|----------|---------------|------------------|-------|
 | G01 | Artifact provenance / schema version | Missing | Complete | High | `backend/src/lib/provenance.ts`, `cli/write_provenance.ts`, `outputs/provenance.json` | submission-check provenance lines | Companion file; pack JSON stays bare |
 | G02 | Quality gate command | Missing | Complete | High | `scripts/quality-gate.sh`, `package.json` | `npm run quality` PASS | Substantive ESLint; prettier non-blocking |
-| G03 | AUDIT_REPORT / GAP_REGISTER | Missing | Complete | High | `AUDIT_REPORT.md`, `GAP_REGISTER.md` | files present | This audit |
+| G03 | Audit report / gap register | Missing | Complete | High | `docs/audit-report.md`, `docs/gap-register.md` | files present | This audit |
 | G04 | Canonical applicability + human review fields | Partial (conflict_flag only) | Complete | Medium | `shared/src/index.ts`, `apply/coverage.ts`, API, UI | honesty.test enrichment | Pack `result` preserved |
 | G05 | Quote offsets | Missing | Complete | Medium | `lib/validate.ts`, `cli/enrich_quote_offsets.ts`, `rules.json` | 147/147 filled | Traceability |
-| G06 | Architecture documentation | Partial (METHOD only) | Complete | Medium | `docs/ARCHITECTURE.md` | doc present | Mermaid data flow |
+| G06 | Architecture documentation | Partial (METHOD only) | Complete | Medium | `docs/system-architecture.md` | doc present | Mermaid data flow |
 | G07 | CI workflow | Missing | Complete | Medium | `.github/workflows/ci.yml` | workflow file | Runs quality gate |
 | G08 | Frontend env example | Missing | Complete | Medium | `frontend/.env.example` | file present | Safe placeholders |
 | G09 | prefer-const lint defect | Defective | Fixed | Low | `frontend/.../previewAuthStorage.ts` | eslint quiet pass | |
@@ -29,7 +29,7 @@
 | L04 | FIPS / GEOID | Missing | **Complete** | Medium | `geocode/jurisdiction_ids.ts`, `census.ts`, `enrich_geocode_ids.ts`, UI stack | 500/500 FIPS+GEOID; honesty test | Untrusted cities get null place_geoid |
 | L05 | Owner-type facts | Unsupported by data | Correct unknown | Medium | coverage engine | honesty tests | |
 | L06 | Live LLM re-extract this session | Unverified | Documented | Medium | — | cache validated | |
-| L07 | Organizer score.py | Unsupported | Documented | Medium | `docs/SCORE.md` | waiting on organizers | |
+| L07 | Organizer score.py | Unsupported | Documented | Medium | `docs/organizer-scoring.md` | waiting on organizers | |
 | L08 | County-level rule layer enum | Pack is state\|city | Accepted | Low | pack schema | — | County + FIPS in geocode/API stack |
 | L09 | Explicit does_not_apply | Omitted silently | **Complete (API)** | Medium | `apply/coverage.ts`, `/lookup?include_non_applicable=1` | honesty.test | Pack lookups still omit (grader shape) |
 | L10 | Rich address lookup API shape | Partial | **Complete** | Medium | `api/server.ts`, shared LookupResponseSchema, UI | building_facts + audit + jurisdiction status | |

@@ -8,7 +8,7 @@
 
 ## 1. Executive summary
 
-Cite’s demo-critical path was upgraded from a solid honesty baseline into a clearer **answer-first, evidence-always** experience: trust language, dual applicability/legal-status badges, pending laws separated from current-law results, session missing-fact overrides, structured API errors/meta/warnings, shared loading/error states, and discoverable Sources/Audit navigation. Automated backend (18) and frontend (21) tests pass; `npm run typecheck` and browser `UX_TEST_CHECKLIST` pass (see §5a).
+Cite’s demo-critical path was upgraded from a solid honesty baseline into a clearer **answer-first, evidence-always** experience: trust language, dual applicability/legal-status badges, pending laws separated from current-law results, session missing-fact overrides, structured API errors/meta/warnings, shared loading/error states, and discoverable Sources/Audit navigation. Automated backend (18) and frontend (21) tests pass; `npm run typecheck` and browser `docs/ux-test-checklist` pass (see §5a).
 
 ---
 
@@ -33,7 +33,7 @@ Cite’s demo-critical path was upgraded from a solid honesty baseline into a cl
 - Coverage engine accepts address overrides.
 
 ### Docs
-- `UX_AUDIT_BASELINE.md`, `UX_IMPROVEMENT_PLAN.md`, `DESIGN_SYSTEM.md`, `API_UX_CONTRACT.md`, `UX_TEST_CHECKLIST.md`, README updates, this report.
+- `docs/ux-audit-baseline.md`, `docs/ux-improvement-plan.md`, `docs/design-system.md`, `docs/api-ux-contract.md`, `docs/ux-test-checklist.md`, README updates, this report.
 
 ---
 
@@ -142,7 +142,7 @@ npm run typecheck
 ## 8. Files created / modified (primary)
 
 **Created:**  
-`UX_AUDIT_BASELINE.md`, `UX_IMPROVEMENT_PLAN.md`, `DESIGN_SYSTEM.md`, `API_UX_CONTRACT.md`, `UX_TEST_CHECKLIST.md`, `UI_UX_IMPLEMENTATION_REPORT.md`, `backend/src/api/envelope.ts`, `backend/src/api/cache.ts`, `backend/src/tests/api_ux.test.ts`, `frontend/src/lib/cite/api-error.ts`, `frontend/src/lib/cite/result-groups.ts`, `frontend/src/components/cite/missing-facts.tsx`, `frontend/src/components/cite/states.tsx`, `frontend/src/components/cite/audit-panel.tsx`, `frontend/src/test/result-groups.test.ts`, `frontend/src/test/status-badge.test.tsx`, `frontend/src/test/a11y-lookup.test.tsx`
+`docs/ux-audit-baseline.md`, `docs/ux-improvement-plan.md`, `docs/design-system.md`, `docs/api-ux-contract.md`, `docs/ux-test-checklist.md`, `docs/ux-implementation-report.md`, `backend/src/api/envelope.ts`, `backend/src/api/cache.ts`, `backend/src/tests/api_ux.test.ts`, `frontend/src/lib/cite/api-error.ts`, `frontend/src/lib/cite/result-groups.ts`, `frontend/src/components/cite/missing-facts.tsx`, `frontend/src/components/cite/states.tsx`, `frontend/src/components/cite/audit-panel.tsx`, `frontend/src/test/result-groups.test.ts`, `frontend/src/test/status-badge.test.tsx`, `frontend/src/test/a11y-lookup.test.tsx`
 
 **Modified:**  
 `shared/src/index.ts`, `backend/src/api/server.ts`, `backend/src/apply/coverage.ts`, `frontend/src/lib/cite/client.ts`, `frontend/src/lib/cite/types.ts`, `frontend/src/lib/i18n.tsx`, `frontend/src/components/cite/status.tsx`, `frontend/src/components/cite/rule.tsx`, `frontend/src/components/cite/layout.tsx`, `frontend/src/components/cite/changes.tsx`, `frontend/src/routes/index.tsx`, `frontend/src/test/setup.ts`, `frontend/src/test/cite-data.test.ts`, `frontend/package.json` (+ vitest-axe), `README.md`

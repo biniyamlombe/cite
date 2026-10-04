@@ -2,7 +2,7 @@
 
 **Disclaimer up front:** Not legal advice.  
 **Default as-of:** `2026-10-01`  
-**Stack:** API `:4000` · UI (`VITE_API_URL`) · method note `docs/METHOD.md`
+**Stack:** API `:4000` · UI (`VITE_API_URL`) · method note `docs/method-note.md`
 
 ## Preflight (90 seconds before judges)
 
@@ -117,7 +117,7 @@ Optional beats in the same minute:
 
 - Automated extract with **verbatim** `quoted_span`s  
 - Reproducible: `npm run pipeline` · `npm test`  
-- Limits on **About** / `docs/METHOD.md` (link-only HOB/JC, open questions, empty chrome docs)
+- Limits on **About** / `docs/method-note.md` (link-only HOB/JC, open questions, empty chrome docs)
 
 **One-liner:** “Cite won’t invent ordinance text or invent building facts — it cites the corpus and says unknown when the data isn’t there.”
 

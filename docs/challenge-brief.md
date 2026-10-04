@@ -125,9 +125,9 @@ EN/ES chrome · confidence bands · Santa Ana stretch · open questions · link-
 
 ## 4. Still waiting on organizers
 
-1. **`score.py` + held-out keys** — see `docs/SCORE.md`.
+1. **`score.py` + held-out keys** — see `docs/organizer-scoring.md`.
 2. **Submission logistics** — deadline, upload channel, licensing (TBD in pack §3).
 
 ---
 
-*Ask: `data/pack/README.md`. Method: `docs/METHOD.md`. Artifacts: `outputs/`.*
+*Ask: `data/pack/README.md`. Method: `docs/method-note.md`. Artifacts: `outputs/`.*
