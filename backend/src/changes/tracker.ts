@@ -211,27 +211,33 @@ export function runChangeTests(options: {
       const affected: string[] = [];
       const includedEv: ChangeEvidence[] = [];
       const excludedEv: ChangeEvidence[] = [];
+      const hobMunicipal = hob?.extraction_method === "municipal_ordinance";
+      const jcMunicipal = jc?.extraction_method === "municipal_ordinance";
       for (const a of addresses) {
         const g = geos.get(a.address_id);
         if (!g) continue;
         const entries = lookups[a.address_id] || [];
         if (hob && g.legal_city === "Hoboken") {
-          if (lookupHasRule(entries, hob.team_rule_id)) {
+          if (lookupHasRule(entries, hob.team_rule_id, "applies")) {
             affected.push(a.address_id);
             includedEv.push({
               address_id: a.address_id,
               included: true,
-              reason: "Legal city Hoboken matches HOB-ALG-01 jurisdiction scope",
+              reason: hobMunicipal
+                ? "Hoboken address applies under HOB-ALG-01 (HOB-ORD-01 municipal ordinance)"
+                : "Legal city Hoboken matches HOB-ALG-01 jurisdiction scope",
               rule_ids: ["HOB-ALG-01"],
             });
           }
         } else if (jc && g.legal_city === "Jersey City") {
-          if (lookupHasRule(entries, jc.team_rule_id)) {
+          if (lookupHasRule(entries, jc.team_rule_id, "applies")) {
             affected.push(a.address_id);
             includedEv.push({
               address_id: a.address_id,
               included: true,
-              reason: "Legal city Jersey City matches JC-ALG-01 jurisdiction scope",
+              reason: jcMunicipal
+                ? "Jersey City address applies under JC-ALG-01 (JC-ORD-01 municipal ordinance)"
+                : "Legal city Jersey City matches JC-ALG-01 jurisdiction scope",
               rule_ids: ["JC-ALG-01"],
             });
           }
@@ -256,9 +262,13 @@ export function runChangeTests(options: {
         if (g?.legal_city === "Hoboken") t2Per[id] = { "HOB-ALG-01": "applies" };
         else if (g?.legal_city === "Jersey City") t2Per[id] = { "JC-ALG-01": "applies" };
       }
+      const t2Honesty =
+        hobMunicipal && jcMunicipal
+          ? " Live applies from captured municipal ordinance PDFs (HOB-ORD-01 / JC-ORD-01); pack ecode360 pages remain link-only."
+          : " Scenario membership only: primary municipal text is uncaptured; live municipal applicability remains unknown.";
       out.T2 = {
         affected_address_ids: t2Ids,
-        evidence_summary: `included=${includedEv.length}; Newark exclusions sampled=${excludedEv.length}`,
+        evidence_summary: `included=${includedEv.length}; Newark exclusions sampled=${excludedEv.length}; hob_method=${hob?.extraction_method ?? "missing"}; jc_method=${jc?.extraction_method ?? "missing"}`,
         sample_evidence: sampleEvidence(includedEv, excludedEv),
         rule_mapping: mappingFor(["HOB-ALG-01", "JC-ALG-01"], rules),
         per_address: t2Per,
@@ -266,7 +276,7 @@ export function runChangeTests(options: {
           test.expected_behavior +
           (newarkLeak.length
             ? ` WARNING: Newark incorrectly included (${newarkLeak.length})`
-            : " Newark correctly excluded. Scenario membership only: primary municipal text is uncaptured; live municipal applicability remains unknown."),
+            : ` Newark correctly excluded.${t2Honesty}`),
       };
       continue;
     }
