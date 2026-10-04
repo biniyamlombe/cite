@@ -14,7 +14,7 @@ import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader, DisclaimerBar } from "@/components/cite/layout";
 import { Toaster } from "@/components/ui/sonner";
-import { LocaleProvider } from "@/lib/i18n";
+import { LocaleProvider, LocaleUrlSync } from "@/lib/i18n";
 
 function NotFoundComponent() {
   return (
@@ -126,6 +126,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>
+        <LocaleUrlSync />
         <div className="atmosphere flex min-h-dvh flex-col">
           <a href="#main-content" className="sr-only focus:not-sr-only focus:p-3">
             Skip to content / Ir al contenido

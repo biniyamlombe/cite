@@ -1,8 +1,20 @@
-import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
+import { useRouter, useRouterState } from "@tanstack/react-router";
+import { parseLocale, type SupportedLocale } from "@rhl/shared";
 
-export type Locale = "en" | "es";
+/** Canonical BCP-47 locales. Internal string tables use en / es keys. */
+export type Locale = SupportedLocale;
 
-// UI chrome only. Legal quotations, citations and backend explanations stay in their source language.
+// UI chrome + renter-facing labels. Legal quotations stay English-authoritative.
 const STRINGS = {
   en: {
     "nav.lookup": "Lookup",
@@ -480,6 +492,20 @@ const STRINGS = {
     "label.missingFacts": "Missing facts",
     "label.why": "Why",
     "label.sourceQuote": "Source quote",
+    "label.sourceQuote.original": "Original English legal source text",
+    "label.sourceQuote.authority":
+      "This quotation is the authoritative legal source. It is not an official Spanish text.",
+    "label.sourceQuote.informational":
+      "Informational Spanish translation only; the English original is the official source.",
+    "label.translation.machine": "Machine-generated Spanish — not human-reviewed",
+    "label.translation.unavailable":
+      "Spanish translation unavailable for this explanation. Showing the English text.",
+    "label.translation.reviewed": "Human-reviewed Spanish",
+    "nav.changeLanguage": "Change language",
+    "nav.lang.en": "English",
+    "nav.lang.es": "Español",
+    "nav.lang.current": "Current language",
+    "nav.lang.announced": "Language changed to English",
     "category.rent_increase_limits": "Rent increase limits",
     "category.just_cause_eviction": "Just-cause eviction",
     "category.security_deposits": "Security deposits",
@@ -1174,23 +1200,37 @@ const STRINGS = {
     "pipeline.filter": "Filtrar D001, California…",
     "pipeline.filterEmpty": "Ningún documento coincide con este filtro",
     "result.applies": "Parece aplicar",
-    "result.unknown": "Desconocido",
-    "result.superseded": "Supersedida",
-    "result.not_yet_effective": "Aún no vigente",
+    "result.unknown": "No se puede determinar",
+    "result.superseded": "Sustituida",
+    "result.not_yet_effective": "Aún no entra en vigor",
     "result.pending": "Pendiente",
     "result.does_not_apply": "No parece aplicar",
-    "result.needs_human_review": "Requiere revisión humana",
+    "result.needs_human_review": "Se necesita revisión humana",
     "result.conflict": "Posible conflicto",
-    "status.in_force": "En vigor",
-    "status.not_yet_effective": "Aún no vigente",
+    "status.in_force": "Vigente",
+    "status.not_yet_effective": "Aprobada, pero aún no entra en vigor",
     "status.pending": "Pendiente",
-    "status.failed": "Fallido",
+    "status.failed": "Rechazada o anulada",
     "status.conflict": "Conflicto",
     "label.asOf": "A la fecha",
     "label.sourceRetrieved": "Fuente recuperada",
     "label.missingFacts": "Hechos faltantes",
     "label.why": "Por qué",
     "label.sourceQuote": "Cita de la fuente",
+    "label.sourceQuote.original": "Texto legal original en inglés",
+    "label.sourceQuote.authority":
+      "Esta cita es la fuente legal oficial. No es un texto oficial en español.",
+    "label.sourceQuote.informational":
+      "Traducción informativa al español; el texto original en inglés es la fuente oficial.",
+    "label.translation.machine": "Español generado automáticamente — sin revisión humana",
+    "label.translation.unavailable":
+      "No hay traducción al español para esta explicación. Se muestra el texto en inglés.",
+    "label.translation.reviewed": "Español revisado por una persona",
+    "nav.changeLanguage": "Cambiar idioma",
+    "nav.lang.en": "English",
+    "nav.lang.es": "Español",
+    "nav.lang.current": "Idioma actual",
+    "nav.lang.announced": "Idioma cambiado a español",
     "category.rent_increase_limits": "Límites de aumento de renta",
     "category.just_cause_eviction": "Desalojo con justa causa",
     "category.security_deposits": "Depósitos de seguridad",
@@ -1425,25 +1465,125 @@ const STRINGS = {
 
 export type StringKey = keyof (typeof STRINGS)["en"];
 
-const Ctx = createContext<{ locale: Locale; setLocale: (l: Locale) => void }>({
-  locale: "en",
+type StringTable = "en" | "es";
+
+function tableFor(locale: Locale): StringTable {
+  return locale === "es-US" ? "es" : "en";
+}
+
+function localeFromSearch(searchStr: string): Locale | null {
+  const raw = searchStr.startsWith("?") ? searchStr.slice(1) : searchStr;
+  const fromUrl = new URLSearchParams(raw).get("lang");
+  return fromUrl ? parseLocale(fromUrl).locale : null;
+}
+
+function readStoredOrBrowserLocale(): Locale {
+  if (typeof window === "undefined") return "en-US";
+  try {
+    const saved = localStorage.getItem("cite-locale");
+    if (saved) return parseLocale(saved).locale;
+  } catch {
+    /* private mode */
+  }
+  const browser = navigator.language || navigator.languages?.[0];
+  return parseLocale(browser).locale;
+}
+
+/** @internal exported for tests */
+export function readInitialLocale(): Locale {
+  if (typeof window === "undefined") return "en-US";
+  const fromUrl = localeFromSearch(window.location.search);
+  if (fromUrl) return fromUrl;
+  return readStoredOrBrowserLocale();
+}
+
+const Ctx = createContext<{
+  locale: Locale;
+  setLocale: (l: Locale) => void;
+  announce: string;
+}>({
+  locale: "en-US",
   setLocale: () => {},
+  announce: "",
 });
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
+  const [locale, setLocaleState] = useState<Locale>("en-US");
+  const [announce, setAnnounce] = useState("");
+  const [booted, setBooted] = useState(false);
+
+  // First client mount: URL → storage → browser (SSR-safe).
   useEffect(() => {
-    const saved = localStorage.getItem("cite-locale");
-    if (saved === "es" || saved === "en") setLocaleState(saved);
+    setLocaleState(readInitialLocale());
+    setBooted(true);
   }, []);
+
+  // Persist preference after boot. URL write is handled by LocaleUrlSync inside the router.
   useEffect(() => {
+    if (!booted) return;
     document.documentElement.lang = locale;
-  }, [locale]);
-  const setLocale = (l: Locale) => {
+    try {
+      localStorage.setItem("cite-locale", locale);
+    } catch {
+      /* private mode */
+    }
+  }, [locale, booted]);
+
+  const setLocale = useCallback((l: Locale) => {
     setLocaleState(l);
-    localStorage.setItem("cite-locale", l);
-  };
-  return <Ctx.Provider value={{ locale, setLocale }}>{children}</Ctx.Provider>;
+    setAnnounce(l === "es-US" ? STRINGS.es["nav.lang.announced"] : STRINGS.en["nav.lang.announced"]);
+  }, []);
+
+  const value = useMemo(() => ({ locale, setLocale, announce }), [locale, setLocale, announce]);
+
+  return (
+    <Ctx.Provider value={value}>
+      {children}
+      <div className="sr-only" aria-live="polite" aria-atomic="true">
+        {announce}
+      </div>
+    </Ctx.Provider>
+  );
+}
+
+/**
+ * Keeps locale aligned with shareable `?lang=` via TanStack Router.
+ * Must render under the router (e.g. root route), inside LocaleProvider.
+ *
+ * Important: never write state→URL while URL still has a lang we have not applied yet,
+ * or a soft navigation to `?lang=es-US` gets clobbered back to `en-US`.
+ */
+export function LocaleUrlSync() {
+  const { locale, setLocale } = useLocale();
+  const router = useRouter();
+  const searchStr = useRouterState({ select: (s) => s.location.searchStr });
+  const applyingFromUrl = useRef(false);
+
+  // URL → state (initial load + client navigations).
+  useEffect(() => {
+    const fromUrl = localeFromSearch(searchStr);
+    if (fromUrl && fromUrl !== locale) {
+      applyingFromUrl.current = true;
+      setLocale(fromUrl);
+    }
+  }, [searchStr, locale, setLocale]);
+
+  // State → URL (user toggle / storage boot) without dropping address/as_of/rule.
+  useEffect(() => {
+    if (applyingFromUrl.current) {
+      applyingFromUrl.current = false;
+      return;
+    }
+    const current = localeFromSearch(searchStr);
+    if (current === locale) return;
+    void router.navigate({
+      to: ".",
+      search: (prev: Record<string, unknown>) => ({ ...prev, lang: locale }),
+      replace: true,
+    });
+  }, [locale, router, searchStr]);
+
+  return null;
 }
 
 export function useLocale() {
@@ -1452,15 +1592,32 @@ export function useLocale() {
 
 export function useT() {
   const { locale } = useContext(Ctx);
-  return (k: StringKey) => STRINGS[locale][k];
+  const table = STRINGS[tableFor(locale)];
+  return (k: StringKey, vars?: Record<string, string | number>) => {
+    let s: string = table[k];
+    if (vars) {
+      for (const [key, val] of Object.entries(vars)) {
+        s = s.replaceAll(`{${key}}`, String(val));
+      }
+    }
+    return s;
+  };
 }
 
 /** Safe lookup for dynamic result/status/category keys. */
 export function useTx() {
   const { locale } = useContext(Ctx);
   return (k: string, fallback?: string) => {
-    const table = STRINGS[locale] as Record<string, string>;
+    const table = STRINGS[tableFor(locale)] as Record<string, string>;
     if (Object.prototype.hasOwnProperty.call(table, k)) return table[k]!;
     return fallback ?? k;
   };
+}
+
+export function getStrings(locale: Locale) {
+  return STRINGS[tableFor(locale)];
+}
+
+export function listStringKeys(): StringKey[] {
+  return Object.keys(STRINGS.en) as StringKey[];
 }
