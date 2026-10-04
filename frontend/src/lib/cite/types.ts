@@ -28,6 +28,9 @@ export interface AddressRow {
 }
 
 export interface Rule {
+  stable_id?: string;
+  alias_id?: string;
+  evidence_status?: "captured" | "scenario_only";
   title: string;
   category: Category;
   citation: string;
@@ -41,7 +44,7 @@ export interface Rule {
   retrieved_at?: string | null;
   confidence?: number | null;
   effective_date?: string | null;
-  coverage_conditions?: string | { text?: string; all?: unknown; unknown_if?: unknown; omit_if?: unknown };
+  coverage_conditions?: string | { text?: string; all?: unknown; unknown_if?: unknown; omit_if?: unknown } | null;
   exemptions?: string | null;
   conflict_note?: string | null;
   /** Backend-supplied explanation of which rule takes precedence when rules overlap. */

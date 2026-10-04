@@ -8,15 +8,9 @@ import type {
   Health,
   LookupResponse,
 } from "./types";
-import {
-  MOCK_ADDRESSES,
-  MOCK_CHANGES,
-  MOCK_EXTRACT_DOCS,
-  MOCK_RULES,
-  mockExtract,
-  mockLookup,
-  mockRuleVersions,
-} from "@/mocks/cite";
+import { z } from "zod";
+import { AddressSchema, ApiRuleSchema, AsOfDateSchema, ChangesResponseSchema, CorpusDocSchema, ExtractResponseSchema, HealthSchema, LookupResponseSchema, RuleVersionSchema } from "@rhl/shared";
+const fixtures = () => import("@/mocks/cite");
 
 export const DEFAULT_AS_OF = "2026-10-01";
 export const DISCLAIMER =
@@ -43,6 +37,7 @@ export class MockCiteApiClient implements CiteApiClient {
   }
   async addresses(q: string, limit = 8) {
     await delay(120);
+    const { MOCK_ADDRESSES } = await fixtures();
     const s = q.trim().toLowerCase();
     const rows = s
       ? MOCK_ADDRESSES.filter((a) =>
@@ -55,100 +50,63 @@ export class MockCiteApiClient implements CiteApiClient {
   }
   async lookup(addressId: string, asOf: string) {
     await delay();
+    const { mockLookup } = await fixtures();
     const r = mockLookup(addressId, asOf);
     if (!r) throw new Error(`Address ${addressId} not found`);
     return r;
   }
   async changes() {
     await delay();
-    return MOCK_CHANGES;
+    return (await fixtures()).MOCK_CHANGES;
   }
   async rules() {
     await delay();
-    return MOCK_RULES;
+    return (await fixtures()).MOCK_RULES;
   }
   async corpusDocs() {
     await delay(80);
-    return MOCK_EXTRACT_DOCS;
+    return (await fixtures()).MOCK_EXTRACT_DOCS;
   }
   async extract(docId: string) {
     await delay(900);
+    const { mockExtract } = await fixtures();
     const r = mockExtract(docId);
     if (!r) throw new Error(`Document ${docId} not found in corpus`);
     return r;
   }
   async ruleVersions(teamRuleId: string) {
     await delay();
-    return mockRuleVersions(teamRuleId);
+    return (await fixtures()).mockRuleVersions(teamRuleId);
   }
 }
 
 export class HttpCiteApiClient implements CiteApiClient {
   readonly mode = "live" as const;
   constructor(private base: string) {}
-  private async get<T>(path: string): Promise<T> {
-    const res = await fetch(`${this.base.replace(/\/$/, "")}${path}`);
+  private async request(path: string, method = "GET"): Promise<unknown> {
+    const res = await fetch(`${this.base.replace(/\/$/, "")}${path}`, { method, signal: AbortSignal.timeout(method === "POST" ? 180000 : 15000) });
     if (!res.ok) throw new Error(`Cite API ${res.status} on ${path}`);
-    return res.json() as Promise<T>;
+    return res.json();
   }
-  health() {
-    return this.get<Health>("/health");
+  async health() { return HealthSchema.parse(await this.request("/health")); }
+  async addresses(q: string, limit = 8): Promise<AddressRow[]> {
+    const raw = await this.request(`/addresses?q=${encodeURIComponent(q)}&limit=${limit}`);
+    return z.object({ addresses: z.array(AddressSchema) }).parse(raw).addresses as AddressRow[];
   }
-  async addresses(q: string, limit = 8) {
-    const r = await this.get<AddressRow[] | { addresses: AddressRow[] }>(
-      `/addresses?q=${encodeURIComponent(q)}&limit=${limit}`,
-    );
-    return Array.isArray(r) ? r : r.addresses;
+  async lookup(addressId: string, asOf: string): Promise<LookupResponse> {
+    AsOfDateSchema.parse(asOf);
+    return LookupResponseSchema.parse(await this.request(`/lookup/${encodeURIComponent(addressId)}?as_of=${encodeURIComponent(asOf)}`)) as LookupResponse;
   }
-  lookup(addressId: string, asOf: string) {
-    return this.get<LookupResponse>(`/lookup/${encodeURIComponent(addressId)}?as_of=${asOf}`);
+  async changes(): Promise<ChangesResponse> { return ChangesResponseSchema.parse(await this.request("/changes")) as ChangesResponse; }
+  async rules(): Promise<CatalogRule[]> { return z.object({ rules: z.array(ApiRuleSchema) }).parse(await this.request("/rules")).rules as CatalogRule[]; }
+  async corpusDocs(): Promise<CorpusDocOption[]> { return z.object({ docs: z.array(CorpusDocSchema) }).parse(await this.request("/corpus/docs")).docs as CorpusDocOption[]; }
+  async extract(docId: string): Promise<ExtractResponse> {
+    return ExtractResponseSchema.parse(await this.request(`/extract/doc/${encodeURIComponent(docId)}`, "POST")) as ExtractResponse;
   }
-  changes() {
-    return this.get<ChangesResponse>("/changes");
+  async ruleVersions(teamRuleId: string): Promise<RuleVersion[]> {
+    return z.object({ versions: z.array(RuleVersionSchema) }).parse(await this.request(`/rules/${encodeURIComponent(teamRuleId)}/versions`)).versions;
   }
-  async rules() {
-    const r = await this.get<CatalogRule[] | { rules: CatalogRule[] }>("/rules");
-    return Array.isArray(r) ? r : r.rules;
-  }
-  async corpusDocs() {
-    const r = await this.get<{ docs: CorpusDocOption[] } | CorpusDocOption[]>("/corpus/docs");
-    return Array.isArray(r) ? r : r.docs;
-  }
-  async extract(docId: string) {
-    const path = `/extract/doc/${encodeURIComponent(docId)}`;
-    const res = await fetch(`${this.base.replace(/\/$/, "")}${path}`, { method: "POST" });
-    if (!res.ok) throw new Error(`Cite API ${res.status} on ${path}`);
-    const raw = (await res.json()) as Partial<ExtractResponse> & {
-      source?: string;
-      count?: number;
-    };
-    const out: ExtractResponse = {
-      doc_id: raw.doc_id ?? docId,
-      source_url: raw.source_url ?? "",
-      source_text: raw.source_text ?? "",
-      rules: raw.rules ?? [],
-      validation: raw.validation ?? [
-        {
-          check: "Extract completed",
-          passed: true,
-          detail: `${raw.count ?? raw.rules?.length ?? 0} rule(s) from ${raw.source ?? "api"}`,
-        },
-      ],
-    };
-    if (raw.source) out.source = raw.source;
-    return out;
-  }
-  async ruleVersions(teamRuleId: string) {
-    try {
-      const r = await this.get<RuleVersion[] | { versions: RuleVersion[] }>(
-        `/rules/${encodeURIComponent(teamRuleId)}/versions`,
-      );
-      return Array.isArray(r) ? r : (r.versions ?? []);
-    } catch {
-      // Backend may not persist version history yet.
-      return [];
-    }
-  }
+
 }
 
 let client: CiteApiClient | null = null;
