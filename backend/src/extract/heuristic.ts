@@ -534,6 +534,7 @@ export function dedupeRules(
     (a, b) => (b.confidence ?? 0) - (a.confidence ?? 0),
   );
   const seen = new Set<string>();
+  const keptDocs = new Set<string>();
   const out: RuleRecord[] = [];
   for (const r of scored) {
     const key = [
@@ -544,18 +545,23 @@ export function dedupeRules(
       r.title.toLowerCase().slice(0, 40),
     ].join("|");
     const softKey = [r.category, r.jurisdiction.toLowerCase(), r.level].join("|");
+    const onlyHitForDoc =
+      Boolean(r.source_doc_id) && !keptDocs.has(r.source_doc_id!);
     // Prefer a single high-confidence rule per category/jurisdiction/level unless alias-bearing.
+    // Exception: keep one mid-confidence rule so a source doc is not erased entirely.
     if (
       soft &&
       !r.alias_id &&
       seen.has(`soft:${softKey}`) &&
-      (r.confidence ?? 0) < 0.8
+      (r.confidence ?? 0) < 0.8 &&
+      !onlyHitForDoc
     ) {
       continue;
     }
     if (seen.has(key)) continue;
     seen.add(key);
     if (soft && (r.confidence ?? 0) >= 0.8) seen.add(`soft:${softKey}`);
+    if (r.source_doc_id) keptDocs.add(r.source_doc_id);
     out.push(r);
   }
   return out;
@@ -569,10 +575,22 @@ export function preferClaudeRules(rules: RuleRecord[]): RuleRecord[] {
       [r.category, r.jurisdiction.toLowerCase(), r.level].join("|"),
     ),
   );
+  const docsWithStrong = new Set(
+    strong.map((r) => r.source_doc_id).filter(Boolean),
+  );
   return rules.filter((r) => {
     const conf = r.confidence ?? 0;
     if (conf >= 0.8) return true;
     if (r.alias_id) return true; // keep change-test anchors if still needed
+    // Keep the best mid-confidence hit from a source doc that otherwise vanishes
+    // (corpus coverage / auditability), even if a stronger sibling niche exists.
+    if (
+      r.source_doc_id &&
+      conf >= 0.55 &&
+      !docsWithStrong.has(r.source_doc_id)
+    ) {
+      return true;
+    }
     const key = [r.category, r.jurisdiction.toLowerCase(), r.level].join("|");
     if (strongKeys.has(key)) return false;
     // Drop obvious wrong-source heuristic attachments
