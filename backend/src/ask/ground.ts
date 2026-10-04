@@ -10,19 +10,39 @@ const COMPLIANCE =
   /\b(am i compliant|are we compliant|guarantee|certif(y|icate)|legal to ignore)\b/i;
 
 const CATEGORY_HINTS: Array<{ category: RuleCategory; re: RegExp }> = [
-  { category: "rent_increase_limits", re: /\brent|increase|raise|aga|cap\b/i },
-  { category: "just_cause_eviction", re: /\bevict|just cause|terminate|kick out\b/i },
-  { category: "security_deposits", re: /\bdeposit|interest on (the )?deposit\b/i },
+  {
+    category: "rent_increase_limits",
+    re: /\brent|increase|raise|aga|cap|renta|aumento|alquiler|tope\b/i,
+  },
+  {
+    category: "just_cause_eviction",
+    re: /\bevict|just cause|terminate|kick out|desalojo|justa causa\b/i,
+  },
+  {
+    category: "security_deposits",
+    re: /\bdeposit|interest on (the )?deposit|dep[oó]sito\b/i,
+  },
   {
     category: "application_screening_fees",
-    re: /\bapplication fee|screening fee|fee to apply\b/i,
+    re: /\bapplication fee|screening fee|fee to apply|tarifa de solicitud|cuota de solicitud\b/i,
   },
-  { category: "screening_restrictions", re: /\bscreening|credit check|criminal history\b/i },
+  {
+    category: "screening_restrictions",
+    re: /\bscreening|credit check|criminal history|evaluaci[oó]n|historial crediticio\b/i,
+  },
   {
     category: "algorithmic_rent_setting",
-    re: /\balgorithm|yieldstar|pricing software|collus/i,
+    re: /\balgorithm|yieldstar|pricing software|collus|algor[ií]tm/i,
   },
 ];
+
+const OVERVIEW =
+  /\b(what applies|which rules|all rules|overview|qu[eé] normas|qu[eé] aplica|todas las normas)\b/i;
+
+const CLARIFY_EN =
+  "Name a topic Cite can retrieve: rent increases, just-cause eviction, security deposits, application fees, screening, or algorithmic rent setting.";
+const CLARIFY_ES =
+  "Nombre un tema que Cite puede recuperar: aumentos de renta, desalojo con justa causa, depósitos de seguridad, tarifas de solicitud, evaluación, o fijación algorítmica de renta.";
 
 export type AskCitation = {
   team_rule_id: string;
@@ -78,6 +98,15 @@ export function answerQuestion(opts: {
   }
 
   const cats = categoriesForQuestion(q);
+  if (!cats.length && !OVERVIEW.test(q)) {
+    return {
+      refused: false,
+      answer: CLARIFY_EN,
+      answer_es: CLARIFY_ES,
+      citations: [],
+      categories: [],
+    };
+  }
   const citations = citationsFrom(opts.entries, opts.rulesById, cats.length ? cats : undefined, 8);
   if (!citations.length) {
     return {

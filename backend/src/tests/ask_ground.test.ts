@@ -37,4 +37,31 @@ describe("ask grounding", () => {
     assert.match(a.answer, /1\.6%/);
     assert.equal(a.citations[0]?.team_rule_id, "r-1");
   });
+
+  it("matches Spanish rent questions to the same citation", () => {
+    const a = answerQuestion({
+      question: "¿Cuál es el límite de aumento de renta?",
+      entries: [
+        { team_rule_id: "r-1", result: "applies", explanation: "x", conflict_flag: false },
+      ],
+      rulesById: new Map([["r-1", rule]]),
+      headlines: { "r-1": { headline_en: "Rent capped at 1.6%", headline_es: "Tope 1.6%" } },
+    });
+    assert.equal(a.citations[0]?.team_rule_id, "r-1");
+    assert.match(a.answer_es, /Tope 1\.6%/);
+  });
+
+  it("asks for a topic instead of dumping unrelated rules", () => {
+    const a = answerQuestion({
+      question: "What is the weather today?",
+      entries: [
+        { team_rule_id: "r-1", result: "applies", explanation: "x", conflict_flag: false },
+      ],
+      rulesById: new Map([["r-1", rule]]),
+    });
+    assert.equal(a.refused, false);
+    assert.equal(a.citations.length, 0);
+    assert.match(a.answer, /rent increases/);
+    assert.match(a.answer_es, /aumentos de renta/);
+  });
 });
