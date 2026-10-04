@@ -13,7 +13,10 @@ import { loadCapturableDocs, loadDocById } from "../lib/corpus.js";
 import type { RuleRecord } from "@rhl/shared";
 import { assignAliases } from "../extract/aliases.js";
 import { dedupeRules } from "../extract/heuristic.js";
-import { ensureChangeTestAliases } from "../extract/ensure_aliases.js";
+import {
+  ensureChangeTestAliases,
+  mergeSameBillDuplicates,
+} from "../extract/ensure_aliases.js";
 import { groundRuleEffectiveDates } from "../extract/effective_dates.js";
 import { appendAudit } from "../lib/audit.js";
 import { enrichRuleCoverage } from "../apply/compile_coverage.js";
@@ -22,6 +25,25 @@ import { enrichRuleFields } from "../extract/enrich_fields.js";
 function argValue(prefix: string): string | undefined {
   const hit = process.argv.find((a) => a.startsWith(prefix));
   return hit ? hit.slice(prefix.length) : undefined;
+}
+
+const absorbedDocsPath = () =>
+  path.join(outputsDir(), "extract_absorbed_docs.json");
+
+/** Docs whose extracts only duplicate an already-published pending bill. */
+async function loadAbsorbedDocIds(): Promise<Set<string>> {
+  const raw = await readJsonIfExists<{ doc_ids?: string[] }>(absorbedDocsPath());
+  return new Set(raw?.doc_ids ?? []);
+}
+
+async function rememberAbsorbedDocIds(ids: string[]): Promise<void> {
+  if (!ids.length) return;
+  const next = await loadAbsorbedDocIds();
+  for (const id of ids) next.add(id);
+  await writeJson(absorbedDocsPath(), {
+    doc_ids: [...next].sort(),
+    note: "Capturable pack pages absorbed into an existing same-bill pending rule (no separate row).",
+  });
 }
 
 /** Capturable docs with no rules in outputs/rules.json (or empty on disk). */
@@ -35,7 +57,10 @@ async function discoverUncoveredDocIds(): Promise<string[]> {
       .map((r) => r.source_doc_id)
       .filter((id): id is string => Boolean(id)),
   );
-  return docs.map((d) => d.doc_id).filter((id) => !covered.has(id));
+  const absorbed = await loadAbsorbedDocIds();
+  return docs
+    .map((d) => d.doc_id)
+    .filter((id) => !covered.has(id) && !absorbed.has(id));
 }
 
 async function main() {
@@ -115,11 +140,14 @@ async function main() {
     const ensured = assignAliases(
       dedupeRules(await ensureChangeTestAliases(aliased), { soft: false }),
     );
-    // Alias / ensure passes can erase a newly extracted source doc (e.g. D047 vs
-    // D046 both claiming MA-ALG-P1). Re-attach one best rule per extracted doc.
+    // Alias / ensure passes can erase a newly extracted source doc when it is
+    // only a second pack page for the same pending bill (e.g. D047 vs D046 both
+    // S.2983 / MA-ALG-P1). Re-attach unique coverage only — never reintroduce
+    // same-bill duplicates the merge step already dropped.
     const haveDocs = new Set(
       ensured.map((r) => r.source_doc_id).filter(Boolean),
     );
+    const absorbedDocIds: string[] = [];
     const candidates: RuleRecord[] = [
       ...rules.filter((r) => docIds.includes(r.source_doc_id || "")),
     ];
@@ -135,13 +163,31 @@ async function main() {
       if (!r.source_doc_id || haveDocs.has(r.source_doc_id)) continue;
       if (!docIds.includes(r.source_doc_id)) continue;
       const { alias_id: _drop, ...rest } = r;
+      const trial = mergeSameBillDuplicates([
+        ...ensured,
+        { ...(rest as RuleRecord), source_doc_id: r.source_doc_id },
+      ]);
+      if (trial.length === ensured.length) {
+        // Same pending bill already published (usually via change-test alias).
+        haveDocs.add(r.source_doc_id);
+        absorbedDocIds.push(r.source_doc_id);
+        continue;
+      }
       ensured.push({
         ...(rest as RuleRecord),
         source_doc_id: r.source_doc_id,
       });
       haveDocs.add(r.source_doc_id);
     }
-    finalRules = (await groundRuleEffectiveDates(ensured)).map((r, i) => ({
+    await rememberAbsorbedDocIds(absorbedDocIds);
+    if (absorbedDocIds.length) {
+      console.log(
+        `Absorbed same-bill pack pages (no extra rule row): ${[...new Set(absorbedDocIds)].join(", ")}`,
+      );
+    }
+    finalRules = (
+      await groundRuleEffectiveDates(mergeSameBillDuplicates(ensured))
+    ).map((r, i) => ({
       ...r,
       team_rule_id: `r-${String(i + 1).padStart(4, "0")}`,
     }));
