@@ -6,12 +6,12 @@ The frontend is display-only. Set `VITE_API_URL` to the API URL so Lookup/Change
 
 ## 1. Backend (Render — free Node web service)
 
-Repo: `biniyamlombe/hacknation702` (`render.yaml` at root).
+Repo: [`biniyamlombe/cite`](https://github.com/biniyamlombe/cite) (`render.yaml` at root).
 
 ### One-time in the dashboard
 
 1. Open [New → Blueprint](https://dashboard.render.com/select-repo?type=blueprint) (or **New → Web Service**).
-2. Connect GitHub and select **`biniyamlombe/hacknation702`**, branch `main`.
+2. Connect GitHub and select **`biniyamlombe/cite`**, branch `main`.
 3. Blueprint reads `render.yaml` and creates **cite-api** (free Node).
    - Or manual Web Service settings:
      - **Runtime:** Node
