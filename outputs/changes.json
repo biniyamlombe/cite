@@ -254,6 +254,33 @@
     ],
     "before_status": "not_yet_effective",
     "after_status": "applies",
+    "evidence_summary": "included=250 excluded=0 (CA legal geography only)",
+    "sample_evidence": [
+      {
+        "address_id": "A0001",
+        "included": true,
+        "reason": "CA-ALG-01 not_yet_effective on 2025-12-31 and applies on 2026-01-02",
+        "rule_ids": [
+          "CA-ALG-01"
+        ]
+      },
+      {
+        "address_id": "A0004",
+        "included": true,
+        "reason": "CA-ALG-01 not_yet_effective on 2025-12-31 and applies on 2026-01-02",
+        "rule_ids": [
+          "CA-ALG-01"
+        ]
+      },
+      {
+        "address_id": "A0005",
+        "included": true,
+        "reason": "CA-ALG-01 not_yet_effective on 2025-12-31 and applies on 2026-01-02",
+        "rule_ids": [
+          "CA-ALG-01"
+        ]
+      }
+    ],
     "notes": "not_yet_effective before, applies after, for every CA address. date_flip_ok=250/250"
   },
   "T2": {
@@ -348,6 +375,60 @@
       "A0489",
       "A0490",
       "A0495"
+    ],
+    "evidence_summary": "included=90; Newark exclusions sampled=50",
+    "sample_evidence": [
+      {
+        "address_id": "A0002",
+        "included": true,
+        "reason": "Legal city Hoboken matches HOB-ALG-01 jurisdiction scope",
+        "rule_ids": [
+          "HOB-ALG-01"
+        ]
+      },
+      {
+        "address_id": "A0008",
+        "included": true,
+        "reason": "Legal city Jersey City matches JC-ALG-01 jurisdiction scope",
+        "rule_ids": [
+          "JC-ALG-01"
+        ]
+      },
+      {
+        "address_id": "A0012",
+        "included": true,
+        "reason": "Legal city Jersey City matches JC-ALG-01 jurisdiction scope",
+        "rule_ids": [
+          "JC-ALG-01"
+        ]
+      },
+      {
+        "address_id": "A0003",
+        "included": false,
+        "reason": "Newark is outside Hoboken/Jersey City legal city boundaries",
+        "rule_ids": [
+          "HOB-ALG-01",
+          "JC-ALG-01"
+        ]
+      },
+      {
+        "address_id": "A0011",
+        "included": false,
+        "reason": "Newark is outside Hoboken/Jersey City legal city boundaries",
+        "rule_ids": [
+          "HOB-ALG-01",
+          "JC-ALG-01"
+        ]
+      },
+      {
+        "address_id": "A0013",
+        "included": false,
+        "reason": "Newark is outside Hoboken/Jersey City legal city boundaries",
+        "rule_ids": [
+          "HOB-ALG-01",
+          "JC-ALG-01"
+        ]
+      }
     ],
     "notes": "HOB-ALG-01 only for Hoboken addresses; JC-ALG-01 only for Jersey City addresses; neither for Newark. Newark correctly excluded. Scenario membership only: primary municipal text is uncaptured; live municipal applicability remains unknown."
   },
@@ -588,6 +669,53 @@
     ],
     "before_status": "not_yet_effective",
     "after_status": "applies",
+    "evidence_summary": "flip_ok=140/140; conflicts=90; live_flags=90",
+    "sample_evidence": [
+      {
+        "address_id": "A0002",
+        "included": true,
+        "reason": "NJ-ALG-01 NTE on 2026-10-01 → applies on 2027-07-02",
+        "rule_ids": [
+          "NJ-ALG-01"
+        ]
+      },
+      {
+        "address_id": "A0003",
+        "included": true,
+        "reason": "NJ-ALG-01 NTE on 2026-10-01 → applies on 2027-07-02",
+        "rule_ids": [
+          "NJ-ALG-01"
+        ]
+      },
+      {
+        "address_id": "A0008",
+        "included": true,
+        "reason": "NJ-ALG-01 NTE on 2026-10-01 → applies on 2027-07-02",
+        "rule_ids": [
+          "NJ-ALG-01"
+        ]
+      },
+      {
+        "address_id": "A0002",
+        "included": true,
+        "reason": "Conflict flag: possible FAIR Act preemption vs Hoboken/Jersey City local ban",
+        "rule_ids": [
+          "NJ-ALG-01",
+          "HOB-ALG-01",
+          "JC-ALG-01"
+        ]
+      },
+      {
+        "address_id": "A0008",
+        "included": true,
+        "reason": "Conflict flag: possible FAIR Act preemption vs Hoboken/Jersey City local ban",
+        "rule_ids": [
+          "NJ-ALG-01",
+          "HOB-ALG-01",
+          "JC-ALG-01"
+        ]
+      }
+    ],
     "notes": "not_yet_effective on 2026-10-01, applies on 2027-07-02 for every NJ address; Jersey City and Hoboken addresses carry a conflict flag for human review. before_check=true after_check=true date_flip_ok=140/140 conflict_flag_live=90/90 Open question: NJ FAIR Act may preempt Hoboken/Jersey City algorithmic ordinances once effective."
   },
   "T4": {
@@ -703,10 +831,75 @@
       "A0485",
       "A0488"
     ],
+    "evidence_summary": "if_enacted_scenario pending_ok=110/110 (not current law)",
+    "sample_evidence": [
+      {
+        "address_id": "A0006",
+        "included": true,
+        "reason": "MA address would be affected if pending bills were enacted (scenario, not in force)",
+        "rule_ids": [
+          "MA-ALG-P1",
+          "MA-ALG-P2"
+        ]
+      },
+      {
+        "address_id": "A0009",
+        "included": true,
+        "reason": "MA address would be affected if pending bills were enacted (scenario, not in force)",
+        "rule_ids": [
+          "MA-ALG-P1",
+          "MA-ALG-P2"
+        ]
+      },
+      {
+        "address_id": "A0010",
+        "included": true,
+        "reason": "MA address would be affected if pending bills were enacted (scenario, not in force)",
+        "rule_ids": [
+          "MA-ALG-P1",
+          "MA-ALG-P2"
+        ]
+      }
+    ],
     "notes": "Reported as pending (not in force) for every Boston and Cambridge address; affected set = all MA addresses if enacted. pending_ok=110/110 (MA-ALG-P1 and MA-ALG-P2)"
   },
   "T5": {
     "affected_address_ids": [],
+    "evidence_summary": "affected=0; wrongly_applies=0; rogue_cap=50",
+    "sample_evidence": [
+      {
+        "address_id": "A0006",
+        "included": false,
+        "reason": "MA rent-control ballot (IP 25-21) is failed/struck — no rent cap reported; affected set empty",
+        "rule_ids": [
+          "MA-RENT-P1"
+        ]
+      },
+      {
+        "address_id": "A0036",
+        "included": false,
+        "reason": "MA rent-control ballot (IP 25-21) is failed/struck — no rent cap reported; affected set empty",
+        "rule_ids": [
+          "MA-RENT-P1"
+        ]
+      },
+      {
+        "address_id": "A0048",
+        "included": false,
+        "reason": "MA rent-control ballot (IP 25-21) is failed/struck — no rent cap reported; affected set empty",
+        "rule_ids": [
+          "MA-RENT-P1"
+        ]
+      },
+      {
+        "address_id": "A0052",
+        "included": false,
+        "reason": "MA rent-control ballot (IP 25-21) is failed/struck — no rent cap reported; affected set empty",
+        "rule_ids": [
+          "MA-RENT-P1"
+        ]
+      }
+    ],
     "notes": "No rent cap reported for any Boston or Cambridge address; IP 25-21 recorded as failed. Affected set is empty. WARNING: wrongly_applies=0 rogue_cap=50"
   }
 }
