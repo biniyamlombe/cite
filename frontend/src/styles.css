@@ -271,6 +271,48 @@
   }
 }
 
+/* Scroll reveal — used by <Reveal /> */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  filter: blur(2px);
+  transition:
+    opacity 0.6s var(--ease-cite),
+    transform 0.6s var(--ease-cite),
+    filter 0.6s var(--ease-cite);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* Workflow connector line — draws downward when the step list is visible */
+.step-rail {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 1.4s var(--ease-cite) 0.15s;
+}
+
+.reveal-visible .step-rail {
+  transform: scaleY(1);
+}
+
+/* Step number chip pops in */
+.step-num {
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-visible .step-num {
+  opacity: 1;
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .fade-up,
   .fade-up-delay-1,
@@ -283,6 +325,14 @@
   .stage-check,
   .stage-pulse {
     animation: none;
+  }
+  .reveal,
+  .step-rail,
+  .step-num {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
   }
 }
 
