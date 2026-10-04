@@ -60,13 +60,13 @@ export function PropertySummary({ data, asOf, onAsOf }: { data: LookupResponse; 
   const { address: a, jurisdiction: j } = data;
   const differs = j.city && a.postal_city && j.city.toLowerCase() !== a.postal_city.toLowerCase();
   return (
-    <section className="surface p-5 sm:p-6">
+    <section className="surface fade-up p-5 sm:p-7">
       <div className="flex flex-wrap items-start justify-between gap-4">
         <div className="min-w-0">
           <div className="eyebrow flex items-center gap-1.5">
             <MapPin className="size-3" /> {t("fact.property")} · {a.address_id}
           </div>
-          <h1 className="mt-1.5 font-serif text-2xl text-ink sm:text-3xl">{a.street_address}</h1>
+          <h1 className="mt-2 font-serif text-2xl tracking-[-0.025em] text-ink sm:text-[2rem]">{a.street_address}</h1>
           <p className="mt-1 text-sm text-muted-foreground">
             {a.postal_city}, {a.state} {a.zip}
           </p>
