@@ -707,3 +707,6 @@
 {"ts":"2026-10-04T09:39:00.366Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-04T09:39:00.740Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
 {"ts":"2026-10-04T09:40:36.279Z","kind":"note","message":"Enriched coverage_conditions dual form on 145/145 rules","meta":{"dual":145,"total":145}}
+{"ts":"2026-10-04T09:41:50.632Z","kind":"schema_check","message":"OK — sample_rule_record.json validates (Zod + Ajv)"}
+{"ts":"2026-10-04T09:41:51.946Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T09:41:52.327Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
