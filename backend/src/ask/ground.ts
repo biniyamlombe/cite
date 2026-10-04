@@ -95,12 +95,10 @@ export function answerQuestion(opts: {
   const linesEs: string[] = [];
   for (const c of citations.slice(0, 4)) {
     const h = opts.headlines?.[c.team_rule_id];
-    linesEn.push(
-      `• ${h?.headline_en ?? c.citation} (${c.result}) — ${c.citation}`,
-    );
-    linesEs.push(
-      `• ${h?.headline_es ?? c.citation} (${c.result}) — ${c.citation}`,
-    );
+    const en = cleanHeadline(h?.headline_en) || c.citation;
+    const es = cleanHeadline(h?.headline_es) || c.citation;
+    linesEn.push(`• ${en} — ${c.citation}`);
+    linesEs.push(`• ${es} — ${c.citation}`);
   }
   linesEn.push("Not legal advice. Read the cited source text before relying on this.");
   linesEs.push(
@@ -114,6 +112,16 @@ export function answerQuestion(opts: {
     citations,
     categories: cats,
   };
+}
+
+/** Drop leaked JSON blobs from older headline artifacts. */
+function cleanHeadline(s: string | undefined): string | undefined {
+  if (!s) return undefined;
+  const t = s.replace(/\s+/g, " ").trim();
+  if (!t.includes("{")) return t;
+  const cut = t.indexOf("{");
+  const head = t.slice(0, cut).replace(/[:(]\s*$/, "").trim();
+  return head || undefined;
 }
 
 function citationsFrom(

@@ -54,4 +54,19 @@ describe("plain headlines", () => {
     });
     assert.match(h!.text, /year_built/);
   });
+
+  it("humanizes JSON key_value instead of dumping braces", () => {
+    const rec = buildPlainRecord(
+      sample({
+        key_value: JSON.stringify({
+          increase_percentage: 1.6,
+          period_start: "2026-03-01",
+          period_end: "2027-02-28",
+        }),
+      }),
+    );
+    assert.match(rec.headline_en, /1\.6%/);
+    assert.match(rec.headline_en, /2026-03-01/);
+    assert.doesNotMatch(rec.headline_en, /\{/);
+  });
 });

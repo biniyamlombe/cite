@@ -50,6 +50,75 @@ function clip(s: string, max: number): string {
   return `${t.slice(0, max - 1).trimEnd()}…`;
 }
 
+/** Turn structured key_value into a short phrase — never dump raw JSON into UI. */
+export function humanizeKeyValue(
+  keyValue: string | null | undefined,
+  locale: "en" | "es",
+): string | null {
+  if (!keyValue?.trim()) return null;
+  const raw = keyValue.trim();
+  if (raw.startsWith("{") || raw.startsWith("[")) {
+    try {
+      const obj = JSON.parse(raw) as Record<string, unknown>;
+      if (!obj || typeof obj !== "object" || Array.isArray(obj)) return null;
+      const bits: string[] = [];
+      const pct =
+        obj.increase_percentage ??
+        obj.cap_percentage ??
+        obj.annual_increase_pct ??
+        obj.percentage;
+      if (pct != null && String(pct).trim()) {
+        const p = String(pct).trim();
+        bits.push(p.includes("%") ? p : `${p}%`);
+      }
+      if (obj.period_start && obj.period_end) {
+        bits.push(
+          locale === "es"
+            ? `${obj.period_start}–${obj.period_end}`
+            : `${obj.period_start}–${obj.period_end}`,
+        );
+      } else if (obj.measurement_period) {
+        bits.push(String(obj.measurement_period));
+      }
+      if (obj.notice_standard) bits.push(String(obj.notice_standard));
+      else if (obj.notice_requirement === "Yes" || obj.notice_requirement === true) {
+        bits.push(locale === "es" ? "aviso requerido" : "notice required");
+      }
+      if (obj.occupancy_threshold_months != null) {
+        bits.push(
+          locale === "es"
+            ? `después de ${obj.occupancy_threshold_months} meses`
+            : `after ${obj.occupancy_threshold_months} months`,
+        );
+      }
+      if (obj.just_cause_type) bits.push(String(obj.just_cause_type).replace(/_/g, " "));
+      if (obj.account_type) bits.push(clip(String(obj.account_type), 48));
+      if (obj.statute_of_limitations) {
+        bits.push(
+          locale === "es"
+            ? `plazo ${obj.statute_of_limitations}`
+            : `${obj.statute_of_limitations} to sue`,
+        );
+      }
+      if (obj.prohibited_conduct) bits.push(clip(String(obj.prohibited_conduct), 56));
+      if (!bits.length) {
+        // Prefer a single short scalar over dumping the object.
+        for (const v of Object.values(obj)) {
+          if (typeof v === "string" || typeof v === "number" || typeof v === "boolean") {
+            bits.push(String(v));
+            break;
+          }
+        }
+      }
+      return bits.length ? clip(bits.join(" · "), 90) : null;
+    } catch {
+      return null;
+    }
+  }
+  if (raw.includes("{") || raw.includes("}")) return null;
+  return clip(raw, 90);
+}
+
 function statusPrefix(
   status: RuleStatus,
   locale: "en" | "es",
@@ -70,38 +139,33 @@ function categoryLine(
   rule: RuleRecord,
   locale: "en" | "es",
 ): { headline: string; why: string } {
-  const kv = rule.key_value?.trim() || null;
+  const detail = humanizeKeyValue(rule.key_value, locale);
   const place = rule.jurisdiction;
   const title = clip(rule.title, 64);
+  const withDetail = (base: string) => (detail ? `${base}: ${detail}` : base);
 
   if (locale === "en") {
     switch (rule.category as RuleCategory) {
       case "rent_increase_limits":
         return {
-          headline: kv
-            ? `Rent increases limited (${kv})`
-            : `Rent increase limits in ${place}`,
+          headline: withDetail(
+            detail ? `Rent increases limited` : `Rent increase limits in ${place}`,
+          ),
           why: clip(rule.requirement, 220),
         };
       case "just_cause_eviction":
         return {
-          headline: kv
-            ? `Just-cause eviction rules (${kv})`
-            : `Eviction limited to listed just-cause reasons`,
+          headline: withDetail(`Just-cause eviction rules`),
           why: clip(rule.requirement, 220),
         };
       case "security_deposits":
         return {
-          headline: kv
-            ? `Security deposit rules (${kv})`
-            : `Security deposit limits or interest rules apply`,
+          headline: withDetail(`Security deposit rules`),
           why: clip(rule.requirement, 220),
         };
       case "application_screening_fees":
         return {
-          headline: kv
-            ? `Application screening fee rules (${kv})`
-            : `Application screening fee limits apply`,
+          headline: withDetail(`Application screening fee rules`),
           why: clip(rule.requirement, 220),
         };
       case "screening_restrictions":
@@ -113,9 +177,7 @@ function categoryLine(
         };
       case "algorithmic_rent_setting":
         return {
-          headline: kv
-            ? `Algorithmic rent-setting limits (${kv})`
-            : `Limits on algorithmic rent-setting tools`,
+          headline: withDetail(`Algorithmic rent-setting limits`),
           why: clip(rule.requirement, 220),
         };
       default:
@@ -126,30 +188,24 @@ function categoryLine(
   switch (rule.category as RuleCategory) {
     case "rent_increase_limits":
       return {
-        headline: kv
-          ? `Límites al aumento de renta (${kv})`
-          : `Límites al aumento de renta en ${place}`,
+        headline: withDetail(
+          detail ? `Límites al aumento de renta` : `Límites al aumento de renta en ${place}`,
+        ),
         why: clip(rule.requirement, 240),
       };
     case "just_cause_eviction":
       return {
-        headline: kv
-          ? `Desalojo solo por causa justa (${kv})`
-          : `Desalojo limitado a causas justas listadas`,
+        headline: withDetail(`Desalojo solo por causa justa`),
         why: clip(rule.requirement, 240),
       };
     case "security_deposits":
       return {
-        headline: kv
-          ? `Reglas de depósito de seguridad (${kv})`
-          : `Límites o interés sobre el depósito de seguridad`,
+        headline: withDetail(`Reglas de depósito de seguridad`),
         why: clip(rule.requirement, 240),
       };
     case "application_screening_fees":
       return {
-        headline: kv
-          ? `Tarifa de evaluación de solicitud (${kv})`
-          : `Límites a la tarifa de evaluación de solicitud`,
+        headline: withDetail(`Tarifa de evaluación de solicitud`),
         why: clip(rule.requirement, 240),
       };
     case "screening_restrictions":
@@ -159,9 +215,7 @@ function categoryLine(
       };
     case "algorithmic_rent_setting":
       return {
-        headline: kv
-          ? `Límites a renta algorítmica (${kv})`
-          : `Límites a herramientas de renta algorítmica`,
+        headline: withDetail(`Límites a renta algorítmica`),
         why: clip(rule.requirement, 240),
       };
     default:
