@@ -110,15 +110,15 @@ function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise
 }
 
 function defaultModel(): string {
-  return process.env.ANTHROPIC_MODEL || "claude-haiku-4-5";
+  return process.env.ANTHROPIC_MODEL || "claude-sonnet-5-5";
 }
 
-/** Stronger model for empty-cache / --retry-failed passes (Haiku stays the cheap default). */
+/** Stronger model for empty-cache / --retry-failed passes. */
 export function retryModel(): string {
   return (
     process.env.ANTHROPIC_RETRY_MODEL ||
     process.env.EXTRACT_RETRY_MODEL ||
-    "claude-sonnet-4-5"
+    "claude-opus-5-5"
   );
 }
 
@@ -135,11 +135,12 @@ async function callClaudeJson(options: {
   label: string;
   maxTokens?: number;
 }): Promise<string> {
+  // Claude Sonnet 5+ / Opus 5+ reject non-default temperature/top_p/top_k (400).
+  // Leave sampling params unset; adaptive thinking is steered by the API default effort.
   const msg = await withTimeout(
     options.client.messages.create({
       model: options.model,
       max_tokens: options.maxTokens ?? 2500,
-      temperature: 0,
       system: options.system,
       messages: [{ role: "user", content: options.user }],
     }),
@@ -540,11 +541,11 @@ export async function extractAllCorpus(options?: {
   limit?: number;
   docIds?: string[];
   clearFailedCache?: boolean;
-  /** Override default (Haiku) model for this run. */
+  /** Override default (Sonnet 5.5) model for this run. */
   model?: string;
   /**
    * When a doc yields 0 Claude rules and has not been empty-upgraded yet,
-   * clear cache and retry once with this model (default: retryModel / Sonnet).
+   * clear cache and retry once with this model (default: retryModel / Opus 5.5).
    * Pass `false` to disable.
    */
   upgradeEmptyWith?: string | false;
