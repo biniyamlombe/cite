@@ -27,7 +27,13 @@ Status is relative to query date 2026-10-01:
 
 Do NOT invent text. quoted_span must be copied verbatim from the document.
 If the document contains no rules in the six categories, return {"rules":[]}.
-Do not extract from commentary that is not the legal text itself unless it states a clear failed/pending status.`;
+Do not extract from commentary that is not the legal text itself unless it states a clear failed/pending status.
+
+Pending / bill-listing pages: if the page clearly names a housing bill or act in one of the six categories (title, short description, or "An Act …" line) but does not include full statutory text, still emit a single pending rule with:
+- status "pending" (or "failed" if the page says the measure failed/was struck)
+- quoted_span copied from that title/description line (>=20 chars)
+- confidence <= 0.7
+Return {"rules":[]} only when the page has no identifiable housing rule content in those categories (pure nav chrome, contact directories, unrelated civil-rights portal text).`;
 
 export const RETRY_EXTRACTION_SYSTEM = `You extract housing-law rules as STRICT JSON only.
 Return exactly: {"rules":[...]} with no markdown, no commentary.
