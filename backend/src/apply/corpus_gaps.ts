@@ -1,6 +1,6 @@
 /**
  * Pack-honest coverage gaps: city pages marked link-only / check-terms with
- * no capturable body, when we also have zero extracted city-level rules.
+ * no capturable body, including cities with partial rule coverage.
  * Surfaces on Lookup so Newark (and similar) do not look fully covered.
  */
 import type { RuleRecord } from "@rhl/shared";
@@ -30,33 +30,14 @@ function rowCityKey(jurisdictions: string): string | null {
   return cityKey(m[1]!, m[2]!);
 }
 
-function hasCityRules(
-  rules: RuleRecord[],
-  legalCity: string,
-  state: string,
-): boolean {
-  const city = legalCity.trim().toLowerCase();
-  const st = state.trim().toUpperCase();
-  return rules.some((r) => {
-    if (r.level !== "city") return false;
-    const j = r.jurisdiction.trim();
-    const m = j.match(/^(.+?),\s*(CA|NJ|MA)\s*$/i);
-    if (!m) return false;
-    return (
-      m[1]!.trim().toLowerCase() === city && m[2]!.toUpperCase() === st
-    );
-  });
-}
-
 /**
  * Returns human-readable gap notes for the geocoded city, or [].
  */
 export async function corpusGapsForGeo(
   geo: GeocodeResult,
-  rules: RuleRecord[],
+  _rules: RuleRecord[],
 ): Promise<string[]> {
   if (!isTrustedLegalCity(geo)) return [];
-  if (hasCityRules(rules, geo.legal_city, geo.state)) return [];
 
   const manifest = await loadManifest();
   const key = cityKey(geo.legal_city, geo.state);
@@ -82,6 +63,6 @@ export async function corpusGapsForGeo(
 
   return [
     `${geo.legal_city}, ${geo.state} local pages ${docs} are link-only/check-terms in the pack ` +
-      `(no capturable body); city-level rules beyond ${geo.state} statewide are unknown.${urlPart}`,
+      `(no capturable body); those sources remain unverified even where other city rules are available.${urlPart}`,
   ];
 }

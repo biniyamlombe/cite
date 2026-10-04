@@ -126,7 +126,7 @@ function localAlgScaffold(opts: {
     overrides: [],
     interaction:
       "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
-    effective_date: "2024-01-01",
+    effective_date: null,
     citation: `${city} local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)`,
     source_doc_id: fairDocId,
     source_url: fairUrl,

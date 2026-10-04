@@ -159,7 +159,7 @@ export function runChangeTests(options: {
           test.expected_behavior +
           (newarkLeak.length
             ? ` WARNING: Newark incorrectly included (${newarkLeak.length})`
-            : " Newark correctly excluded."),
+            : " Newark correctly excluded. Scenario membership only: primary municipal text is uncaptured; live municipal applicability remains unknown."),
       };
       continue;
     }

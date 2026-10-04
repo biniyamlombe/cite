@@ -1,5 +1,6 @@
 import {
   asCoverageObject,
+  DEFAULT_AS_OF,
   type CoverageConditionsObject,
   type CoveragePredicate,
 } from "@rhl/shared";
@@ -53,6 +54,7 @@ export function predicateMatches(
   pred: CoveragePredicate,
   addr: SampleAddress,
   geo: GeocodeResult,
+  asOf: string = DEFAULT_AS_OF,
 ): boolean {
   const ctx = ctxFrom(addr, geo);
   const actual = fieldValue(ctx, pred.field);
@@ -65,6 +67,10 @@ export function predicateMatches(
   }
 
   switch (pred.operator) {
+    case "within_years":
+      return typeof actual === "number" && typeof pred.value === "number" && actual > Number(asOf.slice(0, 4)) - pred.value;
+    case "boundary_years":
+      return typeof actual === "number" && typeof pred.value === "number" && actual === Number(asOf.slice(0, 4)) - pred.value;
     case "missing":
       return actual == null;
     case "present":
@@ -124,14 +130,15 @@ export function evaluateExecutableCoverage(
   coverage: CoverageConditionsObject,
   addr: SampleAddress,
   geo: GeocodeResult,
+  asOf: string = DEFAULT_AS_OF,
 ): ExecutableHit {
   for (const pred of coverage.omit_if || []) {
-    if (predicateMatches(pred, addr, geo)) {
+    if (predicateMatches(pred, addr, geo, asOf)) {
       return { kind: "omit" };
     }
   }
   for (const pred of coverage.unknown_if || []) {
-    if (predicateMatches(pred, addr, geo)) {
+    if (predicateMatches(pred, addr, geo, asOf)) {
       return {
         kind: "unknown",
         reason:
@@ -141,7 +148,10 @@ export function evaluateExecutableCoverage(
     }
   }
   for (const pred of coverage.all || []) {
-    if (!predicateMatches(pred, addr, geo)) {
+    if (fieldValue(ctxFrom(addr, geo), pred.field) == null && pred.operator !== "missing") {
+      return { kind: "unknown", reason: `Coverage depends on ${pred.field}, which is missing.` };
+    }
+    if (!predicateMatches(pred, addr, geo, asOf)) {
       return {
         kind: "fail",
         reason: `Address fails coverage predicate ${pred.field} ${pred.operator} ${pred.value ?? ""}`.trim(),

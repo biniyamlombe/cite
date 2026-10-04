@@ -1,5 +1,6 @@
 import {
   coveragePlainText,
+  AsOfDateSchema,
   DEFAULT_AS_OF,
   type LookupEntry,
   type RuleRecord,
@@ -17,6 +18,7 @@ import {
   executableFromRule,
 } from "./executable.js";
 import { withOpenQuestionNote } from "./open_questions.js";
+import { compileCoverageConditions } from "./compile_coverage.js";
 
 function parseDate(s: string | null | undefined): Date | null {
   if (!s) return null;
@@ -32,7 +34,7 @@ function compareAsOf(
 ): "before" | "on_or_after" | "unknown" {
   const a = parseDate(asOf);
   const e = parseDate(effective);
-  if (!a || !e) return "unknown";
+  if (!a || !e || !Number.isFinite(a.getTime()) || !Number.isFinite(e.getTime())) return "unknown";
   return a.getTime() < e.getTime() ? "before" : "on_or_after";
 }
 
@@ -71,6 +73,10 @@ export function evaluateStatus(
   rule: RuleRecord,
   asOf: string,
 ): EvalResult | null {
+  AsOfDateSchema.parse(asOf);
+  if (rule.alias_id === "HOB-ALG-01" || rule.alias_id === "JC-ALG-01") {
+    return { result: "unknown", explanation: `${rule.title}: municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.`, conflict_flag: true };
+  }
   if (rule.status === "failed") {
     return { omit: true, result: "pending", explanation: "", conflict_flag: false };
   }
@@ -123,11 +129,14 @@ function evaluateBuildingFacts(
   rule: RuleRecord,
   addr: SampleAddress,
   geo: GeocodeResult,
+  asOf: string,
 ): EvalResult | null {
   // Prefer machine-executable dual coverage when present.
-  const executable = executableFromRule(rule);
-  if (executable && (executable.unknown_if?.length || executable.omit_if?.length)) {
-    const hit = evaluateExecutableCoverage(executable, addr, geo);
+  // Recompile legacy fixed-year predicates for rolling exemptions.
+  const executable = /santa ana/i.test(rule.jurisdiction) && rule.category === "just_cause_eviction"
+    ? compileCoverageConditions(rule) : executableFromRule(rule);
+  if (executable) {
+    const hit = evaluateExecutableCoverage(executable, addr, geo, asOf);
     if (hit?.kind === "omit") {
       return { omit: true, result: "applies", explanation: "", conflict_flag: false };
     }
@@ -135,7 +144,7 @@ function evaluateBuildingFacts(
       return {
         result: "unknown",
         explanation: hit.reason,
-        conflict_flag: false,
+        conflict_flag: Boolean(rule.conflict_flag),
       };
     }
     if (hit?.kind === "fail") {
@@ -234,8 +243,9 @@ function evaluateBuildingFacts(
         conflict_flag: false,
       };
     }
-    // As-of 2026 → buildings from 2012 onward are within the rolling 15-year window.
-    if (year >= 2012) {
+    const boundary = Number(asOf.slice(0, 4)) - 15;
+    if (year === boundary) return { result: "unknown", explanation: "Only the building year is known; the production date is needed at the 15-year boundary.", conflict_flag: Boolean(rule.conflict_flag) };
+    if (year > boundary) {
       return { omit: true, result: "applies", explanation: "", conflict_flag: false };
     }
   }
@@ -341,6 +351,7 @@ export function evaluateAddress(options: {
   asOf?: string;
 }): LookupEntry[] {
   const asOf = options.asOf || DEFAULT_AS_OF;
+  AsOfDateSchema.parse(asOf);
   const { address, geo, rules } = options;
 
   const candidates = rules.filter((r) => ruleMatchesJurisdiction(r, geo));
@@ -367,7 +378,7 @@ export function evaluateAddress(options: {
       continue;
     }
 
-    const factHit = evaluateBuildingFacts(rule, address, geo);
+    const factHit = evaluateBuildingFacts(rule, address, geo, asOf);
     if (factHit?.omit) continue;
     if (factHit) {
       prelim.push({
@@ -376,7 +387,7 @@ export function evaluateAddress(options: {
           team_rule_id: rule.team_rule_id,
           result: factHit.result,
           explanation: factHit.explanation,
-          conflict_flag: factHit.conflict_flag,
+          conflict_flag: factHit.conflict_flag || Boolean(rule.conflict_flag),
         },
       });
       continue;
@@ -397,11 +408,15 @@ export function evaluateAddress(options: {
   const localRentApplies = prelim.some(
     (p) =>
       isLocalRentControl(p.rule) &&
-      (p.entry.result === "applies" || p.entry.result === "unknown"),
+      p.entry.result === "applies",
   );
+  const localRentUnknown = prelim.some((p) => isLocalRentControl(p.rule) && p.entry.result === "unknown");
 
   for (const p of prelim) {
     let entry = p.entry;
+    if (!localRentApplies && localRentUnknown && isStateRentCap(p.rule) && entry.result === "applies") {
+      entry = { ...entry, result: "unknown", explanation: "Local rent coverage is unresolved; whether the statewide cap is displaced cannot be determined from the available property facts." };
+    }
     if (
       localRentApplies &&
       isStateRentCap(p.rule) &&

@@ -113,7 +113,8 @@ export function compileCoverageConditions(
       reason:
         "Santa Ana just-cause coverage excludes housing produced in the last 15 years; year_built is missing.",
     });
-    omit_if.push({ field: "year_built", operator: "gte", value: 2012 });
+    unknown_if.push({ field: "year_built", operator: "boundary_years", value: 15, reason: "Only the building year is known; the production date is needed at the 15-year boundary." });
+    omit_if.push({ field: "year_built", operator: "within_years", value: 15 });
   }
 
   if (
