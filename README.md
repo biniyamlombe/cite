@@ -68,7 +68,9 @@ npm run changes
 
 Outputs land in `outputs/` matching the challenge templates.
 
-Before upload / pitch: `npm run submission:check` (artifacts + smoke tests) and `npm run demo:preflight` (live API).
+Before upload / pitch: `npm run submission:check` (T1–T5 + citations + 500 lookups + smoke) and `npm run demo:preflight` (live API).
+
+Organizer auto-grader: when `score.py` ships, copy to `data/pack/score.py` and run `npm run score`. See [docs/SCORE.md](docs/SCORE.md). T6 stays a placeholder until hour-16.
 
 Organizer zip (runs check first): `npm run submission:pack` → `dist/cite-submission-latest.zip` (`rules.json`, `lookups.json`, `changes.json`, `METHOD.md`, `DEMO.md`).
 

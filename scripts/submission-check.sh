@@ -62,21 +62,36 @@ if len(geo) != 500:
 else:
     print("  ✓ geocode_cache has 500 rows")
 
+expect = {"T1": 250, "T2": 90, "T3": 140, "T4": 110, "T5": 0}
 shape_ok = True
-for tid in ["T1", "T2", "T3", "T4", "T5"]:
+for tid, n_exp in expect.items():
     if tid not in changes:
         errors.append(f"{tid} missing from changes.json")
         shape_ok = False
-if "T1" in changes and len(changes["T1"].get("affected_address_ids", [])) != 250:
-    errors.append(f"T1 affected={len(changes['T1'].get('affected_address_ids', []))}, expected 250")
-    shape_ok = False
-if "T5" in changes and len(changes["T5"].get("affected_address_ids", [])) != 0:
-    errors.append("T5 affected set must be empty")
-    shape_ok = False
-if shape_ok and all(t in changes for t in ["T1", "T2", "T3", "T4", "T5"]):
-    print("  ✓ changes.json T1–T5 shape (T1=250, T5=0)")
+        continue
+    n = len(changes[tid].get("affected_address_ids", []))
+    if n != n_exp:
+        errors.append(f"{tid} affected={n}, expected {n_exp}")
+        shape_ok = False
+if "T3" in changes:
+    conflicts = len(changes["T3"].get("conflict_flag_address_ids") or [])
+    if conflicts != 90:
+        errors.append(f"T3 conflicts={conflicts}, expected 90")
+        shape_ok = False
+if shape_ok:
+    print("  ✓ changes.json T1–T5 (250/90/140+90c/110/0)")
 if "T6" in changes:
-    print("  ✓ T6 placeholder present (honest hour-16 stub)")
+    t6 = changes["T6"]
+    notes = (t6.get("notes") or "").lower()
+    if t6.get("affected_address_ids") and "placeholder" not in notes and "awaiting" not in notes:
+        # Real T6 results are fine once hour-16 ships; only warn on silent empty without notes
+        print(f"  ✓ T6 present (affected={len(t6.get('affected_address_ids', []))})")
+    elif not (t6.get("notes") or "").strip():
+        errors.append("T6 present but notes empty")
+    else:
+        print("  ✓ T6 placeholder present (honest hour-16 stub)")
+else:
+    print("  · T6 absent (ok until hour-16; npm run changes emits a placeholder)")
 
 text = {p.stem: p.read_text() for p in (root / "data/pack/corpus/text").glob("*.txt")}
 bad_span = 0
