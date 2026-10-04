@@ -16,4 +16,5 @@ frontend/node_modules/
 frontend/dist/
 
 # Local agent skill mirrors
+.agents/
 .aider-desk/
