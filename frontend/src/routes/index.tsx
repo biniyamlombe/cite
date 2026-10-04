@@ -73,7 +73,7 @@ function AddressSearch({ onSelect, prominent = false, onOpenChange }: { onSelect
   };
   return (
     <div ref={ref} className="relative">
-      <div className={prominent ? "relative flex items-center border border-input bg-card shadow-sm transition-all focus-within:border-ink/40 focus-within:shadow-dossier" : "flex items-center gap-3 rounded-lg border-2 border-input bg-card px-4 py-3.5 shadow-sm transition-colors focus-within:border-ring"}>
+      <div className={prominent ? "relative flex items-center overflow-hidden rounded-[calc(var(--radius-xl)-2px)] border border-border/60 bg-card transition-shadow duration-300 focus-within:border-primary/35 focus-within:shadow-dossier" : "flex items-center gap-3 rounded-xl border border-input bg-card/95 px-4 py-3.5 shadow-sm transition-all duration-200 focus-within:border-ring focus-within:shadow-dossier"}>
         <Search className={prominent ? "ml-5 mr-3 size-5 shrink-0 text-muted-foreground" : "size-5 text-muted-foreground"} />
         <input
           value={q}
@@ -86,13 +86,23 @@ function AddressSearch({ onSelect, prominent = false, onOpenChange }: { onSelect
             if (e.key === "Escape") setOpen(false);
           }}
           placeholder={t("lookup.placeholder")}
-          className={prominent ? "min-w-0 flex-1 bg-transparent py-5 text-lg text-ink outline-none placeholder:text-muted-foreground/60" : "w-full bg-transparent text-lg text-ink outline-none placeholder:text-muted-foreground/70"}
+          className={prominent ? "min-w-0 flex-1 bg-transparent py-5 text-lg text-ink outline-none placeholder:text-muted-foreground/55" : "w-full bg-transparent text-lg text-ink outline-none placeholder:text-muted-foreground/70"}
           aria-label={t("lookup.label")}
         />
         {isFetching && <Loader2 className="size-4 animate-spin text-muted-foreground" />}
-        {prominent && <Button type="button" onClick={() => void searchFirst()} className="mr-2 h-11 shrink-0 rounded-none px-6 text-sm font-semibold sm:px-8" aria-label={t("lookup.search")}>
-          <span className="hidden sm:inline">{t("lookup.search")}</span><ArrowRight className="size-4 sm:hidden" />
-        </Button>}
+        {prominent && (
+          <Button
+            type="button"
+            onClick={() => void searchFirst()}
+            className="group mr-2 h-11 shrink-0 rounded-full px-6 text-sm font-semibold shadow-sm transition-transform duration-200 active:scale-[0.98] sm:px-8"
+            aria-label={t("lookup.search")}
+          >
+            <span className="hidden sm:inline">{t("lookup.search")}</span>
+            <span className="flex size-6 items-center justify-center rounded-full bg-primary-foreground/15 sm:ml-0.5">
+              <ArrowRight className="size-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+            </span>
+          </Button>
+        )}
       </div>
       {open && (
         <div className="absolute z-30 mt-2 w-full overflow-hidden border bg-popover shadow-dropdown">
@@ -144,51 +154,60 @@ function AddressSearch({ onSelect, prominent = false, onOpenChange }: { onSelect
 function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
   const t = useT();
   const [searchOpen, setSearchOpen] = useState(false);
-  const dim = searchOpen ? "pointer-events-none opacity-10 transition-opacity duration-300" : "opacity-100 transition-opacity duration-300";
+  const dim = searchOpen
+    ? "pointer-events-none opacity-10 transition-opacity duration-300"
+    : "opacity-100 transition-opacity duration-300";
   return (
-    <div className="mx-auto flex max-w-3xl flex-col items-center pt-10 text-center sm:pt-16">
+    <div className="mx-auto flex min-h-[calc(100dvh-11rem)] max-w-3xl flex-col items-center justify-center px-1 py-12 text-center sm:py-16">
       <div className="fade-up">
-        <h1 className="font-serif text-7xl font-semibold tracking-tight text-ink">Cite</h1>
-        <div className="mt-4 flex items-center justify-center gap-4">
-          <span className="h-px w-14 bg-border" aria-hidden="true" />
-          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">{t("lookup.eyebrow")}</p>
-          <span className="h-px w-14 bg-border" aria-hidden="true" />
-        </div>
-        <p className="mx-auto mt-8 max-w-lg font-serif text-2xl italic leading-relaxed text-muted-foreground">{t("lookup.title1")} {t("lookup.title2")}</p>
+        <h1 className="font-serif text-[clamp(3.75rem,12vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-ink">
+          Cite
+        </h1>
+        <p className="mx-auto mt-7 max-w-md font-serif text-xl italic leading-relaxed text-muted-foreground sm:text-2xl">
+          {t("lookup.title1")} {t("lookup.title2")}
+        </p>
       </div>
 
       <div className="fade-up-delay-1 relative z-20 mx-auto mt-12 w-full max-w-2xl text-left">
-        <label className="mb-2 ml-1 block font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground">{t("lookup.label")}</label>
-        <AddressSearch prominent onSelect={(a) => onSelect(a.address_id)} onOpenChange={setSearchOpen} />
+        <label className="mb-2.5 ml-1 block font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+          {t("lookup.label")}
+        </label>
+        <div className="bezel">
+          <AddressSearch prominent onSelect={(a) => onSelect(a.address_id)} onOpenChange={setSearchOpen} />
+        </div>
       </div>
 
       <div className={`${dim} w-full`}>
-      <div className="mx-auto mt-14 w-full max-w-2xl text-left">
-        <div className="mb-3 ml-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground">{t("lookup.try")}</div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          {DEMO_CHIPS.map((chip) => (
-            <button
-              key={chip.id}
-              type="button"
-              onClick={async () => {
-                const r = await getCiteClient().addresses(chip.q, 1);
-                if (r[0]) onSelect(r[0].address_id);
-                else onSelect(chip.id);
-              }}
-              className="group flex items-center justify-between gap-3 border bg-card p-4 text-left shadow-sm transition-all hover:border-ink/30 hover:shadow-dossier"
-            >
-              <span className="min-w-0">
-                <span className="block font-mono text-[10px] font-semibold text-primary">{chip.id}</span>
-                <span className="mt-1 block truncate font-serif text-sm italic text-ink">{t(chip.labelKey)}</span>
-              </span>
-              <ArrowRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
-            </button>
-          ))}
+        <div className="fade-up-delay-2 mx-auto mt-12 w-full max-w-2xl text-left">
+          <div className="mb-3 ml-1 font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+            {t("lookup.try")}
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {DEMO_CHIPS.map((chip) => (
+              <button
+                key={chip.id}
+                type="button"
+                onClick={async () => {
+                  const r = await getCiteClient().addresses(chip.q, 1);
+                  if (r[0]) onSelect(r[0].address_id);
+                  else onSelect(chip.id);
+                }}
+                className="group flex items-center justify-between gap-3 rounded-xl border border-border/80 bg-card/90 p-4 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-dossier active:scale-[0.99]"
+              >
+                <span className="min-w-0">
+                  <span className="block font-mono text-[10px] font-semibold text-primary">{chip.id}</span>
+                  <span className="mt-1 block truncate font-serif text-sm italic text-ink">{t(chip.labelKey)}</span>
+                </span>
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-secondary transition-transform duration-300 group-hover:translate-x-0.5 group-hover:bg-accent">
+                  <ArrowRight className="size-3.5 text-muted-foreground group-hover:text-primary" />
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
-      <blockquote className="mx-auto mt-14 max-w-xl text-center">
-        <p className="font-serif text-sm italic leading-relaxed text-muted-foreground">{t("lookup.philosophy")}</p>
-      </blockquote>
+        <blockquote className="fade-up-delay-3 mx-auto mt-12 max-w-lg text-center">
+          <p className="font-serif text-sm italic leading-relaxed text-muted-foreground">{t("lookup.philosophy")}</p>
+        </blockquote>
       </div>
     </div>
   );
