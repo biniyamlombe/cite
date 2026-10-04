@@ -35,7 +35,15 @@ export async function validateRuleRecord(
   const forAjv =
     zod.success
       ? (() => {
-          const { alias_id: _a, ...rest } = zod.data;
+          // Strip internal/enrichment fields not in organizer schema.
+          const {
+            alias_id: _a,
+            quote_start_offset: _qs,
+            quote_end_offset: _qe,
+            extraction_method: _em,
+            requires_human_review: _rh,
+            ...rest
+          } = zod.data;
           return rest;
         })()
       : candidate;
@@ -54,7 +62,13 @@ export async function validateRuleRecord(
       );
       rule = null;
     } else {
-      rule = { ...rule, quoted_span: snapped };
+      const start = sourceText.indexOf(snapped);
+      rule = {
+        ...rule,
+        quoted_span: snapped,
+        quote_start_offset: start >= 0 ? start : null,
+        quote_end_offset: start >= 0 ? start + snapped.length : null,
+      };
     }
   }
   if (errors.length || !rule) {
