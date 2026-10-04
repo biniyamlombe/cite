@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { useT, type StringKey } from "@/lib/i18n";
 import { PageHeader } from "@/components/cite/layout";
+import { Reveal } from "@/components/cite/reveal";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -96,11 +97,11 @@ function AboutPage() {
           <p className="mt-1 text-sm text-muted-foreground">{t("about.philosophy")}</p>
         </div>
         <div className="mt-5 grid gap-6 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-border/70">
-          {PILLARS.map((p) => (
-            <div key={p.title} className="sm:px-5 first:sm:pl-0 last:sm:pr-0">
+          {PILLARS.map((p, i) => (
+            <Reveal key={p.title} delay={i * 120} className="sm:px-5 first:sm:pl-0 last:sm:pr-0">
               <h3 className="font-medium text-ink">{t(p.title)}</h3>
               <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t(p.body)}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
         <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.12em] text-primary/80">
@@ -116,19 +117,30 @@ function AboutPage() {
           </h2>
           <p className="mt-1 text-sm text-muted-foreground">{t("about.architecture.lede")}</p>
         </div>
-        <ol className="mt-2 divide-y divide-border/70">
-          {STEPS.map((step, i) => (
-            <li key={step.title} className="flex gap-4 py-4">
-              <span className="w-8 shrink-0 font-mono text-sm tabular-nums text-primary">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <div className="min-w-0">
-                <div className="font-medium text-ink">{t(step.title)}</div>
-                <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{t(step.body)}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <Reveal className="relative mt-2">
+          <span
+            aria-hidden
+            className="step-rail absolute bottom-4 left-[15px] top-4 w-px bg-primary/30"
+          />
+          <ol className="divide-y divide-border/70">
+            {STEPS.map((step, i) => (
+              <Reveal as="li" key={step.title} delay={i * 90} className="flex gap-4 py-4">
+                <span
+                  className="step-num z-10 flex size-8 shrink-0 items-center justify-center rounded-full border border-primary/30 bg-paper font-mono text-xs tabular-nums text-primary"
+                  style={{ transitionDelay: `${i * 90 + 150}ms` }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div className="min-w-0">
+                  <div className="font-medium text-ink">{t(step.title)}</div>
+                  <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+                    {t(step.body)}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </ol>
+        </Reveal>
       </section>
 
       {/* Commitments */}
@@ -140,11 +152,16 @@ function AboutPage() {
           <p className="mt-1 text-sm text-muted-foreground">{t("about.responsible.lede")}</p>
         </div>
         <ul className="mt-2 divide-y divide-border/70">
-          {COMMITMENTS.map((key) => (
-            <li key={key} className="flex gap-3 py-3 text-sm leading-relaxed text-ink/90">
+          {COMMITMENTS.map((key, i) => (
+            <Reveal
+              as="li"
+              key={key}
+              delay={i * 60}
+              className="flex gap-3 py-3 text-sm leading-relaxed text-ink/90"
+            >
               <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary/70" aria-hidden />
               <span>{t(key)}</span>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </section>
@@ -158,13 +175,13 @@ function AboutPage() {
           <p className="mt-1 text-sm text-muted-foreground">{t("about.openQuestions.lede")}</p>
         </div>
         <ul className="mt-2 divide-y divide-border/70">
-          {OPEN_QUESTIONS.map((q) => (
-            <li key={q.tag} className="py-4">
+          {OPEN_QUESTIONS.map((q, i) => (
+            <Reveal as="li" key={q.tag} delay={i * 100} className="py-4">
               <div className="font-mono text-[11px] uppercase tracking-[0.1em] text-primary/80">
                 {t(q.tag)}
               </div>
               <p className="mt-1.5 text-sm leading-relaxed text-ink/90">{t(q.body)}</p>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </section>
