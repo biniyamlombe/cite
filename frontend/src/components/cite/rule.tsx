@@ -146,12 +146,19 @@ export function RuleCard({
               kind="applicability"
             />
           ) : null}
-          <StatusBadge
-            value={view.legalStatus ?? rule.status}
-            label={tx(`status.${view.legalStatus ?? rule.status}`)}
-            size="md"
-            kind="legal_status"
-          />
+          {view.legalStatus ||
+          (!(softGap || rule.status_basis?.startsWith("unverified")) && rule.status) ? (
+            <StatusBadge
+              value={view.legalStatus ?? rule.status}
+              label={tx(`status.${view.legalStatus ?? rule.status}`)}
+              size="md"
+              kind="legal_status"
+            />
+          ) : (
+            <span className="inline-flex items-center rounded-sm border border-unknown/30 bg-unknown-soft px-2 py-0.5 text-[11px] font-medium text-unknown">
+              {t("date.unverified.short")}
+            </span>
+          )}
         </div>
       </div>
       <p className="mt-3 text-sm leading-relaxed text-foreground/85">{rule.requirement}</p>
@@ -428,10 +435,10 @@ function parseDateBasis(raw?: string | null): { kind: DateBasis; note: string } 
 export function DateProof({ rule }: { rule: Rule }) {
   const t = useT();
   const { locale } = useLocale();
-  if (rule.status_basis?.startsWith("unverified")) {
+  if (rule.status_basis?.startsWith("unverified") || isSoftGapScaffold(rule)) {
     return (
       <p className="mt-3 rounded-sm border border-unknown/30 bg-unknown-soft/50 px-3 py-2 text-xs text-unknown">
-        {t("date.unverified")}
+        {isSoftGapScaffold(rule) ? t("date.unverified.softGap") : t("date.unverified")}
       </p>
     );
   }
@@ -531,12 +538,18 @@ export function RuleDetailDrawer({
   }, [onClose]);
   if (!view) return null;
   const { rule, result, explanation, headline, plainLanguage, conflict } = view;
-  const legalStatus = view.legalStatus ?? rule.status;
+  const softGap = isSoftGapScaffold(rule);
+  const municipal = rule.extraction_method === "municipal_ordinance";
+  const statusUnasserted =
+    softGap ||
+    rule.status_basis?.startsWith("unverified") ||
+    rule.evidence_status === "scenario_only";
+  const legalStatus = statusUnasserted
+    ? view.legalStatus
+    : (view.legalStatus ?? rule.status);
   const cov = coverageText(rule.coverage_conditions);
   const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
-  const softGap = isSoftGapScaffold(rule);
-  const municipal = rule.extraction_method === "municipal_ordinance";
   const copyEvidenceLink = async () => {
     if (!addressId) return;
     const url = new URL(window.location.origin + "/");
@@ -584,11 +597,17 @@ export function RuleDetailDrawer({
                 </span>
               )}
               {result && <StatusBadge value={result} size="md" />}
-              <StatusBadge
-                value={rule.evidence_status === "scenario_only" ? "unknown" : legalStatus}
-                label={`${t("rule.rulePrefix")}: ${rule.evidence_status === "scenario_only" ? t("result.unknown") : tx(`status.${legalStatus}`)}`}
-                size="md"
-              />
+              {legalStatus ? (
+                <StatusBadge
+                  value={legalStatus}
+                  label={`${t("rule.rulePrefix")}: ${tx(`status.${legalStatus}`)}`}
+                  size="md"
+                />
+              ) : (
+                <span className="inline-flex items-center rounded-sm border border-unknown/30 bg-unknown-soft px-2 py-0.5 text-[11px] font-medium text-unknown">
+                  {t("date.unverified.short")}
+                </span>
+              )}
             </div>
             {addressId && (
               <button
