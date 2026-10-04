@@ -2381,12 +2381,12 @@
       "A0490",
       "A0495"
     ],
-    "evidence_summary": "included=90; Newark exclusions sampled=50",
+    "evidence_summary": "included=90; Newark exclusions sampled=50; hob_method=municipal_ordinance; jc_method=municipal_ordinance",
     "sample_evidence": [
       {
         "address_id": "A0002",
         "included": true,
-        "reason": "Legal city Hoboken matches HOB-ALG-01 jurisdiction scope",
+        "reason": "Hoboken address applies under HOB-ALG-01 (HOB-ORD-01 municipal ordinance)",
         "rule_ids": [
           "HOB-ALG-01"
         ]
@@ -2394,7 +2394,7 @@
       {
         "address_id": "A0008",
         "included": true,
-        "reason": "Legal city Jersey City matches JC-ALG-01 jurisdiction scope",
+        "reason": "Jersey City address applies under JC-ALG-01 (JC-ORD-01 municipal ordinance)",
         "rule_ids": [
           "JC-ALG-01"
         ]
@@ -2402,7 +2402,7 @@
       {
         "address_id": "A0012",
         "included": true,
-        "reason": "Legal city Jersey City matches JC-ALG-01 jurisdiction scope",
+        "reason": "Jersey City address applies under JC-ALG-01 (JC-ORD-01 municipal ordinance)",
         "rule_ids": [
           "JC-ALG-01"
         ]
@@ -2711,7 +2711,7 @@
         "JC-ALG-01": "applies"
       }
     },
-    "notes": "HOB-ALG-01 only for Hoboken addresses; JC-ALG-01 only for Jersey City addresses; neither for Newark. Newark correctly excluded. Scenario membership only: primary municipal text is uncaptured; live municipal applicability remains unknown."
+    "notes": "HOB-ALG-01 only for Hoboken addresses; JC-ALG-01 only for Jersey City addresses; neither for Newark. Newark correctly excluded. Live applies from captured municipal ordinance PDFs (HOB-ORD-01 / JC-ORD-01); pack ecode360 pages remain link-only."
   },
   "T3": {
     "affected_address_ids": [
