@@ -1,7 +1,7 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "cite-1.1.0",
-  "generated_at": "2026-10-04T09:10:08.705Z",
+  "generated_at": "2026-10-04T09:12:07.153Z",
   "as_of": "2026-10-01",
   "pack_root": "data/pack",
   "input_hashes": {
@@ -11,7 +11,7 @@
     "rule_schema": "4e8a02526b85b965",
     "rules.json": "61a0cd01d208017a",
     "lookups.json": "79d4f22bf964f1a2",
-    "changes.json": "15945969c5a8579c",
+    "changes.json": "febc48b16f4a8114",
     "geocode_cache.json": "a82681bd282ddb9b"
   },
   "notes": "Companion provenance for pack-shaped rules.json / lookups.json / changes.json. Not legal advice."
