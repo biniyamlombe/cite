@@ -10,9 +10,16 @@ export const Route = createFileRoute("/coverage")({
   head: () => ({
     meta: [
       { title: "Coverage · Cite" },
-      { name: "description", content: "Which jurisdictions and topics the Cite rule catalog covers, and where the gaps are." },
+      {
+        name: "description",
+        content:
+          "Which jurisdictions and topics the Cite rule catalog covers, and where the gaps are.",
+      },
       { property: "og:title", content: "Coverage · Cite" },
-      { property: "og:description", content: "Jurisdiction and topic coverage of the rule catalog." },
+      {
+        property: "og:description",
+        content: "Jurisdiction and topic coverage of the rule catalog.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -42,7 +49,14 @@ function CoveragePage() {
       </PageHeader>
       <p className="mt-2 text-sm text-muted-foreground">{t("coverage.legend")}</p>
 
-      {q.isError && <p role="alert" className="mt-8">{t("monitor.unavailable")} <button className="underline" onClick={() => void q.refetch()}>{t("lookup.retry")}</button></p>}
+      {q.isError && (
+        <p role="alert" className="mt-8">
+          {t("monitor.unavailable")}{" "}
+          <button className="underline" onClick={() => void q.refetch()}>
+            {t("lookup.retry")}
+          </button>
+        </p>
+      )}
       {q.isLoading && <p className="mt-8 text-sm text-muted-foreground">{t("common.loading")}</p>}
 
       {rows.length > 0 && (

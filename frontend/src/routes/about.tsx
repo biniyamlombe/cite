@@ -14,7 +14,8 @@ export const Route = createFileRoute("/about")({
       { property: "og:title", content: "About · Cite" },
       {
         property: "og:description",
-        content: "AI structures regulation. Code evaluates coverage. Evidence supports every answer.",
+        content:
+          "AI structures regulation. Code evaluates coverage. Evidence supports every answer.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -175,7 +176,9 @@ function AboutPage() {
             {t("about.limits")}
           </h2>
         </div>
-        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{t("about.limits.body")}</p>
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+          {t("about.limits.body")}
+        </p>
         <p className="mt-6 text-xs text-muted-foreground">{t("about.demoNote")}</p>
       </section>
     </div>

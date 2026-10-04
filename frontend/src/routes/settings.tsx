@@ -28,9 +28,15 @@ export const Route = createFileRoute("/settings")({
   head: () => ({
     meta: [
       { title: "Team & integrations · Cite" },
-      { name: "description", content: "Manage team roles, scheduled re-checks, API keys and webhook notifications." },
+      {
+        name: "description",
+        content: "Manage team roles, scheduled re-checks, API keys and webhook notifications.",
+      },
       { property: "og:title", content: "Team & integrations · Cite" },
-      { property: "og:description", content: "Roles, re-checks, API access and webhooks for Cite." },
+      {
+        property: "og:description",
+        content: "Roles, re-checks, API access and webhooks for Cite.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -42,7 +48,15 @@ const input = "rounded-full border border-border/80 bg-paper/80 px-3.5 py-1.5 te
 const btn =
   "rounded-full border border-border/80 px-3.5 py-1.5 text-sm hover:bg-secondary disabled:opacity-50";
 
-function Section({ title, desc, children }: { title: string; desc: string; children: React.ReactNode }) {
+function Section({
+  title,
+  desc,
+  children,
+}: {
+  title: string;
+  desc: string;
+  children: React.ReactNode;
+}) {
   return (
     <section className="surface p-5">
       <h3 className="font-serif text-lg text-ink">{title}</h3>
@@ -65,7 +79,11 @@ function Settings() {
   const isAdmin = roles.data?.includes("admin");
   const isViewer = roles.data?.includes("viewer");
   const all = useQuery({ queryKey: ["roles"], queryFn: listAllRoles, enabled: !!isAdmin });
-  const sched = useQuery({ queryKey: ["schedules", user?.id], queryFn: listSchedules, enabled: !!user });
+  const sched = useQuery({
+    queryKey: ["schedules", user?.id],
+    queryFn: listSchedules,
+    enabled: !!user,
+  });
   const keys = useQuery({ queryKey: ["keys"], queryFn: listKeys, enabled: !!user });
   const hooks = useQuery({ queryKey: ["hooks"], queryFn: listWebhooks, enabled: !!user });
 
@@ -121,8 +139,7 @@ function Settings() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
       <PageHeader eyebrow={t("nav.more.team")} title={t("settings.title")}>
-        {t("settings.roleLabel")}{" "}
-        <span className="font-mono">{roles.data?.join(", ") ?? "…"}</span>
+        {t("settings.roleLabel")} <span className="font-mono">{roles.data?.join(", ") ?? "…"}</span>
       </PageHeader>
       {err && <p className="mt-4 text-sm text-destructive">{err.message}</p>}
       <div className="mt-8 grid gap-5">
@@ -142,7 +159,11 @@ function Settings() {
               <option value="weekly">{t("settings.freq.weekly")}</option>
               <option value="monthly">{t("settings.freq.monthly")}</option>
             </select>
-            <button className={btn} disabled={!addr.trim() || addS.isPending} onClick={() => addS.mutate()}>
+            <button
+              className={btn}
+              disabled={!addr.trim() || addS.isPending}
+              onClick={() => addS.mutate()}
+            >
               {t("settings.add")}
             </button>
           </div>
@@ -202,8 +223,7 @@ function Settings() {
           )}
           {newKey && (
             <p className="mt-3 rounded-md border bg-secondary/50 p-3 text-sm">
-              {t("settings.keys.copyOnce")}{" "}
-              <code className="break-all font-mono">{newKey}</code>
+              {t("settings.keys.copyOnce")} <code className="break-all font-mono">{newKey}</code>
             </p>
           )}
           <ul className="mt-3 divide-y text-sm">
@@ -213,11 +233,15 @@ function Settings() {
                   {k.label}{" "}
                   <span className="font-mono text-xs text-muted-foreground">
                     {k.prefix}…{" "}
-                    {k.last_used_at ? `· ${t("settings.keys.used")} ${k.last_used_at.slice(0, 10)}` : ""}
+                    {k.last_used_at
+                      ? `· ${t("settings.keys.used")} ${k.last_used_at.slice(0, 10)}`
+                      : ""}
                   </span>
                 </span>
                 {k.revoked_at ? (
-                  <span className="text-xs text-muted-foreground">{t("settings.keys.revoked")}</span>
+                  <span className="text-xs text-muted-foreground">
+                    {t("settings.keys.revoked")}
+                  </span>
                 ) : (
                   <button className={btn} onClick={() => rvKey.mutate(k.id)}>
                     {t("settings.keys.revoke")}

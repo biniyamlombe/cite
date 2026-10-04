@@ -18,9 +18,16 @@ export const Route = createFileRoute("/portfolio")({
   head: () => ({
     meta: [
       { title: "Portfolio · Cite" },
-      { name: "description", content: "Every tracked property at a glance: rules that apply, conflicts, unknowns and upcoming changes." },
+      {
+        name: "description",
+        content:
+          "Every tracked property at a glance: rules that apply, conflicts, unknowns and upcoming changes.",
+      },
       { property: "og:title", content: "Portfolio · Cite" },
-      { property: "og:description", content: "Monitor regulatory exposure across your rental portfolio." },
+      {
+        property: "og:description",
+        content: "Monitor regulatory exposure across your rental portfolio.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -50,8 +57,15 @@ export function PortfolioPage() {
   const watch = useWatchlist();
   const { user } = useAuth();
   const changesFeed = useQuery({ queryKey: ["changes"], queryFn: () => getCiteClient().changes() });
-  const reviews = useQuery({ queryKey: ["change-reviews", user?.id], queryFn: listChangeReviews, enabled: !!user });
-  const addrs = useQuery({ queryKey: ["addresses", "", 1000], queryFn: () => getCiteClient().addresses("", 1000) });
+  const reviews = useQuery({
+    queryKey: ["change-reviews", user?.id],
+    queryFn: listChangeReviews,
+    enabled: !!user,
+  });
+  const addrs = useQuery({
+    queryKey: ["addresses", "", 1000],
+    queryFn: () => getCiteClient().addresses("", 1000),
+  });
   const [group, setGroup] = useState<string[] | null>(null);
 
   const preferWatch = watch.ids.length > 0;
@@ -78,7 +92,8 @@ export function PortfolioPage() {
   }, [addrs.data, group, watchedOnly, preferWatch, watchIds]);
 
   // Only fetch lookups for the visible page (or full watched set).
-  const visible = watchedOnly || expanded || list.length <= PAGE_SIZE ? list : list.slice(0, PAGE_SIZE);
+  const visible =
+    watchedOnly || expanded || list.length <= PAGE_SIZE ? list : list.slice(0, PAGE_SIZE);
   const hiddenCount = Math.max(0, list.length - visible.length);
 
   const now = useQueries({
@@ -94,8 +109,8 @@ export function PortfolioPage() {
     })),
   });
 
-  const checksPending = now.some(q => q.isPending) || later.some(q => q.isPending);
-  const checksFailed = addrs.isError || now.some(q => q.isError) || later.some(q => q.isError);
+  const checksPending = now.some((q) => q.isPending) || later.some((q) => q.isPending);
+  const checksFailed = addrs.isError || now.some((q) => q.isError) || later.some((q) => q.isError);
 
   const alerts = visible.flatMap((a, i) =>
     watch.has(a.address_id)
@@ -106,11 +121,37 @@ export function PortfolioPage() {
   // The API supplies affected-address memberships; the client only groups those results for display.
   const exposure = (changesFeed.data?.tests ?? []).flatMap((test) => {
     const affected = new Set(changesFeed.data?.results[test.test_id]?.affected_address_ids ?? []);
-    return visible.filter((a) => affected.has(a.address_id)).map((a) => ({ test, address: a, review: reviews.data?.find((r) => r.change_id === test.test_id && r.address_id === a.address_id) }));
+    return visible
+      .filter((a) => affected.has(a.address_id))
+      .map((a) => ({
+        test,
+        address: a,
+        review: reviews.data?.find(
+          (r) => r.change_id === test.test_id && r.address_id === a.address_id,
+        ),
+      }));
   });
-  const byPlace = [...new Set(exposure.map((x) => `${x.address.legal_city ?? x.address.postal_city}, ${x.address.state}`))].map((place) => ({ place, count: exposure.filter((x) => `${x.address.legal_city ?? x.address.postal_city}, ${x.address.state}` === place).length })).sort((a, b) => b.count - a.count);
-  const byChange = (changesFeed.data?.tests ?? []).map((test) => ({ test, count: exposure.filter((x) => x.test.test_id === test.test_id).length })).filter((x) => x.count > 0);
-  const unresolved = exposure.filter((x) => !x.review || x.review.status === "unreviewed" || x.review.status === "needs_counsel").length;
+  const byPlace = [
+    ...new Set(
+      exposure.map((x) => `${x.address.legal_city ?? x.address.postal_city}, ${x.address.state}`),
+    ),
+  ]
+    .map((place) => ({
+      place,
+      count: exposure.filter(
+        (x) => `${x.address.legal_city ?? x.address.postal_city}, ${x.address.state}` === place,
+      ).length,
+    }))
+    .sort((a, b) => b.count - a.count);
+  const byChange = (changesFeed.data?.tests ?? [])
+    .map((test) => ({
+      test,
+      count: exposure.filter((x) => x.test.test_id === test.test_id).length,
+    }))
+    .filter((x) => x.count > 0);
+  const unresolved = exposure.filter(
+    (x) => !x.review || x.review.status === "unreviewed" || x.review.status === "needs_counsel",
+  ).length;
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
@@ -145,15 +186,75 @@ export function PortfolioPage() {
       <GroupBar allIds={(addrs.data ?? []).map((a) => a.address_id)} onSelect={setGroup} />
 
       <section className="surface mb-8 p-5 sm:p-6" aria-label={t("exposure.heading")}>
-        <div className="flex flex-wrap items-start justify-between gap-3 border-b pb-4"><div><h2 className="font-serif text-xl text-ink">{t("exposure.heading")}</h2><p className="mt-1 text-sm text-muted-foreground">{t("exposure.context")}</p></div><Link to="/inbox" className="text-sm font-medium text-primary hover:underline">{t("exposure.openInbox")} →</Link></div>
-        {changesFeed.isError && <p role="alert" className="mt-4 text-sm text-destructive">{t("exposure.error")} <button type="button" className="underline" onClick={() => changesFeed.refetch()}>{t("lookup.retry")}</button></p>}
-        {addrs.isError && <p role="alert" className="mt-4">{t("monitor.unavailable")} <button className="underline" onClick={() => void addrs.refetch()}>{t("lookup.retry")}</button></p>}
-        {(addrs.isPending || changesFeed.isPending) && <p className="mt-4 text-sm text-muted-foreground" aria-busy="true">{t("common.loading")}</p>}
-        {!addrs.isPending && !changesFeed.isPending && !changesFeed.isError && !addrs.isError && <div className="mt-5 grid gap-7 md:grid-cols-[160px_1fr_1fr]">
-          <div><div className="font-serif text-4xl text-ink">{exposure.length}</div><p className="mt-1 text-xs text-muted-foreground">{t("exposure.matches")}</p><div className="mt-4 font-mono text-xl text-primary">{user ? unresolved : "—"}</div><p className="text-xs text-muted-foreground">{user ? t("exposure.unresolved") : t("exposure.signin")}</p></div>
-          <div><h3 className="eyebrow mb-3">{t("exposure.byPlace")}</h3>{byPlace.length ? byPlace.map((x) => <div key={x.place} className="flex justify-between gap-3 border-t py-2 text-sm"><span>{x.place}</span><span className="font-mono text-primary">{x.count}</span></div>) : <p className="text-sm text-muted-foreground">{t("exposure.empty")}</p>}</div>
-          <div><h3 className="eyebrow mb-3">{t("exposure.byChange")}</h3>{byChange.map((x) => <div key={x.test.test_id} className="flex justify-between gap-3 border-t py-2 text-sm"><span className="min-w-0 truncate" title={x.test.title}>{x.test.title}</span><span className="font-mono text-primary">{x.count}</span></div>)}</div>
-        </div>}
+        <div className="flex flex-wrap items-start justify-between gap-3 border-b pb-4">
+          <div>
+            <h2 className="font-serif text-xl text-ink">{t("exposure.heading")}</h2>
+            <p className="mt-1 text-sm text-muted-foreground">{t("exposure.context")}</p>
+          </div>
+          <Link to="/inbox" className="text-sm font-medium text-primary hover:underline">
+            {t("exposure.openInbox")} →
+          </Link>
+        </div>
+        {changesFeed.isError && (
+          <p role="alert" className="mt-4 text-sm text-destructive">
+            {t("exposure.error")}{" "}
+            <button type="button" className="underline" onClick={() => changesFeed.refetch()}>
+              {t("lookup.retry")}
+            </button>
+          </p>
+        )}
+        {addrs.isError && (
+          <p role="alert" className="mt-4">
+            {t("monitor.unavailable")}{" "}
+            <button className="underline" onClick={() => void addrs.refetch()}>
+              {t("lookup.retry")}
+            </button>
+          </p>
+        )}
+        {(addrs.isPending || changesFeed.isPending) && (
+          <p className="mt-4 text-sm text-muted-foreground" aria-busy="true">
+            {t("common.loading")}
+          </p>
+        )}
+        {!addrs.isPending && !changesFeed.isPending && !changesFeed.isError && !addrs.isError && (
+          <div className="mt-5 grid gap-7 md:grid-cols-[160px_1fr_1fr]">
+            <div>
+              <div className="font-serif text-4xl text-ink">{exposure.length}</div>
+              <p className="mt-1 text-xs text-muted-foreground">{t("exposure.matches")}</p>
+              <div className="mt-4 font-mono text-xl text-primary">{user ? unresolved : "—"}</div>
+              <p className="text-xs text-muted-foreground">
+                {user ? t("exposure.unresolved") : t("exposure.signin")}
+              </p>
+            </div>
+            <div>
+              <h3 className="eyebrow mb-3">{t("exposure.byPlace")}</h3>
+              {byPlace.length ? (
+                byPlace.map((x) => (
+                  <div key={x.place} className="flex justify-between gap-3 border-t py-2 text-sm">
+                    <span>{x.place}</span>
+                    <span className="font-mono text-primary">{x.count}</span>
+                  </div>
+                ))
+              ) : (
+                <p className="text-sm text-muted-foreground">{t("exposure.empty")}</p>
+              )}
+            </div>
+            <div>
+              <h3 className="eyebrow mb-3">{t("exposure.byChange")}</h3>
+              {byChange.map((x) => (
+                <div
+                  key={x.test.test_id}
+                  className="flex justify-between gap-3 border-t py-2 text-sm"
+                >
+                  <span className="min-w-0 truncate" title={x.test.title}>
+                    {x.test.title}
+                  </span>
+                  <span className="font-mono text-primary">{x.count}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       <section className="surface mb-8 p-5">
@@ -161,8 +262,21 @@ export function PortfolioPage() {
           <Bell className="size-3.5" /> {t("portfolio.alerts")}
         </h3>
         {checksFailed ? (
-          <p role="alert">{t("monitor.unavailable")} <button className="underline" onClick={() => { void addrs.refetch(); [...now, ...later].filter(q => q.isError).forEach(q => void q.refetch()); }}>{t("lookup.retry")}</button></p>
-        ) : checksPending ? <p role="status">{t("common.loading")}</p> : watch.ids.length === 0 ? (
+          <p role="alert">
+            {t("monitor.unavailable")}{" "}
+            <button
+              className="underline"
+              onClick={() => {
+                void addrs.refetch();
+                [...now, ...later].filter((q) => q.isError).forEach((q) => void q.refetch());
+              }}
+            >
+              {t("lookup.retry")}
+            </button>
+          </p>
+        ) : checksPending ? (
+          <p role="status">{t("common.loading")}</p>
+        ) : watch.ids.length === 0 ? (
           <p className="text-sm text-muted-foreground">{t("portfolio.alerts.emptyWatch")}</p>
         ) : alerts.length === 0 ? (
           <p className="text-sm text-muted-foreground">
@@ -171,7 +285,10 @@ export function PortfolioPage() {
         ) : (
           <ul className="divide-y">
             {alerts.map((al) => (
-              <li key={al.addr.address_id + al.id} className="flex flex-wrap items-center gap-2 py-2.5 text-sm">
+              <li
+                key={al.addr.address_id + al.id}
+                className="flex flex-wrap items-center gap-2 py-2.5 text-sm"
+              >
                 <Link
                   to="/"
                   search={{ address: al.addr.address_id, as_of: horizon }}
@@ -229,9 +346,16 @@ export function PortfolioPage() {
               const unavailable = now[i]?.isError;
               const w = watch.has(a.address_id);
               return (
-                <tr key={a.address_id} className={`hover:bg-secondary/40 ${w ? "bg-applies-soft/20" : ""}`}>
+                <tr
+                  key={a.address_id}
+                  className={`hover:bg-secondary/40 ${w ? "bg-applies-soft/20" : ""}`}
+                >
                   <td className="px-4 py-3">
-                    <Link to="/" search={{ address: a.address_id, as_of: asOf }} className="text-ink hover:underline">
+                    <Link
+                      to="/"
+                      search={{ address: a.address_id, as_of: asOf }}
+                      className="text-ink hover:underline"
+                    >
                       {a.street_address}
                     </Link>
                     <div className="font-mono text-xs text-muted-foreground">{a.address_id}</div>
@@ -239,14 +363,26 @@ export function PortfolioPage() {
                   <td className="px-4 py-3 text-muted-foreground">
                     {a.legal_city ?? a.postal_city}, {a.state}
                   </td>
-                  <td className="px-4 py-3 text-right font-mono">{loading ? "…" : unavailable ? "—" : c.applies}</td>
-                  <td className={`px-4 py-3 text-right font-mono ${c.unknown ? "text-unknown" : ""}`}>
+                  <td className="px-4 py-3 text-right font-mono">
+                    {loading ? "…" : unavailable ? "—" : c.applies}
+                  </td>
+                  <td
+                    className={`px-4 py-3 text-right font-mono ${c.unknown ? "text-unknown" : ""}`}
+                  >
                     {loading ? "…" : unavailable ? "—" : c.unknown}
                   </td>
-                  <td className={`px-4 py-3 text-right font-mono ${c.conflict ? "text-destructive" : ""}`}>
+                  <td
+                    className={`px-4 py-3 text-right font-mono ${c.conflict ? "text-destructive" : ""}`}
+                  >
                     {loading ? "…" : unavailable ? "—" : c.conflict}
                   </td>
-                  <td className="px-4 py-3 text-right font-mono">{loading || later[i]?.isPending ? "…" : unavailable || later[i]?.isError ? "—" : up}</td>
+                  <td className="px-4 py-3 text-right font-mono">
+                    {loading || later[i]?.isPending
+                      ? "…"
+                      : unavailable || later[i]?.isError
+                        ? "—"
+                        : up}
+                  </td>
                   <td className="px-4 py-3 text-right">
                     <button
                       onClick={() => watch.toggle(a.address_id)}

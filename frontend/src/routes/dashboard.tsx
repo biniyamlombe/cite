@@ -2,14 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { useMemo, useState } from "react";
-import {
-  ArrowRight,
-  Bell,
-  FileText,
-  Loader2,
-  RefreshCw,
-  Search,
-} from "lucide-react";
+import { ArrowRight, Bell, FileText, Loader2, RefreshCw, Search } from "lucide-react";
 import { toast } from "sonner";
 import { useAuth } from "@/lib/auth";
 import { getCiteClient } from "@/lib/cite/client";
@@ -48,7 +41,11 @@ const ORDER: TestId[] = ["T1", "T2", "T3", "T4", "T5"];
 
 const PUNCH_KEYS: Record<
   TestId,
-  "changes.punch.T1" | "changes.punch.T2" | "changes.punch.T3" | "changes.punch.T4" | "changes.punch.T5"
+  | "changes.punch.T1"
+  | "changes.punch.T2"
+  | "changes.punch.T3"
+  | "changes.punch.T4"
+  | "changes.punch.T5"
 > = {
   T1: "changes.punch.T1",
   T2: "changes.punch.T2",
@@ -138,7 +135,8 @@ export const Route = createFileRoute("/dashboard")({
       { title: "Dashboard · Cite" },
       {
         name: "description",
-        content: "What needs review: due re-checks, changed properties, and Change Radar scenarios.",
+        content:
+          "What needs review: due re-checks, changed properties, and Change Radar scenarios.",
       },
       { property: "og:title", content: "Dashboard · Cite" },
       {
@@ -269,8 +267,7 @@ function Dashboard() {
   }, [audit.data, memos.data, sched.data, t]);
 
   const filteredPulse = useMemo(() => {
-    const list =
-      activityFilter === "all" ? pulse : pulse.filter((p) => p.kind === activityFilter);
+    const list = activityFilter === "all" ? pulse : pulse.filter((p) => p.kind === activityFilter);
     return list.slice(0, 16);
   }, [pulse, activityFilter]);
 
@@ -364,7 +361,9 @@ function Dashboard() {
             <Bell className="mt-0.5 size-4 shrink-0 text-primary/70" />
             <div>
               <p className="text-sm text-ink">{t("dashboard.attention.empty")}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{t("dashboard.attention.emptyHint")}</p>
+              <p className="mt-1 text-sm text-muted-foreground">
+                {t("dashboard.attention.emptyHint")}
+              </p>
               <div className="mt-3 flex flex-wrap gap-3 text-sm">
                 <Link to="/portfolio" className="text-primary hover:underline">
                   {t("nav.portfolio")}
@@ -378,7 +377,10 @@ function Dashboard() {
         ) : (
           <ul className="mt-2 divide-y divide-border/70">
             {attention.map((item) => (
-              <li key={item.id} className="flex flex-wrap items-center justify-between gap-3 py-3.5">
+              <li
+                key={item.id}
+                className="flex flex-wrap items-center justify-between gap-3 py-3.5"
+              >
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
                     <Link
@@ -528,7 +530,9 @@ function Dashboard() {
             )}
           </div>
           {!user ? (
-            <p className="mt-4 text-sm text-muted-foreground">{t("dashboard.activity.signedOut")}</p>
+            <p className="mt-4 text-sm text-muted-foreground">
+              {t("dashboard.activity.signedOut")}
+            </p>
           ) : memos.data?.length ? (
             <ul className="mt-2 divide-y divide-border/60 text-sm">
               {memos.data.slice(0, 4).map((m) => (
@@ -536,7 +540,9 @@ function Dashboard() {
                   <Link to="/memos" className="text-ink hover:text-primary hover:underline">
                     {m.title}
                   </Link>
-                  <p className="mt-0.5 font-mono text-[11px] text-muted-foreground">{m.address_id}</p>
+                  <p className="mt-0.5 font-mono text-[11px] text-muted-foreground">
+                    {m.address_id}
+                  </p>
                 </li>
               ))}
             </ul>
@@ -597,7 +603,9 @@ function Dashboard() {
             {pulse.length === 0 ? (
               <div className="mt-5 rounded-md border border-border/80 bg-card/80 px-4 py-5">
                 <p className="text-sm text-ink">{t("dashboard.activityEmpty")}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{t("dashboard.activity.emptyHint")}</p>
+                <p className="mt-1 text-sm text-muted-foreground">
+                  {t("dashboard.activity.emptyHint")}
+                </p>
                 <Link
                   to="/"
                   className="mt-3 inline-flex items-center gap-1 text-sm text-primary hover:underline"
@@ -607,7 +615,9 @@ function Dashboard() {
                 </Link>
               </div>
             ) : filteredPulse.length === 0 ? (
-              <p className="mt-5 text-sm text-muted-foreground">{t("dashboard.activity.filterEmpty")}</p>
+              <p className="mt-5 text-sm text-muted-foreground">
+                {t("dashboard.activity.filterEmpty")}
+              </p>
             ) : (
               <div className="mt-4 space-y-6">
                 {groupedPulse.map((group) => (

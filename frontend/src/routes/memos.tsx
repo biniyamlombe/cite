@@ -12,7 +12,10 @@ export const Route = createFileRoute("/memos")({
   head: () => ({
     meta: [
       { title: "Saved memos · Cite" },
-      { name: "description", content: "Your saved regulatory applicability memos, kept for audit." },
+      {
+        name: "description",
+        content: "Your saved regulatory applicability memos, kept for audit.",
+      },
       { property: "og:title", content: "Saved memos · Cite" },
       { property: "og:description", content: "Saved applicability memos for audit trails." },
       { property: "og:type", content: "website" },
@@ -43,7 +46,9 @@ function MemosPage() {
 
       {ready && !user && <SignInCard messageKey="memos.signin" />}
 
-      {user && q.isLoading && <p className="mt-8 text-sm text-muted-foreground">{t("common.loading")}</p>}
+      {user && q.isLoading && (
+        <p className="mt-8 text-sm text-muted-foreground">{t("common.loading")}</p>
+      )}
       {q.error && <p className="mt-8 text-sm text-destructive">{(q.error as Error).message}</p>}
 
       {user && q.data && q.data.length === 0 && (
@@ -80,7 +85,10 @@ function MemosPage() {
                 </Link>
                 <button
                   onClick={() =>
-                    downloadText(`cite-memo-${m.address_id}-${m.as_of}.csv`, lookupToCsv(m.snapshot))
+                    downloadText(
+                      `cite-memo-${m.address_id}-${m.as_of}.csv`,
+                      lookupToCsv(m.snapshot),
+                    )
                   }
                   className="rounded-full border border-border/80 px-3.5 py-1.5 text-sm hover:bg-secondary"
                 >

@@ -12,9 +12,15 @@ export const Route = createFileRoute("/bulk")({
   head: () => ({
     meta: [
       { title: "Bulk lookup · Cite" },
-      { name: "description", content: "Check many rental properties at once and export the results." },
+      {
+        name: "description",
+        content: "Check many rental properties at once and export the results.",
+      },
       { property: "og:title", content: "Bulk lookup · Cite" },
-      { property: "og:description", content: "Applicability results for a whole list of addresses." },
+      {
+        property: "og:description",
+        content: "Applicability results for a whole list of addresses.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -31,7 +37,11 @@ function BulkPage() {
   const run = useMutation({
     mutationFn: async (): Promise<Row[]> => {
       const c = getCiteClient();
-      const inputs = text.split(/\n|,/).map((s) => s.trim()).filter(Boolean).slice(0, 200);
+      const inputs = text
+        .split(/\n|,/)
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .slice(0, 200);
       return Promise.all(
         inputs.map(async (input): Promise<Row> => {
           try {
@@ -113,7 +123,8 @@ function BulkPage() {
                   {r.data ? (
                     <>
                       <td className="px-3 py-2.5">
-                        {r.data.address.address_id} · {r.data.address.street_address}, {r.data.address.postal_city}
+                        {r.data.address.address_id} · {r.data.address.street_address},{" "}
+                        {r.data.address.postal_city}
                       </td>
                       <td className="px-3 py-2.5 font-mono">{count(r.data, "applies")}</td>
                       <td className="px-3 py-2.5 font-mono">{count(r.data, "unknown")}</td>

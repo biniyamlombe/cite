@@ -19,8 +19,7 @@ export const Route = createFileRoute("/pipeline")({
       { property: "og:title", content: "Pipeline · Cite" },
       {
         property: "og:description",
-        content:
-          "Turn a legal source document into structured, validated rules with citations.",
+        content: "Turn a legal source document into structured, validated rules with citations.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -73,7 +72,7 @@ function ExtractStages({ pending, done }: { pending: boolean; done: boolean }) {
   const active = pending ? tick % 3 : -1;
 
   const statusLabel = pending
-    ? stages[active]?.label ?? t("pipeline.running")
+    ? (stages[active]?.label ?? t("pipeline.running"))
     : done
       ? t("pipeline.stepRules")
       : t("pipeline.empty");
@@ -164,7 +163,10 @@ function PipelinePage() {
         <ExtractStages pending={run.isPending} done={Boolean(run.data)} />
       </div>
 
-      <section className="fade-up border-b border-border/70 pb-6" aria-labelledby="pipeline-controls">
+      <section
+        className="fade-up border-b border-border/70 pb-6"
+        aria-labelledby="pipeline-controls"
+      >
         <div className="flex flex-wrap items-end justify-between gap-3">
           <h2 id="pipeline-controls" className="font-serif text-xl tracking-[-0.02em] text-ink">
             {t("pipeline.sourceDoc")}
@@ -362,7 +364,9 @@ function PipelinePage() {
               </h2>
               <div className="mt-2 space-y-0 divide-y divide-border/70">
                 {run.data.rules.length === 0 ? (
-                  <p className="py-8 text-center text-sm text-muted-foreground">{t("pipeline.noRules")}</p>
+                  <p className="py-8 text-center text-sm text-muted-foreground">
+                    {t("pipeline.noRules")}
+                  </p>
                 ) : (
                   run.data.rules.map((r, i) => (
                     <div key={r.team_rule_id} className="py-4">
@@ -370,7 +374,9 @@ function PipelinePage() {
                       <div className="mt-1 font-mono text-[11px] text-muted-foreground">
                         {r.team_rule_id} · {r.jurisdiction}
                       </div>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{r.requirement}</p>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {r.requirement}
+                      </p>
                       <div className="mt-3">
                         <CitationPanel rule={r} emphasize={i === 0} />
                       </div>

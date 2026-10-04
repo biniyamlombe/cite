@@ -15,7 +15,10 @@ export const Route = createFileRoute("/rules")({
       { title: "Rules · Cite" },
       { name: "description", content: "Browse extracted rental-housing rules with citations." },
       { property: "og:title", content: "Rules · Cite" },
-      { property: "og:description", content: "Extracted rules with official citations and quoted source." },
+      {
+        property: "og:description",
+        content: "Extracted rules with official citations and quoted source.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -41,7 +44,9 @@ function FilterSelect({
 }) {
   return (
     <label className="flex min-w-[10rem] flex-1 flex-col gap-1 text-sm sm:flex-none sm:min-w-[11rem]">
-      <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">{label}</span>
+      <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+        {label}
+      </span>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}

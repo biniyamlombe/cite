@@ -82,7 +82,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Cite · Know what applies. And why." },
-      { name: "description", content: "Regulatory intelligence for rental housing, traced to the source." },
+      {
+        name: "description",
+        content: "Regulatory intelligence for rental housing, traced to the source.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -123,15 +126,17 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       <LocaleProvider>
-      <div className="atmosphere flex min-h-dvh flex-col">
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:p-3">Skip to content / Ir al contenido</a>
-        <SiteHeader />
-        <main id="main-content" tabIndex={-1} className="flex-1 pb-16">
-          <Outlet />
-        </main>
-        <DisclaimerBar />
-        <Toaster position="bottom-center" closeButton />
-      </div>
+        <div className="atmosphere flex min-h-dvh flex-col">
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:p-3">
+            Skip to content / Ir al contenido
+          </a>
+          <SiteHeader />
+          <main id="main-content" tabIndex={-1} className="flex-1 pb-16">
+            <Outlet />
+          </main>
+          <DisclaimerBar />
+          <Toaster position="bottom-center" closeButton />
+        </div>
       </LocaleProvider>
     </QueryClientProvider>
   );
