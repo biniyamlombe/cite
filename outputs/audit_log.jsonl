@@ -544,3 +544,34 @@
 {"ts":"2026-10-04T02:30:07.698Z","kind":"extract_doc","doc_id":"D069","source":"claude","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D069 via claude"}
 {"ts":"2026-10-04T02:47:13.887Z","kind":"note","message":"Enriched coverage_conditions dual form on 147/147 rules","meta":{"dual":147,"total":147}}
 {"ts":"2026-10-04T02:47:14.988Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T03:42:41.921Z","kind":"schema_check","message":"OK — sample_rule_record.json validates (Zod + Ajv)"}
+{"ts":"2026-10-04T03:42:44.126Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T03:42:44.609Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T03:43:02.450Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T03:43:02.790Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T03:46:29.140Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T03:46:29.495Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T03:51:06.361Z","kind":"extract_doc","doc_id":"D073","source":"claude","model":"claude-haiku-4-5","rule_count":10,"rule_ids":["r-0001","r-0002","r-0003","r-0004","r-0005","r-0006","r-0007","r-0008","r-0009","r-0010"],"message":"Live extract D073 via claude"}
+{"ts":"2026-10-04T03:59:53.305Z","kind":"extract_doc","doc_id":"D069","source":"claude","model":"claude-haiku-4-5","rule_count":2,"rule_ids":["r-0001","r-0002"],"message":"Live extract D069 via claude"}
+{"ts":"2026-10-04T04:01:48.615Z","kind":"extract_doc","doc_id":"D001","source":"claude","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D001 via claude"}
+{"ts":"2026-10-04T04:02:07.262Z","kind":"extract_doc","doc_id":"D001","source":"claude","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D001 via claude"}
+{"ts":"2026-10-04T04:04:35.118Z","kind":"extract_doc","doc_id":"D001","source":"claude","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D001 via claude"}
+{"ts":"2026-10-04T04:08:07.065Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T04:08:07.852Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T04:20:56.759Z","kind":"change_tests","message":"Wrote T1, T2, T3, T4, T5","meta":{"T1":{"affected":250,"conflicts":0},"T2":{"affected":90,"conflicts":0},"T3":{"affected":140,"conflicts":90},"T4":{"affected":110,"conflicts":0},"T5":{"affected":0,"conflicts":0}}}
+{"ts":"2026-10-04T04:21:17.053Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T04:21:17.699Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T04:21:23.902Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T04:21:24.336Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T04:24:16.915Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T04:24:17.351Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T04:30:09.848Z","kind":"note","message":"Enriched rule fields: retrieved_at=147 penalty=22 exemptions_filled=17 exemptions_none_stated=73 effective_date=19","meta":{"retrieved_at":147,"penalty":22,"exemptions_filled":17,"exemptions_none_stated":73,"effective_date":19,"total":147}}
+{"ts":"2026-10-04T04:30:31.973Z","kind":"note","message":"Enriched rule fields: retrieved_at=0 penalty=125 exemptions_filled=0 exemptions_none_stated=73 effective_date=0","meta":{"retrieved_at":0,"penalty":125,"exemptions_filled":0,"exemptions_none_stated":73,"effective_date":0,"total":147}}
+{"ts":"2026-10-04T04:30:37.234Z","kind":"schema_check","message":"OK — sample_rule_record.json validates (Zod + Ajv)"}
+{"ts":"2026-10-04T04:30:38.728Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T04:30:39.094Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T04:30:41.521Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T04:30:41.892Z","kind":"extract_doc","doc_id":"D022","source":"heuristic","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D022 via heuristic"}
+{"ts":"2026-10-04T04:31:16.553Z","kind":"note","message":"Enriched rule fields: retrieved_at=0 penalty=105 exemptions_filled=0 exemptions_none_stated=73 effective_date=0","meta":{"retrieved_at":0,"penalty":105,"exemptions_filled":0,"exemptions_none_stated":73,"effective_date":0,"total":147}}
+{"ts":"2026-10-04T04:31:53.645Z","kind":"note","message":"Enriched rule fields: retrieved_at=0 penalty=0 exemptions_filled=0 exemptions_none_stated=0 effective_date=0","meta":{"retrieved_at":0,"penalty":0,"exemptions_filled":0,"exemptions_none_stated":0,"effective_date":0,"total":147}}
+{"ts":"2026-10-04T04:32:07.462Z","kind":"note","message":"Enriched rule fields: retrieved_at=0 penalty=0 exemptions_filled=0 exemptions_none_stated=0 effective_date=0","meta":{"retrieved_at":0,"penalty":0,"exemptions_filled":0,"exemptions_none_stated":0,"effective_date":0,"total":147}}
