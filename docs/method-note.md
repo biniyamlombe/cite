@@ -53,7 +53,7 @@ Renter tools (API-grounded): `POST /check` (rent-increase verdict from applying 
 ## Current submission snapshot
 
 - **145** rules across the six required categories; all change-test aliases present  
-- Soft-gap scaffolds: `CAM-FH-01` (D029 Cambridge Fair Housing / source of income) and `SF-FC-01` (D078 Fair Chance one-liner, low confidence)  
+- Soft-gap scaffolds: `CAM-FH-01` (D029 Cambridge Fair Housing / source of income) and `SF-FC-01` (D078 Fair Chance one-liner, low confidence). Tagged `soft_gap_scaffold` with `requires_human_review`; lookups do **not** assert `legal_status_at_as_of_date` for them.  
 - Lookups for all **500** addresses at `as_of=2026-10-01`  
 - T1–T5 green (`T1=250`, `T2=90`, `T3=140` +90 conflicts, `T4=110`, `T5=0`); no T6 (participant-final-no-hour16)  
 - Verify before upload: `npm run quality` or `npm run submission:check` · pack: `npm run submission:pack`  
@@ -67,7 +67,7 @@ Renter tools (API-grounded): `POST /check` (rent-increase verdict from applying 
 - Quote snapping folds curly apostrophes/dashes so model spans match corpus bytes.  
 - Rule version history is rebuilt from git snapshots of `rules.json` (`npm run build-versions` → `outputs/rule_versions.json`).  
 - Stretch: Santa Ana uses the same pipeline via `data/stretch/santa_ana_addresses.csv` + `npm run stretch` (pack’s 500 change-test addresses unchanged); Lookup shows a Stretch badge + demo tip for SA* IDs.  
-- Confidence bands (high ≥0.85 / medium / low <0.5) filter on Rules. Spanish (`es-US`) covers nav + Lookup / Change Radar / Rules / About chrome and status labels; corpus quotes stay English-authoritative. Soft-gap FAQ extracts and municipal ordinance badges are bilingual.  
+- Confidence bands (high ≥0.85 / medium / low <0.5) filter on Rules with live band counts; legend clarifies extraction confidence ≠ legal certainty. Spanish (`es-US`) covers nav + Lookup / Change Radar / Rules / About / Sources / Audit chrome and status labels; corpus quotes stay English-authoritative. Soft-gap FAQ extracts and municipal ordinance badges are bilingual.  
 - UI surfaces pack §9 open questions as distinct callouts.  
 - Link-only primary pages (HOB/JC) show an explicit honesty banner: quotes stay on capturable corpus text; no invented municipal code.  
 - Sticky disclaimer: not legal advice and not a compliance certification; About lists pack §8 commitments + §9 open questions.  

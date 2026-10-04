@@ -263,10 +263,10 @@ This section was added after judging, in remediation mode. The re-score below is
 | F. Product & demo | 10 | 7 | 10 | Bilingual chrome across Lookup/Changes/Rules/About; demo script current |
 | G. Engineering | 5 | 3 | 5 | — |
 | **Required total** | **100** | **76** | **100** | |
-| Stretch bonus | 10 | 7 | 7 | |
-| **Final** | **110** | **83** | **107** | |
+| Stretch bonus | 10 | 7 | 9 | Soft-gap review-only; Sources/Audit ES; confidence band counts |
+| **Final** | **110** | **83** | **109** | |
 
-Required modules now estimate **100/100**. Residual stretch (not required): denser Spanish beyond chrome, confidence-band UX polish. Pack still omits `owner_type` facts by design.
+Required modules estimate **100/100**. Stretch residual: machine-translating statute quote bodies (intentionally not done). Pack still omits `owner_type` facts by design.
 
 ### Module A follow-up (secondary city reports)
 
@@ -296,3 +296,9 @@ T2 no longer claims “scenario membership / uncaptured primary.” With `HOB-AL
 - Soft-gap screening aliases `CAM-FH-01` / `SF-FC-01` carry `extraction_method=soft_gap_scaffold` + bilingual Soft-gap FAQ badges / honesty strip.
 - Municipal ordinance badge on HOB/JC; About / demo script / method note updated so the pitch no longer claims HOB is unknown/scaffold.
 - Spanish covers nav + Lookup / Change Radar / Rules / About labels; quotes stay English. **E: 10/10 · F: 10/10.**
+
+### Stretch follow-up (soft-gap + Spanish depth + confidence)
+
+- Soft-gap FAQ rules (`CAM-FH-01` / `SF-FC-01`) now force `needs_human_review`, omit asserted `legal_status_at_as_of_date`, and UI shows “Legal status not asserted” instead of pack-time `in_force`.
+- Sources and Audit pages localized EN/ES; confidence filter shows live high/medium/low counts plus extraction-only hint.
+- **Stretch estimate: 9/10** (quotes remain English-authoritative by design).

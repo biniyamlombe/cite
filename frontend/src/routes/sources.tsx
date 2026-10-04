@@ -115,8 +115,8 @@ function SourcesPage() {
                   <div>
                     <div className="font-medium text-ink">{r.rule.title}</div>
                     <div className="font-mono text-[11px] text-muted-foreground">
-                      {r.rule.citation} · doc {r.rule.source_doc_id ?? "—"} · {t("sources.retrieved")}{" "}
-                      {fmtDate(r.rule.retrieved_at)}
+                      {r.rule.citation} · doc {r.rule.source_doc_id ?? "—"} ·{" "}
+                      {t("sources.retrieved")} {fmtDate(r.rule.retrieved_at)}
                     </div>
                   </div>
                   <div className="flex items-center gap-3">

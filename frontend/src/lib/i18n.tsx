@@ -729,8 +729,7 @@ const STRINGS = {
       "Data shown in this demonstration is illustrative and must not be relied on as legal advice.",
     "sources.eyebrow": "Download center",
     "sources.title": "Source documents",
-    "sources.body":
-      "Every source behind the determination for {address} as of {asOf}.",
+    "sources.body": "Every source behind the determination for {address} as of {asOf}.",
     "sources.back": "Back to lookup",
     "sources.loading": "Loading…",
     "sources.downloadPack": "Download source pack",
@@ -1626,8 +1625,7 @@ const STRINGS = {
       "Los datos de esta demostración son ilustrativos y no deben usarse como asesoría legal.",
     "sources.eyebrow": "Centro de descargas",
     "sources.title": "Documentos fuente",
-    "sources.body":
-      "Todas las fuentes de la determinación para {address} a la fecha {asOf}.",
+    "sources.body": "Todas las fuentes de la determinación para {address} a la fecha {asOf}.",
     "sources.back": "Volver a la consulta",
     "sources.loading": "Cargando…",
     "sources.downloadPack": "Descargar paquete de fuentes",

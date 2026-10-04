@@ -544,9 +544,7 @@ export function RuleDetailDrawer({
     softGap ||
     rule.status_basis?.startsWith("unverified") ||
     rule.evidence_status === "scenario_only";
-  const legalStatus = statusUnasserted
-    ? view.legalStatus
-    : (view.legalStatus ?? rule.status);
+  const legalStatus = statusUnasserted ? view.legalStatus : (view.legalStatus ?? rule.status);
   const cov = coverageText(rule.coverage_conditions);
   const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
