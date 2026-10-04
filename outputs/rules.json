@@ -5478,7 +5478,7 @@
           }
         ]
       },
-      "exemptions": "None stated in source document",
+      "exemptions": null,
       "overrides": [],
       "interaction": "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
       "effective_date": "2025-07-09",
@@ -5518,7 +5518,7 @@
           }
         ]
       },
-      "exemptions": "None stated in source document",
+      "exemptions": null,
       "overrides": [],
       "interaction": "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
       "effective_date": "2025-05-21",
@@ -5587,7 +5587,9 @@
       "penalty": "injunctive relief, and seeking an award of damages, expenses and other",
       "quote_start_offset": 6175,
       "quote_end_offset": 6375,
-      "effective_date_basis": "not_stated: No effective date stated in source"
+      "effective_date_basis": "not_stated: No effective date stated in source",
+      "extraction_method": "soft_gap_scaffold",
+      "status_basis": "unverified: soft-gap FAQ/summary extract (D029); not a full municipal code body."
     },
     {
       "jurisdiction": "San Francisco, CA",
@@ -5607,7 +5609,7 @@
           }
         ]
       },
-      "exemptions": "None stated in source document",
+      "exemptions": null,
       "overrides": [],
       "interaction": null,
       "effective_date": null,
@@ -5624,7 +5626,9 @@
       "penalty": "None stated in source document",
       "quote_start_offset": 5114,
       "quote_end_offset": 5317,
-      "effective_date_basis": "not_stated: No effective date stated in source"
+      "effective_date_basis": "not_stated: No effective date stated in source",
+      "extraction_method": "soft_gap_scaffold",
+      "status_basis": "unverified: soft-gap FAQ/summary extract (D078); not a full municipal code body."
     }
   ]
 }

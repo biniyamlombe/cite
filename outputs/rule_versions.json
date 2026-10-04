@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T09:04:44.840Z",
+  "generated_at": "2026-10-04T09:31:42.904Z",
   "by_key": {
     "doc:D001|berkeley municipal code § 13.63.030(a)|prohibition on sale of coordinated pricing algorithms in ber": [
       {
@@ -640,7 +640,7 @@
         "released_at": "2026-10-03",
         "status": "in_force",
         "quoted_span": "Relocation Payments for Evictions based on Owner/Relative Move-in OR Demolition/Permanent Removal of Unit from Housing Use OR Temporary Capital Improvement Work* OR Substantial Rehabilitation",
-        "change_note": "effective_date 2025-03-01 → 2006-08-10; quoted_span updated (re-extract or span repair)"
+        "change_note": "quoted_span updated (re-extract or span repair)"
       },
       {
         "version": "v1",
@@ -1296,7 +1296,7 @@
         "released_at": "2026-10-03",
         "status": "in_force",
         "quoted_span": "It shall be unlawful for a person to use or distribute a common pricing algorithm as part of a contract, combination in the form of a trust, or conspiracy to restrain trade or commerce in violation of this chapter.\n(b) It shall be unlawful for a person to use or distribute a comm",
-        "change_note": "effective_date 2025-10-06 → 2026-01-01; quoted_span updated (re-extract or span repair)"
+        "change_note": "quoted_span updated (re-extract or span repair)"
       },
       {
         "version": "v1",
@@ -1734,7 +1734,7 @@
         "released_at": "2026-10-04",
         "status": "in_force",
         "quoted_span": "Landlords who rent any residential dwelling unit (defined as any\nprimary residence excluding medical/long-term care or detention facilities) in the City of\nHoboken are prohibited from price fixing using algorithmic pricing. For purposes of this\nchapter, “price fixing using algorithmic pricing”shall be",
-        "change_note": "effective_date ∅ → 2025-07-09; quoted_span updated (re-extract or span repair)"
+        "change_note": "quoted_span updated (re-extract or span repair)"
       },
       {
         "version": "v5",
@@ -1742,7 +1742,7 @@
         "released_at": "2026-10-04",
         "status": "in_force",
         "quoted_span": "Bhalla today announced the City of Hoboken has outlawed the use of algorithmic rent-setting software in the rental housing market, following the adoption of the Administration’s legislation by the City Council during its July 9",
-        "change_note": "effective_date 2024-01-01 → ∅; quoted_span updated (re-extract or span repair)"
+        "change_note": "quoted_span updated (re-extract or span repair)"
       },
       {
         "version": "v4",
@@ -1784,7 +1784,7 @@
         "released_at": "2026-10-04",
         "status": "in_force",
         "quoted_span": "a.It is unlawful for any real estate lessor, agent, or subcontractor thereof, to subscribe to, contract with, or otherwise\nexchange anything of value in return for the services of a Service Provider.\n\nb.No service provider shall facilitate an agreement not to compete among real",
-        "change_note": "effective_date ∅ → 2025-05-21; quoted_span updated (re-extract or span repair)"
+        "change_note": "quoted_span updated (re-extract or span repair)"
       },
       {
         "version": "v5",
@@ -1792,7 +1792,7 @@
         "released_at": "2026-10-04",
         "status": "in_force",
         "quoted_span": "The Jersey City Council unanimously approved (9-0) a measure banning rent-setting algorithms such as RealPage, as well as increasing benefits for laborers, at last night’s meeting. \n\n \n\n By Daniel Ulloa/H",
-        "change_note": "effective_date 2024-01-01 → ∅; quoted_span updated (re-extract or span repair)"
+        "change_note": "quoted_span updated (re-extract or span repair)"
       },
       {
         "version": "v4",
