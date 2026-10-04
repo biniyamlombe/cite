@@ -4,12 +4,19 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { AsOfDateSchema, DEFAULT_AS_OF, RulesFileSchema, type RuleRecord } from "@rhl/shared";
-import { loadAllAddresses } from "../lib/addresses.js";
+import {
+  API_SCHEMA_VERSION,
+  ARTIFACT_SCHEMA_VERSION,
+  AsOfDateSchema,
+  BuildingFactOverridesSchema,
+  DEFAULT_AS_OF,
+  PIPELINE_VERSION,
+  type RuleRecord,
+} from "@rhl/shared";
+import { parseOptionalInt } from "../lib/addresses.js";
 import { exactSpanInSource, loadCapturableDocs, loadDocById } from "../lib/corpus.js";
 import { readJsonIfExists } from "../lib/io.js";
 import { outputsDir } from "../lib/paths.js";
-import type { GeocodeResult } from "../geocode/census.js";
 import { jurisdictionStack } from "../geocode/census.js";
 import { evaluateAddress } from "../apply/coverage.js";
 import { corpusGapsForGeo } from "../apply/corpus_gaps.js";
@@ -23,8 +30,23 @@ import {
   stableRuleKey,
 } from "../lib/rule_versions.js";
 import { renderConsolePage } from "./consolePage.js";
+import {
+  apiError,
+  buildMeta,
+  deriveProductStates,
+  deriveWarnings,
+  newRequestId,
+} from "./envelope.js";
+import {
+  cachedAddresses,
+  cachedGeos,
+  cachedRetrievedAtByDocId,
+  cachedRules,
+} from "./cache.js";
 
 export const app = new Hono();
+const DISCLAIMER =
+  "Not legal advice and not a compliance certification. Based on available public records in this prototype. Verify important decisions with a qualified legal professional.";
 
 const corsAllow = (
   process.env.CORS_ORIGIN ||
@@ -69,20 +91,12 @@ app.use(
 );
 
 async function loadRules(): Promise<RuleRecord[]> {
-  const file = await readJsonIfExists<{ rules: RuleRecord[] }>(
-    path.join(outputsDir(), "rules.json"),
-  );
-  return file ? RulesFileSchema.parse(file).rules : [];
+  return cachedRules();
 }
 
 /** Map source_doc_id → corpus retrieval timestamp (from file headers / manifest). */
 async function loadRetrievedAtByDocId(): Promise<Map<string, string>> {
-  const docs = await loadCapturableDocs();
-  return new Map(
-    docs
-      .filter((d) => Boolean(d.retrieved_at))
-      .map((d) => [d.doc_id, d.retrieved_at]),
-  );
+  return cachedRetrievedAtByDocId();
 }
 
 function withRetrievedAt<T extends RuleRecord | null>(
@@ -99,29 +113,29 @@ function withRetrievedAt<T extends RuleRecord | null>(
   return { ...rule, retrieved_at, stable_id: stableRuleKey(rule), evidence_status: ["HOB-ALG-01", "JC-ALG-01"].includes(rule.alias_id ?? "") ? "scenario_only" : "captured" } as never;
 }
 
-async function loadGeos(): Promise<Map<string, GeocodeResult>> {
-  const pack = await readJsonIfExists<{ geocoded: GeocodeResult[] }>(
-    path.join(outputsDir(), "geocode_cache.json"),
-  );
-  const stretch = await readJsonIfExists<{ geocoded: GeocodeResult[] }>(
-    path.join(outputsDir(), "stretch_geocode.json"),
-  );
-  return new Map(
-    [...(pack?.geocoded ?? []), ...(stretch?.geocoded ?? [])].map((g) => [
-      g.address_id,
-      g,
-    ]),
-  );
+async function loadGeos() {
+  return cachedGeos();
 }
 
 app.get("/health", (c) =>
   c.json({
     ok: true,
     service: "cite-api",
-
     as_of_default: process.env.AS_OF_DEFAULT || DEFAULT_AS_OF,
-    disclaimer:
-      "Not legal advice and not a compliance certification. Verify important decisions with qualified counsel.",
+    disclaimer: DISCLAIMER,
+    pipeline_version: PIPELINE_VERSION,
+    schema_version: API_SCHEMA_VERSION,
+  }),
+);
+
+app.get("/version", (c) =>
+  c.json({
+    service: "cite-api",
+    pipeline_version: PIPELINE_VERSION,
+    schema_version: ARTIFACT_SCHEMA_VERSION,
+    api_schema_version: API_SCHEMA_VERSION,
+    as_of_default: process.env.AS_OF_DEFAULT || DEFAULT_AS_OF,
+    disclaimer: DISCLAIMER,
   }),
 );
 
@@ -141,7 +155,7 @@ app.get("/", async (c) => {
 
   const [rules, addresses, changeTests] = await Promise.all([
     loadRules(),
-    loadAllAddresses(),
+    cachedAddresses(),
     loadChangeTests().catch(() => [] as Awaited<ReturnType<typeof loadChangeTests>>),
   ]);
   const aliases = new Set(
@@ -170,8 +184,9 @@ app.get("/", async (c) => {
 });
 
 app.get("/addresses", async (c) => {
+  const requestId = newRequestId();
   const q = (c.req.query("q") || "").toLowerCase().trim();
-  const addresses = await loadAllAddresses();
+  const addresses = await cachedAddresses();
   const geos = await loadGeos();
   let rows = addresses;
   if (q) {
@@ -184,6 +199,7 @@ app.get("/addresses", async (c) => {
     );
   }
   const limit = Math.min(Math.max(1, Number(c.req.query("limit") || 50) || 50), 1000);
+  const meta = buildMeta({ requestId });
   return c.json({
     count: rows.length,
     addresses: rows.slice(0, limit).map((a) => {
@@ -194,53 +210,233 @@ app.get("/addresses", async (c) => {
         county: g?.county ?? null,
       };
     }),
+    meta,
+    warnings:
+      q && rows.length === 0
+        ? [
+            {
+              code: "PARTIAL_RESULT" as const,
+              message: "No pack addresses matched the query.",
+              user_message:
+                "No matching properties in the supported demo set. Try a sample ID (e.g. A0005) or a street from the pack cities.",
+            },
+          ]
+        : [],
   });
 });
 
-app.get("/lookup/:addressId", async (c) => {
-  const addressId = c.req.param("addressId");
-  const asOf = c.req.query("as_of") || process.env.AS_OF_DEFAULT || DEFAULT_AS_OF;
-  if (!AsOfDateSchema.safeParse(asOf).success) return c.json({ error: "Invalid as_of: use a real calendar date (YYYY-MM-DD)." }, 400);
-  const addresses = await loadAllAddresses();
-  const addr = addresses.find((a) => a.address_id === addressId);
-  if (!addr) return c.json({ error: "Address not found" }, 404);
+function normalizeOverrides(raw: {
+  year_built?: string | number | undefined;
+  units?: string | number | undefined;
+}): { year_built?: string; units?: string; used: boolean; override_fields: string[] } {
+  const parsed = BuildingFactOverridesSchema.safeParse(raw);
+  if (!parsed.success) return { used: false, override_fields: [] };
+  const override_fields: string[] = [];
+  const out: { year_built?: string; units?: string; used: boolean; override_fields: string[] } = {
+    used: false,
+    override_fields,
+  };
+  if (parsed.data.year_built != null && String(parsed.data.year_built).trim() !== "") {
+    out.year_built = String(parsed.data.year_built).trim();
+    override_fields.push("year_built");
+    out.used = true;
+  }
+  if (parsed.data.units != null && String(parsed.data.units).trim() !== "") {
+    out.units = String(parsed.data.units).trim();
+    override_fields.push("units");
+    out.used = true;
+  }
+  return out;
+}
+
+async function handleLookup(
+  c: Parameters<typeof apiError>[0],
+  opts: {
+    addressId: string;
+    asOf: string;
+    includeNonApplicable: boolean;
+    year_built?: string | number;
+    units?: string | number;
+  },
+) {
+  const requestId = newRequestId();
+  const asOf = opts.asOf || process.env.AS_OF_DEFAULT || DEFAULT_AS_OF;
+  if (!AsOfDateSchema.safeParse(asOf).success) {
+    return apiError(
+      c,
+      400,
+      "INVALID_AS_OF",
+      "Invalid as_of: use a real calendar date (YYYY-MM-DD).",
+      "Enter a valid calendar date in YYYY-MM-DD format.",
+      { field_errors: { as_of: "Invalid calendar date" }, requestId },
+    );
+  }
+  const includeNonApplicable = opts.includeNonApplicable;
+  const overrides = normalizeOverrides({
+    year_built: opts.year_built,
+    units: opts.units,
+  });
+  const addresses = await cachedAddresses();
+  const addr = addresses.find((a) => a.address_id === opts.addressId);
+  if (!addr) {
+    return apiError(
+      c,
+      404,
+      "ADDRESS_NOT_FOUND",
+      "Address not found in the supported demo set.",
+      "That address is not in the supported sample set. Try a demo ID such as A0005, or search by street in a covered city.",
+      { requestId },
+    );
+  }
 
   const geos = await loadGeos();
-  const geo = geos.get(addressId);
+  const geo = geos.get(opts.addressId);
   if (!geo) {
-    return c.json(
-      {
-        error: "Address not geocoded yet. Run npm run geocode.",
-        address: addr,
-      },
+    return apiError(
+      c,
       409,
+      "NOT_GEOCODED",
+      "Address not geocoded yet. Run npm run geocode.",
+      "Jurisdiction for this address is not ready yet. Retry after geocoding completes.",
+      { retryable: true, requestId, extra: { address: addr } },
     );
   }
 
   const rules = await loadRules();
   if (!rules.length) {
-    return c.json(
-      { error: "No rules loaded. Run npm run extract." },
+    return apiError(
+      c,
       409,
+      "NO_RULES_LOADED",
+      "No rules loaded. Run npm run extract.",
+      "Rule data is not loaded. Retry shortly or contact the operator.",
+      { retryable: true, requestId },
     );
   }
 
-  const entries = evaluateAddress({ address: addr, geo, rules, asOf });
+  const effectiveAddr = {
+    ...addr,
+    ...(overrides.year_built != null ? { year_built: overrides.year_built } : {}),
+    ...(overrides.units != null ? { units: overrides.units } : {}),
+  };
+
+  const entries = evaluateAddress({
+    address: addr,
+    geo,
+    rules,
+    asOf,
+    includeNonApplicable,
+    addressOverrides: overrides.used
+      ? { year_built: overrides.year_built, units: overrides.units }
+      : undefined,
+  });
   const byId = new Map(rules.map((r) => [r.team_rule_id, r]));
   const retrievedAtByDoc = await loadRetrievedAtByDocId();
   const corpus_gaps = await corpusGapsForGeo(geo, rules);
+  const stack = jurisdictionStack(geo);
+  const generated_at = new Date().toISOString();
+  const results = entries.map((e) => {
+    const rule = withRetrievedAt(byId.get(e.team_rule_id) ?? null, retrievedAtByDoc);
+    return {
+      ...e,
+      status_label: e.legal_status_at_as_of_date ?? rule?.status ?? null,
+      applicability_label: e.applicability ?? e.result,
+      rule,
+    };
+  });
+  const resultLikes = results.map((r) => {
+    const evidence =
+      r.rule && "evidence_status" in r.rule
+        ? (r.rule as { evidence_status?: string | null }).evidence_status ?? null
+        : null;
+    return {
+      result: r.result,
+      conflict_flag: r.conflict_flag,
+      needs_human_review: r.needs_human_review,
+      facts_missing: r.facts_missing,
+      rule: r.rule ? { evidence_status: evidence } : null,
+    };
+  });
+  const product_states = deriveProductStates({
+    jurisdictionTrusted: Boolean(stack.trusted),
+    jurisdictionStatus: stack.status,
+    results: resultLikes,
+    corpusGaps: corpus_gaps,
+    userProvidedFacts: overrides.used,
+  });
+  const warnings = deriveWarnings({
+    jurisdictionTrusted: Boolean(stack.trusted),
+    jurisdictionResolution: stack.resolution,
+    results: resultLikes,
+    corpusGaps: corpus_gaps,
+    userProvidedFacts: overrides.used,
+  });
+  const meta = buildMeta({ requestId, asOf, generatedAt: generated_at });
 
   return c.json({
-    disclaimer:
-      "Not legal advice and not a compliance certification. Verify important decisions with qualified counsel.",
+    disclaimer: DISCLAIMER,
     as_of: asOf,
-    address: addr,
-    jurisdiction: jurisdictionStack(geo),
+    address: effectiveAddr,
+    jurisdiction: stack,
+    building_facts: {
+      year_built: parseOptionalInt(effectiveAddr.year_built),
+      unit_count: parseOptionalInt(effectiveAddr.units),
+      property_type: null,
+      occupancy_type: null,
+      use_code: addr.use_code || null,
+      facts_source: overrides.used
+        ? "user_provided"
+        : addr.source_dataset || "sample_addresses.csv",
+      override_fields: overrides.override_fields,
+    },
+    audit: {
+      pipeline_version: PIPELINE_VERSION,
+      generated_at,
+      include_non_applicable: includeNonApplicable,
+      request_id: requestId,
+      user_provided_facts: overrides.used,
+    },
+    meta,
+    warnings,
+    product_states,
     corpus_gaps,
-    results: entries.map((e) => ({
-      ...e,
-      rule: withRetrievedAt(byId.get(e.team_rule_id) ?? null, retrievedAtByDoc),
-    })),
+    results,
+  });
+}
+
+app.get("/lookup/:addressId", async (c) =>
+  handleLookup(c, {
+    addressId: c.req.param("addressId"),
+    asOf: c.req.query("as_of") || process.env.AS_OF_DEFAULT || DEFAULT_AS_OF,
+    includeNonApplicable:
+      c.req.query("include_non_applicable") === "1" ||
+      c.req.query("include_non_applicable") === "true",
+    year_built: c.req.query("year_built") || undefined,
+    units: c.req.query("units") || undefined,
+  }),
+);
+
+app.post("/lookup/:addressId", async (c) => {
+  let body: Record<string, unknown> = {};
+  try {
+    body = (await c.req.json()) as Record<string, unknown>;
+  } catch {
+    body = {};
+  }
+  const facts = BuildingFactOverridesSchema.safeParse(body.building_facts ?? body);
+  return handleLookup(c, {
+    addressId: c.req.param("addressId"),
+    asOf:
+      (typeof body.as_of === "string" ? body.as_of : undefined) ||
+      c.req.query("as_of") ||
+      process.env.AS_OF_DEFAULT ||
+      DEFAULT_AS_OF,
+    includeNonApplicable:
+      body.include_non_applicable === true ||
+      body.include_non_applicable === "1" ||
+      c.req.query("include_non_applicable") === "1",
+    year_built: facts.success ? facts.data.year_built : undefined,
+    units: facts.success ? facts.data.units : undefined,
   });
 });
 
@@ -273,15 +469,21 @@ app.get("/changes/:testId", async (c) => {
   const tests = await loadChangeTests();
   const test = tests.find((t) => t.test_id === testId);
   const result = file?.[testId];
-  if (!test && !result) return c.json({ error: "Unknown test" }, 404);
-  return c.json({ test, result: result ?? null });
+  if (!test && !result) {
+    return apiError(c, 404, "UNKNOWN_TEST", "Unknown test", "That change scenario was not found.");
+  }
+  return c.json({ test, result: result ?? null, meta: buildMeta({ requestId: newRequestId() }) });
 });
 
 app.get("/rules/:teamRuleId/versions", async (c) => {
   const teamRuleId = c.req.param("teamRuleId");
   const rules = await loadRules();
   const rule = rules.find((r) => r.team_rule_id === teamRuleId);
-  if (!rule) return c.json({ error: "Unknown rule", versions: [] }, 404);
+  if (!rule) {
+    return apiError(c, 404, "UNKNOWN_RULE", "Unknown rule", "That rule was not found.", {
+      extra: { versions: [] },
+    });
+  }
   let file = await loadRuleVersionsFile();
   // Lazy seed: if history file missing/empty, record current tip so UI is never blank.
   if (!Object.keys(file.by_key).length) {
@@ -374,9 +576,14 @@ app.post("/extract/doc/:docId", async (c) => {
       ],
     });
   } catch (err) {
-    return c.json(
-      { error: err instanceof Error ? err.message : String(err) },
+    const message = err instanceof Error ? err.message : "Extract failed";
+    return apiError(
+      c,
       400,
+      "EXTRACT_FAILED",
+      message,
+      "Document extraction could not be completed. Try another corpus document or retry shortly.",
+      { retryable: true },
     );
   }
 });
@@ -400,9 +607,20 @@ app.get("/submission/:file", async (c) => {
     "changes.json",
     "geocode_cache.json",
   ]);
-  if (!allowed.has(file)) return c.json({ error: "Not allowed" }, 400);
+  if (!allowed.has(file)) {
+    return apiError(c, 400, "NOT_ALLOWED", "Not allowed", "That submission file is not available.");
+  }
   const data = await readJsonIfExists(path.join(outputsDir(), file));
-  if (!data) return c.json({ error: "File not generated yet" }, 404);
+  if (!data) {
+    return apiError(
+      c,
+      404,
+      "FILE_MISSING",
+      "File not generated yet",
+      "That artifact has not been generated yet.",
+      { retryable: true },
+    );
+  }
   return c.json(data);
 });
 
