@@ -42,6 +42,8 @@ export async function validateRuleRecord(
             quote_end_offset: _qe,
             extraction_method: _em,
             requires_human_review: _rh,
+            effective_date_basis: _eb,
+            status_basis: _sb,
             ...rest
           } = zod.data;
           return rest;

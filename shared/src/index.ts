@@ -85,6 +85,10 @@ export const RuleRecordSchema = z.object({
     .regex(/^\d{4}(-\d{2}(-\d{2})?)?$/)
     .nullable()
     .optional(),
+  /** How effective_date was grounded: stated | derived | rule_of_law | removed_unsupported, with source evidence. */
+  effective_date_basis: z.string().nullable().optional(),
+  /** Why status is what it is when not read directly from captured law text (e.g. link-only scaffolds). */
+  status_basis: z.string().nullable().optional(),
   /** Penalty / remedy language when stated (civil fine, misdemeanor, treble damages, etc.). */
   penalty: z.string().nullable().optional(),
   citation: z.string().min(1),
