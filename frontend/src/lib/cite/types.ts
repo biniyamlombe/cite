@@ -168,6 +168,24 @@ export interface LookupResponse {
   results: LookupResult[];
 }
 
+export type NoRuleFinding = {
+  finding_id: string;
+  jurisdiction: string;
+  level: "state" | "city";
+  category: Category;
+  kind: "no_rule_in_corpus" | "unverified_link_only";
+  note: string;
+  note_es: string;
+  source_doc_ids: string[];
+};
+
+export type NoRuleFindingsResponse = {
+  disclaimer: string;
+  count: number;
+  findings: NoRuleFinding[];
+  generated_at: string | null;
+};
+
 export type TestId = "T1" | "T2" | "T3" | "T4" | "T5";
 
 export interface ChangeTest {

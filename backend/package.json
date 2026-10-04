@@ -24,7 +24,8 @@
     "enrich-quote-offsets": "tsx src/cli/enrich_quote_offsets.ts",
     "enrich-geocode-ids": "tsx src/cli/enrich_geocode_ids.ts",
     "build-plain": "tsx src/cli/build_plain.ts",
-    "selfcheck": "tsx src/cli/selfcheck.ts"
+    "selfcheck": "tsx src/cli/selfcheck.ts",
+    "build-no-rule-findings": "tsx src/cli/build_no_rule_findings.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.39.0",

@@ -42,6 +42,7 @@ export interface CiteApiClient {
   lookup(addressId: string, asOf: string, options?: LookupOptions): Promise<LookupResponse>;
   changes(): Promise<ChangesResponse>;
   rules(): Promise<CatalogRule[]>;
+  noRuleFindings(): Promise<import("./types").NoRuleFindingsResponse>;
   corpusDocs(): Promise<CorpusDocOption[]>;
   extract(docId: string): Promise<ExtractResponse>;
   ruleVersions(teamRuleId: string): Promise<RuleVersion[]>;
@@ -138,6 +139,15 @@ export class MockCiteApiClient implements CiteApiClient {
     await delay();
     return (await fixtures()).MOCK_RULES;
   }
+  async noRuleFindings() {
+    await delay();
+    return {
+      disclaimer: DISCLAIMER,
+      count: 0,
+      findings: [],
+      generated_at: null,
+    };
+  }
   async corpusDocs() {
     await delay(80);
     return (await fixtures()).MOCK_EXTRACT_DOCS;
@@ -196,6 +206,9 @@ export class HttpCiteApiClient implements CiteApiClient {
   async rules(): Promise<CatalogRule[]> {
     return z.object({ rules: z.array(ApiRuleSchema) }).parse(await this.request("/rules"))
       .rules as CatalogRule[];
+  }
+  async noRuleFindings() {
+    return (await this.request("/no-rule-findings")) as import("./types").NoRuleFindingsResponse;
   }
   async corpusDocs(): Promise<CorpusDocOption[]> {
     return z.object({ docs: z.array(CorpusDocSchema) }).parse(await this.request("/corpus/docs"))

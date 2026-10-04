@@ -685,6 +685,28 @@ app.get("/audit", async (c) => {
   });
 });
 
+app.get("/no-rule-findings", async (c) => {
+  const data = await readJsonIfExists<{
+    generated_at?: string;
+    count?: number;
+    findings?: unknown[];
+  }>(path.join(outputsDir(), "no_rule_findings.json"));
+  if (!data) {
+    return c.json({
+      disclaimer: DISCLAIMER,
+      count: 0,
+      findings: [],
+      generated_at: null,
+    });
+  }
+  return c.json({
+    disclaimer: DISCLAIMER,
+    count: data.count ?? data.findings?.length ?? 0,
+    findings: data.findings ?? [],
+    generated_at: data.generated_at ?? null,
+  });
+});
+
 app.get("/submission/:file", async (c) => {
   const file = c.req.param("file");
   const allowed = new Set([

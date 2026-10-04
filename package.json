@@ -32,6 +32,7 @@
     "write-provenance": "npm run write-provenance -w backend",
     "build-plain": "npm run build-plain -w backend",
     "selfcheck": "npm run selfcheck -w backend",
+    "build-no-rule-findings": "npm run build-no-rule-findings -w backend",
     "enrich-quote-offsets": "npm run enrich-quote-offsets -w backend",
     "enrich-geocode-ids": "npm run enrich-geocode-ids -w backend",
     "quality": "bash scripts/quality-gate.sh"

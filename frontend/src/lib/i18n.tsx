@@ -562,6 +562,11 @@ const STRINGS = {
     "changes.col.before": "Before",
     "changes.col.after": "After",
     "changes.col.review": "Review",
+    "rules.corpusGaps.title": "Corpus gaps",
+    "rules.corpusGaps.lede":
+      "Jurisdiction and category cells with no extracted rule in the current snapshot. Gaps are not legal conclusions.",
+    "rules.corpusGaps.missing": "No extracted rule",
+    "rules.corpusGaps.linkOnly": "Link-only / uncaptured",
     "changes.affectedCount": "Affected",
     "changes.reviewCount": "Review",
     "changes.perAddressEvidence": "{n} addresses with per-address status · {rules}",
@@ -1341,6 +1346,11 @@ const STRINGS = {
     "rules.count": "normas",
     "rules.error": "No se pudieron cargar las normas.",
     "rules.empty": "Ninguna norma coincide con estos filtros.",
+    "rules.corpusGaps.title": "Vacíos del corpus",
+    "rules.corpusGaps.lede":
+      "Celdas de jurisdicción y categoría sin norma extraída en la instantánea actual. Los vacíos no son conclusiones legales.",
+    "rules.corpusGaps.missing": "Sin norma extraída",
+    "rules.corpusGaps.linkOnly": "Solo enlace / no capturado",
     "about.eyebrow": "Cite",
     "about.title": "Cómo funciona Cite — y sus límites.",
     "about.philosophy":

@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { Loader2 } from "lucide-react";
-import { useT, useTx } from "@/lib/i18n";
+import { useLocale, useT, useTx } from "@/lib/i18n";
 import { getCiteClient } from "@/lib/cite/client";
 import { CATEGORY_ORDER, confidenceBand, type ConfidenceBand } from "@/lib/cite/labels";
 import type { Category, RuleStatus } from "@/lib/cite/types";
@@ -249,7 +249,47 @@ function RulesPage() {
         </>
       )}
 
+      <CorpusGapFindings />
+
       <RuleDetailDrawer view={open} onClose={() => setOpen(null)} />
     </div>
+  );
+}
+
+function CorpusGapFindings() {
+  const t = useT();
+  const tx = useTx();
+  const { locale } = useLocale();
+  const q = useQuery({
+    queryKey: ["no-rule-findings"],
+    queryFn: () => getCiteClient().noRuleFindings(),
+  });
+  const findings = q.data?.findings ?? [];
+  if (q.isPending || findings.length === 0) return null;
+  return (
+    <section className="mt-14 border-t border-border/70 pt-10">
+      <h2 className="font-serif text-2xl text-ink">{t("rules.corpusGaps.title")}</h2>
+      <p className="mt-2 max-w-2xl text-sm text-muted-foreground">{t("rules.corpusGaps.lede")}</p>
+      <ul className="mt-6 divide-y divide-border/70">
+        {findings.slice(0, 40).map((f) => (
+          <li key={f.finding_id} className="py-3">
+            <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+              <span className="text-primary">{f.jurisdiction}</span>
+              <span aria-hidden>•</span>
+              <span>{tx(`category.${f.category}`)}</span>
+              <span aria-hidden>•</span>
+              <span>
+                {f.kind === "unverified_link_only"
+                  ? t("rules.corpusGaps.linkOnly")
+                  : t("rules.corpusGaps.missing")}
+              </span>
+            </div>
+            <p className="mt-1.5 text-sm leading-relaxed text-ink/90">
+              {locale === "es-US" ? f.note_es : f.note}
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }

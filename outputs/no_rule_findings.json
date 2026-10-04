@@ -1,0 +1,388 @@
+{
+  "generated_at": "2026-10-04T07:10:43.497Z",
+  "pipeline_version": "cite-1.1.0",
+  "count": 28,
+  "findings": [
+    {
+      "finding_id": "nr-boston-ma-algorithmic_rent_setting",
+      "jurisdiction": "Boston, MA",
+      "level": "city",
+      "category": "algorithmic_rent_setting",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Algorithmic rent setting rule for Boston, MA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Algorithmic rent setting para Boston, MA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D010",
+        "D011",
+        "D012",
+        "D013",
+        "D014"
+      ]
+    },
+    {
+      "finding_id": "nr-boston-ma-application_screening_fees",
+      "jurisdiction": "Boston, MA",
+      "level": "city",
+      "category": "application_screening_fees",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Application screening fees rule for Boston, MA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Application screening fees para Boston, MA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D010",
+        "D011",
+        "D012",
+        "D013",
+        "D014"
+      ]
+    },
+    {
+      "finding_id": "nr-boston-ma-security_deposits",
+      "jurisdiction": "Boston, MA",
+      "level": "city",
+      "category": "security_deposits",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Security deposits rule for Boston, MA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Security deposits para Boston, MA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D010",
+        "D011",
+        "D012",
+        "D013",
+        "D014"
+      ]
+    },
+    {
+      "finding_id": "nr-cambridge-ma-algorithmic_rent_setting",
+      "jurisdiction": "Cambridge, MA",
+      "level": "city",
+      "category": "algorithmic_rent_setting",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Algorithmic rent setting rule for Cambridge, MA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Algorithmic rent setting para Cambridge, MA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D029",
+        "D031"
+      ]
+    },
+    {
+      "finding_id": "nr-cambridge-ma-application_screening_fees",
+      "jurisdiction": "Cambridge, MA",
+      "level": "city",
+      "category": "application_screening_fees",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Application screening fees rule for Cambridge, MA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Application screening fees para Cambridge, MA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D029",
+        "D031"
+      ]
+    },
+    {
+      "finding_id": "nr-cambridge-ma-rent_increase_limits",
+      "jurisdiction": "Cambridge, MA",
+      "level": "city",
+      "category": "rent_increase_limits",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Rent increase limits rule for Cambridge, MA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Rent increase limits para Cambridge, MA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D029",
+        "D031"
+      ]
+    },
+    {
+      "finding_id": "nr-cambridge-ma-security_deposits",
+      "jurisdiction": "Cambridge, MA",
+      "level": "city",
+      "category": "security_deposits",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Security deposits rule for Cambridge, MA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Security deposits para Cambridge, MA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D029",
+        "D031"
+      ]
+    },
+    {
+      "finding_id": "nr-hoboken-nj-application_screening_fees",
+      "jurisdiction": "Hoboken, NJ",
+      "level": "city",
+      "category": "application_screening_fees",
+      "kind": "unverified_link_only",
+      "note": "No captured Application screening fees rule for Hoboken, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
+      "note_es": "No hay norma capturada de Application screening fees para Hoboken, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
+      "source_doc_ids": [
+        "D069"
+      ]
+    },
+    {
+      "finding_id": "nr-hoboken-nj-just_cause_eviction",
+      "jurisdiction": "Hoboken, NJ",
+      "level": "city",
+      "category": "just_cause_eviction",
+      "kind": "unverified_link_only",
+      "note": "No captured Just cause eviction rule for Hoboken, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
+      "note_es": "No hay norma capturada de Just cause eviction para Hoboken, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
+      "source_doc_ids": [
+        "D069"
+      ]
+    },
+    {
+      "finding_id": "nr-hoboken-nj-rent_increase_limits",
+      "jurisdiction": "Hoboken, NJ",
+      "level": "city",
+      "category": "rent_increase_limits",
+      "kind": "unverified_link_only",
+      "note": "No captured Rent increase limits rule for Hoboken, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
+      "note_es": "No hay norma capturada de Rent increase limits para Hoboken, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
+      "source_doc_ids": [
+        "D069"
+      ]
+    },
+    {
+      "finding_id": "nr-hoboken-nj-screening_restrictions",
+      "jurisdiction": "Hoboken, NJ",
+      "level": "city",
+      "category": "screening_restrictions",
+      "kind": "unverified_link_only",
+      "note": "No captured Screening restrictions rule for Hoboken, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
+      "note_es": "No hay norma capturada de Screening restrictions para Hoboken, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
+      "source_doc_ids": [
+        "D069"
+      ]
+    },
+    {
+      "finding_id": "nr-hoboken-nj-security_deposits",
+      "jurisdiction": "Hoboken, NJ",
+      "level": "city",
+      "category": "security_deposits",
+      "kind": "unverified_link_only",
+      "note": "No captured Security deposits rule for Hoboken, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
+      "note_es": "No hay norma capturada de Security deposits para Hoboken, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
+      "source_doc_ids": [
+        "D069"
+      ]
+    },
+    {
+      "finding_id": "nr-jersey-city-nj-application_screening_fees",
+      "jurisdiction": "Jersey City, NJ",
+      "level": "city",
+      "category": "application_screening_fees",
+      "kind": "unverified_link_only",
+      "note": "No captured Application screening fees rule for Jersey City, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
+      "note_es": "No hay norma capturada de Application screening fees para Jersey City, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
+      "source_doc_ids": [
+        "D036",
+        "D069"
+      ]
+    },
+    {
+      "finding_id": "nr-jersey-city-nj-just_cause_eviction",
+      "jurisdiction": "Jersey City, NJ",
+      "level": "city",
+      "category": "just_cause_eviction",
+      "kind": "unverified_link_only",
+      "note": "No captured Just cause eviction rule for Jersey City, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
+      "note_es": "No hay norma capturada de Just cause eviction para Jersey City, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
+      "source_doc_ids": [
+        "D036",
+        "D069"
+      ]
+    },
+    {
+      "finding_id": "nr-jersey-city-nj-screening_restrictions",
+      "jurisdiction": "Jersey City, NJ",
+      "level": "city",
+      "category": "screening_restrictions",
+      "kind": "unverified_link_only",
+      "note": "No captured Screening restrictions rule for Jersey City, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
+      "note_es": "No hay norma capturada de Screening restrictions para Jersey City, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
+      "source_doc_ids": [
+        "D036",
+        "D069"
+      ]
+    },
+    {
+      "finding_id": "nr-jersey-city-nj-security_deposits",
+      "jurisdiction": "Jersey City, NJ",
+      "level": "city",
+      "category": "security_deposits",
+      "kind": "unverified_link_only",
+      "note": "No captured Security deposits rule for Jersey City, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
+      "note_es": "No hay norma capturada de Security deposits para Jersey City, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
+      "source_doc_ids": [
+        "D036",
+        "D069"
+      ]
+    },
+    {
+      "finding_id": "nr-los-angeles-ca-application_screening_fees",
+      "jurisdiction": "Los Angeles, CA",
+      "level": "city",
+      "category": "application_screening_fees",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Application screening fees rule for Los Angeles, CA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Application screening fees para Los Angeles, CA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D039",
+        "D040",
+        "D041",
+        "D042",
+        "D043"
+      ]
+    },
+    {
+      "finding_id": "nr-los-angeles-ca-screening_restrictions",
+      "jurisdiction": "Los Angeles, CA",
+      "level": "city",
+      "category": "screening_restrictions",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Screening restrictions rule for Los Angeles, CA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Screening restrictions para Los Angeles, CA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D039",
+        "D040",
+        "D041",
+        "D042",
+        "D043"
+      ]
+    },
+    {
+      "finding_id": "nr-los-angeles-ca-security_deposits",
+      "jurisdiction": "Los Angeles, CA",
+      "level": "city",
+      "category": "security_deposits",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Security deposits rule for Los Angeles, CA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Security deposits para Los Angeles, CA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D039",
+        "D040",
+        "D041",
+        "D042",
+        "D043"
+      ]
+    },
+    {
+      "finding_id": "nr-san-diego-ca-application_screening_fees",
+      "jurisdiction": "San Diego, CA",
+      "level": "city",
+      "category": "application_screening_fees",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Application screening fees rule for San Diego, CA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Application screening fees para San Diego, CA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D073",
+        "D076"
+      ]
+    },
+    {
+      "finding_id": "nr-san-diego-ca-rent_increase_limits",
+      "jurisdiction": "San Diego, CA",
+      "level": "city",
+      "category": "rent_increase_limits",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Rent increase limits rule for San Diego, CA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Rent increase limits para San Diego, CA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D073",
+        "D076"
+      ]
+    },
+    {
+      "finding_id": "nr-san-diego-ca-screening_restrictions",
+      "jurisdiction": "San Diego, CA",
+      "level": "city",
+      "category": "screening_restrictions",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Screening restrictions rule for San Diego, CA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Screening restrictions para San Diego, CA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D073",
+        "D076"
+      ]
+    },
+    {
+      "finding_id": "nr-san-diego-ca-security_deposits",
+      "jurisdiction": "San Diego, CA",
+      "level": "city",
+      "category": "security_deposits",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Security deposits rule for San Diego, CA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Security deposits para San Diego, CA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D073",
+        "D076"
+      ]
+    },
+    {
+      "finding_id": "nr-san-francisco-ca-application_screening_fees",
+      "jurisdiction": "San Francisco, CA",
+      "level": "city",
+      "category": "application_screening_fees",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Application screening fees rule for San Francisco, CA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Application screening fees para San Francisco, CA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D078",
+        "D079",
+        "D080",
+        "D081",
+        "D082",
+        "D083"
+      ]
+    },
+    {
+      "finding_id": "nr-santa-ana-ca-algorithmic_rent_setting",
+      "jurisdiction": "Santa Ana, CA",
+      "level": "city",
+      "category": "algorithmic_rent_setting",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Algorithmic rent setting rule for Santa Ana, CA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Algorithmic rent setting para Santa Ana, CA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D084",
+        "D085"
+      ]
+    },
+    {
+      "finding_id": "nr-santa-ana-ca-application_screening_fees",
+      "jurisdiction": "Santa Ana, CA",
+      "level": "city",
+      "category": "application_screening_fees",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Application screening fees rule for Santa Ana, CA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Application screening fees para Santa Ana, CA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D084",
+        "D085"
+      ]
+    },
+    {
+      "finding_id": "nr-santa-ana-ca-screening_restrictions",
+      "jurisdiction": "Santa Ana, CA",
+      "level": "city",
+      "category": "screening_restrictions",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Screening restrictions rule for Santa Ana, CA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Screening restrictions para Santa Ana, CA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D084",
+        "D085"
+      ]
+    },
+    {
+      "finding_id": "nr-santa-ana-ca-security_deposits",
+      "jurisdiction": "Santa Ana, CA",
+      "level": "city",
+      "category": "security_deposits",
+      "kind": "no_rule_in_corpus",
+      "note": "No extracted Security deposits rule for Santa Ana, CA in the current corpus snapshot. This is a corpus gap, not a determination that no law exists.",
+      "note_es": "No hay norma extraída de Security deposits para Santa Ana, CA en la instantánea actual del corpus. Es un vacío del corpus, no una determinación de que no exista ley.",
+      "source_doc_ids": [
+        "D084",
+        "D085"
+      ]
+    }
+  ]
+}
