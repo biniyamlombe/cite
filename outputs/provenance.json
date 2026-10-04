@@ -1,17 +1,18 @@
 {
   "schema_version": "1.1.0",
   "pipeline_version": "cite-1.1.0",
-  "generated_at": "2026-10-04T07:09:56.554Z",
+  "generated_at": "2026-10-04T08:25:56.078Z",
+  "as_of": "2026-10-01",
   "pack_root": "data/pack",
   "input_hashes": {
     "corpus_manifest": "a5e2a29265d5c29f",
     "sample_addresses": "0a5ebe8cd9c422f5",
     "change_tests": "f22b82ebc8e783d1",
     "rule_schema": "4e8a02526b85b965",
-    "rules.json": "fc4df8d1c2d82c0e",
-    "lookups.json": "48e0f20acb86eb38",
-    "changes.json": "e79bb1490e484470",
+    "rules.json": "d0aaf9a625124d4f",
+    "lookups.json": "32623fa9d4e767d3",
+    "changes.json": "15945969c5a8579c",
     "geocode_cache.json": "be1864e2719a1cb3"
   },
-  "notes": "Updated after change-test generation. Pack-shaped changes.json; provenance companion. Not legal advice."
+  "notes": "Companion provenance for pack-shaped rules.json / lookups.json / changes.json. Not legal advice."
 }

@@ -1,9 +1,9 @@
 Cite offline self-check
-generated_at: 2026-10-04T07:10:05.099Z
+generated_at: 2026-10-04T08:25:59.608Z
 result: 11/11 checks passed
 
-PASS  rules_loaded — 147 rules
-PASS  dual_coverage — 147/147 dual coverage_conditions
+PASS  rules_loaded — 145 rules
+PASS  dual_coverage — 145/145 dual coverage_conditions
 PASS  quoted_span_sample — 40/40 sample spans found verbatim in corpus
 PASS  change_T1 — affected=250 expected=250; per_address=250
 PASS  change_T2 — affected=90 expected=90; per_address=90

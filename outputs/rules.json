@@ -33,7 +33,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 677,
-      "quote_end_offset": 847
+      "quote_end_offset": 847,
+      "effective_date_basis": "stated: \"2026-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0002",
@@ -64,7 +65,8 @@
       "penalty": "None stated in source document",
       "exemptions": "None stated in source document",
       "quote_start_offset": 1139,
-      "quote_end_offset": 1208
+      "quote_end_offset": 1208,
+      "effective_date_basis": "stated: \"2026-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0003",
@@ -95,7 +97,8 @@
       "penalty": "None stated in source document",
       "exemptions": "None stated in source document",
       "quote_start_offset": 1209,
-      "quote_end_offset": 1305
+      "quote_end_offset": 1305,
+      "effective_date_basis": "stated: \"2026-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0004",
@@ -126,7 +129,8 @@
       "penalty": "None stated in source document",
       "exemptions": "None stated in source document",
       "quote_start_offset": 1209,
-      "quote_end_offset": 1305
+      "quote_end_offset": 1305,
+      "effective_date_basis": "stated: \"2026-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0005",
@@ -181,7 +185,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "may seek injunctive relief based on violations of this",
       "quote_start_offset": 1278,
-      "quote_end_offset": 1532
+      "quote_end_offset": 1532,
+      "effective_date_basis": "stated: \"2020-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0006",
@@ -216,7 +221,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "may seek injunctive relief based on violations of this",
       "quote_start_offset": 2095,
-      "quote_end_offset": 2230
+      "quote_end_offset": 2230,
+      "effective_date_basis": "stated: \"2020-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0007",
@@ -251,7 +257,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "injunctive relief based on violations of this · injunctive relief, it shall be presumed that a tenant suffers irreparable harm through violation of this",
       "quote_start_offset": 6426,
-      "quote_end_offset": 6567
+      "quote_end_offset": 6567,
+      "effective_date_basis": "stated: \"2024-04-01\" stated in source"
     },
     {
       "team_rule_id": "r-0008",
@@ -286,7 +293,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "injunctive relief based on violations of this · injunctive relief, it shall be presumed that a tenant suffers irreparable harm through violation of this",
       "quote_start_offset": 12886,
-      "quote_end_offset": 13166
+      "quote_end_offset": 13166,
+      "effective_date_basis": "stated: \"2024-04-01\" stated in source"
     },
     {
       "team_rule_id": "r-0009",
@@ -321,7 +329,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "liable for damages as provided in subdivision (m), or any security not transferred pursuant to subdivision",
       "quote_start_offset": 3507,
-      "quote_end_offset": 3787
+      "quote_end_offset": 3787,
+      "effective_date_basis": "stated: \"2025-04-01\" stated in source"
     },
     {
       "team_rule_id": "r-0010",
@@ -356,7 +365,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "liable for damages as provided in subdivision (m), or any security not transferred pursuant to subdivision",
       "quote_start_offset": 6385,
-      "quote_end_offset": 6773
+      "quote_end_offset": 6773,
+      "effective_date_basis": "stated: \"2025-04-01\" stated in source"
     },
     {
       "team_rule_id": "r-0011",
@@ -392,7 +402,7 @@
       "exemptions": "Owner-occupied premises with not more than four dwelling units",
       "overrides": [],
       "interaction": "Establishes baseline prohibitions; C.46:8-56(b) specifies which convictions CAN be considered after conditional offer",
-      "effective_date": "2021-07-01",
+      "effective_date": "2022-01-01",
       "citation": "N.J.S.A. C.46:8-56(a)",
       "source_doc_id": "D065",
       "source_url": "https://pub.njleg.gov/bills/2020/PL21/110_.HTM",
@@ -403,7 +413,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 5221,
-      "quote_end_offset": 5507
+      "quote_end_offset": 5507,
+      "effective_date_basis": "derived: \"act shall take effect on the first day of the seventh month next following the date of enactment\" + \"Approved June 18, 2021\""
     },
     {
       "team_rule_id": "r-0012",
@@ -438,7 +449,8 @@
       "retrieved_at": "2026-10-01 22:44 UTC",
       "penalty": "injunctive relief, restitution/return of illegal profits, and/or civil penalties of up to $1,000 per · injunctive relief, money damages, and/or civil penalties of up to $1,000 per",
       "quote_start_offset": 4829,
-      "quote_end_offset": 5112
+      "quote_end_offset": 5112,
+      "effective_date_basis": "stated: \"2025-11-18\" stated in source"
     },
     {
       "team_rule_id": "r-0013",
@@ -473,7 +485,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "punishable by a warning or fine in accordance with the provisions of City of Boston Ordinances and/or Boston City Charter, shown",
       "quote_start_offset": 3643,
-      "quote_end_offset": 3927
+      "quote_end_offset": 3927,
+      "effective_date_basis": "stated: \"2020-11-06\" stated in source"
     },
     {
       "team_rule_id": "r-0014",
@@ -515,7 +528,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "injunctive relief based on violations of this · injunctive relief, it shall be presumed that a tenant suffers irreparable harm through violation of this",
       "quote_start_offset": 1284,
-      "quote_end_offset": 1532
+      "quote_end_offset": 1532,
+      "effective_date_basis": "stated: \"2024-04-01\" stated in source"
     },
     {
       "team_rule_id": "r-0015",
@@ -550,7 +564,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 1609,
-      "quote_end_offset": 1889
+      "quote_end_offset": 1889,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0016",
@@ -585,7 +600,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 12573,
-      "quote_end_offset": 12853
+      "quote_end_offset": 12853,
+      "effective_date_basis": "stated: \"2025-08-01\" stated in source"
     },
     {
       "team_rule_id": "r-0017",
@@ -620,7 +636,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 24807,
-      "quote_end_offset": 25046
+      "quote_end_offset": 25046,
+      "effective_date_basis": "stated: \"2025-08-01\" stated in source"
     },
     {
       "team_rule_id": "r-0018",
@@ -655,7 +672,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "liable for damages which shall not be less than one month's rent or more than three month's rent, or the actual damages sustained by the tenant, whichever is greater, and the costs of the suit, including a reasonable attorney's",
       "quote_start_offset": 580,
-      "quote_end_offset": 801
+      "quote_end_offset": 801,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0019",
@@ -690,7 +708,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 30818,
-      "quote_end_offset": 31062
+      "quote_end_offset": 31062,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0020",
@@ -725,7 +744,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 13321,
-      "quote_end_offset": 13601
+      "quote_end_offset": 13601,
+      "effective_date_basis": "stated: \"2025-08-01\" stated in source"
     },
     {
       "team_rule_id": "r-0021",
@@ -760,7 +780,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "liable for damages which shall not be less than one month's rent or more than three month's rent, or the actual damages sustained by the tenant, whichever is greater, and the costs of the suit, including a reasonable attorney's",
       "quote_start_offset": 2172,
-      "quote_end_offset": 2387
+      "quote_end_offset": 2387,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0022",
@@ -795,7 +816,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 4552,
-      "quote_end_offset": 4657
+      "quote_end_offset": 4657,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0023",
@@ -830,7 +852,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 9091,
-      "quote_end_offset": 9371
+      "quote_end_offset": 9371,
+      "effective_date_basis": "stated: \"2025-08-01\" stated in source"
     },
     {
       "team_rule_id": "r-0024",
@@ -849,6 +872,18 @@
             "operator": "eq",
             "value": "NJ"
           }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
         ]
       },
       "exemptions": "does not apply to the following: a dwelling unit that has been certified as having a lead -free interior; an owner -occupied dwelling unit; a seasonal dwelling unit which is rented for less than 6 months’ duration each year; or housing for the elderly or a residential property designed exclusively for persons with disabilities, unless a child less than six (6) years of age is expected to reside in the dwelling · owner-occupied units are not exempt from the 90-day notice",
@@ -865,7 +900,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "penalty of not less than $500 or not more than $2,000 for each",
       "quote_start_offset": 49136,
-      "quote_end_offset": 49418
+      "quote_end_offset": 49418,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0025",
@@ -912,7 +948,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 294,
-      "quote_end_offset": 560
+      "quote_end_offset": 560,
+      "effective_date_basis": "stated: \"2020-04-14\" stated in source"
     },
     {
       "team_rule_id": "r-0026",
@@ -936,7 +973,7 @@
       "exemptions": "No exemptions stated in document.",
       "overrides": [],
       "interaction": "Interacts with California Civil Code Section 1950.6 which sets state-level screening fee limits.",
-      "effective_date": "2026-01-01",
+      "effective_date": "2026",
       "citation": "Berkeley Municipal Code 13.78.010; California Civil Code Section 1950.6",
       "source_doc_id": "D005",
       "source_url": "https://rentboard.berkeleyca.gov/laws-regulations/city-berkeley-ordinances-affecting-rental-properties/tenant-screening-and",
@@ -947,7 +984,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 459,
-      "quote_end_offset": 510
+      "quote_end_offset": 510,
+      "effective_date_basis": "stated: \"2026\" stated in source"
     },
     {
       "team_rule_id": "r-0027",
@@ -982,7 +1020,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 1755,
-      "quote_end_offset": 2022
+      "quote_end_offset": 2022,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0028",
@@ -1017,7 +1056,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 993,
-      "quote_end_offset": 1375
+      "quote_end_offset": 1375,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0029",
@@ -1052,7 +1092,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 6528,
-      "quote_end_offset": 6653
+      "quote_end_offset": 6653,
+      "effective_date_basis": "stated: \"2024-11\" stated in source"
     },
     {
       "team_rule_id": "r-0030",
@@ -1087,7 +1128,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 7230,
-      "quote_end_offset": 7351
+      "quote_end_offset": 7351,
+      "effective_date_basis": "stated: \"2024-11\" stated in source"
     },
     {
       "team_rule_id": "r-0031",
@@ -1122,7 +1164,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 11884,
-      "quote_end_offset": 12071
+      "quote_end_offset": 12071,
+      "effective_date_basis": "stated: \"2024-11\" stated in source"
     },
     {
       "team_rule_id": "r-0032",
@@ -1157,7 +1200,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 11090,
-      "quote_end_offset": 11290
+      "quote_end_offset": 11290,
+      "effective_date_basis": "stated: \"2024-11\" stated in source"
     },
     {
       "team_rule_id": "r-0033",
@@ -1192,7 +1236,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 406,
-      "quote_end_offset": 512
+      "quote_end_offset": 512,
+      "effective_date_basis": "stated: \"2024-07-01\" stated in source"
     },
     {
       "team_rule_id": "r-0034",
@@ -1227,7 +1272,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 513,
-      "quote_end_offset": 826
+      "quote_end_offset": 826,
+      "effective_date_basis": "stated: \"2024-07-01\" stated in source"
     },
     {
       "team_rule_id": "r-0035",
@@ -1262,7 +1308,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 1432,
-      "quote_end_offset": 1609
+      "quote_end_offset": 1609,
+      "effective_date_basis": "stated: \"2025-07-01\" stated in source"
     },
     {
       "team_rule_id": "r-0036",
@@ -1297,7 +1344,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 2908,
-      "quote_end_offset": 3032
+      "quote_end_offset": 3032,
+      "effective_date_basis": "stated: \"2025-07-01\" stated in source"
     },
     {
       "team_rule_id": "r-0037",
@@ -1332,7 +1380,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 470,
-      "quote_end_offset": 656
+      "quote_end_offset": 656,
+      "effective_date_basis": "stated: \"2026-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0038",
@@ -1367,7 +1416,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 2693,
-      "quote_end_offset": 2846
+      "quote_end_offset": 2846,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0039",
@@ -1402,7 +1452,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 2441,
-      "quote_end_offset": 2521
+      "quote_end_offset": 2521,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0040",
@@ -1456,7 +1507,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 662,
-      "quote_end_offset": 748
+      "quote_end_offset": 748,
+      "effective_date_basis": "stated: \"1996-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0041",
@@ -1491,7 +1543,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 750,
-      "quote_end_offset": 847
+      "quote_end_offset": 847,
+      "effective_date_basis": "stated: \"1996-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0042",
@@ -1526,7 +1579,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 849,
-      "quote_end_offset": 986
+      "quote_end_offset": 986,
+      "effective_date_basis": "stated: \"1996-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0043",
@@ -1561,7 +1615,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 988,
-      "quote_end_offset": 1120
+      "quote_end_offset": 1120,
+      "effective_date_basis": "stated: \"1996-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0044",
@@ -1596,7 +1651,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 1233,
-      "quote_end_offset": 1285
+      "quote_end_offset": 1285,
+      "effective_date_basis": "stated: \"1996-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0045",
@@ -1631,7 +1687,8 @@
       "retrieved_at": "2026-10-01 22:44 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 917,
-      "quote_end_offset": 1042
+      "quote_end_offset": 1042,
+      "effective_date_basis": "stated: \"2017-02\" stated in source"
     },
     {
       "team_rule_id": "r-0046",
@@ -1666,7 +1723,8 @@
       "retrieved_at": "2026-10-01 22:44 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 1047,
-      "quote_end_offset": 1183
+      "quote_end_offset": 1183,
+      "effective_date_basis": "stated: \"2017-02\" stated in source"
     },
     {
       "team_rule_id": "r-0047",
@@ -1701,7 +1759,8 @@
       "retrieved_at": "2026-10-01 22:44 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 4403,
-      "quote_end_offset": 4502
+      "quote_end_offset": 4502,
+      "effective_date_basis": "stated: \"2017-02\" stated in source"
     },
     {
       "team_rule_id": "r-0048",
@@ -1736,7 +1795,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "punishable by a warning or fine in accordance with the provisions of City of Boston Ordinances and/or Boston City Charter, shown",
       "quote_start_offset": 1736,
-      "quote_end_offset": 1903
+      "quote_end_offset": 1903,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0049",
@@ -1766,7 +1826,9 @@
       "penalty": "punishable by a warning or fine in accordance with the provisions of City of Boston Ordinances and/or Boston City Charter, shown",
       "exemptions": "None stated in source document",
       "quote_start_offset": 2988,
-      "quote_end_offset": 3063
+      "quote_end_offset": 3063,
+      "effective_date": null,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0050",
@@ -1802,7 +1864,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 3789,
-      "quote_end_offset": 4069
+      "quote_end_offset": 4069,
+      "effective_date_basis": "rule_of_law: \"Approved by Governor October 06, 2025\" (no urgency clause in source) + Cal. Const. art. IV, § 8(c)(1): non-urgency statutes take effect January 1 of the year after enactment"
     },
     {
       "team_rule_id": "r-0051",
@@ -1837,7 +1900,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "Civil penalties or punitive damages Attorney’s fees FAQ What types of housing are covered by the Fair Employment and Housing",
       "quote_start_offset": 20575,
-      "quote_end_offset": 20796
+      "quote_end_offset": 20796,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0052",
@@ -1872,7 +1936,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "Civil penalties or punitive damages Attorney’s fees FAQ What types of housing are covered by the Fair Employment and Housing",
       "quote_start_offset": 21866,
-      "quote_end_offset": 22189
+      "quote_end_offset": 22189,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0053",
@@ -1907,7 +1972,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "Civil penalties or punitive damages Attorney’s fees FAQ What types of housing are covered by the Fair Employment and Housing",
       "quote_start_offset": 10407,
-      "quote_end_offset": 10750
+      "quote_end_offset": 10750,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0054",
@@ -1944,7 +2010,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "may seek injunctive relief based on violations of this",
       "quote_start_offset": 23674,
-      "quote_end_offset": 23828
+      "quote_end_offset": 23828,
+      "effective_date_basis": "stated: \"2024-04-01\" stated in source"
     },
     {
       "team_rule_id": "r-0055",
@@ -1979,7 +2046,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "punishable by a warning or fine in accordance with the provisions of City of Boston Ordinances and/or Boston City Charter, shown",
       "quote_start_offset": 400,
-      "quote_end_offset": 680
+      "quote_end_offset": 680,
+      "effective_date_basis": "stated: \"2020-11-06\" stated in source"
     },
     {
       "team_rule_id": "r-0056",
@@ -2014,7 +2082,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 2307,
-      "quote_end_offset": 2653
+      "quote_end_offset": 2653,
+      "effective_date_basis": "stated: \"2026-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0057",
@@ -2049,7 +2118,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 4850,
-      "quote_end_offset": 5140
+      "quote_end_offset": 5140,
+      "effective_date_basis": "stated: \"2026-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0058",
@@ -2084,7 +2154,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 4541,
-      "quote_end_offset": 4845
+      "quote_end_offset": 4845,
+      "effective_date_basis": "stated: \"2026-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0059",
@@ -2119,7 +2190,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 5333,
-      "quote_end_offset": 5604
+      "quote_end_offset": 5604,
+      "effective_date_basis": "stated: \"2026-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0060",
@@ -2154,7 +2226,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 1790,
-      "quote_end_offset": 2070
+      "quote_end_offset": 2070,
+      "effective_date_basis": "stated: \"2024-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0061",
@@ -2189,7 +2262,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 8499,
-      "quote_end_offset": 8655
+      "quote_end_offset": 8655,
+      "effective_date_basis": "stated: \"2024-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0062",
@@ -2224,7 +2298,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 8115,
-      "quote_end_offset": 8397
+      "quote_end_offset": 8397,
+      "effective_date_basis": "stated: \"2024-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0063",
@@ -2255,7 +2330,8 @@
       "penalty": "liable for damages as provided in subdivision (m), or any security not transferred pursuant to subdivision",
       "exemptions": "This subdivision shall not apply to a security collected or demanded by the landlord before July 1,",
       "quote_start_offset": 23073,
-      "quote_end_offset": 23250
+      "quote_end_offset": 23250,
+      "effective_date_basis": "stated: \"2026-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0064",
@@ -2325,7 +2401,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 570,
-      "quote_end_offset": 686
+      "quote_end_offset": 686,
+      "effective_date_basis": "stated: \"2025-08-20\" stated in source"
     },
     {
       "team_rule_id": "r-0066",
@@ -2360,7 +2437,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 1898,
-      "quote_end_offset": 2270
+      "quote_end_offset": 2270,
+      "effective_date_basis": "stated: \"2023-03-27\" stated in source"
     },
     {
       "team_rule_id": "r-0067",
@@ -2395,7 +2473,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 4106,
-      "quote_end_offset": 4262
+      "quote_end_offset": 4262,
+      "effective_date_basis": "stated: \"2023-03-27\" stated in source"
     },
     {
       "team_rule_id": "r-0068",
@@ -2430,7 +2509,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 4569,
-      "quote_end_offset": 4715
+      "quote_end_offset": 4715,
+      "effective_date_basis": "stated: \"2023-03-27\" stated in source"
     },
     {
       "team_rule_id": "r-0069",
@@ -2465,7 +2545,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 3424,
-      "quote_end_offset": 3582
+      "quote_end_offset": 3582,
+      "effective_date_basis": "stated: \"2025-08-20\" stated in source"
     },
     {
       "team_rule_id": "r-0070",
@@ -2520,7 +2601,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 1934,
-      "quote_end_offset": 2185
+      "quote_end_offset": 2185,
+      "effective_date_basis": "stated: \"2026-02-02\" stated in source"
     },
     {
       "team_rule_id": "r-0071",
@@ -2575,7 +2657,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 2186,
-      "quote_end_offset": 2335
+      "quote_end_offset": 2335,
+      "effective_date_basis": "stated: \"2020-03-30\" stated in source"
     },
     {
       "team_rule_id": "r-0072",
@@ -2630,7 +2713,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 257,
-      "quote_end_offset": 418
+      "quote_end_offset": 418,
+      "effective_date_basis": "stated: \"2025-07-01\" stated in source"
     },
     {
       "team_rule_id": "r-0073",
@@ -2685,7 +2769,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 421,
-      "quote_end_offset": 531
+      "quote_end_offset": 531,
+      "effective_date_basis": "stated: \"2026-02-02\" stated in source"
     },
     {
       "team_rule_id": "r-0074",
@@ -2727,7 +2812,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 425,
-      "quote_end_offset": 586
+      "quote_end_offset": 586,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0075",
@@ -2762,7 +2848,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 443,
-      "quote_end_offset": 723
+      "quote_end_offset": 723,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0076",
@@ -2797,7 +2884,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 432,
-      "quote_end_offset": 774
+      "quote_end_offset": 774,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0077",
@@ -2832,7 +2920,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 2184,
-      "quote_end_offset": 2399
+      "quote_end_offset": 2399,
+      "effective_date_basis": "stated: \"2025-08-01\" stated in source"
     },
     {
       "team_rule_id": "r-0078",
@@ -2867,7 +2956,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 23270,
-      "quote_end_offset": 23550
+      "quote_end_offset": 23550,
+      "effective_date_basis": "stated: \"2025-08-01\" stated in source"
     },
     {
       "team_rule_id": "r-0079",
@@ -2902,7 +2992,8 @@
       "retrieved_at": "2026-10-01 22:56 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 616,
-      "quote_end_offset": 775
+      "quote_end_offset": 775,
+      "effective_date_basis": "stated: \"2025-08-01\" stated in source"
     },
     {
       "team_rule_id": "r-0080",
@@ -2937,7 +3028,8 @@
       "retrieved_at": "2026-10-01 22:56 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 1726,
-      "quote_end_offset": 1875
+      "quote_end_offset": 1875,
+      "effective_date_basis": "stated: \"2025-08-01\" stated in source"
     },
     {
       "team_rule_id": "r-0081",
@@ -2972,7 +3064,8 @@
       "retrieved_at": "2026-10-01 22:54 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 439,
-      "quote_end_offset": 719
+      "quote_end_offset": 719,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0082",
@@ -2996,7 +3089,7 @@
       "exemptions": "Dwelling units located in one-family or two-family dwellings offered for rent; Licensees of the New Jersey Real Estate Commission (unless the licensee is the landlord)",
       "overrides": [],
       "interaction": "Violations enforced through summary proceedings under the Penalty Enforcement Law of 1999; penalties range from $500 (first offense) to $1,000+ (subsequent offenses); wrongfully charged amounts remitted to applicant.",
-      "effective_date": "2026-05-20",
+      "effective_date": "2026-05-01",
       "citation": "N.J.S.A. 46:8-18.1",
       "source_doc_id": "D066",
       "source_url": "https://pub.njleg.gov/bills/2024/PL25/405_.HTM",
@@ -3007,7 +3100,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "penalty of up to $500 for a first offense, up to $750 for a second offense, and up to $1,000 for each subsequent offense, which shall be collected and enforced by summary proceedings pursuant to the \"Penalty Enforcement Law of 1999,\"",
       "quote_start_offset": 427,
-      "quote_end_offset": 612
+      "quote_end_offset": 612,
+      "effective_date_basis": "derived: \"act shall take effect on the first day of the fourth month next following the date of enactment\" + \"Approved January 20, 2026\""
     },
     {
       "team_rule_id": "r-0083",
@@ -3042,7 +3136,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
       "quote_start_offset": 68572,
-      "quote_end_offset": 68776
+      "quote_end_offset": 68776,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0084",
@@ -3061,6 +3156,18 @@
             "operator": "eq",
             "value": "NJ"
           }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
         ]
       },
       "exemptions": "does not apply to the following: a dwelling unit that has been certified as having a lead -free interior; an owner -occupied dwelling unit; a seasonal dwelling unit which is rented for less than 6 months’ duration each year; or housing for the elderly or a residential property designed exclusively for persons with disabilities, unless a child less than six (6) years of age is expected to reside in the dwelling · owner-occupied units are not exempt from the 90-day notice",
@@ -3077,7 +3184,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "liable for damages to the tenant",
       "quote_start_offset": 113872,
-      "quote_end_offset": 114155
+      "quote_end_offset": 114155,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0085",
@@ -3112,7 +3220,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "liable for damages to the tenant",
       "quote_start_offset": 116818,
-      "quote_end_offset": 117196
+      "quote_end_offset": 117196,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0086",
@@ -3131,6 +3240,18 @@
             "operator": "eq",
             "value": "NJ"
           }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
         ]
       },
       "exemptions": "does not apply to the following: a dwelling unit that has been certified as having a lead -free interior; an owner -occupied dwelling unit; a seasonal dwelling unit which is rented for less than 6 months’ duration each year; or housing for the elderly or a residential property designed exclusively for persons with disabilities, unless a child less than six (6) years of age is expected to reside in the dwelling · owner-occupied units are not exempt from the 90-day notice",
@@ -3147,7 +3268,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "liable for damages to the tenant",
       "quote_start_offset": 117832,
-      "quote_end_offset": 118190
+      "quote_end_offset": 118190,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0087",
@@ -3166,6 +3288,18 @@
             "operator": "eq",
             "value": "NJ"
           }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
         ]
       },
       "exemptions": "does not apply to the following: a dwelling unit that has been certified as having a lead -free interior; an owner -occupied dwelling unit; a seasonal dwelling unit which is rented for less than 6 months’ duration each year; or housing for the elderly or a residential property designed exclusively for persons with disabilities, unless a child less than six (6) years of age is expected to reside in the dwelling · owner-occupied units are not exempt from the 90-day notice",
@@ -3182,7 +3316,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "liable for damages to the tenant",
       "quote_start_offset": 118264,
-      "quote_end_offset": 118519
+      "quote_end_offset": 118519,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0088",
@@ -3201,6 +3336,18 @@
             "operator": "eq",
             "value": "NJ"
           }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
         ]
       },
       "exemptions": "does not apply to the following: a dwelling unit that has been certified as having a lead -free interior; an owner -occupied dwelling unit; a seasonal dwelling unit which is rented for less than 6 months’ duration each year; or housing for the elderly or a residential property designed exclusively for persons with disabilities, unless a child less than six (6) years of age is expected to reside in the dwelling · owner-occupied units are not exempt from the 90-day notice",
@@ -3217,7 +3364,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
       "quote_start_offset": 118627,
-      "quote_end_offset": 118910
+      "quote_end_offset": 118910,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0089",
@@ -3252,7 +3400,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
       "quote_start_offset": 119205,
-      "quote_end_offset": 119488
+      "quote_end_offset": 119488,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0090",
@@ -3299,7 +3448,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 3509,
-      "quote_end_offset": 3843
+      "quote_end_offset": 3843,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0091",
@@ -3309,13 +3459,13 @@
       "status": "not_yet_effective",
       "title": "Prohibition on Algorithmic Revenue Management Software and Coordinating Functions",
       "requirement": "It is unlawful for rental property owners to use, subscribe to, or contract for coordinator services that perform algorithmic coordinating functions. It is unlawful for coordinators to facilitate tacit or express agreements among rental property owners that restrict competition through algorithmic pricing, and unlawful for any person to perform a coordinating function.",
-      "effective_date": "2026-12-01",
+      "effective_date": "2027-07-01",
       "citation": "P.L. 2026, c.43, §4",
       "source_doc_id": "D069",
       "source_url": "https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM",
       "quoted_span": "Landlords engaging with the software supply\nreal-time prices and additional lease information to companies managing the\nsoftware, who proceed to use algorithms to fix rental prices.",
       "confidence": 0.95,
-      "conflict_flag": false,
+      "conflict_flag": true,
       "coverage_conditions": {
         "text": "It is unlawful for rental property owners to use, subscribe to, or contract for coordinator services that perform algorithmic coordinating functions. It is unlawful for coordinators to facilitate tacit or express agreements among rental property owners that restrict competition through algorithmic pricing, and unlawful for any person to perform a coordinating function.",
         "all": [
@@ -3330,7 +3480,11 @@
       "penalty": "None stated in source document",
       "exemptions": "None stated in source document",
       "quote_start_offset": 1455,
-      "quote_end_offset": 1636
+      "quote_end_offset": 1636,
+      "alias_id": "NJ-ALG-01",
+      "conflict_note": "Possible preemption conflict with Jersey City and Hoboken local algorithmic bans once effective (FAIR Act §6b: a municipality shall be prohibited from enacting an ordinance that conflicts with this act). Human review required; Cite does not decide which rule prevails.",
+      "interaction": "May conflict with existing local algorithmic bans once effective",
+      "effective_date_basis": "derived: \"act shall take effect on the first day of the twelfth month next following the date of enactment\" + \"approved July 20, 2026\""
     },
     {
       "team_rule_id": "r-0092",
@@ -3365,7 +3519,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this",
       "quote_start_offset": 10256,
-      "quote_end_offset": 10413
+      "quote_end_offset": 10413,
+      "effective_date_basis": "stated: \"2023-06-24\" stated in source"
     },
     {
       "team_rule_id": "r-0093",
@@ -3400,7 +3555,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this",
       "quote_start_offset": 18470,
-      "quote_end_offset": 18584
+      "quote_end_offset": 18584,
+      "effective_date_basis": "stated: \"2023-06-24\" stated in source"
     },
     {
       "team_rule_id": "r-0094",
@@ -3435,7 +3591,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this",
       "quote_start_offset": 25274,
-      "quote_end_offset": 25615
+      "quote_end_offset": 25615,
+      "effective_date_basis": "stated: \"2023-06-24\" stated in source"
     },
     {
       "team_rule_id": "r-0095",
@@ -3470,7 +3627,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this",
       "quote_start_offset": 26427,
-      "quote_end_offset": 26780
+      "quote_end_offset": 26780,
+      "effective_date_basis": "stated: \"2023-06-24\" stated in source"
     },
     {
       "team_rule_id": "r-0096",
@@ -3505,7 +3663,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this",
       "quote_start_offset": 30990,
-      "quote_end_offset": 31273
+      "quote_end_offset": 31273,
+      "effective_date_basis": "stated: \"2023-06-24\" stated in source"
     },
     {
       "team_rule_id": "r-0097",
@@ -3536,7 +3695,8 @@
       "penalty": "may seek injunctive relief, equitable relief, and money damages, including punitive damages, in a civil action against a landlord for a violation of this",
       "exemptions": "None stated in source document",
       "quote_start_offset": 752,
-      "quote_end_offset": 1078
+      "quote_end_offset": 1078,
+      "effective_date_basis": "stated: \"2023-06-24\" stated in source"
     },
     {
       "team_rule_id": "r-0098",
@@ -3571,7 +3731,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 390,
-      "quote_end_offset": 688
+      "quote_end_offset": 688,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0099",
@@ -3606,7 +3767,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 689,
-      "quote_end_offset": 969
+      "quote_end_offset": 969,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0100",
@@ -3661,7 +3823,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 258,
-      "quote_end_offset": 380
+      "quote_end_offset": 380,
+      "effective_date_basis": "stated: \"2026-03-01\" stated in source"
     },
     {
       "team_rule_id": "r-0101",
@@ -3696,7 +3859,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 572,
-      "quote_end_offset": 708
+      "quote_end_offset": 708,
+      "effective_date_basis": "stated: \"2024-10-14\" stated in source"
     },
     {
       "team_rule_id": "r-0102",
@@ -3720,7 +3884,7 @@
       "exemptions": "Temporary capital improvement evictions for less than 20 days are governed by California Civil Code Section 1947.9, not Rent Ordinance Section 37.9C",
       "overrides": [],
       "interaction": "Works in conjunction with just-cause eviction requirements; relocation payments are mandatory when these specific just-cause grounds are used",
-      "effective_date": "2006-08-10",
+      "effective_date": null,
       "citation": "San Francisco Rent Ordinance Section 37.9C",
       "source_doc_id": "D082",
       "source_url": "https://www.sf.gov/reports--archive-relocation-rates",
@@ -3731,7 +3895,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 198,
-      "quote_end_offset": 389
+      "quote_end_offset": 389,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0103",
@@ -3755,7 +3920,7 @@
       "exemptions": "None stated in source document",
       "overrides": [],
       "interaction": "Ellis Act evictions trigger higher relocation payment obligations than other just-cause eviction grounds",
-      "effective_date": "2006-03-01",
+      "effective_date": null,
       "citation": "San Francisco Rent Ordinance Section 37.9C; California Ellis Act",
       "source_doc_id": "D082",
       "source_url": "https://www.sf.gov/reports--archive-relocation-rates",
@@ -3766,7 +3931,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 2073,
-      "quote_end_offset": 2132
+      "quote_end_offset": 2132,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0104",
@@ -3821,7 +3987,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 346,
-      "quote_end_offset": 413
+      "quote_end_offset": 413,
+      "effective_date_basis": "stated: \"2026-03-01\" stated in source"
     },
     {
       "team_rule_id": "r-0105",
@@ -3856,7 +4023,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 414,
-      "quote_end_offset": 483
+      "quote_end_offset": 483,
+      "effective_date_basis": "stated: \"2026-03-01\" stated in source"
     },
     {
       "team_rule_id": "r-0106",
@@ -3887,7 +4055,8 @@
       "penalty": "None stated in source document",
       "exemptions": "None stated in source document",
       "quote_start_offset": 3945,
-      "quote_end_offset": 4077
+      "quote_end_offset": 4077,
+      "effective_date_basis": "stated: \"2026-03-01\" stated in source"
     },
     {
       "team_rule_id": "r-0107",
@@ -3918,7 +4087,8 @@
       "penalty": "None stated in source document",
       "exemptions": "None stated in source document",
       "quote_start_offset": 4309,
-      "quote_end_offset": 4483
+      "quote_end_offset": 4483,
+      "effective_date_basis": "stated: \"2026-03-01\" stated in source"
     },
     {
       "team_rule_id": "r-0108",
@@ -3953,7 +4123,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 886,
-      "quote_end_offset": 1080
+      "quote_end_offset": 1080,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0109",
@@ -3990,7 +4161,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 1208,
-      "quote_end_offset": 1428
+      "quote_end_offset": 1428,
+      "effective_date_basis": "stated: \"2021-11-19\" stated in source"
     },
     {
       "team_rule_id": "r-0110",
@@ -4045,7 +4217,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 2701,
-      "quote_end_offset": 2817
+      "quote_end_offset": 2817,
+      "effective_date_basis": "stated: \"2021-11-19\" stated in source"
     },
     {
       "team_rule_id": "r-0111",
@@ -4080,7 +4253,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 3358,
-      "quote_end_offset": 3527
+      "quote_end_offset": 3527,
+      "effective_date_basis": "stated: \"2021-11-19\" stated in source"
     },
     {
       "team_rule_id": "r-0112",
@@ -4115,7 +4289,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 13010,
-      "quote_end_offset": 13233
+      "quote_end_offset": 13233,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0113",
@@ -4150,7 +4325,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 20162,
-      "quote_end_offset": 20404
+      "quote_end_offset": 20404,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0114",
@@ -4185,7 +4361,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 23432,
-      "quote_end_offset": 23693
+      "quote_end_offset": 23693,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0115",
@@ -4227,7 +4404,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 26542,
-      "quote_end_offset": 26790
+      "quote_end_offset": 26790,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0116",
@@ -4262,7 +4440,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 31067,
-      "quote_end_offset": 31462
+      "quote_end_offset": 31462,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0117",
@@ -4297,7 +4476,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 37389,
-      "quote_end_offset": 37758
+      "quote_end_offset": 37758,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0118",
@@ -4344,7 +4524,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 4396,
-      "quote_end_offset": 4702
+      "quote_end_offset": 4702,
+      "effective_date_basis": "stated: \"2026-07-01\" stated in source"
     },
     {
       "team_rule_id": "r-0119",
@@ -4363,6 +4544,18 @@
             "operator": "eq",
             "value": "NJ"
           }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
         ]
       },
       "exemptions": "does not apply to the following: a dwelling unit that has been certified as having a lead -free interior; an owner -occupied dwelling unit; a seasonal dwelling unit which is rented for less than 6 months’ duration each year; or housing for the elderly or a residential property designed exclusively for persons with disabilities, unless a child less than six (6) years of age is expected to reside in the dwelling · owner-occupied units are not exempt from the 90-day notice",
@@ -4379,7 +4572,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
       "quote_start_offset": 139459,
-      "quote_end_offset": 139742
+      "quote_end_offset": 139742,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0120",
@@ -4398,6 +4592,18 @@
             "operator": "eq",
             "value": "NJ"
           }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
         ]
       },
       "exemptions": "does not apply to the following: a dwelling unit that has been certified as having a lead -free interior; an owner -occupied dwelling unit; a seasonal dwelling unit which is rented for less than 6 months’ duration each year; or housing for the elderly or a residential property designed exclusively for persons with disabilities, unless a child less than six (6) years of age is expected to reside in the dwelling · owner-occupied units are not exempt from the 90-day notice",
@@ -4414,7 +4620,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
       "quote_start_offset": 139955,
-      "quote_end_offset": 140237
+      "quote_end_offset": 140237,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0121",
@@ -4461,7 +4668,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 3876,
-      "quote_end_offset": 4256
+      "quote_end_offset": 4256,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0122",
@@ -4496,7 +4704,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 2520,
-      "quote_end_offset": 2800
+      "quote_end_offset": 2800,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0123",
@@ -4531,7 +4740,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
       "quote_start_offset": 70164,
-      "quote_end_offset": 70348
+      "quote_end_offset": 70348,
+      "effective_date_basis": "stated: \"1998\" stated in source"
     },
     {
       "team_rule_id": "r-0124",
@@ -4566,7 +4776,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 3861,
-      "quote_end_offset": 4114
+      "quote_end_offset": 4114,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0125",
@@ -4601,7 +4812,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 23432,
-      "quote_end_offset": 23673
+      "quote_end_offset": 23673,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0126",
@@ -4636,7 +4848,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 624,
-      "quote_end_offset": 992
+      "quote_end_offset": 992,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0127",
@@ -4671,7 +4884,8 @@
       "retrieved_at": "2026-10-01 22:35 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 3054,
-      "quote_end_offset": 3130
+      "quote_end_offset": 3130,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0128",
@@ -4726,7 +4940,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 2336,
-      "quote_end_offset": 2648
+      "quote_end_offset": 2648,
+      "effective_date_basis": "stated: \"2026-02-02\" stated in source"
     },
     {
       "team_rule_id": "r-0129",
@@ -4745,6 +4960,18 @@
             "operator": "eq",
             "value": "NJ"
           }
+        ],
+        "unknown_if": [
+          {
+            "field": "units",
+            "operator": "missing",
+            "reason": "Coverage or exemption may depend on unit count and/or owner type; units and owner identity are not available for this address."
+          },
+          {
+            "field": "owner_type",
+            "operator": "missing",
+            "reason": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data."
+          }
         ]
       },
       "exemptions": "does not apply to the following: a dwelling unit that has been certified as having a lead -free interior; an owner -occupied dwelling unit; a seasonal dwelling unit which is rented for less than 6 months’ duration each year; or housing for the elderly or a residential property designed exclusively for persons with disabilities, unless a child less than six (6) years of age is expected to reside in the dwelling · owner-occupied units are not exempt from the 90-day notice",
@@ -4761,7 +4988,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "penalty of not more than · attorney fees and court costs in the event of an eviction action for nonpayment of rent or for other legal actions; a landlord also may assess a “late charge” when the rent is not paid by a certain",
       "quote_start_offset": 23883,
-      "quote_end_offset": 24224
+      "quote_end_offset": 24224,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0130",
@@ -4833,7 +5061,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 1122,
-      "quote_end_offset": 1292
+      "quote_end_offset": 1292,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "team_rule_id": "r-0132",
@@ -4880,7 +5109,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 4313,
-      "quote_end_offset": 4593
+      "quote_end_offset": 4593,
+      "effective_date_basis": "stated: \"2022-08-05\" stated in source"
     },
     {
       "team_rule_id": "r-0133",
@@ -4935,7 +5165,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 3318,
-      "quote_end_offset": 3513
+      "quote_end_offset": 3513,
+      "effective_date_basis": "stated: \"2022-01-01\" stated in source"
     },
     {
       "team_rule_id": "r-0134",
@@ -5040,7 +5271,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 1545,
-      "quote_end_offset": 1708
+      "quote_end_offset": 1708,
+      "effective_date_basis": "stated: \"2020-10-14\" stated in source"
     },
     {
       "team_rule_id": "r-0137",
@@ -5082,43 +5314,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 3043,
-      "quote_end_offset": 3292
-    },
-    {
-      "team_rule_id": "r-0138",
-      "jurisdiction": "NJ",
-      "level": "state",
-      "category": "algorithmic_rent_setting",
-      "status": "not_yet_effective",
-      "title": "New Jersey FAIR Act algorithmic rent restrictions",
-      "requirement": "The NJ FAIR Act restricts algorithmic rent-setting tools statewide; effective the first day of the twelfth month after enactment (July 1, 2027). Municipal ordinances that conflict are prohibited.",
-      "key_value": null,
-      "coverage_conditions": {
-        "text": "Statewide New Jersey residential rentals",
-        "all": [
-          {
-            "field": "state",
-            "operator": "eq",
-            "value": "NJ"
-          }
-        ]
-      },
-      "exemptions": "None stated in source document",
-      "overrides": [],
-      "interaction": "May conflict with existing local algorithmic bans once effective",
-      "effective_date": "2027-07-01",
-      "citation": "N.J. FAIR Act (P.L.2026)",
-      "source_doc_id": "D069",
-      "source_url": "https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM",
-      "quoted_span": "device” means a device that uses one or more algorithms to process or otherwise\nperform calculations of data, including, but not limited to, data concerning\nrental prices, material lease terms, or occupancy l",
-      "confidence": 0.8,
-      "conflict_flag": true,
-      "conflict_note": "Possible preemption conflict with Jersey City and Hoboken local algorithmic bans once effective.",
-      "alias_id": "NJ-ALG-01",
-      "retrieved_at": "2026-10-01 22:56 UTC",
-      "penalty": "None stated in source document",
-      "quote_start_offset": 3204,
-      "quote_end_offset": 3412
+      "quote_end_offset": 3292,
+      "effective_date_basis": "stated: \"2023-02-28\" stated in source"
     },
     {
       "team_rule_id": "r-0139",
@@ -5297,7 +5494,11 @@
       "retrieved_at": "2026-10-01 22:56 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 3204,
-      "quote_end_offset": 3412
+      "quote_end_offset": 3412,
+      "requires_human_review": true,
+      "extraction_method": "link_only_scaffold",
+      "status_basis": "unverified: status follows the pack change test (T2), not captured Hoboken ordinance text. Effective date unknown.",
+      "effective_date_basis": "not_stated: primary ordinance is link-only in the pack"
     },
     {
       "jurisdiction": "Jersey City, NJ",
@@ -5333,42 +5534,11 @@
       "retrieved_at": "2026-10-01 22:56 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 3204,
-      "quote_end_offset": 3412
-    },
-    {
-      "team_rule_id": "r-0145",
-      "jurisdiction": "MA",
-      "level": "state",
-      "category": "algorithmic_rent_setting",
-      "status": "pending",
-      "title": "An Act prohibiting algorithmic rent setting",
-      "requirement": "Legislation to prohibit algorithmic rent setting in Massachusetts. The bill was reported favorably by the Housing committee and referred to the Senate Ways and Means committee.",
-      "key_value": "prohibition on algorithmic rent setting",
-      "coverage_conditions": {
-        "text": "Statewide Massachusetts rental housing market",
-        "all": [
-          {
-            "field": "state",
-            "operator": "eq",
-            "value": "MA"
-          }
-        ]
-      },
-      "exemptions": "None stated in source document",
-      "overrides": [],
-      "interaction": "New draft combining Senate bills S994 and S1016 related to preventing algorithmic rent fixing",
-      "effective_date": null,
-      "citation": "S.2983 (194th Legislature)",
-      "source_doc_id": "D047",
-      "source_url": "https://malegislature.gov/Bills/194/S2983/BillHistory",
-      "quoted_span": "An Act prohibiting algorithmic rent setting\nSenate, March 12, 2026 -- The committee on Housing, to whom was referred the petitions (accompanied by bill, Senate, No. 994) of Cindy F. Friedman and Julian Cyr for legislation to prohibit algorithmic rent setting",
-      "confidence": 0.7,
-      "conflict_flag": false,
-      "conflict_note": null,
-      "retrieved_at": "2026-10-01 22:36 UTC",
-      "penalty": "None stated in source document",
-      "quote_start_offset": 204,
-      "quote_end_offset": 462
+      "quote_end_offset": 3412,
+      "requires_human_review": true,
+      "extraction_method": "link_only_scaffold",
+      "status_basis": "unverified: status follows the pack change test (T2), not captured Jersey City ordinance text. Effective date unknown.",
+      "effective_date_basis": "not_stated: primary ordinance is link-only in the pack"
     },
     {
       "jurisdiction": "Cambridge, MA",
@@ -5416,7 +5586,8 @@
       "retrieved_at": "2026-10-01 22:36 UTC",
       "penalty": "injunctive relief, and seeking an award of damages, expenses and other",
       "quote_start_offset": 6175,
-      "quote_end_offset": 6375
+      "quote_end_offset": 6375,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     },
     {
       "jurisdiction": "San Francisco, CA",
@@ -5452,7 +5623,8 @@
       "retrieved_at": "2026-10-01 22:37 UTC",
       "penalty": "None stated in source document",
       "quote_start_offset": 5114,
-      "quote_end_offset": 5317
+      "quote_end_offset": 5317,
+      "effective_date_basis": "not_stated: No effective date stated in source"
     }
   ]
 }

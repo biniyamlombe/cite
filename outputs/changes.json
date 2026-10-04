@@ -2998,7 +2998,7 @@
       }
     ],
     "rule_mapping": {
-      "NJ-ALG-01": "r-0138",
+      "NJ-ALG-01": "r-0091",
       "HOB-ALG-01": "r-0143",
       "JC-ALG-01": "r-0144"
     },
@@ -4719,7 +4719,7 @@
   },
   "T5": {
     "affected_address_ids": [],
-    "evidence_summary": "affected=0; wrongly_applies=0; rogue_cap=50",
+    "evidence_summary": "affected=0; wrongly_applies=0; rogue_cap=0",
     "sample_evidence": [
       {
         "address_id": "A0006",
@@ -4758,6 +4758,6 @@
       "MA-RENT-P1": "r-0142"
     },
     "per_address": {},
-    "notes": "No rent cap reported for any Boston or Cambridge address; IP 25-21 recorded as failed. Affected set is empty. WARNING: wrongly_applies=0 rogue_cap=50"
+    "notes": "No rent cap reported for any Boston or Cambridge address; IP 25-21 recorded as failed. Affected set is empty. Failed ballot correctly omitted from applies."
   }
 }
