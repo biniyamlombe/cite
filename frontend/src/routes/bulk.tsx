@@ -14,6 +14,8 @@ export const Route = createFileRoute("/bulk")({
       { name: "description", content: "Check many rental properties at once and export the results." },
       { property: "og:title", content: "Bulk lookup — Cite" },
       { property: "og:description", content: "Applicability results for a whole list of addresses." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: BulkPage,

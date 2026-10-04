@@ -177,7 +177,7 @@ export function ChangeImpactCard({
           <div className="eyebrow">
             {test.test_id} · {test.type.replace(/_/g, " ")}
           </div>
-          <h3 className="mt-1.5 font-serif text-xl text-ink sm:text-2xl">{test.title}</h3>
+          <h2 className="mt-1.5 font-serif text-xl text-ink sm:text-2xl">{test.title}</h2>
           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
             {t(beatKey) || test.expected_behavior}
           </p>

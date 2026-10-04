@@ -15,6 +15,8 @@ export const Route = createFileRoute("/changes")({
       { name: "description", content: "Which regulatory changes affect which properties, and when." },
       { property: "og:title", content: "Change Radar — Cite" },
       { property: "og:description", content: "What will change, when, and which properties will be affected." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: ChangesPage,

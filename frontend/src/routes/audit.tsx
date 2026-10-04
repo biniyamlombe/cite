@@ -12,6 +12,8 @@ export const Route = createFileRoute("/audit")({
       { name: "description", content: "An audit log of every property you looked up, when, and what the result was." },
       { property: "og:title", content: "Lookup history — Cite" },
       { property: "og:description", content: "Audit log of property lookups." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: AuditPage,

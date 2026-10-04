@@ -15,6 +15,8 @@ export const Route = createFileRoute("/sources")({
       { name: "description", content: "Download the source documents and quotations behind a property determination." },
       { property: "og:title", content: "Source documents — Cite" },
       { property: "og:description", content: "Every source behind a determination, ready to download." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: SourcesPage,

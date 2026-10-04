@@ -15,6 +15,8 @@ export const Route = createFileRoute("/rules")({
       { name: "description", content: "Browse every extracted rental-housing rule with its citation and source text." },
       { property: "og:title", content: "Rules catalog — Cite" },
       { property: "og:description", content: "Every extracted rule, with official citation and quoted source." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: RulesPage,
@@ -96,7 +98,7 @@ function RulesPage() {
       <div className="grid gap-3 md:grid-cols-2">
         {filtered.map((r) => {
           const v: RuleView = { id: r.team_rule_id, rule: r };
-          return <RuleCard key={r.team_rule_id} view={v} onOpen={() => setOpen(v)} />;
+          return <RuleCard key={r.team_rule_id} view={v} onOpen={() => setOpen(v)} headingLevel={2} />;
         })}
       </div>
       {data && filtered.length === 0 && <p className="py-12 text-center text-sm text-muted-foreground">{t("rules.empty")}</p>}

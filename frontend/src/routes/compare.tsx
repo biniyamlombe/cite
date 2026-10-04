@@ -16,6 +16,8 @@ export const Route = createFileRoute("/compare")({
       { name: "description", content: "See side by side how the rules for a property differ between two dates." },
       { property: "og:title", content: "Compare dates — Cite" },
       { property: "og:description", content: "Side-by-side rule status for one property at two dates." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: ComparePage,

@@ -12,6 +12,8 @@ export const Route = createFileRoute("/coverage")({
       { name: "description", content: "Which jurisdictions and topics the Cite rule catalog covers, and where the gaps are." },
       { property: "og:title", content: "Coverage — Cite" },
       { property: "og:description", content: "Jurisdiction and topic coverage of the rule catalog." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: CoveragePage,

@@ -15,6 +15,8 @@ export const Route = createFileRoute("/pipeline")({
       { name: "description", content: "Watch Cite turn a legal source document into structured, validated, cited rules." },
       { property: "og:title", content: "Pipeline — Cite" },
       { property: "og:description", content: "Live extract demo: source text to structured rules, with schema validation and verbatim citations." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: PipelinePage,

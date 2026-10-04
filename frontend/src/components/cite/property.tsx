@@ -26,7 +26,7 @@ export function PropertyFacts({ yearBuilt, units, legalCity }: { yearBuilt?: str
   return (
     <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-md border bg-border sm:grid-cols-3">
       {facts.map(([k, v]) => (
-        <div key={k} className="bg-card px-3 py-2.5">
+        <div key={k} className="bg-card px-3 py-2.5 last:odd:col-span-2 sm:last:odd:col-span-1">
           <dt className="eyebrow">{k}</dt>
           <dd className="mt-0.5 font-mono text-sm tabular-nums text-ink">{v || "—"}</dd>
         </div>
@@ -66,7 +66,7 @@ export function PropertySummary({ data, asOf, onAsOf }: { data: LookupResponse; 
           <div className="eyebrow flex items-center gap-1.5">
             <MapPin className="size-3" /> {t("fact.property")} · {a.address_id}
           </div>
-          <h2 className="mt-1.5 font-serif text-2xl text-ink sm:text-3xl">{a.street_address}</h2>
+          <h1 className="mt-1.5 font-serif text-2xl text-ink sm:text-3xl">{a.street_address}</h1>
           <p className="mt-1 text-sm text-muted-foreground">
             {a.postal_city}, {a.state} {a.zip}
           </p>

@@ -46,6 +46,8 @@
   --color-pending-soft: var(--pending-soft);
   --color-conflict: var(--conflict);
   --color-conflict-soft: var(--conflict-soft);
+  --shadow-dossier: 0 4px 20px -4px oklch(0.2 0.02 255 / 0.08);
+  --shadow-dropdown: 0 18px 44px -12px oklch(0.2 0.02 255 / 0.22), 0 2px 8px -2px oklch(0.2 0.02 255 / 0.10);
 }
 
 :root {

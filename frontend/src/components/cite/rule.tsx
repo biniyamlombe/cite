@@ -17,7 +17,8 @@ export interface RuleView {
   conflict?: boolean | undefined;
 }
 
-export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void }) {
+export function RuleCard({ view, onOpen, headingLevel = 4 }: { view: RuleView; onOpen: () => void; headingLevel?: 2 | 3 | 4 }) {
+  const H = `h${headingLevel}` as "h2" | "h3" | "h4";
   const t = useT();
   const tx = useTx();
   const { rule, result, explanation, conflict } = view;
@@ -35,7 +36,7 @@ export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void 
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
-          <h4 className="font-medium text-ink">{rule.title}</h4>
+          <H className="font-medium text-ink">{rule.title}</H>
           <div className="mt-1 font-mono text-xs text-muted-foreground">
             {rule.citation} · {t(rule.level === "city" ? "level.city" : "level.state")} · {rule.jurisdiction}
           </div>

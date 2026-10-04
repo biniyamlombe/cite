@@ -6,9 +6,10 @@ import { useAuth } from "@/lib/auth";
 import { listAlertSubs, logLookup, saveMemo, setEmailAlert } from "@/lib/cite/team";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
-  Search, Loader2, AlertCircle, FileSearch, Printer, Link2, Check, Download,
-  Eye, Mail, Save, GitCompare, FileText, Quote,
+  Search, ArrowRight, Loader2, AlertCircle, FileSearch, Printer, Link2, Check, Download,
+  Eye, Mail, Save, GitCompare, FileText,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
 import { CATEGORY_ORDER } from "@/lib/cite/labels";
 import type { AddressRow, LookupResponse } from "@/lib/cite/types";
@@ -26,6 +27,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "See which rental-housing regulations apply to a property, why they apply, and what is about to change." },
       { property: "og:title", content: "Property Lookup — Cite" },
       { property: "og:description", content: "Know what applies. And why. Traceable rental-housing regulation lookup." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   validateSearch: z.object({
@@ -42,7 +45,7 @@ const DEMO_CHIPS: ReadonlyArray<{ q: string; labelKey: "lookup.demo.unknown" | "
   { q: "SA0001", labelKey: "lookup.demo.stretch", id: "SA0001" },
 ];
 
-function AddressSearch({ onSelect }: { onSelect: (a: AddressRow) => void }) {
+function AddressSearch({ onSelect, prominent = false, onOpenChange }: { onSelect: (a: AddressRow) => void; prominent?: boolean; onOpenChange?: (open: boolean) => void }) {
   const t = useT();
   const [q, setQ] = useState("");
   const [open, setOpen] = useState(false);
@@ -54,15 +57,24 @@ function AddressSearch({ onSelect }: { onSelect: (a: AddressRow) => void }) {
     enabled: open,
   });
   useEffect(() => {
+    onOpenChange?.(open);
+  }, [open]);
+  useEffect(() => {
     const h = (e: MouseEvent) => ref.current && !ref.current.contains(e.target as Node) && setOpen(false);
     document.addEventListener("mousedown", h);
     return () => document.removeEventListener("mousedown", h);
   }, []);
   const pick = (a: AddressRow) => { onSelect(a); setQ(a.street_address); setOpen(false); };
+  const searchFirst = async () => {
+    if (!q.trim()) return;
+    const matches = await getCiteClient().addresses(q, 1);
+    if (matches[0]) pick(matches[0]);
+    else setOpen(true);
+  };
   return (
     <div ref={ref} className="relative">
-      <div className="flex items-center gap-3 rounded-lg border-2 border-input bg-card px-4 py-3.5 shadow-sm transition-colors focus-within:border-ring">
-        <Search className="size-5 text-muted-foreground" />
+      <div className={prominent ? "relative flex items-center border border-input bg-card shadow-sm transition-all focus-within:border-ink/40 focus-within:shadow-dossier" : "flex items-center gap-3 rounded-lg border-2 border-input bg-card px-4 py-3.5 shadow-sm transition-colors focus-within:border-ring"}>
+        <Search className={prominent ? "ml-5 mr-3 size-5 shrink-0 text-muted-foreground" : "size-5 text-muted-foreground"} />
         <input
           value={q}
           onChange={(e) => { setQ(e.target.value); setOpen(true); setActive(0); }}
@@ -70,109 +82,114 @@ function AddressSearch({ onSelect }: { onSelect: (a: AddressRow) => void }) {
           onKeyDown={(e) => {
             if (e.key === "ArrowDown") { e.preventDefault(); setActive((i) => Math.min(i + 1, data.length - 1)); }
             if (e.key === "ArrowUp") { e.preventDefault(); setActive((i) => Math.max(i - 1, 0)); }
-            if (e.key === "Enter" && data[active]) pick(data[active]);
+            if (e.key === "Enter") { e.preventDefault(); if (open && data[active]) pick(data[active]); else void searchFirst(); }
+            if (e.key === "Escape") setOpen(false);
           }}
           placeholder={t("lookup.placeholder")}
-          className="w-full bg-transparent text-lg text-ink outline-none placeholder:text-muted-foreground/70"
+          className={prominent ? "min-w-0 flex-1 bg-transparent py-5 text-lg text-ink outline-none placeholder:text-muted-foreground/60" : "w-full bg-transparent text-lg text-ink outline-none placeholder:text-muted-foreground/70"}
           aria-label={t("lookup.label")}
         />
         {isFetching && <Loader2 className="size-4 animate-spin text-muted-foreground" />}
+        {prominent && <Button type="button" onClick={() => void searchFirst()} className="mr-2 h-11 shrink-0 rounded-none px-6 text-sm font-semibold sm:px-8" aria-label={t("lookup.search")}>
+          <span className="hidden sm:inline">{t("lookup.search")}</span><ArrowRight className="size-4 sm:hidden" />
+        </Button>}
       </div>
       {open && (
-        <ul className="absolute z-20 mt-2 w-full overflow-hidden rounded-lg border bg-popover shadow-lg">
-          {data.length === 0 && !isFetching && (
-            <li className="px-4 py-6 text-center text-sm text-muted-foreground">{t("lookup.none")}</li>
+        <div className="absolute z-30 mt-2 w-full overflow-hidden border bg-popover shadow-dropdown">
+          {data.length > 0 && (
+            <div className="flex items-center justify-between border-b border-border/60 bg-secondary/40 px-5 py-2.5">
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">{t("lookup.results")}</span>
+              <span className="font-mono text-[10px] tabular-nums text-muted-foreground">{data.length}</span>
+            </div>
           )}
-          {data.map((a, i) => {
-            const differs = a.legal_city && a.legal_city !== a.postal_city;
-            return (
-              <li key={a.address_id}>
+          <div className="max-h-80 overflow-y-auto">
+            {data.length === 0 && !isFetching && (
+              <div className="px-5 py-6 text-center text-sm text-muted-foreground">{t("lookup.none")}</div>
+            )}
+            {data.map((a, i) => {
+              const differs = a.legal_city && a.legal_city !== a.postal_city;
+              return (
                 <button
+                  key={a.address_id}
+                  type="button"
                   onMouseEnter={() => setActive(i)}
                   onClick={() => pick(a)}
-                  className={`flex w-full items-center justify-between gap-4 px-4 py-2.5 text-left transition-colors ${i === active ? "bg-secondary" : ""}`}
+                  className={`group flex w-full items-center justify-between gap-4 border-b border-border/50 px-5 py-4 text-left transition-colors last:border-b-0 ${i === active ? "bg-secondary" : "hover:bg-secondary/50"}`}
                 >
-                  <span>
-                    <span className="text-ink">{a.street_address}</span>
-                    <span className="ml-2 text-sm text-muted-foreground">
-                      {a.postal_city}{differs && <> → <strong className="text-foreground">{a.legal_city}</strong></>}, {a.state}
+                  <span className="min-w-0">
+                    <span className={`block truncate text-sm font-semibold tracking-wide transition-colors ${i === active ? "text-primary" : "text-ink group-hover:text-primary"}`}>{a.street_address}</span>
+                    <span className="mt-0.5 block text-xs text-muted-foreground">
+                      {a.postal_city}{differs && <> → <span className="font-medium text-foreground">{a.legal_city}</span></>}, {a.state}
                     </span>
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground">{a.address_id}</span>
+                  <span className="shrink-0 font-mono text-[10px] text-muted-foreground/70">{a.address_id}</span>
                 </button>
-              </li>
-            );
-          })}
-        </ul>
+              );
+            })}
+          </div>
+          <div className="flex items-center justify-between border-t bg-secondary/50 px-5 py-2.5">
+            <span className="flex items-center gap-1.5 text-[10px] text-muted-foreground">
+              <kbd className="rounded-sm border bg-background px-1 font-mono text-[10px] shadow-sm">↑↓</kbd> {t("lookup.kbdNavigate")}
+              <span aria-hidden="true">·</span>
+              <kbd className="rounded-sm border bg-background px-1 font-mono text-[10px] shadow-sm">↵</kbd> {t("lookup.kbdSelect")}
+            </span>
+            {isFetching && <Loader2 className="size-3 animate-spin text-muted-foreground" />}
+          </div>
+        </div>
       )}
-    </div>
-  );
-}
-
-function ReadingOrder() {
-  const t = useT();
-  const steps = [t("lookup.stepWhat"), t("lookup.stepWhy"), t("lookup.stepEvidence")];
-  return (
-    <div className="fade-up-delay-2 mt-8">
-      <div className="eyebrow text-center">{t("lookup.reading")}</div>
-      <ol className="mt-2 flex flex-wrap items-center justify-center gap-x-1 gap-y-1 text-sm">
-        {steps.map((label, i) => (
-          <li key={label} className="flex items-baseline gap-1.5 text-ink">
-            {i > 0 && <span className="mx-1 text-muted-foreground/50" aria-hidden>→</span>}
-            <span className="font-mono text-[11px] tabular-nums text-primary">{i + 1}</span>
-            <span>{label}</span>
-          </li>
-        ))}
-      </ol>
     </div>
   );
 }
 
 function EmptyLookup({ onSelect }: { onSelect: (id: string) => void }) {
   const t = useT();
+  const [searchOpen, setSearchOpen] = useState(false);
+  const dim = searchOpen ? "pointer-events-none opacity-10 transition-opacity duration-300" : "opacity-100 transition-opacity duration-300";
   return (
-    <div className="mx-auto max-w-3xl py-10 text-center sm:py-16">
-      <h1 className="fade-up font-serif text-4xl text-ink sm:text-5xl">
-        {t("lookup.title1")}{" "}
-        <span className="text-primary">{t("lookup.title2")}</span>
-      </h1>
-      <p className="fade-up-delay-1 mx-auto mt-4 max-w-xl text-muted-foreground">
-        {t("lookup.lede")}
-      </p>
-
-      <div className="fade-up-delay-2 mt-8 text-left">
-        <label className="mb-2 block text-sm font-medium text-ink">{t("lookup.label")}</label>
-        <AddressSearch onSelect={(a) => onSelect(a.address_id)} />
-        <div className="mt-4 space-y-2">
-          <div className="text-center text-xs text-muted-foreground">{t("lookup.try")}</div>
-          <div className="flex flex-wrap items-stretch justify-center gap-2">
-            {DEMO_CHIPS.map((chip) => (
-              <button
-                key={chip.id}
-                type="button"
-                onClick={async () => {
-                  const r = await getCiteClient().addresses(chip.q, 1);
-                  if (r[0]) onSelect(r[0].address_id);
-                  else onSelect(chip.id);
-                }}
-                className="group flex min-w-[8.5rem] flex-col items-start rounded-md border bg-card px-3 py-2 text-left transition-colors hover:border-ring hover:bg-secondary/60"
-              >
-                <span className="font-mono text-[11px] text-primary">{chip.id}</span>
-                <span className="mt-0.5 text-xs text-ink group-hover:text-ink">{t(chip.labelKey)}</span>
-              </button>
-            ))}
-          </div>
+    <div className="mx-auto flex max-w-3xl flex-col items-center pt-10 text-center sm:pt-16">
+      <div className="fade-up">
+        <h1 className="font-serif text-7xl font-semibold tracking-tight text-ink">Cite</h1>
+        <div className="mt-4 flex items-center justify-center gap-4">
+          <span className="h-px w-14 bg-border" aria-hidden="true" />
+          <p className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-muted-foreground">{t("lookup.eyebrow")}</p>
+          <span className="h-px w-14 bg-border" aria-hidden="true" />
         </div>
+        <p className="mx-auto mt-8 max-w-lg font-serif text-2xl italic leading-relaxed text-muted-foreground">{t("lookup.title1")} {t("lookup.title2")}</p>
       </div>
 
-      <ReadingOrder />
+      <div className="fade-up-delay-1 relative z-20 mx-auto mt-12 w-full max-w-2xl text-left">
+        <label className="mb-2 ml-1 block font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground">{t("lookup.label")}</label>
+        <AddressSearch prominent onSelect={(a) => onSelect(a.address_id)} onOpenChange={setSearchOpen} />
+      </div>
 
-      <blockquote className="fade-up-delay-3 mx-auto mt-10 max-w-xl rounded-md bg-quote/70 px-4 py-3 text-left">
-        <div className="flex items-start gap-2">
-          <Quote className="mt-0.5 size-3.5 shrink-0 text-primary/70" />
-          <p className="font-serif text-[15px] leading-relaxed text-ink/85">{t("lookup.philosophy")}</p>
+      <div className={`${dim} w-full`}>
+      <div className="mx-auto mt-14 w-full max-w-2xl text-left">
+        <div className="mb-3 ml-1 font-mono text-[10px] font-bold uppercase tracking-[0.15em] text-muted-foreground">{t("lookup.try")}</div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {DEMO_CHIPS.map((chip) => (
+            <button
+              key={chip.id}
+              type="button"
+              onClick={async () => {
+                const r = await getCiteClient().addresses(chip.q, 1);
+                if (r[0]) onSelect(r[0].address_id);
+                else onSelect(chip.id);
+              }}
+              className="group flex items-center justify-between gap-3 border bg-card p-4 text-left shadow-sm transition-all hover:border-ink/30 hover:shadow-dossier"
+            >
+              <span className="min-w-0">
+                <span className="block font-mono text-[10px] font-semibold text-primary">{chip.id}</span>
+                <span className="mt-1 block truncate font-serif text-sm italic text-ink">{t(chip.labelKey)}</span>
+              </span>
+              <ArrowRight className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
+            </button>
+          ))}
         </div>
+      </div>
+      <blockquote className="mx-auto mt-14 max-w-xl text-center">
+        <p className="font-serif text-sm italic leading-relaxed text-muted-foreground">{t("lookup.philosophy")}</p>
       </blockquote>
+      </div>
     </div>
   );
 }

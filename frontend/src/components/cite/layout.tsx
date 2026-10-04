@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Scale } from "lucide-react";
+import { Menu, Scale, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { getCiteClient } from "@/lib/cite/client";
 import { useLocale, useT, type StringKey } from "@/lib/i18n";
@@ -125,11 +125,14 @@ function LocaleToggle() {
 export function SiteHeader() {
   const mode = getCiteClient().mode;
   const t = useT();
+  const [menu, setMenu] = useState(false);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  useEffect(() => setMenu(false), [pathname]);
   return (
     <header className="print:hidden sticky top-0 z-40 border-b bg-background/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center gap-4 px-4 py-2.5 sm:gap-6 sm:px-6">
         <Wordmark />
-        <nav className="flex min-w-0 flex-1 flex-wrap items-center gap-0.5 text-sm">
+        <nav aria-label="Primary" className="hidden min-w-0 flex-1 flex-wrap items-center gap-0.5 text-sm md:flex">
           {PRIMARY_NAV.map((n) => (
             <Link
               key={n.to}
@@ -143,7 +146,7 @@ export function SiteHeader() {
           ))}
           <MoreNav />
         </nav>
-        <div className="flex shrink-0 items-center gap-2 sm:gap-2.5">
+        <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-2.5 md:ml-0">
           <span
             className="hidden font-mono text-[10px] uppercase tracking-wider text-muted-foreground/80 lg:inline"
             title={t(mode === "mock" ? "mode.mock" : "mode.live")}
@@ -152,8 +155,32 @@ export function SiteHeader() {
           </span>
           <LocaleToggle />
           <AccountButton />
+          <button
+            type="button"
+            onClick={() => setMenu((v) => !v)}
+            aria-expanded={menu}
+            aria-label={t("nav.menu")}
+            className="inline-flex size-10 items-center justify-center rounded-md border text-ink md:hidden"
+          >
+            {menu ? <X className="size-4" /> : <Menu className="size-4" />}
+          </button>
         </div>
       </div>
+      {menu && (
+        <nav aria-label="Mobile" className="border-t px-4 py-2 md:hidden">
+          {[...PRIMARY_NAV, ...MORE_NAV].map((n) => (
+            <Link
+              key={n.to}
+              to={n.to}
+              activeOptions={{ exact: n.to === "/" }}
+              className="block rounded-md px-3 py-2.5 text-sm text-muted-foreground hover:bg-secondary hover:text-ink"
+              activeProps={{ className: "bg-secondary !text-ink font-medium" }}
+            >
+              {t(n.key)}
+            </Link>
+          ))}
+        </nav>
+      )}
     </header>
   );
 }

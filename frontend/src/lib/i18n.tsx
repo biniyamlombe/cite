@@ -10,6 +10,7 @@ const STRINGS = {
     "nav.rules": "Rules",
     "nav.pipeline": "Pipeline",
     "nav.more": "More",
+    "nav.menu": "Menu",
     "nav.portfolio": "Portfolio",
     "nav.bulk": "Bulk",
     "nav.coverage": "Coverage",
@@ -34,6 +35,7 @@ const STRINGS = {
     "lookup.lede":
       "Every conclusion traced to its legal source. Enter a rental property address to see applicable rules, the reasons behind them, and what is about to change.",
     "lookup.label": "Enter a rental property address",
+    "lookup.search": "Search",
     "lookup.placeholder": "Street address or ID, e.g. A0001, Delongpre",
     "lookup.try": "Demo path:",
     "lookup.demo.unknown": "Unknown over guessing",
@@ -43,6 +45,9 @@ const STRINGS = {
     "lookup.honesty.unknown": "Prefer unknown when building facts are missing — Cite will not invent year built or unit counts.",
     "lookup.honesty.conflict": "Conflict-flagged rules need human review; citations stay tied to the corpus, not invented ordinance text.",
     "lookup.none": "No matching properties.",
+    "lookup.results": "Results",
+    "lookup.kbdNavigate": "to navigate",
+    "lookup.kbdSelect": "to select",
     "lookup.philosophy":
       "AI can help structure regulation. Deterministic systems evaluate applicability. Evidence supports the conclusion.",
     "lookup.reading": "How to read a result",
@@ -233,6 +238,7 @@ const STRINGS = {
     "nav.rules": "Normas",
     "nav.pipeline": "Proceso",
     "nav.more": "Más",
+    "nav.menu": "Menú",
     "nav.portfolio": "Cartera",
     "nav.bulk": "Masivo",
     "nav.coverage": "Cobertura",
@@ -257,6 +263,7 @@ const STRINGS = {
     "lookup.lede":
       "Cada conclusión vinculada a su fuente legal. Ingrese la dirección de una propiedad de alquiler para ver las normas aplicables, sus motivos y lo que está por cambiar.",
     "lookup.label": "Ingrese la dirección de una propiedad de alquiler",
+    "lookup.search": "Buscar",
     "lookup.placeholder": "Dirección o ID, p. ej. A0001, Delongpre",
     "lookup.try": "Ruta demo:",
     "lookup.demo.unknown": "Desconocido antes que adivinar",
@@ -266,6 +273,9 @@ const STRINGS = {
     "lookup.honesty.unknown": "Preferimos desconocido cuando faltan hechos del edificio — Cite no inventa año ni unidades.",
     "lookup.honesty.conflict": "Las normas con conflicto requieren revisión humana; las citas vienen del corpus, no de texto inventado.",
     "lookup.none": "No hay propiedades coincidentes.",
+    "lookup.results": "Resultados",
+    "lookup.kbdNavigate": "para navegar",
+    "lookup.kbdSelect": "para seleccionar",
     "lookup.philosophy":
       "La IA puede ayudar a estructurar la regulación. Sistemas deterministas evalúan la aplicabilidad. La evidencia sostiene la conclusión.",
     "lookup.reading": "Cómo leer un resultado",

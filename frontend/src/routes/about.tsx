@@ -10,6 +10,8 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "How Cite turns legal text into traceable, deterministic regulatory answers." },
       { property: "og:title", content: "About — Cite" },
       { property: "og:description", content: "AI structures regulation. Deterministic systems evaluate applicability. Evidence supports the conclusion." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: AboutPage,

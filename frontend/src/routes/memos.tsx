@@ -13,6 +13,8 @@ export const Route = createFileRoute("/memos")({
       { name: "description", content: "Your saved regulatory applicability memos, kept for audit." },
       { property: "og:title", content: "Saved memos — Cite" },
       { property: "og:description", content: "Saved applicability memos for audit trails." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
   }),
   component: MemosPage,
