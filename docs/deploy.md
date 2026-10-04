@@ -4,6 +4,14 @@
 
 The frontend is display-only. Set `VITE_API_URL` to the Cloud Run URL so Lookup/Change Radar hit live coverage.
 
+**Current production**
+
+| | URL |
+|---|---|
+| UI | https://cite-eight.vercel.app |
+| API | https://cite-api-olep35ee2q-uc.a.run.app |
+| GCP project | `cite-api-biniyamlombe` · service `cite-api` · region `us-central1` |
+
 ## 1. Backend (Google Cloud Run)
 
 Prereqs: [gcloud CLI](https://cloud.google.com/sdk/docs/install) (Homebrew: `brew install --cask gcloud-cli`).
