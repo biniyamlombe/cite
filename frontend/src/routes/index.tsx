@@ -9,6 +9,7 @@ import {
   Search, ArrowRight, Loader2, AlertCircle, FileSearch, Printer, Link2, Check, Download,
   Eye, Mail, Save, GitCompare, FileText,
 } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
 import { CATEGORY_ORDER } from "@/lib/cite/labels";
@@ -35,6 +36,7 @@ export const Route = createFileRoute("/")({
   validateSearch: z.object({
     address: z.string().optional(),
     as_of: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),
+    rule: z.string().optional(),
   }),
   component: LookupPage,
 });
@@ -260,7 +262,8 @@ function LookupPage() {
   const navigate = useNavigate({ from: "/" });
   const addressId = search.address ?? null;
   const asOf = search.as_of ?? DEFAULT_AS_OF;
-  const setAddressId = (id: string) => navigate({ search: (p) => ({ ...p, address: id }) });
+  const ruleId = search.rule ?? null;
+  const setAddressId = (id: string) => navigate({ search: (p) => ({ ...p, address: id, rule: undefined }) });
   const setAsOf = (v: string) => navigate({ search: (p) => ({ ...p, as_of: v }), replace: true });
   const [openRule, setOpenRule] = useState<RuleView | null>(null);
   const lookup = useQuery({
@@ -268,6 +271,29 @@ function LookupPage() {
     queryFn: () => getCiteClient().lookup(addressId!, asOf),
     enabled: !!addressId,
   });
+
+  const openRuleView = (v: RuleView) => {
+    setOpenRule(v);
+    void navigate({ search: (p) => ({ ...p, rule: v.id }), replace: true });
+  };
+  const closeRule = () => {
+    setOpenRule(null);
+    void navigate({ search: (p) => ({ ...p, rule: undefined }), replace: true });
+  };
+
+  useEffect(() => {
+    const d = lookup.data;
+    if (!d || !ruleId) return;
+    const r = d.results.find((x) => x.team_rule_id === ruleId && x.rule);
+    if (!r?.rule) return;
+    setOpenRule({
+      id: r.team_rule_id,
+      rule: r.rule,
+      result: r.result,
+      explanation: r.explanation,
+      conflict: r.conflict_flag,
+    });
+  }, [lookup.data, ruleId]);
 
   const { user: auditUser } = useAuth();
   const logged = useRef<string | null>(null);
@@ -308,16 +334,17 @@ function LookupPage() {
           )}
 
           {lookup.data && (
-            <LookupResults data={lookup.data} asOf={asOf} setAsOf={setAsOf} onOpen={setOpenRule} />
+            <LookupResults data={lookup.data} asOf={asOf} setAsOf={setAsOf} onOpen={openRuleView} />
           )}
         </>
       )}
 
       <RuleDetailDrawer
         view={openRule}
+        addressId={lookup.data?.address.address_id}
         asOf={lookup.data?.as_of}
         facts={lookup.data ? { yearBuilt: lookup.data.address.year_built, units: lookup.data.address.units, legalCity: lookup.data.jurisdiction.city } : undefined}
-        onClose={() => setOpenRule(null)}
+        onClose={closeRule}
       />
     </div>
   );
@@ -430,7 +457,7 @@ function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; 
                 <span className="font-mono text-[10px] normal-case tracking-normal text-muted-foreground">{list.length}</span>
               </h3>
               <div className="grid gap-3">
-                {list.map((r) => {
+                {list.map((r, i) => {
                   const v: RuleView = {
                     id: r.team_rule_id,
                     rule: r.rule!,
@@ -438,7 +465,7 @@ function LookupResults({ data, asOf, setAsOf, onOpen }: { data: LookupResponse; 
                     explanation: r.explanation,
                     conflict: r.conflict_flag,
                   };
-                  return <RuleCard key={r.team_rule_id} view={v} onOpen={() => onOpen(v)} />;
+                  return <RuleCard key={r.team_rule_id} view={v} index={i} onOpen={() => onOpen(v)} />;
                 })}
               </div>
             </div>
@@ -464,7 +491,15 @@ function MemoBar({ data }: { data: LookupResponse }) {
   const subs = useQuery({ queryKey: ["alert-subs", user?.id], queryFn: listAlertSubs, enabled: !!user });
   const emailOn = !!subs.data?.some((s) => s.address_id === id && s.email_enabled);
   const [saved, setSaved] = useState(false);
-  const save = useMutation({ mutationFn: () => saveMemo(data, null), onSuccess: () => { setSaved(true); setTimeout(() => setSaved(false), 1500); qc.invalidateQueries({ queryKey: ["memos"] }); } });
+  const save = useMutation({
+    mutationFn: () => saveMemo(data, null),
+    onSuccess: () => {
+      setSaved(true);
+      setTimeout(() => setSaved(false), 1500);
+      qc.invalidateQueries({ queryKey: ["memos"] });
+      toast.success(t("toast.memoSaved"));
+    },
+  });
   const toggleEmail = useMutation({ mutationFn: () => setEmailAlert(id, !emailOn), onSuccess: () => qc.invalidateQueries({ queryKey: ["alert-subs"] }) });
   const needAuth = (fn: () => void) => () => (user ? fn() : navigate({ to: "/auth" }));
   useEffect(() => setGenerated(new Date().toISOString().slice(0, 16).replace("T", " ") + " UTC"), [data]);
@@ -489,7 +524,12 @@ function MemoBar({ data }: { data: LookupResponse }) {
       </div>
       <div className="mb-2 flex flex-wrap items-center justify-end gap-2 print:hidden">
         <button
-          onClick={async () => { await navigator.clipboard.writeText(window.location.href); setCopied(true); setTimeout(() => setCopied(false), 1500); }}
+          onClick={async () => {
+            await navigator.clipboard.writeText(window.location.href);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500);
+            toast.success(t("toast.linkCopied"));
+          }}
           className="inline-flex items-center gap-1.5 rounded-full border border-border/80 bg-paper/80 px-3.5 py-1.5 text-sm text-ink transition-colors hover:bg-secondary"
         >
           {copied ? <Check className="size-4" /> : <Link2 className="size-4" />}
@@ -513,7 +553,15 @@ function MemoBar({ data }: { data: LookupResponse }) {
           </button>
           {moreOpen && (
             <div className="absolute right-0 top-full z-30 mt-1 min-w-[12rem] rounded-md border bg-background py-1 shadow-sm">
-              <button onClick={() => { watch.toggle(id); setMoreOpen(false); }} className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary">
+              <button
+                onClick={() => {
+                  const next = !w;
+                  watch.toggle(id);
+                  setMoreOpen(false);
+                  toast.success((next ? t("toast.watching") : t("toast.unwatched")).replace("{id}", id));
+                }}
+                className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary"
+              >
                 <Eye className="size-3.5" /> {w ? t("action.watching") : t("action.watch")}
               </button>
               <button onClick={needAuth(() => { toggleEmail.mutate(); setMoreOpen(false); })} className="flex w-full items-center gap-2 px-3 py-1.5 text-left text-sm hover:bg-secondary">

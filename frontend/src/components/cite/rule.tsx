@@ -1,6 +1,7 @@
 import { RuleComments, RuleVersionHistory } from "./team";
 import { useEffect, useState } from "react";
-import { Check, ChevronDown, Copy, ExternalLink, Quote, X } from "lucide-react";
+import { Check, ChevronDown, Copy, ExternalLink, Link2, Quote, X } from "lucide-react";
+import { toast } from "sonner";
 import { useLocale, useT, useTx } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import { confidenceBand, coverageText, fmtDate } from "@/lib/cite/labels";
@@ -24,7 +25,15 @@ export interface RuleView {
   conflict?: boolean | undefined;
 }
 
-export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void }) {
+export function RuleCard({
+  view,
+  onOpen,
+  index = 0,
+}: {
+  view: RuleView;
+  onOpen: () => void;
+  index?: number;
+}) {
   const t = useT();
   const tx = useTx();
   const { rule, result, explanation, conflict } = view;
@@ -34,8 +43,9 @@ export function RuleCard({ view, onOpen }: { view: RuleView; onOpen: () => void 
   return (
     <button
       onClick={onOpen}
+      style={{ animationDelay: `${Math.min(index, 8) * 45}ms` }}
       className={cn(
-        "group surface w-full p-4 text-left transition-[border-color,box-shadow,background-color] duration-200 hover:border-ring/50 hover:shadow-sm sm:p-5",
+        "rule-card-enter group surface w-full p-4 text-left transition-[border-color,box-shadow,background-color] duration-200 hover:border-ring/50 hover:shadow-sm sm:p-5",
         prominent && "bg-applies-soft/40",
         conflict && "border-conflict/30",
         result === "superseded" && "opacity-80",
@@ -219,9 +229,10 @@ function Confidence({ value }: { value?: number | null | undefined }) {
 }
 
 export function RuleDetailDrawer({
-  view, asOf, facts, onClose,
+  view, addressId, asOf, facts, onClose,
 }: {
   view: RuleView | null;
+  addressId?: string | undefined;
   asOf?: string | undefined;
   facts?: { yearBuilt?: string | undefined; units?: string | undefined; legalCity?: string | undefined } | undefined;
   onClose: () => void;
@@ -229,6 +240,7 @@ export function RuleDetailDrawer({
   const t = useT();
   const tx = useTx();
   const { locale } = useLocale();
+  const [copiedEvidence, setCopiedEvidence] = useState(false);
   useEffect(() => {
     const k = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", k);
@@ -239,6 +251,17 @@ export function RuleDetailDrawer({
   const cov = coverageText(rule.coverage_conditions);
   const band = confidenceBand(rule.confidence);
   const linkOnly = isLinkOnlyScaffold(rule);
+  const copyEvidenceLink = async () => {
+    if (!addressId) return;
+    const url = new URL(window.location.origin + "/");
+    url.searchParams.set("address", addressId);
+    if (asOf) url.searchParams.set("as_of", asOf);
+    url.searchParams.set("rule", view.id);
+    await navigator.clipboard.writeText(url.toString());
+    setCopiedEvidence(true);
+    setTimeout(() => setCopiedEvidence(false), 1500);
+    toast.success(t("toast.evidenceCopied"));
+  };
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
       <div className="absolute inset-0 bg-ink/30 animate-in fade-in duration-150" onClick={onClose} />
@@ -263,6 +286,16 @@ export function RuleDetailDrawer({
                 size="md"
               />
             </div>
+            {addressId && (
+              <button
+                type="button"
+                onClick={() => void copyEvidenceLink()}
+                className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-border/80 bg-paper/80 px-3 py-1 text-xs text-muted-foreground transition-colors hover:bg-secondary hover:text-ink"
+              >
+                {copiedEvidence ? <Check className="size-3.5" /> : <Link2 className="size-3.5" />}
+                {copiedEvidence ? t("rule.copyEvidence.done") : t("rule.copyEvidence")}
+              </button>
+            )}
           </div>
           <button onClick={onClose} aria-label={t("rule.close")} className="rounded-md p-1.5 text-muted-foreground hover:bg-muted">
             <X className="size-5" />

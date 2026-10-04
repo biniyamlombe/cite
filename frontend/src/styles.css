@@ -171,6 +171,10 @@
   animation: fade-up 0.55s var(--ease-cite) 0.2s both;
 }
 
+@utility rule-card-enter {
+  animation: fade-up 0.45s var(--ease-cite) both;
+}
+
 @utility skeleton-shimmer {
   background: linear-gradient(
     90deg,
@@ -224,7 +228,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .fade-up, .fade-up-delay-1, .fade-up-delay-2, .fade-up-delay-3,
+  .fade-up, .fade-up-delay-1, .fade-up-delay-2, .fade-up-delay-3, .rule-card-enter,
   .skeleton-shimmer, .chip-stagger, .quote-enter, .stage-check, .stage-pulse {
     animation: none;
   }
@@ -232,5 +236,5 @@
 
 @media print {
   body { background: white; }
-  .fade-up, .fade-up-delay-1, .fade-up-delay-2, .fade-up-delay-3 { animation: none; }
+  .fade-up, .fade-up-delay-1, .fade-up-delay-2, .fade-up-delay-3, .rule-card-enter { animation: none; }
 }
