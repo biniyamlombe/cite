@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T08:56:27.415Z",
+  "generated_at": "2026-10-04T09:04:46.816Z",
   "pipeline_version": "cite-1.1.0",
   "count": 145,
   "records": {
@@ -1420,8 +1420,8 @@
       "source": "template",
       "headline_en": "Algorithmic rent-setting limits",
       "headline_es": "Límites a renta algorítmica",
-      "why_en": "Public Hoboken reporting describes a local ban on algorithmic rent-setting. Pack primary ordinance pages remain link-only (ecode360 / check-terms), so this is not a municipal-code extract. quoted_span is verbatim from t…",
-      "why_es": "Public Hoboken reporting describes a local ban on algorithmic rent-setting. Pack primary ordinance pages remain link-only (ecode360 / check-terms), so this is not a municipal-code extract. quoted_span is verbatim from the secondary report…"
+      "why_en": "Landlords renting residential dwelling units in Hoboken are prohibited from price fixing using algorithmic pricing (software, algorithms, or data-sharing platforms that collect and analyze nonpublic competitor data).",
+      "why_es": "Landlords renting residential dwelling units in Hoboken are prohibited from price fixing using algorithmic pricing (software, algorithms, or data-sharing platforms that collect and analyze nonpublic competitor data)."
     },
     "r-0144": {
       "team_rule_id": "r-0144",
@@ -1430,8 +1430,8 @@
       "source": "template",
       "headline_en": "Algorithmic rent-setting limits",
       "headline_es": "Límites a renta algorítmica",
-      "why_en": "Public Jersey City reporting describes a local ban on algorithmic rent-setting. Pack primary ordinance pages remain link-only (ecode360 / check-terms), so this is not a municipal-code extract. quoted_span is verbatim fr…",
-      "why_es": "Public Jersey City reporting describes a local ban on algorithmic rent-setting. Pack primary ordinance pages remain link-only (ecode360 / check-terms), so this is not a municipal-code extract. quoted_span is verbatim from the secondary rep…"
+      "why_en": "It is unlawful for Jersey City real estate lessors to subscribe to or contract for service-provider algorithmic coordinating services; service providers may not facilitate non-compete agreements among lessors.",
+      "why_es": "It is unlawful for Jersey City real estate lessors to subscribe to or contract for service-provider algorithmic coordinating services; service providers may not facilitate non-compete agreements among lessors."
     },
     "r-0146": {
       "team_rule_id": "r-0146",

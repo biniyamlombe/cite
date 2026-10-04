@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T08:56:27.709Z",
+  "generated_at": "2026-10-04T09:04:47.205Z",
   "pipeline_version": "cite-1.1.0",
   "count": 28,
   "findings": [
@@ -112,7 +112,7 @@
       "note": "No captured Application screening fees rule for Hoboken, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
       "note_es": "No hay norma capturada de Application screening fees para Hoboken, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
       "source_doc_ids": [
-        "HOB-NEWS-01"
+        "HOB-ORD-01"
       ]
     },
     {
@@ -124,7 +124,7 @@
       "note": "No captured Just cause eviction rule for Hoboken, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
       "note_es": "No hay norma capturada de Just cause eviction para Hoboken, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
       "source_doc_ids": [
-        "HOB-NEWS-01"
+        "HOB-ORD-01"
       ]
     },
     {
@@ -136,7 +136,7 @@
       "note": "No captured Rent increase limits rule for Hoboken, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
       "note_es": "No hay norma capturada de Rent increase limits para Hoboken, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
       "source_doc_ids": [
-        "HOB-NEWS-01"
+        "HOB-ORD-01"
       ]
     },
     {
@@ -148,7 +148,7 @@
       "note": "No captured Screening restrictions rule for Hoboken, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
       "note_es": "No hay norma capturada de Screening restrictions para Hoboken, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
       "source_doc_ids": [
-        "HOB-NEWS-01"
+        "HOB-ORD-01"
       ]
     },
     {
@@ -160,7 +160,7 @@
       "note": "No captured Security deposits rule for Hoboken, NJ in the pack corpus (primary municipal text is link-only / uncaptured). Live applicability stays unknown.",
       "note_es": "No hay norma capturada de Security deposits para Hoboken, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
       "source_doc_ids": [
-        "HOB-NEWS-01"
+        "HOB-ORD-01"
       ]
     },
     {
@@ -173,7 +173,7 @@
       "note_es": "No hay norma capturada de Application screening fees para Jersey City, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
       "source_doc_ids": [
         "D036",
-        "JC-NEWS-01"
+        "JC-ORD-01"
       ]
     },
     {
@@ -186,7 +186,7 @@
       "note_es": "No hay norma capturada de Just cause eviction para Jersey City, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
       "source_doc_ids": [
         "D036",
-        "JC-NEWS-01"
+        "JC-ORD-01"
       ]
     },
     {
@@ -199,7 +199,7 @@
       "note_es": "No hay norma capturada de Screening restrictions para Jersey City, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
       "source_doc_ids": [
         "D036",
-        "JC-NEWS-01"
+        "JC-ORD-01"
       ]
     },
     {
@@ -212,7 +212,7 @@
       "note_es": "No hay norma capturada de Security deposits para Jersey City, NJ en el corpus del paquete (texto municipal primario solo como enlace / no capturado). La aplicabilidad en vivo permanece desconocida.",
       "source_doc_ids": [
         "D036",
-        "JC-NEWS-01"
+        "JC-ORD-01"
       ]
     },
     {

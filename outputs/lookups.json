@@ -1403,8 +1403,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -1415,9 +1415,9 @@
           "year_built=2001"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -6320,8 +6320,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -6331,10 +6331,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -8898,8 +8897,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -8910,9 +8909,9 @@
           "year_built=1900"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -12443,8 +12442,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -12454,10 +12453,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -19542,8 +19540,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -19554,9 +19552,9 @@
           "year_built=1901"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -23669,8 +23667,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -23680,10 +23678,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -29818,8 +29815,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -29829,10 +29826,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -31218,8 +31214,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -31230,9 +31226,9 @@
           "year_built=1912"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -34527,8 +34523,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -34539,9 +34535,9 @@
           "year_built=1913"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -36020,8 +36016,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -36031,10 +36027,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -37359,8 +37354,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -37370,10 +37365,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -59054,8 +59048,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -59065,10 +59059,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -66150,8 +66143,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -66161,10 +66154,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -67516,8 +67508,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -67527,10 +67519,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -75982,8 +75973,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -75993,10 +75984,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -77294,8 +77284,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -77305,10 +77295,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -77821,8 +77810,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -77832,10 +77821,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -82476,8 +82464,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -82487,10 +82475,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -88925,8 +88912,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -88937,9 +88924,9 @@
           "year_built=1923"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -91311,8 +91298,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -91322,10 +91309,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -95714,8 +95700,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -95725,10 +95711,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -99940,8 +99925,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -99952,9 +99937,9 @@
           "year_built=1900"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -103666,8 +103651,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -103677,10 +103662,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -105621,8 +105605,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -105633,9 +105617,9 @@
           "year_built=1910"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -122966,8 +122950,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -122978,9 +122962,9 @@
           "year_built=1918"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -123527,8 +123511,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -123539,9 +123523,9 @@
           "year_built=1930"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -124819,8 +124803,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -124831,9 +124815,9 @@
           "year_built=1870"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -128466,8 +128450,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -128478,9 +128462,9 @@
           "year_built=2007"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -130724,8 +130708,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -130736,9 +130720,9 @@
           "year_built=1910"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -135345,8 +135329,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -135357,9 +135341,9 @@
           "year_built=1912"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -138389,8 +138373,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -138400,10 +138384,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -138916,8 +138899,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -138927,10 +138910,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -141480,8 +141462,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -141492,9 +141474,9 @@
           "year_built=1922"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -142034,8 +142016,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -142045,10 +142027,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -142595,8 +142576,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -142607,9 +142588,9 @@
           "year_built=1925"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -161335,8 +161316,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -161346,10 +161327,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -173847,8 +173827,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -173858,10 +173838,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -177086,8 +177065,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -177101,6 +177080,7 @@
         "facts_missing": [
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -189006,8 +188986,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -189017,10 +188997,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -190533,8 +190512,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -190545,9 +190524,9 @@
           "year_built=1910"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -191060,8 +191039,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -191071,10 +191050,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -195490,8 +195468,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -195501,10 +195479,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -198345,8 +198322,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -198356,10 +198333,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -199765,8 +199741,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -199776,10 +199752,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -204019,8 +203994,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -204030,10 +204005,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -206949,8 +206923,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -206961,9 +206935,9 @@
           "year_built=1912"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -207503,8 +207477,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -207514,10 +207488,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -209714,8 +209687,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -209725,10 +209698,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -210275,8 +210247,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -210287,9 +210259,9 @@
           "year_built=1890"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -217414,8 +217386,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -217426,9 +217398,9 @@
           "year_built=1925"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -223952,8 +223924,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -223963,10 +223935,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -224506,8 +224477,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -224517,10 +224488,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -232740,8 +232710,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -232751,10 +232721,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -239290,8 +239259,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -239301,10 +239270,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -249356,8 +249324,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -249367,10 +249335,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -249910,8 +249877,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -249921,10 +249888,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -252961,8 +252927,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -252973,9 +252939,9 @@
           "year_built=1925"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -266561,8 +266527,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -266573,9 +266539,9 @@
           "year_built=1928"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -269497,8 +269463,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -269508,10 +269474,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -271168,8 +271133,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -271180,9 +271145,9 @@
           "year_built=1900"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -277836,8 +277801,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -277847,10 +277812,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -278397,8 +278361,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -278409,9 +278373,9 @@
           "year_built=1924"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -288449,8 +288413,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -288460,10 +288424,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -292587,8 +292550,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -292598,10 +292561,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -301178,8 +301140,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -301189,10 +301151,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -301705,8 +301666,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -301716,10 +301677,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -304276,8 +304236,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -304287,10 +304247,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -304837,8 +304796,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -304849,9 +304808,9 @@
           "year_built=1912"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -308910,8 +308869,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -308921,10 +308880,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -312616,8 +312574,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -312628,9 +312586,9 @@
           "year_built=1900"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -317418,8 +317376,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -317430,9 +317388,9 @@
           "year_built=1920"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -321180,8 +321138,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -321191,10 +321149,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -321734,8 +321691,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -321745,10 +321702,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -323156,8 +323112,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -323167,10 +323123,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -328168,8 +328123,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -328179,10 +328134,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -336983,8 +336937,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -336994,10 +336948,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -337510,8 +337463,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -337521,10 +337474,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -338795,8 +338747,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -338806,10 +338758,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -346018,8 +345969,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -346029,10 +345980,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -347574,8 +347524,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -347585,10 +347535,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -351403,8 +351352,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -351414,10 +351363,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -354454,8 +354402,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -354466,9 +354414,9 @@
           "year_built=1915"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -356355,8 +356303,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -356367,9 +356315,9 @@
           "year_built=1890"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -364482,8 +364430,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -364493,10 +364441,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -365009,8 +364956,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -365020,10 +364967,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -367395,8 +367341,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -367406,10 +367352,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -372375,8 +372320,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -372386,10 +372331,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",
@@ -377989,8 +377933,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -378001,9 +377945,9 @@
           "year_built=2000"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -378516,8 +378460,8 @@
       },
       {
         "team_rule_id": "r-0143",
-        "result": "unknown",
-        "explanation": "Hoboken algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Hoboken prohibition against algorithmic rent-fixing covers this address in Hoboken, NJ as of 2026-10-01. Hoboken City Code §154-8 / Ch. 158 algorithmic rent-fixing ordinance (Council PDF)",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -378527,10 +378471,9 @@
           "county=Hudson County"
         ],
         "facts_missing": [
-          "year_built",
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Hoboken, NJ",
           "level=city",
@@ -381987,8 +381930,8 @@
       },
       {
         "team_rule_id": "r-0144",
-        "result": "unknown",
-        "explanation": "Jersey City algorithmic rent ban (secondary report; primary ordinance link-only): municipal applicability and effective date are unverified because the primary ordinance is uncaptured. The D069 quotation supports only the NJ FAIR Act context.",
+        "result": "applies",
+        "explanation": "Jersey City preventing algorithmic rent-fixing in the rental housing market covers this address in Jersey City, NJ as of 2026-10-01. Jersey City Code §218-12 (Ord. 25-057) Preventing Algorithmic Rent-Fixing",
         "conflict_flag": true,
         "needs_human_review": true,
         "applicability": "needs_human_review",
@@ -381999,9 +381942,9 @@
           "year_built=1895"
         ],
         "facts_missing": [
-          "units",
           "owner_type"
         ],
+        "legal_status_at_as_of_date": "in_force",
         "coverage_conditions_evaluated": [
           "jurisdiction_match=Jersey City, NJ",
           "level=city",

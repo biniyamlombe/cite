@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-04T08:56:25.774Z",
+  "generated_at": "2026-10-04T09:04:44.840Z",
   "by_key": {
     "doc:D001|berkeley municipal code § 13.63.030(a)|prohibition on sale of coordinated pricing algorithms in ber": [
       {
@@ -1729,6 +1729,14 @@
     ],
     "alias:HOB-ALG-01": [
       {
+        "version": "v6",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "Landlords who rent any residential dwelling unit (defined as any\nprimary residence excluding medical/long-term care or detention facilities) in the City of\nHoboken are prohibited from price fixing using algorithmic pricing. For purposes of this\nchapter, “price fixing using algorithmic pricing”shall be",
+        "change_note": "effective_date ∅ → 2025-07-09; quoted_span updated (re-extract or span repair)"
+      },
+      {
         "version": "v5",
         "corpus_release": "2026.10",
         "released_at": "2026-10-04",
@@ -1770,6 +1778,14 @@
       }
     ],
     "alias:JC-ALG-01": [
+      {
+        "version": "v6",
+        "corpus_release": "2026.10",
+        "released_at": "2026-10-04",
+        "status": "in_force",
+        "quoted_span": "a.It is unlawful for any real estate lessor, agent, or subcontractor thereof, to subscribe to, contract with, or otherwise\nexchange anything of value in return for the services of a Service Provider.\n\nb.No service provider shall facilitate an agreement not to compete among real",
+        "change_note": "effective_date ∅ → 2025-05-21; quoted_span updated (re-extract or span repair)"
+      },
       {
         "version": "v5",
         "corpus_release": "2026.10",
