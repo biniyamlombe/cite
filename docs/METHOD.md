@@ -24,7 +24,7 @@ Outputs: `outputs/rules.json`, `lookups.json`, `changes.json`, `geocode_cache.js
 | Extract | **A** | Claude (default `claude-haiku-4-5`) over capturable docs; heuristic fallback if no API key; `quoted_span` must appear verbatim in source |
 | Enrich | A/B | Dual `coverage_conditions` (plain text + executable predicates) |
 | Geocode | **B** | Census Geocoder (or heuristic) → state / county / legal city (postal city ≠ legal city) |
-| Lookup | **B** | For each of 500 addresses: `applies` / `unknown` / `superseded` / `not_yet_effective` / `pending` |
+| Lookup | **B** | For each of 500 addresses: `applies` / `unknown` / `superseded` / `not_yet_effective` / `pending`; pack §9 open questions appended on matching rules |
 | Changes | **C** | T1–T5 from `dev/change_tests.json` → affected (+ conflict) address sets |
 
 Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no legal logic in the frontend.

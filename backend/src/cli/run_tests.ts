@@ -527,6 +527,121 @@ async function testGeocodeResolution() {
   else fail("expected some postal≠legal remaps in sample pack");
 }
 
+async function testModuleBLookupEdges() {
+  console.log("Module B lookup edges (COO year, unknown, open questions)");
+  const rulesFile = await readJsonIfExists<{ rules: RuleRecord[] }>(
+    path.join(outputsDir(), "rules.json"),
+  );
+  const geoFile = await readJsonIfExists<{ geocoded: GeocodeResult[] }>(
+    path.join(outputsDir(), "geocode_cache.json"),
+  );
+  const addresses = await loadAddresses();
+  if (!rulesFile?.rules?.length || !geoFile?.geocoded?.length) {
+    fail("rules/geocode missing for Module B edge tests");
+    return;
+  }
+  const geos = new Map(geoFile.geocoded.map((g) => [g.address_id, g]));
+  const byAddr = new Map(addresses.map((a) => [a.address_id, a]));
+
+  // LA COO cutoff year → unknown (not applies/omit)
+  const la1978 = addresses.find(
+    (a) =>
+      a.year_built === "1978" &&
+      geos.get(a.address_id)?.legal_city === "Los Angeles",
+  );
+  if (!la1978) {
+    fail("no Los Angeles 1978 sample address for COO unknown test");
+  } else {
+    const hits = evaluateAddress({
+      address: la1978,
+      geo: geos.get(la1978.address_id)!,
+      rules: rulesFile.rules,
+      asOf: "2026-10-01",
+    }).filter((e) => {
+      const r = rulesFile.rules.find((x) => x.team_rule_id === e.team_rule_id);
+      return (
+        !!r &&
+        r.category === "rent_increase_limits" &&
+        /los angeles/i.test(r.jurisdiction)
+      );
+    });
+    if (
+      hits.length > 0 &&
+      hits.every((h) => h.result === "unknown") &&
+      hits.some((h) => /1978|certificate of occupancy/i.test(h.explanation))
+    ) {
+      pass(
+        `LA 1978 COO → unknown on ${hits.length} rent_increase_limits rule(s) (${la1978.address_id})`,
+      );
+    } else {
+      fail(
+        `LA 1978 expected unknown rent rules, got ${JSON.stringify(hits.slice(0, 3))}`,
+      );
+    }
+  }
+
+  // Demo A0005 — missing year/units → at least one unknown
+  const a0005 = byAddr.get("A0005");
+  const g0005 = geos.get("A0005");
+  if (!a0005 || !g0005) {
+    fail("A0005 missing from pack/geocode");
+  } else {
+    const hits = evaluateAddress({
+      address: a0005,
+      geo: g0005,
+      rules: rulesFile.rules,
+      asOf: "2026-10-01",
+    });
+    const unknowns = hits.filter((h) => h.result === "unknown");
+    if (unknowns.length > 0) {
+      pass(`A0005 yields ${unknowns.length} unknown result(s) (missing facts)`);
+    } else {
+      fail("A0005 expected ≥1 unknown when year/units blank");
+    }
+  }
+
+  // Dorchester postal → Boston legal (demo A0065)
+  const g0065 = geos.get("A0065");
+  const a0065 = byAddr.get("A0065");
+  if (
+    a0065 &&
+    g0065 &&
+    /dorchester/i.test(a0065.postal_city) &&
+    g0065.legal_city === "Boston"
+  ) {
+    pass("A0065 postal Dorchester → legal Boston");
+  } else {
+    fail(
+      `A0065 remap failed: postal=${a0065?.postal_city} legal=${g0065?.legal_city}`,
+    );
+  }
+
+  // Pack §9 open questions appear on matching explanations
+  const hob = byAddr.get("A0002");
+  const ghob = geos.get("A0002");
+  if (hob && ghob) {
+    const hits = evaluateAddress({
+      address: hob,
+      geo: ghob,
+      rules: rulesFile.rules,
+      asOf: "2026-10-01",
+    });
+    const fair = hits.find((h) => {
+      const r = rulesFile.rules.find((x) => x.team_rule_id === h.team_rule_id);
+      return r?.alias_id === "NJ-ALG-01";
+    });
+    if (fair && /Open question:.*FAIR/i.test(fair.explanation)) {
+      pass("NJ-ALG-01 explanation surfaces FAIR preemption open question");
+    } else {
+      fail(
+        `NJ-ALG-01 missing open-question note: ${fair?.explanation?.slice(0, 120) ?? "absent"}`,
+      );
+    }
+  } else {
+    fail("A0002 Hoboken missing for open-question test");
+  }
+}
+
 async function testChangeTestsT1T5() {
   console.log("change tests T1–T5");
   const rulesFile = await readJsonIfExists<{ rules: RuleRecord[] }>(
@@ -704,6 +819,7 @@ async function main() {
   await testRuleVersions();
   await testStretchSantaAna();
   await testGeocodeResolution();
+  await testModuleBLookupEdges();
   await testChangeTestsT1T5();
 
   await appendAudit({
