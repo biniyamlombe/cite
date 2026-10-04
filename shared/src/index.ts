@@ -188,7 +188,7 @@ export const LookupResponseSchema = z.object({
   results: z.array(LookupEntrySchema.extend({ rule: ApiRuleSchema.nullable() })),
 });
 export const ChangesResponseSchema = z.object({
-  tests: z.array(z.object({ test_id: z.enum(["T1", "T2", "T3", "T4", "T5", "T6"]), title: z.string(), type: z.string(), expected_behavior: z.string(), rule_ids: z.array(z.string()), as_of: z.string().optional(), as_of_before: z.string().optional(), as_of_after: z.string().optional() })),
+  tests: z.array(z.object({ test_id: z.enum(["T1", "T2", "T3", "T4", "T5"]), title: z.string(), type: z.string(), expected_behavior: z.string(), rule_ids: z.array(z.string()), as_of: z.string().optional(), as_of_before: z.string().optional(), as_of_after: z.string().optional() })),
   results: ChangesFileSchema,
 });
 export const HealthSchema = z.object({ ok: z.boolean(), service: z.string(), as_of_default: AsOfDateSchema, disclaimer: z.string() });

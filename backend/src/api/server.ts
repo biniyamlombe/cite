@@ -145,7 +145,7 @@ app.get("/", async (c) => {
   const aliases = new Set(
     rules.map((r) => r.alias_id).filter((a): a is string => Boolean(a)),
   );
-  // Pack T1–T5 (+ optional T6 in outputs/changes.json for the demo story)
+  // Pack T1–T5 only (participant-final-no-hour16; T6 removed)
   let changeCount = changeTests.length;
   try {
     const out = await readJsonIfExists<Record<string, unknown>>(

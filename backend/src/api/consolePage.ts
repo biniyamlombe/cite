@@ -38,7 +38,7 @@ const ENDPOINTS: ReadonlyArray<{
     try: "/addresses?q=A0005&limit=5",
   },
   { method: "GET", path: "/rules", note: "Full extracted rule catalog" },
-  { method: "GET", path: "/changes", note: "Change tests T1-T6" },
+  { method: "GET", path: "/changes", note: "Change tests T1-T5" },
   { method: "GET", path: "/corpus/docs", note: "Capturable corpus for Pipeline" },
   {
     method: "POST",
