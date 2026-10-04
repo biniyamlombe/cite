@@ -3570,13 +3570,19 @@
             "field": "year_built",
             "operator": "missing",
             "reason": "Santa Ana just-cause coverage excludes housing produced in the last 15 years; year_built is missing."
+          },
+          {
+            "field": "year_built",
+            "operator": "boundary_years",
+            "value": 15,
+            "reason": "Only the building year is known; the production date is needed at the 15-year boundary."
           }
         ],
         "omit_if": [
           {
             "field": "year_built",
-            "operator": "gte",
-            "value": 2012
+            "operator": "within_years",
+            "value": 15
           }
         ]
       },
@@ -4701,7 +4707,7 @@
       "exemptions": null,
       "overrides": [],
       "interaction": "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
-      "effective_date": "2024-01-01",
+      "effective_date": null,
       "citation": "Hoboken local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)",
       "source_doc_id": "D069",
       "source_url": "https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM",
@@ -4733,7 +4739,7 @@
       "exemptions": null,
       "overrides": [],
       "interaction": "May be preempted by NJ FAIR Act once effective; conflict flagged for human review",
-      "effective_date": "2024-01-01",
+      "effective_date": null,
       "citation": "Jersey City local algorithmic ban (primary link-only); evidence quote: NJ FAIR Act (D069)",
       "source_doc_id": "D069",
       "source_url": "https://pub.njleg.state.nj.us/Bills/2026/AL26/43_.HTM",

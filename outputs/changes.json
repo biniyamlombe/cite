@@ -349,7 +349,7 @@
       "A0490",
       "A0495"
     ],
-    "notes": "HOB-ALG-01 only for Hoboken addresses; JC-ALG-01 only for Jersey City addresses; neither for Newark. Newark correctly excluded."
+    "notes": "HOB-ALG-01 only for Hoboken addresses; JC-ALG-01 only for Jersey City addresses; neither for Newark. Newark correctly excluded. Scenario membership only: primary municipal text is uncaptured; live municipal applicability remains unknown."
   },
   "T3": {
     "affected_address_ids": [

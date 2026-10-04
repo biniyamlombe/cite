@@ -3,139 +3,157 @@
   "lookups": {
     "SA0001": [
       {
-        "team_rule_id": "r-0001",
+        "team_rule_id": "r-0005",
         "result": "applies",
         "explanation": "Just Cause Requirement for Eviction After 12 Months covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(a)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0002",
+        "team_rule_id": "r-0006",
         "result": "applies",
         "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0003",
+        "team_rule_id": "r-0007",
         "result": "applies",
         "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0004",
+        "team_rule_id": "r-0008",
         "result": "applies",
         "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0005",
+        "team_rule_id": "r-0009",
         "result": "applies",
         "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0006",
+        "team_rule_id": "r-0010",
         "result": "applies",
         "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0009",
+        "team_rule_id": "r-0014",
         "result": "superseded",
         "explanation": "Statewide Rent Increase Cap is superseded by local rent control for this address. Subdivision (b) allows owners to set initial rental rate without restriction for new tenancies where no prior tenant remains; subsequent increases are subject to cap. Subdivision (c) restricts sublease rent to allowable rate. Local rent controls with lower limits take precedence per subdivision (d)(3).",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0037",
+        "team_rule_id": "r-0050",
         "result": "applies",
         "explanation": "Prohibition on Common Pricing Algorithms in Restraint of Trade covers this address in Santa Ana, CA as of 2026-10-01. California Business and Professions Code § 16729",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0038",
+        "team_rule_id": "r-0051",
+        "result": "applies",
+        "explanation": "Source of Income Discrimination Prohibition covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0052",
+        "result": "applies",
+        "explanation": "Criminal History Screening Limitations covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0053",
+        "result": "applies",
+        "explanation": "Reasonable Accommodation for Disabilities Required covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0054",
         "result": "applies",
         "explanation": "Just Cause for Termination of Residential Tenancy covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2",
         "conflict_flag": true
       },
       {
-        "team_rule_id": "r-0039",
+        "team_rule_id": "r-0056",
         "result": "applies",
-        "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b)",
+        "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0040",
+        "team_rule_id": "r-0057",
         "result": "applies",
-        "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f)",
+        "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0041",
+        "team_rule_id": "r-0058",
         "result": "applies",
-        "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B)",
+        "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0042",
+        "team_rule_id": "r-0059",
         "result": "applies",
-        "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e)",
+        "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0043",
+        "team_rule_id": "r-0060",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Inquiries in Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(b)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0044",
+        "team_rule_id": "r-0061",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Financial or Income Standards in Subsidized Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(o)(1)(A)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0045",
+        "team_rule_id": "r-0062",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Aggregate Income Standards covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(n)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0046",
+        "team_rule_id": "r-0063",
         "result": "applies",
         "explanation": "Security Deposit Return and Accounting Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(i)-(j)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0076",
+        "team_rule_id": "r-0108",
         "result": "applies",
         "explanation": "Maximum Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0083",
+        "team_rule_id": "r-0109",
         "result": "applies",
         "explanation": "Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0084",
+        "team_rule_id": "r-0110",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0085",
+        "team_rule_id": "r-0111",
         "result": "applies",
         "explanation": "No-Fault Eviction Relocation Assistance covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0098",
+        "team_rule_id": "r-0124",
         "result": "applies",
         "explanation": "Pass-Through Fee Cap and Reimbursement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0103",
+        "team_rule_id": "r-0131",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
@@ -143,139 +161,157 @@
     ],
     "SA0002": [
       {
-        "team_rule_id": "r-0001",
+        "team_rule_id": "r-0005",
         "result": "applies",
         "explanation": "Just Cause Requirement for Eviction After 12 Months covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(a)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0002",
+        "team_rule_id": "r-0006",
         "result": "applies",
         "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0003",
+        "team_rule_id": "r-0007",
         "result": "applies",
         "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0004",
+        "team_rule_id": "r-0008",
         "result": "applies",
         "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0005",
+        "team_rule_id": "r-0009",
         "result": "applies",
         "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0006",
+        "team_rule_id": "r-0010",
         "result": "applies",
         "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0009",
+        "team_rule_id": "r-0014",
         "result": "superseded",
         "explanation": "Statewide Rent Increase Cap is superseded by local rent control for this address. Subdivision (b) allows owners to set initial rental rate without restriction for new tenancies where no prior tenant remains; subsequent increases are subject to cap. Subdivision (c) restricts sublease rent to allowable rate. Local rent controls with lower limits take precedence per subdivision (d)(3).",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0037",
+        "team_rule_id": "r-0050",
         "result": "applies",
         "explanation": "Prohibition on Common Pricing Algorithms in Restraint of Trade covers this address in Santa Ana, CA as of 2026-10-01. California Business and Professions Code § 16729",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0038",
+        "team_rule_id": "r-0051",
+        "result": "applies",
+        "explanation": "Source of Income Discrimination Prohibition covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0052",
+        "result": "applies",
+        "explanation": "Criminal History Screening Limitations covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0053",
+        "result": "applies",
+        "explanation": "Reasonable Accommodation for Disabilities Required covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0054",
         "result": "applies",
         "explanation": "Just Cause for Termination of Residential Tenancy covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2",
         "conflict_flag": true
       },
       {
-        "team_rule_id": "r-0039",
+        "team_rule_id": "r-0056",
         "result": "applies",
-        "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b)",
+        "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0040",
+        "team_rule_id": "r-0057",
         "result": "applies",
-        "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f)",
+        "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0041",
+        "team_rule_id": "r-0058",
         "result": "applies",
-        "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B)",
+        "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0042",
+        "team_rule_id": "r-0059",
         "result": "applies",
-        "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e)",
+        "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0043",
+        "team_rule_id": "r-0060",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Inquiries in Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(b)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0044",
+        "team_rule_id": "r-0061",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Financial or Income Standards in Subsidized Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(o)(1)(A)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0045",
+        "team_rule_id": "r-0062",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Aggregate Income Standards covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(n)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0046",
+        "team_rule_id": "r-0063",
         "result": "applies",
         "explanation": "Security Deposit Return and Accounting Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(i)-(j)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0076",
+        "team_rule_id": "r-0108",
         "result": "applies",
         "explanation": "Maximum Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0083",
+        "team_rule_id": "r-0109",
         "result": "applies",
         "explanation": "Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0084",
+        "team_rule_id": "r-0110",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0085",
+        "team_rule_id": "r-0111",
         "result": "applies",
         "explanation": "No-Fault Eviction Relocation Assistance covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0098",
+        "team_rule_id": "r-0124",
         "result": "applies",
         "explanation": "Pass-Through Fee Cap and Reimbursement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0103",
+        "team_rule_id": "r-0131",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
@@ -283,133 +319,151 @@
     ],
     "SA0003": [
       {
-        "team_rule_id": "r-0001",
+        "team_rule_id": "r-0005",
         "result": "applies",
         "explanation": "Just Cause Requirement for Eviction After 12 Months covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(a)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0002",
+        "team_rule_id": "r-0006",
         "result": "applies",
         "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0003",
+        "team_rule_id": "r-0007",
         "result": "applies",
         "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0004",
+        "team_rule_id": "r-0008",
         "result": "applies",
         "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0005",
+        "team_rule_id": "r-0009",
         "result": "applies",
         "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0006",
+        "team_rule_id": "r-0010",
         "result": "applies",
         "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0009",
+        "team_rule_id": "r-0014",
         "result": "superseded",
         "explanation": "Statewide Rent Increase Cap is superseded by local rent control for this address. Subdivision (b) allows owners to set initial rental rate without restriction for new tenancies where no prior tenant remains; subsequent increases are subject to cap. Subdivision (c) restricts sublease rent to allowable rate. Local rent controls with lower limits take precedence per subdivision (d)(3).",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0037",
+        "team_rule_id": "r-0050",
         "result": "applies",
         "explanation": "Prohibition on Common Pricing Algorithms in Restraint of Trade covers this address in Santa Ana, CA as of 2026-10-01. California Business and Professions Code § 16729",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0038",
+        "team_rule_id": "r-0051",
+        "result": "applies",
+        "explanation": "Source of Income Discrimination Prohibition covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0052",
+        "result": "applies",
+        "explanation": "Criminal History Screening Limitations covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0053",
+        "result": "applies",
+        "explanation": "Reasonable Accommodation for Disabilities Required covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0054",
         "result": "applies",
         "explanation": "Just Cause for Termination of Residential Tenancy covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2",
         "conflict_flag": true
       },
       {
-        "team_rule_id": "r-0039",
+        "team_rule_id": "r-0056",
         "result": "applies",
-        "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b)",
+        "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0040",
+        "team_rule_id": "r-0057",
         "result": "applies",
-        "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f)",
+        "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0041",
+        "team_rule_id": "r-0058",
         "result": "applies",
-        "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B)",
+        "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0042",
+        "team_rule_id": "r-0059",
         "result": "applies",
-        "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e)",
+        "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0043",
+        "team_rule_id": "r-0060",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Inquiries in Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(b)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0044",
+        "team_rule_id": "r-0061",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Financial or Income Standards in Subsidized Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(o)(1)(A)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0045",
+        "team_rule_id": "r-0062",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Aggregate Income Standards covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(n)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0046",
+        "team_rule_id": "r-0063",
         "result": "applies",
         "explanation": "Security Deposit Return and Accounting Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(i)-(j)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0076",
+        "team_rule_id": "r-0108",
         "result": "applies",
         "explanation": "Maximum Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0083",
+        "team_rule_id": "r-0109",
         "result": "applies",
         "explanation": "Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0085",
+        "team_rule_id": "r-0111",
         "result": "applies",
         "explanation": "No-Fault Eviction Relocation Assistance covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0098",
+        "team_rule_id": "r-0124",
         "result": "applies",
         "explanation": "Pass-Through Fee Cap and Reimbursement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0103",
+        "team_rule_id": "r-0131",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
@@ -417,139 +471,157 @@
     ],
     "SA0004": [
       {
-        "team_rule_id": "r-0001",
+        "team_rule_id": "r-0005",
         "result": "unknown",
         "explanation": "Statewide coverage may depend on certificate-of-occupancy age; year_built is missing.",
-        "conflict_flag": false
-      },
-      {
-        "team_rule_id": "r-0002",
-        "result": "applies",
-        "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
-        "conflict_flag": false
-      },
-      {
-        "team_rule_id": "r-0003",
-        "result": "applies",
-        "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
-        "conflict_flag": false
-      },
-      {
-        "team_rule_id": "r-0004",
-        "result": "applies",
-        "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
-        "conflict_flag": false
-      },
-      {
-        "team_rule_id": "r-0005",
-        "result": "applies",
-        "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
         "conflict_flag": false
       },
       {
         "team_rule_id": "r-0006",
         "result": "applies",
-        "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
+        "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0007",
+        "result": "applies",
+        "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0008",
+        "result": "applies",
+        "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
         "conflict_flag": false
       },
       {
         "team_rule_id": "r-0009",
+        "result": "applies",
+        "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0010",
+        "result": "applies",
+        "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0014",
         "result": "unknown",
         "explanation": "Statewide coverage may depend on certificate-of-occupancy age; year_built is missing.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0037",
+        "team_rule_id": "r-0050",
         "result": "applies",
         "explanation": "Prohibition on Common Pricing Algorithms in Restraint of Trade covers this address in Santa Ana, CA as of 2026-10-01. California Business and Professions Code § 16729",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0038",
+        "team_rule_id": "r-0051",
+        "result": "applies",
+        "explanation": "Source of Income Discrimination Prohibition covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0052",
+        "result": "applies",
+        "explanation": "Criminal History Screening Limitations covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0053",
+        "result": "applies",
+        "explanation": "Reasonable Accommodation for Disabilities Required covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0054",
         "result": "applies",
         "explanation": "Just Cause for Termination of Residential Tenancy covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2",
         "conflict_flag": true
       },
       {
-        "team_rule_id": "r-0039",
+        "team_rule_id": "r-0056",
         "result": "applies",
-        "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b)",
+        "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0040",
+        "team_rule_id": "r-0057",
         "result": "applies",
-        "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f)",
+        "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0041",
+        "team_rule_id": "r-0058",
         "result": "applies",
-        "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B)",
+        "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0042",
+        "team_rule_id": "r-0059",
         "result": "applies",
-        "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e)",
+        "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0043",
+        "team_rule_id": "r-0060",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Inquiries in Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(b)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0044",
+        "team_rule_id": "r-0061",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Financial or Income Standards in Subsidized Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(o)(1)(A)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0045",
+        "team_rule_id": "r-0062",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Aggregate Income Standards covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(n)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0046",
+        "team_rule_id": "r-0063",
         "result": "applies",
         "explanation": "Security Deposit Return and Accounting Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(i)-(j)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0076",
+        "team_rule_id": "r-0108",
         "result": "applies",
         "explanation": "Maximum Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0083",
+        "team_rule_id": "r-0109",
         "result": "applies",
         "explanation": "Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0084",
+        "team_rule_id": "r-0110",
         "result": "unknown",
         "explanation": "Santa Ana just-cause coverage excludes housing produced in the last 15 years; year_built is missing.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0085",
+        "team_rule_id": "r-0111",
         "result": "applies",
         "explanation": "No-Fault Eviction Relocation Assistance covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0098",
+        "team_rule_id": "r-0124",
         "result": "applies",
         "explanation": "Pass-Through Fee Cap and Reimbursement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0103",
+        "team_rule_id": "r-0131",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
@@ -557,139 +629,157 @@
     ],
     "SA0005": [
       {
-        "team_rule_id": "r-0001",
+        "team_rule_id": "r-0005",
         "result": "unknown",
         "explanation": "A small-landlord or owner-occupied exemption may apply, but owner identity is not in the sample data.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0002",
+        "team_rule_id": "r-0006",
         "result": "applies",
         "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0003",
+        "team_rule_id": "r-0007",
         "result": "applies",
         "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0004",
+        "team_rule_id": "r-0008",
         "result": "applies",
         "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0005",
+        "team_rule_id": "r-0009",
         "result": "applies",
         "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0006",
+        "team_rule_id": "r-0010",
         "result": "applies",
         "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0009",
+        "team_rule_id": "r-0014",
         "result": "superseded",
         "explanation": "Statewide Rent Increase Cap is superseded by local rent control for this address. Subdivision (b) allows owners to set initial rental rate without restriction for new tenancies where no prior tenant remains; subsequent increases are subject to cap. Subdivision (c) restricts sublease rent to allowable rate. Local rent controls with lower limits take precedence per subdivision (d)(3).",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0037",
+        "team_rule_id": "r-0050",
         "result": "applies",
         "explanation": "Prohibition on Common Pricing Algorithms in Restraint of Trade covers this address in Santa Ana, CA as of 2026-10-01. California Business and Professions Code § 16729",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0038",
+        "team_rule_id": "r-0051",
+        "result": "applies",
+        "explanation": "Source of Income Discrimination Prohibition covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0052",
+        "result": "applies",
+        "explanation": "Criminal History Screening Limitations covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0053",
+        "result": "applies",
+        "explanation": "Reasonable Accommodation for Disabilities Required covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0054",
         "result": "applies",
         "explanation": "Just Cause for Termination of Residential Tenancy covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2",
         "conflict_flag": true
       },
       {
-        "team_rule_id": "r-0039",
+        "team_rule_id": "r-0056",
         "result": "applies",
-        "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b)",
+        "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0040",
+        "team_rule_id": "r-0057",
         "result": "applies",
-        "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f)",
+        "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0041",
+        "team_rule_id": "r-0058",
         "result": "applies",
-        "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B)",
+        "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0042",
+        "team_rule_id": "r-0059",
         "result": "applies",
-        "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e)",
+        "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0043",
+        "team_rule_id": "r-0060",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Inquiries in Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(b)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0044",
+        "team_rule_id": "r-0061",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Financial or Income Standards in Subsidized Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(o)(1)(A)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0045",
+        "team_rule_id": "r-0062",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Aggregate Income Standards covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(n)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0046",
+        "team_rule_id": "r-0063",
         "result": "applies",
         "explanation": "Security Deposit Return and Accounting Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(i)-(j)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0076",
+        "team_rule_id": "r-0108",
         "result": "applies",
         "explanation": "Maximum Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0083",
+        "team_rule_id": "r-0109",
         "result": "applies",
         "explanation": "Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0084",
+        "team_rule_id": "r-0110",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0085",
+        "team_rule_id": "r-0111",
         "result": "applies",
         "explanation": "No-Fault Eviction Relocation Assistance covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0098",
+        "team_rule_id": "r-0124",
         "result": "applies",
         "explanation": "Pass-Through Fee Cap and Reimbursement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0103",
+        "team_rule_id": "r-0131",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
@@ -697,139 +787,157 @@
     ],
     "SA0006": [
       {
-        "team_rule_id": "r-0001",
+        "team_rule_id": "r-0005",
         "result": "applies",
         "explanation": "Just Cause Requirement for Eviction After 12 Months covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(a)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0002",
+        "team_rule_id": "r-0006",
         "result": "applies",
         "explanation": "At-Fault Just Cause Grounds for Eviction covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2(b)(1)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0003",
+        "team_rule_id": "r-0007",
         "result": "applies",
         "explanation": "Rent Increase Notice Requirement covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(e)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0004",
+        "team_rule_id": "r-0008",
         "result": "applies",
         "explanation": "Remedies for Excessive Rent Demands covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1947.12(k)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0005",
+        "team_rule_id": "r-0009",
         "result": "applies",
         "explanation": "Service Member Higher Security Deposit Disclosure covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(c)(4)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0006",
+        "team_rule_id": "r-0010",
         "result": "applies",
         "explanation": "Security Deposit - Prohibited Deductions covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(e)(2)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0009",
+        "team_rule_id": "r-0014",
         "result": "superseded",
         "explanation": "Statewide Rent Increase Cap is superseded by local rent control for this address. Subdivision (b) allows owners to set initial rental rate without restriction for new tenancies where no prior tenant remains; subsequent increases are subject to cap. Subdivision (c) restricts sublease rent to allowable rate. Local rent controls with lower limits take precedence per subdivision (d)(3).",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0037",
+        "team_rule_id": "r-0050",
         "result": "applies",
         "explanation": "Prohibition on Common Pricing Algorithms in Restraint of Trade covers this address in Santa Ana, CA as of 2026-10-01. California Business and Professions Code § 16729",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0038",
+        "team_rule_id": "r-0051",
+        "result": "applies",
+        "explanation": "Source of Income Discrimination Prohibition covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0052",
+        "result": "applies",
+        "explanation": "Criminal History Screening Limitations covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0053",
+        "result": "applies",
+        "explanation": "Reasonable Accommodation for Disabilities Required covers this address in Santa Ana, CA as of 2026-10-01. Fair Employment and Housing Act (FEHA)",
+        "conflict_flag": false
+      },
+      {
+        "team_rule_id": "r-0054",
         "result": "applies",
         "explanation": "Just Cause for Termination of Residential Tenancy covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1946.2",
         "conflict_flag": true
       },
       {
-        "team_rule_id": "r-0039",
+        "team_rule_id": "r-0056",
         "result": "applies",
-        "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b)",
+        "explanation": "Application Screening Fee Cap covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(b) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0040",
+        "team_rule_id": "r-0057",
         "result": "applies",
-        "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f)",
+        "explanation": "Application Screening Fee Receipt and Itemization Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(d), (f) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0041",
+        "team_rule_id": "r-0058",
         "result": "applies",
-        "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B)",
+        "explanation": "Application Screening Fee Refund - Alternative Process covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(c)(2)(B) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0042",
+        "team_rule_id": "r-0059",
         "result": "applies",
-        "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e)",
+        "explanation": "Unused Application Screening Fee Refund covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.6(e) Open question: California's screening-fee cap has no single official 2026 dollar figure in the corpus.",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0043",
+        "team_rule_id": "r-0060",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Inquiries in Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(b)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0044",
+        "team_rule_id": "r-0061",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Financial or Income Standards in Subsidized Housing covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(o)(1)(A)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0045",
+        "team_rule_id": "r-0062",
         "result": "applies",
         "explanation": "Prohibition on Discriminatory Aggregate Income Standards covers this address in Santa Ana, CA as of 2026-10-01. California Government Code § 12955(n)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0046",
+        "team_rule_id": "r-0063",
         "result": "applies",
         "explanation": "Security Deposit Return and Accounting Requirements covers this address in Santa Ana, CA as of 2026-10-01. California Civil Code § 1950.5(i)-(j)",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0076",
+        "team_rule_id": "r-0108",
         "result": "applies",
         "explanation": "Maximum Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0083",
+        "team_rule_id": "r-0109",
         "result": "applies",
         "explanation": "Annual Rent Increase Cap covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0084",
+        "team_rule_id": "r-0110",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0085",
+        "team_rule_id": "r-0111",
         "result": "applies",
         "explanation": "No-Fault Eviction Relocation Assistance covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0098",
+        "team_rule_id": "r-0124",
         "result": "applies",
         "explanation": "Pass-Through Fee Cap and Reimbursement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
       },
       {
-        "team_rule_id": "r-0103",
+        "team_rule_id": "r-0131",
         "result": "applies",
         "explanation": "Just Cause Eviction Requirement covers this address in Santa Ana, CA as of 2026-10-01. Santa Ana Rent Stabilization and Just Cause Eviction Ordinance",
         "conflict_flag": false
