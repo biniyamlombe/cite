@@ -79051,10 +79051,6 @@
       "T5": {
         "affected_address_ids": [],
         "notes": "No rent cap reported for any Boston or Cambridge address; IP 25-21 recorded as failed. Affected set is empty. WARNING: wrongly_applies=0 rogue_cap=50"
-      },
-      "T6": {
-        "affected_address_ids": [],
-        "notes": "T6 placeholder (hour-16 Cambridge ordinance not in this pack). Cambridge sample size=50. Awaiting corpus release — do not invent results."
       }
     }
   },

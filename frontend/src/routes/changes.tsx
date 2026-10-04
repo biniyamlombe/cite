@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useQuery } from "@tanstack/react-query";
-import { AlertCircle, Clock, Loader2 } from "lucide-react";
+import { AlertCircle, Loader2 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useT } from "@/lib/i18n";
 import { getCiteClient } from "@/lib/cite/client";
@@ -211,16 +211,6 @@ function ChangesPage() {
                 </div>
               );
             })}
-
-            <article id="T6" className="scroll-mt-28 fade-up border-t border-dashed border-border/80 pt-8 opacity-90">
-              <div className="flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-                <Clock className="size-3" /> T6 · {t("changes.t6Badge")}
-              </div>
-              <h3 className="mt-2 font-serif text-xl tracking-[-0.02em] text-ink">{t("changes.t6Title")}</h3>
-              <p className="mt-1.5 max-w-2xl text-sm text-muted-foreground">
-                {changes.data.results["T6"]?.notes || t("changes.t6Body")}
-              </p>
-            </article>
           </div>
         </>
       )}
