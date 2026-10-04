@@ -105,6 +105,15 @@ function RulesPage() {
       });
   }, [data, jur, cat, status, conf, q]);
 
+  const bandCounts = useMemo(() => {
+    const counts: Record<ConfidenceBand, number> = { high: 0, medium: 0, low: 0 };
+    for (const r of data ?? []) {
+      const band = confidenceBand(r.confidence);
+      if (band) counts[band] += 1;
+    }
+    return counts;
+  }, [data]);
+
   const filtersActive = Boolean(q || jur || cat || status || conf);
   const clearFilters = () => {
     setQ("");
@@ -189,6 +198,23 @@ function RulesPage() {
           />
         </div>
         <p className="mt-3 text-xs text-muted-foreground">{t("confidence.legend")}</p>
+        <p className="mt-1 text-xs text-muted-foreground">{t("rules.confidence.hint")}</p>
+        <div className="mt-3 flex flex-wrap gap-2 text-[11px]">
+          {CONF_BANDS.map((b) => (
+            <button
+              key={b}
+              type="button"
+              onClick={() => setConf((cur) => (cur === b ? "" : b))}
+              className={
+                conf === b
+                  ? "rounded-sm border border-primary/40 bg-primary/10 px-2 py-1 font-medium text-ink"
+                  : "rounded-sm border border-border/70 bg-paper/70 px-2 py-1 text-muted-foreground hover:text-ink"
+              }
+            >
+              {t(`confidence.${b}`)} · {t("confidence.bandCount", { n: bandCounts[b] })}
+            </button>
+          ))}
+        </div>
       </section>
 
       {isPending && (
