@@ -70,7 +70,8 @@ Call out:
 
 Call out:
 - Primary Hoboken/JC ordinance pages are **link-only** in the pack
-- Confidence **0.35**, conflict flag, `conflict_note` lists primary URLs
+- Applicability **unknown**, confidence **0.35**, conflict flag, `conflict_note` lists primary URLs
+- The municipal effective date is unverified; T2/T3 encode challenge scenario membership, not a verified municipal determination
 - Quoted span is **NJ FAIR Act (D069)** — not invented municipal code
 - **Open legal question** chip on NJ FAIR / local overlap (pack §9 preemption)
 - Open **Version history** on the Hoboken alias — multiple versions from re-extract/scaffold hardening
@@ -103,7 +104,8 @@ Search **`SA0001`** (1968, 24 units) vs **`SA0003`** (2018):
 - Property summary shows a **Stretch** badge + Santa Ana callout (same pipeline; outside the 500)
 - Demo tip on the result: SA0001 applies vs SA0003 15-year just-cause omit
 - `SA0001`: Santa Ana rent + just-cause **apply** (+ CA state layering)
-- `SA0003`: **15-year** just-cause exemption → that city just-cause rule omitted
+- `SA0003`: **15-year** just-cause exemption → that city just-cause rule omitted at the default date
+- With the live API, its boundary year (2033) is unknown without the exact production date; by 2040 that particular age exemption has elapsed
 
 Optional beats in the same minute:
 
@@ -119,3 +121,9 @@ Optional beats in the same minute:
 - Limits on **About** / `docs/METHOD.md` (link-only HOB/JC, open questions, empty chrome docs)
 
 **One-liner:** “Cite won’t invent ordinance text or invent building facts — it cites the corpus and says unknown when the data isn’t there.”
+
+## Offline fallback
+
+Unset `VITE_API_URL` to use the corpus-backed snapshots, then restart the UI. The four demo IDs keep their real pack/stretch facts. Available dates: `2026-10-01`, `2027-07-02`, `2027-10-01`. Pipeline shows saved extraction, and version history comes from the saved artifact. Other dates are unavailable, not guessed. Regenerate with `npm run demo:snapshots` after updating outputs.
+
+Monitor verification: watch A0500 and SA0001; both appear in Portfolio. An unavailable lookup shows incomplete checks and dashes rather than zero exposure. The header distinguishes configured/live connectivity from an unavailable API.

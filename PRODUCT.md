@@ -26,7 +26,10 @@ Meaningfully different mechanism: verbatim `quoted_span` evidence + dual coverag
 - EN/ES chrome locale on primary nav; citations stay in source language
 - More: Monitor (Portfolio / Bulk / Coverage) + Team (Dashboard / Memos / Settings); portfolio defaults to watched set; re-check due status + cron endpoint
 - Responsible design: as-of, unknown-over-guess, conflict/open-question callouts, link-only honesty, not a compliance certification
-- Live Hono API or mock client
+- Live Hono API with checked connectivity and runtime response validation
+- Corpus-backed offline snapshots for all 506 addresses at 2026-10-01, 2027-07-02, and 2027-10-01; unsupported dates are explicit
+- Municipal link-only scenarios retain unknown applicability; scenario membership is not verified ordinance coverage
+- Monitoring distinguishes incomplete checks from unchanged results and compares conflict/source evidence as well as status
 
 ## Constraints
 

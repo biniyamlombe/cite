@@ -21,3 +21,9 @@ Smoke coverage (no Anthropic call required):
 
 Primary Hoboken / Jersey City ordinance pages are `links_only` in the pack —
 tests assert we do **not** invent capturable municipal text for those docs.
+
+## Regression checks
+
+`npm test` runs the existing smoke suite, backend `node:test` regressions in `backend/src/tests/`, and frontend Vitest tests in `frontend/src/test/`. Tests cover calendar validation, rolling-year boundaries, uncertain precedence, municipal scenario honesty, Hono routes, extraction fallback validation, corpus-backed offline data, keyboard search, partial monitoring failures, and webhook/database failures. Webhook calls are stubbed.
+
+Run `npm run typecheck` for all packages and `npm run demo:preflight` against a running API for semantic checks of A0005 → A0065 → A0002 → SA0001. A full visual/assistive-technology walkthrough remains a separate manual check.

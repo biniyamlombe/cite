@@ -50,8 +50,9 @@ Deploy needs the repo as-is: `data/pack/` + `outputs/` (including `geocode_cache
 # Prove organizer sample validates (Zod + Ajv) before extract
 npm run check-schema
 
-# Smoke tests (schema, corpus loader, citation spans, aliases, T1–T5)
+# Backend + frontend tests (schema, exact spans, coverage, T1–T5, keyboard search, monitoring)
 npm test
+npm run typecheck
 
 # Full pipeline (schema → extract → dual coverage → geocode → lookup → changes)
 npm run pipeline
@@ -125,3 +126,11 @@ Default query date: `2026-10-01`.
 ## Method
 
 See **[docs/METHOD.md](docs/METHOD.md)** for the one-page description of Modules A–C, reproducibility commands, and known limits.
+
+## Offline demo and monitoring
+
+Without `VITE_API_URL`, the UI loads generated corpus snapshots for all 506 addresses at `2026-10-01`, `2027-07-02`, and `2027-10-01`. Other dates return an explicit unavailable message. Rebuild snapshots after changing artifacts with `npm run demo:snapshots`; no browser-side legal evaluation occurs. Offline Pipeline shows saved corpus extraction, not a live model run.
+
+The API badge checks connectivity. Scheduled re-checks and the customer API require live configuration. Re-checks compare stable rule identity, status, conflict flags, and evidence; old status-only baselines refresh once without claiming a legal change. Failed persistence or webhook delivery remains due for retry. Delivery is at-least-once, so receivers should handle duplicate events. The dashboard reports failed runs and refreshed baselines.
+
+`npm run demo:preflight` validates the four demo stories, T1–T6 sets, corpus picker, rule contracts, version history, and rejection of impossible dates. `npm run typecheck` checks all three packages. Tests use simulated webhook/database failures; they do not deliver external messages.
