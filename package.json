@@ -10,6 +10,7 @@
     "dev:frontend": "npm run dev --prefix frontend",
     "demo:preflight": "bash scripts/demo-preflight.sh",
     "demo:tunnel": "bash scripts/demo-tunnel.sh",
+    "submission:check": "bash scripts/submission-check.sh",
     "check-schema": "npm run check-schema -w backend",
     "test": "npm run test -w backend",
     "enrich-coverage": "npm run enrich-coverage -w backend",
