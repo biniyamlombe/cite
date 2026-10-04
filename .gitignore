@@ -18,6 +18,3 @@ frontend/dist/
 # Local agent skill mirrors
 .agents/
 .aider-desk/
-
-# Local reference clone (not part of Cite)
-rental-law-navigator/
