@@ -40,6 +40,8 @@ async function main() {
   await run("lookup.ts");
   console.log("=== 6/7 Changes ===");
   await run("changes.ts");
+  console.log("=== stretch/Santa Ana (optional demo jurisdiction) ===");
+  await run("stretch.ts", heuristicGeo ? ["--heuristic-geo"] : []);
   console.log("Pipeline complete → outputs/");
 }
 

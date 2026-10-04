@@ -1,0 +1,7 @@
+address_id,street_address,postal_city,state,zip,year_built,units,use_code,use_description,source_dataset,retrieved_at
+SA0001,200 N Broadway,Santa Ana,CA,92701,1968,24,APART,Multifamily,stretch demo (Santa Ana),2026-10-03T00:00Z
+SA0002,401 W 4th St,Santa Ana,CA,92701,1985,8,APART,Multifamily,stretch demo (Santa Ana),2026-10-03T00:00Z
+SA0003,1500 E 1st St,Santa Ana,CA,92701,2018,12,APART,Multifamily new construction,stretch demo (Santa Ana),2026-10-03T00:00Z
+SA0004,620 W Santa Ana Blvd,Santa Ana,CA,92701,,6,APART,Multifamily unknown year,stretch demo (Santa Ana),2026-10-03T00:00Z
+SA0005,1001 N Main St,Santa Ana,CA,92701,1972,2,DUPLEX,Small rental,stretch demo (Santa Ana),2026-10-03T00:00Z
+SA0006,310 E 17th St,Santa Ana,CA,92706,1995,40,APART,Large multifamily,stretch demo (Santa Ana),2026-10-03T00:00Z

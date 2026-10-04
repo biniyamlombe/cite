@@ -4,7 +4,7 @@ import { Hono } from "hono";
 import { cors } from "hono/cors";
 import path from "node:path";
 import { DEFAULT_AS_OF, type RuleRecord } from "@rhl/shared";
-import { loadAddresses } from "../lib/addresses.js";
+import { loadAllAddresses } from "../lib/addresses.js";
 import { loadCapturableDocs, loadDocById } from "../lib/corpus.js";
 import { readJsonIfExists } from "../lib/io.js";
 import { outputsDir } from "../lib/paths.js";
@@ -86,10 +86,18 @@ function withRetrievedAt<T extends RuleRecord | null>(
 }
 
 async function loadGeos(): Promise<Map<string, GeocodeResult>> {
-  const file = await readJsonIfExists<{ geocoded: GeocodeResult[] }>(
+  const pack = await readJsonIfExists<{ geocoded: GeocodeResult[] }>(
     path.join(outputsDir(), "geocode_cache.json"),
   );
-  return new Map((file?.geocoded ?? []).map((g) => [g.address_id, g]));
+  const stretch = await readJsonIfExists<{ geocoded: GeocodeResult[] }>(
+    path.join(outputsDir(), "stretch_geocode.json"),
+  );
+  return new Map(
+    [...(pack?.geocoded ?? []), ...(stretch?.geocoded ?? [])].map((g) => [
+      g.address_id,
+      g,
+    ]),
+  );
 }
 
 app.get("/health", (c) =>
@@ -104,7 +112,7 @@ app.get("/health", (c) =>
 
 app.get("/addresses", async (c) => {
   const q = (c.req.query("q") || "").toLowerCase().trim();
-  const addresses = await loadAddresses();
+  const addresses = await loadAllAddresses();
   const geos = await loadGeos();
   let rows = addresses;
   if (q) {
@@ -133,7 +141,7 @@ app.get("/addresses", async (c) => {
 app.get("/lookup/:addressId", async (c) => {
   const addressId = c.req.param("addressId");
   const asOf = c.req.query("as_of") || process.env.AS_OF_DEFAULT || DEFAULT_AS_OF;
-  const addresses = await loadAddresses();
+  const addresses = await loadAllAddresses();
   const addr = addresses.find((a) => a.address_id === addressId);
   if (!addr) return c.json({ error: "Address not found" }, 404);
 

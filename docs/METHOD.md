@@ -37,6 +37,7 @@ Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no
 - **Change-test aliases.** Stable IDs `CA-ALG-01`, `NJ-ALG-01`, `MA-ALG-P1/P2`, `MA-RENT-P1`, `HOB-ALG-01`, `JC-ALG-01` for T1–T5.
 - **Link-only cities.** Hoboken / Jersey City algorithmic ordinance pages are link-only in the pack (`links_only.csv`: ecode360 / news). We **upsert** `HOB-ALG-01` / `JC-ALG-01` every enrich with low confidence, conflict flags, the primary link-only URLs in `conflict_note`, and a **verbatim NJ FAIR Act (D069) quote** — never invented municipal code — so T2/T3 stay deterministic and demo-honest.
 - **Version history.** `GET /rules/:id/versions` reads `outputs/rule_versions.json`, keyed by alias/source so renumbered `team_rule_id`s still resolve. Built from git snapshots of `rules.json` plus the current tip.
+- **Stretch jurisdiction.** Santa Ana corpus docs (D084/D085) already extract; we add six demo addresses and run the same geocode/coverage path (`npm run stretch`) so lookups apply city + CA state rules without touching T1–T5.
 - **Auditability.** `outputs/audit_log.jsonl` and `GET /audit` record extract / quote / test events.
 
 ## Current submission snapshot
@@ -49,5 +50,5 @@ Live demo: Hono API (`:4000`) + Vite UI (`VITE_API_URL`). UI is display-only; no
 
 - Not every capturable doc yields rules under the default Haiku extract.  
 - Rule version history is rebuilt from git snapshots of `rules.json` (`npm run build-versions` → `outputs/rule_versions.json`).  
-- Santa Ana is extract-only (no sample addresses in the pack).  
+- Stretch: Santa Ana uses the same pipeline via `data/stretch/santa_ana_addresses.csv` + `npm run stretch` (pack’s 500 change-test addresses unchanged).  
 - This is a prototype, not counsel-reviewed advice.

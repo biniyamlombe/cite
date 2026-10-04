@@ -12,6 +12,7 @@
     "test": "npm run test -w backend",
     "enrich-coverage": "npm run enrich-coverage -w backend",
     "build-versions": "npm run build-versions -w backend",
+    "stretch": "npm run stretch -w backend --",
     "extract": "npm run extract -w backend --",
     "repair-spans": "npm run repair-spans -w backend --",
     "geocode": "npm run geocode -w backend --",

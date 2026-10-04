@@ -1,0 +1,58 @@
+{
+  "geocoded": [
+    {
+      "address_id": "SA0001",
+      "legal_city": "Santa Ana",
+      "county": "Orange County",
+      "state": "CA",
+      "matched_address": "200 N Broadway, Santa Ana, CA 92701",
+      "source": "heuristic",
+      "resolution": "known_jurisdiction"
+    },
+    {
+      "address_id": "SA0002",
+      "legal_city": "Santa Ana",
+      "county": "Orange County",
+      "state": "CA",
+      "matched_address": "401 W 4th St, Santa Ana, CA 92701",
+      "source": "heuristic",
+      "resolution": "known_jurisdiction"
+    },
+    {
+      "address_id": "SA0003",
+      "legal_city": "Santa Ana",
+      "county": "Orange County",
+      "state": "CA",
+      "matched_address": "1500 E 1st St, Santa Ana, CA 92701",
+      "source": "heuristic",
+      "resolution": "known_jurisdiction"
+    },
+    {
+      "address_id": "SA0004",
+      "legal_city": "Santa Ana",
+      "county": "Orange County",
+      "state": "CA",
+      "matched_address": "620 W Santa Ana Blvd, Santa Ana, CA 92701",
+      "source": "heuristic",
+      "resolution": "known_jurisdiction"
+    },
+    {
+      "address_id": "SA0005",
+      "legal_city": "Santa Ana",
+      "county": "Orange County",
+      "state": "CA",
+      "matched_address": "1001 N Main St, Santa Ana, CA 92701",
+      "source": "heuristic",
+      "resolution": "known_jurisdiction"
+    },
+    {
+      "address_id": "SA0006",
+      "legal_city": "Santa Ana",
+      "county": "Orange County",
+      "state": "CA",
+      "matched_address": "310 E 17th St, Santa Ana, CA 92706",
+      "source": "heuristic",
+      "resolution": "known_jurisdiction"
+    }
+  ]
+}

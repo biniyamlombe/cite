@@ -103,6 +103,20 @@ export function compileCoverageConditions(
   }
 
   if (
+    /santa ana/i.test(rule.jurisdiction) &&
+    rule.category === "just_cause_eviction" &&
+    /15 year|last 15 years|housing produced/i.test(blob)
+  ) {
+    unknown_if.push({
+      field: "year_built",
+      operator: "missing",
+      reason:
+        "Santa Ana just-cause coverage excludes housing produced in the last 15 years; year_built is missing.",
+    });
+    omit_if.push({ field: "year_built", operator: "gte", value: 2012 });
+  }
+
+  if (
     /owner-occupied|2 or fewer|two or fewer|small-landlord|no more than two rental/i.test(
       blob,
     )

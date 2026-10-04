@@ -18,7 +18,7 @@ import {
   isTrustedLegalCity,
   type GeocodeResult,
 } from "../geocode/census.js";
-import { loadAddresses } from "../lib/addresses.js";
+import { loadAddresses, loadStretchAddresses } from "../lib/addresses.js";
 import { runChangesFromDisk } from "../changes/tracker.js";
 import {
   assertT1,
@@ -547,6 +547,89 @@ async function testChangeTestsT1T5() {
   }
 }
 
+async function testStretchSantaAna() {
+  console.log("stretch jurisdiction (Santa Ana)");
+  const stretch = await loadStretchAddresses();
+  if (stretch.length >= 4) {
+    pass(`stretch CSV has ${stretch.length} Santa Ana demo addresses`);
+  } else {
+    fail(`expected ≥4 stretch addresses, got ${stretch.length}`);
+    return;
+  }
+  const rulesPath = path.join(outputsDir(), "rules.json");
+  const rulesFile = await readJsonIfExists<{ rules: RuleRecord[] }>(rulesPath);
+  const rules = (rulesFile?.rules ?? []).map((r) => enrichRuleCoverage(r));
+  const saRules = rules.filter((r) => /Santa Ana/i.test(r.jurisdiction));
+  if (saRules.length >= 3) {
+    pass(`${saRules.length} Santa Ana city rules in rules.json`);
+  } else {
+    fail(`expected ≥3 Santa Ana rules, got ${saRules.length}`);
+  }
+
+  const oldBuild = stretch.find((a) => a.address_id === "SA0001")!;
+  const newBuild = stretch.find((a) => a.address_id === "SA0003")!;
+  const geos = await geocodeAddresses([oldBuild, newBuild], { useCensus: false });
+  const oldGeo = geos.find((g) => g.address_id === "SA0001")!;
+  const newGeo = geos.find((g) => g.address_id === "SA0003")!;
+  if (
+    oldGeo.legal_city === "Santa Ana" &&
+    oldGeo.state === "CA" &&
+    isTrustedLegalCity(oldGeo)
+  ) {
+    pass("SA0001 geocodes to trusted Santa Ana, CA");
+  } else {
+    fail(`SA0001 geo failed: ${JSON.stringify(oldGeo)}`);
+  }
+
+  const oldHits = evaluateAddress({
+    address: oldBuild,
+    geo: oldGeo,
+    rules,
+  });
+  const newHits = evaluateAddress({
+    address: newBuild,
+    geo: newGeo,
+    rules,
+  });
+  const saAppliesOld = oldHits.filter(
+    (h) =>
+      h.result === "applies" &&
+      saRules.some((r) => r.team_rule_id === h.team_rule_id),
+  );
+  if (saAppliesOld.length >= 1) {
+    pass(
+      `pre-2012 Santa Ana building gets ${saAppliesOld.length} applying Santa Ana rule(s)`,
+    );
+  } else {
+    fail("expected Santa Ana city rules to apply to SA0001");
+  }
+  const fifteenYearJc = saRules.find(
+    (r) =>
+      r.category === "just_cause_eviction" &&
+      /housing produced in the last 15 years/i.test(r.exemptions || ""),
+  );
+  if (fifteenYearJc) {
+    const onNew = newHits.find((h) => h.team_rule_id === fifteenYearJc.team_rule_id);
+    if (!onNew) {
+      pass("2018 Santa Ana build omits 15-year-exempt just-cause rule");
+    } else {
+      fail(
+        `2018 build should omit ${fifteenYearJc.team_rule_id}, got ${onNew.result}`,
+      );
+    }
+  } else {
+    fail("no Santa Ana just-cause rule with 15-year housing exemption text");
+  }
+
+  // Pack address count unchanged
+  const pack = await loadAddresses();
+  if (pack.length === 500) {
+    pass("pack sample addresses remain 500 (stretch is additive)");
+  } else {
+    fail(`pack address count drifted: ${pack.length}`);
+  }
+}
+
 async function testRuleVersions() {
   console.log("rule version history");
   const file = await loadRuleVersionsFile();
@@ -602,6 +685,7 @@ async function main() {
   await testDualCoverage();
   await testRulesOutput();
   await testRuleVersions();
+  await testStretchSantaAna();
   await testGeocodeResolution();
   await testChangeTestsT1T5();
 

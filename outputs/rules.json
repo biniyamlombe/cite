@@ -2767,6 +2767,20 @@
             "operator": "eq",
             "value": "Santa Ana"
           }
+        ],
+        "unknown_if": [
+          {
+            "field": "year_built",
+            "operator": "missing",
+            "reason": "Santa Ana just-cause coverage excludes housing produced in the last 15 years; year_built is missing."
+          }
+        ],
+        "omit_if": [
+          {
+            "field": "year_built",
+            "operator": "gte",
+            "value": 2012
+          }
         ]
       },
       "exemptions": "Housing produced in the last 15 years; deed-restricted affordable housing; hotel and transient occupancy; hospital and care facilities; dormitories; other shared living quarters",

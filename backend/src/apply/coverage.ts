@@ -219,6 +219,26 @@ function evaluateBuildingFacts(
     }
   }
 
+  // Santa Ana just-cause: housing produced in the last 15 years is exempt (D085)
+  if (
+    /santa ana/i.test(rule.jurisdiction) &&
+    rule.category === "just_cause_eviction" &&
+    /15 year|last 15 years|housing produced/i.test(blob)
+  ) {
+    if (year == null) {
+      return {
+        result: "unknown",
+        explanation:
+          "Santa Ana just-cause coverage excludes housing produced in the last 15 years; year_built is missing.",
+        conflict_flag: false,
+      };
+    }
+    // As-of 2026 → buildings from 2012 onward are within the rolling 15-year window.
+    if (year >= 2012) {
+      return { omit: true, result: "applies", explanation: "", conflict_flag: false };
+    }
+  }
+
   // "Multifamily … built before YYYY" / "built before YYYY"
   const beforeMatch = cov.match(
     /(?:multifamily\s+)?(?:properties\s+)?built before (\d{4})/i,

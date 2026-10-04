@@ -15,6 +15,7 @@ Hack-Nation × RealPage · Challenge 02 — Rental Housing Law Navigator
 | `shared/` | Zod schemas shared by FE/BE |
 | `data/pack` | Vendored participant starter pack (corpus, addresses, schema, change tests) |
 | `outputs/` | `rules.json`, `lookups.json`, `changes.json`, `geocode_cache.json`, `rule_versions.json` |
+| `data/stretch/` | Santa Ana demo addresses (stretch jurisdiction; not in pack 500) |
 | `docs/METHOD.md` | One-page method note (extract → geocode → lookup → T1–T5) |
 | `docs/CITE_LOVABLE_PROMPT.md` | Prompt used to build the Lovable frontend |
 

@@ -490,3 +490,8 @@
 {"ts":"2026-10-04T00:02:33.385Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-04T00:04:10.421Z","kind":"note","message":"Built rule version history for 229 keys (64 with >1 version)","meta":{"keys":229,"multi":64}}
 {"ts":"2026-10-04T00:04:11.245Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T00:11:38.118Z","kind":"note","message":"Enriched coverage_conditions dual form on 116/116 rules","meta":{"dual":116,"total":116}}
+{"ts":"2026-10-04T00:11:38.507Z","kind":"note","message":"Stretch Santa Ana: geocoded+lookup 6 addresses; 6 city rules","meta":{"stretch_addresses":6,"santa_ana_rules":6,"as_of":"2026-10-01","heuristic_geo":true}}
+{"ts":"2026-10-04T00:11:39.088Z","kind":"note","message":"smoke tests finished with 1 failure(s)","meta":{"failed":1}}
+{"ts":"2026-10-04T00:11:50.693Z","kind":"note","message":"Stretch Santa Ana: geocoded+lookup 6 addresses; 6 city rules","meta":{"stretch_addresses":6,"santa_ana_rules":6,"as_of":"2026-10-01","heuristic_geo":true}}
+{"ts":"2026-10-04T00:11:51.520Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
