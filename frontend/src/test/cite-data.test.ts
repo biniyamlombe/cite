@@ -1,5 +1,5 @@
 import { describe, expect, it, vi, afterEach } from "vitest";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { AsOfDateSchema, ChangesResponseSchema, LookupResponseSchema } from "@rhl/shared";
 import { MOCK_RULES, MOCK_CHANGES, mockLookup, mockRuleVersions } from "@/mocks/cite";
 import { approachingEffective, changesBetween, summarizeLookup } from "@/lib/cite/lookup-diff";
@@ -23,7 +23,11 @@ describe("corpus-backed offline demo", () => {
   });
   it("uses exact quotes and stored version records", () => {
     for (const rule of MOCK_RULES) {
-      const source = readFileSync(`../data/pack/corpus/text/${rule.source_doc_id}.txt`, "utf8");
+      const packPath = `../data/pack/corpus/text/${rule.source_doc_id}.txt`;
+      const secondaryPath = `../data/stretch/secondary_corpus/${rule.source_doc_id}.txt`;
+      const source = existsSync(packPath)
+        ? readFileSync(packPath, "utf8")
+        : readFileSync(secondaryPath, "utf8");
       expect(source.includes(rule.quoted_span), rule.team_rule_id).toBe(true);
     }
     const history = JSON.parse(readFileSync("../outputs/rule_versions.json", "utf8"));

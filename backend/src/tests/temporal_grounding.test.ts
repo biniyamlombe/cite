@@ -82,11 +82,19 @@ test("no NJ algorithmic rule applies before the FAIR Act effective date", () => 
   assert.equal(after.legal_status_at_as_of_date, "in_force", "status must follow the as-of date");
 });
 
-test("link-only municipal scaffolds assert no legal status or date", () => {
-  for (const alias of ["HOB-ALG-01", "JC-ALG-01"]) {
+test("link-only municipal bans use city secondary reports, not FAIR quotes", () => {
+  const expect: Record<string, string> = {
+    "HOB-ALG-01": "HOB-NEWS-01",
+    "JC-ALG-01": "JC-NEWS-01",
+  };
+  for (const [alias, docId] of Object.entries(expect)) {
     const r = rules.find((x) => x.alias_id === alias)!;
     assert.equal(r.effective_date, null);
     assert.match(r.status_basis ?? "", /^unverified/);
+    assert.equal(r.extraction_method, "secondary_report");
+    assert.equal(r.source_doc_id, docId);
+    assert.doesNotMatch(r.quoted_span, /municipality shall be prohibited/i);
+    assert.match(r.quoted_span, /algorithm|RealPage/i);
   }
   const hob = lookup("A0002", "2026-10-01").find((e) => rules.find((x) => x.team_rule_id === e.team_rule_id)?.alias_id === "HOB-ALG-01")!;
   assert.equal(hob.result, "unknown");

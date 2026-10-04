@@ -31,6 +31,7 @@ import {
   exactSpanInSource,
   loadCapturableDocs,
   loadDocById,
+  loadSecondaryDocs,
   snapQuotedSpanToSource,
 } from "../lib/corpus.js";
 import { packRoot, outputsDir } from "../lib/paths.js";
@@ -314,7 +315,7 @@ async function testRulesOutput() {
     return;
   }
 
-  const docs = await loadCapturableDocs();
+  const docs = [...(await loadCapturableDocs()), ...(await loadSecondaryDocs())];
   const byId = new Map(docs.map((d) => [d.doc_id, d]));
   let spanFail = 0;
   for (const r of rules) {
@@ -383,23 +384,31 @@ async function testRulesOutput() {
     if (!hit) continue;
     const note = (hit.conflict_note || "").toLowerCase();
     const req = (hit.requirement || "").toLowerCase();
+    const expectDoc = id === "HOB-ALG-01" ? "HOB-NEWS-01" : "JC-NEWS-01";
     const hasHonesty =
       hit.conflict_flag &&
       (hit.confidence ?? 1) < 0.8 &&
       note.includes("link-only") &&
-      (note.includes("http") || note.includes("primary")) &&
-      (req.includes("not") && req.includes("municipal"));
+      (note.includes("http") || note.includes("primary") || note.includes("secondary")) &&
+      req.includes("not") &&
+      req.includes("municipal");
     if (hasHonesty) {
-      pass(`${id} honest link-only scaffold (low conf + primary URLs + FAIR quote caveat)`);
+      pass(`${id} honest link-only city ban (secondary report + primary URLs + municipal caveat)`);
     } else {
       fail(
         `${id} scaffold honesty incomplete: conf=${hit.confidence} flag=${hit.conflict_flag} note=${hit.conflict_note?.slice(0, 80)}`,
       );
     }
-    if (hit.source_doc_id === "D069") {
-      pass(`${id} quoted evidence anchored to capturable D069`);
+    if (
+      hit.extraction_method === "secondary_report" &&
+      hit.source_doc_id === expectDoc &&
+      /algorithm|RealPage/i.test(hit.quoted_span)
+    ) {
+      pass(`${id} quoted evidence from city secondary report ${expectDoc}`);
     } else {
-      fail(`${id} source_doc_id should be D069, got ${hit.source_doc_id}`);
+      fail(
+        `${id} expected secondary_report/${expectDoc}, got ${hit.extraction_method}/${hit.source_doc_id}`,
+      );
     }
   }
 

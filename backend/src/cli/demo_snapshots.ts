@@ -2,7 +2,7 @@
 import path from "node:path";
 import { DEFAULT_AS_OF } from "@rhl/shared";
 import { loadAllAddresses } from "../lib/addresses.js";
-import { loadCapturableDocs } from "../lib/corpus.js";
+import { loadCapturableDocs, loadSecondaryDocs } from "../lib/corpus.js";
 import { readJson, writeJson } from "../lib/io.js";
 import { outputsDir, REPO_ROOT } from "../lib/paths.js";
 import { evaluateAddress } from "../apply/coverage.js";
@@ -14,7 +14,7 @@ import { validateRuleRecord } from "../lib/validate.js";
 import { RulesFileSchema } from "@rhl/shared";
 
 const rules = RulesFileSchema.parse(await readJson(path.join(outputsDir(), "rules.json"))).rules;
-const docs = await loadCapturableDocs();
+const docs = [...(await loadCapturableDocs()), ...(await loadSecondaryDocs())];
 for (const rule of rules) {
   const doc = docs.find(d => d.doc_id === rule.source_doc_id);
   if (!doc) throw new Error(`Missing source for ${rule.team_rule_id}`);
