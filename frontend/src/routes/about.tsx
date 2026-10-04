@@ -51,6 +51,12 @@ function AboutPage() {
         ))}
       </ol>
 
+      <h2 className="eyebrow mt-12 mb-4">{t("about.stretch")}</h2>
+      <p className="text-sm text-muted-foreground">{t("about.stretch.body")}</p>
+
+      <h2 className="eyebrow mt-10 mb-4">{t("about.limits")}</h2>
+      <p className="text-sm text-muted-foreground">{t("about.limits.body")}</p>
+
       <div className="mt-12 rounded-lg border bg-paper p-5 text-sm">
         <div className="font-medium text-ink">{t("disclaimer")}</div>
         <p className="mt-1 text-muted-foreground">{t("about.demoNote")}</p>
