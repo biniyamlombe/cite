@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cite — 3-Minute Pitch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1e3a45;
+      --ink-soft: #2a4a57;
+      --paper: #f7f4ec;
+      --paper-deep: #ebe6da;
+      --accent: #5ba4b0;
+      --accent-deep: #2f6f78;
+      --line: rgba(30, 58, 69, 0.14);
+      --muted: rgba(30, 58, 69, 0.62);
+      --shadow: 0 24px 60px rgba(30, 58, 69, 0.12);
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; height: 100%;
+      background: #d9d3c4; color: var(--ink);
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+    }
+    .deck { height: 100%; display: grid; place-items: center; padding: 1.25rem; }
+    .slide {
+      display: none;
+      width: min(1120px, 100%);
+      aspect-ratio: 16 / 9;
+      background:
+        radial-gradient(1000px 420px at 0% 0%, rgba(91, 164, 176, 0.16), transparent 55%),
+        radial-gradient(800px 360px at 100% 100%, rgba(30, 58, 69, 0.08), transparent 50%),
+        linear-gradient(160deg, var(--paper) 0%, #f3efe4 55%, var(--paper-deep) 100%);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: clamp(1.5rem, 4vw, 3.1rem);
+      position: relative;
+      overflow: hidden;
+      flex-direction: column;
+    }
+    .slide.active { display: flex; }
+    .eyebrow {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent-deep); margin: 0 0 0.65rem; font-weight: 600;
+    }
+    h1, h2, h3 {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-weight: 650; letter-spacing: -0.02em; margin: 0; line-height: 1.08;
+    }
+    h1 { font-size: clamp(2.3rem, 5vw, 3.8rem); max-width: 14ch; }
+    h2 { font-size: clamp(1.7rem, 3.4vw, 2.6rem); max-width: 24ch; margin-bottom: 0.75rem; }
+    h3 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .lede {
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      line-height: 1.4; color: var(--ink-soft); max-width: 42ch; margin: 0.85rem 0 0;
+    }
+    .mono { font-family: "IBM Plex Mono", monospace; font-size: 0.86rem; }
+    .spacer { flex: 1; }
+    .footer-row {
+      display: flex; justify-content: space-between; align-items: end; gap: 1rem;
+      margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--line);
+      font-size: 0.85rem; color: var(--muted);
+    }
+    .brand {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-weight: 700; color: var(--ink); font-size: 1.1rem;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1.05fr 1fr; gap: 1rem 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.85rem; margin-top: 0.7rem; }
+    .card {
+      background: rgba(255,255,255,0.55); border: 1px solid var(--line);
+      border-radius: 12px; padding: 0.9rem 1rem;
+    }
+    .card p { margin: 0.3rem 0 0; color: var(--ink-soft); line-height: 1.35; font-size: 0.95rem; }
+    ul.clean {
+      margin: 0.3rem 0 0; padding: 0; list-style: none; display: grid; gap: 0.55rem;
+    }
+    ul.clean li {
+      position: relative; padding-left: 1rem; line-height: 1.35;
+      color: var(--ink-soft); font-size: 1.02rem;
+    }
+    ul.clean li::before {
+      content: ""; position: absolute; left: 0; top: 0.55em;
+      width: 0.4rem; height: 0.4rem; border-radius: 999px; background: var(--accent-deep);
+    }
+    .pill {
+      display: inline-flex; align-items: center;
+      border: 1px solid var(--line); background: rgba(255,255,255,0.65);
+      border-radius: 999px; padding: 0.3rem 0.7rem; font-size: 0.82rem; color: var(--ink-soft);
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .timer {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--accent-deep); letter-spacing: 0.04em;
+    }
+    .quote {
+      font-family: "Source Serif 4", Georgia, serif;
+      font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+      line-height: 1.3; max-width: 20ch; margin: 0.4rem 0 0;
+    }
+    .script {
+      margin-top: 0.85rem; padding: 0.85rem 1rem;
+      background: rgba(255,255,255,0.55);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      font-size: 0.98rem; line-height: 1.4; color: var(--ink-soft);
+      max-width: 58ch;
+    }
+    .controls {
+      position: fixed; right: 1rem; bottom: 1rem; display: flex; gap: 0.5rem; z-index: 20;
+    }
+    .controls button, .help {
+      border: 1px solid var(--line); background: rgba(247,244,236,0.92); color: var(--ink);
+      border-radius: 999px; padding: 0.45rem 0.8rem;
+      font: 600 0.8rem "IBM Plex Mono", monospace; cursor: pointer;
+      box-shadow: 0 8px 20px rgba(30,58,69,0.08);
+    }
+    .help { position: fixed; left: 1rem; bottom: 1rem; z-index: 20; }
+    .progress {
+      position: absolute; left: 0; right: 0; bottom: 0; height: 4px;
+      background: rgba(30,58,69,0.08);
+    }
+    .progress > i {
+      display: block; height: 100%;
+      background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+      width: 0%;
+    }
+    @media print {
+      @page { size: landscape; margin: 0; }
+      body { background: white; }
+      .controls, .help { display: none !important; }
+      .deck { display: block; padding: 0; }
+      .slide {
+        display: flex !important; page-break-after: always; break-after: page;
+        box-shadow: none; width: 100vw; height: 100vh; aspect-ratio: auto;
+      }
+    }
+    @media (max-width: 820px) {
+      .slide { aspect-ratio: auto; min-height: 70vh; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="help">3 min total · ← → · F fullscreen · P PDF</div>
+  <div class="controls">
+    <button type="button" id="prev">←</button>
+    <button type="button" id="next">→</button>
+  </div>
+
+  <main class="deck" id="deck">
+    <section class="slide active">
+      <p class="eyebrow">Hack-Nation × RealPage · Challenge 02</p>
+      <h1>Cite</h1>
+      <p class="lede">Which housing rules appear to apply at this address — on this date — with exact corpus citations.</p>
+      <div class="grid-3" style="margin-top:1.4rem">
+        <div class="card"><p class="timer">0:00–1:00</p><h3>1 · Team</h3><p>Who we are + what Cite is.</p></div>
+        <div class="card"><p class="timer">1:00–2:00</p><h3>2 · Demo</h3><p>Live lookup + Change Radar.</p></div>
+        <div class="card"><p class="timer">2:00–3:00</p><h3>3 · Teach</h3><p>What we learned building it.</p></div>
+      </div>
+      <div class="spacer"></div>
+      <div class="footer-row">
+        <span class="brand">Cite</span>
+        <span>Not legal advice · Prefer unknown over guessing</span>
+      </div>
+      <div class="progress"><i></i></div>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">Minute 1 · Team <span class="timer">~60s</span></p>
+      <h2>We’re building Cite — a rental housing law navigator.</h2>
+      <div class="grid-2">
+        <ul class="clean">
+          <li><strong>Problem:</strong> State + city + pending rules stack on one address and flip by date.</li>
+          <li><strong>Product:</strong> Extract rules → resolve coverage → track what changes.</li>
+          <li><strong>Promise:</strong> Exact quotes. Unknown when facts are missing. Conflicts flagged for humans.</li>
+        </ul>
+        <div class="card">
+          <h3>Say this (~45s)</h3>
+          <p class="script" style="margin-top:0.4rem; max-width:none">“We’re [names]. Cite answers which housing rules appear to apply at an address today — and what’s about to change — with verbatim citations from the corpus. Not legal advice. We’d rather say unknown than invent building facts or ordinance text.”</p>
+        </div>
+      </div>
+      <div class="cta-row">
+        <span class="pill">Module A extract</span>
+        <span class="pill">Module B coverage</span>
+        <span class="pill">Module C change tests</span>
+      </div>
+      <div class="progress"><i></i></div>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">Minute 2 · Demo <span class="timer">~60s</span></p>
+      <h2>Three clicks. Don’t narrate the stack.</h2>
+      <div class="grid-3">
+        <div class="card"><p class="timer">0–20s</p><h3>A0005 Berkeley</h3><p>Missing year/units → <strong>unknown</strong>. We don’t guess assessor facts.</p></div>
+        <div class="card"><p class="timer">20–40s</p><h3>A0002 Hoboken</h3><p>Municipal alg ban <strong>applies</strong> + NJ FAIR conflict flagged for review.</p></div>
+        <div class="card"><p class="timer">40–60s</p><h3>Change Radar</h3><p>T1 date flip · T2 city boundaries · T3 FAIR conflicts · T5 failed = 0.</p></div>
+      </div>
+      <p class="script">Open UI → Connected badge → run the three beats → stop. Optional if ahead: <span class="mono">SA0001</span> stretch.</p>
+      <div class="cta-row"><span class="pill mono">cite-eight.vercel.app</span></div>
+      <div class="progress"><i></i></div>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">Minute 3 · Teach <span class="timer">~60s</span></p>
+      <h2>What building Cite taught us.</h2>
+      <div class="grid-2">
+        <ul class="clean">
+          <li><strong>Citation is a hard constraint.</strong> If the quote isn’t in the corpus, the rule doesn’t ship.</li>
+          <li><strong>Unknown is a feature.</strong> Missing facts beat false “applies.”</li>
+          <li><strong>Dates are law.</strong> Ground effective dates in the statute’s own words — don’t pin for the test.</li>
+          <li><strong>Conflicts need humans.</strong> Local vs statewide overlap should surface, not auto-resolve.</li>
+        </ul>
+        <div class="card">
+          <h3>Close (~15s)</h3>
+          <p class="quote">Cite the corpus. Say unknown when you must.</p>
+          <p style="margin-top:0.7rem">Thanks — questions welcome.</p>
+        </div>
+      </div>
+      <div class="progress"><i></i></div>
+    </section>
+
+    <section class="slide">
+      <p class="eyebrow">Backup · only if asked</p>
+      <h2>Links &amp; proof.</h2>
+      <div class="grid-3">
+        <div class="card"><h3>Live</h3><p class="mono">cite-eight.vercel.app<br />cite-api…run.app/health</p></div>
+        <div class="card"><h3>Artifacts</h3><p>145 rules · 500 lookups · T1–T5 green · audit log</p></div>
+        <div class="card"><h3>Docs</h3><p class="mono">method-note.md<br />demo-script.md</p></div>
+      </div>
+      <div class="spacer"></div>
+      <div class="footer-row">
+        <span class="brand">Cite</span>
+        <span>Stay under 3:00 on the first three minutes</span>
+      </div>
+      <div class="progress"><i></i></div>
+    </section>
+  </main>
+
+  <script>
+    const slides = [...document.querySelectorAll(".slide")];
+    let i = 0;
+    function show(n) {
+      i = Math.max(0, Math.min(slides.length - 1, n));
+      slides.forEach((s, idx) => s.classList.toggle("active", idx === i));
+      const pct = ((i + 1) / slides.length) * 100;
+      slides.forEach((s) => {
+        const bar = s.querySelector(".progress > i");
+        if (bar) bar.style.width = pct + "%";
+      });
+      history.replaceState(null, "", "#" + (i + 1));
+    }
+    document.getElementById("next").onclick = () => show(i + 1);
+    document.getElementById("prev").onclick = () => show(i - 1);
+    window.addEventListener("keydown", (e) => {
+      if (["ArrowRight", "PageDown", " ", "Enter"].includes(e.key)) { e.preventDefault(); show(i + 1); }
+      if (["ArrowLeft", "PageUp", "Backspace"].includes(e.key)) { e.preventDefault(); show(i - 1); }
+      if (e.key === "Home") show(0);
+      if (e.key === "End") show(slides.length - 1);
+      if (e.key.toLowerCase() === "f") {
+        if (!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+        else document.exitFullscreen?.();
+      }
+      if (e.key.toLowerCase() === "p") window.print();
+    });
+    const fromHash = parseInt((location.hash || "").replace("#", ""), 10);
+    show(Number.isFinite(fromHash) && fromHash > 0 ? fromHash - 1 : 0);
+  </script>
+</body>
+</html>
