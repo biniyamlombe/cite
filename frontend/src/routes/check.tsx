@@ -6,11 +6,7 @@ import { AsOfDateSchema } from "@rhl/shared";
 import { DEFAULT_AS_OF, getCiteClient } from "@/lib/cite/client";
 import { useT } from "@/lib/i18n";
 import { PageHeader } from "@/components/cite/layout";
-import {
-  FieldLabel,
-  QuoteCard,
-  ToolsStrip,
-} from "@/components/cite/renter-tools";
+import { FieldLabel, QuoteCard, ToolsStrip } from "@/components/cite/renter-tools";
 
 const search = z.object({
   address: z.string().optional(),
@@ -85,14 +81,14 @@ function CheckPage() {
             }
             className="w-full rounded-lg border border-border/80 bg-background px-3 py-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30"
           >
-            {(addrQ.data ?? [{ address_id: addressId, street_address: addressId, postal_city: "" }]).map(
-              (a) => (
-                <option key={a.address_id} value={a.address_id}>
-                  {a.street_address}
-                  {a.postal_city ? `, ${a.postal_city}` : ""}
-                </option>
-              ),
-            )}
+            {(
+              addrQ.data ?? [{ address_id: addressId, street_address: addressId, postal_city: "" }]
+            ).map((a) => (
+              <option key={a.address_id} value={a.address_id}>
+                {a.street_address}
+                {a.postal_city ? `, ${a.postal_city}` : ""}
+              </option>
+            ))}
           </select>
           {selected && (
             <p className="mt-1.5 text-xs text-muted-foreground">

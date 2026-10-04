@@ -16,7 +16,8 @@ export function ToolsStrip({
   const link =
     "rounded-full px-3.5 py-1.5 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40";
   const on = "bg-ink text-paper";
-  const off = "border border-border/80 bg-paper/80 text-muted-foreground hover:bg-secondary hover:text-ink";
+  const off =
+    "border border-border/80 bg-paper/80 text-muted-foreground hover:bg-secondary hover:text-ink";
   return (
     <nav className="mb-4 flex flex-wrap gap-2" aria-label={t("tools.nav")}>
       <Link
@@ -61,8 +62,8 @@ export function QuoteCard({
 }: {
   citation: string;
   quote: string;
-  meta?: string;
-  sourceUrl?: string;
+  meta?: string | undefined;
+  sourceUrl?: string | undefined;
   sourceLabel: string;
 }) {
   return (
@@ -86,7 +87,15 @@ export function QuoteCard({
   );
 }
 
-export function CopyTextButton({ text, label, copiedLabel }: { text: string; label: string; copiedLabel: string }) {
+export function CopyTextButton({
+  text,
+  label,
+  copiedLabel,
+}: {
+  text: string;
+  label: string;
+  copiedLabel: string;
+}) {
   const [copied, setCopied] = useState(false);
   return (
     <button
@@ -116,14 +125,16 @@ export function AnswerLines({ text }: { text: string }) {
       {bullets.length > 0 ? (
         <ul className="space-y-3">
           {bullets.map((line) => {
-            const body = line.replace(/^[•\-]\s*/, "");
+            const body = line.replace(/^[•-]\s*/, "");
             const [head, cite] = body.includes(" — ")
               ? (body.split(" — ") as [string, string])
               : [body, ""];
             return (
               <li key={body} className="border-b border-border/50 pb-3 last:border-0 last:pb-0">
                 <p className="font-serif text-lg leading-snug text-ink">{head}</p>
-                {cite ? <p className="mt-1 font-mono text-[11px] text-muted-foreground">{cite}</p> : null}
+                {cite ? (
+                  <p className="mt-1 font-mono text-[11px] text-muted-foreground">{cite}</p>
+                ) : null}
               </li>
             );
           })}

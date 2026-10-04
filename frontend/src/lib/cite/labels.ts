@@ -3,7 +3,7 @@ import type { Category, LookupResultValue, RuleStatus } from "./types";
 /** English fallbacks for non-React callers; UI should prefer useLabels() / useT(). */
 export const RESULT_LABEL: Record<LookupResultValue, string> = {
   applies: "Appears to apply",
-  unknown: "Need more facts",
+  unknown: "Can't determine yet",
   superseded: "Replaced by a local rule",
   not_yet_effective: "Not in effect yet",
   pending: "Still pending",

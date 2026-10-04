@@ -355,10 +355,7 @@ export function ChangeImpactCard({
         <p className="mt-4 font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
           {t("changes.perAddressEvidence")
             .replace("{n}", String(Object.keys(result.per_address).length))
-            .replace(
-              "{rules}",
-              Object.keys(result.rule_mapping ?? {}).join(", ") || "—",
-            )}
+            .replace("{rules}", Object.keys(result.rule_mapping ?? {}).join(", ") || "—")}
         </p>
       ) : null}
 

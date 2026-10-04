@@ -79,8 +79,7 @@ export function approachingEffective(
   return data.results
     .filter(
       (r) =>
-        (r.result === "pending" || r.result === "not_yet_effective") &&
-        !!r.rule?.effective_date,
+        (r.result === "pending" || r.result === "not_yet_effective") && !!r.rule?.effective_date,
     )
     .map((r) => {
       const date = r.rule!.effective_date!;

@@ -342,8 +342,7 @@ export function PortfolioPage() {
                       </Link>
                       <span className="text-ink">{al.title}</span>
                       <StatusBadge value={al.from} />{" "}
-                      <span className="text-muted-foreground">→</span>{" "}
-                      <StatusBadge value={al.to} />
+                      <span className="text-muted-foreground">→</span> <StatusBadge value={al.to} />
                       {al.detailsChanged && <span>{t("monitor.detailsChanged")}</span>}
                       {al.date && (
                         <span className="font-mono text-xs text-muted-foreground">

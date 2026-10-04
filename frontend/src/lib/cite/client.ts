@@ -271,8 +271,7 @@ export class MockCiteApiClient implements CiteApiClient {
         locale: input.locale ?? "en-US",
         address_id: input.address_id,
         question: input.question,
-        answer:
-          "I can only summarize applying rules from retrieved sources — not help evade them.",
+        answer: "I can only summarize applying rules from retrieved sources — not help evade them.",
         refused: true,
         refusal_reason: "evasion",
         citations: [],
@@ -282,7 +281,10 @@ export class MockCiteApiClient implements CiteApiClient {
       { category: "rent_increase_limits", re: /\brent|increase|renta|aumento|alquiler|tope\b/i },
       { category: "just_cause_eviction", re: /\bevict|just cause|desalojo|justa causa\b/i },
       { category: "security_deposits", re: /\bdeposit|dep[oó]sito\b/i },
-      { category: "application_screening_fees", re: /\bapplication fee|screening fee|tarifa de solicitud\b/i },
+      {
+        category: "application_screening_fees",
+        re: /\bapplication fee|screening fee|tarifa de solicitud\b/i,
+      },
       { category: "screening_restrictions", re: /\bscreening|credit check|evaluaci[oó]n\b/i },
       { category: "algorithmic_rent_setting", re: /\balgorithm|yieldstar|algor[ií]tm/i },
     ];
@@ -307,10 +309,9 @@ export class MockCiteApiClient implements CiteApiClient {
     const pool = lookup.results.filter((r) =>
       ["applies", "unknown", "pending", "not_yet_effective"].includes(r.result),
     );
-    const cites = (cats.length ? pool.filter((r) => r.rule && cats.includes(r.rule.category)) : pool).slice(
-      0,
-      4,
-    );
+    const cites = (
+      cats.length ? pool.filter((r) => r.rule && cats.includes(r.rule.category)) : pool
+    ).slice(0, 4);
     const lines = cites.map((r) => r.headline?.text ?? r.rule?.citation ?? r.team_rule_id);
     return {
       disclaimer: DISCLAIMER,

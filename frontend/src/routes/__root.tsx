@@ -21,7 +21,9 @@ function NotFoundComponent() {
   return (
     <div className="mx-auto max-w-xl px-4 py-20 sm:py-28">
       <p className="font-mono text-xs text-muted-foreground">404</p>
-      <h1 className="mt-3 font-serif text-4xl tracking-[-0.03em] text-ink">{t("notfound.title")}</h1>
+      <h1 className="mt-3 font-serif text-4xl tracking-[-0.03em] text-ink">
+        {t("notfound.title")}
+      </h1>
       <p className="mt-3 max-w-[52ch] text-base leading-relaxed text-muted-foreground">
         {t("notfound.body")}
       </p>

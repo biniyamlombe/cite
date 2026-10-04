@@ -61,6 +61,12 @@ export interface Rule {
   retrieved_at?: string | null;
   confidence?: number | null;
   effective_date?: string | null;
+  /** Backend evidence for the date: stated | derived | rule_of_law | not_stated, with source text. */
+  effective_date_basis?: string | null;
+  /** Backend reason when status is not read from captured law text (link-only scaffolds). */
+  status_basis?: string | null;
+  extraction_method?: string | null;
+  key_value?: string | null;
   penalty?: string | null;
   coverage_conditions?:
     string | { text?: string; all?: unknown; unknown_if?: unknown; omit_if?: unknown } | null;
@@ -197,7 +203,7 @@ export type RentCheckVerdict = {
     max_rent?: number;
     over_amount?: number;
   };
-  need?: { key: string };
+  need?: { key: string } | undefined;
   deciding_rule_ids: string[];
   deciding_quotes: Array<{
     team_rule_id: string;

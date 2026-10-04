@@ -143,9 +143,7 @@ function ComparePage() {
               </span>
               <select
                 value={addressId}
-                onChange={(e) =>
-                  void nav({ search: (p) => ({ ...p, address: e.target.value }) })
-                }
+                onChange={(e) => void nav({ search: (p) => ({ ...p, address: e.target.value }) })}
                 className="w-full rounded-md border bg-card px-3 py-2 text-sm"
               >
                 {addrs.data?.map((x) => (
@@ -175,9 +173,7 @@ function ComparePage() {
               </span>
               <select
                 value={addressId}
-                onChange={(e) =>
-                  void nav({ search: (p) => ({ ...p, address: e.target.value }) })
-                }
+                onChange={(e) => void nav({ search: (p) => ({ ...p, address: e.target.value }) })}
                 className="w-full rounded-md border bg-card px-3 py-2 text-sm"
               >
                 {addrs.data?.map((x) => (
@@ -193,9 +189,7 @@ function ComparePage() {
               </span>
               <select
                 value={address2}
-                onChange={(e) =>
-                  void nav({ search: (p) => ({ ...p, address2: e.target.value }) })
-                }
+                onChange={(e) => void nav({ search: (p) => ({ ...p, address2: e.target.value }) })}
                 className="w-full rounded-md border bg-card px-3 py-2 text-sm"
               >
                 {addrs.data?.map((x) => (
@@ -298,17 +292,12 @@ function ComparePage() {
                       ? tx(`category.${cat}` as StringKey, cat.replace(/_/g, " "))
                       : null;
                     return (
-                      <tr
-                        key={id}
-                        className={`border-t ${diff ? "bg-unknown-soft/40" : ""}`}
-                      >
+                      <tr key={id} className={`border-t ${diff ? "bg-unknown-soft/40" : ""}`}>
                         <td className="px-4 py-3.5 align-top">
                           <p className="font-medium leading-snug text-ink">
                             {rule?.title ?? t("compare.unnamedRule")}
                           </p>
-                          {topic && (
-                            <p className="mt-1 text-xs text-muted-foreground">{topic}</p>
-                          )}
+                          {topic && <p className="mt-1 text-xs text-muted-foreground">{topic}</p>}
                           {diff && (
                             <p className="mt-1 font-mono text-[10px] uppercase tracking-wider text-primary">
                               {t("compare.changed")}
@@ -336,10 +325,7 @@ function ComparePage() {
             search={{ address: rightId, as_of: rightAsOf }}
             className="mt-5 inline-block text-sm font-medium text-primary hover:underline"
           >
-            {t("compare.openLookup").replace(
-              "{id}",
-              rightAddr?.street_address ?? rightId,
-            )}
+            {t("compare.openLookup").replace("{id}", rightAddr?.street_address ?? rightId)}
           </Link>
         </>
       )}
