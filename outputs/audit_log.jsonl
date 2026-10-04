@@ -529,3 +529,12 @@
 {"ts":"2026-10-04T01:17:24.868Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
 {"ts":"2026-10-04T01:21:19.616Z","kind":"change_tests","message":"Wrote T1, T2, T3, T4, T5, T6","meta":{"T1":{"affected":250,"conflicts":0},"T2":{"affected":90,"conflicts":0},"T3":{"affected":140,"conflicts":90},"T4":{"affected":110,"conflicts":0},"T5":{"affected":0,"conflicts":0},"T6":{"affected":0,"conflicts":0}}}
 {"ts":"2026-10-04T01:21:20.230Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T01:28:46.259Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T01:28:58.634Z","kind":"extract_doc","doc_id":"D073","source":"claude","model":"claude-haiku-4-5","rule_count":6,"rule_ids":["r-0001","r-0002","r-0003","r-0004","r-0005","r-0006"],"message":"Live extract D073 via claude"}
+{"ts":"2026-10-04T01:29:16.880Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T01:29:17.568Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T01:29:36.688Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T01:36:51.784Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
+{"ts":"2026-10-04T01:49:50.485Z","kind":"extract_doc","doc_id":"D069","source":"claude","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D069 via claude"}
+{"ts":"2026-10-04T01:50:10.403Z","kind":"extract_doc","doc_id":"D001","source":"claude","model":"claude-haiku-4-5","rule_count":1,"rule_ids":["r-0001"],"message":"Live extract D001 via claude"}
+{"ts":"2026-10-04T01:58:57.315Z","kind":"note","message":"smoke tests passed","meta":{"failed":0}}
