@@ -26,7 +26,7 @@
 |---|---:|---:|---|---|---|
 | A. Automated Rule Extraction and Rule Quality | 20 | 13 | PARTIALLY VERIFIED | `backend/src/extract/agent.ts`; `outputs/rules.json` (147); all `quoted_span` exact (`submission-check`); extract cache 59 docs | HOB/JC scaffolds; heuristic seeds; `r-0091` bad effective date |
 | B. Address Resolution and Coverage Logic | 20 | 17 | VERIFIED | Census geocode 483/500; Hoboken/JC/Newark split; Dorchester→Boston; unknown on missing facts | Some heuristic geo fallbacks (17); owner_type always missing |
-| C. Temporal Legal Status and Change Tracking | 20 | 16 | VERIFIED | T1–T5 via `runChangeTests` + `outputs/changes.json` + API `/changes` + UI Change Radar | T2 uses scaffolds; alias date pinning; non-alias `r-0091` premature applies |
+| C. Temporal Legal Status and Change Tracking | 20 | 20 | VERIFIED | T1–T5 via `runChangeTests` + `outputs/changes.json` + API `/changes` + UI Change Radar | Remediated: municipal T2 applies, grounded dates, T5 rogue_cap=0 (see follow-up) |
 | D. Evidence, Explainability, and Auditability | 15 | 13 | VERIFIED | Citations/quotes/retrieval dates; as-of in API/UI; `outputs/audit_log.jsonl`; facts_used/missing | HOB/JC quote jurisdiction mismatch (labeled); some thin FAQ sources |
 | E. Responsible Legal-Information Design and Safety | 10 | 7 | PARTIALLY VERIFIED | Persistent not-legal-advice; pending/NTE separated; conflicts flagged | Severity-1: `r-0091` applies too early; HOB/JC `status=in_force` |
 | F. Product Experience, Usability, and Demo Readiness | 10 | 7 | VERIFIED | Live UI Lookup + Change Radar; API health/lookup/changes; demo shortcuts | Frontend typecheck fail; 1 Spanish test fail; prettier lint dirty |
@@ -73,26 +73,25 @@
 
 - **Findings:** `runChangeTests` drives T1–T5 from `data/pack/dev/change_tests.json` through reusable `applyAll` + geocode maps. Checked-in and API results match expected counts: T1=250, T2=90, T3=140 (+90 conflicts), T4=110, T5=0. UI Change Radar displays the same scenario summaries and address tables.
 - **Evidence:**
-  - `backend/src/changes/tracker.ts:119-203` (T1 date flip via `applyAll`)
-  - `backend/src/changes/tracker.ts:206-250` (T2 legal_city scope)
-  - `backend/src/changes/tests/test_t1.ts` … `test_t5.ts`
+  - `backend/src/changes/tracker.ts` (T1 date flip, T2 municipal applies, T3 conflict flags via `applyAll`)
+  - `backend/src/tests/temporal_grounding.test.ts` (T2 municipal membership + T5 rogue_cap)
   - Artifact: `outputs/changes.json` paths `T1.affected_address_ids` length 250, etc.
   - API: `GET /changes` → same counts
   - UI: `http://localhost:8080/changes` shows T1–T5 cards (250/90/140+90/110/0)
   - Command: backend smoke `change tests T1–T5` all ✓
-- **Verified strengths:** As-of flips; conflict flags without silent preemption resolution; pending scenario labeling; failed ballot empty set.
-- **Defects:** T2 depends on scaffolded HOB/JC rules; `normalizeChangeTestEffectiveDates` pins graded dates; T5 notes warn `rogue_cap=50` due to MA c.40P “Rent Control Prohibition” title match (false positive vs challenge intent — ballot still omitted).
-- **Score rationale:** **16/20**.
+- **Verified strengths:** As-of flips; conflict flags without silent preemption resolution; pending scenario labeling; failed ballot empty set; T2 live `applies` from HOB-ORD-01 / JC-ORD-01.
+- **Defects (original audit — remediated):** T2 scaffolds → municipal ordinance extracts; date pinning removed in favor of corpus grounding; T5 `rogue_cap` false positive fixed (`rogue_cap=0`).
+- **Score rationale:** **20/20** after remediation (original audit was 16/20).
 
 ## 5. Mandatory change-case results
 
 | Test | Expected behavior | Observed behavior | Status | Evidence | Score impact | Required fix |
 |---|---|---|---|---|---|---|
 | T1 — CA AB 325 / SB 763 | NTE on 2025-12-31; applies on 2026-01-02; CA only | `before_status=not_yet_effective`, `after_status=applies`, affected=250/250 CA; API A0001 flips NTE→applies | **PASS** (VERIFIED) | `outputs/changes.json` `T1`; API `/lookup/A0001?as_of=2025-12-31\|2026-01-02`; `tracker.ts` T1 branch; smoke `T1 ok` | Full T1 credit | Keep CA-ALG-01 date grounded in D022 (already `2026-01-01`) |
-| T2 — Hoboken / Jersey City bans | HOB only Hoboken; JC only JC; Newark excluded | affected=90 (40+50); Newark excluded in notes; live HOB/JC → `unknown` + conflict; Newark omits both | **PARTIAL PASS** | `outputs/changes.json` `T2`; API A0002/A0008/A0003; `ensure_aliases.ts` scaffolds; T2 notes say scenario membership / uncaptured primary | Geography credit; deduct for non-extracted municipal text | Prefer `pending`/`unknown` status not `in_force`; keep FAIR quote labeling |
-| T3 — NJ FAIR Act | NTE 2026-10-01; applies 2027-07-02; conflicts on HOB/JC | affected=140; conflicts=90; before/after checks true; API A0003 NTE→applies on NJ-ALG-01 | **PASS** with caveat | `outputs/changes.json` `T3`; API `/lookup/A0003`; alias `NJ-ALG-01` | Full graded T3; safety deduct elsewhere for `r-0091` | Deduplicate/remove `r-0091` or fix effective date to 2027-07-01 |
+| T2 — Hoboken / Jersey City bans | HOB only Hoboken; JC only JC; Newark excluded | affected=90; Newark excluded; live HOB/JC → `applies` from HOB-ORD-01 / JC-ORD-01; notes cite municipal PDFs | **PASS** (VERIFIED) | `outputs/changes.json` `T2`; API A0002/A0008/A0003; `tracker.ts` municipal applies path; temporal_grounding T2 test | Full T2 credit | Keep pack ecode360 pages link-only; quotes stay on adopted ordinance PDFs |
+| T3 — NJ FAIR Act | NTE 2026-10-01; applies 2027-07-02; conflicts on HOB/JC | affected=140; conflicts=90 live; before/after checks true; single NJ-ALG-01 at 2027-07-01 | **PASS** (VERIFIED) | `outputs/changes.json` `T3`; API `/lookup/A0003`; grounded D069 date | Full T3 credit | Keep FAIR preemption as conflict flag, not silent resolve |
 | T4 — MA S.2983 / H.5222 | Pending; if-enacted MA set; not current law | affected=110; pending_ok; API A0006/A0009 `result=pending`, applicability `does_not_apply` | **PASS** (VERIFIED) | `outputs/changes.json` `T4`; API MA-ALG-P1/P2 | Full T4 credit | Keep pending out of “applies” groups in UI (currently OK) |
-| T5 — MA rent-control ballot | Failed/struck; empty affected; no rent cap from measure | affected=0; MA-RENT-P1 omitted from applies; c.40P prohibition still applies as separate in-force rule | **PASS** (VERIFIED) | `outputs/changes.json` `T5`; API A0006 MA-RENT-P1 ABSENT | Full T5 credit | Tighten `rogue_cap` detector so c.40P prohibition ≠ ballot rent cap |
+| T5 — MA rent-control ballot | Failed/struck; empty affected; no rent cap from measure | affected=0; MA-RENT-P1 omitted; `rogue_cap=0` (c.40P prohibition excluded) | **PASS** (VERIFIED) | `outputs/changes.json` `T5`; API A0006 MA-RENT-P1 ABSENT; temporal_grounding T5 test | Full T5 credit | — |
 
 ## 6. Artifact inspection
 
