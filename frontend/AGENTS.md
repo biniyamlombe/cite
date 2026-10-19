@@ -12,6 +12,7 @@
 <!-- LOVABLE:END -->
 
 - Cite UI only displays API results via the CiteApiClient interface (src/lib/cite/client.ts); mocks live in src/mocks and are used unless VITE_API_URL is set. Why: legal logic must stay in the backend.
+- Lovable Cloud / Supabase (`VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`) is optional. When those values are empty, `useAuth` stays signed out and Property Lookup plus Change Radar still run against the local API. Do not block the corpus demo on Supabase secrets.
 - Pipeline page (/pipeline) shows extract results via CiteApiClient.extract; validation results come from the backend/mocks, never computed in the UI.
 - UI chrome is translated en-US/es-US through src/lib/i18n.tsx (+ `?lang=`); English legal quotes remain authoritative; API may return template Spanish in `plain_language_summary` with translation provenance.
 - Property Lookup keeps address and as-of date in the URL (?address=&as_of=) so views are shareable.
